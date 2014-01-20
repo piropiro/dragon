@@ -1,0 +1,6 @@
+none None
+chara キャラ
+soul 魂玉
+wepon 武器
+armor 鎧服
+item 小物

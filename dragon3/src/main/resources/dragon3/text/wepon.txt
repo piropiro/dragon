@@ -1,0 +1,8 @@
+none None
+sword 剣
+ax 斧
+spear 槍
+bow 弓
+knife ナイフ
+magic 魔法
+body 体術

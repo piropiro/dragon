@@ -1,0 +1,7 @@
+none 移動
+fly 飛行
+heavy 重歩
+lite 軽歩
+swim 水中
+twin 水陸
+hover 浮遊
