@@ -25,9 +25,9 @@ class Material {
 		material = body.copy();
 		material.atk[0] = body.atk[3];
 		material.type[0] = 4;
-		material.setType(53, false);
-		material.setType(54, false);
-		material.setType(55, false);
+		material.setTypeState(53, false);
+		material.setTypeState(54, false);
+		material.setTypeState(55, false);
 		for (int i = 1; i < material.atk.length; i++)
 			material.atk[i] = 0;
 

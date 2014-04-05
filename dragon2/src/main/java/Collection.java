@@ -7,12 +7,13 @@ import java.util.Iterator;
 import java.util.Vector;
 import mine.DataStream;
 import mine.UnitMap;
+import mine.io.BeanIO;
 
 class Collection {
 
 	public Collection(UnitWorks unitworks) {
-		Items = (Vector) DataStream.read("data/E90.txt");
-		Charas = (Vector) DataStream.read("data/E91.txt");
+            Items = (Vector) BeanIO.read("data/body/E90.xml");
+            Charas = (Vector) BeanIO.read("data/body/E91.xml");
 		loadData();
 	}
 
@@ -205,9 +206,9 @@ class Collection {
 	public void setMaterial(Body body) {
 		int i = getCharaNum(body);
 		if (i != -1) {
-			body.setType(53, chara[i][0]);
-			body.setType(54, chara[i][1]);
-			body.setType(55, chara[i][2]);
+			body.setTypeState(53, chara[i][0]);
+			body.setTypeState(54, chara[i][1]);
+			body.setTypeState(55, chara[i][2]);
 		}
 	}
 

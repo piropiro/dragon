@@ -1,0 +1,5953 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="1.8.0" class="java.beans.XMLDecoder">
+ <object class="java.util.Vector">
+  <void method="add">
+   <object class="AttackData"/>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData0">
+    <void property="animeN1">
+     <int>1</int>
+    </void>
+    <void property="animeType">
+     <int>1</int>
+    </void>
+    <void property="attackN1">
+     <int>1</int>
+    </void>
+    <void property="attackType">
+     <int>1</int>
+    </void>
+    <void property="effect">
+     <void index="0">
+      <int>5</int>
+     </void>
+     <void index="1">
+      <int>6</int>
+     </void>
+    </void>
+    <void property="name">
+     <string>剣</string>
+    </void>
+    <void property="rangeN1">
+     <int>1</int>
+    </void>
+    <void property="sname">
+     <string>攻撃</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData1">
+    <void property="animeN1">
+     <int>19</int>
+    </void>
+    <void property="animeType">
+     <int>1</int>
+    </void>
+    <void property="attackN1">
+     <int>2</int>
+    </void>
+    <void property="attackType">
+     <int>1</int>
+    </void>
+    <void property="color">
+     <int>4</int>
+    </void>
+    <void property="effect">
+     <void index="0">
+      <int>34</int>
+     </void>
+     <void index="1">
+      <int>5</int>
+     </void>
+    </void>
+    <void property="name">
+     <string>斧</string>
+    </void>
+    <void property="rangeN1">
+     <int>1</int>
+    </void>
+    <void property="sname">
+     <string>攻撃</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData2">
+    <void property="animeN1">
+     <int>3</int>
+    </void>
+    <void property="animeType">
+     <int>1</int>
+    </void>
+    <void property="attackN1">
+     <int>3</int>
+    </void>
+    <void property="attackType">
+     <int>1</int>
+    </void>
+    <void property="effect">
+     <void index="0">
+      <int>5</int>
+     </void>
+     <void index="1">
+      <int>6</int>
+     </void>
+    </void>
+    <void property="name">
+     <string>突進</string>
+    </void>
+    <void property="rangeN1">
+     <int>1</int>
+    </void>
+    <void property="sname">
+     <string>突進</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData3">
+    <void property="animeN1">
+     <int>1</int>
+    </void>
+    <void property="animeType">
+     <int>1</int>
+    </void>
+    <void property="attackN1">
+     <int>4</int>
+    </void>
+    <void property="attackType">
+     <int>1</int>
+    </void>
+    <void property="effect">
+     <void index="0">
+      <int>24</int>
+     </void>
+     <void index="1">
+      <int>5</int>
+     </void>
+     <void index="2">
+      <int>6</int>
+     </void>
+    </void>
+    <void property="name">
+     <string>短剣</string>
+    </void>
+    <void property="rangeN1">
+     <int>1</int>
+    </void>
+    <void property="sname">
+     <string>攻撃</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData4">
+    <void property="TRType">
+     <int>1</int>
+    </void>
+    <void property="animeN1">
+     <int>18</int>
+    </void>
+    <void property="animeType">
+     <int>3</int>
+    </void>
+    <void property="attackN1">
+     <int>5</int>
+    </void>
+    <void property="attackType">
+     <int>1</int>
+    </void>
+    <void property="effect">
+     <void index="0">
+      <int>5</int>
+     </void>
+     <void index="1">
+      <int>6</int>
+     </void>
+     <void index="2">
+      <int>36</int>
+     </void>
+    </void>
+    <void property="name">
+     <string>槍</string>
+    </void>
+    <void property="rangeN1">
+     <int>2</int>
+    </void>
+    <void property="sname">
+     <string>攻撃</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData5">
+    <void property="TRType">
+     <int>7</int>
+    </void>
+    <void property="animeN1">
+     <int>13</int>
+    </void>
+    <void property="animeType">
+     <int>3</int>
+    </void>
+    <void property="attackN1">
+     <int>6</int>
+    </void>
+    <void property="attackType">
+     <int>1</int>
+    </void>
+    <void property="effect">
+     <void index="0">
+      <int>5</int>
+     </void>
+     <void index="1">
+      <int>6</int>
+     </void>
+     <void index="2">
+      <int>10</int>
+     </void>
+    </void>
+    <void property="name">
+     <string>弓</string>
+    </void>
+    <void property="rangeN1">
+     <int>2</int>
+    </void>
+    <void property="rangeN2">
+     <int>1</int>
+    </void>
+    <void property="rangeType">
+     <int>1</int>
+    </void>
+    <void property="sname">
+     <string>攻撃</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData">
+    <void property="TRType">
+     <int>7</int>
+    </void>
+    <void property="animeN1">
+     <int>4</int>
+    </void>
+    <void property="animeType">
+     <int>1</int>
+    </void>
+    <void property="attackN1">
+     <int>7</int>
+    </void>
+    <void property="attackType">
+     <int>2</int>
+    </void>
+    <void property="name">
+     <string>魔法</string>
+    </void>
+    <void property="rangeN1">
+     <int>2</int>
+    </void>
+    <void property="rangeN2">
+     <int>1</int>
+    </void>
+    <void property="rangeType">
+     <int>1</int>
+    </void>
+    <void property="sname">
+     <string>魔法</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData6">
+    <void property="TRType">
+     <int>15</int>
+    </void>
+    <void property="animeN1">
+     <int>20</int>
+    </void>
+    <void property="animeType">
+     <int>5</int>
+    </void>
+    <void property="attackN1">
+     <int>8</int>
+    </void>
+    <void property="attackType">
+     <int>2</int>
+    </void>
+    <void property="color">
+     <int>3</int>
+    </void>
+    <void property="effect">
+     <void index="0">
+      <int>3</int>
+     </void>
+    </void>
+    <void property="name">
+     <string>ブレス</string>
+    </void>
+    <void property="rangeN1">
+     <int>2</int>
+    </void>
+    <void property="rangeType">
+     <int>4</int>
+    </void>
+    <void property="sname">
+     <string>ブレス</string>
+    </void>
+    <void property="targetN1">
+     <int>2</int>
+    </void>
+    <void property="targetType">
+     <int>4</int>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData7">
+    <void property="animeN1">
+     <int>17</int>
+    </void>
+    <void property="animeType">
+     <int>1</int>
+    </void>
+    <void property="attackN1">
+     <int>1</int>
+    </void>
+    <void property="attackType">
+     <int>1</int>
+    </void>
+    <void property="color">
+     <int>5</int>
+    </void>
+    <void property="effect">
+     <void index="0">
+      <int>31</int>
+     </void>
+     <void index="1">
+      <int>12</int>
+     </void>
+     <void index="2">
+      <int>3</int>
+     </void>
+     <void index="3">
+      <int>10</int>
+     </void>
+    </void>
+    <void property="name">
+     <string>つばめ返し</string>
+    </void>
+    <void property="rangeN1">
+     <int>1</int>
+    </void>
+    <void property="sname">
+     <string>反撃</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData8">
+    <void property="TRType">
+     <int>18</int>
+    </void>
+    <void property="animeN1">
+     <int>4</int>
+    </void>
+    <void property="animeType">
+     <int>2</int>
+    </void>
+    <void property="attackN1">
+     <int>7</int>
+    </void>
+    <void property="attackType">
+     <int>2</int>
+    </void>
+    <void property="color">
+     <int>4</int>
+    </void>
+    <void property="effect">
+     <void index="0">
+      <int>3</int>
+     </void>
+    </void>
+    <void property="fuelN1">
+     <int>1</int>
+    </void>
+    <void property="fuelType">
+     <int>3</int>
+    </void>
+    <void property="name">
+     <string>大魔法</string>
+    </void>
+    <void property="rangeN1">
+     <int>2</int>
+    </void>
+    <void property="rangeN2">
+     <int>1</int>
+    </void>
+    <void property="rangeType">
+     <int>1</int>
+    </void>
+    <void property="sname">
+     <string>大魔法</string>
+    </void>
+    <void property="targetN1">
+     <int>1</int>
+    </void>
+    <void property="targetType">
+     <int>3</int>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData9">
+    <void property="TRType">
+     <int>12</int>
+    </void>
+    <void property="animeN1">
+     <int>22</int>
+    </void>
+    <void property="animeType">
+     <int>4</int>
+    </void>
+    <void property="attackN1">
+     <int>1</int>
+    </void>
+    <void property="attackType">
+     <int>1</int>
+    </void>
+    <void property="color">
+     <int>5</int>
+    </void>
+    <void property="effect">
+     <void index="0">
+      <int>4</int>
+     </void>
+     <void index="1">
+      <int>24</int>
+     </void>
+    </void>
+    <void property="fuelN1">
+     <int>1</int>
+    </void>
+    <void property="fuelType">
+     <int>1</int>
+    </void>
+    <void property="name">
+     <string>直斬り</string>
+    </void>
+    <void property="rangeN1">
+     <int>4</int>
+    </void>
+    <void property="rangeType">
+     <int>3</int>
+    </void>
+    <void property="sname">
+     <string>直斬り</string>
+    </void>
+    <void property="targetN1">
+     <int>4</int>
+    </void>
+    <void property="targetType">
+     <int>2</int>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData10">
+    <void property="TRType">
+     <int>7</int>
+    </void>
+    <void property="animeN1">
+     <int>13</int>
+    </void>
+    <void property="animeType">
+     <int>3</int>
+    </void>
+    <void property="attackN1">
+     <int>6</int>
+    </void>
+    <void property="attackType">
+     <int>1</int>
+    </void>
+    <void property="effect">
+     <void index="0">
+      <int>31</int>
+     </void>
+     <void index="1">
+      <int>10</int>
+     </void>
+     <void index="2">
+      <int>27</int>
+     </void>
+     <void index="3">
+      <int>5</int>
+     </void>
+    </void>
+    <void property="fuelN1">
+     <int>1</int>
+    </void>
+    <void property="fuelType">
+     <int>1</int>
+    </void>
+    <void property="name">
+     <string>強弓</string>
+    </void>
+    <void property="rangeN1">
+     <int>2</int>
+    </void>
+    <void property="rangeN2">
+     <int>1</int>
+    </void>
+    <void property="rangeType">
+     <int>1</int>
+    </void>
+    <void property="sname">
+     <string>強弓</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData11">
+    <void property="TRType">
+     <int>7</int>
+    </void>
+    <void property="animeN1">
+     <int>3</int>
+    </void>
+    <void property="animeType">
+     <int>1</int>
+    </void>
+    <void property="attackN1">
+     <int>7</int>
+    </void>
+    <void property="attackType">
+     <int>2</int>
+    </void>
+    <void property="color">
+     <int>1</int>
+    </void>
+    <void property="effect">
+     <void index="0">
+      <int>8</int>
+     </void>
+    </void>
+    <void property="name">
+     <string>アイスボール</string>
+    </void>
+    <void property="rangeN1">
+     <int>2</int>
+    </void>
+    <void property="rangeN2">
+     <int>1</int>
+    </void>
+    <void property="rangeType">
+     <int>1</int>
+    </void>
+    <void property="sname">
+     <string>氷玉</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData12">
+    <void property="TRType">
+     <int>11</int>
+    </void>
+    <void property="animeN1">
+     <int>3</int>
+    </void>
+    <void property="animeType">
+     <int>2</int>
+    </void>
+    <void property="attackN1">
+     <int>7</int>
+    </void>
+    <void property="attackType">
+     <int>2</int>
+    </void>
+    <void property="color">
+     <int>1</int>
+    </void>
+    <void property="effect">
+     <void index="0">
+      <int>2</int>
+     </void>
+     <void index="1">
+      <int>3</int>
+     </void>
+     <void index="2">
+      <int>4</int>
+     </void>
+     <void index="3">
+      <int>8</int>
+     </void>
+    </void>
+    <void property="fuelN1">
+     <int>2</int>
+    </void>
+    <void property="fuelType">
+     <int>3</int>
+    </void>
+    <void property="name">
+     <string>ゼロキャノン</string>
+    </void>
+    <void property="rangeN1">
+     <int>2</int>
+    </void>
+    <void property="rangeType">
+     <int>3</int>
+    </void>
+    <void property="sname">
+     <string>零砲</string>
+    </void>
+    <void property="targetN1">
+     <int>2</int>
+    </void>
+    <void property="targetType">
+     <int>2</int>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData13">
+    <void property="animeN1">
+     <int>6</int>
+    </void>
+    <void property="animeType">
+     <int>1</int>
+    </void>
+    <void property="attackN1">
+     <int>1</int>
+    </void>
+    <void property="attackType">
+     <int>1</int>
+    </void>
+    <void property="color">
+     <int>2</int>
+    </void>
+    <void property="effect">
+     <void index="0">
+      <int>6</int>
+     </void>
+     <void index="1">
+      <int>5</int>
+     </void>
+     <void index="2">
+      <int>7</int>
+     </void>
+    </void>
+    <void property="name">
+     <string>ファイアソード</string>
+    </void>
+    <void property="rangeN1">
+     <int>1</int>
+    </void>
+    <void property="sname">
+     <string>火剣</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData14">
+    <void property="animeN1">
+     <int>4</int>
+    </void>
+    <void property="animeType">
+     <int>1</int>
+    </void>
+    <void property="attackN1">
+     <int>7</int>
+    </void>
+    <void property="attackType">
+     <int>6</int>
+    </void>
+    <void property="color">
+     <int>5</int>
+    </void>
+    <void property="effect">
+     <void index="0">
+      <int>13</int>
+     </void>
+     <void index="1">
+      <int>3</int>
+     </void>
+    </void>
+    <void property="fuelN1">
+     <int>3</int>
+    </void>
+    <void property="fuelType">
+     <int>3</int>
+    </void>
+    <void property="name">
+     <string>ヒーリング</string>
+    </void>
+    <void property="rangeN1">
+     <int>1</int>
+    </void>
+    <void property="sname">
+     <string>回復</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData15">
+    <void property="TRType">
+     <int>15</int>
+    </void>
+    <void property="animeN1">
+     <int>14</int>
+    </void>
+    <void property="animeType">
+     <int>5</int>
+    </void>
+    <void property="attackN1">
+     <int>8</int>
+    </void>
+    <void property="attackType">
+     <int>2</int>
+    </void>
+    <void property="color">
+     <int>2</int>
+    </void>
+    <void property="effect">
+     <void index="0">
+      <int>3</int>
+     </void>
+     <void index="1">
+      <int>7</int>
+     </void>
+    </void>
+    <void property="fuelN1">
+     <int>1</int>
+    </void>
+    <void property="fuelType">
+     <int>3</int>
+    </void>
+    <void property="name">
+     <string>ファイヤーブレス</string>
+    </void>
+    <void property="rangeN1">
+     <int>2</int>
+    </void>
+    <void property="rangeType">
+     <int>4</int>
+    </void>
+    <void property="sname">
+     <string>火炎</string>
+    </void>
+    <void property="targetN1">
+     <int>2</int>
+    </void>
+    <void property="targetType">
+     <int>4</int>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData16">
+    <void property="animeN1">
+     <int>7</int>
+    </void>
+    <void property="animeType">
+     <int>1</int>
+    </void>
+    <void property="attackN1">
+     <int>3</int>
+    </void>
+    <void property="attackType">
+     <int>1</int>
+    </void>
+    <void property="color">
+     <int>4</int>
+    </void>
+    <void property="effect">
+     <void index="0">
+      <int>5</int>
+     </void>
+     <void index="1">
+      <int>6</int>
+     </void>
+    </void>
+    <void property="name">
+     <string>鋼の牙</string>
+    </void>
+    <void property="rangeN1">
+     <int>1</int>
+    </void>
+    <void property="sname">
+     <string>鋼牙</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData17">
+    <void property="animeN1">
+     <int>15</int>
+    </void>
+    <void property="animeType">
+     <int>1</int>
+    </void>
+    <void property="attackN1">
+     <int>1</int>
+    </void>
+    <void property="attackType">
+     <int>1</int>
+    </void>
+    <void property="color">
+     <int>1</int>
+    </void>
+    <void property="effect">
+     <void index="0">
+      <int>6</int>
+     </void>
+     <void index="1">
+      <int>5</int>
+     </void>
+     <void index="2">
+      <int>8</int>
+     </void>
+    </void>
+    <void property="name">
+     <string>アイスソード</string>
+    </void>
+    <void property="rangeN1">
+     <int>1</int>
+    </void>
+    <void property="sname">
+     <string>氷剣</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData18">
+    <void property="TRType">
+     <int>7</int>
+    </void>
+    <void property="animeN1">
+     <int>24</int>
+    </void>
+    <void property="animeType">
+     <int>3</int>
+    </void>
+    <void property="attackN1">
+     <int>6</int>
+    </void>
+    <void property="attackType">
+     <int>1</int>
+    </void>
+    <void property="color">
+     <int>4</int>
+    </void>
+    <void property="effect">
+     <void index="0">
+      <int>9</int>
+     </void>
+     <void index="1">
+      <int>10</int>
+     </void>
+     <void index="2">
+      <int>5</int>
+     </void>
+     <void index="3">
+      <int>6</int>
+     </void>
+    </void>
+    <void property="name">
+     <string>雷神の弓</string>
+    </void>
+    <void property="rangeN1">
+     <int>2</int>
+    </void>
+    <void property="rangeN2">
+     <int>1</int>
+    </void>
+    <void property="rangeType">
+     <int>1</int>
+    </void>
+    <void property="sname">
+     <string>雷弓</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData19">
+    <void property="animeN1">
+     <int>1</int>
+    </void>
+    <void property="animeType">
+     <int>1</int>
+    </void>
+    <void property="attackN1">
+     <int>1</int>
+    </void>
+    <void property="attackType">
+     <int>1</int>
+    </void>
+    <void property="color">
+     <int>2</int>
+    </void>
+    <void property="effect">
+     <void index="0">
+      <int>5</int>
+     </void>
+     <void index="1">
+      <int>6</int>
+     </void>
+     <void index="2">
+      <int>14</int>
+     </void>
+    </void>
+    <void property="name">
+     <string>ムラマサ</string>
+    </void>
+    <void property="rangeN1">
+     <int>1</int>
+    </void>
+    <void property="sname">
+     <string>攻撃</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData20">
+    <void property="animeN1">
+     <int>4</int>
+    </void>
+    <void property="animeType">
+     <int>1</int>
+    </void>
+    <void property="attackN1">
+     <int>7</int>
+    </void>
+    <void property="color">
+     <int>2</int>
+    </void>
+    <void property="effect">
+     <void index="0">
+      <int>23</int>
+     </void>
+     <void index="1">
+      <int>22</int>
+     </void>
+     <void index="2">
+      <int>13</int>
+     </void>
+     <void index="3">
+      <int>3</int>
+     </void>
+    </void>
+    <void property="fuelN1">
+     <int>3</int>
+    </void>
+    <void property="fuelType">
+     <int>3</int>
+    </void>
+    <void property="name">
+     <string>プリティキッス</string>
+    </void>
+    <void property="rangeN1">
+     <int>1</int>
+    </void>
+    <void property="sname">
+     <string>KISS</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData21">
+    <void property="animeN1">
+     <int>4</int>
+    </void>
+    <void property="animeType">
+     <int>1</int>
+    </void>
+    <void property="attackN1">
+     <int>7</int>
+    </void>
+    <void property="color">
+     <int>2</int>
+    </void>
+    <void property="effect">
+     <void index="0">
+      <int>19</int>
+     </void>
+     <void index="1">
+      <int>22</int>
+     </void>
+     <void index="2">
+      <int>3</int>
+     </void>
+    </void>
+    <void property="fuelN1">
+     <int>1</int>
+    </void>
+    <void property="fuelType">
+     <int>3</int>
+    </void>
+    <void property="name">
+     <string>チャーム</string>
+    </void>
+    <void property="rangeN1">
+     <int>1</int>
+    </void>
+    <void property="sname">
+     <string>魅了</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData22">
+    <void property="animeN1">
+     <int>17</int>
+    </void>
+    <void property="animeType">
+     <int>1</int>
+    </void>
+    <void property="attackN1">
+     <int>1</int>
+    </void>
+    <void property="attackType">
+     <int>1</int>
+    </void>
+    <void property="color">
+     <int>5</int>
+    </void>
+    <void property="effect">
+     <void index="0">
+      <int>26</int>
+     </void>
+     <void index="1">
+      <int>31</int>
+     </void>
+     <void index="2">
+      <int>5</int>
+     </void>
+    </void>
+    <void property="fuelN1">
+     <int>1</int>
+    </void>
+    <void property="fuelType">
+     <int>1</int>
+    </void>
+    <void property="name">
+     <string>スマッシュ</string>
+    </void>
+    <void property="rangeN1">
+     <int>1</int>
+    </void>
+    <void property="sname">
+     <string>昇斬</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData23">
+    <void property="TRType">
+     <int>4</int>
+    </void>
+    <void property="animeN1">
+     <int>4</int>
+    </void>
+    <void property="animeType">
+     <int>2</int>
+    </void>
+    <void property="attackN1">
+     <int>7</int>
+    </void>
+    <void property="color">
+     <int>4</int>
+    </void>
+    <void property="effect">
+     <void index="0">
+      <int>16</int>
+     </void>
+     <void index="1">
+      <int>3</int>
+     </void>
+     <void index="2">
+      <int>22</int>
+     </void>
+    </void>
+    <void property="fuelN1">
+     <int>2</int>
+    </void>
+    <void property="fuelType">
+     <int>3</int>
+    </void>
+    <void property="name">
+     <string>子守唄</string>
+    </void>
+    <void property="rangeN1">
+     <int>1</int>
+    </void>
+    <void property="rangeType">
+     <int>2</int>
+    </void>
+    <void property="sname">
+     <string>子守唄</string>
+    </void>
+    <void property="targetType">
+     <int>1</int>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData24">
+    <void property="TRType">
+     <int>1</int>
+    </void>
+    <void property="animeN1">
+     <int>18</int>
+    </void>
+    <void property="animeType">
+     <int>3</int>
+    </void>
+    <void property="attackN1">
+     <int>5</int>
+    </void>
+    <void property="attackType">
+     <int>1</int>
+    </void>
+    <void property="color">
+     <int>1</int>
+    </void>
+    <void property="effect">
+     <void index="0">
+      <int>5</int>
+     </void>
+     <void index="1">
+      <int>6</int>
+     </void>
+     <void index="2">
+      <int>16</int>
+     </void>
+     <void index="3">
+      <int>36</int>
+     </void>
+    </void>
+    <void property="fuelN1">
+     <int>1</int>
+    </void>
+    <void property="fuelType">
+     <int>3</int>
+    </void>
+    <void property="name">
+     <string>人魚の槍</string>
+    </void>
+    <void property="rangeN1">
+     <int>2</int>
+    </void>
+    <void property="sname">
+     <string>魚槍</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData25">
+    <void property="TRType">
+     <int>11</int>
+    </void>
+    <void property="animeN1">
+     <int>18</int>
+    </void>
+    <void property="animeType">
+     <int>4</int>
+    </void>
+    <void property="attackN1">
+     <int>5</int>
+    </void>
+    <void property="attackType">
+     <int>1</int>
+    </void>
+    <void property="color">
+     <int>4</int>
+    </void>
+    <void property="effect">
+     <void index="0">
+      <int>24</int>
+     </void>
+     <void index="1">
+      <int>31</int>
+     </void>
+     <void index="2">
+      <int>36</int>
+     </void>
+    </void>
+    <void property="fuelN1">
+     <int>1</int>
+    </void>
+    <void property="fuelType">
+     <int>1</int>
+    </void>
+    <void property="name">
+     <string>串刺し</string>
+    </void>
+    <void property="rangeN1">
+     <int>2</int>
+    </void>
+    <void property="rangeType">
+     <int>3</int>
+    </void>
+    <void property="sname">
+     <string>串刺</string>
+    </void>
+    <void property="targetN1">
+     <int>2</int>
+    </void>
+    <void property="targetType">
+     <int>2</int>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData26">
+    <void property="TRType">
+     <int>7</int>
+    </void>
+    <void property="animeN1">
+     <int>2</int>
+    </void>
+    <void property="animeType">
+     <int>1</int>
+    </void>
+    <void property="attackN1">
+     <int>7</int>
+    </void>
+    <void property="attackType">
+     <int>2</int>
+    </void>
+    <void property="color">
+     <int>2</int>
+    </void>
+    <void property="effect">
+     <void index="0">
+      <int>7</int>
+     </void>
+    </void>
+    <void property="name">
+     <string>ファイヤーボール</string>
+    </void>
+    <void property="rangeN1">
+     <int>2</int>
+    </void>
+    <void property="rangeN2">
+     <int>1</int>
+    </void>
+    <void property="rangeType">
+     <int>1</int>
+    </void>
+    <void property="sname">
+     <string>火玉</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData27">
+    <void property="animeN1">
+     <int>5</int>
+    </void>
+    <void property="animeType">
+     <int>1</int>
+    </void>
+    <void property="attackN1">
+     <int>1</int>
+    </void>
+    <void property="attackType">
+     <int>1</int>
+    </void>
+    <void property="color">
+     <int>4</int>
+    </void>
+    <void property="effect">
+     <void index="0">
+      <int>5</int>
+     </void>
+     <void index="1">
+      <int>1</int>
+     </void>
+    </void>
+    <void property="fuelN1">
+     <int>2</int>
+    </void>
+    <void property="fuelType">
+     <int>1</int>
+    </void>
+    <void property="name">
+     <string>倍斬り</string>
+    </void>
+    <void property="rangeN1">
+     <int>1</int>
+    </void>
+    <void property="sname">
+     <string>倍斬り</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData28">
+    <void property="TRType">
+     <int>9</int>
+    </void>
+    <void property="animeN1">
+     <int>2</int>
+    </void>
+    <void property="animeType">
+     <int>2</int>
+    </void>
+    <void property="attackN1">
+     <int>7</int>
+    </void>
+    <void property="attackType">
+     <int>2</int>
+    </void>
+    <void property="color">
+     <int>2</int>
+    </void>
+    <void property="effect">
+     <void index="0">
+      <int>7</int>
+     </void>
+     <void index="1">
+      <int>3</int>
+     </void>
+    </void>
+    <void property="fuelN1">
+     <int>1</int>
+    </void>
+    <void property="fuelType">
+     <int>3</int>
+    </void>
+    <void property="name">
+     <string>ファイヤーリング</string>
+    </void>
+    <void property="rangeN1">
+     <int>2</int>
+    </void>
+    <void property="rangeN2">
+     <int>1</int>
+    </void>
+    <void property="rangeType">
+     <int>1</int>
+    </void>
+    <void property="sname">
+     <string>火輪</string>
+    </void>
+    <void property="targetType">
+     <int>1</int>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData29">
+    <void property="TRType">
+     <int>7</int>
+    </void>
+    <void property="animeN1">
+     <int>16</int>
+    </void>
+    <void property="animeType">
+     <int>3</int>
+    </void>
+    <void property="attackN1">
+     <int>7</int>
+    </void>
+    <void property="attackType">
+     <int>2</int>
+    </void>
+    <void property="color">
+     <int>5</int>
+    </void>
+    <void property="effect">
+     <void index="0">
+      <int>18</int>
+     </void>
+    </void>
+    <void property="fuelN1">
+     <int>1</int>
+    </void>
+    <void property="fuelType">
+     <int>3</int>
+    </void>
+    <void property="name">
+     <string>スプラッシュ</string>
+    </void>
+    <void property="rangeN1">
+     <int>2</int>
+    </void>
+    <void property="rangeN2">
+     <int>1</int>
+    </void>
+    <void property="rangeType">
+     <int>1</int>
+    </void>
+    <void property="sname">
+     <string>水鉄砲</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData30">
+    <void property="TRType">
+     <int>7</int>
+    </void>
+    <void property="animeN1">
+     <int>16</int>
+    </void>
+    <void property="animeType">
+     <int>3</int>
+    </void>
+    <void property="attackN1">
+     <int>6</int>
+    </void>
+    <void property="attackType">
+     <int>1</int>
+    </void>
+    <void property="color">
+     <int>1</int>
+    </void>
+    <void property="effect">
+     <void index="0">
+      <int>8</int>
+     </void>
+     <void index="1">
+      <int>10</int>
+     </void>
+     <void index="2">
+      <int>6</int>
+     </void>
+     <void index="3">
+      <int>5</int>
+     </void>
+    </void>
+    <void property="name">
+     <string>凍土の弓</string>
+    </void>
+    <void property="rangeN1">
+     <int>2</int>
+    </void>
+    <void property="rangeN2">
+     <int>1</int>
+    </void>
+    <void property="rangeType">
+     <int>1</int>
+    </void>
+    <void property="sname">
+     <string>氷弓</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData31">
+    <void property="TRType">
+     <int>12</int>
+    </void>
+    <void property="animeN1">
+     <int>13</int>
+    </void>
+    <void property="animeType">
+     <int>4</int>
+    </void>
+    <void property="attackN1">
+     <int>6</int>
+    </void>
+    <void property="attackType">
+     <int>1</int>
+    </void>
+    <void property="color">
+     <int>4</int>
+    </void>
+    <void property="effect">
+     <void index="0">
+      <int>24</int>
+     </void>
+     <void index="1">
+      <int>10</int>
+     </void>
+    </void>
+    <void property="fuelN1">
+     <int>1</int>
+    </void>
+    <void property="fuelType">
+     <int>1</int>
+    </void>
+    <void property="name">
+     <string>貫通矢</string>
+    </void>
+    <void property="rangeN1">
+     <int>3</int>
+    </void>
+    <void property="rangeType">
+     <int>3</int>
+    </void>
+    <void property="sname">
+     <string>貫通矢</string>
+    </void>
+    <void property="targetN1">
+     <int>3</int>
+    </void>
+    <void property="targetType">
+     <int>2</int>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData32">
+    <void property="TRType">
+     <int>7</int>
+    </void>
+    <void property="animeN1">
+     <int>21</int>
+    </void>
+    <void property="animeType">
+     <int>1</int>
+    </void>
+    <void property="attackN1">
+     <int>7</int>
+    </void>
+    <void property="color">
+     <int>2</int>
+    </void>
+    <void property="effect">
+     <void index="0">
+      <int>15</int>
+     </void>
+     <void index="1">
+      <int>22</int>
+     </void>
+     <void index="2">
+      <int>3</int>
+     </void>
+    </void>
+    <void property="fuelN1">
+     <int>2</int>
+    </void>
+    <void property="fuelType">
+     <int>3</int>
+    </void>
+    <void property="name">
+     <string>デス</string>
+    </void>
+    <void property="rangeN1">
+     <int>2</int>
+    </void>
+    <void property="rangeN2">
+     <int>1</int>
+    </void>
+    <void property="rangeType">
+     <int>1</int>
+    </void>
+    <void property="sname">
+     <string>デス</string>
+    </void>
+    <void property="targetType">
+     <int>1</int>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData33">
+    <void property="TRType">
+     <int>17</int>
+    </void>
+    <void property="animeN1">
+     <int>11</int>
+    </void>
+    <void property="animeType">
+     <int>6</int>
+    </void>
+    <void property="attackN1">
+     <int>2</int>
+    </void>
+    <void property="attackType">
+     <int>1</int>
+    </void>
+    <void property="color">
+     <int>4</int>
+    </void>
+    <void property="effect">
+     <void index="0">
+      <int>29</int>
+     </void>
+     <void index="1">
+      <int>24</int>
+     </void>
+     <void index="2">
+      <int>34</int>
+     </void>
+    </void>
+    <void property="fuelN1">
+     <int>2</int>
+    </void>
+    <void property="fuelType">
+     <int>1</int>
+    </void>
+    <void property="name">
+     <string>回転斬り</string>
+    </void>
+    <void property="rangeN1">
+     <int>1</int>
+    </void>
+    <void property="rangeType">
+     <int>2</int>
+    </void>
+    <void property="sname">
+     <string>回転</string>
+    </void>
+    <void property="targetType">
+     <int>1</int>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData34">
+    <void property="TRType">
+     <int>15</int>
+    </void>
+    <void property="animeN1">
+     <int>7</int>
+    </void>
+    <void property="animeType">
+     <int>2</int>
+    </void>
+    <void property="attackN1">
+     <int>2</int>
+    </void>
+    <void property="attackType">
+     <int>1</int>
+    </void>
+    <void property="color">
+     <int>4</int>
+    </void>
+    <void property="effect">
+     <void index="0">
+      <int>31</int>
+     </void>
+     <void index="1">
+      <int>29</int>
+     </void>
+    </void>
+    <void property="fuelN1">
+     <int>2</int>
+    </void>
+    <void property="fuelType">
+     <int>1</int>
+    </void>
+    <void property="name">
+     <string>大地斬</string>
+    </void>
+    <void property="rangeN1">
+     <int>2</int>
+    </void>
+    <void property="rangeType">
+     <int>4</int>
+    </void>
+    <void property="sname">
+     <string>大地斬</string>
+    </void>
+    <void property="targetN1">
+     <int>2</int>
+    </void>
+    <void property="targetType">
+     <int>4</int>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData35">
+    <void property="TRType">
+     <int>15</int>
+    </void>
+    <void property="animeN1">
+     <int>13</int>
+    </void>
+    <void property="animeType">
+     <int>3</int>
+    </void>
+    <void property="attackN1">
+     <int>6</int>
+    </void>
+    <void property="attackType">
+     <int>1</int>
+    </void>
+    <void property="color">
+     <int>5</int>
+    </void>
+    <void property="effect">
+     <void index="0">
+      <int>10</int>
+     </void>
+     <void index="1">
+      <int>37</int>
+     </void>
+    </void>
+    <void property="fuelN1">
+     <int>2</int>
+    </void>
+    <void property="fuelType">
+     <int>1</int>
+    </void>
+    <void property="name">
+     <string>乱れ射ち</string>
+    </void>
+    <void property="rangeN1">
+     <int>2</int>
+    </void>
+    <void property="rangeType">
+     <int>4</int>
+    </void>
+    <void property="sname">
+     <string>乱射</string>
+    </void>
+    <void property="targetN1">
+     <int>2</int>
+    </void>
+    <void property="targetType">
+     <int>4</int>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData36">
+    <void property="TRType">
+     <int>7</int>
+    </void>
+    <void property="animeN1">
+     <int>25</int>
+    </void>
+    <void property="animeType">
+     <int>1</int>
+    </void>
+    <void property="attackN1">
+     <int>7</int>
+    </void>
+    <void property="attackType">
+     <int>2</int>
+    </void>
+    <void property="color">
+     <int>4</int>
+    </void>
+    <void property="effect">
+     <void index="0">
+      <int>9</int>
+     </void>
+    </void>
+    <void property="name">
+     <string>サンダーボルト</string>
+    </void>
+    <void property="rangeN1">
+     <int>2</int>
+    </void>
+    <void property="rangeN2">
+     <int>1</int>
+    </void>
+    <void property="rangeType">
+     <int>1</int>
+    </void>
+    <void property="sname">
+     <string>雷撃</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData37">
+    <void property="animeN1">
+     <int>7</int>
+    </void>
+    <void property="animeType">
+     <int>1</int>
+    </void>
+    <void property="attackN1">
+     <int>3</int>
+    </void>
+    <void property="attackType">
+     <int>1</int>
+    </void>
+    <void property="color">
+     <int>3</int>
+    </void>
+    <void property="effect">
+     <void index="0">
+      <int>5</int>
+     </void>
+     <void index="1">
+      <int>6</int>
+     </void>
+     <void index="2">
+      <int>17</int>
+     </void>
+    </void>
+    <void property="name">
+     <string>毒の牙</string>
+    </void>
+    <void property="rangeN1">
+     <int>1</int>
+    </void>
+    <void property="sname">
+     <string>毒牙</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData38">
+    <void property="animeN1">
+     <int>1</int>
+    </void>
+    <void property="animeType">
+     <int>1</int>
+    </void>
+    <void property="attackN1">
+     <int>4</int>
+    </void>
+    <void property="attackType">
+     <int>1</int>
+    </void>
+    <void property="color">
+     <int>3</int>
+    </void>
+    <void property="effect">
+     <void index="0">
+      <int>24</int>
+     </void>
+     <void index="1">
+      <int>17</int>
+     </void>
+     <void index="2">
+      <int>6</int>
+     </void>
+     <void index="3">
+      <int>5</int>
+     </void>
+    </void>
+    <void property="name">
+     <string>毒針</string>
+    </void>
+    <void property="rangeN1">
+     <int>1</int>
+    </void>
+    <void property="sname">
+     <string>毒針</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData39">
+    <void property="TRType">
+     <int>7</int>
+    </void>
+    <void property="animeN1">
+     <int>18</int>
+    </void>
+    <void property="animeType">
+     <int>3</int>
+    </void>
+    <void property="attackN1">
+     <int>4</int>
+    </void>
+    <void property="attackType">
+     <int>1</int>
+    </void>
+    <void property="color">
+     <int>4</int>
+    </void>
+    <void property="effect">
+     <void index="0">
+      <int>6</int>
+     </void>
+     <void index="1">
+      <int>37</int>
+     </void>
+     <void index="2">
+      <int>5</int>
+     </void>
+     <void index="3">
+      <int>14</int>
+     </void>
+    </void>
+    <void property="name">
+     <string>手裏剣</string>
+    </void>
+    <void property="rangeN1">
+     <int>2</int>
+    </void>
+    <void property="rangeN2">
+     <int>1</int>
+    </void>
+    <void property="rangeType">
+     <int>1</int>
+    </void>
+    <void property="sname">
+     <string>手裏剣</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData40">
+    <void property="TRType">
+     <int>7</int>
+    </void>
+    <void property="animeN1">
+     <int>7</int>
+    </void>
+    <void property="animeType">
+     <int>3</int>
+    </void>
+    <void property="attackN1">
+     <int>7</int>
+    </void>
+    <void property="attackType">
+     <int>2</int>
+    </void>
+    <void property="color">
+     <int>3</int>
+    </void>
+    <void property="effect">
+     <void index="0">
+      <int>5</int>
+     </void>
+     <void index="1">
+      <int>6</int>
+     </void>
+     <void index="2">
+      <int>10</int>
+     </void>
+    </void>
+    <void property="name">
+     <string>ウインドカッター</string>
+    </void>
+    <void property="rangeN1">
+     <int>2</int>
+    </void>
+    <void property="rangeN2">
+     <int>1</int>
+    </void>
+    <void property="rangeType">
+     <int>1</int>
+    </void>
+    <void property="sname">
+     <string>風刃</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData41">
+    <void property="animeN1">
+     <int>23</int>
+    </void>
+    <void property="animeType">
+     <int>1</int>
+    </void>
+    <void property="attackN1">
+     <int>2</int>
+    </void>
+    <void property="attackType">
+     <int>1</int>
+    </void>
+    <void property="color">
+     <int>5</int>
+    </void>
+    <void property="effect">
+     <void index="0">
+      <int>34</int>
+     </void>
+     <void index="1">
+      <int>5</int>
+     </void>
+     <void index="2">
+      <int>10</int>
+     </void>
+    </void>
+    <void property="name">
+     <string>神獣の斧</string>
+    </void>
+    <void property="rangeN1">
+     <int>1</int>
+    </void>
+    <void property="sname">
+     <string>獣斧</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData42">
+    <void property="animeN1">
+     <int>23</int>
+    </void>
+    <void property="animeType">
+     <int>1</int>
+    </void>
+    <void property="attackN1">
+     <int>5</int>
+    </void>
+    <void property="attackType">
+     <int>1</int>
+    </void>
+    <void property="color">
+     <int>5</int>
+    </void>
+    <void property="effect">
+     <void index="0">
+      <int>10</int>
+     </void>
+     <void index="1">
+      <int>27</int>
+     </void>
+     <void index="2">
+      <int>5</int>
+     </void>
+     <void index="3">
+      <int>11</int>
+     </void>
+    </void>
+    <void property="fuelN1">
+     <int>2</int>
+    </void>
+    <void property="fuelType">
+     <int>1</int>
+    </void>
+    <void property="name">
+     <string>飛竜殺し</string>
+    </void>
+    <void property="rangeN1">
+     <int>1</int>
+    </void>
+    <void property="sname">
+     <string>飛竜殺</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData43">
+    <void property="TRType">
+     <int>1</int>
+    </void>
+    <void property="animeN1">
+     <int>18</int>
+    </void>
+    <void property="animeType">
+     <int>3</int>
+    </void>
+    <void property="attackN1">
+     <int>5</int>
+    </void>
+    <void property="attackType">
+     <int>1</int>
+    </void>
+    <void property="color">
+     <int>5</int>
+    </void>
+    <void property="effect">
+     <void index="0">
+      <int>5</int>
+     </void>
+     <void index="1">
+      <int>6</int>
+     </void>
+     <void index="2">
+      <int>36</int>
+     </void>
+     <void index="3">
+      <int>32</int>
+     </void>
+    </void>
+    <void property="name">
+     <string>ミストルテイン</string>
+    </void>
+    <void property="rangeN1">
+     <int>2</int>
+    </void>
+    <void property="sname">
+     <string>魔槍</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData44">
+    <void property="TRType">
+     <int>4</int>
+    </void>
+    <void property="animeN1">
+     <int>4</int>
+    </void>
+    <void property="animeType">
+     <int>2</int>
+    </void>
+    <void property="attackN1">
+     <int>7</int>
+    </void>
+    <void property="attackType">
+     <int>2</int>
+    </void>
+    <void property="color">
+     <int>5</int>
+    </void>
+    <void property="effect">
+     <void index="1">
+      <int>3</int>
+     </void>
+     <void index="2">
+      <int>36</int>
+     </void>
+     <void index="3">
+      <int>32</int>
+     </void>
+    </void>
+    <void property="fuelN1">
+     <int>2</int>
+    </void>
+    <void property="fuelType">
+     <int>3</int>
+    </void>
+    <void property="name">
+     <string>シャイニング</string>
+    </void>
+    <void property="rangeN1">
+     <int>2</int>
+    </void>
+    <void property="rangeType">
+     <int>1</int>
+    </void>
+    <void property="sname">
+     <string>聖光</string>
+    </void>
+    <void property="targetType">
+     <int>1</int>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData45">
+    <void property="TRType">
+     <int>10</int>
+    </void>
+    <void property="animeN1">
+     <int>10</int>
+    </void>
+    <void property="animeType">
+     <int>2</int>
+    </void>
+    <void property="attackN1">
+     <int>7</int>
+    </void>
+    <void property="attackType">
+     <int>2</int>
+    </void>
+    <void property="color">
+     <int>1</int>
+    </void>
+    <void property="effect">
+     <void index="0">
+      <int>8</int>
+     </void>
+     <void index="1">
+      <int>3</int>
+     </void>
+     <void index="2">
+      <int>4</int>
+     </void>
+     <void index="3">
+      <int>16</int>
+     </void>
+    </void>
+    <void property="fuelN1">
+     <int>2</int>
+    </void>
+    <void property="fuelType">
+     <int>3</int>
+    </void>
+    <void property="name">
+     <string>ブリザード</string>
+    </void>
+    <void property="rangeN1">
+     <int>3</int>
+    </void>
+    <void property="rangeN2">
+     <int>1</int>
+    </void>
+    <void property="rangeType">
+     <int>1</int>
+    </void>
+    <void property="sname">
+     <string>吹雪</string>
+    </void>
+    <void property="targetType">
+     <int>1</int>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData46">
+    <void property="animeN1">
+     <int>7</int>
+    </void>
+    <void property="animeType">
+     <int>1</int>
+    </void>
+    <void property="attackN1">
+     <int>3</int>
+    </void>
+    <void property="attackType">
+     <int>1</int>
+    </void>
+    <void property="color">
+     <int>3</int>
+    </void>
+    <void property="effect">
+     <void index="0">
+      <int>5</int>
+     </void>
+     <void index="1">
+      <int>17</int>
+     </void>
+     <void index="2">
+      <int>15</int>
+     </void>
+    </void>
+    <void property="name">
+     <string>猛毒の牙</string>
+    </void>
+    <void property="rangeN1">
+     <int>1</int>
+    </void>
+    <void property="sname">
+     <string>猛毒</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData47">
+    <void property="TRType">
+     <int>10</int>
+    </void>
+    <void property="animeN1">
+     <int>21</int>
+    </void>
+    <void property="animeType">
+     <int>2</int>
+    </void>
+    <void property="attackN1">
+     <int>7</int>
+    </void>
+    <void property="attackType">
+     <int>2</int>
+    </void>
+    <void property="effect">
+     <void index="0">
+      <int>15</int>
+     </void>
+     <void index="1">
+      <int>10</int>
+     </void>
+     <void index="2">
+      <int>4</int>
+     </void>
+    </void>
+    <void property="fuelN1">
+     <int>4</int>
+    </void>
+    <void property="fuelType">
+     <int>3</int>
+    </void>
+    <void property="name">
+     <string>デスウインド</string>
+    </void>
+    <void property="rangeN1">
+     <int>3</int>
+    </void>
+    <void property="rangeN2">
+     <int>1</int>
+    </void>
+    <void property="rangeType">
+     <int>1</int>
+    </void>
+    <void property="sname">
+     <string>死風</string>
+    </void>
+    <void property="targetType">
+     <int>1</int>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData48">
+    <void property="TRType">
+     <int>1</int>
+    </void>
+    <void property="animeN1">
+     <int>7</int>
+    </void>
+    <void property="animeType">
+     <int>1</int>
+    </void>
+    <void property="attackN1">
+     <int>5</int>
+    </void>
+    <void property="attackType">
+     <int>1</int>
+    </void>
+    <void property="color">
+     <int>4</int>
+    </void>
+    <void property="effect">
+     <void index="0">
+      <int>11</int>
+     </void>
+     <void index="1">
+      <int>29</int>
+     </void>
+     <void index="2">
+      <int>5</int>
+     </void>
+     <void index="3">
+      <int>26</int>
+     </void>
+     <void index="4">
+      <int>1</int>
+     </void>
+    </void>
+    <void property="fuelN1">
+     <int>2</int>
+    </void>
+    <void property="fuelType">
+     <int>1</int>
+    </void>
+    <void property="name">
+     <string>地竜殺し</string>
+    </void>
+    <void property="rangeN1">
+     <int>2</int>
+    </void>
+    <void property="sname">
+     <string>地竜殺</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData49">
+    <void property="animeN1">
+     <int>5</int>
+    </void>
+    <void property="animeType">
+     <int>1</int>
+    </void>
+    <void property="attackN1">
+     <int>1</int>
+    </void>
+    <void property="attackType">
+     <int>1</int>
+    </void>
+    <void property="color">
+     <int>4</int>
+    </void>
+    <void property="effect">
+     <void index="0">
+      <int>6</int>
+     </void>
+     <void index="1">
+      <int>37</int>
+     </void>
+    </void>
+    <void property="fuelN1">
+     <int>1</int>
+    </void>
+    <void property="fuelType">
+     <int>1</int>
+    </void>
+    <void property="name">
+     <string>電光石火</string>
+    </void>
+    <void property="rangeN1">
+     <int>1</int>
+    </void>
+    <void property="sname">
+     <string>光速斬</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData50">
+    <void property="TRType">
+     <int>16</int>
+    </void>
+    <void property="animeN1">
+     <int>3</int>
+    </void>
+    <void property="animeType">
+     <int>2</int>
+    </void>
+    <void property="attackN1">
+     <int>7</int>
+    </void>
+    <void property="attackType">
+     <int>2</int>
+    </void>
+    <void property="color">
+     <int>1</int>
+    </void>
+    <void property="effect">
+     <void index="0">
+      <int>3</int>
+     </void>
+     <void index="1">
+      <int>31</int>
+     </void>
+     <void index="2">
+      <int>8</int>
+     </void>
+    </void>
+    <void property="fuelN1">
+     <int>2</int>
+    </void>
+    <void property="fuelType">
+     <int>3</int>
+    </void>
+    <void property="name">
+     <string>アイスブレード</string>
+    </void>
+    <void property="rangeN1">
+     <int>2</int>
+    </void>
+    <void property="rangeN2">
+     <int>1</int>
+    </void>
+    <void property="rangeType">
+     <int>1</int>
+    </void>
+    <void property="sname">
+     <string>氷刃</string>
+    </void>
+    <void property="targetN1">
+     <int>1</int>
+    </void>
+    <void property="targetType">
+     <int>3</int>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData51">
+    <void property="TRType">
+     <int>1</int>
+    </void>
+    <void property="animeN1">
+     <int>6</int>
+    </void>
+    <void property="animeType">
+     <int>1</int>
+    </void>
+    <void property="attackN1">
+     <int>5</int>
+    </void>
+    <void property="attackType">
+     <int>1</int>
+    </void>
+    <void property="color">
+     <int>2</int>
+    </void>
+    <void property="effect">
+     <void index="0">
+      <int>19</int>
+     </void>
+     <void index="1">
+      <int>12</int>
+     </void>
+     <void index="2">
+      <int>6</int>
+     </void>
+    </void>
+    <void property="fuelN1">
+     <int>1</int>
+    </void>
+    <void property="fuelType">
+     <int>3</int>
+    </void>
+    <void property="name">
+     <string>誘惑の鞭</string>
+    </void>
+    <void property="rangeN1">
+     <int>2</int>
+    </void>
+    <void property="sname">
+     <string>誘惑</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData52">
+    <void property="animeN1">
+     <int>25</int>
+    </void>
+    <void property="animeType">
+     <int>1</int>
+    </void>
+    <void property="attackN1">
+     <int>7</int>
+    </void>
+    <void property="attackType">
+     <int>2</int>
+    </void>
+    <void property="color">
+     <int>5</int>
+    </void>
+    <void property="effect">
+     <void index="0">
+      <int>3</int>
+     </void>
+     <void index="1">
+      <int>1</int>
+     </void>
+     <void index="2">
+      <int>9</int>
+     </void>
+    </void>
+    <void property="fuelN1">
+     <int>4</int>
+    </void>
+    <void property="fuelType">
+     <int>3</int>
+    </void>
+    <void property="name">
+     <string>スパーク</string>
+    </void>
+    <void property="rangeN1">
+     <int>1</int>
+    </void>
+    <void property="sname">
+     <string>電撃</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData53">
+    <void property="animeN1">
+     <int>5</int>
+    </void>
+    <void property="animeType">
+     <int>1</int>
+    </void>
+    <void property="attackN1">
+     <int>1</int>
+    </void>
+    <void property="attackType">
+     <int>1</int>
+    </void>
+    <void property="color">
+     <int>4</int>
+    </void>
+    <void property="effect">
+     <void index="0">
+      <int>5</int>
+     </void>
+     <void index="1">
+      <int>31</int>
+     </void>
+     <void index="2">
+      <int>27</int>
+     </void>
+    </void>
+    <void property="fuelN1">
+     <int>1</int>
+    </void>
+    <void property="fuelType">
+     <int>1</int>
+    </void>
+    <void property="name">
+     <string>切り落とし</string>
+    </void>
+    <void property="sname">
+     <string>落斬</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData54">
+    <void property="animeN1">
+     <int>23</int>
+    </void>
+    <void property="animeType">
+     <int>1</int>
+    </void>
+    <void property="attackN1">
+     <int>2</int>
+    </void>
+    <void property="attackType">
+     <int>1</int>
+    </void>
+    <void property="color">
+     <int>1</int>
+    </void>
+    <void property="effect">
+     <void index="0">
+      <int>34</int>
+     </void>
+     <void index="1">
+      <int>5</int>
+     </void>
+     <void index="2">
+      <int>32</int>
+     </void>
+    </void>
+    <void property="name">
+     <string>魔神の斧</string>
+    </void>
+    <void property="rangeN1">
+     <int>1</int>
+    </void>
+    <void property="sname">
+     <string>魔斧</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData55">
+    <void property="TRType">
+     <int>13</int>
+    </void>
+    <void property="animeN1">
+     <int>7</int>
+    </void>
+    <void property="animeType">
+     <int>5</int>
+    </void>
+    <void property="attackN1">
+     <int>2</int>
+    </void>
+    <void property="attackType">
+     <int>1</int>
+    </void>
+    <void property="color">
+     <int>3</int>
+    </void>
+    <void property="effect">
+     <void index="0">
+      <int>31</int>
+     </void>
+     <void index="1">
+      <int>29</int>
+     </void>
+     <void index="2">
+      <int>24</int>
+     </void>
+    </void>
+    <void property="fuelN1">
+     <int>2</int>
+    </void>
+    <void property="fuelType">
+     <int>1</int>
+    </void>
+    <void property="name">
+     <string>グランドクロス</string>
+    </void>
+    <void property="sname">
+     <string>十字斬</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData56">
+    <void property="animeN1">
+     <int>7</int>
+    </void>
+    <void property="animeType">
+     <int>1</int>
+    </void>
+    <void property="attackN1">
+     <int>1</int>
+    </void>
+    <void property="attackType">
+     <int>1</int>
+    </void>
+    <void property="color">
+     <int>4</int>
+    </void>
+    <void property="effect">
+     <void index="0">
+      <int>1</int>
+     </void>
+     <void index="1">
+      <int>12</int>
+     </void>
+     <void index="2">
+      <int>24</int>
+     </void>
+    </void>
+    <void property="fuelN1">
+     <int>1</int>
+    </void>
+    <void property="fuelType">
+     <int>3</int>
+    </void>
+    <void property="name">
+     <string>カウンター</string>
+    </void>
+    <void property="sname">
+     <string>反撃</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData57">
+    <void property="TRType">
+     <int>7</int>
+    </void>
+    <void property="animeN1">
+     <int>20</int>
+    </void>
+    <void property="animeType">
+     <int>3</int>
+    </void>
+    <void property="attackN1">
+     <int>6</int>
+    </void>
+    <void property="attackType">
+     <int>2</int>
+    </void>
+    <void property="color">
+     <int>3</int>
+    </void>
+    <void property="effect">
+     <void index="0">
+      <int>33</int>
+     </void>
+     <void index="1">
+      <int>25</int>
+     </void>
+    </void>
+    <void property="fuelN1">
+     <int>1</int>
+    </void>
+    <void property="fuelType">
+     <int>3</int>
+    </void>
+    <void property="name">
+     <string>油玉</string>
+    </void>
+    <void property="sname">
+     <string>油玉</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData58">
+    <void property="animeN1">
+     <int>5</int>
+    </void>
+    <void property="animeType">
+     <int>1</int>
+    </void>
+    <void property="attackN1">
+     <int>1</int>
+    </void>
+    <void property="attackType">
+     <int>1</int>
+    </void>
+    <void property="color">
+     <int>4</int>
+    </void>
+    <void property="effect">
+     <void index="0">
+      <int>5</int>
+     </void>
+     <void index="1">
+      <int>6</int>
+     </void>
+     <void index="2">
+      <int>11</int>
+     </void>
+    </void>
+    <void property="fuelN1">
+     <int>1</int>
+    </void>
+    <void property="fuelType">
+     <int>1</int>
+    </void>
+    <void property="name">
+     <string>ドラゴンキラー</string>
+    </void>
+    <void property="sname">
+     <string>竜殺剣</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData59">
+    <void property="animeN1">
+     <int>9</int>
+    </void>
+    <void property="animeType">
+     <int>1</int>
+    </void>
+    <void property="attackN1">
+     <int>8</int>
+    </void>
+    <void property="attackType">
+     <int>2</int>
+    </void>
+    <void property="color">
+     <int>2</int>
+    </void>
+    <void property="effect">
+     <void index="0">
+      <int>3</int>
+     </void>
+     <void index="1">
+      <int>7</int>
+     </void>
+    </void>
+    <void property="fuelN1">
+     <int>1</int>
+    </void>
+    <void property="fuelType">
+     <int>3</int>
+    </void>
+    <void property="name">
+     <string>ファイヤーストーム</string>
+    </void>
+    <void property="sname">
+     <string>火炎</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData60">
+    <void property="animeN1">
+     <int>10</int>
+    </void>
+    <void property="animeType">
+     <int>1</int>
+    </void>
+    <void property="attackN1">
+     <int>8</int>
+    </void>
+    <void property="attackType">
+     <int>2</int>
+    </void>
+    <void property="color">
+     <int>1</int>
+    </void>
+    <void property="effect">
+     <void index="0">
+      <int>3</int>
+     </void>
+     <void index="1">
+      <int>8</int>
+     </void>
+    </void>
+    <void property="fuelN1">
+     <int>1</int>
+    </void>
+    <void property="fuelType">
+     <int>3</int>
+    </void>
+    <void property="name">
+     <string>アイスストーム</string>
+    </void>
+    <void property="sname">
+     <string>氷結</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData61">
+    <void property="TRType">
+     <int>11</int>
+    </void>
+    <void property="animeN1">
+     <int>25</int>
+    </void>
+    <void property="animeType">
+     <int>5</int>
+    </void>
+    <void property="attackN1">
+     <int>1</int>
+    </void>
+    <void property="attackType">
+     <int>1</int>
+    </void>
+    <void property="color">
+     <int>4</int>
+    </void>
+    <void property="effect">
+     <void index="0">
+      <int>25</int>
+     </void>
+     <void index="2">
+      <int>9</int>
+     </void>
+    </void>
+    <void property="fuelN1">
+     <int>2</int>
+    </void>
+    <void property="fuelType">
+     <int>3</int>
+    </void>
+    <void property="name">
+     <string>ギガスラッシュ</string>
+    </void>
+    <void property="sname">
+     <string>雷切</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData62">
+    <void property="TRType">
+     <int>12</int>
+    </void>
+    <void property="animeN1">
+     <int>14</int>
+    </void>
+    <void property="animeType">
+     <int>4</int>
+    </void>
+    <void property="attackN1">
+     <int>7</int>
+    </void>
+    <void property="attackType">
+     <int>2</int>
+    </void>
+    <void property="color">
+     <int>2</int>
+    </void>
+    <void property="effect">
+     <void index="0">
+      <int>7</int>
+     </void>
+     <void index="1">
+      <int>24</int>
+     </void>
+     <void index="2">
+      <int>10</int>
+     </void>
+    </void>
+    <void property="fuelN1">
+     <int>1</int>
+    </void>
+    <void property="fuelType">
+     <int>3</int>
+    </void>
+    <void property="name">
+     <string>フレイムレーザー</string>
+    </void>
+    <void property="sname">
+     <string>火炎</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData63">
+    <void property="TRType">
+     <int>12</int>
+    </void>
+    <void property="animeN1">
+     <int>24</int>
+    </void>
+    <void property="animeType">
+     <int>4</int>
+    </void>
+    <void property="attackN1">
+     <int>6</int>
+    </void>
+    <void property="attackType">
+     <int>1</int>
+    </void>
+    <void property="color">
+     <int>4</int>
+    </void>
+    <void property="effect">
+     <void index="0">
+      <int>9</int>
+     </void>
+     <void index="1">
+      <int>24</int>
+     </void>
+     <void index="2">
+      <int>10</int>
+     </void>
+    </void>
+    <void property="fuelN1">
+     <int>1</int>
+    </void>
+    <void property="fuelType">
+     <int>1</int>
+    </void>
+    <void property="name">
+     <string>サンダーアロー</string>
+    </void>
+    <void property="sname">
+     <string>雷矢</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData64">
+    <void property="TRType">
+     <int>12</int>
+    </void>
+    <void property="animeN1">
+     <int>16</int>
+    </void>
+    <void property="animeType">
+     <int>4</int>
+    </void>
+    <void property="attackN1">
+     <int>6</int>
+    </void>
+    <void property="attackType">
+     <int>1</int>
+    </void>
+    <void property="color">
+     <int>1</int>
+    </void>
+    <void property="effect">
+     <void index="0">
+      <int>8</int>
+     </void>
+     <void index="1">
+      <int>24</int>
+     </void>
+     <void index="2">
+      <int>10</int>
+     </void>
+    </void>
+    <void property="fuelN1">
+     <int>1</int>
+    </void>
+    <void property="fuelType">
+     <int>1</int>
+    </void>
+    <void property="name">
+     <string>アイスアロー</string>
+    </void>
+    <void property="sname">
+     <string>氷矢</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData65">
+    <void property="animeN1">
+     <int>4</int>
+    </void>
+    <void property="animeType">
+     <int>1</int>
+    </void>
+    <void property="attackN1">
+     <int>3</int>
+    </void>
+    <void property="color">
+     <int>2</int>
+    </void>
+    <void property="effect">
+     <void index="0">
+      <int>20</int>
+     </void>
+     <void index="1">
+      <int>22</int>
+     </void>
+     <void index="2">
+      <int>13</int>
+     </void>
+     <void index="3">
+      <int>3</int>
+     </void>
+    </void>
+    <void property="fuelN1">
+     <int>2</int>
+    </void>
+    <void property="fuelType">
+     <int>3</int>
+    </void>
+    <void property="name">
+     <string>ヒートアップ</string>
+    </void>
+    <void property="sname">
+     <string>加熱</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData66">
+    <void property="animeN1">
+     <int>4</int>
+    </void>
+    <void property="animeType">
+     <int>1</int>
+    </void>
+    <void property="attackN1">
+     <int>3</int>
+    </void>
+    <void property="color">
+     <int>1</int>
+    </void>
+    <void property="effect">
+     <void index="0">
+      <int>21</int>
+     </void>
+     <void index="1">
+      <int>22</int>
+     </void>
+     <void index="2">
+      <int>13</int>
+     </void>
+     <void index="3">
+      <int>3</int>
+     </void>
+    </void>
+    <void property="fuelN1">
+     <int>2</int>
+    </void>
+    <void property="fuelType">
+     <int>3</int>
+    </void>
+    <void property="name">
+     <string>ガードアップ</string>
+    </void>
+    <void property="sname">
+     <string>防御</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData67">
+    <void property="animeN1">
+     <int>1</int>
+    </void>
+    <void property="animeType">
+     <int>1</int>
+    </void>
+    <void property="attackN1">
+     <int>1</int>
+    </void>
+    <void property="attackType">
+     <int>1</int>
+    </void>
+    <void property="color">
+     <int>4</int>
+    </void>
+    <void property="effect">
+     <void index="0">
+      <int>5</int>
+     </void>
+     <void index="1">
+      <int>6</int>
+     </void>
+     <void index="2">
+      <int>14</int>
+     </void>
+     <void index="3">
+      <int>15</int>
+     </void>
+    </void>
+    <void property="fuelN1">
+     <int>1</int>
+    </void>
+    <void property="fuelType">
+     <int>3</int>
+    </void>
+    <void property="name">
+     <string>デスブリンガー</string>
+    </void>
+    <void property="sname">
+     <string>暗黒剣</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData68">
+    <void property="animeN1">
+     <int>23</int>
+    </void>
+    <void property="animeType">
+     <int>1</int>
+    </void>
+    <void property="attackN1">
+     <int>3</int>
+    </void>
+    <void property="attackType">
+     <int>1</int>
+    </void>
+    <void property="color">
+     <int>2</int>
+    </void>
+    <void property="effect">
+     <void index="0">
+      <int>2</int>
+     </void>
+     <void index="1">
+      <int>3</int>
+     </void>
+     <void index="2">
+      <int>4</int>
+     </void>
+     <void index="3">
+      <int>29</int>
+     </void>
+    </void>
+    <void property="fuelN1">
+     <int>1</int>
+    </void>
+    <void property="fuelType">
+     <int>1</int>
+    </void>
+    <void property="name">
+     <string>メガトンプレス</string>
+    </void>
+    <void property="sname">
+     <string>プレス</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData69">
+    <void property="animeN1">
+     <int>5</int>
+    </void>
+    <void property="animeType">
+     <int>1</int>
+    </void>
+    <void property="attackN1">
+     <int>2</int>
+    </void>
+    <void property="attackType">
+     <int>1</int>
+    </void>
+    <void property="color">
+     <int>4</int>
+    </void>
+    <void property="effect">
+     <void index="0">
+      <int>1</int>
+     </void>
+     <void index="1">
+      <int>29</int>
+     </void>
+     <void index="2">
+      <int>25</int>
+     </void>
+     <void index="3">
+      <int>5</int>
+     </void>
+    </void>
+    <void property="fuelN1">
+     <int>2</int>
+    </void>
+    <void property="fuelType">
+     <int>1</int>
+    </void>
+    <void property="name">
+     <string>金の斧</string>
+    </void>
+    <void property="sname">
+     <string>金斧</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData70">
+    <void property="TRType">
+     <int>7</int>
+    </void>
+    <void property="animeN1">
+     <int>8</int>
+    </void>
+    <void property="animeType">
+     <int>1</int>
+    </void>
+    <void property="attackN1">
+     <int>7</int>
+    </void>
+    <void property="attackType">
+     <int>2</int>
+    </void>
+    <void property="color">
+     <int>3</int>
+    </void>
+    <void property="effect">
+     <void index="0">
+      <int>33</int>
+     </void>
+     <void index="1">
+      <int>19</int>
+     </void>
+    </void>
+    <void property="fuelN1">
+     <int>2</int>
+    </void>
+    <void property="fuelType">
+     <int>3</int>
+    </void>
+    <void property="name">
+     <string>ラブバイン</string>
+    </void>
+    <void property="sname">
+     <string>蔓草</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData71">
+    <void property="TRType">
+     <int>12</int>
+    </void>
+    <void property="animeN1">
+     <int>16</int>
+    </void>
+    <void property="animeType">
+     <int>4</int>
+    </void>
+    <void property="attackN1">
+     <int>7</int>
+    </void>
+    <void property="attackType">
+     <int>2</int>
+    </void>
+    <void property="color">
+     <int>1</int>
+    </void>
+    <void property="effect">
+     <void index="0">
+      <int>8</int>
+     </void>
+     <void index="1">
+      <int>24</int>
+     </void>
+     <void index="2">
+      <int>10</int>
+     </void>
+    </void>
+    <void property="fuelN1">
+     <int>1</int>
+    </void>
+    <void property="fuelType">
+     <int>3</int>
+    </void>
+    <void property="name">
+     <string>アイスレーザー</string>
+    </void>
+    <void property="sname">
+     <string>氷結</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData72">
+    <void property="TRType">
+     <int>8</int>
+    </void>
+    <void property="animeN1">
+     <int>16</int>
+    </void>
+    <void property="animeType">
+     <int>3</int>
+    </void>
+    <void property="attackN1">
+     <int>6</int>
+    </void>
+    <void property="attackType">
+     <int>1</int>
+    </void>
+    <void property="color">
+     <int>3</int>
+    </void>
+    <void property="effect">
+     <void index="0">
+      <int>16</int>
+     </void>
+     <void index="1">
+      <int>18</int>
+     </void>
+     <void index="2">
+      <int>5</int>
+     </void>
+    </void>
+    <void property="fuelN1">
+     <int>2</int>
+    </void>
+    <void property="fuelType">
+     <int>1</int>
+    </void>
+    <void property="name">
+     <string>ナッツシュート</string>
+    </void>
+    <void property="sname">
+     <string>木の実</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData73">
+    <void property="animeN1">
+     <int>6</int>
+    </void>
+    <void property="animeType">
+     <int>1</int>
+    </void>
+    <void property="attackN1">
+     <int>1</int>
+    </void>
+    <void property="attackType">
+     <int>1</int>
+    </void>
+    <void property="color">
+     <int>2</int>
+    </void>
+    <void property="effect">
+     <void index="0">
+      <int>6</int>
+     </void>
+     <void index="1">
+      <int>5</int>
+     </void>
+     <void index="2">
+      <int>7</int>
+     </void>
+     <void index="3">
+      <int>31</int>
+     </void>
+    </void>
+    <void property="fuelN1">
+     <int>1</int>
+    </void>
+    <void property="fuelType">
+     <int>3</int>
+    </void>
+    <void property="name">
+     <string>火炎斬り</string>
+    </void>
+    <void property="sname">
+     <string>火炎斬</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData74">
+    <void property="animeN1">
+     <int>15</int>
+    </void>
+    <void property="animeType">
+     <int>1</int>
+    </void>
+    <void property="attackN1">
+     <int>1</int>
+    </void>
+    <void property="attackType">
+     <int>1</int>
+    </void>
+    <void property="color">
+     <int>1</int>
+    </void>
+    <void property="effect">
+     <void index="0">
+      <int>6</int>
+     </void>
+     <void index="1">
+      <int>5</int>
+     </void>
+     <void index="2">
+      <int>8</int>
+     </void>
+     <void index="3">
+      <int>31</int>
+     </void>
+    </void>
+    <void property="fuelN1">
+     <int>1</int>
+    </void>
+    <void property="fuelType">
+     <int>3</int>
+    </void>
+    <void property="name">
+     <string>氷結斬り</string>
+    </void>
+    <void property="sname">
+     <string>氷結斬</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData75">
+    <void property="animeN1">
+     <int>1</int>
+    </void>
+    <void property="animeType">
+     <int>1</int>
+    </void>
+    <void property="attackN1">
+     <int>4</int>
+    </void>
+    <void property="attackType">
+     <int>1</int>
+    </void>
+    <void property="color">
+     <int>4</int>
+    </void>
+    <void property="effect">
+     <void index="0">
+      <int>6</int>
+     </void>
+     <void index="1">
+      <int>24</int>
+     </void>
+     <void index="2">
+      <int>5</int>
+     </void>
+    </void>
+    <void property="name">
+     <string>クナイ</string>
+    </void>
+    <void property="sname">
+     <string>クナイ</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData76">
+    <void property="animeN1">
+     <int>1</int>
+    </void>
+    <void property="animeType">
+     <int>1</int>
+    </void>
+    <void property="attackN1">
+     <int>4</int>
+    </void>
+    <void property="attackType">
+     <int>1</int>
+    </void>
+    <void property="color">
+     <int>5</int>
+    </void>
+    <void property="effect">
+     <void index="0">
+      <int>6</int>
+     </void>
+     <void index="1">
+      <int>24</int>
+     </void>
+     <void index="2">
+      <int>5</int>
+     </void>
+     <void index="3">
+      <int>8</int>
+     </void>
+     <void index="4">
+      <int>16</int>
+     </void>
+    </void>
+    <void property="name">
+     <string>アイシングダガー</string>
+    </void>
+    <void property="sname">
+     <string>氷刃</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData77">
+    <void property="TRType">
+     <int>1</int>
+    </void>
+    <void property="animeN1">
+     <int>21</int>
+    </void>
+    <void property="animeType">
+     <int>1</int>
+    </void>
+    <void property="attackN1">
+     <int>5</int>
+    </void>
+    <void property="attackType">
+     <int>1</int>
+    </void>
+    <void property="color">
+     <int>2</int>
+    </void>
+    <void property="effect">
+     <void index="0">
+      <int>5</int>
+     </void>
+     <void index="1">
+      <int>24</int>
+     </void>
+     <void index="2">
+      <int>15</int>
+     </void>
+    </void>
+    <void property="fuelN1">
+     <int>1</int>
+    </void>
+    <void property="fuelType">
+     <int>3</int>
+    </void>
+    <void property="name">
+     <string>デスサイズ</string>
+    </void>
+    <void property="sname">
+     <string>死鎌</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData78">
+    <void property="TRType">
+     <int>7</int>
+    </void>
+    <void property="animeN1">
+     <int>3</int>
+    </void>
+    <void property="animeType">
+     <int>1</int>
+    </void>
+    <void property="attackN1">
+     <int>7</int>
+    </void>
+    <void property="attackType">
+     <int>2</int>
+    </void>
+    <void property="color">
+     <int>1</int>
+    </void>
+    <void property="effect">
+     <void index="0">
+      <int>8</int>
+     </void>
+     <void index="1">
+      <int>19</int>
+     </void>
+    </void>
+    <void property="fuelN1">
+     <int>2</int>
+    </void>
+    <void property="fuelType">
+     <int>3</int>
+    </void>
+    <void property="name">
+     <string>ラブアイス</string>
+    </void>
+    <void property="sname">
+     <string>氷玉</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData79">
+    <void property="TRType">
+     <int>7</int>
+    </void>
+    <void property="animeN1">
+     <int>2</int>
+    </void>
+    <void property="animeType">
+     <int>1</int>
+    </void>
+    <void property="attackN1">
+     <int>7</int>
+    </void>
+    <void property="attackType">
+     <int>2</int>
+    </void>
+    <void property="color">
+     <int>2</int>
+    </void>
+    <void property="effect">
+     <void index="0">
+      <int>7</int>
+     </void>
+     <void index="1">
+      <int>19</int>
+     </void>
+    </void>
+    <void property="fuelN1">
+     <int>2</int>
+    </void>
+    <void property="fuelType">
+     <int>3</int>
+    </void>
+    <void property="name">
+     <string>ラブファイア</string>
+    </void>
+    <void property="sname">
+     <string>火玉</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData80">
+    <void property="TRType">
+     <int>7</int>
+    </void>
+    <void property="animeN1">
+     <int>4</int>
+    </void>
+    <void property="animeType">
+     <int>1</int>
+    </void>
+    <void property="attackN1">
+     <int>7</int>
+    </void>
+    <void property="attackType">
+     <int>2</int>
+    </void>
+    <void property="color">
+     <int>3</int>
+    </void>
+    <void property="effect">
+     <void index="0">
+      <int>3</int>
+     </void>
+     <void index="1">
+      <int>16</int>
+     </void>
+    </void>
+    <void property="fuelN1">
+     <int>1</int>
+    </void>
+    <void property="fuelType">
+     <int>3</int>
+    </void>
+    <void property="name">
+     <string>ナイトメア</string>
+    </void>
+    <void property="sname">
+     <string>悪夢</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData81">
+    <void property="TRType">
+     <int>9</int>
+    </void>
+    <void property="animeN1">
+     <int>3</int>
+    </void>
+    <void property="animeType">
+     <int>2</int>
+    </void>
+    <void property="attackN1">
+     <int>7</int>
+    </void>
+    <void property="attackType">
+     <int>2</int>
+    </void>
+    <void property="color">
+     <int>1</int>
+    </void>
+    <void property="effect">
+     <void index="0">
+      <int>8</int>
+     </void>
+     <void index="1">
+      <int>3</int>
+     </void>
+    </void>
+    <void property="fuelN1">
+     <int>1</int>
+    </void>
+    <void property="fuelType">
+     <int>3</int>
+    </void>
+    <void property="name">
+     <string>アイスリング</string>
+    </void>
+    <void property="sname">
+     <string>氷輪</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData82">
+    <void property="TRType">
+     <int>7</int>
+    </void>
+    <void property="animeN1">
+     <int>19</int>
+    </void>
+    <void property="animeType">
+     <int>1</int>
+    </void>
+    <void property="attackN1">
+     <int>7</int>
+    </void>
+    <void property="attackType">
+     <int>2</int>
+    </void>
+    <void property="color">
+     <int>3</int>
+    </void>
+    <void property="effect">
+     <void index="0">
+      <int>24</int>
+     </void>
+     <void index="1">
+      <int>27</int>
+     </void>
+    </void>
+    <void property="fuelN1">
+     <int>1</int>
+    </void>
+    <void property="fuelType">
+     <int>3</int>
+    </void>
+    <void property="name">
+     <string>グラビティブラスト</string>
+    </void>
+    <void property="sname">
+     <string>重力波</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData83">
+    <void property="TRType">
+     <int>5</int>
+    </void>
+    <void property="animeN1">
+     <int>4</int>
+    </void>
+    <void property="animeType">
+     <int>2</int>
+    </void>
+    <void property="attackN1">
+     <int>7</int>
+    </void>
+    <void property="color">
+     <int>2</int>
+    </void>
+    <void property="effect">
+     <void index="0">
+      <int>22</int>
+     </void>
+     <void index="1">
+      <int>19</int>
+     </void>
+    </void>
+    <void property="fuelN1">
+     <int>2</int>
+    </void>
+    <void property="fuelType">
+     <int>3</int>
+    </void>
+    <void property="name">
+     <string>チャームライト</string>
+    </void>
+    <void property="sname">
+     <string>淫夢</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData84">
+    <void property="TRType">
+     <int>8</int>
+    </void>
+    <void property="animeN1">
+     <int>22</int>
+    </void>
+    <void property="animeType">
+     <int>3</int>
+    </void>
+    <void property="attackN1">
+     <int>6</int>
+    </void>
+    <void property="attackType">
+     <int>2</int>
+    </void>
+    <void property="color">
+     <int>5</int>
+    </void>
+    <void property="effect">
+     <void index="0">
+      <int>31</int>
+     </void>
+     <void index="1">
+      <int>5</int>
+     </void>
+     <void index="2">
+      <int>10</int>
+     </void>
+     <void index="3">
+      <int>6</int>
+     </void>
+    </void>
+    <void property="fuelN1">
+     <int>2</int>
+    </void>
+    <void property="fuelType">
+     <int>3</int>
+    </void>
+    <void property="name">
+     <string>マジックシュート</string>
+    </void>
+    <void property="sname">
+     <string>魔矢</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData85">
+    <void property="TRType">
+     <int>7</int>
+    </void>
+    <void property="animeN1">
+     <int>25</int>
+    </void>
+    <void property="animeType">
+     <int>3</int>
+    </void>
+    <void property="attackN1">
+     <int>7</int>
+    </void>
+    <void property="attackType">
+     <int>2</int>
+    </void>
+    <void property="color">
+     <int>4</int>
+    </void>
+    <void property="effect">
+     <void index="0">
+      <int>9</int>
+     </void>
+     <void index="1">
+      <int>26</int>
+     </void>
+     <void index="2">
+      <int>24</int>
+     </void>
+    </void>
+    <void property="name">
+     <string>サンダーバード</string>
+    </void>
+    <void property="sname">
+     <string>雷鳥</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData86">
+    <void property="animeN1">
+     <int>5</int>
+    </void>
+    <void property="animeType">
+     <int>1</int>
+    </void>
+    <void property="attackN1">
+     <int>1</int>
+    </void>
+    <void property="attackType">
+     <int>1</int>
+    </void>
+    <void property="color">
+     <int>5</int>
+    </void>
+    <void property="effect">
+     <void index="0">
+      <int>7</int>
+     </void>
+     <void index="1">
+      <int>8</int>
+     </void>
+     <void index="2">
+      <int>9</int>
+     </void>
+     <void index="3">
+      <int>5</int>
+     </void>
+    </void>
+    <void property="fuelN1">
+     <int>2</int>
+    </void>
+    <void property="fuelType">
+     <int>3</int>
+    </void>
+    <void property="name">
+     <string>マジカルソード</string>
+    </void>
+    <void property="sname">
+     <string>氷雷火</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData87">
+    <void property="TRType">
+     <int>5</int>
+    </void>
+    <void property="animeN1">
+     <int>22</int>
+    </void>
+    <void property="animeType">
+     <int>5</int>
+    </void>
+    <void property="attackN1">
+     <int>7</int>
+    </void>
+    <void property="attackType">
+     <int>2</int>
+    </void>
+    <void property="color">
+     <int>1</int>
+    </void>
+    <void property="effect">
+     <void index="0">
+      <int>18</int>
+     </void>
+     <void index="1">
+      <int>3</int>
+     </void>
+     <void index="2">
+      <int>4</int>
+     </void>
+    </void>
+    <void property="fuelN1">
+     <int>2</int>
+    </void>
+    <void property="fuelType">
+     <int>3</int>
+    </void>
+    <void property="name">
+     <string>タイダルウエイブ</string>
+    </void>
+    <void property="sname">
+     <string>津波</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData88">
+    <void property="TRType">
+     <int>1</int>
+    </void>
+    <void property="animeN1">
+     <int>18</int>
+    </void>
+    <void property="animeType">
+     <int>3</int>
+    </void>
+    <void property="attackN1">
+     <int>5</int>
+    </void>
+    <void property="attackType">
+     <int>1</int>
+    </void>
+    <void property="color">
+     <int>1</int>
+    </void>
+    <void property="effect">
+     <void index="0">
+      <int>5</int>
+     </void>
+     <void index="1">
+      <int>6</int>
+     </void>
+     <void index="2">
+      <int>18</int>
+     </void>
+     <void index="3">
+      <int>36</int>
+     </void>
+    </void>
+    <void property="fuelType">
+     <int>3</int>
+    </void>
+    <void property="name">
+     <string>海神の槍</string>
+    </void>
+    <void property="sname">
+     <string>海槍</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData89">
+    <void property="animeN1">
+     <int>1</int>
+    </void>
+    <void property="animeType">
+     <int>1</int>
+    </void>
+    <void property="attackN1">
+     <int>1</int>
+    </void>
+    <void property="attackType">
+     <int>1</int>
+    </void>
+    <void property="color">
+     <int>4</int>
+    </void>
+    <void property="effect">
+     <void index="0">
+      <int>3</int>
+     </void>
+     <void index="1">
+      <int>15</int>
+     </void>
+     <void index="2">
+      <int>34</int>
+     </void>
+    </void>
+    <void property="fuelN1">
+     <int>2</int>
+    </void>
+    <void property="fuelType">
+     <int>3</int>
+    </void>
+    <void property="name">
+     <string>ソウルスティール</string>
+    </void>
+    <void property="sname">
+     <string>魂狩</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData90">
+    <void property="animeN1">
+     <int>26</int>
+    </void>
+    <void property="animeType">
+     <int>1</int>
+    </void>
+    <void property="attackN1">
+     <int>3</int>
+    </void>
+    <void property="attackType">
+     <int>1</int>
+    </void>
+    <void property="color">
+     <int>4</int>
+    </void>
+    <void property="effect">
+     <void index="0">
+      <int>5</int>
+     </void>
+     <void index="1">
+      <int>2</int>
+     </void>
+     <void index="2">
+      <int>25</int>
+     </void>
+    </void>
+    <void property="fuelN1">
+     <int>8</int>
+    </void>
+    <void property="fuelType">
+     <int>1</int>
+    </void>
+    <void property="name">
+     <string>ゴッドフィンガー</string>
+    </void>
+    <void property="sname">
+     <string>爆熱拳</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData91">
+    <void property="animeN1">
+     <int>25</int>
+    </void>
+    <void property="animeType">
+     <int>3</int>
+    </void>
+    <void property="attackN1">
+     <int>3</int>
+    </void>
+    <void property="attackType">
+     <int>1</int>
+    </void>
+    <void property="color">
+     <int>4</int>
+    </void>
+    <void property="effect">
+     <void index="0">
+      <int>5</int>
+     </void>
+     <void index="1">
+      <int>9</int>
+     </void>
+    </void>
+    <void property="name">
+     <string>エレキアタック</string>
+    </void>
+    <void property="sname">
+     <string>感電</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData92">
+    <void property="TRType">
+     <int>8</int>
+    </void>
+    <void property="animeN1">
+     <int>13</int>
+    </void>
+    <void property="animeType">
+     <int>3</int>
+    </void>
+    <void property="attackN1">
+     <int>6</int>
+    </void>
+    <void property="attackType">
+     <int>1</int>
+    </void>
+    <void property="color">
+     <int>3</int>
+    </void>
+    <void property="effect">
+     <void index="0">
+      <int>5</int>
+     </void>
+     <void index="1">
+      <int>6</int>
+     </void>
+     <void index="2">
+      <int>10</int>
+     </void>
+    </void>
+    <void property="name">
+     <string>森人の弓</string>
+    </void>
+    <void property="sname">
+     <string>森弓</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData93">
+    <void property="TRType">
+     <int>7</int>
+    </void>
+    <void property="animeN1">
+     <int>13</int>
+    </void>
+    <void property="animeType">
+     <int>3</int>
+    </void>
+    <void property="attackN1">
+     <int>6</int>
+    </void>
+    <void property="attackType">
+     <int>1</int>
+    </void>
+    <void property="color">
+     <int>3</int>
+    </void>
+    <void property="effect">
+     <void index="0">
+      <int>5</int>
+     </void>
+     <void index="1">
+      <int>6</int>
+     </void>
+     <void index="2">
+      <int>10</int>
+     </void>
+     <void index="3">
+      <int>37</int>
+     </void>
+    </void>
+    <void property="fuelN1">
+     <int>2</int>
+    </void>
+    <void property="fuelType">
+     <int>1</int>
+    </void>
+    <void property="name">
+     <string>ツインショット</string>
+    </void>
+    <void property="sname">
+     <string>連弾</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData94">
+    <void property="TRType">
+     <int>4</int>
+    </void>
+    <void property="animeN1">
+     <int>8</int>
+    </void>
+    <void property="animeType">
+     <int>2</int>
+    </void>
+    <void property="attackN1">
+     <int>3</int>
+    </void>
+    <void property="attackType">
+     <int>1</int>
+    </void>
+    <void property="color">
+     <int>3</int>
+    </void>
+    <void property="effect">
+     <void index="0">
+      <int>17</int>
+     </void>
+     <void index="1">
+      <int>33</int>
+     </void>
+     <void index="2">
+      <int>29</int>
+     </void>
+     <void index="3">
+      <int>4</int>
+     </void>
+    </void>
+    <void property="fuelN1">
+     <int>2</int>
+    </void>
+    <void property="fuelType">
+     <int>1</int>
+    </void>
+    <void property="name">
+     <string>マッドバイン</string>
+    </void>
+    <void property="sname">
+     <string>毒蔓</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData95">
+    <void property="TRType">
+     <int>7</int>
+    </void>
+    <void property="animeN1">
+     <int>8</int>
+    </void>
+    <void property="animeType">
+     <int>1</int>
+    </void>
+    <void property="attackN1">
+     <int>3</int>
+    </void>
+    <void property="attackType">
+     <int>2</int>
+    </void>
+    <void property="color">
+     <int>3</int>
+    </void>
+    <void property="effect">
+     <void index="0">
+      <int>6</int>
+     </void>
+     <void index="1">
+      <int>14</int>
+     </void>
+     <void index="2">
+      <int>18</int>
+     </void>
+     <void index="3">
+      <int>19</int>
+     </void>
+     <void index="4">
+      <int>17</int>
+     </void>
+    </void>
+    <void property="name">
+     <string>芋づる</string>
+    </void>
+    <void property="sname">
+     <string>芋づる</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData96">
+    <void property="animeN1">
+     <int>5</int>
+    </void>
+    <void property="animeType">
+     <int>1</int>
+    </void>
+    <void property="attackN1">
+     <int>4</int>
+    </void>
+    <void property="attackType">
+     <int>1</int>
+    </void>
+    <void property="color">
+     <int>4</int>
+    </void>
+    <void property="effect">
+     <void index="0">
+      <int>6</int>
+     </void>
+     <void index="1">
+      <int>37</int>
+     </void>
+     <void index="2">
+      <int>24</int>
+     </void>
+     <void index="3">
+      <int>9</int>
+     </void>
+     <void index="4">
+      <int>5</int>
+     </void>
+    </void>
+    <void property="fuelN1">
+     <int>3</int>
+    </void>
+    <void property="fuelType">
+     <int>1</int>
+    </void>
+    <void property="name">
+     <string>三連殺</string>
+    </void>
+    <void property="sname">
+     <string>三連殺</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData97">
+    <void property="animeN1">
+     <int>6</int>
+    </void>
+    <void property="animeType">
+     <int>1</int>
+    </void>
+    <void property="attackN1">
+     <int>1</int>
+    </void>
+    <void property="attackType">
+     <int>6</int>
+    </void>
+    <void property="color">
+     <int>2</int>
+    </void>
+    <void property="effect">
+     <void index="0">
+      <int>7</int>
+     </void>
+     <void index="1">
+      <int>3</int>
+     </void>
+     <void index="2">
+      <int>5</int>
+     </void>
+    </void>
+    <void property="fuelN1">
+     <int>4</int>
+    </void>
+    <void property="fuelType">
+     <int>3</int>
+    </void>
+    <void property="name">
+     <string>炎殺剣</string>
+    </void>
+    <void property="sname">
+     <string>炎殺剣</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData98">
+    <void property="TRType">
+     <int>10</int>
+    </void>
+    <void property="animeN1">
+     <int>9</int>
+    </void>
+    <void property="animeType">
+     <int>2</int>
+    </void>
+    <void property="attackN1">
+     <int>7</int>
+    </void>
+    <void property="attackType">
+     <int>2</int>
+    </void>
+    <void property="color">
+     <int>2</int>
+    </void>
+    <void property="effect">
+     <void index="0">
+      <int>7</int>
+     </void>
+     <void index="1">
+      <int>3</int>
+     </void>
+    </void>
+    <void property="fuelN1">
+     <int>4</int>
+    </void>
+    <void property="fuelType">
+     <int>3</int>
+    </void>
+    <void property="name">
+     <string>クリムゾンフレア</string>
+    </void>
+    <void property="rangeN1">
+     <int>3</int>
+    </void>
+    <void property="rangeN2">
+     <int>1</int>
+    </void>
+    <void property="rangeType">
+     <int>1</int>
+    </void>
+    <void property="sname">
+     <string>灼熱</string>
+    </void>
+    <void property="targetType">
+     <int>1</int>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData99">
+    <void property="TRType">
+     <int>5</int>
+    </void>
+    <void property="animeN1">
+     <int>10</int>
+    </void>
+    <void property="animeType">
+     <int>2</int>
+    </void>
+    <void property="attackN1">
+     <int>7</int>
+    </void>
+    <void property="attackType">
+     <int>2</int>
+    </void>
+    <void property="color">
+     <int>1</int>
+    </void>
+    <void property="effect">
+     <void index="0">
+      <int>36</int>
+     </void>
+     <void index="1">
+      <int>3</int>
+     </void>
+     <void index="2">
+      <int>8</int>
+     </void>
+    </void>
+    <void property="fuelN1">
+     <int>4</int>
+    </void>
+    <void property="fuelType">
+     <int>3</int>
+    </void>
+    <void property="name">
+     <string>ダイアモンドダスト</string>
+    </void>
+    <void property="sname">
+     <string>氷塵</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData100">
+    <void property="animeN1">
+     <int>5</int>
+    </void>
+    <void property="animeType">
+     <int>1</int>
+    </void>
+    <void property="attackN1">
+     <int>7</int>
+    </void>
+    <void property="attackType">
+     <int>2</int>
+    </void>
+    <void property="color">
+     <int>4</int>
+    </void>
+    <void property="effect">
+     <void index="1">
+      <int>12</int>
+     </void>
+     <void index="2">
+      <int>3</int>
+     </void>
+    </void>
+    <void property="fuelN1">
+     <int>1</int>
+    </void>
+    <void property="fuelType">
+     <int>3</int>
+    </void>
+    <void property="name">
+     <string>リフレクト</string>
+    </void>
+    <void property="sname">
+     <string>反射</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData101">
+    <void property="animeN1">
+     <int>4</int>
+    </void>
+    <void property="animeType">
+     <int>1</int>
+    </void>
+    <void property="attackN1">
+     <int>7</int>
+    </void>
+    <void property="color">
+     <int>5</int>
+    </void>
+    <void property="effect">
+     <void index="0">
+      <int>26</int>
+     </void>
+     <void index="1">
+      <int>22</int>
+     </void>
+     <void index="2">
+      <int>13</int>
+     </void>
+     <void index="3">
+      <int>3</int>
+     </void>
+    </void>
+    <void property="fuelN1">
+     <int>2</int>
+    </void>
+    <void property="fuelType">
+     <int>3</int>
+    </void>
+    <void property="name">
+     <string>レビテーション</string>
+    </void>
+    <void property="sname">
+     <string>浮遊</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData102">
+    <void property="animeN1">
+     <int>1</int>
+    </void>
+    <void property="animeType">
+     <int>1</int>
+    </void>
+    <void property="attackN1">
+     <int>2</int>
+    </void>
+    <void property="attackType">
+     <int>1</int>
+    </void>
+    <void property="color">
+     <int>5</int>
+    </void>
+    <void property="effect">
+     <void index="0">
+      <int>5</int>
+     </void>
+     <void index="1">
+      <int>32</int>
+     </void>
+     <void index="2">
+      <int>1</int>
+     </void>
+    </void>
+    <void property="fuelN1">
+     <int>2</int>
+    </void>
+    <void property="fuelType">
+     <int>1</int>
+    </void>
+    <void property="name">
+     <string>ライトブリンガー</string>
+    </void>
+    <void property="sname">
+     <string>聖光斬</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData">
+    <void property="animeN1">
+     <int>5</int>
+    </void>
+    <void property="animeType">
+     <int>1</int>
+    </void>
+    <void property="attackN1">
+     <int>1</int>
+    </void>
+    <void property="attackType">
+     <int>5</int>
+    </void>
+    <void property="color">
+     <int>4</int>
+    </void>
+    <void property="fuelN1">
+     <int>8</int>
+    </void>
+    <void property="fuelType">
+     <int>1</int>
+    </void>
+    <void property="name">
+     <string>真竜斬り</string>
+    </void>
+    <void property="sname">
+     <string>真竜斬</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData103">
+    <void property="TRType">
+     <int>10</int>
+    </void>
+    <void property="animeN1">
+     <int>4</int>
+    </void>
+    <void property="animeType">
+     <int>2</int>
+    </void>
+    <void property="attackN1">
+     <int>7</int>
+    </void>
+    <void property="color">
+     <int>2</int>
+    </void>
+    <void property="effect">
+     <void index="0">
+      <int>3</int>
+     </void>
+     <void index="1">
+      <int>19</int>
+     </void>
+     <void index="2">
+      <int>16</int>
+     </void>
+     <void index="4">
+      <int>22</int>
+     </void>
+    </void>
+    <void property="fuelN1">
+     <int>4</int>
+    </void>
+    <void property="fuelType">
+     <int>3</int>
+    </void>
+    <void property="name">
+     <string>チャームフラッシュ</string>
+    </void>
+    <void property="sname">
+     <string>淫夢</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData104">
+    <void property="TRType">
+     <int>7</int>
+    </void>
+    <void property="animeN1">
+     <int>16</int>
+    </void>
+    <void property="animeType">
+     <int>3</int>
+    </void>
+    <void property="attackN1">
+     <int>7</int>
+    </void>
+    <void property="attackType">
+     <int>2</int>
+    </void>
+    <void property="color">
+     <int>5</int>
+    </void>
+    <void property="effect">
+     <void index="0">
+      <int>31</int>
+     </void>
+     <void index="1">
+      <int>36</int>
+     </void>
+     <void index="2">
+      <int>24</int>
+     </void>
+     <void index="3">
+      <int>26</int>
+     </void>
+    </void>
+    <void property="fuelN1">
+     <int>1</int>
+    </void>
+    <void property="fuelType">
+     <int>3</int>
+    </void>
+    <void property="name">
+     <string>マジックミサイル</string>
+    </void>
+    <void property="sname">
+     <string>魔法弾</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData105">
+    <void property="TRType">
+     <int>6</int>
+    </void>
+    <void property="animeN1">
+     <int>25</int>
+    </void>
+    <void property="animeType">
+     <int>5</int>
+    </void>
+    <void property="attackN1">
+     <int>7</int>
+    </void>
+    <void property="attackType">
+     <int>2</int>
+    </void>
+    <void property="color">
+     <int>4</int>
+    </void>
+    <void property="effect">
+     <void index="0">
+      <int>9</int>
+     </void>
+     <void index="1">
+      <int>3</int>
+     </void>
+     <void index="2">
+      <int>4</int>
+     </void>
+    </void>
+    <void property="fuelN1">
+     <int>2</int>
+    </void>
+    <void property="fuelType">
+     <int>3</int>
+    </void>
+    <void property="name">
+     <string>ケイオスウエイブ</string>
+    </void>
+    <void property="sname">
+     <string>波動</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData106">
+    <void property="TRType">
+     <int>6</int>
+    </void>
+    <void property="animeN1">
+     <int>8</int>
+    </void>
+    <void property="animeType">
+     <int>1</int>
+    </void>
+    <void property="attackN1">
+     <int>7</int>
+    </void>
+    <void property="attackType">
+     <int>6</int>
+    </void>
+    <void property="color">
+     <int>5</int>
+    </void>
+    <void property="effect">
+     <void index="0">
+      <int>13</int>
+     </void>
+     <void index="1">
+      <int>3</int>
+     </void>
+     <void index="2">
+      <int>4</int>
+     </void>
+    </void>
+    <void property="fuelN1">
+     <int>1</int>
+    </void>
+    <void property="fuelType">
+     <int>3</int>
+    </void>
+    <void property="name">
+     <string>リジェネレーション</string>
+    </void>
+    <void property="sname">
+     <string>再生</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData107">
+    <void property="animeN1">
+     <int>6</int>
+    </void>
+    <void property="animeType">
+     <int>1</int>
+    </void>
+    <void property="attackN1">
+     <int>3</int>
+    </void>
+    <void property="attackType">
+     <int>1</int>
+    </void>
+    <void property="color">
+     <int>2</int>
+    </void>
+    <void property="effect">
+     <void index="0">
+      <int>5</int>
+     </void>
+     <void index="1">
+      <int>7</int>
+     </void>
+    </void>
+    <void property="name">
+     <string>フレイムタックル</string>
+    </void>
+    <void property="sname">
+     <string>炎撃</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData108">
+    <void property="animeN1">
+     <int>3</int>
+    </void>
+    <void property="animeType">
+     <int>1</int>
+    </void>
+    <void property="attackN1">
+     <int>3</int>
+    </void>
+    <void property="attackType">
+     <int>1</int>
+    </void>
+    <void property="color">
+     <int>1</int>
+    </void>
+    <void property="effect">
+     <void index="0">
+      <int>5</int>
+     </void>
+     <void index="1">
+      <int>8</int>
+     </void>
+    </void>
+    <void property="name">
+     <string>アイスタックル</string>
+    </void>
+    <void property="sname">
+     <string>氷撃</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData109">
+    <void property="TRType">
+     <int>4</int>
+    </void>
+    <void property="animeN1">
+     <int>4</int>
+    </void>
+    <void property="animeType">
+     <int>2</int>
+    </void>
+    <void property="attackN1">
+     <int>7</int>
+    </void>
+    <void property="color">
+     <int>1</int>
+    </void>
+    <void property="effect">
+     <void index="0">
+      <int>21</int>
+     </void>
+     <void index="1">
+      <int>22</int>
+     </void>
+     <void index="2">
+      <int>13</int>
+     </void>
+     <void index="3">
+      <int>3</int>
+     </void>
+    </void>
+    <void property="fuelN1">
+     <int>3</int>
+    </void>
+    <void property="fuelType">
+     <int>3</int>
+    </void>
+    <void property="name">
+     <string>アクアプリズン</string>
+    </void>
+    <void property="sname">
+     <string>水壁</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData110">
+    <void property="TRType">
+     <int>12</int>
+    </void>
+    <void property="animeN1">
+     <int>22</int>
+    </void>
+    <void property="animeType">
+     <int>4</int>
+    </void>
+    <void property="attackN1">
+     <int>5</int>
+    </void>
+    <void property="attackType">
+     <int>1</int>
+    </void>
+    <void property="color">
+     <int>1</int>
+    </void>
+    <void property="effect">
+     <void index="0">
+      <int>18</int>
+     </void>
+     <void index="1">
+      <int>1</int>
+     </void>
+     <void index="2">
+      <int>30</int>
+     </void>
+     <void index="3">
+      <int>36</int>
+     </void>
+    </void>
+    <void property="fuelN1">
+     <int>2</int>
+    </void>
+    <void property="fuelType">
+     <int>1</int>
+    </void>
+    <void property="name">
+     <string>海波斬</string>
+    </void>
+    <void property="sname">
+     <string>海波斬</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData111">
+    <void property="TRType">
+     <int>1</int>
+    </void>
+    <void property="animeN1">
+     <int>3</int>
+    </void>
+    <void property="animeType">
+     <int>1</int>
+    </void>
+    <void property="attackN1">
+     <int>3</int>
+    </void>
+    <void property="attackType">
+     <int>1</int>
+    </void>
+    <void property="color">
+     <int>5</int>
+    </void>
+    <void property="effect">
+     <void index="0">
+      <int>5</int>
+     </void>
+     <void index="1">
+      <int>6</int>
+     </void>
+     <void index="2">
+      <int>26</int>
+     </void>
+     <void index="3">
+      <int>10</int>
+     </void>
+    </void>
+    <void property="name">
+     <string>音速弾</string>
+    </void>
+    <void property="sname">
+     <string>音速弾</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData112">
+    <void property="TRType">
+     <int>4</int>
+    </void>
+    <void property="animeN1">
+     <int>25</int>
+    </void>
+    <void property="animeType">
+     <int>5</int>
+    </void>
+    <void property="attackN1">
+     <int>7</int>
+    </void>
+    <void property="attackType">
+     <int>2</int>
+    </void>
+    <void property="color">
+     <int>4</int>
+    </void>
+    <void property="effect">
+     <void index="0">
+      <int>9</int>
+     </void>
+     <void index="1">
+      <int>4</int>
+     </void>
+     <void index="2">
+      <int>1</int>
+     </void>
+    </void>
+    <void property="fuelN1">
+     <int>4</int>
+    </void>
+    <void property="fuelType">
+     <int>3</int>
+    </void>
+    <void property="name">
+     <string>サンダーストーム</string>
+    </void>
+    <void property="sname">
+     <string>雷嵐</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData113">
+    <void property="TRType">
+     <int>1</int>
+    </void>
+    <void property="animeN1">
+     <int>18</int>
+    </void>
+    <void property="animeType">
+     <int>3</int>
+    </void>
+    <void property="attackN1">
+     <int>5</int>
+    </void>
+    <void property="attackType">
+     <int>2</int>
+    </void>
+    <void property="color">
+     <int>5</int>
+    </void>
+    <void property="effect">
+     <void index="0">
+      <int>5</int>
+     </void>
+     <void index="1">
+      <int>6</int>
+     </void>
+     <void index="2">
+      <int>36</int>
+     </void>
+     <void index="3">
+      <int>32</int>
+     </void>
+    </void>
+    <void property="name">
+     <string>ホーリーランス</string>
+    </void>
+    <void property="sname">
+     <string>聖槍</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData114">
+    <void property="animeN1">
+     <int>3</int>
+    </void>
+    <void property="animeType">
+     <int>1</int>
+    </void>
+    <void property="attackN1">
+     <int>4</int>
+    </void>
+    <void property="attackType">
+     <int>1</int>
+    </void>
+    <void property="color">
+     <int>3</int>
+    </void>
+    <void property="effect">
+     <void index="0">
+      <int>5</int>
+     </void>
+     <void index="1">
+      <int>17</int>
+     </void>
+     <void index="2">
+      <int>14</int>
+     </void>
+    </void>
+    <void property="name">
+     <string>必殺針</string>
+    </void>
+    <void property="sname">
+     <string>猛毒</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData115">
+    <void property="TRType">
+     <int>4</int>
+    </void>
+    <void property="animeN1">
+     <int>7</int>
+    </void>
+    <void property="animeType">
+     <int>5</int>
+    </void>
+    <void property="attackN1">
+     <int>7</int>
+    </void>
+    <void property="attackType">
+     <int>2</int>
+    </void>
+    <void property="color">
+     <int>3</int>
+    </void>
+    <void property="effect">
+     <void index="1">
+      <int>17</int>
+     </void>
+     <void index="2">
+      <int>3</int>
+     </void>
+    </void>
+    <void property="fuelN1">
+     <int>4</int>
+    </void>
+    <void property="fuelType">
+     <int>3</int>
+    </void>
+    <void property="name">
+     <string>ポイズンストーム</string>
+    </void>
+    <void property="sname">
+     <string>毒嵐</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData116">
+    <void property="TRType">
+     <int>17</int>
+    </void>
+    <void property="animeN1">
+     <int>21</int>
+    </void>
+    <void property="animeType">
+     <int>2</int>
+    </void>
+    <void property="attackN1">
+     <int>5</int>
+    </void>
+    <void property="attackType">
+     <int>1</int>
+    </void>
+    <void property="color">
+     <int>2</int>
+    </void>
+    <void property="effect">
+     <void index="0">
+      <int>31</int>
+     </void>
+     <void index="1">
+      <int>3</int>
+     </void>
+     <void index="2">
+      <int>15</int>
+     </void>
+     <void index="3">
+      <int>4</int>
+     </void>
+    </void>
+    <void property="fuelN1">
+     <int>2</int>
+    </void>
+    <void property="fuelType">
+     <int>3</int>
+    </void>
+    <void property="name">
+     <string>デッドエンド</string>
+    </void>
+    <void property="sname">
+     <string>終焉</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData117">
+    <void property="animeN1">
+     <int>1</int>
+    </void>
+    <void property="animeType">
+     <int>1</int>
+    </void>
+    <void property="attackN1">
+     <int>1</int>
+    </void>
+    <void property="attackType">
+     <int>1</int>
+    </void>
+    <void property="color">
+     <int>2</int>
+    </void>
+    <void property="effect">
+     <void index="0">
+      <int>5</int>
+     </void>
+     <void index="1">
+      <int>6</int>
+     </void>
+     <void index="2">
+      <int>19</int>
+     </void>
+    </void>
+    <void property="fuelN1">
+     <int>1</int>
+    </void>
+    <void property="fuelType">
+     <int>1</int>
+    </void>
+    <void property="name">
+     <string>誘惑の剣</string>
+    </void>
+    <void property="sname">
+     <string>誘惑</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData118">
+    <void property="TRType">
+     <int>16</int>
+    </void>
+    <void property="animeN1">
+     <int>1</int>
+    </void>
+    <void property="animeType">
+     <int>2</int>
+    </void>
+    <void property="attackN1">
+     <int>1</int>
+    </void>
+    <void property="attackType">
+     <int>1</int>
+    </void>
+    <void property="color">
+     <int>5</int>
+    </void>
+    <void property="effect">
+     <void index="0">
+      <int>10</int>
+     </void>
+     <void index="1">
+      <int>27</int>
+     </void>
+     <void index="2">
+      <int>24</int>
+     </void>
+    </void>
+    <void property="fuelN1">
+     <int>1</int>
+    </void>
+    <void property="fuelType">
+     <int>1</int>
+    </void>
+    <void property="name">
+     <string>空裂斬</string>
+    </void>
+    <void property="sname">
+     <string>空裂斬</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData119">
+    <void property="TRType">
+     <int>15</int>
+    </void>
+    <void property="animeN1">
+     <int>16</int>
+    </void>
+    <void property="animeType">
+     <int>5</int>
+    </void>
+    <void property="attackN1">
+     <int>8</int>
+    </void>
+    <void property="attackType">
+     <int>2</int>
+    </void>
+    <void property="color">
+     <int>1</int>
+    </void>
+    <void property="effect">
+     <void index="0">
+      <int>3</int>
+     </void>
+     <void index="1">
+      <int>8</int>
+     </void>
+    </void>
+    <void property="fuelN1">
+     <int>1</int>
+    </void>
+    <void property="fuelType">
+     <int>3</int>
+    </void>
+    <void property="name">
+     <string>アイスブレス</string>
+    </void>
+    <void property="sname">
+     <string>氷息</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData120">
+    <void property="animeN1">
+     <int>5</int>
+    </void>
+    <void property="animeType">
+     <int>1</int>
+    </void>
+    <void property="attackN1">
+     <int>1</int>
+    </void>
+    <void property="attackType">
+     <int>1</int>
+    </void>
+    <void property="color">
+     <int>4</int>
+    </void>
+    <void property="effect">
+     <void index="0">
+      <int>5</int>
+     </void>
+     <void index="1">
+      <int>6</int>
+     </void>
+     <void index="2">
+      <int>11</int>
+     </void>
+     <void index="3">
+      <int>31</int>
+     </void>
+    </void>
+    <void property="fuelN1">
+     <int>1</int>
+    </void>
+    <void property="fuelType">
+     <int>1</int>
+    </void>
+    <void property="name">
+     <string>竜斬り</string>
+    </void>
+    <void property="sname">
+     <string>竜斬り</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData121">
+    <void property="TRType">
+     <int>9</int>
+    </void>
+    <void property="animeN1">
+     <int>5</int>
+    </void>
+    <void property="animeType">
+     <int>2</int>
+    </void>
+    <void property="attackN1">
+     <int>7</int>
+    </void>
+    <void property="attackType">
+     <int>2</int>
+    </void>
+    <void property="color">
+     <int>4</int>
+    </void>
+    <void property="effect">
+     <void index="0">
+      <int>4</int>
+     </void>
+     <void index="1">
+      <int>3</int>
+     </void>
+     <void index="2">
+      <int>1</int>
+     </void>
+     <void index="3">
+      <int>32</int>
+     </void>
+    </void>
+    <void property="fuelN1">
+     <int>2</int>
+    </void>
+    <void property="fuelType">
+     <int>3</int>
+    </void>
+    <void property="name">
+     <string>スターティアラ</string>
+    </void>
+    <void property="sname">
+     <string>星屑</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData122">
+    <void property="TRType">
+     <int>7</int>
+    </void>
+    <void property="animeN1">
+     <int>14</int>
+    </void>
+    <void property="animeType">
+     <int>3</int>
+    </void>
+    <void property="attackN1">
+     <int>6</int>
+    </void>
+    <void property="attackType">
+     <int>1</int>
+    </void>
+    <void property="color">
+     <int>2</int>
+    </void>
+    <void property="effect">
+     <void index="0">
+      <int>7</int>
+     </void>
+     <void index="1">
+      <int>10</int>
+     </void>
+     <void index="2">
+      <int>5</int>
+     </void>
+     <void index="3">
+      <int>6</int>
+     </void>
+    </void>
+    <void property="name">
+     <string>ファイヤーアロー</string>
+    </void>
+    <void property="sname">
+     <string>炎矢</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData123">
+    <void property="TRType">
+     <int>3</int>
+    </void>
+    <void property="animeN1">
+     <int>25</int>
+    </void>
+    <void property="animeType">
+     <int>2</int>
+    </void>
+    <void property="attackN1">
+     <int>7</int>
+    </void>
+    <void property="attackType">
+     <int>2</int>
+    </void>
+    <void property="color">
+     <int>4</int>
+    </void>
+    <void property="effect">
+     <void index="0">
+      <int>9</int>
+     </void>
+     <void index="1">
+      <int>31</int>
+     </void>
+    </void>
+    <void property="fuelN1">
+     <int>1</int>
+    </void>
+    <void property="fuelType">
+     <int>3</int>
+    </void>
+    <void property="name">
+     <string>サンダーフレア</string>
+    </void>
+    <void property="sname">
+     <string>雷電</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData124">
+    <void property="animeN1">
+     <int>12</int>
+    </void>
+    <void property="animeType">
+     <int>1</int>
+    </void>
+    <void property="attackN1">
+     <int>4</int>
+    </void>
+    <void property="attackType">
+     <int>1</int>
+    </void>
+    <void property="color">
+     <int>5</int>
+    </void>
+    <void property="effect">
+     <void index="0">
+      <int>5</int>
+     </void>
+     <void index="1">
+      <int>6</int>
+     </void>
+     <void index="2">
+      <int>37</int>
+     </void>
+    </void>
+    <void property="fuelN1">
+     <int>2</int>
+    </void>
+    <void property="fuelType">
+     <int>5</int>
+    </void>
+    <void property="name">
+     <string>ダブルヒット</string>
+    </void>
+    <void property="sname">
+     <string>連撃</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData125">
+    <void property="TRType">
+     <int>7</int>
+    </void>
+    <void property="animeN1">
+     <int>18</int>
+    </void>
+    <void property="animeType">
+     <int>3</int>
+    </void>
+    <void property="attackN1">
+     <int>4</int>
+    </void>
+    <void property="attackType">
+     <int>1</int>
+    </void>
+    <void property="color">
+     <int>4</int>
+    </void>
+    <void property="effect">
+     <void index="0">
+      <int>6</int>
+     </void>
+     <void index="1">
+      <int>24</int>
+     </void>
+     <void index="2">
+      <int>5</int>
+     </void>
+     <void index="3">
+      <int>10</int>
+     </void>
+    </void>
+    <void property="name">
+     <string>飛苦無</string>
+    </void>
+    <void property="sname">
+     <string>飛苦無</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData126">
+    <void property="animeN1">
+     <int>1</int>
+    </void>
+    <void property="animeType">
+     <int>1</int>
+    </void>
+    <void property="attackN1">
+     <int>1</int>
+    </void>
+    <void property="attackType">
+     <int>1</int>
+    </void>
+    <void property="color">
+     <int>5</int>
+    </void>
+    <void property="effect">
+     <void index="0">
+      <int>5</int>
+     </void>
+     <void index="1">
+      <int>6</int>
+     </void>
+     <void index="2">
+      <int>14</int>
+     </void>
+     <void index="3">
+      <int>19</int>
+     </void>
+     <void index="4">
+      <int>32</int>
+     </void>
+    </void>
+    <void property="fuelN1">
+     <int>2</int>
+    </void>
+    <void property="fuelType">
+     <int>1</int>
+    </void>
+    <void property="name">
+     <string>エクスカリバー</string>
+    </void>
+    <void property="sname">
+     <string>聖剣</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData127">
+    <void property="TRType">
+     <int>5</int>
+    </void>
+    <void property="animeN1">
+     <int>21</int>
+    </void>
+    <void property="animeType">
+     <int>2</int>
+    </void>
+    <void property="attackN1">
+     <int>7</int>
+    </void>
+    <void property="attackType">
+     <int>2</int>
+    </void>
+    <void property="color">
+     <int>2</int>
+    </void>
+    <void property="effect">
+     <void index="0">
+      <int>4</int>
+     </void>
+     <void index="1">
+      <int>3</int>
+     </void>
+     <void index="2">
+      <int>15</int>
+     </void>
+     <void index="3">
+      <int>16</int>
+     </void>
+    </void>
+    <void property="fuelN1">
+     <int>4</int>
+    </void>
+    <void property="fuelType">
+     <int>3</int>
+    </void>
+    <void property="name">
+     <string>カラミティエンド</string>
+    </void>
+    <void property="sname">
+     <string>終焉</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData128">
+    <void property="TRType">
+     <int>3</int>
+    </void>
+    <void property="animeN1">
+     <int>2</int>
+    </void>
+    <void property="animeType">
+     <int>2</int>
+    </void>
+    <void property="attackN1">
+     <int>3</int>
+    </void>
+    <void property="color">
+     <int>2</int>
+    </void>
+    <void property="effect">
+     <void index="0">
+      <int>20</int>
+     </void>
+     <void index="1">
+      <int>22</int>
+     </void>
+     <void index="2">
+      <int>13</int>
+     </void>
+     <void index="3">
+      <int>3</int>
+     </void>
+    </void>
+    <void property="fuelN1">
+     <int>3</int>
+    </void>
+    <void property="fuelType">
+     <int>3</int>
+    </void>
+    <void property="name">
+     <string>バーニング</string>
+    </void>
+    <void property="sname">
+     <string>熱血</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData129">
+    <void property="TRType">
+     <int>9</int>
+    </void>
+    <void property="animeN1">
+     <int>20</int>
+    </void>
+    <void property="animeType">
+     <int>5</int>
+    </void>
+    <void property="attackN1">
+     <int>6</int>
+    </void>
+    <void property="attackType">
+     <int>2</int>
+    </void>
+    <void property="color">
+     <int>3</int>
+    </void>
+    <void property="effect">
+     <void index="0">
+      <int>33</int>
+     </void>
+    </void>
+    <void property="fuelN1">
+     <int>2</int>
+    </void>
+    <void property="fuelType">
+     <int>3</int>
+    </void>
+    <void property="name">
+     <string>みだれ油</string>
+    </void>
+    <void property="sname">
+     <string>乱油</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData130">
+    <void property="animeN1">
+     <int>1</int>
+    </void>
+    <void property="animeType">
+     <int>1</int>
+    </void>
+    <void property="attackN1">
+     <int>1</int>
+    </void>
+    <void property="attackType">
+     <int>1</int>
+    </void>
+    <void property="color">
+     <int>3</int>
+    </void>
+    <void property="effect">
+     <void index="0">
+      <int>31</int>
+     </void>
+     <void index="1">
+      <int>25</int>
+     </void>
+     <void index="2">
+      <int>5</int>
+     </void>
+    </void>
+    <void property="fuelN1">
+     <int>1</int>
+    </void>
+    <void property="fuelType">
+     <int>5</int>
+    </void>
+    <void property="name">
+     <string>芋切り</string>
+    </void>
+    <void property="sname">
+     <string>芋切</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AttackData" id="AttackData131">
+    <void property="TRType">
+     <int>7</int>
+    </void>
+    <void property="animeN1">
+     <int>18</int>
+    </void>
+    <void property="animeType">
+     <int>3</int>
+    </void>
+    <void property="attackN1">
+     <int>7</int>
+    </void>
+    <void property="attackType">
+     <int>2</int>
+    </void>
+    <void property="color">
+     <int>5</int>
+    </void>
+    <void property="effect">
+     <void index="0">
+      <int>24</int>
+     </void>
+    </void>
+    <void property="fuelN1">
+     <int>1</int>
+    </void>
+    <void property="fuelType">
+     <int>3</int>
+    </void>
+    <void property="name">
+     <string>誘導弾</string>
+    </void>
+    <void property="sname">
+     <string>誘導弾</string>
+    </void>
+   </object>
+  </void>
+ </object>
+</java>

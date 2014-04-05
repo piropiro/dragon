@@ -8,6 +8,7 @@ import java.util.Iterator;
 import java.util.Vector;
 import mine.DataStream;
 import mine.UnitMap;
+import mine.io.BeanIO;
 
 class Kakusei extends ActionBase {
 
@@ -37,7 +38,7 @@ class Kakusei extends ActionBase {
 	}
 
 	private Body getKakuseiData() {
-		Vector vector = (Vector) DataStream.read("data/E99.txt");
+            Vector vector = (Vector) BeanIO.read("data/body/E99.xml");
 		return (Body) vector.firstElement();
 	}
 

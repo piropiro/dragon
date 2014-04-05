@@ -50,7 +50,7 @@ public class DataStream {
 				objectinputstream.close();
 			}
 		} catch (Exception exception) {
-			exception.printStackTrace();
+                    throw new MineException(exception);
 		}
 		return obj1;
 	}
@@ -77,7 +77,7 @@ public class DataStream {
 				objectoutputstream.close();
 			}
 		} catch (Exception exception) {
-			exception.printStackTrace();
+			throw new MineException(exception);
 		}
 	}
 

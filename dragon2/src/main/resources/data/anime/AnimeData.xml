@@ -1,0 +1,661 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="1.8.0" class="java.beans.XMLDecoder">
+ <object class="java.util.Vector">
+  <void method="add">
+   <object class="AnimeData"/>
+  </void>
+  <void method="add">
+   <object class="AnimeData">
+    <void property="anime">
+     <array class="int" length="5">
+      <void index="0">
+       <int>45</int>
+      </void>
+      <void index="1">
+       <int>46</int>
+      </void>
+      <void index="2">
+       <int>47</int>
+      </void>
+      <void index="3">
+       <int>48</int>
+      </void>
+     </array>
+    </void>
+    <void property="name">
+     <string>普通斬り</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AnimeData">
+    <void property="anime">
+     <array class="int" length="6">
+      <void index="0">
+       <int>49</int>
+      </void>
+      <void index="1">
+       <int>50</int>
+      </void>
+      <void index="2">
+       <int>51</int>
+      </void>
+      <void index="3">
+       <int>52</int>
+      </void>
+      <void index="4">
+       <int>53</int>
+      </void>
+     </array>
+    </void>
+    <void property="name">
+     <string>火炎</string>
+    </void>
+    <void property="sleep">
+     <int>70</int>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AnimeData">
+    <void property="anime">
+     <array class="int" length="7">
+      <void index="0">
+       <int>54</int>
+      </void>
+      <void index="1">
+       <int>55</int>
+      </void>
+      <void index="2">
+       <int>56</int>
+      </void>
+      <void index="3">
+       <int>57</int>
+      </void>
+      <void index="4">
+       <int>58</int>
+      </void>
+      <void index="5">
+       <int>59</int>
+      </void>
+     </array>
+    </void>
+    <void property="name">
+     <string>氷結</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AnimeData">
+    <void property="anime">
+     <array class="int" length="5">
+      <void index="0">
+       <int>64</int>
+      </void>
+      <void index="1">
+       <int>65</int>
+      </void>
+      <void index="2">
+       <int>66</int>
+      </void>
+      <void index="3">
+       <int>67</int>
+      </void>
+     </array>
+    </void>
+    <void property="name">
+     <string>魔法</string>
+    </void>
+    <void property="sleep">
+     <int>60</int>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AnimeData">
+    <void property="anime">
+     <array class="int" length="5">
+      <void index="0">
+       <int>68</int>
+      </void>
+      <void index="1">
+       <int>69</int>
+      </void>
+      <void index="2">
+       <int>70</int>
+      </void>
+      <void index="3">
+       <int>71</int>
+      </void>
+     </array>
+    </void>
+    <void property="name">
+     <string>雷斬り</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AnimeData">
+    <void property="anime">
+     <array class="int" length="5">
+      <void index="0">
+       <int>60</int>
+      </void>
+      <void index="1">
+       <int>61</int>
+      </void>
+      <void index="2">
+       <int>62</int>
+      </void>
+      <void index="3">
+       <int>63</int>
+      </void>
+     </array>
+    </void>
+    <void property="name">
+     <string>火斬り</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AnimeData">
+    <void property="anime">
+     <array class="int" length="5">
+      <void index="0">
+       <int>105</int>
+      </void>
+      <void index="1">
+       <int>106</int>
+      </void>
+      <void index="2">
+       <int>107</int>
+      </void>
+      <void index="3">
+       <int>108</int>
+      </void>
+     </array>
+    </void>
+    <void property="name">
+     <string>直斬り</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AnimeData">
+    <void property="anime">
+     <array class="int" length="9">
+      <void index="0">
+       <int>143</int>
+      </void>
+      <void index="1">
+       <int>144</int>
+      </void>
+      <void index="2">
+       <int>145</int>
+      </void>
+      <void index="3">
+       <int>146</int>
+      </void>
+      <void index="4">
+       <int>146</int>
+      </void>
+      <void index="5">
+       <int>145</int>
+      </void>
+      <void index="6">
+       <int>144</int>
+      </void>
+      <void index="7">
+       <int>143</int>
+      </void>
+     </array>
+    </void>
+    <void property="name">
+     <string>芋づる</string>
+    </void>
+    <void property="sleep">
+     <int>70</int>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AnimeData">
+    <void property="anime">
+     <array class="int" length="9">
+      <void index="0">
+       <int>120</int>
+      </void>
+      <void index="1">
+       <int>121</int>
+      </void>
+      <void index="2">
+       <int>122</int>
+      </void>
+      <void index="3">
+       <int>123</int>
+      </void>
+      <void index="4">
+       <int>124</int>
+      </void>
+      <void index="5">
+       <int>125</int>
+      </void>
+      <void index="6">
+       <int>126</int>
+      </void>
+      <void index="7">
+       <int>127</int>
+      </void>
+     </array>
+    </void>
+    <void property="name">
+     <string>大火炎</string>
+    </void>
+    <void property="sleep">
+     <int>70</int>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AnimeData">
+    <void property="anime">
+     <array class="int" length="9">
+      <void index="0">
+       <int>135</int>
+      </void>
+      <void index="1">
+       <int>136</int>
+      </void>
+      <void index="2">
+       <int>137</int>
+      </void>
+      <void index="3">
+       <int>138</int>
+      </void>
+      <void index="4">
+       <int>139</int>
+      </void>
+      <void index="5">
+       <int>140</int>
+      </void>
+      <void index="6">
+       <int>141</int>
+      </void>
+      <void index="7">
+       <int>142</int>
+      </void>
+     </array>
+    </void>
+    <void property="name">
+     <string>大氷結</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AnimeData">
+    <void property="anime">
+     <array class="int" length="2">
+      <void index="0">
+       <int>81</int>
+      </void>
+      <void index="1">
+       <int>83</int>
+      </void>
+     </array>
+    </void>
+    <void property="name">
+     <string>回転</string>
+    </void>
+    <void property="sleep">
+     <int>20</int>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AnimeData">
+    <void property="anime">
+     <array class="int" length="5">
+      <void index="0">
+       <int>45</int>
+      </void>
+      <void index="1">
+       <int>46</int>
+      </void>
+      <void index="2">
+       <int>47</int>
+      </void>
+      <void index="3">
+       <int>48</int>
+      </void>
+     </array>
+    </void>
+    <void property="name">
+     <string>早斬り</string>
+    </void>
+    <void property="sleep">
+     <int>25</int>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AnimeData">
+    <void property="anime">
+     <array class="int" length="2">
+      <void index="0">
+       <int>86</int>
+      </void>
+      <void index="1">
+       <int>87</int>
+      </void>
+     </array>
+    </void>
+    <void property="name">
+     <string>普通矢</string>
+    </void>
+    <void property="sleep">
+     <int>15</int>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AnimeData">
+    <void property="anime">
+     <array class="int" length="3">
+      <void index="0">
+       <int>72</int>
+      </void>
+      <void index="1">
+       <int>73</int>
+      </void>
+      <void index="2">
+       <int>74</int>
+      </void>
+     </array>
+    </void>
+    <void property="name">
+     <string>火炎矢</string>
+    </void>
+    <void property="sleep">
+     <int>30</int>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AnimeData">
+    <void property="anime">
+     <array class="int" length="5">
+      <void index="0">
+       <int>98</int>
+      </void>
+      <void index="1">
+       <int>99</int>
+      </void>
+      <void index="2">
+       <int>100</int>
+      </void>
+      <void index="3">
+       <int>101</int>
+      </void>
+     </array>
+    </void>
+    <void property="name">
+     <string>氷斬り</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AnimeData">
+    <void property="anime">
+     <array class="int" length="3">
+      <void index="0">
+       <int>55</int>
+      </void>
+      <void index="1">
+       <int>56</int>
+      </void>
+      <void index="2">
+       <int>57</int>
+      </void>
+     </array>
+    </void>
+    <void property="name">
+     <string>氷結矢</string>
+    </void>
+    <void property="sleep">
+     <int>15</int>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AnimeData">
+    <void property="anime">
+     <array class="int" length="5">
+      <void index="0">
+       <int>113</int>
+      </void>
+      <void index="1">
+       <int>114</int>
+      </void>
+      <void index="2">
+       <int>115</int>
+      </void>
+      <void index="3">
+       <int>116</int>
+      </void>
+     </array>
+    </void>
+    <void property="name">
+     <string>切上げ</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AnimeData" id="AnimeData0">
+    <void property="anime">
+     <void index="0">
+      <int>80</int>
+     </void>
+    </void>
+    <void property="name">
+     <string>普通槍</string>
+    </void>
+    <void property="sleep">
+     <int>15</int>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AnimeData">
+    <void property="anime">
+     <array class="int" length="5">
+      <void index="0">
+       <int>90</int>
+      </void>
+      <void index="1">
+       <int>91</int>
+      </void>
+      <void index="2">
+       <int>92</int>
+      </void>
+      <void index="3">
+       <int>93</int>
+      </void>
+     </array>
+    </void>
+    <void property="name">
+     <string>斧</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AnimeData">
+    <void property="anime">
+     <array class="int" length="2">
+      <void index="0">
+       <int>84</int>
+      </void>
+      <void index="1">
+       <int>85</int>
+      </void>
+     </array>
+    </void>
+    <void property="name">
+     <string>ブレス</string>
+    </void>
+    <void property="sleep">
+     <int>15</int>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AnimeData">
+    <void property="anime">
+     <array class="int" length="5">
+      <void index="0">
+       <int>109</int>
+      </void>
+      <void index="1">
+       <int>110</int>
+      </void>
+      <void index="2">
+       <int>111</int>
+      </void>
+      <void index="3">
+       <int>112</int>
+      </void>
+     </array>
+    </void>
+    <void property="name">
+     <string>ギロチン</string>
+    </void>
+    <void property="sleep">
+     <int>70</int>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AnimeData">
+    <void property="anime">
+     <array class="int" length="2">
+      <void index="0">
+       <int>82</int>
+      </void>
+      <void index="1">
+       <int>83</int>
+      </void>
+     </array>
+    </void>
+    <void property="name">
+     <string>水矢</string>
+    </void>
+    <void property="sleep">
+     <int>15</int>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AnimeData">
+    <void property="anime">
+     <array class="int" length="5">
+      <void index="0">
+       <int>94</int>
+      </void>
+      <void index="1">
+       <int>95</int>
+      </void>
+      <void index="2">
+       <int>96</int>
+      </void>
+      <void index="3">
+       <int>97</int>
+      </void>
+     </array>
+    </void>
+    <void property="name">
+     <string>水圧</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AnimeData">
+    <void property="anime">
+     <array class="int" length="2">
+      <void index="0">
+       <int>88</int>
+      </void>
+      <void index="1">
+       <int>89</int>
+      </void>
+     </array>
+    </void>
+    <void property="name">
+     <string>雷矢</string>
+    </void>
+    <void property="sleep">
+     <int>20</int>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AnimeData">
+    <void property="anime">
+     <array class="int" length="5">
+      <void index="0">
+       <int>128</int>
+      </void>
+      <void index="1">
+       <int>129</int>
+      </void>
+      <void index="2">
+       <int>130</int>
+      </void>
+      <void index="3">
+       <int>131</int>
+      </void>
+     </array>
+    </void>
+    <void property="name">
+     <string>電撃</string>
+    </void>
+    <void property="sleep">
+     <int>30</int>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="AnimeData">
+    <void property="anime">
+     <array class="int" length="9">
+      <void index="0">
+       <int>150</int>
+      </void>
+      <void index="1">
+       <int>151</int>
+      </void>
+      <void index="2">
+       <int>152</int>
+      </void>
+      <void index="3">
+       <int>153</int>
+      </void>
+      <void index="4">
+       <int>154</int>
+      </void>
+      <void index="5">
+       <int>155</int>
+      </void>
+      <void index="6">
+       <int>156</int>
+      </void>
+      <void index="7">
+       <int>157</int>
+      </void>
+     </array>
+    </void>
+    <void property="name">
+     <string>爆熱拳</string>
+    </void>
+   </object>
+  </void>
+ </object>
+</java>

@@ -24,7 +24,7 @@ class Treasure {
 		for (Iterator iterator = vector.iterator(); iterator.hasNext();) {
 			Body body = (Body) iterator.next();
 			if (unitworks.have(body)) {
-				body.setType(35, true);
+				body.setTypeState(35, true);
 				body.hp = 0;
 			} else if (body.x == point.x && body.y == point.y) {
 				item = body;
@@ -268,7 +268,7 @@ class Treasure {
 		body.hitMax = Math.max(0, body.hitMax - 6);
 		body.misMax = Math.max(0, body.misMax - 6);
 		body.type[3] = 44;
-		body.setType(44, true);
+		body.setTypeState(44, true);
 	}
 
 	private Body item;

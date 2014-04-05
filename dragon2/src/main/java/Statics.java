@@ -6,6 +6,8 @@
 import java.awt.Image;
 import java.util.Vector;
 import mine.*;
+import mine.io.BeanIO;
+import mine.io.StringIO;
 
 class Statics {
 
@@ -13,13 +15,17 @@ class Statics {
 	}
 
 	static void setup() {
-		AttackDatas = (Vector) DataStream.read("data/AD.txt");
-		AnimeDatas = (Vector) DataStream.read("data/AN.txt");
-		idoType = (String[]) DataStream.read("data/itype.txt");
-		tokusei = (String[]) DataStream.read("data/tokusei.txt");
-		effect = (String[]) DataStream.read("data/effect.txt");
-		trtype = (String[]) DataStream.read("data/trtype.txt");
-		atype = (String[]) DataStream.read("data/atype.txt");
+		//AttackDatas = (Vector) DataStream.read("data/AD.txt");
+            AttackDatas = (Vector) BeanIO.read("data/waza/AttackData.xml");
+                //BeanIO.write("target/AttackData.xml", AttackDatas);
+		//AnimeDatas = (Vector) DataStream.read("data/AN.txt");
+            AnimeDatas = (Vector) BeanIO.read("data/anime/AnimeData.xml");
+                //BeanIO.write("target/AnimeData.xml", AnimeDatas);
+		idoType = (String[]) StringIO.read("text/itype.txt");
+		tokusei = (String[]) StringIO.read("text/tokusei.txt");
+		effect = (String[]) StringIO.read("text/effect.txt");
+		trtype = (String[]) StringIO.read("text/trtype.txt");
+		atype = (String[]) StringIO.read("text/atype.txt");
 		back = ImageLoader.getImage("image/back.gif", false);
 		chara = ImageLoader.getImage("image/chara.gif", true);
 		waku = ImageLoader.getImage("image/waku.gif", true);

@@ -8,6 +8,7 @@ import java.io.PrintStream;
 import java.util.Vector;
 import mine.DataStream;
 import mine.TextDialog;
+import mine.io.MatrixIO;
 
 public class SlgClient {
 
@@ -59,7 +60,7 @@ public class SlgClient {
 		if (s == null)
 			return null;
 		mapname = s;
-		int ai[][] = (int[][]) DataStream.read(mapname);
+                int ai[][] = (int[][]) MatrixIO.readX(mapname);
 		if (ai != null)
 			return ai;
 		else

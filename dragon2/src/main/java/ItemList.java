@@ -5,6 +5,7 @@
 
 import java.util.Vector;
 import mine.DataStream;
+import mine.io.BeanIO;
 
 public class ItemList {
 
@@ -16,7 +17,7 @@ public class ItemList {
 		Vector vector = new Vector();
 		Vector vector1 = new Vector();
 		for (int i = 0; i < 30; i++) {
-			Vector vector2 = (Vector) DataStream.read("data/E" + i + ".txt");
+                    Vector vector2 = (Vector) BeanIO.read("data/body/E" + i + ".xml");
 			if (vector2 != null) {
 				for (int j = 0; j < vector2.size(); j++) {
 					Body body = (Body) vector2.elementAt(j);

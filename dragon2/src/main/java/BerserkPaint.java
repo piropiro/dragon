@@ -26,7 +26,7 @@ class BerserkPaint extends ActionBase {
 	}
 
 	private void setStatus() {
-		ba.setType(58, true);
+		ba.setTypeState(58, true);
 		ba.hp = ba.hpMax;
 		ba.str *= 1.5D;
 		ba.def *= 1.5D;

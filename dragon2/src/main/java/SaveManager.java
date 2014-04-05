@@ -5,13 +5,15 @@
 
 import java.util.Vector;
 import mine.DataStream;
+import mine.io.BeanIO;
+import mine.io.MatrixIO;
 
 class SaveManager {
 
 	SaveManager(UnitWorks unitworks) {
 		uw = unitworks;
 		sd = null;
-		stage = (int[]) DataStream.read("data/stage.txt");
+		stage = (int[][]) MatrixIO.read("data/stages.txt");
 		leftFlag = false;
 	}
 
@@ -49,7 +51,8 @@ class SaveManager {
 
 	private Vector initData() {
 		Vector vector = new Vector();
-		vector.add((Vector) DataStream.read("data/E0.txt"));
+		//vector.add((Vector) DataStream.read("data/E0.txt"));
+                vector.add((Vector) BeanIO.read("data/body/E0.xml"));
 		vector.add(new SaveData());
 		return vector;
 	}
@@ -74,29 +77,29 @@ class SaveManager {
 	}
 
 	public int[][] getMapData() {
-		int ai[][] = (int[][]) DataStream.read("data/D" + getMapNum() + ".txt");
+		int ai[][] = (int[][]) MatrixIO.readX("data/map/D" + getMapNum() + ".txt");
 		if (ai == null) {
 			sd.mapNum = 0;
-			ai = (int[][]) DataStream.read("data/D1.txt");
+			ai = (int[][]) MatrixIO.readX("data/map/D1.txt");
 		}
 		return ai;
 	}
 
 	public int[][] getCampMap() {
-		return (int[][]) DataStream.read("data/D0.txt");
+		return (int[][]) MatrixIO.readX("data/map/D0.txt");
 	}
 
 	public int[][] getCollectionMap() {
-		return (int[][]) DataStream.read("data/D90.txt");
+		return (int[][]) MatrixIO.readX("data/map/D90.txt");
 	}
 
 	public int[][] getWazalistMap() {
-		return (int[][]) DataStream.read("data/D92.txt");
+		return (int[][]) MatrixIO.readX("data/map/D92.txt");
 	}
 
 	public Vector getEnemyData() {
-		Vector vector = (Vector) DataStream.read("data/E" + getMapNum()
-				+ ".txt");
+		// Vector vector = (Vector) DataStream.read("data/E" + getMapNum() + ".txt");
+            Vector vector = (Vector) BeanIO.read("data/body/E" + getMapNum() + ".xml");
 		if (vector == null)
 			vector = new Vector();
 		return vector;
@@ -104,13 +107,13 @@ class SaveManager {
 
 	public int getMapNum() {
 		if (leftFlag)
-			return stage[sd.mapNum * 2];
+			return stage[sd.mapNum][0];
 		else
-			return stage[sd.mapNum * 2 + 1];
+			return stage[sd.mapNum][1];
 	}
 
 	public boolean isDivided() {
-		return stage[sd.mapNum * 2] != stage[sd.mapNum * 2 + 1];
+		return stage[sd.mapNum][0] != stage[sd.mapNum][1];
 	}
 
 	public void selectLR(boolean flag) {
@@ -215,7 +218,7 @@ class SaveManager {
 	}
 
 	public boolean isFinalStage() {
-		return getMapNum() == stage[stage.length - 1];
+		return getMapNum() == stage[stage.length - 1][0];
 	}
 
 	public int getEnemyLevel() {
@@ -245,7 +248,7 @@ class SaveManager {
 		sd.mapNum = getMapNum();
 	}
 
-	private int stage[];
+	private int[][] stage;
 	private UnitWorks uw;
 	private SaveData sd;
 	private long startTime;

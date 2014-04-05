@@ -75,8 +75,8 @@ class TurnManager extends ActionBase {
 			if (body.isAlive()) {
 				if (!body.isType(32))
 					PaintBase.V.S(5, 0, body.x, body.y, 0);
-				body.setType(36, false);
-				body.setType(37, false);
+				body.setTypeState(36, false);
+				body.setTypeState(37, false);
 				setTikei(body, flag);
 				setPoison(body, flag);
 				setHeal(body, flag);
@@ -88,9 +88,9 @@ class TurnManager extends ActionBase {
 				setStatus(body, 27, 6);
 				setStatus(body, 21, 1);
 				if (body.isType(32)) {
-					body.setType(32, false);
+					body.setTypeState(32, false);
 					if (body.isType(27) || body.isType(21))
-						body.setType(35, true);
+						body.setTypeState(35, true);
 				}
 			}
 		}
@@ -99,7 +99,7 @@ class TurnManager extends ActionBase {
 
 	private void setStatus(Body body, int i, int j) {
 		if (!body.isType(32))
-			body.setType(i, false);
+			body.setTypeState(i, false);
 		else if (body.isType(i))
 			PaintBase.V.S(5, 0, body.x, body.y, j);
 	}
@@ -115,7 +115,7 @@ class TurnManager extends ActionBase {
 			if (body.hp == body.hpMax && !body.isType(23)) {
 				return;
 			} else {
-				body.setType(23, false);
+				body.setTypeState(23, false);
 				uw.setAnime(1, -1, point, point);
 				body.hp += Math.max(2, body.hpMax / 4);
 				body.hp = Math.min(body.hp, body.hpMax);
@@ -132,13 +132,13 @@ class TurnManager extends ActionBase {
 				return;
 			if (body.itype == 5)
 				return;
-			body.setType(25, true);
+			body.setTypeState(25, true);
 			if (body.isType(21))
 				return;
 			if (body.isType(27)) {
 				return;
 			} else {
-				body.setType(32, true);
+				body.setTypeState(32, true);
 				return;
 			}
 
@@ -148,20 +148,20 @@ class TurnManager extends ActionBase {
 			if (body.isType(24)) {
 				return;
 			} else {
-				body.setType(23, true);
+				body.setTypeState(23, true);
 				return;
 			}
 
 		case 8: // '\b'
 			if (body.isType(17))
 				return;
-			body.setType(26, true);
+			body.setTypeState(26, true);
 			if (body.isType(21))
 				return;
 			if (body.isType(27)) {
 				return;
 			} else {
-				body.setType(32, true);
+				body.setTypeState(32, true);
 				return;
 			}
 
@@ -208,7 +208,7 @@ class TurnManager extends ActionBase {
 			body.hp = Math.max(1, body.hp);
 		}
 		if (body.hp == 1)
-			body.setType(23, false);
+			body.setTypeState(23, false);
 	}
 
 	private void setBersek(Body body, boolean flag) {
@@ -241,7 +241,7 @@ class TurnManager extends ActionBase {
 			body.mst = Math.max(0, body.mst - 2);
 			body.hp = Math.min(body.hpMax, body.hp + body.hpMax / 2);
 		} else {
-			body.setType(29, false);
+			body.setTypeState(29, false);
 		}
 	}
 

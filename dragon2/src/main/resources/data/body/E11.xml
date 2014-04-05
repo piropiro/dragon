@@ -1,0 +1,1532 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="1.8.0" class="java.beans.XMLDecoder">
+ <object class="java.util.Vector">
+  <void method="add">
+   <object class="Body" id="Body0">
+    <void property="atk">
+     <void index="0">
+      <int>1</int>
+     </void>
+    </void>
+    <void property="color">
+     <int>3</int>
+    </void>
+    <void property="def">
+     <int>10</int>
+    </void>
+    <void property="defMax">
+     <int>100</int>
+    </void>
+    <void property="exp">
+     <int>20</int>
+    </void>
+    <void property="hit">
+     <int>22</int>
+    </void>
+    <void property="hitMax">
+     <int>220</int>
+    </void>
+    <void property="hp">
+     <int>15</int>
+    </void>
+    <void property="hpMax">
+     <int>15</int>
+    </void>
+    <void property="ido">
+     <int>4</int>
+    </void>
+    <void property="img">
+     <int>37</int>
+    </void>
+    <void property="itype">
+     <int>3</int>
+    </void>
+    <void property="level">
+     <int>4</int>
+    </void>
+    <void property="maai">
+     <int>6</int>
+    </void>
+    <void property="mdf">
+     <int>6</int>
+    </void>
+    <void property="mdfMax">
+     <int>60</int>
+    </void>
+    <void property="mis">
+     <int>13</int>
+    </void>
+    <void property="misMax">
+     <int>130</int>
+    </void>
+    <void property="mst">
+     <int>10</int>
+    </void>
+    <void property="mstMax">
+     <int>100</int>
+    </void>
+    <void property="name">
+     <string>ゴブリンナイト</string>
+    </void>
+    <void property="scope">
+     <int>1</int>
+    </void>
+    <void property="store">
+     <int>8</int>
+    </void>
+    <void property="str">
+     <int>16</int>
+    </void>
+    <void property="strMax">
+     <int>160</int>
+    </void>
+    <void property="type">
+     <void index="1">
+      <int>12</int>
+     </void>
+    </void>
+    <void property="x">
+     <int>8</int>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="Body" id="Body1">
+    <void property="atk">
+     <void index="0">
+      <int>1</int>
+     </void>
+    </void>
+    <void property="color">
+     <int>3</int>
+    </void>
+    <void property="def">
+     <int>10</int>
+    </void>
+    <void property="defMax">
+     <int>100</int>
+    </void>
+    <void property="exp">
+     <int>20</int>
+    </void>
+    <void property="hit">
+     <int>22</int>
+    </void>
+    <void property="hitMax">
+     <int>220</int>
+    </void>
+    <void property="hp">
+     <int>15</int>
+    </void>
+    <void property="hpMax">
+     <int>15</int>
+    </void>
+    <void property="ido">
+     <int>4</int>
+    </void>
+    <void property="img">
+     <int>37</int>
+    </void>
+    <void property="itype">
+     <int>3</int>
+    </void>
+    <void property="level">
+     <int>4</int>
+    </void>
+    <void property="maai">
+     <int>6</int>
+    </void>
+    <void property="mdf">
+     <int>6</int>
+    </void>
+    <void property="mdfMax">
+     <int>60</int>
+    </void>
+    <void property="mis">
+     <int>13</int>
+    </void>
+    <void property="misMax">
+     <int>130</int>
+    </void>
+    <void property="mst">
+     <int>10</int>
+    </void>
+    <void property="mstMax">
+     <int>100</int>
+    </void>
+    <void property="name">
+     <string>ゴブリンナイト</string>
+    </void>
+    <void property="scope">
+     <int>1</int>
+    </void>
+    <void property="store">
+     <int>8</int>
+    </void>
+    <void property="str">
+     <int>16</int>
+    </void>
+    <void property="strMax">
+     <int>160</int>
+    </void>
+    <void property="type">
+     <void index="1">
+      <int>12</int>
+     </void>
+    </void>
+    <void property="x">
+     <int>5</int>
+    </void>
+    <void property="y">
+     <int>4</int>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="Body" id="Body2">
+    <void property="atk">
+     <void index="0">
+      <int>1</int>
+     </void>
+    </void>
+    <void property="color">
+     <int>3</int>
+    </void>
+    <void property="def">
+     <int>10</int>
+    </void>
+    <void property="defMax">
+     <int>100</int>
+    </void>
+    <void property="exp">
+     <int>20</int>
+    </void>
+    <void property="hit">
+     <int>22</int>
+    </void>
+    <void property="hitMax">
+     <int>220</int>
+    </void>
+    <void property="hp">
+     <int>15</int>
+    </void>
+    <void property="hpMax">
+     <int>15</int>
+    </void>
+    <void property="ido">
+     <int>4</int>
+    </void>
+    <void property="img">
+     <int>37</int>
+    </void>
+    <void property="itype">
+     <int>3</int>
+    </void>
+    <void property="level">
+     <int>4</int>
+    </void>
+    <void property="maai">
+     <int>6</int>
+    </void>
+    <void property="mdf">
+     <int>6</int>
+    </void>
+    <void property="mdfMax">
+     <int>60</int>
+    </void>
+    <void property="mis">
+     <int>13</int>
+    </void>
+    <void property="misMax">
+     <int>130</int>
+    </void>
+    <void property="mst">
+     <int>10</int>
+    </void>
+    <void property="mstMax">
+     <int>100</int>
+    </void>
+    <void property="name">
+     <string>ゴブリンナイト</string>
+    </void>
+    <void property="scope">
+     <int>1</int>
+    </void>
+    <void property="store">
+     <int>8</int>
+    </void>
+    <void property="str">
+     <int>16</int>
+    </void>
+    <void property="strMax">
+     <int>160</int>
+    </void>
+    <void property="type">
+     <void index="1">
+      <int>12</int>
+     </void>
+    </void>
+    <void property="x">
+     <int>6</int>
+    </void>
+    <void property="y">
+     <int>9</int>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="Body" id="Body3">
+    <void property="atk">
+     <void index="0">
+      <int>1</int>
+     </void>
+    </void>
+    <void property="color">
+     <int>3</int>
+    </void>
+    <void property="def">
+     <int>10</int>
+    </void>
+    <void property="defMax">
+     <int>100</int>
+    </void>
+    <void property="exp">
+     <int>20</int>
+    </void>
+    <void property="hit">
+     <int>22</int>
+    </void>
+    <void property="hitMax">
+     <int>220</int>
+    </void>
+    <void property="hp">
+     <int>15</int>
+    </void>
+    <void property="hpMax">
+     <int>15</int>
+    </void>
+    <void property="ido">
+     <int>4</int>
+    </void>
+    <void property="img">
+     <int>37</int>
+    </void>
+    <void property="itype">
+     <int>3</int>
+    </void>
+    <void property="level">
+     <int>4</int>
+    </void>
+    <void property="maai">
+     <int>6</int>
+    </void>
+    <void property="mdf">
+     <int>6</int>
+    </void>
+    <void property="mdfMax">
+     <int>60</int>
+    </void>
+    <void property="mis">
+     <int>13</int>
+    </void>
+    <void property="misMax">
+     <int>130</int>
+    </void>
+    <void property="mst">
+     <int>10</int>
+    </void>
+    <void property="mstMax">
+     <int>100</int>
+    </void>
+    <void property="name">
+     <string>ゴブリンナイト</string>
+    </void>
+    <void property="scope">
+     <int>1</int>
+    </void>
+    <void property="store">
+     <int>8</int>
+    </void>
+    <void property="str">
+     <int>16</int>
+    </void>
+    <void property="strMax">
+     <int>160</int>
+    </void>
+    <void property="type">
+     <void index="1">
+      <int>12</int>
+     </void>
+    </void>
+    <void property="x">
+     <int>17</int>
+    </void>
+    <void property="y">
+     <int>5</int>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="Body" id="Body4">
+    <void property="atk">
+     <void index="0">
+      <int>3</int>
+     </void>
+     <void index="3">
+      <int>42</int>
+     </void>
+    </void>
+    <void property="color">
+     <int>3</int>
+    </void>
+    <void property="def">
+     <int>6</int>
+    </void>
+    <void property="defMax">
+     <int>60</int>
+    </void>
+    <void property="exp">
+     <int>20</int>
+    </void>
+    <void property="hit">
+     <int>33</int>
+    </void>
+    <void property="hitMax">
+     <int>330</int>
+    </void>
+    <void property="hp">
+     <int>24</int>
+    </void>
+    <void property="hpMax">
+     <int>24</int>
+    </void>
+    <void property="ido">
+     <int>4</int>
+    </void>
+    <void property="img">
+     <int>71</int>
+    </void>
+    <void property="itype">
+     <int>1</int>
+    </void>
+    <void property="level">
+     <int>4</int>
+    </void>
+    <void property="maai">
+     <int>7</int>
+    </void>
+    <void property="mdf">
+     <int>8</int>
+    </void>
+    <void property="mdfMax">
+     <int>80</int>
+    </void>
+    <void property="mis">
+     <int>16</int>
+    </void>
+    <void property="misMax">
+     <int>160</int>
+    </void>
+    <void property="moveturn">
+     <int>10</int>
+    </void>
+    <void property="mst">
+     <int>14</int>
+    </void>
+    <void property="mstMax">
+     <int>140</int>
+    </void>
+    <void property="name">
+     <string>ガルーダ</string>
+    </void>
+    <void property="scope">
+     <int>1</int>
+    </void>
+    <void property="store">
+     <int>8</int>
+    </void>
+    <void property="str">
+     <int>15</int>
+    </void>
+    <void property="strMax">
+     <int>150</int>
+    </void>
+    <void property="type">
+     <void index="0">
+      <int>43</int>
+     </void>
+     <void index="1">
+      <int>9</int>
+     </void>
+    </void>
+    <void property="x">
+     <int>8</int>
+    </void>
+    <void property="y">
+     <int>14</int>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="Body" id="Body5">
+    <void property="atk">
+     <void index="0">
+      <int>3</int>
+     </void>
+     <void index="3">
+      <int>42</int>
+     </void>
+    </void>
+    <void property="color">
+     <int>3</int>
+    </void>
+    <void property="def">
+     <int>6</int>
+    </void>
+    <void property="defMax">
+     <int>60</int>
+    </void>
+    <void property="exp">
+     <int>20</int>
+    </void>
+    <void property="hit">
+     <int>33</int>
+    </void>
+    <void property="hitMax">
+     <int>330</int>
+    </void>
+    <void property="hp">
+     <int>24</int>
+    </void>
+    <void property="hpMax">
+     <int>24</int>
+    </void>
+    <void property="ido">
+     <int>4</int>
+    </void>
+    <void property="img">
+     <int>71</int>
+    </void>
+    <void property="itype">
+     <int>1</int>
+    </void>
+    <void property="level">
+     <int>4</int>
+    </void>
+    <void property="maai">
+     <int>7</int>
+    </void>
+    <void property="mdf">
+     <int>8</int>
+    </void>
+    <void property="mdfMax">
+     <int>80</int>
+    </void>
+    <void property="mis">
+     <int>16</int>
+    </void>
+    <void property="misMax">
+     <int>160</int>
+    </void>
+    <void property="moveturn">
+     <int>10</int>
+    </void>
+    <void property="mst">
+     <int>14</int>
+    </void>
+    <void property="mstMax">
+     <int>140</int>
+    </void>
+    <void property="name">
+     <string>ガルーダ</string>
+    </void>
+    <void property="scope">
+     <int>1</int>
+    </void>
+    <void property="store">
+     <int>8</int>
+    </void>
+    <void property="str">
+     <int>15</int>
+    </void>
+    <void property="strMax">
+     <int>150</int>
+    </void>
+    <void property="type">
+     <void index="0">
+      <int>43</int>
+     </void>
+     <void index="1">
+      <int>9</int>
+     </void>
+    </void>
+    <void property="x">
+     <int>4</int>
+    </void>
+    <void property="y">
+     <int>14</int>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="Body" id="Body6">
+    <void property="atk">
+     <void index="0">
+      <int>3</int>
+     </void>
+     <void index="3">
+      <int>42</int>
+     </void>
+    </void>
+    <void property="color">
+     <int>3</int>
+    </void>
+    <void property="def">
+     <int>6</int>
+    </void>
+    <void property="defMax">
+     <int>60</int>
+    </void>
+    <void property="exp">
+     <int>15</int>
+    </void>
+    <void property="hit">
+     <int>33</int>
+    </void>
+    <void property="hitMax">
+     <int>330</int>
+    </void>
+    <void property="hp">
+     <int>24</int>
+    </void>
+    <void property="hpMax">
+     <int>24</int>
+    </void>
+    <void property="ido">
+     <int>4</int>
+    </void>
+    <void property="img">
+     <int>71</int>
+    </void>
+    <void property="itype">
+     <int>1</int>
+    </void>
+    <void property="level">
+     <int>4</int>
+    </void>
+    <void property="maai">
+     <int>7</int>
+    </void>
+    <void property="mdf">
+     <int>8</int>
+    </void>
+    <void property="mdfMax">
+     <int>80</int>
+    </void>
+    <void property="mis">
+     <int>16</int>
+    </void>
+    <void property="misMax">
+     <int>160</int>
+    </void>
+    <void property="moveturn">
+     <int>10</int>
+    </void>
+    <void property="mst">
+     <int>14</int>
+    </void>
+    <void property="mstMax">
+     <int>140</int>
+    </void>
+    <void property="name">
+     <string>ガルーダ</string>
+    </void>
+    <void property="scope">
+     <int>1</int>
+    </void>
+    <void property="store">
+     <int>8</int>
+    </void>
+    <void property="str">
+     <int>15</int>
+    </void>
+    <void property="strMax">
+     <int>150</int>
+    </void>
+    <void property="type">
+     <void index="0">
+      <int>43</int>
+     </void>
+     <void index="1">
+      <int>9</int>
+     </void>
+    </void>
+    <void property="x">
+     <int>18</int>
+    </void>
+    <void property="y">
+     <int>11</int>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="Body" id="Body7">
+    <void property="atk">
+     <void index="0">
+      <int>28</int>
+     </void>
+    </void>
+    <void property="color">
+     <int>3</int>
+    </void>
+    <void property="def">
+     <int>5</int>
+    </void>
+    <void property="defMax">
+     <int>50</int>
+    </void>
+    <void property="exp">
+     <int>20</int>
+    </void>
+    <void property="hit">
+     <int>24</int>
+    </void>
+    <void property="hitMax">
+     <int>240</int>
+    </void>
+    <void property="hp">
+     <int>20</int>
+    </void>
+    <void property="hpMax">
+     <int>20</int>
+    </void>
+    <void property="ido">
+     <int>3</int>
+    </void>
+    <void property="img">
+     <int>14</int>
+    </void>
+    <void property="itype">
+     <int>2</int>
+    </void>
+    <void property="level">
+     <int>5</int>
+    </void>
+    <void property="maai">
+     <int>5</int>
+    </void>
+    <void property="mdf">
+     <int>20</int>
+    </void>
+    <void property="mdfMax">
+     <int>200</int>
+    </void>
+    <void property="mis">
+     <int>12</int>
+    </void>
+    <void property="misMax">
+     <int>120</int>
+    </void>
+    <void property="moveturn">
+     <int>10</int>
+    </void>
+    <void property="mst">
+     <int>20</int>
+    </void>
+    <void property="mstMax">
+     <int>200</int>
+    </void>
+    <void property="name">
+     <string>人形使い</string>
+    </void>
+    <void property="scope">
+     <int>2</int>
+    </void>
+    <void property="store">
+     <int>8</int>
+    </void>
+    <void property="x">
+     <int>13</int>
+    </void>
+    <void property="y">
+     <int>13</int>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="Body" id="Body8">
+    <void property="atk">
+     <void index="0">
+      <int>3</int>
+     </void>
+     <void index="3">
+      <int>31</int>
+     </void>
+    </void>
+    <void property="color">
+     <int>3</int>
+    </void>
+    <void property="def">
+     <int>6</int>
+    </void>
+    <void property="defMax">
+     <int>60</int>
+    </void>
+    <void property="exp">
+     <int>20</int>
+    </void>
+    <void property="hit">
+     <int>26</int>
+    </void>
+    <void property="hitMax">
+     <int>260</int>
+    </void>
+    <void property="hp">
+     <int>60</int>
+    </void>
+    <void property="hpMax">
+     <int>60</int>
+    </void>
+    <void property="ido">
+     <int>8</int>
+    </void>
+    <void property="img">
+     <int>57</int>
+    </void>
+    <void property="itype">
+     <int>4</int>
+    </void>
+    <void property="level">
+     <int>5</int>
+    </void>
+    <void property="maai">
+     <int>10</int>
+    </void>
+    <void property="mdf">
+     <int>14</int>
+    </void>
+    <void property="mdfMax">
+     <int>140</int>
+    </void>
+    <void property="mis">
+     <int>12</int>
+    </void>
+    <void property="misMax">
+     <int>120</int>
+    </void>
+    <void property="mst">
+     <int>20</int>
+    </void>
+    <void property="mstMax">
+     <int>200</int>
+    </void>
+    <void property="name">
+     <string>水性ゴーレム</string>
+    </void>
+    <void property="scope">
+     <int>2</int>
+    </void>
+    <void property="store">
+     <int>8</int>
+    </void>
+    <void property="str">
+     <int>20</int>
+    </void>
+    <void property="strMax">
+     <int>200</int>
+    </void>
+    <void property="type">
+     <void index="1">
+      <int>6</int>
+     </void>
+    </void>
+    <void property="x">
+     <int>13</int>
+    </void>
+    <void property="y">
+     <int>6</int>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="Body" id="Body9">
+    <void property="atk">
+     <void index="0">
+      <int>3</int>
+     </void>
+    </void>
+    <void property="color">
+     <int>3</int>
+    </void>
+    <void property="def">
+     <int>10</int>
+    </void>
+    <void property="defMax">
+     <int>100</int>
+    </void>
+    <void property="exp">
+     <int>20</int>
+    </void>
+    <void property="hit">
+     <int>22</int>
+    </void>
+    <void property="hitMax">
+     <int>220</int>
+    </void>
+    <void property="hp">
+     <int>60</int>
+    </void>
+    <void property="hpMax">
+     <int>60</int>
+    </void>
+    <void property="ido">
+     <int>2</int>
+    </void>
+    <void property="img">
+     <int>13</int>
+    </void>
+    <void property="itype">
+     <int>3</int>
+    </void>
+    <void property="level">
+     <int>5</int>
+    </void>
+    <void property="maai">
+     <int>2</int>
+    </void>
+    <void property="mdf">
+     <int>10</int>
+    </void>
+    <void property="mdfMax">
+     <int>100</int>
+    </void>
+    <void property="mis">
+     <int>10</int>
+    </void>
+    <void property="misMax">
+     <int>100</int>
+    </void>
+    <void property="moveturn">
+     <int>11</int>
+    </void>
+    <void property="name">
+     <string>ゴーレム</string>
+    </void>
+    <void property="scope">
+     <int>1</int>
+    </void>
+    <void property="store">
+     <int>8</int>
+    </void>
+    <void property="str">
+     <int>34</int>
+    </void>
+    <void property="strMax">
+     <int>340</int>
+    </void>
+    <void property="x">
+     <int>12</int>
+    </void>
+    <void property="y">
+     <int>12</int>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="Body" id="Body10">
+    <void property="atk">
+     <void index="0">
+      <int>3</int>
+     </void>
+     <void index="3">
+      <int>38</int>
+     </void>
+    </void>
+    <void property="color">
+     <int>3</int>
+    </void>
+    <void property="def">
+     <int>5</int>
+    </void>
+    <void property="defMax">
+     <int>50</int>
+    </void>
+    <void property="exp">
+     <int>20</int>
+    </void>
+    <void property="gx">
+     <int>9</int>
+    </void>
+    <void property="gy">
+     <int>13</int>
+    </void>
+    <void property="hit">
+     <int>22</int>
+    </void>
+    <void property="hitMax">
+     <int>220</int>
+    </void>
+    <void property="hp">
+     <int>90</int>
+    </void>
+    <void property="hpMax">
+     <int>90</int>
+    </void>
+    <void property="ido">
+     <int>3</int>
+    </void>
+    <void property="img">
+     <int>101</int>
+    </void>
+    <void property="itype">
+     <int>3</int>
+    </void>
+    <void property="level">
+     <int>6</int>
+    </void>
+    <void property="maai">
+     <int>5</int>
+    </void>
+    <void property="mdf">
+     <int>5</int>
+    </void>
+    <void property="mdfMax">
+     <int>50</int>
+    </void>
+    <void property="mis">
+     <int>10</int>
+    </void>
+    <void property="misMax">
+     <int>100</int>
+    </void>
+    <void property="moveturn">
+     <int>14</int>
+    </void>
+    <void property="mst">
+     <int>25</int>
+    </void>
+    <void property="mstMax">
+     <int>250</int>
+    </void>
+    <void property="name">
+     <string>サイコゴーレム</string>
+    </void>
+    <void property="scope">
+     <int>2</int>
+    </void>
+    <void property="store">
+     <int>8</int>
+    </void>
+    <void property="str">
+     <int>25</int>
+    </void>
+    <void property="strMax">
+     <int>250</int>
+    </void>
+    <void property="type">
+     <void index="0">
+      <int>38</int>
+     </void>
+     <void index="1">
+      <int>12</int>
+     </void>
+    </void>
+    <void property="x">
+     <int>11</int>
+    </void>
+    <void property="y">
+     <int>14</int>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="Body" id="Body11">
+    <void property="atk">
+     <void index="0">
+      <int>5</int>
+     </void>
+    </void>
+    <void property="color">
+     <int>3</int>
+    </void>
+    <void property="def">
+     <int>3</int>
+    </void>
+    <void property="defMax">
+     <int>30</int>
+    </void>
+    <void property="exp">
+     <int>50</int>
+    </void>
+    <void property="hit">
+     <int>18</int>
+    </void>
+    <void property="hitMax">
+     <int>180</int>
+    </void>
+    <void property="hp">
+     <int>18</int>
+    </void>
+    <void property="hpMax">
+     <int>18</int>
+    </void>
+    <void property="ido">
+     <int>4</int>
+    </void>
+    <void property="img">
+     <int>64</int>
+    </void>
+    <void property="itype">
+     <int>2</int>
+    </void>
+    <void property="level">
+     <int>3</int>
+    </void>
+    <void property="maai">
+     <int>6</int>
+    </void>
+    <void property="mdf">
+     <int>3</int>
+    </void>
+    <void property="mdfMax">
+     <int>30</int>
+    </void>
+    <void property="mis">
+     <int>15</int>
+    </void>
+    <void property="misMax">
+     <int>150</int>
+    </void>
+    <void property="moveturn">
+     <int>8</int>
+    </void>
+    <void property="mst">
+     <int>15</int>
+    </void>
+    <void property="mstMax">
+     <int>150</int>
+    </void>
+    <void property="name">
+     <string>レオナ</string>
+    </void>
+    <void property="scope">
+     <int>2</int>
+    </void>
+    <void property="store">
+     <int>8</int>
+    </void>
+    <void property="str">
+     <int>15</int>
+    </void>
+    <void property="strMax">
+     <int>150</int>
+    </void>
+    <void property="type">
+     <void index="0">
+      <int>16</int>
+     </void>
+     <void index="1">
+      <int>7</int>
+     </void>
+     <void index="2">
+      <int>33</int>
+     </void>
+    </void>
+    <void property="x">
+     <int>9</int>
+    </void>
+    <void property="y">
+     <int>13</int>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="Body" id="Body12">
+    <void property="atk">
+     <void index="0">
+      <int>5</int>
+     </void>
+     <void index="1">
+      <int>27</int>
+     </void>
+    </void>
+    <void property="color">
+     <int>2</int>
+    </void>
+    <void property="exp">
+     <int>50</int>
+    </void>
+    <void property="hit">
+     <int>7</int>
+    </void>
+    <void property="hitMax">
+     <int>70</int>
+    </void>
+    <void property="hp">
+     <int>1</int>
+    </void>
+    <void property="hpMax">
+     <int>1</int>
+    </void>
+    <void property="img">
+     <int>65</int>
+    </void>
+    <void property="level">
+     <int>3</int>
+    </void>
+    <void property="moveturn">
+     <int>16</int>
+    </void>
+    <void property="name">
+     <string>スピア</string>
+    </void>
+    <void property="store">
+     <int>8</int>
+    </void>
+    <void property="str">
+     <int>5</int>
+    </void>
+    <void property="strMax">
+     <int>50</int>
+    </void>
+    <void property="type">
+     <void index="0">
+      <int>2</int>
+     </void>
+    </void>
+    <void property="x">
+     <int>1</int>
+    </void>
+    <void property="y">
+     <int>5</int>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="Body" id="Body13">
+    <void property="atk">
+     <void index="0">
+      <int>32</int>
+     </void>
+     <void index="1">
+      <int>66</int>
+     </void>
+    </void>
+    <void property="color">
+     <int>2</int>
+    </void>
+    <void property="hit">
+     <int>5</int>
+    </void>
+    <void property="hitMax">
+     <int>50</int>
+    </void>
+    <void property="hp">
+     <int>1</int>
+    </void>
+    <void property="hpMax">
+     <int>1</int>
+    </void>
+    <void property="img">
+     <int>74</int>
+    </void>
+    <void property="level">
+     <int>6</int>
+    </void>
+    <void property="moveturn">
+     <int>11</int>
+    </void>
+    <void property="mst">
+     <int>4</int>
+    </void>
+    <void property="mstMax">
+     <int>40</int>
+    </void>
+    <void property="name">
+     <string>凍土の弓</string>
+    </void>
+    <void property="store">
+     <int>8</int>
+    </void>
+    <void property="str">
+     <int>4</int>
+    </void>
+    <void property="strMax">
+     <int>40</int>
+    </void>
+    <void property="type">
+     <void index="0">
+      <int>2</int>
+     </void>
+    </void>
+    <void property="x">
+     <int>18</int>
+    </void>
+    <void property="y">
+     <int>13</int>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="Body" id="Body14">
+    <void property="atk">
+     <void index="0">
+      <int>103</int>
+     </void>
+    </void>
+    <void property="color">
+     <int>2</int>
+    </void>
+    <void property="def">
+     <int>1</int>
+    </void>
+    <void property="defMax">
+     <int>10</int>
+    </void>
+    <void property="gx">
+     <int>11</int>
+    </void>
+    <void property="gy">
+     <int>14</int>
+    </void>
+    <void property="hit">
+     <int>1</int>
+    </void>
+    <void property="hitMax">
+     <int>10</int>
+    </void>
+    <void property="hpMax">
+     <int>1</int>
+    </void>
+    <void property="img">
+     <int>100</int>
+    </void>
+    <void property="level">
+     <int>6</int>
+    </void>
+    <void property="mdf">
+     <int>1</int>
+    </void>
+    <void property="mdfMax">
+     <int>10</int>
+    </void>
+    <void property="mis">
+     <int>1</int>
+    </void>
+    <void property="misMax">
+     <int>10</int>
+    </void>
+    <void property="moveturn">
+     <int>30</int>
+    </void>
+    <void property="mst">
+     <int>1</int>
+    </void>
+    <void property="mstMax">
+     <int>10</int>
+    </void>
+    <void property="name">
+     <string>サイコボール</string>
+    </void>
+    <void property="str">
+     <int>1</int>
+    </void>
+    <void property="strMax">
+     <int>10</int>
+    </void>
+    <void property="type">
+     <void index="0">
+      <int>4</int>
+     </void>
+    </void>
+    <void property="x">
+     <int>12</int>
+    </void>
+    <void property="y">
+     <int>14</int>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="Body" id="Body15">
+    <void property="atk">
+     <void index="0">
+      <int>1</int>
+     </void>
+     <void index="1">
+      <int>58</int>
+     </void>
+    </void>
+    <void property="color">
+     <int>2</int>
+    </void>
+    <void property="def">
+     <int>12</int>
+    </void>
+    <void property="defMax">
+     <int>120</int>
+    </void>
+    <void property="gx">
+     <int>12</int>
+    </void>
+    <void property="gy">
+     <int>12</int>
+    </void>
+    <void property="hit">
+     <int>9</int>
+    </void>
+    <void property="hitMax">
+     <int>90</int>
+    </void>
+    <void property="hp">
+     <int>9</int>
+    </void>
+    <void property="hpMax">
+     <int>9</int>
+    </void>
+    <void property="img">
+     <int>154</int>
+    </void>
+    <void property="level">
+     <int>5</int>
+    </void>
+    <void property="mdf">
+     <int>6</int>
+    </void>
+    <void property="mdfMax">
+     <int>60</int>
+    </void>
+    <void property="mis">
+     <int>3</int>
+    </void>
+    <void property="misMax">
+     <int>30</int>
+    </void>
+    <void property="moveturn">
+     <int>16</int>
+    </void>
+    <void property="name">
+     <string>職：ナイト</string>
+    </void>
+    <void property="store">
+     <int>8</int>
+    </void>
+    <void property="str">
+     <int>12</int>
+    </void>
+    <void property="strMax">
+     <int>120</int>
+    </void>
+    <void property="type">
+     <void index="0">
+      <int>1</int>
+     </void>
+     <void index="1">
+      <int>13</int>
+     </void>
+     <void index="2">
+      <int>56</int>
+     </void>
+    </void>
+    <void property="x">
+     <int>11</int>
+    </void>
+    <void property="y">
+     <int>12</int>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="Body" id="Body16">
+    <void property="atk">
+     <void index="0">
+      <int>5</int>
+     </void>
+     <void index="1">
+      <int>16</int>
+     </void>
+    </void>
+    <void property="color">
+     <int>2</int>
+    </void>
+    <void property="def">
+     <int>3</int>
+    </void>
+    <void property="defMax">
+     <int>30</int>
+    </void>
+    <void property="exp">
+     <int>50</int>
+    </void>
+    <void property="gx">
+     <int>9</int>
+    </void>
+    <void property="gy">
+     <int>13</int>
+    </void>
+    <void property="hit">
+     <int>9</int>
+    </void>
+    <void property="hitMax">
+     <int>90</int>
+    </void>
+    <void property="hp">
+     <int>9</int>
+    </void>
+    <void property="hpMax">
+     <int>9</int>
+    </void>
+    <void property="img">
+     <int>158</int>
+    </void>
+    <void property="level">
+     <int>3</int>
+    </void>
+    <void property="mdf">
+     <int>3</int>
+    </void>
+    <void property="mdfMax">
+     <int>30</int>
+    </void>
+    <void property="mis">
+     <int>9</int>
+    </void>
+    <void property="misMax">
+     <int>90</int>
+    </void>
+    <void property="moveturn">
+     <int>15</int>
+    </void>
+    <void property="mst">
+     <int>6</int>
+    </void>
+    <void property="mstMax">
+     <int>60</int>
+    </void>
+    <void property="name">
+     <string>職：プリースト</string>
+    </void>
+    <void property="store">
+     <int>8</int>
+    </void>
+    <void property="str">
+     <int>6</int>
+    </void>
+    <void property="strMax">
+     <int>60</int>
+    </void>
+    <void property="type">
+     <void index="0">
+      <int>1</int>
+     </void>
+    </void>
+    <void property="x">
+     <int>9</int>
+    </void>
+    <void property="y">
+     <int>14</int>
+    </void>
+   </object>
+  </void>
+ </object>
+</java>

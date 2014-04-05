@@ -911,14 +911,14 @@ class AttackBase implements Iconable {
 
 	private void attackStatus(int i, int j) {
 		if (bb.isType(35)) {
-			bb.setType(35, false);
+			bb.setTypeState(35, false);
 			return;
 		} else {
 			Point point = new Point(bb.x, bb.y);
 			uw.setAnime(-7, i, point, point);
-			bb.setType(j, true);
-			bb.setType(35, false);
-			bb.setType(32, true);
+			bb.setTypeState(j, true);
+			bb.setTypeState(35, false);
+			bb.setTypeState(32, true);
 			return;
 		}
 	}
@@ -947,8 +947,8 @@ class AttackBase implements Iconable {
 		} else {
 			Point point = new Point(bb.x, bb.y);
 			uw.setAnime(-7, 3, point, point);
-			bb.setType(25, true);
-			bb.setType(32, true);
+			bb.setTypeState(25, true);
+			bb.setTypeState(32, true);
 			return;
 		}
 	}
@@ -959,8 +959,8 @@ class AttackBase implements Iconable {
 		} else {
 			Point point = new Point(bb.x, bb.y);
 			uw.setAnime(-7, 10, point, point);
-			bb.setType(26, true);
-			bb.setType(32, true);
+			bb.setTypeState(26, true);
+			bb.setTypeState(32, true);
 			return;
 		}
 	}
@@ -969,10 +969,10 @@ class AttackBase implements Iconable {
 		Point point = new Point(bb.x, bb.y);
 		uw.setAnime(-7, k, point, point);
 		if (bb.isType(j)) {
-			bb.setType(j, false);
+			bb.setTypeState(j, false);
 			V.S(5, 0, bb.x, bb.y, 0);
 		} else {
-			bb.setType(i, true);
+			bb.setTypeState(i, true);
 		}
 	}
 
@@ -1000,8 +1000,8 @@ class AttackBase implements Iconable {
 		} else {
 			Point point = new Point(bb.x, bb.y);
 			uw.setAnime(-7, 4, point, point);
-			bb.setType(30, true);
-			bb.setType(32, true);
+			bb.setTypeState(30, true);
+			bb.setTypeState(32, true);
 			return;
 		}
 	}
@@ -1012,8 +1012,8 @@ class AttackBase implements Iconable {
 		} else {
 			Point point = new Point(bb.x, bb.y);
 			uw.setAnime(-7, 5, point, point);
-			bb.setType(31, true);
-			bb.setType(32, true);
+			bb.setTypeState(31, true);
+			bb.setTypeState(32, true);
 			return;
 		}
 	}

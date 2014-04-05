@@ -7,6 +7,7 @@ import java.awt.Point;
 import java.util.Vector;
 import mine.DataStream;
 import mine.UnitMap;
+import mine.io.BeanIO;
 
 class KakuseiPaint extends ActionBase {
 
@@ -31,7 +32,7 @@ class KakuseiPaint extends ActionBase {
 	}
 
 	private Body getKakuseiData() {
-		Vector vector = (Vector) DataStream.read("data/E99.txt");
+            Vector vector = (Vector) BeanIO.read("data/body/E99.xml");
 		return (Body) vector.firstElement();
 	}
 

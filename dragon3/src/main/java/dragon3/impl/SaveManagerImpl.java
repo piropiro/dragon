@@ -8,141 +8,178 @@ import mine.io.ObjectIO;
 import dragon3.Statics;
 import dragon3.UnitWorks;
 import dragon3.bean.SaveData;
+import dragon3.bean.StageData;
 import dragon3.common.Body;
 import dragon3.common.util.Equip;
 import dragon3.manage.SaveManager;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.stream.Collectors;
+import mine.io.BeanIO;
+import mine.io.MatrixIO;
 
 public class SaveManagerImpl implements SaveManager {
 
-	private int[] stage;
+    Map<String, StageData> stageMap = new HashMap<>();
 
-	@SuppressWarnings("unused")
-	private UnitWorks uw;
-	private SaveData sd;
-	private long startTime;
-	private boolean leftFlag;
+    @SuppressWarnings("unused")
+    private UnitWorks uw;
+    private SaveData sd;
+    private long startTime;
+    private boolean leftFlag;
+    private int[][] stage;
 
-	public SaveManagerImpl(UnitWorks uw) {
-		this.uw = uw;
-		sd = null;
-		try {
-			stage = (int[]) ObjectIO.read(Statics.STAGE_DIR + "stage.txt");
-		} catch (MineException e) {
-			throw new RuntimeException(e);
-		}
-		leftFlag = false;
-	}
+    public SaveManagerImpl(UnitWorks uw) {
+        this.uw = uw;
+        sd = null;
 
+        try {
+            List<StageData> stageList = (List<StageData>) BeanIO.read(Statics.STAGE_DIR + "StageData.xml");
+            stageMap = stageList.stream().collect(Collectors.toMap(StageData::getId, s -> s));
+            
+            stage = (int[][]) MatrixIO.read("data/stages.txt");
 
-	/*** SaveData *******************************************************/
+        } catch (MineException e) {
+            throw new RuntimeException(e);
+        }
+        leftFlag = false;
+    }
 
-	private List<Object> initData() {
-		List<Object> list = new ArrayList<>();
-		list.add(Statics.getEnemyData(0));
-		list.add(new SaveData());
-		return list;
-	}
+    /**
+     * * SaveData ******************************************************
+     */
+    private List<Object> initData() {
+        List<Object> list = new ArrayList<>();
+        list.add(Statics.getEnemyData(0));
+        list.add(new SaveData());
+        return list;
+    }
 
-	@SuppressWarnings("unchecked")
-	public Equip loadData(String filename) {
-		List<Object> list = null;
-		try {
-			list = (List<Object>) ObjectIO.read(filename);
-		} catch (MineException e) {
-			list = initData();
-		}
-		sd = (SaveData) list.get(1);
-		timerReset();
-		return new Equip((List<Body>) list.get(0));
-	}
+    @Override
+    @SuppressWarnings("unchecked")
+    public Equip loadData(String filename) {
+        List<Object> list;
+        try {
+            list = (List<Object>) ObjectIO.read(filename);
+        } catch (MineException e) {
+            list = initData();
+        }
+        sd = (SaveData) list.get(1);
+        timerReset();
+        return new Equip((List<Body>) list.get(0));
+    }
 
-	public void saveData(String filename, Equip equip) {
-		sd.countSave();
-		sd.addTime(getTime());
-		List<Object> list = new ArrayList<>();
-		list.add(equip.getEquips());
-		list.add(sd);
-		try {
-			ObjectIO.write(filename, list);
-		} catch (MineException e) {
-			e.printStackTrace();
-		}
-		timerReset();
-	}
+    @Override
+    public void saveData(String filename, Equip equip) {
+        sd.countSave();
+        sd.addTime(getTime());
+        List<Object> list = new ArrayList<>();
+        list.add(equip.getEquips());
+        list.add(sd);
+        try {
+            ObjectIO.write(filename, list);
+        } catch (MineException e) {
+            e.printStackTrace();
+        }
+        timerReset();
+    }
 
-	/*** DataLoad ******************************/
+    /**
+     * * DataLoad *****************************
+     * @return 
+     */
+    @Override
+    public int[][] getCampMap() {
+        return Statics.getMapData(0);
+    }
 
-	public int[][] getCampMap() {
-		return Statics.getMapData(0);
-	}
-	public int[][] getCollectionMap() {
-		return Statics.getMapData(90);
-	}
-	public int[][] getWazalistMap() {
-		return Statics.getMapData(92);
-	}
+    @Override
+    public int[][] getCollectionMap() {
+        return Statics.getMapData(90);
+    }
 
-	public int getMapNum() {
-		if (leftFlag)
-			return stage[sd.getMapNum() * 2];
-		else
-			return stage[sd.getMapNum() * 2 + 1];
-	}
-	public boolean isDivided() {
-		return (stage[sd.getMapNum() * 2] != stage[sd.getMapNum() * 2 + 1]);
-	}
+    @Override
+    public int[][] getWazalistMap() {
+        return Statics.getMapData(92);
+    }
 
-	public void selectLR(boolean flag) {
-		leftFlag = flag;
-	}
+    @Override
+    public int getMapNum() {
+        if (leftFlag) {
+            return stage[sd.getMapNum()][0];
+        } else {
+            return stage[sd.getMapNum()][1];
+        }
+    }
 
-	/*** Score ***************************************************/
+    @Override
+    public boolean isDivided() {
+        return stage[sd.getMapNum()][0] != stage[sd.getMapNum()][1];
+    }
 
-	private void timerReset() {
-		startTime = System.currentTimeMillis();
-	}
-	private long getTime() {
-		long time = System.currentTimeMillis() - startTime;
-		return time;
-	}
+    @Override
+    public void selectLR(boolean flag) {
+        leftFlag = flag;
+    }
 
-	public long getPlayTime() {
-		return sd.getPlayTime() + getTime();
-	}
+    /*
+     * * Score **************************************************
+     */
+    private void timerReset() {
+        startTime = System.currentTimeMillis();
+    }
 
-	/*** Get Data **************************************/
+    private long getTime() {
+        long time = System.currentTimeMillis() - startTime;
+        return time;
+    }
 
-	public boolean isFirst() {
-		return (sd.getMapNum() == 0);
-	}
+    @Override
+    public long getPlayTime() {
+        return sd.getPlayTime() + getTime();
+    }
 
-	public boolean isFinalStage() {
-		return (getMapNum() == stage[stage.length - 1]);
-	}
-	public int getEnemyLevel() {
-		if (sd.getEnemyLevel() < 16) {
-			return sd.getEnemyLevel();
-		} else {
-			sd.setEnemyLevel(sd.getEnemyLevel() / 8 - 2);
-			return sd.getEnemyLevel();
-		}
-	}
+    /*
+     * * Get Data *************************************
+     */
+    @Override
+    public boolean isFirst() {
+        return (sd.getMapNum() == 0);
+    }
 
-	public SaveData getSaveData() {
-		return sd;
-	}
+    @Override
+    public boolean isFinalStage() {
+        return (getMapNum() == stage[stage.length - 1][0]);
+    }
 
-	/*** Stage Clear ********************************************/
+    @Override
+    public int getEnemyLevel() {
+        if (sd.getEnemyLevel() < 16) {
+            return sd.getEnemyLevel();
+        } else {
+            sd.setEnemyLevel(sd.getEnemyLevel() / 8 - 2);
+            return sd.getEnemyLevel();
+        }
+    }
 
-	public void stageClear() {
-		sd.countStage();
-		if (isFinalStage()) {
-			if (!sd.isAllClear()) {
-				sd.setAllClear(true);
-			}
-			sd.setEnemyLevel(sd.getEnemyLevel() + 1);
-			sd.setReverse(!sd.isReverse());
-		}
-		sd.setMapNum(getMapNum());
-	}
+    @Override
+    public SaveData getSaveData() {
+        return sd;
+    }
+
+    /*
+     * * Stage Clear *******************************************
+     */
+    @Override
+    public void stageClear() {
+        sd.countStage();
+        if (isFinalStage()) {
+            if (!sd.isAllClear()) {
+                sd.setAllClear(true);
+            }
+            sd.setEnemyLevel(sd.getEnemyLevel() + 1);
+            sd.setReverse(!sd.isReverse());
+        }
+        sd.setMapNum(getMapNum());
+    }
 }
