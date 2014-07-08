@@ -46,14 +46,15 @@ public class DataMigration {
     public void tearDown() {
     }
 
-    //@Test
+    @Test
     public void migrate_001() throws Exception {
         List<String> maps = new ArrayList<>();
-        maps.add("D90.txt");
-        maps.add("D92.txt");
-        for (int i = 0; i< 27; i++) {
-            maps.add("D" + i + ".txt");
-        }
+//        maps.add("D90.txt");
+//        maps.add("D92.txt");
+//        for (int i = 0; i< 27; i++) {
+//            maps.add("D" + i + ".txt");
+//        }
+        maps.add("D27.txt");
 
         DataStream.setup(this);
         for (String map : maps) {
@@ -83,14 +84,15 @@ public class DataMigration {
         }
     }
     
-    //@Test
+    @Test
     public void migrate_004() throws Exception {
         List<String> maps = new ArrayList<>();
-        maps.add("D90.txt");
-        maps.add("D92.txt");
-        for (int i = 0; i< 27; i++) {
-            maps.add("D" + i + ".txt");
-        }
+//        maps.add("D90.txt");
+//        maps.add("D92.txt");
+//        for (int i = 0; i< 27; i++) {
+//            maps.add("D" + i + ".txt");
+//        }
+        maps.add("D27.txt");
 
         DataStream.setup(this);
         for (String map : maps) {

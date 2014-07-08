@@ -52,7 +52,7 @@ class SaveManager {
 	private Vector initData() {
 		Vector vector = new Vector();
 		//vector.add((Vector) DataStream.read("data/E0.txt"));
-                vector.add((Vector) BeanIO.read("data/body/E0.xml"));
+                vector.add((Vector) BeanIO.read("data/body/E00.xml"));
 		vector.add(new SaveData());
 		return vector;
 	}
@@ -77,16 +77,13 @@ class SaveManager {
 	}
 
 	public int[][] getMapData() {
-		int ai[][] = (int[][]) MatrixIO.readX("data/map/D" + getMapNum() + ".txt");
-		if (ai == null) {
-			sd.mapNum = 0;
-			ai = (int[][]) MatrixIO.readX("data/map/D1.txt");
-		}
-		return ai;
+            String file = String.format("D%02d.txt", getMapNum());
+            int[][] ai = (int[][]) MatrixIO.readX("data/map/" + file);
+            return ai;
 	}
 
 	public int[][] getCampMap() {
-		return (int[][]) MatrixIO.readX("data/map/D0.txt");
+		return (int[][]) MatrixIO.readX("data/map/D00.txt");
 	}
 
 	public int[][] getCollectionMap() {
@@ -99,7 +96,8 @@ class SaveManager {
 
 	public Vector getEnemyData() {
 		// Vector vector = (Vector) DataStream.read("data/E" + getMapNum() + ".txt");
-            Vector vector = (Vector) BeanIO.read("data/body/E" + getMapNum() + ".xml");
+            String file = String.format("E%02d.xml", getMapNum());
+            Vector vector = (Vector) BeanIO.read("data/body/" + file);
 		if (vector == null)
 			vector = new Vector();
 		return vector;

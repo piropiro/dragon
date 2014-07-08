@@ -46,12 +46,13 @@ public class BodyMigration {
     @Test
     public void migrate_001() throws Exception {
         List<String> bodys = new ArrayList<>();
-        bodys.add("E90");
-        bodys.add("E91");
-        bodys.add("E99");
-        for (int i = 0; i < 27; i++) {
-            bodys.add("E" + i);
-        }
+//        bodys.add("E90");
+//        bodys.add("E91");
+//        bodys.add("E99");
+//        for (int i = 0; i < 27; i++) {
+//            bodys.add("E" + i);
+//        }
+        bodys.add("E27");
 
         DataStream.setup(this);
         for (String body : bodys) {
