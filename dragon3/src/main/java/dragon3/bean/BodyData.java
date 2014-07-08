@@ -80,6 +80,7 @@ public class BodyData implements Data {
 	/**
 	 * @return
 	 */
+        @Override
 	public String getId() {
 		return id;
 	}
@@ -136,6 +137,7 @@ public class BodyData implements Data {
 	/**
 	 * @return
 	 */
+        @Override
 	public String getName() {
 		return name;
 	}
