@@ -105,9 +105,9 @@ class SaveManager {
 
 	public int getMapNum() {
 		if (leftFlag)
-			return stage[sd.mapNum][0];
-		else
 			return stage[sd.mapNum][1];
+		else
+			return stage[sd.mapNum][2];
 	}
 
 	public boolean isDivided() {
