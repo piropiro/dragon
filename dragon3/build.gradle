@@ -1,0 +1,13 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+  compile project(':mine')
+  compile project(':card_game')
+  compile project(':imo_gari')
+  testCompile group: 'junit', name: 'junit', version: '4.+'
+}

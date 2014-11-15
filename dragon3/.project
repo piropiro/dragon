@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
 	<name>dragon3</name>
-	<comment></comment>
+	<comment/>
 	<projects>
 		<project>card_game</project>
 		<project>imo_gari</project>
 		<project>mine</project>
 	</projects>
-	<buildSpec>
-		<buildCommand>
-			<name>org.eclipse.jdt.core.javabuilder</name>
-			<arguments>
-			</arguments>
-		</buildCommand>
-	</buildSpec>
 	<natures>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
+	<buildSpec>
+		<buildCommand>
+			<name>org.eclipse.jdt.core.javabuilder</name>
+			<arguments/>
+		</buildCommand>
+	</buildSpec>
+	<linkedResources/>
 </projectDescription>

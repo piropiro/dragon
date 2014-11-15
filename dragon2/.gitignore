@@ -1,3 +1,7 @@
 /target
 /item.dat
 /slgs.dat
+/bin
+/.settings
+/.project
+/.classpath

@@ -1,2 +1,7 @@
 /target
 /maps.txt
+/bin
+/.gradle
+/.settings
+/.project
+/.classpath
