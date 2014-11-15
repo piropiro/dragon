@@ -51,8 +51,7 @@ class SaveManager {
 
 	private Vector initData() {
 		Vector vector = new Vector();
-		//vector.add((Vector) DataStream.read("data/E0.txt"));
-                vector.add((Vector) BeanIO.read("data/body/E00.xml"));
+        vector.add((Vector) BeanIO.read("data/body/init.xml"));
 		vector.add(new SaveData());
 		return vector;
 	}
@@ -83,15 +82,15 @@ class SaveManager {
 	}
 
 	public int[][] getCampMap() {
-		return (int[][]) MatrixIO.readX("data/map/D00.txt");
+		return (int[][]) MatrixIO.readX("data/map/camp.txt");
 	}
 
 	public int[][] getCollectionMap() {
-		return (int[][]) MatrixIO.readX("data/map/D90.txt");
+		return (int[][]) MatrixIO.readX("data/map/collection.txt");
 	}
 
 	public int[][] getWazalistMap() {
-		return (int[][]) MatrixIO.readX("data/map/D92.txt");
+		return (int[][]) MatrixIO.readX("data/map/wazalist.txt");
 	}
 
 	public Vector getEnemyData() {
@@ -111,7 +110,7 @@ class SaveManager {
 	}
 
 	public boolean isDivided() {
-		return stage[sd.mapNum][0] != stage[sd.mapNum][1];
+		return stage[sd.mapNum][1] != stage[sd.mapNum][2];
 	}
 
 	public void selectLR(boolean flag) {

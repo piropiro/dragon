@@ -24,11 +24,11 @@ class CardPanel extends JCanvas {
 		cards = new Card(0, 0, 0, 0);
 		bluec = newCards(body, 0);
 		redc = newCards(body1, 1);
-		for (int i = 0; i < redc.length; i++)
-			redc[i].n += (4 * body1.hp) / body1.hpMax - 2;
+//		for (int i = 0; i < redc.length; i++)
+//			redc[i].n += (4 * body1.hp) / body1.hpMax - 2;
 
-		for (int j = 0; j < bluec.length; j++)
-			bluec[j].n += (4 * body.hp) / body.hpMax - 2;
+//		for (int j = 0; j < bluec.length; j++)
+//			bluec[j].n += (4 * body.hp) / body.hpMax - 2;
 
 		for (int k = 0; k < bluec.length; k++) {
 			bluec[k].n = Math.max(0, Math.min(bluec[k].n, 99));

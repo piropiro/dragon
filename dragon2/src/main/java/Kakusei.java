@@ -38,7 +38,7 @@ class Kakusei extends ActionBase {
 	}
 
 	private Body getKakuseiData() {
-            Vector vector = (Vector) BeanIO.read("data/body/E99.xml");
+            Vector vector = (Vector) BeanIO.read("data/body/kakusei.xml");
 		return (Body) vector.firstElement();
 	}
 
