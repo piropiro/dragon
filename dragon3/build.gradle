@@ -1,8 +1,5 @@
 apply plugin: 'java'
 
-repositories {
-    jcenter()
-}
 
 dependencies {
   compile project(':mine')
