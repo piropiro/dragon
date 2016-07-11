@@ -65,10 +65,10 @@ class SaveManager {
 
 	public Vector getEnemyData() {
 		// Vector vector = (Vector) DataStream.read("data/E" + getMapNum() + ".txt");
-            String file = String.format("E%02d.xml", getMapNum());
-            Vector vector = (Vector) BeanIO.read("data/body/" + file);
-		if (vector == null)
-			vector = new Vector();
+            String file = String.format("E%02d.json", getMapNum());
+            Vector vector = new Vector();
+            vector.addAll(Arrays.asList(JsonIO.read("data/body/" + file, Body[].class)));
+           
 		return vector;
 	}
 
@@ -222,5 +222,4 @@ class SaveManager {
 	private boolean leftFlag;
 	static final boolean LEFT = true;
 	static final boolean RIGHT = false;
-	private Vector apl_list;
 }
