@@ -4,19 +4,13 @@
 // Source File Name:   Statics.java
 
 import java.awt.Image;
-import java.io.IOException;
-import java.io.InputStream;
-import java.sql.DataTruncation;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Vector;
-import mine.*;
-import mine.io.BeanIO;
-import mine.io.FileIO;
+
+import mine.ImageLoader;
+import mine.Mine;
 import mine.io.JsonIO;
 import mine.io.StringIO;
-import net.arnx.jsonic.JSON;
 
 class Statics {
 
@@ -53,6 +47,10 @@ class Statics {
 
 	public static AttackData getAttackData(int i) {
 		return AttackDatas.get(i);
+	}
+	
+	public static int getAttackDataSize() {
+		return AttackDatas.size();
 	}
 
 	public static Body getWaza(int i) {
@@ -104,8 +102,8 @@ class Statics {
 	static boolean debugFlag = false;
 	static boolean helpFlag = false;
 	static final int TYPE_MAX = 100;
-	static List<AttackData> AttackDatas;
-	static List<AnimeData> AnimeDatas;
+	private static List<AttackData> AttackDatas;
+	private static List<AnimeData> AnimeDatas;
 	static String idoType[];
 	static String tokusei[];
 	static String effect[];

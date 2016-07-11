@@ -319,7 +319,7 @@ class Equip {
 			int l = body7.img % 3 + (body7.img / 75) * 3;
 			int i1 = body8.img % 3 + (body8.img / 75) * 3;
 			body.atk[1] = (j + k * 3 + l * 9 + i1 * 27)
-					% Statics.AttackDatas.size();
+					% Statics.getAttackDataSize();
 			return;
 		}
 	}

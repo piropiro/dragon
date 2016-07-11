@@ -894,9 +894,7 @@ class VPanel extends JPanelBase implements UnitWorks, ActionListener,
 		if (mw.isFrame()) {
 			col.saveData();
 			sm.saveData("slgs.dat", equip);
-		} else {
-			sm.saveApplet(equip);
-		}
+		} 
 	}
 
 	private void showScore() {
@@ -1072,8 +1070,7 @@ class VPanel extends JPanelBase implements UnitWorks, ActionListener,
 		else if (s.equals("mapload")) {
 			if (mw.isFrame())
 				equip = sm.loadData("slgs.dat");
-			else
-				equip = sm.loadApplet();
+			
 			if (sm.getPlayerName() != null)
 				stageStart();
 			else
@@ -1081,8 +1078,7 @@ class VPanel extends JPanelBase implements UnitWorks, ActionListener,
 		} else if (s.equals("campload")) {
 			if (mw.isFrame())
 				equip = sm.loadData("slgs.dat");
-			else
-				equip = sm.loadApplet();
+			
 			if (sm.getPlayerName() != null)
 				campStart();
 			else
@@ -1091,8 +1087,6 @@ class VPanel extends JPanelBase implements UnitWorks, ActionListener,
 			if (mw.isFrame()) {
 				col.saveData();
 				sm.saveData("slgs.dat", equip);
-			} else {
-				sm.saveApplet(equip);
 			}
 			setLPanel("SAVE", 1, 1500);
 		} else if (s.equals("cancel")) {

@@ -1,17 +1,13 @@
 package mine.io;
 
-import java.beans.XMLDecoder;
-import java.beans.XMLEncoder;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Vector;
+import java.io.OutputStream;
+
+import org.apache.commons.io.IOUtils;
 
 import mine.MineException;
 import net.arnx.jsonic.JSON;
-import net.arnx.jsonic.TypeReference;
 
 /**
  * BeansJsonファイルを読み書きするクラス。
@@ -46,8 +42,12 @@ public class JsonIO {
      * @throws MineException データの書き込みに失敗した。
      */
     public static void write(String path, Object obj) throws MineException {
-        try (XMLEncoder out = new XMLEncoder(FileIO.getOutputStream(path))) {
-            out.writeObject(obj);
-        }
+        try (OutputStream os = FileIO.getOutputStream(path)) {
+            String json = JSON.encode(obj, true);
+        	
+            IOUtils.write(json, os, "UTF-8");
+        } catch (IOException e) {
+    		throw new MineException(e);
+    	}
     }
 }

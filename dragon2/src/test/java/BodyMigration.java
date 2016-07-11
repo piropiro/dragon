@@ -4,24 +4,25 @@
  * and open the template in the editor.
  */
 
-import java.beans.XMLEncoder;
+import static org.junit.Assert.assertThat;
+
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Vector;
-import mine.DataStream;
-import mine.io.BeanIO;
-import mine.io.FileIO;
-import mine.io.MatrixIO;
-import net.arnx.jsonic.JSON;
 
+import org.apache.commons.io.FileUtils;
 import org.hamcrest.CoreMatchers;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import static org.junit.Assert.*;
+
+import mine.DataStream;
+import mine.io.BeanIO;
+import net.arnx.jsonic.JSON;
 
 /**
  *
@@ -85,13 +86,26 @@ public class BodyMigration {
     
     @Test
     public void migrate_003() throws Exception {
-        Vector vector1 = (Vector) BeanIO.read("data/body/E0" + 1 + ".xml");
+        List<String> bodys = new ArrayList<>();
+        bodys.add("E90");
+        bodys.add("E91");
+        bodys.add("init");
+        bodys.add("kakusei");
+        for (int i = 1; i <= 27; i++) {
+            bodys.add(String.format("E%02d", i));
+        }
 
-        String json = JSON.encode(vector1, true);
+      for (String body : bodys) {
+          
+          Vector vector1 = (Vector) BeanIO.read("data/body/" + body + ".xml");
+
+          String json = JSON.encode(vector1, true);
+          
+          FileUtils.write(new File("target/body/" + body + ".json"), json, "UTF-8");
+
+      }
+
+      
         
-        Vector<Body> vector2 = new Vector<>(Arrays.asList(JSON.decode(json, Body[].class)));
-        
-        
-        System.out.println(vector2);
     }
 }

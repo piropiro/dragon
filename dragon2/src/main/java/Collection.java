@@ -3,17 +3,22 @@
 // Decompiler options: packimports(3) 
 // Source File Name:   Collection.java
 
+import java.util.Arrays;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Vector;
+
 import mine.DataStream;
 import mine.UnitMap;
-import mine.io.BeanIO;
+import mine.io.JsonIO;
 
 class Collection {
 
 	public Collection(UnitWorks unitworks) {
-            Items = (Vector) BeanIO.read("data/body/E90.xml");
-            Charas = (Vector) BeanIO.read("data/body/E91.xml");
+//            Items = (Vector) BeanIO.read("data/body/E90.xml");
+//            Charas = (Vector) BeanIO.read("data/body/E91.xml");
+            Items = Arrays.asList(JsonIO.read("data/body/E90.json", Body[].class));
+            Charas = Arrays.asList(JsonIO.read("data/body/E91.json", Body[].class));
 		loadData();
 	}
 
@@ -119,7 +124,7 @@ class Collection {
 	public void deployCharas(UnitMap unitmap) {
 		for (int i = 0; i < chara.length; i++)
 			if (chara[i][0] || chara[i][1] || chara[i][2]) {
-				Body body = (Body) Charas.elementAt(i);
+				Body body = Charas.get(i);
 				unitmap.S(2, 0, body.x, body.y, body.img);
 				int j = 0;
 				byte byte0 = 0;
@@ -151,7 +156,7 @@ class Collection {
 	public void deployItems(UnitMap unitmap) {
 		for (int i = 0; i < item.length; i++)
 			if (item[i]) {
-				Body body = (Body) Items.elementAt(i);
+				Body body = Items.get(i);
 				unitmap.S(2, 0, body.x, body.y, body.img);
 			}
 
@@ -232,7 +237,7 @@ class Collection {
 		Vector vector = new Vector();
 		vector.add(new boolean[Items.size()]);
 		vector.add(new boolean[Charas.size()][4]);
-		vector.add(new boolean[Statics.AttackDatas.size()]);
+		vector.add(new boolean[Statics.getAttackDataSize()]);
 		return vector;
 	}
 
@@ -253,8 +258,8 @@ class Collection {
 		DataStream.write("item.dat", vector);
 	}
 
-	static Vector Items;
-	static Vector Charas;
+	private static List<Body> Items;
+	private static List<Body> Charas;
 	private boolean item[];
 	private boolean chara[][];
 	private boolean waza[];
