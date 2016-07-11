@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
 	<name>mine</name>
-	<comment></comment>
+	<comment>Project mine created by Buildship.</comment>
 	<projects>
 	</projects>
 	<buildSpec>
@@ -11,13 +11,13 @@
 			</arguments>
 		</buildCommand>
 		<buildCommand>
-			<name>de.tobject.findbugs.findbugsBuilder</name>
+			<name>org.eclipse.buildship.core.gradleprojectbuilder</name>
 			<arguments>
 			</arguments>
 		</buildCommand>
 	</buildSpec>
 	<natures>
+		<nature>org.eclipse.buildship.core.gradleprojectnature</nature>
 		<nature>org.eclipse.jdt.core.javanature</nature>
-		<nature>de.tobject.findbugs.findbugsNature</nature>
 	</natures>
 </projectDescription>

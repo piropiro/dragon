@@ -1,20 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
 	<name>dragon3</name>
-	<comment/>
+	<comment>Project dragon3 created by Buildship.</comment>
 	<projects>
-		<project>card_game</project>
-		<project>imo_gari</project>
-		<project>mine</project>
 	</projects>
-	<natures>
-		<nature>org.eclipse.jdt.core.javanature</nature>
-	</natures>
 	<buildSpec>
 		<buildCommand>
 			<name>org.eclipse.jdt.core.javabuilder</name>
-			<arguments/>
+			<arguments>
+			</arguments>
+		</buildCommand>
+		<buildCommand>
+			<name>org.eclipse.buildship.core.gradleprojectbuilder</name>
+			<arguments>
+			</arguments>
 		</buildCommand>
 	</buildSpec>
-	<linkedResources/>
+	<natures>
+		<nature>org.eclipse.buildship.core.gradleprojectnature</nature>
+		<nature>org.eclipse.jdt.core.javanature</nature>
+	</natures>
 </projectDescription>
