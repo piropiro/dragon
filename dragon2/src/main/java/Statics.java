@@ -4,10 +4,19 @@
 // Source File Name:   Statics.java
 
 import java.awt.Image;
+import java.io.IOException;
+import java.io.InputStream;
+import java.sql.DataTruncation;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Vector;
 import mine.*;
 import mine.io.BeanIO;
+import mine.io.FileIO;
+import mine.io.JsonIO;
 import mine.io.StringIO;
+import net.arnx.jsonic.JSON;
 
 class Statics {
 
@@ -19,8 +28,10 @@ class Statics {
             AttackDatas = (Vector) BeanIO.read("data/waza/AttackData.xml");
                 //BeanIO.write("target/AttackData.xml", AttackDatas);
 		//AnimeDatas = (Vector) DataStream.read("data/AN.txt");
-            AnimeDatas = (Vector) BeanIO.read("data/anime/AnimeData.xml");
-                //BeanIO.write("target/AnimeData.xml", AnimeDatas);
+            //AnimeDatas = (Vector) BeanIO.read("data/anime/AnimeData.xml");
+            AnimeDatas = Arrays.asList(JsonIO.read("data/anime/AnimeData.json", AnimeData[].class));
+            
+            //BeanIO.write("target/AnimeData.xml", AnimeDatas);
 		idoType = (String[]) StringIO.read("text/itype.txt");
 		tokusei = (String[]) StringIO.read("text/tokusei.txt");
 		effect = (String[]) StringIO.read("text/effect.txt");
@@ -42,7 +53,7 @@ class Statics {
 	}
 
 	public static AnimeData getAnimeData(int i) {
-		return (AnimeData) AnimeDatas.elementAt(i);
+		return AnimeDatas.get(i);
 	}
 
 	public static AttackData getAttackData(int i) {
@@ -98,8 +109,8 @@ class Statics {
 	static boolean debugFlag = false;
 	static boolean helpFlag = false;
 	static final int TYPE_MAX = 100;
-	static Vector AttackDatas;
-	static Vector AnimeDatas;
+	static Vector<AttackData> AttackDatas;
+	static List<AnimeData> AnimeDatas;
 	static String idoType[];
 	static String tokusei[];
 	static String effect[];

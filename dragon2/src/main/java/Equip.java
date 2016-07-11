@@ -271,13 +271,13 @@ class Equip {
 		Body body3 = searchItem(body.gx + 3, body.gy);
 		Body body4 = searchItem(body.gx + 4, body.gy);
 		if (body1 != null)
-			body.setTypeState(body1.type);
+			body.mergeTypeState(body1.type);
 		if (body2 != null)
-			body.setTypeState(body2.type);
+			body.mergeTypeState(body2.type);
 		if (body3 != null)
-			body.setTypeState(body3.type);
+			body.mergeTypeState(body3.type);
 		if (body4 != null)
-			body.setTypeState(body4.type);
+			body.mergeTypeState(body4.type);
 		equip(body, body2);
 		equip(body, body3);
 		equip(body, body4);
@@ -290,7 +290,7 @@ class Equip {
 			Body body1 = searchItem(body.gx + i, body.gy);
 			if (body1 != null) {
 				equip(body, body1);
-				body.setTypeState(body1.type);
+				body.mergeTypeState(body1.type);
 			}
 		}
 

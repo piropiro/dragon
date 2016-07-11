@@ -4,12 +4,17 @@
  * and open the template in the editor.
  */
 
+import java.beans.XMLEncoder;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Vector;
 import mine.DataStream;
 import mine.io.BeanIO;
+import mine.io.FileIO;
 import mine.io.MatrixIO;
+import net.arnx.jsonic.JSON;
+
 import org.hamcrest.CoreMatchers;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -76,5 +81,17 @@ public class BodyMigration {
             assertThat(body2.toString(), CoreMatchers.is(body1.toString()));
         }
 
+    }
+    
+    @Test
+    public void migrate_003() throws Exception {
+        Vector vector1 = (Vector) BeanIO.read("data/body/E0" + 1 + ".xml");
+
+        String json = JSON.encode(vector1, true);
+        
+        Vector<Body> vector2 = new Vector<>(Arrays.asList(JSON.decode(json, Body[].class)));
+        
+        
+        System.out.println(vector2);
     }
 }
