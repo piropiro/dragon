@@ -3,9 +3,11 @@
 // Decompiler options: packimports(3) 
 // Source File Name:   SaveManager.java
 
+import java.util.Arrays;
 import java.util.Vector;
 import mine.DataStream;
 import mine.io.BeanIO;
+import mine.io.JsonIO;
 import mine.io.MatrixIO;
 
 class SaveManager {
@@ -17,61 +19,29 @@ class SaveManager {
 		leftFlag = false;
 	}
 
-	public void saveApplet(Equip equip) {
-		countSave();
-		countTime(getTime());
-		SaveData savedata = sd.copy();
-		Vector vector = new Vector();
-		Vector vector1 = equip.getEquips();
-		for (int i = 0; i < vector1.size(); i++) {
-			Body body = (Body) vector1.elementAt(i);
-			vector.add(body.copy());
-		}
-
-		apl_list = new Vector();
-		apl_list.add(vector);
-		apl_list.add(savedata);
-		timerReset();
-	}
-
-	public Equip loadApplet() {
-		if (apl_list == null)
-			apl_list = initData();
-		sd = ((SaveData) apl_list.elementAt(1)).copy();
-		Vector vector = (Vector) apl_list.elementAt(0);
-		Vector vector1 = new Vector();
-		for (int i = 0; i < vector.size(); i++) {
-			Body body = (Body) vector.elementAt(i);
-			vector1.add(body.copy());
-		}
-
-		timerReset();
-		return new Equip(vector1, uw);
-	}
-
-	private Vector initData() {
-		Vector vector = new Vector();
-        vector.add((Vector) BeanIO.read("data/body/init.xml"));
-		vector.add(new SaveData());
-		return vector;
+	private SaveData initData() {
+		SaveData saveData = new SaveData();
+		saveData.bodys = Arrays.asList(JsonIO.read("data/body/init.json", Body[].class));
+		return saveData;
 	}
 
 	public Equip loadData(String s) {
-		Vector vector = (Vector) DataStream.read(s);
-		if (vector == null)
-			vector = initData();
-		sd = (SaveData) vector.elementAt(1);
+		SaveData saveData = (SaveData) DataStream.read(s);
+
+		if (saveData == null)
+			saveData = initData();
+		sd = saveData;
 		timerReset();
-		return new Equip((Vector) vector.elementAt(0), uw);
+		Vector v = new Vector();
+		v.addAll(sd.bodys);
+		return new Equip(v, uw);
 	}
 
 	public void saveData(String s, Equip equip) {
 		countSave();
 		countTime(getTime());
-		Vector vector = new Vector();
-		vector.add(equip.getEquips());
-		vector.add(sd);
-		DataStream.write(s, vector);
+		sd.bodys = equip.getEquips();
+		DataStream.write(s, sd);
 		timerReset();
 	}
 
@@ -95,10 +65,10 @@ class SaveManager {
 
 	public Vector getEnemyData() {
 		// Vector vector = (Vector) DataStream.read("data/E" + getMapNum() + ".txt");
-            String file = String.format("E%02d.xml", getMapNum());
-            Vector vector = (Vector) BeanIO.read("data/body/" + file);
-		if (vector == null)
-			vector = new Vector();
+            String file = String.format("E%02d.json", getMapNum());
+            Vector vector = new Vector();
+            vector.addAll(Arrays.asList(JsonIO.read("data/body/" + file, Body[].class)));
+           
 		return vector;
 	}
 
@@ -252,5 +222,4 @@ class SaveManager {
 	private boolean leftFlag;
 	static final boolean LEFT = true;
 	static final boolean RIGHT = false;
-	private Vector apl_list;
 }

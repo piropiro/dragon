@@ -3,8 +3,9 @@
 // Decompiler options: packimports(3) 
 // Source File Name:   SaveData.java
 
-import java.io.PrintStream;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 class SaveData implements Serializable, Cloneable {
 
@@ -23,6 +24,7 @@ class SaveData implements Serializable, Cloneable {
 		save = 0;
 		stage = 0;
 		play_time = 0L;
+		bodys = new ArrayList<>();
 	}
 
 	public SaveData copy() {
@@ -48,4 +50,5 @@ class SaveData implements Serializable, Cloneable {
 	int stage;
 	long play_time;
 	String name;
+	List<Body> bodys;
 }

@@ -74,10 +74,10 @@ public class Body implements Serializable, Cloneable {
 
 	public void newType(int i) {
 		typeState = new boolean[i];
-		Body.this.setTypeState(type);
+		Body.this.mergeTypeState(type);
 	}
 
-	public void setTypeState(int ai[]) {
+	public void mergeTypeState(int ai[]) {
 		for (int i = 0; i < ai.length; i++)
 			typeState[ai[i]] = true;
 

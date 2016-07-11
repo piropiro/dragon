@@ -8,6 +8,7 @@ import java.util.Vector;
 import mine.DataStream;
 import mine.UnitMap;
 import mine.io.BeanIO;
+import mine.io.JsonIO;
 
 class KakuseiPaint extends ActionBase {
 
@@ -32,8 +33,7 @@ class KakuseiPaint extends ActionBase {
 	}
 
 	private Body getKakuseiData() {
-            Vector vector = (Vector) BeanIO.read("data/body/E99.xml");
-		return (Body) vector.firstElement();
+		return JsonIO.read("data/body/kakusei.json", Body[].class)[0];
 	}
 
 	private void setStatus() {
