@@ -23,9 +23,9 @@ import net.arnx.jsonic.JSON;
  *
  * @author rara
  */
-public class AnimeDataMigration {
+public class AttackDataMigration {
     
-    public AnimeDataMigration() {
+    public AttackDataMigration() {
     }
     
     @BeforeClass
@@ -46,11 +46,11 @@ public class AnimeDataMigration {
 
     @Test
     public void migrate_001() throws Exception {
-        Vector data = (Vector)BeanIO.read("data/anime/AnimeData.xml");
+        Vector data = (Vector)BeanIO.read("data/waza/AttackData.xml");
         
         String json = JSON.encode(data, true);
     	
-    	FileUtils.write(new File("target/AnimeData.json"), json, "UTF-8");
+    	FileUtils.write(new File("target/AttackData.json"), json, "UTF-8");
     
     }
 }
