@@ -4,7 +4,6 @@
 // Source File Name:   Collection.java
 
 import java.util.Arrays;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Vector;
 
@@ -64,9 +63,9 @@ class Collection {
 		return waza.length - 1;
 	}
 
-	public void setList(Vector vector) {
-		for (Iterator iterator = vector.iterator(); iterator.hasNext();) {
-			Body body = (Body) iterator.next();
+	public void setList(List<Body> vector) {
+		for (Body body : vector) {
+		
 			if (body.type[0] != 52)
 				switch (body.img) {
 				case 59: // ';'
@@ -89,9 +88,8 @@ class Collection {
 
 	}
 
-	public void setWazaList(Vector vector) {
-		for (Iterator iterator = vector.iterator(); iterator.hasNext();) {
-			Body body = (Body) iterator.next();
+	public void setWazaList(List<Body> vector) {
+		for (Body body : vector) {
 			if (Colors.isPlayer(body)) {
 				for (int i = 0; i < body.atk.length; i++)
 					waza[body.atk[i]] = true;
@@ -104,9 +102,10 @@ class Collection {
 
 	private void setItem(Body body) {
 		int i = -1;
-		for (Iterator iterator = Items.iterator(); iterator.hasNext();) {
+		for (Body body1 : Items) {
+		
 			i++;
-			Body body1 = (Body) iterator.next();
+			
 			if (body.img == body1.img && body.name.equals(body1.name)) {
 				item[i] = true;
 				return;
@@ -182,8 +181,7 @@ class Collection {
 	}
 
 	public Body searchChara(int i, int j) {
-		for (Iterator iterator = Charas.iterator(); iterator.hasNext();) {
-			Body body = (Body) iterator.next();
+		for (Body body : Charas) {
 			if (body.x == i && body.y == j) {
 				body.setMax();
 				body.newType(100);
@@ -196,8 +194,7 @@ class Collection {
 	}
 
 	public Body searchItem(int i, int j) {
-		for (Iterator iterator = Items.iterator(); iterator.hasNext();) {
-			Body body = (Body) iterator.next();
+		for (Body body : Items) {
 			if (body.x == i && body.y == j) {
 				body.setMax();
 				body.newType(100);
@@ -223,9 +220,9 @@ class Collection {
 		if (body.isType(50))
 			return 1;
 		int i = -1;
-		for (Iterator iterator = Charas.iterator(); iterator.hasNext();) {
+		for (Body body1 : Charas) {
 			i++;
-			Body body1 = (Body) iterator.next();
+			
 			if (body.name.equals(body1.name))
 				return i;
 		}

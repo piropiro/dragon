@@ -3,8 +3,12 @@
 // Decompiler options: packimports(3) 
 // Source File Name:   AllAnime.java
 
-import java.awt.*;
-import java.util.Vector;
+import java.awt.Component;
+import java.awt.Graphics;
+import java.awt.Point;
+import java.util.ArrayList;
+import java.util.List;
+
 import mine.Mine;
 import mine.UnitMap;
 
@@ -16,18 +20,14 @@ class AllAnime implements AnimeListener {
 		sleep = i;
 		imgs = ai;
 		box = unitmap.getPaintBox(4, 1, 0, 0, 20, 15);
-		Vector vector = new Vector();
+		
+		points = new ArrayList<>();
 		for (int j = 0; j < 20; j++) {
 			for (int k = 0; k < 15; k++)
 				if (unitmap.G(4, 1, j, k) != 0)
-					vector.add(new Point((j - box[0]) * 32, (k - box[1]) * 32));
+					points.add(new Point((j - box[0]) * 32, (k - box[1]) * 32));
 
 		}
-
-		ps = new Point[vector.size()];
-		for (int l = 0; l < vector.size(); l++)
-			ps[l] = (Point) vector.elementAt(l);
-
 	}
 
 	public void animation(Component component) {
@@ -41,8 +41,7 @@ class AllAnime implements AnimeListener {
 	}
 
 	public void paint(Graphics g) {
-		for (int i = 0; i < ps.length; i++) {
-			Point point = ps[i];
+		for (Point point : points) {
 			int j = (imgs[n] % 15) * 32;
 			int k = (imgs[n] / 15) * 32;
 			Mine.drawImage(Statics.anime, point.x, point.y, j, k, 32, 32, g);
@@ -55,6 +54,6 @@ class AllAnime implements AnimeListener {
 	int sleep;
 	int box[];
 	int imgs[];
-	Point ps[];
+	List<Point> points;
 	int n;
 }

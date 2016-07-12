@@ -8,6 +8,7 @@ import java.awt.Point;
 import mine.JCanvas;
 import mine.UnitMap;
 
+@SuppressWarnings("serial")
 class CardPanel extends JCanvas {
 
 	CardPanel(UnitWorks unitworks, UnitMap unitmap) {
@@ -276,8 +277,8 @@ class CardPanel extends JCanvas {
 	private void doubleAnime(Card card, Card card1) {
 		Point point = new Point(card.x, card.y);
 		Point point1 = new Point(card1.x, card1.y);
-		Point point2 = new Point(card.x / 32 + 4, card.y / 32 + 1);
-		Point point3 = new Point(card1.x / 32 + 4, card1.y / 32 + 1);
+		//Point point2 = new Point(card.x / 32 + 4, card.y / 32 + 1);
+		//Point point3 = new Point(card1.x / 32 + 4, card1.y / 32 + 1);
 		Point point4 = new Point(7, 11);
 		for (int i = 0; i <= 20; i++) {
 			move(card, point.x, point.y, 96, 320, i, 20);

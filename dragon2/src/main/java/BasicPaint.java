@@ -4,7 +4,6 @@
 // Source File Name:   BasicPaint.java
 
 import java.awt.Point;
-import mine.UnitMap;
 
 class BasicPaint extends PaintBase {
 

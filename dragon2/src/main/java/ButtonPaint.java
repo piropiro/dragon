@@ -4,7 +4,6 @@
 // Source File Name:   ButtonPaint.java
 
 import java.awt.Point;
-import mine.UnitMap;
 
 class ButtonPaint extends PaintBase {
 

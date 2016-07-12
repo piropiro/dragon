@@ -10,6 +10,11 @@ import mine.UnitMap;
 
 class AnimePanel extends JCanvas {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
 	AnimePanel(UnitWorks unitworks, UnitMap unitmap, Map map1) {
 		super(32, 32);
 		uw = unitworks;

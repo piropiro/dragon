@@ -14,10 +14,10 @@ public class ItemList {
 
 	public static void main(String args[]) {
 		Statics.setup();
-		Vector vector = new Vector();
-		Vector vector1 = new Vector();
+		Vector<Body> vector = new Vector<>();
+		Vector<Body> vector1 = new Vector<>();
 		for (int i = 0; i < 30; i++) {
-                    Vector vector2 = (Vector) BeanIO.read("data/body/E" + i + ".xml");
+                    Vector<Body> vector2 = (Vector<Body>) BeanIO.read("data/body/E" + i + ".xml");
 			if (vector2 != null) {
 				for (int j = 0; j < vector2.size(); j++) {
 					Body body = (Body) vector2.elementAt(j);

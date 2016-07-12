@@ -4,7 +4,6 @@
 // Source File Name:   ChangePaint.java
 
 import java.awt.Point;
-import mine.UnitMap;
 
 class ChangePaint extends ActionBase {
 

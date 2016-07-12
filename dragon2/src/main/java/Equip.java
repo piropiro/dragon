@@ -4,13 +4,14 @@
 // Source File Name:   Equip.java
 
 import java.util.Iterator;
+import java.util.List;
 import java.util.Vector;
 
 class Equip {
 
-	Equip(Vector vector, UnitWorks unitworks) {
+	Equip(List<Body> bodys, UnitWorks unitworks) {
 		uw = unitworks;
-		Equips = vector;
+		Equips = bodys;
 	}
 
 	public Body search(int i, int j) {
@@ -41,7 +42,7 @@ class Equip {
 		Equips.remove(body);
 	}
 
-	public Vector getEquips() {
+	public List<Body> getEquips() {
 		return Equips;
 	}
 
@@ -415,6 +416,6 @@ class Equip {
 		return body.x >= 14;
 	}
 
-	private Vector Equips;
+	private List<Body> Equips;
 	private UnitWorks uw;
 }

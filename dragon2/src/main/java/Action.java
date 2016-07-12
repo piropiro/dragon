@@ -5,8 +5,10 @@
 
 import java.io.Serializable;
 
+@SuppressWarnings("serial")
 class Action implements Serializable {
 
+	
 	Action() {
 	}
 

@@ -9,8 +9,6 @@ import mine.UnitMap;
 class CardPaint extends ActionBase {
 
 	CardPaint(Body body, Body body1) {
-		ba = body;
-		bb = body1;
 		cp.setup(body, body1);
 		cp.display();
 		setHelp();
@@ -83,7 +81,5 @@ class CardPaint extends ActionBase {
 
 	private static CardPanel cp;
 	private static UnitMap CV;
-	private static Body ba;
-	private static Body bb;
 	int select;
 }

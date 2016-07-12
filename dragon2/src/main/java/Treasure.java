@@ -4,25 +4,25 @@
 // Source File Name:   Treasure.java
 
 import java.awt.Point;
-import java.util.Iterator;
-import java.util.Vector;
+import java.util.ArrayList;
+import java.util.List;
+
 import mine.UnitMap;
 
 class Treasure {
 
-	Treasure(Vector vector, UnitWorks unitworks, UnitMap unitmap) {
+	Treasure(List<Body> vector, UnitWorks unitworks, UnitMap unitmap) {
 		uw = unitworks;
 		V = unitmap;
 		item = null;
 		treasure = new Body[30];
 		holder = new Body[30];
 		status = new int[30];
-		Sources = new Vector();
-		Comment = new Vector();
+		Sources = new ArrayList<>();
+		Comment = new ArrayList<>();
 		Point point = unitworks.getCrystal(1);
 		int i = 0;
-		for (Iterator iterator = vector.iterator(); iterator.hasNext();) {
-			Body body = (Body) iterator.next();
+		for (Body body : vector) {
 			if (unitworks.have(body)) {
 				body.setTypeState(35, true);
 				body.hp = 0;
@@ -50,9 +50,7 @@ class Treasure {
 			Body body1 = treasure[j];
 			if (body1 != null && (body1.gx != 0 || body1.gy != 0)) {
 				status[j] = 2;
-				for (Iterator iterator1 = vector.iterator(); iterator1
-						.hasNext();) {
-					Body body3 = (Body) iterator1.next();
+				for (Body body3 : vector) {
 					if (body3 != body1 && body3.isAlive()
 							&& body3.x == body1.gx && body3.y == body1.gy) {
 						holder[j] = body3;
@@ -136,7 +134,7 @@ class Treasure {
 		return s;
 	}
 
-	public Vector getSources() {
+	public List<Body> getSources() {
 		return Sources;
 	}
 
@@ -214,19 +212,17 @@ class Treasure {
 	}
 
 	public void message() {
-		Body body1;
-		for (Iterator iterator = Comment.iterator(); iterator.hasNext(); uw
-				.startMPanel(body1)) {
-			Integer integer = (Integer) iterator.next();
-			Body body = holder[integer.intValue()];
-			body1 = treasure[integer.intValue()];
+		for (int i : Comment) {
+			Body body = holder[i];
+			Body body1 = treasure[i];
 			uw.setMPanel(body.name + Texts.ha);
 			uw.setMPanel(Texts.treasure1);
 			uw.setMPanel(body1.name + Texts.wo);
 			uw.setMPanel(Texts.treasure2);
+			uw.startMPanel(body1);
 		}
 
-		Comment.removeAllElements();
+		Comment.clear();
 	}
 
 	public void message(Body body, Body body1) {
@@ -246,8 +242,7 @@ class Treasure {
 	}
 
 	public void down() {
-		for (Iterator iterator = Sources.iterator(); iterator.hasNext();) {
-			Body body = (Body) iterator.next();
+		for (Body body : Sources) {
 			switch (body.type[0]) {
 			case 2: // '\002'
 			case 3: // '\003'
@@ -282,8 +277,8 @@ class Treasure {
 	static final int S_BOX = 3;
 	static final int S_CLEAR = 4;
 	static final int S_HAVE = 5;
-	private Vector Sources;
-	private Vector Comment;
+	private List<Body> Sources;
+	private List<Integer> Comment;
 	private UnitWorks uw;
 	private UnitMap V;
 }

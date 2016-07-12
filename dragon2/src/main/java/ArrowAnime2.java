@@ -3,8 +3,13 @@
 // Decompiler options: packimports(3) 
 // Source File Name:   ArrowAnime2.java
 
-import java.awt.*;
-import java.util.Vector;
+import java.awt.Component;
+import java.awt.Graphics;
+import java.awt.Point;
+import java.util.ArrayList;
+import java.util.List;
+
+
 import mine.UnitMap;
 
 class ArrowAnime2 implements AnimeListener {
@@ -17,7 +22,8 @@ class ArrowAnime2 implements AnimeListener {
 		box = unitmap.getPaintBox(4, 1, 0, 0, 20, 15);
 		point.x -= box[0] * 32;
 		point.y -= box[1] * 32;
-		Vector vector = new Vector();
+		List<Point> vector = new ArrayList<>();
+
 		for (int k = 0; k < 20; k++) {
 			for (int l = 0; l < 15; l++)
 				if (unitmap.G(4, 1, k, l) != 0)
@@ -25,12 +31,11 @@ class ArrowAnime2 implements AnimeListener {
 
 		}
 
-		arr = new Arrow[vector.size()];
-		for (int i1 = 0; i1 < vector.size(); i1++) {
-			Point point1 = (Point) vector.elementAt(i1);
+		arr = new ArrayList<>();
+		for (Point point1 : vector) {
 			point1.x -= box[0] * 32;
 			point1.y -= box[1] * 32;
-			arr[i1] = new Arrow(point, point1, i, ai, true);
+			arr.add(new Arrow(point, point1, i, ai, true));
 		}
 
 	}
@@ -38,16 +43,16 @@ class ArrowAnime2 implements AnimeListener {
 	public void animation(Component component) {
 		component.setLocation(box[0] * 32, box[1] * 32);
 		component.setSize(box[2] * 32, box[3] * 32);
-		for (; !arr[0].end(); uw.sleep(sleep))
+		for (; !arr.get(0).end(); uw.sleep(sleep))
 			component.repaint();
 
 		uw.sleep(sleep);
 	}
 
 	public void paint(Graphics g) {
-		for (int i = 0; i < arr.length; i++) {
-			arr[i].move();
-			arr[i].paint(g);
+		for (Arrow arrow : arr) {
+			arrow.move();
+			arrow.paint(g);
 		}
 
 	}
@@ -55,6 +60,6 @@ class ArrowAnime2 implements AnimeListener {
 	UnitWorks uw;
 	UnitMap V;
 	int sleep;
-	Arrow arr[];
+	List<Arrow> arr;
 	int box[];
 }

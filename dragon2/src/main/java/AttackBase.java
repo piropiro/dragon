@@ -5,8 +5,9 @@
 
 import java.awt.Dimension;
 import java.awt.Point;
-import java.util.Iterator;
-import java.util.Vector;
+import java.util.ArrayList;
+import java.util.List;
+
 import mine.Mine;
 import mine.UnitMap;
 
@@ -29,7 +30,7 @@ class AttackBase implements Iconable {
 	}
 
 	public static void setup(UnitWorks unitworks, UnitMap unitmap, Map map1,
-			Vector vector) {
+			List<Body> vector) {
 		uw = unitworks;
 		V = unitmap;
 		map = map1;
@@ -190,8 +191,7 @@ class AttackBase implements Iconable {
 	private void getAttackUnit(int i, int j) {
 		V.clear(1, 1, 0);
 		dmax = -1;
-		for (Iterator iterator = Charas.iterator(); iterator.hasNext();) {
-			Body body = (Body) iterator.next();
+		for (Body body : Charas) {
 			if (isTarget(body)) {
 				setSearchData(i, j, body);
 				if (V.G(2, 1, body.x, body.y) != 0) {
@@ -543,7 +543,7 @@ class AttackBase implements Iconable {
 			uw.closeHPanel();
 		} else {
 			if (Targets == null) {
-				Targets = new Vector();
+				Targets = new ArrayList<>();
 				Targets.add(body);
 			}
 			meichu = getMeichu(body, false);
@@ -609,9 +609,8 @@ class AttackBase implements Iconable {
 	public boolean searchTargets() {
 		if (ECT[5] && bb == null)
 			return false;
-		Targets = new Vector();
-		for (Iterator iterator = Charas.iterator(); iterator.hasNext();) {
-			Body body = (Body) iterator.next();
+		Targets = new ArrayList<>();
+		for (Body body : Charas) {
 			if (isTarget(body) && V.G(4, 0, body.x, body.y) != 0)
 				Targets.add(body);
 		}
@@ -727,14 +726,14 @@ class AttackBase implements Iconable {
 		anime(false);
 		if (bb != null) {
 			Targets.remove(bb);
-			Targets.insertElementAt(bb, 0);
+			Targets.add(0, bb);
 		} else {
-			bb = (Body) Targets.firstElement();
+			bb = Targets.get(0);
 			uw.setAPanel(this, null);
 		}
 		int i = 0;
-		for (Iterator iterator = Targets.iterator(); iterator.hasNext();) {
-			bb = (Body) iterator.next();
+		for (Body b : Targets) {
+			bb = b;
 			meichu = getMeichu(bb, true);
 			uw.setHPanel(bb, ba, (getDamage(bb) * getRate(bb)) / 100, isHit());
 			if (i > 0)
@@ -1106,8 +1105,8 @@ class AttackBase implements Iconable {
 	static UnitWorks uw;
 	static UnitMap V;
 	static Map map;
-	static Vector Charas;
-	private Vector Targets;
+	static List<Body> Charas;
+	private List<Body> Targets;
 	Body ba;
 	Body bb;
 	Body bbs;

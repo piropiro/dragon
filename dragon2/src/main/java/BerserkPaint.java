@@ -4,7 +4,6 @@
 // Source File Name:   BerserkPaint.java
 
 import java.awt.Point;
-import mine.UnitMap;
 
 class BerserkPaint extends ActionBase {
 

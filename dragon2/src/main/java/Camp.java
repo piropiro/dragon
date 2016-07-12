@@ -5,8 +5,8 @@
 
 import java.awt.Point;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Vector;
-import mine.UnitMap;
 
 class Camp extends PaintBase {
 
@@ -60,19 +60,17 @@ class Camp extends PaintBase {
 		PaintBase.V.clear(3, 0, 0);
 		PaintBase.V.clear(4, 0, 0);
 		PaintBase.V.clear(5, 0, 0);
-		Body body;
-		for (Iterator iterator = equips.iterator(); iterator.hasNext(); PaintBase.V
-				.S(2, 0, body.x, body.y, body.img)) {
-			body = (Body) iterator.next();
+		
+		for (Body body : equips) {
 			if (PaintBase.V.G(1, 0, body.x, body.y) == 1)
 				PaintBase.V.S(1, 0, body.x, body.y, 2);
+			
+			PaintBase.V.S(2, 0, body.x, body.y, body.img);
 		}
-
 	}
 
 	private void setColor() {
-		for (Iterator iterator = equips.iterator(); iterator.hasNext();) {
-			Body body = (Body) iterator.next();
+		for (Body body : equips) {
 			if (Colors.isPlayer(body))
 				body.color = 1;
 			else if (Colors.isEnemy(body))
@@ -83,23 +81,22 @@ class Camp extends PaintBase {
 	}
 
 	private void setEquip() {
-		for (Iterator iterator = equips.iterator(); iterator.hasNext();) {
-			Body body = (Body) iterator.next();
+		for (Body body : equips) {
 			body.setMax();
 			body.newType(100);
 			if (Colors.isPlayer(body)) {
 				body.x = body.gx;
 				body.y = body.gy;
 			}
-			if (body.x > 13 && body.y == 14)
-				iterator.remove();
-			else
-				PaintBase.V.S(2, 0, body.x, body.y, body.img);
+			//if (body.x > 13 && body.y == 14)
+			//	iterator.remove();
+			//else
+			PaintBase.V.S(2, 0, body.x, body.y, body.img);
 		}
 
 	}
 
-	private void setSource(Vector vector, boolean flag) {
+	private void setSource(List<Body> vector, boolean flag) {
 		if (vector == null)
 			return;
 		for (int i = 1; i < 15; i++) {
@@ -108,7 +105,7 @@ class Camp extends PaintBase {
 				if (vector.size() == 0)
 					break;
 				if (PaintBase.V.G(2, 0, k, j) == 0) {
-					Body body = (Body) vector.firstElement();
+					Body body = vector.get(0);
 					body.x = k;
 					body.y = j;
 					body.setMax();
@@ -124,7 +121,7 @@ class Camp extends PaintBase {
 
 	public void removeDust() {
 		for (int i = equips.size() - 1; i >= 0; i--) {
-			Body body = (Body) equips.elementAt(i);
+			Body body = equips.get(i);
 			if (body.isType(52) || PaintBase.V.G(1, 0, body.x, body.y) == 3) {
 				equips.remove(body);
 				PaintBase.V.S(2, 0, body.x, body.y, 0);
@@ -138,7 +135,7 @@ class Camp extends PaintBase {
 		Vector vector = new Vector();
 		Vector vector1 = new Vector();
 		for (int i = equips.size() - 1; i >= 0; i--) {
-			Body body = (Body) equips.elementAt(i);
+			Body body = equips.get(i);
 			if (body.y != 0 && body.y != 14 && body.x >= 14) {
 				if (body.isType(52))
 					vector1.add(body);
@@ -765,7 +762,7 @@ class Camp extends PaintBase {
 	}
 
 	Equip equip;
-	Vector equips;
+	List<Body> equips;
 	Point ps;
 	Point end;
 	Body ba;
