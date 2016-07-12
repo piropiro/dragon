@@ -14,11 +14,11 @@ class Images {
 	}
 
 	static void setup() {
-		chara = ImageLoader.getImage("image/imos.gif", true);
+		chara = ImageLoader.getImage("/image/imos.gif", true);
 	}
 
 	static void setEndImage(int i) {
-		endi = ImageLoader.getImage("image/end" + i + ".gif", true);
+		endi = ImageLoader.getImage("/image/end" + i + ".gif", true);
 	}
 
 	static Image chara;
