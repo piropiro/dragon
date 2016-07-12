@@ -9,6 +9,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Vector;
 
+import dragon2.paint.PaintBase;
+
 public class Camp extends PaintBase {
 
 	public Camp(Treasure treasure, Equip equip1) {

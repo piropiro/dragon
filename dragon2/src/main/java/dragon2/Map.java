@@ -7,6 +7,8 @@ package dragon2;
 import java.awt.Dimension;
 import java.awt.Point;
 
+import dragon2.paint.PaintListener;
+
 public interface Map {
 
 	public abstract void repaint();

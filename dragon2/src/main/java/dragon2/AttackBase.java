@@ -1103,12 +1103,22 @@ public class AttackBase implements Iconable {
 		}
 	}
 
+	public Body getBa() {
+		return ba;
+	}
+
+	public Body getBb() {
+		return bb;
+	}
+	
 	static UnitWorks uw;
 	static UnitMap V;
 	static Map map;
 	static List<Body> Charas;
 	private List<Body> Targets;
 	Body ba;
+
+
 	Body bb;
 	Body bbs;
 	Point target;

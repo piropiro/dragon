@@ -1,4 +1,4 @@
-package dragon2;
+package dragon2.panel;
 // Decompiled by Jad v1.5.8g. Copyright 2001 Pavel Kouznetsov.
 // Jad home page: http://www.kpdus.com/jad.html
 // Decompiler options: packimports(3) 
@@ -8,6 +8,8 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.Timer;
+
+import dragon2.UnitWorks;
 import mine.JCanvas;
 import mine.Mine;
 

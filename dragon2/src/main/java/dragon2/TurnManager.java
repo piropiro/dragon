@@ -8,6 +8,8 @@ import java.awt.Point;
 import java.util.Iterator;
 import java.util.Vector;
 
+import dragon2.paint.PaintBase;
+
 public class TurnManager extends ActionBase {
 
 	public TurnManager(Vector vector, UnitWorks unitworks) {

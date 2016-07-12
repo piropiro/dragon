@@ -6,6 +6,8 @@ package dragon2;
 
 import java.awt.Point;
 import java.util.Vector;
+
+import dragon2.paint.PaintBase;
 import mine.UnitMap;
 
 public class Walk extends ActionBase {

@@ -8,8 +8,8 @@ import java.awt.Point;
 
 import dragon2.ActionBase;
 import dragon2.Body;
-import dragon2.PaintBase;
 import dragon2.Texts;
+import dragon2.paint.PaintBase;
 import mine.UnitMap;
 
 public class CardPaint extends ActionBase {

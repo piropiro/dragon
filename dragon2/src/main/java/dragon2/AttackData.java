@@ -16,23 +16,23 @@ public class AttackData implements Serializable {
 		effect = new int[5];
 	}
 
-	String name;
-	String sname;
-	int color;
-	int effect[];
-	int AttackType;
-	int AttackN1;
-	int TRType;
-	int TargetType;
-	int TargetN1;
-	int TargetN2;
-	int RangeType;
-	int RangeN1;
-	int RangeN2;
-	int AnimeType;
-	int AnimeN1;
-	int FuelType;
-	int FuelN1;
+	public String name;
+	public String sname;
+	public int color;
+	public int effect[];
+	public int AttackType;
+	public int AttackN1;
+	public int TRType;
+	public int TargetType;
+	public int TargetN1;
+	public int TargetN2;
+	public int RangeType;
+	public int RangeN1;
+	public int RangeN2;
+	public int AnimeType;
+	public int AnimeN1;
+	public int FuelType;
+	public int FuelN1;
 
     public String getName() {
         return name;

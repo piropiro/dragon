@@ -1,4 +1,4 @@
-package dragon2;
+package dragon2.panel;
 // Decompiled by Jad v1.5.8g. Copyright 2001 Pavel Kouznetsov.
 // Jad home page: http://www.kpdus.com/jad.html
 // Decompiler options: packimports(3) 
@@ -6,6 +6,20 @@ package dragon2;
 
 import java.awt.*;
 import java.awt.event.*;
+
+import dragon2.Body;
+import dragon2.FightManager;
+import dragon2.Map;
+import dragon2.UnitWorks;
+import dragon2.Walk;
+import dragon2.paint.BasicPaint;
+import dragon2.paint.BerserkPaint;
+import dragon2.paint.ButtonPaint;
+import dragon2.paint.ChangePaint;
+import dragon2.paint.EndPaint;
+import dragon2.paint.KakuseiPaint;
+import dragon2.paint.PaintListener;
+import dragon2.paint.WaitPaint;
 import mine.JCanvas;
 import mine.UnitMap;
 

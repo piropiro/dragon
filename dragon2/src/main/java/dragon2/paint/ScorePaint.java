@@ -1,10 +1,13 @@
-package dragon2;
+package dragon2.paint;
 // Decompiled by Jad v1.5.8g. Copyright 2001 Pavel Kouznetsov.
 // Jad home page: http://www.kpdus.com/jad.html
 // Decompiler options: packimports(3) 
 // Source File Name:   ScorePaint.java
 
 import java.awt.Point;
+
+import dragon2.Body;
+import dragon2.Texts;
 
 public class ScorePaint extends PaintBase {
 

@@ -1,4 +1,4 @@
-package dragon2;
+package dragon2.paint;
 // Decompiled by Jad v1.5.8g. Copyright 2001 Pavel Kouznetsov.
 // Jad home page: http://www.kpdus.com/jad.html
 // Decompiler options: packimports(3) 
@@ -7,6 +7,10 @@ package dragon2;
 import java.awt.Dimension;
 import java.awt.Point;
 import java.util.Vector;
+
+import dragon2.Body;
+import dragon2.Colors;
+import dragon2.Texts;
 import mine.UnitMap;
 
 public class SetMensPaint extends PaintBase {

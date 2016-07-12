@@ -1,4 +1,4 @@
-package dragon2;
+package dragon2.panel;
 // Decompiled by Jad v1.5.8g. Copyright 2001 Pavel Kouznetsov.
 // Jad home page: http://www.kpdus.com/jad.html
 // Decompiler options: packimports(3) 
@@ -13,9 +13,37 @@ import java.util.Vector;
 import javax.swing.AbstractButton;
 import javax.swing.JPanel;
 
+import dragon2.ActionBase;
+import dragon2.AttackBase;
+import dragon2.Body;
+import dragon2.Camp;
+import dragon2.Collection;
+import dragon2.Colors;
+import dragon2.Equip;
+import dragon2.Iconable;
+import dragon2.Luck;
+import dragon2.MainWorks;
+import dragon2.Material;
+import dragon2.Rank;
+import dragon2.Rewalk;
+import dragon2.SaveManager;
+import dragon2.Statics;
+import dragon2.Summon;
+import dragon2.Texts;
+import dragon2.Treasure;
+import dragon2.TurnManager;
+import dragon2.UnitWorks;
 import dragon2.anime.AnimePanel;
 import dragon2.card.CardPaint;
 import dragon2.card.CardPanel;
+import dragon2.paint.BasicPaint;
+import dragon2.paint.CollectionPaint;
+import dragon2.paint.ImogariPaint;
+import dragon2.paint.PaintBase;
+import dragon2.paint.ScorePaint;
+import dragon2.paint.SetMensPaint;
+import dragon2.paint.TitlePaint;
+import dragon2.paint.WazalistPaint;
 import mine.*;
 
 public class VPanel extends JPanelBase implements UnitWorks, ActionListener,
@@ -499,8 +527,8 @@ public class VPanel extends JPanelBase implements UnitWorks, ActionListener,
 	}
 
 	public void dead(AttackBase attackbase) {
-		Body body = attackbase.ba;
-		Body body1 = attackbase.bb;
+		Body body = attackbase.getBa();
+		Body body1 = attackbase.getBb();
 		Point point = new Point(body1.x, body1.y);
 		setAnime(-2, 0, point, point);
 		if (body == null)

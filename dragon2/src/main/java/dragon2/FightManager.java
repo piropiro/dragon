@@ -6,6 +6,9 @@ package dragon2;
 
 import java.awt.Point;
 
+import dragon2.paint.PaintBase;
+import dragon2.paint.TalkPaint;
+
 public class FightManager extends ActionBase {
 
 	public FightManager(Body body) {

@@ -4,6 +4,8 @@ package dragon2;
 // Decompiler options: packimports(3) 
 // Source File Name:   ActionBase.java
 
+import dragon2.paint.PaintBase;
+
 public abstract class ActionBase extends PaintBase implements Runnable {
 
 	public ActionBase() {

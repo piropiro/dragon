@@ -1,10 +1,15 @@
-package dragon2;
+package dragon2.panel;
 // Decompiled by Jad v1.5.8g. Copyright 2001 Pavel Kouznetsov.
 // Jad home page: http://www.kpdus.com/jad.html
 // Decompiler options: packimports(3) 
 // Source File Name:   StatusBase.java
 
 import java.awt.*;
+
+import dragon2.Body;
+import dragon2.Statics;
+import dragon2.Texts;
+import dragon2.UnitWorks;
 import mine.JCanvas;
 import mine.Mine;
 

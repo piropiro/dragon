@@ -8,6 +8,8 @@ import java.awt.Dimension;
 import java.awt.Point;
 import java.util.Iterator;
 import java.util.Vector;
+
+import dragon2.paint.PaintBase;
 import mine.UnitMap;
 
 public class EnemyTurn extends ActionBase {

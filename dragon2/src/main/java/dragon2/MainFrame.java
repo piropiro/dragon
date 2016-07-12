@@ -7,6 +7,8 @@ package dragon2;
 import java.awt.Color;
 import javax.swing.JApplet;
 import javax.swing.JFrame;
+
+import dragon2.panel.VPanel;
 import mine.*;
 
 public class MainFrame implements MainWorks {
