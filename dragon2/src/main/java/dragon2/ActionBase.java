@@ -29,7 +29,7 @@ public abstract class ActionBase extends PaintBase implements Runnable {
 		}
 	}
 
-	abstract void actionMain();
+	public abstract void actionMain();
 
 	private static Thread th;
 }

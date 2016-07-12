@@ -5,7 +5,8 @@ package dragon2;
 // Source File Name:   TalkPaint.java
 
 import java.awt.Point;
-import mine.UnitMap;
+
+import dragon2.card.CardPaint;
 
 public class TalkPaint extends ActionBase {
 

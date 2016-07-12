@@ -48,8 +48,8 @@ public abstract class PaintBase implements PaintListener {
 	public void rightReleased() {
 	}
 
-	static UnitWorks uw;
-	static UnitMap V;
-	static Map map;
-	static Vector Charas;
+	public static UnitWorks uw;
+	public static UnitMap V;
+	public static Map map;
+	public static Vector Charas;
 }

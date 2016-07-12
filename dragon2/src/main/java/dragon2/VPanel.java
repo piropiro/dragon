@@ -14,6 +14,8 @@ import javax.swing.AbstractButton;
 import javax.swing.JPanel;
 
 import dragon2.anime.AnimePanel;
+import dragon2.card.CardPaint;
+import dragon2.card.CardPanel;
 import mine.*;
 
 public class VPanel extends JPanelBase implements UnitWorks, ActionListener,
