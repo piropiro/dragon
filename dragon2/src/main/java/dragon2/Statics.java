@@ -8,6 +8,8 @@ import java.awt.Image;
 import java.util.Arrays;
 import java.util.List;
 
+import dragon2.anime.AnimeData;
+import dragon2.attack.AttackData;
 import mine.ImageLoader;
 import mine.Mine;
 import mine.io.JsonIO;

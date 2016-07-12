@@ -9,6 +9,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Vector;
 
+import dragon2.attack.AttackData;
 import dragon2.paint.PaintBase;
 
 public class Camp extends PaintBase {

@@ -1,4 +1,4 @@
-package dragon2;
+package dragon2.attack;
 // Decompiled by Jad v1.5.8g. Copyright 2001 Pavel Kouznetsov.
 // Jad home page: http://www.kpdus.com/jad.html
 // Decompiler options: packimports(3) 
@@ -6,6 +6,12 @@ package dragon2;
 
 import java.awt.Point;
 
+import dragon2.ActionBase;
+import dragon2.Body;
+import dragon2.Colors;
+import dragon2.Rewalk;
+import dragon2.Texts;
+import dragon2.Tutorial;
 import dragon2.paint.PaintBase;
 import dragon2.paint.TalkPaint;
 

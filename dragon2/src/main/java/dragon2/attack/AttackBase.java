@@ -1,4 +1,4 @@
-package dragon2;
+package dragon2.attack;
 // Decompiled by Jad v1.5.8g. Copyright 2001 Pavel Kouznetsov.
 // Jad home page: http://www.kpdus.com/jad.html
 // Decompiler options: packimports(3) 
@@ -9,6 +9,14 @@ import java.awt.Point;
 import java.util.ArrayList;
 import java.util.List;
 
+import dragon2.Body;
+import dragon2.Iconable;
+import dragon2.Luck;
+import dragon2.Map;
+import dragon2.Rewalk;
+import dragon2.Statics;
+import dragon2.UnitWorks;
+import dragon2.Walk;
 import mine.Mine;
 import mine.UnitMap;
 

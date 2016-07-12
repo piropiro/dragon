@@ -8,6 +8,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Vector;
 
+import dragon2.attack.AttackData;
+
 public class Equip {
 
 	public Equip(List<Body> bodys, UnitWorks unitworks) {

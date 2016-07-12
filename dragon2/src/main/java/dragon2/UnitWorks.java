@@ -7,6 +7,8 @@ package dragon2;
 import java.awt.Point;
 import java.util.Vector;
 
+import dragon2.attack.AttackBase;
+
 public interface UnitWorks {
 
 	public abstract void rmiStarterEnd(Vector vector);

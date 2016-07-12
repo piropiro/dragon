@@ -8,7 +8,6 @@ import java.awt.Graphics;
 import java.awt.Point;
 import java.util.StringTokenizer;
 
-import dragon2.AttackData;
 import dragon2.Body;
 import dragon2.Iconable;
 import dragon2.Rank;
@@ -16,6 +15,7 @@ import dragon2.SaveManager;
 import dragon2.Statics;
 import dragon2.Texts;
 import dragon2.UnitWorks;
+import dragon2.attack.AttackData;
 
 public class SPanel extends StatusBase {
 

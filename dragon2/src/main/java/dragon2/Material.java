@@ -4,6 +4,8 @@ package dragon2;
 // Decompiler options: packimports(3) 
 // Source File Name:   Material.java
 
+import dragon2.attack.AttackBase;
+
 public class Material {
 
 	public Material(UnitWorks unitworks) {
@@ -20,7 +22,7 @@ public class Material {
 		count++;
 		if (count % 6 != 0)
 			return null;
-		Body body = attackbase.bb;
+		Body body = attackbase.getBb();
 		if (Colors.isPlayer(body))
 			return null;
 		material = body.copy();

@@ -14,7 +14,6 @@ import javax.swing.AbstractButton;
 import javax.swing.JPanel;
 
 import dragon2.ActionBase;
-import dragon2.AttackBase;
 import dragon2.Body;
 import dragon2.Camp;
 import dragon2.Collection;
@@ -34,6 +33,7 @@ import dragon2.Treasure;
 import dragon2.TurnManager;
 import dragon2.UnitWorks;
 import dragon2.anime.AnimePanel;
+import dragon2.attack.AttackBase;
 import dragon2.card.CardPaint;
 import dragon2.card.CardPanel;
 import dragon2.paint.BasicPaint;

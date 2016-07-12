@@ -6,6 +6,8 @@ package dragon2;
 
 import java.util.Vector;
 
+import dragon2.attack.AttackData;
+
 public class Sort {
 
 	public Sort() {

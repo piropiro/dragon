@@ -7,7 +7,6 @@ package dragon2.anime;
 import java.awt.Graphics;
 import java.awt.Point;
 
-import dragon2.AnimeData;
 import dragon2.Map;
 import dragon2.Statics;
 import dragon2.UnitWorks;

@@ -8,6 +8,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Vector;
 
+import dragon2.attack.AttackData;
 import mine.DataStream;
 import mine.UnitMap;
 import mine.io.JsonIO;
