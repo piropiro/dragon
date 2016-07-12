@@ -5,7 +5,6 @@ package dragon2;
 // Source File Name:   EndPaint.java
 
 import java.awt.Point;
-import mine.UnitMap;
 
 public class EndPaint extends ActionBase {
 
@@ -35,7 +34,6 @@ public class EndPaint extends ActionBase {
 	}
 
 	public void leftPressed() {
-		SlgClient.setActionEnd();
 		PaintBase.V.S(1, 0, ba.x, ba.y, 0);
 		action();
 	}

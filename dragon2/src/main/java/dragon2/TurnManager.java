@@ -40,9 +40,7 @@ public class TurnManager extends ActionBase {
 			enemyTurnStart();
 			break;
 
-		case 2: // '\002'
-			remoteTurnStart();
-			break;
+
 		}
 	}
 
@@ -57,13 +55,6 @@ public class TurnManager extends ActionBase {
 		uw.limitOver();
 		EnemyTurn enemyturn = new EnemyTurn();
 		PaintBase.map.setPaintListener(enemyturn);
-	}
-
-	private void remoteTurnStart() {
-		SlgClient.setTurnEnd();
-		turnChange(false);
-		RemoteTurn remoteturn = new RemoteTurn();
-		PaintBase.map.setPaintListener(remoteturn);
 	}
 
 	private void turnChange(boolean flag) {

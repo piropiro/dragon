@@ -189,14 +189,8 @@ public class VPanel extends JPanelBase implements UnitWorks, ActionListener,
 		V.change(0, 0, 15, 0, 0, 0);
 		V.change(0, 0, 16, 0, 0, 0);
 		putUnit(Charas);
-		if (SlgClient.remoteFlag) {
-			mw.setMenu(8);
-			SlgClient.setChara(Charas);
-			RmiStarter rmistarter = new RmiStarter();
-			up.setPaintListener(rmistarter);
-		} else {
-			mensTurnStart();
-		}
+
+		mensTurnStart();
 	}
 
 	public void rmiStarterEnd(Vector vector) {
@@ -522,17 +516,12 @@ public class VPanel extends JPanelBase implements UnitWorks, ActionListener,
 	}
 
 	public void levelup(Body body) {
-		if (SlgClient.remoteFlag)
-			return;
 		if (body != null && Colors.isPlayer(body))
 			equip.levelup(body);
 	}
 
 	public void mensTurnEnd() {
-		if (SlgClient.remoteFlag)
-			remoteTurnStart();
-		else
-			enemyTurnStart();
+		enemyTurnStart();
 	}
 
 	private void enemyTurnStart() {
@@ -654,7 +643,7 @@ public class VPanel extends JPanelBase implements UnitWorks, ActionListener,
 			lp.displayT("ALL CLEAR!!", Colors.getPC(), 5000);
 		else
 			lp.displayT("STAGE CLEAR", Colors.getPC(), 5000);
-		SlgClient.cancel();
+
 		sm.stageClear();
 		mw.setMenu(5);
 		setHelp(Texts.help[20], 1);
@@ -689,7 +678,7 @@ public class VPanel extends JPanelBase implements UnitWorks, ActionListener,
 	private void gameOver() {
 		up.setWaitPaint();
 		lp.displayT("GAME OVER", Colors.getEC(), 5000);
-		SlgClient.cancel();
+
 		mw.setMenu(6);
 		setHelp(Texts.help[21], 1);
 	}
@@ -834,15 +823,6 @@ public class VPanel extends JPanelBase implements UnitWorks, ActionListener,
 			Thread.sleep(l);
 		} catch (Exception exception) {
 			System.out.println(exception);
-		}
-	}
-
-	private void remoteStart() {
-		int ai[][] = SlgClient.setup(mw.getFrame(), this);
-		if (ai != null) {
-			SlgClient.remoteFlag = true;
-			Luck.setup(3);
-			remoteStart(ai);
 		}
 	}
 
@@ -1052,8 +1032,6 @@ public class VPanel extends JPanelBase implements UnitWorks, ActionListener,
 			camp.wazaList();
 		else if (s.equals("score"))
 			showScore();
-		else if (s.equals("network"))
-			remoteStart();
 		else if (s.equals("camp"))
 			campStart();
 		else if (s.equals("escape"))
@@ -1093,7 +1071,6 @@ public class VPanel extends JPanelBase implements UnitWorks, ActionListener,
 			}
 			setLPanel("SAVE", 1, 1500);
 		} else if (s.equals("cancel")) {
-			SlgClient.cancel();
 			campStart();
 		} else if (s.equals("select")) {
 			stageSelect();

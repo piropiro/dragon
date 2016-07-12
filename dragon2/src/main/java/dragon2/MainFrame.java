@@ -98,12 +98,9 @@ public class MainFrame implements MainWorks {
 
 		case 2: // '\002'
 			mb.add("TURN END", "turnend", 84);
-			if (SlgClient.remoteFlag) {
-				mb.add("GIVE UP", "giveup", 69);
-			} else {
-				mb.add("ESCAPE", "escape", 69);
-				mb.add("LOAD", "mapload", 81);
-			}
+			mb.add("ESCAPE", "escape", 69);
+			mb.add("LOAD", "mapload", 81);
+			
 			mb.add("HELP", "help", 72);
 			break;
 

@@ -5,7 +5,6 @@ package dragon2;
 // Source File Name:   FightManager.java
 
 import java.awt.Point;
-import mine.UnitMap;
 
 public class FightManager extends ActionBase {
 
@@ -18,7 +17,7 @@ public class FightManager extends ActionBase {
 	private void setHelp(boolean flag) {
 		if (!Colors.isPlayer(ba))
 			return;
-		String as[] = new String[2];
+		
 		if (flag)
 			PaintBase.uw.setHelp(Texts.help[12], 2);
 		else
@@ -164,7 +163,6 @@ public class FightManager extends ActionBase {
 		}
 		if (PaintBase.V.G(1, 0, point.x, point.y) != 0
 				&& attack.searchTargets()) {
-			SlgClient.setActionAtk(n, point.x, point.y);
 			action();
 		}
 	}

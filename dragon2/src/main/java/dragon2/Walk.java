@@ -153,7 +153,7 @@ public class Walk extends ActionBase {
 			} else if (!ba.isType(27))
 				return;
 		}
-		SlgClient.setActionWalk(ba.x, ba.y, point.x, point.y);
+
 		action();
 	}
 
