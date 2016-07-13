@@ -15,6 +15,7 @@
 		"ido": 4,
 		"img": 2,
 		"itype": 3,
+		"kind": "CHARA",
 		"level": 1,
 		"maai": 6,
 		"mdf": 12,
@@ -29,7 +30,10 @@
 		"store": 8,
 		"str": 0,
 		"strMax": 0,
-		"type": [16, 50, 0, 0, 0],
+		"type": [
+			"ASK",
+			"SISTER"
+		],
 		"typeState": null,
 		"x": 1,
 		"y": 1
@@ -50,6 +54,7 @@
 		"ido": 5,
 		"img": 1,
 		"itype": 2,
+		"kind": "CHARA",
 		"level": 1,
 		"maai": 6,
 		"mdf": 3,
@@ -64,7 +69,10 @@
 		"store": 0,
 		"str": 15,
 		"strMax": 150,
-		"type": [16, 51, 0, 0, 0],
+		"type": [
+			"ASK",
+			"HERO"
+		],
 		"typeState": null,
 		"x": 1,
 		"y": 4
@@ -85,6 +93,7 @@
 		"ido": 0,
 		"img": 157,
 		"itype": 0,
+		"kind": "CLASS",
 		"level": 1,
 		"maai": 0,
 		"mdf": 9,
@@ -99,7 +108,7 @@
 		"store": 8,
 		"str": 0,
 		"strMax": 0,
-		"type": [1, 0, 0, 0, 0],
+		"type": [],
 		"typeState": null,
 		"x": 2,
 		"y": 1
@@ -120,6 +129,7 @@
 		"ido": 0,
 		"img": 154,
 		"itype": 0,
+		"kind": "CLASS",
 		"level": 1,
 		"maai": 0,
 		"mdf": 3,
@@ -134,7 +144,7 @@
 		"store": 8,
 		"str": 12,
 		"strMax": 120,
-		"type": [1, 0, 0, 0, 0],
+		"type": [],
 		"typeState": null,
 		"x": 2,
 		"y": 4
@@ -155,6 +165,7 @@
 		"ido": 0,
 		"img": 45,
 		"itype": 0,
+		"kind": "WEPON",
 		"level": 1,
 		"maai": 0,
 		"mdf": 0,
@@ -169,7 +180,7 @@
 		"store": 8,
 		"str": 0,
 		"strMax": 0,
-		"type": [2, 0, 0, 0, 0],
+		"type": [],
 		"typeState": null,
 		"x": 3,
 		"y": 1
@@ -190,6 +201,7 @@
 		"ido": 0,
 		"img": 39,
 		"itype": 0,
+		"kind": "WEPON",
 		"level": 1,
 		"maai": 0,
 		"mdf": 0,
@@ -204,7 +216,7 @@
 		"store": 8,
 		"str": 4,
 		"strMax": 40,
-		"type": [2, 0, 0, 0, 0],
+		"type": [],
 		"typeState": null,
 		"x": 3,
 		"y": 4

@@ -157,6 +157,7 @@ public class BodyMigration {
     		  newBody.gx = old.gx;
     		  newBody.gy = old.gy;
     		  newBody.store = old.store;
+    		  newBody.atk = old.atk;
 
     		  for (int i : old.type) {
     			  switch (i) {

@@ -15,6 +15,7 @@
 		"ido": 5,
 		"img": 168,
 		"itype": 6,
+		"kind": "CHARA",
 		"level": 12,
 		"maai": 1,
 		"mdf": 40,
@@ -29,7 +30,11 @@
 		"store": 8,
 		"str": 40,
 		"strMax": 400,
-		"type": [0, 17, 34, 45, 0],
+		"type": [
+			"ANTI_ALL",
+			"UNDEAD",
+			"MAGIC_50"
+		],
 		"typeState": null,
 		"x": 14,
 		"y": 13
@@ -50,6 +55,7 @@
 		"ido": 5,
 		"img": 113,
 		"itype": 3,
+		"kind": "CHARA",
 		"level": 9,
 		"maai": 3,
 		"mdf": 14,
@@ -64,7 +70,11 @@
 		"store": 8,
 		"str": 30,
 		"strMax": 300,
-		"type": [0, 10, 40, 29, 0],
+		"type": [
+			"ICE_50",
+			"DRAGON_KILLER",
+			"HEAL"
+		],
 		"typeState": null,
 		"x": 5,
 		"y": 10
@@ -85,6 +95,7 @@
 		"ido": 6,
 		"img": 146,
 		"itype": 1,
+		"kind": "CHARA",
 		"level": 10,
 		"maai": 3,
 		"mdf": 10,
@@ -99,7 +110,10 @@
 		"store": 8,
 		"str": 0,
 		"strMax": 0,
-		"type": [0, 13, 43, 0, 0],
+		"type": [
+			"THUNDER_50",
+			"SWORD_50"
+		],
 		"typeState": null,
 		"x": 5,
 		"y": 7
@@ -120,6 +134,7 @@
 		"ido": 0,
 		"img": 131,
 		"itype": 2,
+		"kind": "CHARA",
 		"level": 9,
 		"maai": 1,
 		"mdf": 16,
@@ -134,7 +149,9 @@
 		"store": 8,
 		"str": 28,
 		"strMax": 280,
-		"type": [0, 6, 0, 0, 0],
+		"type": [
+			"FIRE_200"
+		],
 		"typeState": null,
 		"x": 5,
 		"y": 4
@@ -155,6 +172,7 @@
 		"ido": 5,
 		"img": 115,
 		"itype": 2,
+		"kind": "CHARA",
 		"level": 10,
 		"maai": 3,
 		"mdf": 12,
@@ -169,7 +187,9 @@
 		"store": 8,
 		"str": 40,
 		"strMax": 400,
-		"type": [0, 7, 0, 0, 0],
+		"type": [
+			"FIRE_50"
+		],
 		"typeState": null,
 		"x": 14,
 		"y": 7
@@ -190,6 +210,7 @@
 		"ido": 5,
 		"img": 169,
 		"itype": 3,
+		"kind": "CHARA",
 		"level": 12,
 		"maai": 3,
 		"mdf": 30,
@@ -204,7 +225,11 @@
 		"store": 8,
 		"str": 50,
 		"strMax": 500,
-		"type": [0, 17, 29, 43, 0],
+		"type": [
+			"ANTI_ALL",
+			"HEAL",
+			"SWORD_50"
+		],
 		"typeState": null,
 		"x": 5,
 		"y": 13
@@ -225,6 +250,7 @@
 		"ido": 0,
 		"img": 131,
 		"itype": 0,
+		"kind": "ITEM",
 		"level": 8,
 		"maai": 0,
 		"mdf": 1,
@@ -239,7 +265,9 @@
 		"store": 0,
 		"str": 1,
 		"strMax": 10,
-		"type": [4, 6, 0, 0, 0],
+		"type": [
+			"FIRE_200"
+		],
 		"typeState": null,
 		"x": 6,
 		"y": 4
@@ -260,6 +288,7 @@
 		"ido": 0,
 		"img": 146,
 		"itype": 0,
+		"kind": "ITEM",
 		"level": 8,
 		"maai": 0,
 		"mdf": 1,
@@ -274,7 +303,10 @@
 		"store": 0,
 		"str": 1,
 		"strMax": 10,
-		"type": [4, 13, 43, 0, 0],
+		"type": [
+			"THUNDER_50",
+			"SWORD_50"
+		],
 		"typeState": null,
 		"x": 6,
 		"y": 7
@@ -295,6 +327,7 @@
 		"ido": 0,
 		"img": 113,
 		"itype": 0,
+		"kind": "ITEM",
 		"level": 8,
 		"maai": 0,
 		"mdf": 6,
@@ -309,7 +342,11 @@
 		"store": 0,
 		"str": 1,
 		"strMax": 10,
-		"type": [4, 10, 40, 29, 0],
+		"type": [
+			"ICE_50",
+			"DRAGON_KILLER",
+			"HEAL"
+		],
 		"typeState": null,
 		"x": 6,
 		"y": 10
@@ -330,6 +367,7 @@
 		"ido": 0,
 		"img": 115,
 		"itype": 0,
+		"kind": "ITEM",
 		"level": 8,
 		"maai": 0,
 		"mdf": 1,
@@ -344,7 +382,9 @@
 		"store": 0,
 		"str": 6,
 		"strMax": 60,
-		"type": [4, 7, 0, 0, 0],
+		"type": [
+			"FIRE_50"
+		],
 		"typeState": null,
 		"x": 15,
 		"y": 7
@@ -365,6 +405,7 @@
 		"ido": 0,
 		"img": 179,
 		"itype": 0,
+		"kind": "WEPON",
 		"level": 8,
 		"maai": 0,
 		"mdf": 0,
@@ -379,7 +420,9 @@
 		"store": 8,
 		"str": 10,
 		"strMax": 100,
-		"type": [2, 43, 0, 0, 0],
+		"type": [
+			"SWORD_50"
+		],
 		"typeState": null,
 		"x": 6,
 		"y": 13
@@ -400,6 +443,7 @@
 		"ido": 0,
 		"img": 166,
 		"itype": 0,
+		"kind": "WEPON",
 		"level": 8,
 		"maai": 0,
 		"mdf": 0,
@@ -414,7 +458,9 @@
 		"store": 8,
 		"str": 0,
 		"strMax": 0,
-		"type": [2, 45, 0, 0, 0],
+		"type": [
+			"MAGIC_50"
+		],
 		"typeState": null,
 		"x": 15,
 		"y": 13
@@ -435,6 +481,7 @@
 		"ido": 0,
 		"img": 118,
 		"itype": 0,
+		"kind": "CHARA",
 		"level": 10,
 		"maai": 3,
 		"mdf": 14,
@@ -449,7 +496,11 @@
 		"store": 8,
 		"str": 33,
 		"strMax": 330,
-		"type": [0, 7, 24, 34, 0],
+		"type": [
+			"FIRE_50",
+			"ANTI_POISON",
+			"UNDEAD"
+		],
 		"typeState": null,
 		"x": 14,
 		"y": 4
@@ -470,6 +521,7 @@
 		"ido": 0,
 		"img": 118,
 		"itype": 0,
+		"kind": "ITEM",
 		"level": 8,
 		"maai": 0,
 		"mdf": 1,
@@ -484,7 +536,11 @@
 		"store": 0,
 		"str": 1,
 		"strMax": 10,
-		"type": [4, 7, 24, 34, 0],
+		"type": [
+			"FIRE_50",
+			"ANTI_POISON",
+			"UNDEAD"
+		],
 		"typeState": null,
 		"x": 15,
 		"y": 4
@@ -505,6 +561,7 @@
 		"ido": 5,
 		"img": 108,
 		"itype": 6,
+		"kind": "CHARA",
 		"level": 9,
 		"maai": 2,
 		"mdf": 16,
@@ -519,7 +576,10 @@
 		"store": 8,
 		"str": 24,
 		"strMax": 240,
-		"type": [0, 29, 12, 0, 0],
+		"type": [
+			"HEAL",
+			"THUNDER_200"
+		],
 		"typeState": null,
 		"x": 14,
 		"y": 10
@@ -540,6 +600,7 @@
 		"ido": 0,
 		"img": 108,
 		"itype": 0,
+		"kind": "ITEM",
 		"level": 8,
 		"maai": 0,
 		"mdf": 1,
@@ -554,7 +615,10 @@
 		"store": 0,
 		"str": 1,
 		"strMax": 10,
-		"type": [4, 29, 12, 0, 0],
+		"type": [
+			"HEAL",
+			"THUNDER_200"
+		],
 		"typeState": null,
 		"x": 15,
 		"y": 10

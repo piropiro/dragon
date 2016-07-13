@@ -15,6 +15,7 @@
 		"ido": 4,
 		"img": 6,
 		"itype": 3,
+		"kind": "CHARA",
 		"level": 1,
 		"maai": 6,
 		"mdf": 2,
@@ -29,7 +30,7 @@
 		"store": 0,
 		"str": 12,
 		"strMax": 120,
-		"type": [0, 0, 0, 0, 0],
+		"type": [],
 		"typeState": null,
 		"x": 13,
 		"y": 7
@@ -50,6 +51,7 @@
 		"ido": 4,
 		"img": 6,
 		"itype": 3,
+		"kind": "CHARA",
 		"level": 1,
 		"maai": 6,
 		"mdf": 2,
@@ -64,7 +66,7 @@
 		"store": 0,
 		"str": 12,
 		"strMax": 120,
-		"type": [0, 0, 0, 0, 0],
+		"type": [],
 		"typeState": null,
 		"x": 7,
 		"y": 7
@@ -85,6 +87,7 @@
 		"ido": 4,
 		"img": 9,
 		"itype": 6,
+		"kind": "CHARA",
 		"level": 1,
 		"maai": 4,
 		"mdf": 8,
@@ -99,7 +102,9 @@
 		"store": 0,
 		"str": 0,
 		"strMax": 0,
-		"type": [0, 28, 0, 0, 0],
+		"type": [
+			"ANTI_CHARM"
+		],
 		"typeState": null,
 		"x": 11,
 		"y": 7
@@ -120,6 +125,7 @@
 		"ido": 4,
 		"img": 9,
 		"itype": 6,
+		"kind": "CHARA",
 		"level": 1,
 		"maai": 4,
 		"mdf": 8,
@@ -134,7 +140,9 @@
 		"store": 0,
 		"str": 0,
 		"strMax": 0,
-		"type": [0, 28, 0, 0, 0],
+		"type": [
+			"ANTI_CHARM"
+		],
 		"typeState": null,
 		"x": 9,
 		"y": 7
@@ -155,6 +163,7 @@
 		"ido": 4,
 		"img": 18,
 		"itype": 2,
+		"kind": "CHARA",
 		"level": 2,
 		"maai": 8,
 		"mdf": 6,
@@ -169,7 +178,10 @@
 		"store": 0,
 		"str": 17,
 		"strMax": 170,
-		"type": [0, 34, 6, 0, 0],
+		"type": [
+			"UNDEAD",
+			"FIRE_200"
+		],
 		"typeState": null,
 		"x": 10,
 		"y": 3
@@ -190,6 +202,7 @@
 		"ido": 0,
 		"img": 68,
 		"itype": 0,
+		"kind": "ARMOR",
 		"level": 1,
 		"maai": 0,
 		"mdf": 1,
@@ -204,7 +217,7 @@
 		"store": 8,
 		"str": 0,
 		"strMax": 0,
-		"type": [3, 0, 0, 0, 0],
+		"type": [],
 		"typeState": null,
 		"x": 10,
 		"y": 7

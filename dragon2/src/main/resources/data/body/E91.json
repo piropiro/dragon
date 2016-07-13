@@ -15,6 +15,7 @@
 		"ido": 5,
 		"img": 1,
 		"itype": 2,
+		"kind": "CHARA",
 		"level": 1,
 		"maai": 6,
 		"mdf": 3,
@@ -29,7 +30,10 @@
 		"store": 8,
 		"str": 15,
 		"strMax": 150,
-		"type": [16, 51, 0, 0, 0],
+		"type": [
+			"ASK",
+			"HERO"
+		],
 		"typeState": null,
 		"x": 1,
 		"y": 1
@@ -50,6 +54,7 @@
 		"ido": 4,
 		"img": 2,
 		"itype": 3,
+		"kind": "CHARA",
 		"level": 1,
 		"maai": 6,
 		"mdf": 12,
@@ -64,7 +69,10 @@
 		"store": 8,
 		"str": 0,
 		"strMax": 0,
-		"type": [16, 50, 0, 0, 0],
+		"type": [
+			"ASK",
+			"SISTER"
+		],
 		"typeState": null,
 		"x": 2,
 		"y": 1
@@ -85,6 +93,7 @@
 		"ido": 4,
 		"img": 12,
 		"itype": 3,
+		"kind": "CHARA",
 		"level": 3,
 		"maai": 1,
 		"mdf": 3,
@@ -99,7 +108,9 @@
 		"store": 8,
 		"str": 18,
 		"strMax": 180,
-		"type": [0, 7, 0, 0, 0],
+		"type": [
+			"FIRE_50"
+		],
 		"typeState": null,
 		"x": 1,
 		"y": 2
@@ -120,6 +131,7 @@
 		"ido": 4,
 		"img": 16,
 		"itype": 3,
+		"kind": "CHARA",
 		"level": 4,
 		"maai": 3,
 		"mdf": 6,
@@ -134,7 +146,10 @@
 		"store": 8,
 		"str": 22,
 		"strMax": 220,
-		"type": [0, 7, 22, 0, 0],
+		"type": [
+			"FIRE_50",
+			"ANTI_SLEEP"
+		],
 		"typeState": null,
 		"x": 2,
 		"y": 2
@@ -155,6 +170,7 @@
 		"ido": 21,
 		"img": 12,
 		"itype": 3,
+		"kind": "CHARA",
 		"level": 10,
 		"maai": 1,
 		"mdf": 5,
@@ -169,7 +185,9 @@
 		"store": 8,
 		"str": 25,
 		"strMax": 250,
-		"type": [9, 0, 0, 0, 0],
+		"type": [
+			"ICE_200"
+		],
 		"typeState": null,
 		"x": 1,
 		"y": 3
@@ -190,6 +208,7 @@
 		"ido": 21,
 		"img": 16,
 		"itype": 3,
+		"kind": "CHARA",
 		"level": 10,
 		"maai": 1,
 		"mdf": 5,
@@ -204,7 +223,9 @@
 		"store": 8,
 		"str": 25,
 		"strMax": 250,
-		"type": [6, 0, 0, 0, 0],
+		"type": [
+			"FIRE_200"
+		],
 		"typeState": null,
 		"x": 2,
 		"y": 3
@@ -225,6 +246,7 @@
 		"ido": 4,
 		"img": 19,
 		"itype": 3,
+		"kind": "CHARA",
 		"level": 7,
 		"maai": 5,
 		"mdf": 10,
@@ -239,7 +261,7 @@
 		"store": 8,
 		"str": 28,
 		"strMax": 280,
-		"type": [0, 0, 0, 0, 0],
+		"type": [],
 		"typeState": null,
 		"x": 1,
 		"y": 4
@@ -260,6 +282,7 @@
 		"ido": 4,
 		"img": 25,
 		"itype": 3,
+		"kind": "CHARA",
 		"level": 7,
 		"maai": 5,
 		"mdf": 10,
@@ -274,7 +297,7 @@
 		"store": 8,
 		"str": 28,
 		"strMax": 280,
-		"type": [0, 0, 0, 0, 0],
+		"type": [],
 		"typeState": null,
 		"x": 2,
 		"y": 4
@@ -295,6 +318,7 @@
 		"ido": 3,
 		"img": 14,
 		"itype": 2,
+		"kind": "CHARA",
 		"level": 5,
 		"maai": 5,
 		"mdf": 20,
@@ -309,7 +333,7 @@
 		"store": 8,
 		"str": 0,
 		"strMax": 0,
-		"type": [0, 0, 0, 0, 0],
+		"type": [],
 		"typeState": null,
 		"x": 1,
 		"y": 5
@@ -330,6 +354,7 @@
 		"ido": 3,
 		"img": 17,
 		"itype": 2,
+		"kind": "CHARA",
 		"level": 9,
 		"maai": 1,
 		"mdf": 25,
@@ -344,7 +369,7 @@
 		"store": 8,
 		"str": 0,
 		"strMax": 0,
-		"type": [0, 0, 0, 0, 0],
+		"type": [],
 		"typeState": null,
 		"x": 2,
 		"y": 5
@@ -365,6 +390,7 @@
 		"ido": 4,
 		"img": 33,
 		"itype": 2,
+		"kind": "CHARA",
 		"level": 4,
 		"maai": 1,
 		"mdf": 6,
@@ -379,7 +405,10 @@
 		"store": 8,
 		"str": 0,
 		"strMax": 0,
-		"type": [0, 8, 9, 0, 0],
+		"type": [
+			"FIRE_0",
+			"ICE_200"
+		],
 		"typeState": null,
 		"x": 3,
 		"y": 1
@@ -400,6 +429,7 @@
 		"ido": 4,
 		"img": 34,
 		"itype": 2,
+		"kind": "CHARA",
 		"level": 7,
 		"maai": 8,
 		"mdf": 16,
@@ -414,7 +444,11 @@
 		"store": 8,
 		"str": 0,
 		"strMax": 0,
-		"type": [11, 6, 10, 0, 0],
+		"type": [
+			"ICE_0",
+			"FIRE_200",
+			"ICE_50"
+		],
 		"typeState": null,
 		"x": 4,
 		"y": 1
@@ -435,6 +469,7 @@
 		"ido": 3,
 		"img": 128,
 		"itype": 5,
+		"kind": "CHARA",
 		"level": 10,
 		"maai": 4,
 		"mdf": 18,
@@ -449,7 +484,9 @@
 		"store": 8,
 		"str": 44,
 		"strMax": 440,
-		"type": [0, 13, 0, 0, 0],
+		"type": [
+			"THUNDER_50"
+		],
 		"typeState": null,
 		"x": 3,
 		"y": 2
@@ -470,6 +507,7 @@
 		"ido": 3,
 		"img": 142,
 		"itype": 3,
+		"kind": "CHARA",
 		"level": 5,
 		"maai": 6,
 		"mdf": 3,
@@ -484,7 +522,11 @@
 		"store": 8,
 		"str": 18,
 		"strMax": 180,
-		"type": [15, 7, 33, 0, 0],
+		"type": [
+			"TALKABLE",
+			"FIRE_50",
+			"POWERUP"
+		],
 		"typeState": null,
 		"x": 4,
 		"y": 2
@@ -505,6 +547,7 @@
 		"ido": 3,
 		"img": 121,
 		"itype": 6,
+		"kind": "CHARA",
 		"level": 8,
 		"maai": 4,
 		"mdf": 10,
@@ -519,7 +562,10 @@
 		"store": 8,
 		"str": 0,
 		"strMax": 0,
-		"type": [43, 34, 0, 0, 0],
+		"type": [
+			"SWORD_50",
+			"UNDEAD"
+		],
 		"typeState": null,
 		"x": 3,
 		"y": 3
@@ -540,6 +586,7 @@
 		"ido": 3,
 		"img": 95,
 		"itype": 6,
+		"kind": "CHARA",
 		"level": 9,
 		"maai": 4,
 		"mdf": 20,
@@ -554,7 +601,11 @@
 		"store": 8,
 		"str": 0,
 		"strMax": 0,
-		"type": [38, 34, 6, 0, 0],
+		"type": [
+			"SUMMON",
+			"UNDEAD",
+			"FIRE_200"
+		],
 		"typeState": null,
 		"x": 4,
 		"y": 3
@@ -575,6 +626,7 @@
 		"ido": 3,
 		"img": 111,
 		"itype": 2,
+		"kind": "CHARA",
 		"level": 7,
 		"maai": 5,
 		"mdf": 5,
@@ -589,7 +641,10 @@
 		"store": 8,
 		"str": 22,
 		"strMax": 220,
-		"type": [0, 12, 7, 0, 0],
+		"type": [
+			"THUNDER_200",
+			"FIRE_50"
+		],
 		"typeState": null,
 		"x": 3,
 		"y": 4
@@ -610,6 +665,7 @@
 		"ido": 4,
 		"img": 112,
 		"itype": 2,
+		"kind": "CHARA",
 		"level": 8,
 		"maai": 5,
 		"mdf": 10,
@@ -624,7 +680,12 @@
 		"store": 8,
 		"str": 25,
 		"strMax": 250,
-		"type": [11, 6, 10, 12, 0],
+		"type": [
+			"ICE_0",
+			"FIRE_200",
+			"ICE_50",
+			"THUNDER_200"
+		],
 		"typeState": null,
 		"x": 4,
 		"y": 4
@@ -645,6 +706,7 @@
 		"ido": 5,
 		"img": 73,
 		"itype": 6,
+		"kind": "CHARA",
 		"level": 6,
 		"maai": 6,
 		"mdf": 6,
@@ -659,7 +721,12 @@
 		"store": 8,
 		"str": 15,
 		"strMax": 150,
-		"type": [15, 7, 9, 33, 0],
+		"type": [
+			"TALKABLE",
+			"FIRE_50",
+			"ICE_200",
+			"POWERUP"
+		],
 		"typeState": null,
 		"x": 3,
 		"y": 5
@@ -680,6 +747,7 @@
 		"ido": 5,
 		"img": 110,
 		"itype": 1,
+		"kind": "CHARA",
 		"level": 8,
 		"maai": 7,
 		"mdf": 15,
@@ -694,7 +762,11 @@
 		"store": 8,
 		"str": 24,
 		"strMax": 240,
-		"type": [0, 6, 34, 43, 0],
+		"type": [
+			"FIRE_200",
+			"UNDEAD",
+			"SWORD_50"
+		],
 		"typeState": null,
 		"x": 4,
 		"y": 5
@@ -715,6 +787,7 @@
 		"ido": 5,
 		"img": 35,
 		"itype": 3,
+		"kind": "CHARA",
 		"level": 6,
 		"maai": 7,
 		"mdf": 7,
@@ -729,7 +802,10 @@
 		"store": 8,
 		"str": 18,
 		"strMax": 180,
-		"type": [0, 9, 24, 0, 0],
+		"type": [
+			"ICE_200",
+			"ANTI_POISON"
+		],
 		"typeState": null,
 		"x": 5,
 		"y": 1
@@ -750,6 +826,7 @@
 		"ido": 5,
 		"img": 151,
 		"itype": 3,
+		"kind": "CHARA",
 		"level": 8,
 		"maai": 7,
 		"mdf": 10,
@@ -764,7 +841,10 @@
 		"store": 8,
 		"str": 22,
 		"strMax": 220,
-		"type": [0, 12, 24, 0, 0],
+		"type": [
+			"THUNDER_200",
+			"ANTI_POISON"
+		],
 		"typeState": null,
 		"x": 6,
 		"y": 1
@@ -785,6 +865,7 @@
 		"ido": 3,
 		"img": 102,
 		"itype": 3,
+		"kind": "CHARA",
 		"level": 7,
 		"maai": 6,
 		"mdf": 10,
@@ -799,7 +880,10 @@
 		"store": 8,
 		"str": 24,
 		"strMax": 240,
-		"type": [0, 8, 33, 0, 0],
+		"type": [
+			"FIRE_0",
+			"POWERUP"
+		],
 		"typeState": null,
 		"x": 5,
 		"y": 2
@@ -820,6 +904,7 @@
 		"ido": 5,
 		"img": 115,
 		"itype": 2,
+		"kind": "CHARA",
 		"level": 10,
 		"maai": 6,
 		"mdf": 12,
@@ -834,7 +919,10 @@
 		"store": 8,
 		"str": 40,
 		"strMax": 400,
-		"type": [38, 7, 0, 0, 0],
+		"type": [
+			"SUMMON",
+			"FIRE_50"
+		],
 		"typeState": null,
 		"x": 6,
 		"y": 2
@@ -855,6 +943,7 @@
 		"ido": 3,
 		"img": 32,
 		"itype": 3,
+		"kind": "CHARA",
 		"level": 5,
 		"maai": 6,
 		"mdf": 5,
@@ -869,7 +958,9 @@
 		"store": 8,
 		"str": 25,
 		"strMax": 250,
-		"type": [0, 6, 0, 0, 0],
+		"type": [
+			"FIRE_200"
+		],
 		"typeState": null,
 		"x": 5,
 		"y": 3
@@ -890,6 +981,7 @@
 		"ido": 4,
 		"img": 125,
 		"itype": 3,
+		"kind": "CHARA",
 		"level": 5,
 		"maai": 6,
 		"mdf": 5,
@@ -904,7 +996,9 @@
 		"store": 8,
 		"str": 20,
 		"strMax": 200,
-		"type": [0, 6, 0, 0, 0],
+		"type": [
+			"FIRE_200"
+		],
 		"typeState": null,
 		"x": 6,
 		"y": 3
@@ -925,6 +1019,7 @@
 		"ido": 0,
 		"img": 55,
 		"itype": 3,
+		"kind": "CHARA",
 		"level": 2,
 		"maai": 2,
 		"mdf": 5,
@@ -939,7 +1034,10 @@
 		"store": 8,
 		"str": 20,
 		"strMax": 200,
-		"type": [0, 24, 5, 0, 0],
+		"type": [
+			"ANTI_POISON",
+			"DRAGON"
+		],
 		"typeState": null,
 		"x": 5,
 		"y": 4
@@ -960,6 +1058,7 @@
 		"ido": 5,
 		"img": 106,
 		"itype": 3,
+		"kind": "CHARA",
 		"level": 6,
 		"maai": 7,
 		"mdf": 12,
@@ -974,7 +1073,11 @@
 		"store": 8,
 		"str": 34,
 		"strMax": 340,
-		"type": [0, 8, 9, 5, 0],
+		"type": [
+			"FIRE_0",
+			"ICE_200",
+			"DRAGON"
+		],
 		"typeState": null,
 		"x": 6,
 		"y": 4
@@ -995,6 +1098,7 @@
 		"ido": 3,
 		"img": 92,
 		"itype": 2,
+		"kind": "CHARA",
 		"level": 6,
 		"maai": 4,
 		"mdf": 5,
@@ -1009,7 +1113,9 @@
 		"store": 8,
 		"str": 20,
 		"strMax": 200,
-		"type": [0, 12, 0, 0, 0],
+		"type": [
+			"THUNDER_200"
+		],
 		"typeState": null,
 		"x": 5,
 		"y": 5
@@ -1030,6 +1136,7 @@
 		"ido": 2,
 		"img": 22,
 		"itype": 2,
+		"kind": "CHARA",
 		"level": 9,
 		"maai": 4,
 		"mdf": 12,
@@ -1044,7 +1151,11 @@
 		"store": 8,
 		"str": 24,
 		"strMax": 240,
-		"type": [38, 12, 34, 0, 0],
+		"type": [
+			"SUMMON",
+			"THUNDER_200",
+			"UNDEAD"
+		],
 		"typeState": null,
 		"x": 6,
 		"y": 5
@@ -1065,6 +1176,7 @@
 		"ido": 4,
 		"img": 8,
 		"itype": 2,
+		"kind": "CHARA",
 		"level": 1,
 		"maai": 6,
 		"mdf": 6,
@@ -1079,7 +1191,11 @@
 		"store": 8,
 		"str": 12,
 		"strMax": 120,
-		"type": [15, 10, 33, 0, 0],
+		"type": [
+			"TALKABLE",
+			"ICE_50",
+			"POWERUP"
+		],
 		"typeState": null,
 		"x": 7,
 		"y": 1
@@ -1100,6 +1216,7 @@
 		"ido": 5,
 		"img": 26,
 		"itype": 3,
+		"kind": "CHARA",
 		"level": 7,
 		"maai": 3,
 		"mdf": 6,
@@ -1114,7 +1231,10 @@
 		"store": 8,
 		"str": 27,
 		"strMax": 270,
-		"type": [0, 12, 10, 0, 0],
+		"type": [
+			"THUNDER_200",
+			"ICE_50"
+		],
 		"typeState": null,
 		"x": 8,
 		"y": 1
@@ -1135,6 +1255,7 @@
 		"ido": 5,
 		"img": 113,
 		"itype": 3,
+		"kind": "CHARA",
 		"level": 9,
 		"maai": 3,
 		"mdf": 14,
@@ -1149,7 +1270,12 @@
 		"store": 8,
 		"str": 30,
 		"strMax": 300,
-		"type": [11, 10, 40, 29, 0],
+		"type": [
+			"ICE_0",
+			"ICE_50",
+			"DRAGON_KILLER",
+			"HEAL"
+		],
 		"typeState": null,
 		"x": 9,
 		"y": 1
@@ -1170,6 +1296,7 @@
 		"ido": 2,
 		"img": 13,
 		"itype": 3,
+		"kind": "CHARA",
 		"level": 5,
 		"maai": 2,
 		"mdf": 10,
@@ -1184,7 +1311,7 @@
 		"store": 8,
 		"str": 34,
 		"strMax": 340,
-		"type": [0, 0, 0, 0, 0],
+		"type": [],
 		"typeState": null,
 		"x": 7,
 		"y": 2
@@ -1205,6 +1332,7 @@
 		"ido": 8,
 		"img": 57,
 		"itype": 4,
+		"kind": "CHARA",
 		"level": 5,
 		"maai": 10,
 		"mdf": 14,
@@ -1219,7 +1347,9 @@
 		"store": 8,
 		"str": 20,
 		"strMax": 200,
-		"type": [0, 6, 0, 0, 0],
+		"type": [
+			"FIRE_200"
+		],
 		"typeState": null,
 		"x": 8,
 		"y": 2
@@ -1240,6 +1370,7 @@
 		"ido": 3,
 		"img": 101,
 		"itype": 3,
+		"kind": "CHARA",
 		"level": 6,
 		"maai": 5,
 		"mdf": 5,
@@ -1254,7 +1385,10 @@
 		"store": 8,
 		"str": 25,
 		"strMax": 250,
-		"type": [38, 12, 0, 0, 0],
+		"type": [
+			"SUMMON",
+			"THUNDER_200"
+		],
 		"typeState": null,
 		"x": 9,
 		"y": 2
@@ -1275,6 +1409,7 @@
 		"ido": 5,
 		"img": 61,
 		"itype": 4,
+		"kind": "CHARA",
 		"level": 4,
 		"maai": 6,
 		"mdf": 6,
@@ -1289,7 +1424,9 @@
 		"store": 8,
 		"str": 18,
 		"strMax": 180,
-		"type": [0, 12, 0, 0, 0],
+		"type": [
+			"THUNDER_200"
+		],
 		"typeState": null,
 		"x": 7,
 		"y": 3
@@ -1310,6 +1447,7 @@
 		"ido": 5,
 		"img": 72,
 		"itype": 5,
+		"kind": "CHARA",
 		"level": 7,
 		"maai": 6,
 		"mdf": 6,
@@ -1324,7 +1462,9 @@
 		"store": 8,
 		"str": 22,
 		"strMax": 220,
-		"type": [0, 6, 0, 0, 0],
+		"type": [
+			"FIRE_200"
+		],
 		"typeState": null,
 		"x": 8,
 		"y": 3
@@ -1345,6 +1485,7 @@
 		"ido": 5,
 		"img": 114,
 		"itype": 4,
+		"kind": "CHARA",
 		"level": 8,
 		"maai": 7,
 		"mdf": 8,
@@ -1359,7 +1500,12 @@
 		"store": 8,
 		"str": 20,
 		"strMax": 200,
-		"type": [8, 12, 9, 7, 0],
+		"type": [
+			"FIRE_0",
+			"THUNDER_200",
+			"ICE_200",
+			"FIRE_50"
+		],
 		"typeState": null,
 		"x": 9,
 		"y": 3
@@ -1380,6 +1526,7 @@
 		"ido": 4,
 		"img": 18,
 		"itype": 2,
+		"kind": "CHARA",
 		"level": 2,
 		"maai": 8,
 		"mdf": 6,
@@ -1394,7 +1541,10 @@
 		"store": 8,
 		"str": 17,
 		"strMax": 170,
-		"type": [0, 34, 6, 0, 0],
+		"type": [
+			"UNDEAD",
+			"FIRE_200"
+		],
 		"typeState": null,
 		"x": 7,
 		"y": 4
@@ -1415,6 +1565,7 @@
 		"ido": 4,
 		"img": 56,
 		"itype": 3,
+		"kind": "CHARA",
 		"level": 3,
 		"maai": 9,
 		"mdf": 9,
@@ -1429,7 +1580,11 @@
 		"store": 8,
 		"str": 18,
 		"strMax": 180,
-		"type": [15, 34, 33, 0, 0],
+		"type": [
+			"TALKABLE",
+			"UNDEAD",
+			"POWERUP"
+		],
 		"typeState": null,
 		"x": 8,
 		"y": 4
@@ -1450,6 +1605,7 @@
 		"ido": 4,
 		"img": 53,
 		"itype": 2,
+		"kind": "CHARA",
 		"level": 3,
 		"maai": 9,
 		"mdf": 6,
@@ -1464,7 +1620,11 @@
 		"store": 8,
 		"str": 17,
 		"strMax": 170,
-		"type": [0, 34, 6, 12, 0],
+		"type": [
+			"UNDEAD",
+			"FIRE_200",
+			"THUNDER_200"
+		],
 		"typeState": null,
 		"x": 9,
 		"y": 4
@@ -1485,6 +1645,7 @@
 		"ido": 6,
 		"img": 21,
 		"itype": 3,
+		"kind": "CHARA",
 		"level": 12,
 		"maai": 12,
 		"mdf": 25,
@@ -1499,7 +1660,12 @@
 		"store": 8,
 		"str": 60,
 		"strMax": 600,
-		"type": [24, 6, 10, 5, 0],
+		"type": [
+			"ANTI_POISON",
+			"FIRE_200",
+			"ICE_50",
+			"DRAGON"
+		],
 		"typeState": null,
 		"x": 7,
 		"y": 5
@@ -1520,6 +1686,7 @@
 		"ido": 5,
 		"img": 20,
 		"itype": 6,
+		"kind": "CHARA",
 		"level": 12,
 		"maai": 12,
 		"mdf": 35,
@@ -1534,7 +1701,12 @@
 		"store": 8,
 		"str": 70,
 		"strMax": 700,
-		"type": [24, 7, 9, 5, 0],
+		"type": [
+			"ANTI_POISON",
+			"FIRE_50",
+			"ICE_200",
+			"DRAGON"
+		],
 		"typeState": null,
 		"x": 8,
 		"y": 5
@@ -1555,6 +1727,7 @@
 		"ido": 1,
 		"img": 29,
 		"itype": 6,
+		"kind": "CHARA",
 		"level": 12,
 		"maai": 0,
 		"mdf": 25,
@@ -1569,7 +1742,12 @@
 		"store": 8,
 		"str": 60,
 		"strMax": 600,
-		"type": [5, 7, 10, 23, 0],
+		"type": [
+			"DRAGON",
+			"FIRE_50",
+			"ICE_50",
+			"POISON"
+		],
 		"typeState": null,
 		"x": 9,
 		"y": 5
@@ -1590,6 +1768,7 @@
 		"ido": 4,
 		"img": 6,
 		"itype": 3,
+		"kind": "CHARA",
 		"level": 1,
 		"maai": 6,
 		"mdf": 2,
@@ -1604,7 +1783,7 @@
 		"store": 8,
 		"str": 12,
 		"strMax": 120,
-		"type": [0, 0, 0, 0, 0],
+		"type": [],
 		"typeState": null,
 		"x": 10,
 		"y": 1
@@ -1625,6 +1804,7 @@
 		"ido": 4,
 		"img": 126,
 		"itype": 3,
+		"kind": "CHARA",
 		"level": 7,
 		"maai": 6,
 		"mdf": 10,
@@ -1639,7 +1819,9 @@
 		"store": 8,
 		"str": 18,
 		"strMax": 180,
-		"type": [0, 9, 0, 0, 0],
+		"type": [
+			"ICE_200"
+		],
 		"typeState": null,
 		"x": 11,
 		"y": 1
@@ -1660,6 +1842,7 @@
 		"ido": 4,
 		"img": 37,
 		"itype": 3,
+		"kind": "CHARA",
 		"level": 4,
 		"maai": 6,
 		"mdf": 6,
@@ -1674,7 +1857,9 @@
 		"store": 8,
 		"str": 16,
 		"strMax": 160,
-		"type": [0, 12, 0, 0, 0],
+		"type": [
+			"THUNDER_200"
+		],
 		"typeState": null,
 		"x": 12,
 		"y": 1
@@ -1695,6 +1880,7 @@
 		"ido": 4,
 		"img": 7,
 		"itype": 3,
+		"kind": "CHARA",
 		"level": 2,
 		"maai": 2,
 		"mdf": 2,
@@ -1709,7 +1895,9 @@
 		"store": 8,
 		"str": 17,
 		"strMax": 170,
-		"type": [0, 24, 0, 0, 0],
+		"type": [
+			"ANTI_POISON"
+		],
 		"typeState": null,
 		"x": 13,
 		"y": 1
@@ -1730,6 +1918,7 @@
 		"ido": 4,
 		"img": 9,
 		"itype": 6,
+		"kind": "CHARA",
 		"level": 1,
 		"maai": 4,
 		"mdf": 8,
@@ -1744,7 +1933,9 @@
 		"store": 8,
 		"str": 0,
 		"strMax": 0,
-		"type": [0, 28, 0, 0, 0],
+		"type": [
+			"ANTI_CHARM"
+		],
 		"typeState": null,
 		"x": 10,
 		"y": 2
@@ -1765,6 +1956,7 @@
 		"ido": 4,
 		"img": 54,
 		"itype": 6,
+		"kind": "CHARA",
 		"level": 3,
 		"maai": 8,
 		"mdf": 14,
@@ -1779,7 +1971,11 @@
 		"store": 8,
 		"str": 0,
 		"strMax": 0,
-		"type": [0, 9, 8, 28, 0],
+		"type": [
+			"ICE_200",
+			"FIRE_0",
+			"ANTI_CHARM"
+		],
 		"typeState": null,
 		"x": 11,
 		"y": 2
@@ -1800,6 +1996,7 @@
 		"ido": 4,
 		"img": 103,
 		"itype": 6,
+		"kind": "CHARA",
 		"level": 6,
 		"maai": 8,
 		"mdf": 18,
@@ -1814,7 +2011,11 @@
 		"store": 8,
 		"str": 0,
 		"strMax": 0,
-		"type": [0, 6, 10, 28, 0],
+		"type": [
+			"FIRE_200",
+			"ICE_50",
+			"ANTI_CHARM"
+		],
 		"typeState": null,
 		"x": 12,
 		"y": 2
@@ -1835,6 +2036,7 @@
 		"ido": 4,
 		"img": 127,
 		"itype": 6,
+		"kind": "CHARA",
 		"level": 7,
 		"maai": 8,
 		"mdf": 18,
@@ -1849,7 +2051,10 @@
 		"store": 8,
 		"str": 0,
 		"strMax": 0,
-		"type": [0, 6, 0, 28, 0],
+		"type": [
+			"FIRE_200",
+			"ANTI_CHARM"
+		],
 		"typeState": null,
 		"x": 13,
 		"y": 2
@@ -1870,6 +2075,7 @@
 		"ido": 4,
 		"img": 96,
 		"itype": 1,
+		"kind": "CHARA",
 		"level": 3,
 		"maai": 6,
 		"mdf": 6,
@@ -1884,7 +2090,10 @@
 		"store": 8,
 		"str": 13,
 		"strMax": 130,
-		"type": [43, 12, 0, 0, 0],
+		"type": [
+			"SWORD_50",
+			"THUNDER_200"
+		],
 		"typeState": null,
 		"x": 10,
 		"y": 3
@@ -1905,6 +2114,7 @@
 		"ido": 4,
 		"img": 71,
 		"itype": 1,
+		"kind": "CHARA",
 		"level": 4,
 		"maai": 7,
 		"mdf": 8,
@@ -1919,7 +2129,10 @@
 		"store": 8,
 		"str": 15,
 		"strMax": 150,
-		"type": [43, 9, 0, 0, 0],
+		"type": [
+			"SWORD_50",
+			"ICE_200"
+		],
 		"typeState": null,
 		"x": 11,
 		"y": 3
@@ -1940,6 +2153,7 @@
 		"ido": 5,
 		"img": 152,
 		"itype": 1,
+		"kind": "CHARA",
 		"level": 8,
 		"maai": 7,
 		"mdf": 12,
@@ -1954,7 +2168,10 @@
 		"store": 8,
 		"str": 20,
 		"strMax": 200,
-		"type": [43, 9, 0, 0, 0],
+		"type": [
+			"SWORD_50",
+			"ICE_200"
+		],
 		"typeState": null,
 		"x": 12,
 		"y": 3
@@ -1975,6 +2192,7 @@
 		"ido": 4,
 		"img": 117,
 		"itype": 1,
+		"kind": "CHARA",
 		"level": 8,
 		"maai": 7,
 		"mdf": 10,
@@ -1989,7 +2207,12 @@
 		"store": 8,
 		"str": 20,
 		"strMax": 200,
-		"type": [38, 9, 8, 43, 0],
+		"type": [
+			"SUMMON",
+			"ICE_200",
+			"FIRE_0",
+			"SWORD_50"
+		],
 		"typeState": null,
 		"x": 13,
 		"y": 3
@@ -2010,6 +2233,7 @@
 		"ido": 5,
 		"img": 36,
 		"itype": 3,
+		"kind": "CHARA",
 		"level": 3,
 		"maai": 7,
 		"mdf": 6,
@@ -2024,7 +2248,10 @@
 		"store": 8,
 		"str": 15,
 		"strMax": 150,
-		"type": [0, 24, 9, 0, 0],
+		"type": [
+			"ANTI_POISON",
+			"ICE_200"
+		],
 		"typeState": null,
 		"x": 10,
 		"y": 4
@@ -2045,6 +2272,7 @@
 		"ido": 5,
 		"img": 107,
 		"itype": 3,
+		"kind": "CHARA",
 		"level": 7,
 		"maai": 4,
 		"mdf": 12,
@@ -2059,7 +2287,10 @@
 		"store": 8,
 		"str": 18,
 		"strMax": 180,
-		"type": [0, 24, 9, 0, 0],
+		"type": [
+			"ANTI_POISON",
+			"ICE_200"
+		],
 		"typeState": null,
 		"x": 11,
 		"y": 4
@@ -2080,6 +2311,7 @@
 		"ido": 5,
 		"img": 129,
 		"itype": 4,
+		"kind": "CHARA",
 		"level": 7,
 		"maai": 8,
 		"mdf": 9,
@@ -2094,7 +2326,10 @@
 		"store": 8,
 		"str": 18,
 		"strMax": 180,
-		"type": [0, 24, 9, 0, 0],
+		"type": [
+			"ANTI_POISON",
+			"ICE_200"
+		],
 		"typeState": null,
 		"x": 12,
 		"y": 4
@@ -2115,6 +2350,7 @@
 		"ido": 5,
 		"img": 108,
 		"itype": 6,
+		"kind": "CHARA",
 		"level": 9,
 		"maai": 2,
 		"mdf": 16,
@@ -2129,7 +2365,10 @@
 		"store": 8,
 		"str": 24,
 		"strMax": 240,
-		"type": [0, 29, 12, 0, 0],
+		"type": [
+			"HEAL",
+			"THUNDER_200"
+		],
 		"typeState": null,
 		"x": 13,
 		"y": 4
@@ -2150,6 +2389,7 @@
 		"ido": 3,
 		"img": 5,
 		"itype": 2,
+		"kind": "CHARA",
 		"level": 6,
 		"maai": 5,
 		"mdf": 20,
@@ -2164,7 +2404,9 @@
 		"store": 8,
 		"str": 0,
 		"strMax": 0,
-		"type": [0, 10, 0, 0, 0],
+		"type": [
+			"ICE_50"
+		],
 		"typeState": null,
 		"x": 10,
 		"y": 5
@@ -2185,6 +2427,7 @@
 		"ido": 5,
 		"img": 23,
 		"itype": 3,
+		"kind": "CHARA",
 		"level": 7,
 		"maai": 5,
 		"mdf": 19,
@@ -2199,7 +2442,10 @@
 		"store": 8,
 		"str": 0,
 		"strMax": 0,
-		"type": [0, 7, 9, 0, 0],
+		"type": [
+			"FIRE_50",
+			"ICE_200"
+		],
 		"typeState": null,
 		"x": 11,
 		"y": 5
@@ -2220,6 +2466,7 @@
 		"ido": 6,
 		"img": 118,
 		"itype": 6,
+		"kind": "CHARA",
 		"level": 10,
 		"maai": 5,
 		"mdf": 14,
@@ -2234,7 +2481,12 @@
 		"store": 8,
 		"str": 33,
 		"strMax": 330,
-		"type": [38, 7, 24, 34, 0],
+		"type": [
+			"SUMMON",
+			"FIRE_50",
+			"ANTI_POISON",
+			"UNDEAD"
+		],
 		"typeState": null,
 		"x": 12,
 		"y": 5
@@ -2255,6 +2507,7 @@
 		"ido": 5,
 		"img": 168,
 		"itype": 6,
+		"kind": "CHARA",
 		"level": 12,
 		"maai": 1,
 		"mdf": 40,
@@ -2269,7 +2522,11 @@
 		"store": 8,
 		"str": 40,
 		"strMax": 400,
-		"type": [0, 17, 34, 45, 0],
+		"type": [
+			"ANTI_ALL",
+			"UNDEAD",
+			"MAGIC_50"
+		],
 		"typeState": null,
 		"x": 13,
 		"y": 5
@@ -2290,6 +2547,7 @@
 		"ido": 4,
 		"img": 15,
 		"itype": 2,
+		"kind": "CHARA",
 		"level": 9,
 		"maai": 1,
 		"mdf": 30,
@@ -2304,7 +2562,9 @@
 		"store": 8,
 		"str": 20,
 		"strMax": 200,
-		"type": [0, 18, 0, 0, 0],
+		"type": [
+			"ANTI_CRITICAL"
+		],
 		"typeState": null,
 		"x": 14,
 		"y": 1
@@ -2325,6 +2585,7 @@
 		"ido": 12,
 		"img": 24,
 		"itype": 3,
+		"kind": "CHARA",
 		"level": 8,
 		"maai": 5,
 		"mdf": 20,
@@ -2339,7 +2600,9 @@
 		"store": 8,
 		"str": 50,
 		"strMax": 500,
-		"type": [41, 0, 0, 0, 0],
+		"type": [
+			"UNDEAD_KILLER"
+		],
 		"typeState": null,
 		"x": 15,
 		"y": 1
@@ -2360,6 +2623,7 @@
 		"ido": 4,
 		"img": 62,
 		"itype": 5,
+		"kind": "CHARA",
 		"level": 3,
 		"maai": 6,
 		"mdf": 12,
@@ -2374,7 +2638,7 @@
 		"store": 8,
 		"str": 15,
 		"strMax": 150,
-		"type": [0, 0, 0, 0, 0],
+		"type": [],
 		"typeState": null,
 		"x": 16,
 		"y": 1
@@ -2395,6 +2659,7 @@
 		"ido": 4,
 		"img": 63,
 		"itype": 5,
+		"kind": "CHARA",
 		"level": 4,
 		"maai": 4,
 		"mdf": 9,
@@ -2409,7 +2674,12 @@
 		"store": 8,
 		"str": 15,
 		"strMax": 150,
-		"type": [16, 12, 20, 33, 0],
+		"type": [
+			"ASK",
+			"THUNDER_200",
+			"NKILL",
+			"POWERUP"
+		],
 		"typeState": null,
 		"x": 17,
 		"y": 1
@@ -2430,6 +2700,7 @@
 		"ido": 4,
 		"img": 64,
 		"itype": 2,
+		"kind": "CHARA",
 		"level": 3,
 		"maai": 6,
 		"mdf": 3,
@@ -2444,7 +2715,11 @@
 		"store": 8,
 		"str": 15,
 		"strMax": 150,
-		"type": [16, 7, 33, 0, 0],
+		"type": [
+			"ASK",
+			"FIRE_50",
+			"POWERUP"
+		],
 		"typeState": null,
 		"x": 14,
 		"y": 2
@@ -2465,6 +2740,7 @@
 		"ido": 5,
 		"img": 70,
 		"itype": 3,
+		"kind": "CHARA",
 		"level": 5,
 		"maai": 5,
 		"mdf": 6,
@@ -2479,7 +2755,12 @@
 		"store": 8,
 		"str": 21,
 		"strMax": 210,
-		"type": [16, 56, 33, 29, 0],
+		"type": [
+			"ASK",
+			"MOVE_DOWN_1",
+			"POWERUP",
+			"HEAL"
+		],
 		"typeState": null,
 		"x": 15,
 		"y": 2
@@ -2500,6 +2781,7 @@
 		"ido": 7,
 		"img": 124,
 		"itype": 1,
+		"kind": "CHARA",
 		"level": 12,
 		"maai": 3,
 		"mdf": 20,
@@ -2514,7 +2796,12 @@
 		"store": 0,
 		"str": 20,
 		"strMax": 200,
-		"type": [15, 7, 34, 43, 0],
+		"type": [
+			"TALKABLE",
+			"FIRE_50",
+			"UNDEAD",
+			"SWORD_50"
+		],
 		"typeState": null,
 		"x": 16,
 		"y": 2
@@ -2535,6 +2822,7 @@
 		"ido": 4,
 		"img": 104,
 		"itype": 2,
+		"kind": "CHARA",
 		"level": 10,
 		"maai": 2,
 		"mdf": 24,
@@ -2549,7 +2837,11 @@
 		"store": 8,
 		"str": 30,
 		"strMax": 300,
-		"type": [15, 10, 6, 0, 0],
+		"type": [
+			"TALKABLE",
+			"ICE_50",
+			"FIRE_200"
+		],
 		"typeState": null,
 		"x": 17,
 		"y": 2
@@ -2570,6 +2862,7 @@
 		"ido": 4,
 		"img": 109,
 		"itype": 2,
+		"kind": "CHARA",
 		"level": 10,
 		"maai": 5,
 		"mdf": 25,
@@ -2584,7 +2877,12 @@
 		"store": 8,
 		"str": 25,
 		"strMax": 250,
-		"type": [15, 10, 8, 13, 0],
+		"type": [
+			"TALKABLE",
+			"ICE_50",
+			"FIRE_0",
+			"THUNDER_50"
+		],
 		"typeState": null,
 		"x": 14,
 		"y": 3
@@ -2605,6 +2903,7 @@
 		"ido": 4,
 		"img": 147,
 		"itype": 1,
+		"kind": "CHARA",
 		"level": 9,
 		"maai": 1,
 		"mdf": 18,
@@ -2619,7 +2918,11 @@
 		"store": 8,
 		"str": 0,
 		"strMax": 0,
-		"type": [15, 29, 7, 0, 0],
+		"type": [
+			"TALKABLE",
+			"HEAL",
+			"FIRE_50"
+		],
 		"typeState": null,
 		"x": 15,
 		"y": 3
@@ -2640,6 +2943,7 @@
 		"ido": 5,
 		"img": 169,
 		"itype": 3,
+		"kind": "CHARA",
 		"level": 12,
 		"maai": 3,
 		"mdf": 30,
@@ -2654,7 +2958,11 @@
 		"store": 8,
 		"str": 50,
 		"strMax": 500,
-		"type": [0, 17, 29, 43, 0],
+		"type": [
+			"ANTI_ALL",
+			"HEAL",
+			"SWORD_50"
+		],
 		"typeState": null,
 		"x": 16,
 		"y": 3
@@ -2675,6 +2983,7 @@
 		"ido": 6,
 		"img": 30,
 		"itype": 6,
+		"kind": "CHARA",
 		"level": 12,
 		"maai": 6,
 		"mdf": 34,
@@ -2689,7 +2998,12 @@
 		"store": 8,
 		"str": 0,
 		"strMax": 0,
-		"type": [38, 17, 34, 29, 0],
+		"type": [
+			"SUMMON",
+			"ANTI_ALL",
+			"UNDEAD",
+			"HEAL"
+		],
 		"typeState": null,
 		"x": 17,
 		"y": 3
@@ -2710,6 +3024,7 @@
 		"ido": 6,
 		"img": 146,
 		"itype": 1,
+		"kind": "CHARA",
 		"level": 10,
 		"maai": 6,
 		"mdf": 10,
@@ -2724,7 +3039,11 @@
 		"store": 8,
 		"str": 0,
 		"strMax": 0,
-		"type": [14, 13, 43, 0, 0],
+		"type": [
+			"THUNDER_0",
+			"THUNDER_50",
+			"SWORD_50"
+		],
 		"typeState": null,
 		"x": 14,
 		"y": 4
@@ -2745,6 +3064,7 @@
 		"ido": 5,
 		"img": 145,
 		"itype": 3,
+		"kind": "CHARA",
 		"level": 6,
 		"maai": 7,
 		"mdf": 6,
@@ -2759,7 +3079,12 @@
 		"store": 8,
 		"str": 18,
 		"strMax": 180,
-		"type": [15, 9, 8, 33, 0],
+		"type": [
+			"TALKABLE",
+			"ICE_200",
+			"FIRE_0",
+			"POWERUP"
+		],
 		"typeState": null,
 		"x": 15,
 		"y": 4
@@ -2780,6 +3105,7 @@
 		"ido": 3,
 		"img": 144,
 		"itype": 2,
+		"kind": "CHARA",
 		"level": 6,
 		"maai": 4,
 		"mdf": 0,
@@ -2794,7 +3120,12 @@
 		"store": 8,
 		"str": 21,
 		"strMax": 210,
-		"type": [15, 6, 10, 33, 0],
+		"type": [
+			"TALKABLE",
+			"FIRE_200",
+			"ICE_50",
+			"POWERUP"
+		],
 		"typeState": null,
 		"x": 16,
 		"y": 4
@@ -2815,6 +3146,7 @@
 		"ido": 5,
 		"img": 10,
 		"itype": 3,
+		"kind": "CHARA",
 		"level": 6,
 		"maai": 6,
 		"mdf": 3,
@@ -2829,7 +3161,12 @@
 		"store": 8,
 		"str": 18,
 		"strMax": 180,
-		"type": [15, 7, 9, 33, 0],
+		"type": [
+			"TALKABLE",
+			"FIRE_50",
+			"ICE_200",
+			"POWERUP"
+		],
 		"typeState": null,
 		"x": 17,
 		"y": 4
@@ -2850,6 +3187,7 @@
 		"ido": 2,
 		"img": 130,
 		"itype": 4,
+		"kind": "CHARA",
 		"level": 9,
 		"maai": 3,
 		"mdf": 10,
@@ -2864,7 +3202,9 @@
 		"store": 8,
 		"str": 24,
 		"strMax": 240,
-		"type": [0, 9, 0, 0, 0],
+		"type": [
+			"ICE_200"
+		],
 		"typeState": null,
 		"x": 14,
 		"y": 5
@@ -2885,6 +3225,7 @@
 		"ido": 0,
 		"img": 131,
 		"itype": 2,
+		"kind": "CHARA",
 		"level": 9,
 		"maai": 1,
 		"mdf": 16,
@@ -2899,7 +3240,9 @@
 		"store": 8,
 		"str": 28,
 		"strMax": 280,
-		"type": [0, 6, 0, 0, 0],
+		"type": [
+			"FIRE_200"
+		],
 		"typeState": null,
 		"x": 15,
 		"y": 5
@@ -2920,6 +3263,7 @@
 		"ido": 3,
 		"img": 150,
 		"itype": 2,
+		"kind": "CHARA",
 		"level": 8,
 		"maai": 6,
 		"mdf": 5,
@@ -2934,7 +3278,9 @@
 		"store": 8,
 		"str": 25,
 		"strMax": 250,
-		"type": [0, 6, 0, 0, 0],
+		"type": [
+			"FIRE_200"
+		],
 		"typeState": null,
 		"x": 16,
 		"y": 5
@@ -2955,6 +3301,7 @@
 		"ido": 3,
 		"img": 148,
 		"itype": 3,
+		"kind": "CHARA",
 		"level": 9,
 		"maai": 5,
 		"mdf": 25,
@@ -2969,7 +3316,9 @@
 		"store": 8,
 		"str": 0,
 		"strMax": 0,
-		"type": [43, 0, 0, 0, 0],
+		"type": [
+			"SWORD_50"
+		],
 		"typeState": null,
 		"x": 17,
 		"y": 5
@@ -2990,6 +3339,7 @@
 		"ido": 5,
 		"img": 149,
 		"itype": 1,
+		"kind": "CHARA",
 		"level": 9,
 		"maai": 6,
 		"mdf": 10,
@@ -3004,7 +3354,9 @@
 		"store": 8,
 		"str": 25,
 		"strMax": 250,
-		"type": [43, 0, 0, 0, 0],
+		"type": [
+			"SWORD_50"
+		],
 		"typeState": null,
 		"x": 18,
 		"y": 1
@@ -3025,6 +3377,7 @@
 		"ido": 2,
 		"img": 3,
 		"itype": 3,
+		"kind": "CHARA",
 		"level": 12,
 		"maai": 2,
 		"mdf": 25,
@@ -3039,7 +3392,9 @@
 		"store": 8,
 		"str": 0,
 		"strMax": 0,
-		"type": [34, 0, 0, 0, 0],
+		"type": [
+			"UNDEAD"
+		],
 		"typeState": null,
 		"x": 18,
 		"y": 2
@@ -3060,6 +3415,7 @@
 		"ido": 0,
 		"img": 38,
 		"itype": 2,
+		"kind": "CHARA",
 		"level": 9,
 		"maai": 0,
 		"mdf": 15,
@@ -3074,7 +3430,9 @@
 		"store": 8,
 		"str": 0,
 		"strMax": 0,
-		"type": [17, 0, 0, 0, 0],
+		"type": [
+			"ANTI_ALL"
+		],
 		"typeState": null,
 		"x": 18,
 		"y": 3
@@ -3095,6 +3453,7 @@
 		"ido": 0,
 		"img": 40,
 		"itype": 2,
+		"kind": "CHARA",
 		"level": 9,
 		"maai": 0,
 		"mdf": 10,
@@ -3109,7 +3468,7 @@
 		"store": 8,
 		"str": 0,
 		"strMax": 0,
-		"type": [0, 0, 0, 0, 0],
+		"type": [],
 		"typeState": null,
 		"x": 18,
 		"y": 4

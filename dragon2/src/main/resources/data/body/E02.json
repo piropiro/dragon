@@ -15,6 +15,7 @@
 		"ido": 4,
 		"img": 6,
 		"itype": 3,
+		"kind": "CHARA",
 		"level": 1,
 		"maai": 6,
 		"mdf": 2,
@@ -29,7 +30,7 @@
 		"store": 8,
 		"str": 12,
 		"strMax": 120,
-		"type": [0, 0, 0, 0, 0],
+		"type": [],
 		"typeState": null,
 		"x": 13,
 		"y": 9
@@ -50,6 +51,7 @@
 		"ido": 4,
 		"img": 6,
 		"itype": 3,
+		"kind": "CHARA",
 		"level": 1,
 		"maai": 6,
 		"mdf": 2,
@@ -64,7 +66,7 @@
 		"store": 8,
 		"str": 12,
 		"strMax": 120,
-		"type": [0, 0, 0, 0, 0],
+		"type": [],
 		"typeState": null,
 		"x": 14,
 		"y": 13
@@ -85,6 +87,7 @@
 		"ido": 4,
 		"img": 6,
 		"itype": 3,
+		"kind": "CHARA",
 		"level": 1,
 		"maai": 6,
 		"mdf": 2,
@@ -99,7 +102,7 @@
 		"store": 8,
 		"str": 12,
 		"strMax": 120,
-		"type": [0, 0, 0, 0, 0],
+		"type": [],
 		"typeState": null,
 		"x": 9,
 		"y": 2
@@ -120,6 +123,7 @@
 		"ido": 4,
 		"img": 6,
 		"itype": 3,
+		"kind": "CHARA",
 		"level": 1,
 		"maai": 6,
 		"mdf": 2,
@@ -134,7 +138,7 @@
 		"store": 8,
 		"str": 12,
 		"strMax": 120,
-		"type": [0, 0, 0, 0, 0],
+		"type": [],
 		"typeState": null,
 		"x": 11,
 		"y": 2
@@ -155,6 +159,7 @@
 		"ido": 4,
 		"img": 9,
 		"itype": 6,
+		"kind": "CHARA",
 		"level": 1,
 		"maai": 4,
 		"mdf": 8,
@@ -169,7 +174,9 @@
 		"store": 8,
 		"str": 0,
 		"strMax": 0,
-		"type": [0, 28, 0, 0, 0],
+		"type": [
+			"ANTI_CHARM"
+		],
 		"typeState": null,
 		"x": 11,
 		"y": 8
@@ -190,6 +197,7 @@
 		"ido": 4,
 		"img": 9,
 		"itype": 6,
+		"kind": "CHARA",
 		"level": 1,
 		"maai": 4,
 		"mdf": 8,
@@ -204,7 +212,9 @@
 		"store": 8,
 		"str": 0,
 		"strMax": 0,
-		"type": [0, 28, 0, 0, 0],
+		"type": [
+			"ANTI_CHARM"
+		],
 		"typeState": null,
 		"x": 9,
 		"y": 8
@@ -225,6 +235,7 @@
 		"ido": 4,
 		"img": 9,
 		"itype": 6,
+		"kind": "CHARA",
 		"level": 1,
 		"maai": 4,
 		"mdf": 8,
@@ -239,7 +250,9 @@
 		"store": 8,
 		"str": 0,
 		"strMax": 0,
-		"type": [0, 28, 0, 0, 0],
+		"type": [
+			"ANTI_CHARM"
+		],
 		"typeState": null,
 		"x": 5,
 		"y": 2
@@ -260,6 +273,7 @@
 		"ido": 0,
 		"img": 55,
 		"itype": 3,
+		"kind": "CHARA",
 		"level": 2,
 		"maai": 2,
 		"mdf": 5,
@@ -274,7 +288,10 @@
 		"store": 8,
 		"str": 20,
 		"strMax": 200,
-		"type": [0, 24, 5, 0, 0],
+		"type": [
+			"ANTI_POISON",
+			"DRAGON"
+		],
 		"typeState": null,
 		"x": 13,
 		"y": 1
@@ -295,6 +312,7 @@
 		"ido": 0,
 		"img": 41,
 		"itype": 0,
+		"kind": "ARMOR",
 		"level": 1,
 		"maai": 0,
 		"mdf": 2,
@@ -309,7 +327,7 @@
 		"store": 0,
 		"str": 0,
 		"strMax": 0,
-		"type": [3, 0, 0, 0, 0],
+		"type": [],
 		"typeState": null,
 		"x": 5,
 		"y": 1
@@ -330,6 +348,7 @@
 		"ido": 0,
 		"img": 93,
 		"itype": 0,
+		"kind": "ARMOR",
 		"level": 1,
 		"maai": 0,
 		"mdf": 2,
@@ -344,7 +363,11 @@
 		"store": 8,
 		"str": 3,
 		"strMax": 30,
-		"type": [3, 10, 7, 40, 0],
+		"type": [
+			"ICE_50",
+			"FIRE_50",
+			"DRAGON_KILLER"
+		],
 		"typeState": null,
 		"x": 14,
 		"y": 1
@@ -365,6 +388,7 @@
 		"ido": 0,
 		"img": 68,
 		"itype": 0,
+		"kind": "ARMOR",
 		"level": 1,
 		"maai": 0,
 		"mdf": 1,
@@ -379,7 +403,7 @@
 		"store": 8,
 		"str": 0,
 		"strMax": 0,
-		"type": [3, 0, 0, 0, 0],
+		"type": [],
 		"typeState": null,
 		"x": 5,
 		"y": 12
