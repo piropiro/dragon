@@ -5,6 +5,7 @@ package dragon2;
 // Source File Name:   Rewalk.java
 
 import dragon2.common.Body;
+import dragon2.map.Map;
 import mine.UnitMap;
 
 public class Rewalk {

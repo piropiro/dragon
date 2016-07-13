@@ -7,7 +7,6 @@ package dragon2.anime;
 import java.awt.Graphics;
 import java.awt.Point;
 
-import dragon2.Map;
 import dragon2.Statics;
 import dragon2.UnitWorks;
 import dragon2.anime.listener.AllAnime;
@@ -27,6 +26,7 @@ import dragon2.anime.listener.TextAnime;
 import dragon2.anime.listener.TextAnime2;
 import dragon2.anime.listener.TitleAnime;
 import dragon2.anime.listener.WalkAnime;
+import dragon2.map.Map;
 import mine.JCanvas;
 import mine.UnitMap;
 

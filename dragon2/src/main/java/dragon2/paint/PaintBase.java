@@ -7,9 +7,9 @@ package dragon2.paint;
 import java.awt.Point;
 import java.util.Vector;
 
-import dragon2.Map;
 import dragon2.UnitWorks;
 import dragon2.common.Body;
+import dragon2.map.Map;
 import mine.UnitMap;
 
 public abstract class PaintBase implements PaintListener {
