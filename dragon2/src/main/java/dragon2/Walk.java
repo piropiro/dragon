@@ -1,17 +1,13 @@
 package dragon2;
-// Decompiled by Jad v1.5.8g. Copyright 2001 Pavel Kouznetsov.
-// Jad home page: http://www.kpdus.com/jad.html
-// Decompiler options: packimports(3) 
-// Source File Name:   Walk.java
 
 import java.awt.Point;
-import java.util.Vector;
 
 import dragon2.common.Body;
 import dragon2.common.constant.Colors;
+import dragon2.common.constant.Kinds;
 import dragon2.common.constant.Texts;
+import dragon2.common.constant.Types;
 import dragon2.paint.PaintBase;
-import mine.UnitMap;
 
 public class Walk extends ActionBase {
 
@@ -19,19 +15,19 @@ public class Walk extends ActionBase {
 		ba = body;
 		int i = body.itype;
 		ido = body.ido;
-		if (body.isType(49))
+		if (body.isType(Types.MOVE_UP_2))
 			ido = ido + 2;
-		if (body.isType(48))
+		if (body.isType(Types.MOVE_UP_1))
 			ido = ido + 1;
-		if (body.isType(56))
+		if (body.isType(Types.MOVE_DOWN_1))
 			ido = ido - 1;
-		if (body.isType(26))
+		if (body.isType(Types.OIL))
 			ido = (ido + 1) / 2;
-		if (body.isType(36))
+		if (body.isType(Types.SORA))
 			i = 1;
-		if (body.isType(37))
+		if (body.isType(Types.RIKU))
 			i = 2;
-		if (body.isType(46))
+		if (body.isType(Types.FLY_ABLE))
 			i = 1;
 		int ai[];
 		switch (i) {
@@ -75,11 +71,11 @@ public class Walk extends ActionBase {
 			ai = ai8;
 			break;
 		}
-		if (body.isType(57)) {
+		if (body.isType(Types.LITE_WALK)) {
 			ai[0] = 1;
 			ai[1] = 1;
 		}
-		if (body.isType(47)) {
+		if (body.isType(Types.SWIM_ABLE)) {
 			ai[3] = 1;
 			ai[4] = 1;
 		}
@@ -148,14 +144,14 @@ public class Walk extends ActionBase {
 			return;
 		}
 		if (!Statics.isDebug()) {
-			if (ba.isType(21))
+			if (ba.isType(Types.ANTI_SLEEP))
 				return;
-			if (ba.isType(39) && ba.isType(58))
+			if (ba.kind == Kinds.DOLL && ba.isType(Types.BERSERK))
 				return;
 			if (Colors.isPlayer(ba)) {
-				if (ba.isType(27))
+				if (ba.isType(Types.CHARM))
 					return;
-			} else if (!ba.isType(27))
+			} else if (!ba.isType(Types.CHARM))
 				return;
 		}
 
@@ -169,9 +165,9 @@ public class Walk extends ActionBase {
 	}
 
 	public static int getTikei(Body body) {
-		if (body.isType(36))
+		if (body.isType(Types.SORA))
 			return 1;
-		if (!body.isType(37) && !body.isType(21)) {
+		if (!body.isType(Types.RIKU) && !body.isType(Types.ANTI_SLEEP)) {
 			if (body.itype == 1)
 				return 1;
 			if (body.itype == 6)

@@ -9,6 +9,7 @@ import java.util.Iterator;
 import java.util.Vector;
 
 import dragon2.common.Body;
+import dragon2.common.constant.Types;
 import mine.UnitMap;
 
 public class Summon {
@@ -20,7 +21,7 @@ public class Summon {
 		int i = 0;
 		for (Iterator iterator = vector.iterator(); iterator.hasNext();) {
 			Body body = (Body) iterator.next();
-			if (body.isType(38)) {
+			if (body.isType(Types.SUMMON)) {
 				unitmap.S(0, 0, body.gx, body.gy, 25);
 				body.x = body.gx;
 				body.y = body.gy;

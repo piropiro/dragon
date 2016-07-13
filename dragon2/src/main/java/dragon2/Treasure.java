@@ -10,6 +10,7 @@ import java.util.List;
 
 import dragon2.common.Body;
 import dragon2.common.constant.Texts;
+import dragon2.common.constant.Types;
 import mine.UnitMap;
 
 public class Treasure {
@@ -27,7 +28,7 @@ public class Treasure {
 		int i = 0;
 		for (Body body : vector) {
 			if (unitworks.have(body)) {
-				body.setTypeState(35, true);
+				body.setTypeState(Types.S_LOCK, true);
 				body.hp = 0;
 			} else if (body.x == point.x && body.y == point.y) {
 				item = body;
@@ -35,16 +36,17 @@ public class Treasure {
 				status[i] = 4;
 				i++;
 			} else {
-				switch (body.type[0]) {
-				case 1: // '\001'
-				case 2: // '\002'
-				case 3: // '\003'
-				case 4: // '\004'
-				case 39: // '\''
+				switch (body.kind) {
+				case CLASS: // '\001'
+				case WEPON: // '\002'
+				case ARMOR: // '\003'
+				case ITEM: // '\004'
+				case DOLL: // '\''
 					treasure[i] = body;
 					body.hp = 0;
 					i++;
 					break;
+				default:
 				}
 			}
 		}
@@ -246,12 +248,13 @@ public class Treasure {
 
 	public void down() {
 		for (Body body : Sources) {
-			switch (body.type[0]) {
-			case 2: // '\002'
-			case 3: // '\003'
-			case 4: // '\004'
+			switch (body.kind) {
+			case WEPON: // '\002'
+			case ARMOR: // '\003'
+			case ITEM: // '\004'
 				down(body);
 				break;
+			default:
 			}
 		}
 
@@ -265,8 +268,8 @@ public class Treasure {
 		body.mdfMax = Math.max(0, body.mdfMax - 6);
 		body.hitMax = Math.max(0, body.hitMax - 6);
 		body.misMax = Math.max(0, body.misMax - 6);
-		body.type[3] = 44;
-		body.setTypeState(44, true);
+		body.type.add(Types.BADITEM);
+		body.setTypeState(Types.BADITEM, true);
 	}
 
 	private Body item;

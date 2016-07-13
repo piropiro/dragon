@@ -10,6 +10,7 @@ import dragon2.Statics;
 import dragon2.common.Body;
 import dragon2.common.constant.Colors;
 import dragon2.common.constant.Texts;
+import dragon2.common.constant.Types;
 
 public class BasicPaint extends PaintBase {
 
@@ -28,10 +29,10 @@ public class BasicPaint extends PaintBase {
 			PaintBase.map.setWalkPaint(body);
 			PaintBase.map.repaint();
 			PaintBase.uw.setAtkList(body);
-		} else if (PaintBase.uw.isAllClear() && body.isType(50)) {
+		} else if (PaintBase.uw.isAllClear() && body.isType(Types.SISTER)) {
 			PaintBase.map.setKakuseiPaint(body);
 			PaintBase.map.repaint();
-		} else if (body.isType(39) && !body.isType(58)) {
+		} else if (body.isType(Types.SUMMON) && !body.isType(Types.BERSERK)) {
 			PaintBase.map.setBerserkPaint(body);
 			PaintBase.map.repaint();
 		} else {
@@ -68,14 +69,14 @@ public class BasicPaint extends PaintBase {
 		Body body = PaintBase.uw.search(point.x, point.y);
 		if (body == null)
 			return false;
-		if (body.isType(21))
+		if (body.isType(Types.ANTI_SLEEP))
 			return false;
 		if (PaintBase.V.G(3, 0, point.x, point.y) != 0)
 			return false;
 		if (Colors.isPlayer(body)) {
-			if (body.isType(27))
+			if (body.isType(Types.CHARM))
 				return false;
-		} else if (!body.isType(27))
+		} else if (!body.isType(Types.CHARM))
 			return false;
 		return true;
 	}

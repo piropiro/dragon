@@ -7,7 +7,9 @@ package dragon2;
 import dragon2.attack.AttackBase;
 import dragon2.common.Body;
 import dragon2.common.constant.Colors;
+import dragon2.common.constant.Kinds;
 import dragon2.common.constant.Texts;
+import dragon2.common.constant.Types;
 
 public class Material {
 
@@ -30,10 +32,10 @@ public class Material {
 			return null;
 		material = body.copy();
 		material.atk[0] = body.atk[3];
-		material.type[0] = 4;
-		material.setTypeState(53, false);
-		material.setTypeState(54, false);
-		material.setTypeState(55, false);
+		material.setKind(Kinds.ITEM);
+		material.setTypeState(Types.M_RED, false);
+		material.setTypeState(Types.M_GREEN, false);
+		material.setTypeState(Types.M_BLUE, false);
 		for (int i = 1; i < material.atk.length; i++)
 			material.atk[i] = 0;
 

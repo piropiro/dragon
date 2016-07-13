@@ -15,6 +15,7 @@ import dragon2.Statics;
 import dragon2.UnitWorks;
 import dragon2.Walk;
 import dragon2.common.Body;
+import dragon2.common.constant.Types;
 import dragon2.common.util.Luck;
 import dragon2.map.Map;
 import mine.Mine;
@@ -165,7 +166,7 @@ public class AttackBase implements Iconable {
 	}
 
 	public boolean isCounterable(Body body, boolean flag) {
-		if (ba.isType(21))
+		if (ba.isType(Types.ANTI_SLEEP))
 			return false;
 		if (flag && !ECT[12])
 			return false;
@@ -206,7 +207,7 @@ public class AttackBase implements Iconable {
 				if (V.G(2, 1, body.x, body.y) != 0) {
 					V.S(2, 1, body.x, body.y, 3);
 					int k = getDamage(body) * getRate(body);
-					if (!body.isType(35)) {
+					if (!body.isType(Types.S_LOCK)) {
 						if (isPossible(body, 19))
 							k += body.hp / 2;
 						if (isPossible(body, 16))
@@ -218,7 +219,7 @@ public class AttackBase implements Iconable {
 						k *= 2;
 					if (body.color == ba.color)
 						k = -k;
-					if (ba.isType(27))
+					if (ba.isType(Types.CHARM))
 						k = -k;
 					if (dmax < k) {
 						dmax = k;
@@ -419,30 +420,30 @@ public class AttackBase implements Iconable {
 			k = ba.mst;
 			break;
 		}
-		if (ba.isType(30))
+		if (ba.isType(Types.ATTACK_UP))
 			k += (ba.str + ba.mst) / 4;
-		if (body.isType(31))
+		if (body.isType(Types.GUARD_UP))
 			k -= (body.def + body.mdf) / 4;
-		if (ECT[8] && body.isType(21))
+		if (ECT[8] && body.isType(Types.ANTI_SLEEP))
 			k = (int) ((double) k * 1.25D);
-		if (ECT[9] && body.isType(27))
+		if (ECT[9] && body.isType(Types.CHARM))
 			k = (int) ((double) k * 1.25D);
-		if (ECT[8] && body.isType(25))
+		if (ECT[8] && body.isType(Types.CLOSE))
 			k = (int) ((double) k * 1.25D);
-		if (ECT[9] && body.isType(25))
+		if (ECT[9] && body.isType(Types.CLOSE))
 			k = (int) ((double) k * 1.25D);
-		if (ECT[7] && body.isType(26))
+		if (ECT[7] && body.isType(Types.OIL))
 			k = (int) ((double) k * 1.5D);
 		if (ECT[9] && i == 3)
 			k = (int) ((double) k * 1.5D);
 		if (ECT[8] && i == 5)
 			k = (int) ((double) k * 1.5D);
-		if (ba.isType(40) && body.isType(5))
+		if (ba.isType(Types.DRAGON_KILLER) && body.isType(Types.DRAGON))
 			k = (int) ((double) k * 1.5D);
-		if (ba.isType(41) && body.isType(34))
+		if (ba.isType(Types.UNDEAD_KILLER) && body.isType(Types.UNDEAD))
 			k = (int) ((double) k * 1.5D);
 		j = Math.max(0, k - l);
-		if (ECT[13] && !body.isType(34))
+		if (ECT[13] && !body.isType(Types.UNDEAD))
 			j *= -1;
 		return j;
 	}
@@ -458,11 +459,11 @@ public class AttackBase implements Iconable {
 			j += 200;
 		if (ECT[31])
 			j += 50;
-		if (ECT[7] && body.isType(6))
+		if (ECT[7] && body.isType(Types.FIRE_200))
 			j += 100;
-		if (ECT[8] && body.isType(9))
+		if (ECT[8] && body.isType(Types.ICE_200))
 			j += 100;
-		if (ECT[9] && body.isType(12))
+		if (ECT[9] && body.isType(Types.THUNDER_200))
 			j += 100;
 		if (ECT[10] && i == 1)
 			j += 100;
@@ -470,25 +471,25 @@ public class AttackBase implements Iconable {
 			j += 100;
 		if (ECT[34] && i == 2)
 			j += 50;
-		if (ECT[11] && body.isType(5))
+		if (ECT[11] && body.isType(Types.DRAGON))
 			j += 100;
-		if (ECT[32] && body.isType(34))
+		if (ECT[32] && body.isType(Types.UNDEAD))
 			j += 100;
-		if (body.isType(21))
+		if (body.isType(Types.ANTI_SLEEP))
 			j += 150;
-		if (ECT[7] && body.isType(25))
+		if (ECT[7] && body.isType(Types.CLOSE))
 			j /= 2;
-		if (ECT[7] && body.isType(7))
+		if (ECT[7] && body.isType(Types.FIRE_50))
 			j /= 2;
-		if (ECT[8] && body.isType(10))
+		if (ECT[8] && body.isType(Types.ICE_50))
 			j /= 2;
-		if (ECT[9] && body.isType(13))
+		if (ECT[9] && body.isType(Types.THUNDER_50))
 			j /= 2;
 		if (ECT[7] && i == 3)
 			j /= 2;
 		if (ECT[7] && i == 5)
 			j /= 2;
-		if (Statics.getBukiType(ad.AttackN1) == 1 && body.isType(43))
+		if (Statics.getBukiType(ad.AttackN1) == 1 && body.isType(Types.SWORD_50))
 			j /= 2;
 		if ((body.itype == 4 || body.itype == 5) && !ECT[36]) {
 			if (i == 3 && !ECT[9])
@@ -506,11 +507,11 @@ public class AttackBase implements Iconable {
 			j = 0;
 		if (ECT[30] && i != 3)
 			j = 0;
-		if (ECT[7] && body.isType(8))
+		if (ECT[7] && body.isType(Types.FIRE_0))
 			j = 0;
-		if (ECT[8] && body.isType(11))
+		if (ECT[8] && body.isType(Types.ICE_0))
 			j = 0;
-		if (ECT[9] && body.isType(14))
+		if (ECT[9] && body.isType(Types.THUNDER_0))
 			j = 0;
 		return j;
 	}
@@ -531,17 +532,17 @@ public class AttackBase implements Iconable {
 			i += 4;
 		if (ECT[25])
 			i -= 4;
-		if (body.isType(21))
+		if (body.isType(Types.ANTI_SLEEP))
 			i = Math.max(16 - body.store, i);
-		if (body.isType(37))
+		if (body.isType(Types.RIKU))
 			i = Math.max(16 - body.store, i);
 		if (ECT[6])
 			i = Math.max(2, i);
 		else
 			i = Mine.mid(2, i, 32 - body.store - 1);
-		if (ba.isType(30))
+		if (ba.isType(Types.ATTACK_UP))
 			i += 2;
-		if (body.isType(31))
+		if (body.isType(Types.GUARD_UP))
 			i -= 2;
 		return i;
 	}
@@ -595,7 +596,7 @@ public class AttackBase implements Iconable {
 				return true;
 			return isPossible(body, 33);
 		}
-		if (body.isType(27))
+		if (body.isType(Types.CHARM))
 			return true;
 		int i = getDamage(body);
 		if (i == 0)
@@ -608,7 +609,7 @@ public class AttackBase implements Iconable {
 		boolean flag = true;
 		if (body.color == ba.color)
 			flag = !flag;
-		if (ba.isType(27))
+		if (ba.isType(Types.CHARM))
 			flag = !flag;
 		if (i < 0)
 			flag = !flag;
@@ -715,9 +716,9 @@ public class AttackBase implements Iconable {
 	public boolean isHit() {
 		if (ECT[3])
 			return true;
-		if (bb.isType(21))
+		if (bb.isType(Types.ANTI_SLEEP))
 			return true;
-		if (bb.isType(37))
+		if (bb.isType(Types.RIKU))
 			return true;
 		int i = getMeichu(bb, false);
 		return i + bb.store > 16;
@@ -777,16 +778,16 @@ public class AttackBase implements Iconable {
 	private boolean isPossible(Body body, int i) {
 		if (!ECT[i])
 			return false;
-		if (body.isType(17))
+		if (body.isType(Types.ANTI_ALL))
 			return false;
 		switch (i) {
 		case 14: // '\016'
 		case 15: // '\017'
-			if (body.isType(20))
+			if (body.isType(Types.NKILL))
 				return false;
 			if (ba.level < body.level)
 				return false;
-			if (body.isType(31))
+			if (body.isType(Types.GUARD_UP))
 				return false;
 			break;
 
@@ -794,7 +795,7 @@ public class AttackBase implements Iconable {
 		case 19: // '\023'
 			if (body.mdf * 2 >= ba.mst)
 				return false;
-			if (body.isType(31))
+			if (body.isType(Types.GUARD_UP))
 				return false;
 			break;
 		}
@@ -812,18 +813,18 @@ public class AttackBase implements Iconable {
 			break;
 
 		case 14: // '\016'
-			if (body.isType(18))
+			if (body.isType(Types.ANTI_CRITICAL))
 				return false;
-			if (!body.isType(23) && body.def >= ba.str)
+			if (!body.isType(Types.POISON) && body.def >= ba.str)
 				return false;
 			break;
 
 		case 15: // '\017'
-			if (body.isType(34))
+			if (body.isType(Types.UNDEAD))
 				return false;
-			if (body.isType(19))
+			if (body.isType(Types.ANTI_DEATH))
 				return false;
-			if (body.isType(23))
+			if (body.isType(Types.POISON))
 				break;
 			if (body.mdf >= ba.mst)
 				return false;
@@ -832,43 +833,43 @@ public class AttackBase implements Iconable {
 			break;
 
 		case 16: // '\020'
-			if (body.isType(22))
+			if (body.isType(Types.SLEEP))
 				return false;
-			if (body.isType(21))
+			if (body.isType(Types.ANTI_SLEEP))
 				return false;
 			break;
 
 		case 19: // '\023'
-			if (body.isType(28))
+			if (body.isType(Types.ANTI_CHARM))
 				return false;
-			if (body.isType(27))
+			if (body.isType(Types.CHARM))
 				return false;
 			break;
 
 		case 18: // '\022'
-			if (body.isType(25))
+			if (body.isType(Types.CLOSE))
 				return false;
 			break;
 
 		case 33: // '!'
-			if (body.isType(26))
+			if (body.isType(Types.OIL))
 				return false;
 			break;
 
 		case 17: // '\021'
-			if (body.isType(24))
+			if (body.isType(Types.ANTI_POISON))
 				return false;
-			if (body.isType(23))
+			if (body.isType(Types.POISON))
 				return false;
 			break;
 
 		case 20: // '\024'
-			if (body.isType(30))
+			if (body.isType(Types.ATTACK_UP))
 				return false;
 			break;
 
 		case 21: // '\025'
-			if (body.isType(31))
+			if (body.isType(Types.GUARD_UP))
 				return false;
 			break;
 
@@ -917,16 +918,16 @@ public class AttackBase implements Iconable {
 			return attackKill(-7, 5);
 	}
 
-	private void attackStatus(int i, int j) {
-		if (bb.isType(35)) {
-			bb.setTypeState(35, false);
+	private void attackStatus(int i, Types j) {
+		if (bb.isType(Types.S_LOCK)) {
+			bb.setTypeState(Types.S_LOCK, false);
 			return;
 		} else {
 			Point point = new Point(bb.x, bb.y);
 			uw.setAnime(-7, i, point, point);
 			bb.setTypeState(j, true);
-			bb.setTypeState(35, false);
-			bb.setTypeState(32, true);
+			bb.setTypeState(Types.S_LOCK, false);
+			bb.setTypeState(Types.S_WAIT, true);
 			return;
 		}
 	}
@@ -935,7 +936,7 @@ public class AttackBase implements Iconable {
 		if (!isPossible(16)) {
 			return;
 		} else {
-			attackStatus(1, 21);
+			attackStatus(1, Types.ANTI_SLEEP);
 			return;
 		}
 	}
@@ -944,7 +945,7 @@ public class AttackBase implements Iconable {
 		if (!isPossible(19)) {
 			return;
 		} else {
-			attackStatus(6, 27);
+			attackStatus(6, Types.CHARM);
 			return;
 		}
 	}
@@ -955,8 +956,8 @@ public class AttackBase implements Iconable {
 		} else {
 			Point point = new Point(bb.x, bb.y);
 			uw.setAnime(-7, 3, point, point);
-			bb.setTypeState(25, true);
-			bb.setTypeState(32, true);
+			bb.setTypeState(Types.CLOSE, true);
+			bb.setTypeState(Types.S_WAIT, true);
 			return;
 		}
 	}
@@ -967,13 +968,13 @@ public class AttackBase implements Iconable {
 		} else {
 			Point point = new Point(bb.x, bb.y);
 			uw.setAnime(-7, 10, point, point);
-			bb.setTypeState(26, true);
-			bb.setTypeState(32, true);
+			bb.setTypeState(Types.OIL, true);
+			bb.setTypeState(Types.S_WAIT, true);
 			return;
 		}
 	}
 
-	private void attackMode(int i, int j, int k) {
+	private void attackMode(Types i, Types j, int k) {
 		Point point = new Point(bb.x, bb.y);
 		uw.setAnime(-7, k, point, point);
 		if (bb.isType(j)) {
@@ -988,7 +989,7 @@ public class AttackBase implements Iconable {
 		if (!isPossible(17)) {
 			return;
 		} else {
-			attackMode(23, 29, 2);
+			attackMode(Types.POISON, Types.HEAL, 2);
 			return;
 		}
 	}
@@ -997,7 +998,7 @@ public class AttackBase implements Iconable {
 		if (!isPossible(28)) {
 			return;
 		} else {
-			attackMode(29, 23, 7);
+			attackMode(Types.HEAL, Types.POISON, 7);
 			return;
 		}
 	}
@@ -1008,8 +1009,8 @@ public class AttackBase implements Iconable {
 		} else {
 			Point point = new Point(bb.x, bb.y);
 			uw.setAnime(-7, 4, point, point);
-			bb.setTypeState(30, true);
-			bb.setTypeState(32, true);
+			bb.setTypeState(Types.ATTACK_UP, true);
+			bb.setTypeState(Types.S_WAIT, true);
 			return;
 		}
 	}
@@ -1020,8 +1021,8 @@ public class AttackBase implements Iconable {
 		} else {
 			Point point = new Point(bb.x, bb.y);
 			uw.setAnime(-7, 5, point, point);
-			bb.setTypeState(31, true);
-			bb.setTypeState(32, true);
+			bb.setTypeState(Types.GUARD_UP, true);
+			bb.setTypeState(Types.S_WAIT, true);
 			return;
 		}
 	}
@@ -1030,7 +1031,7 @@ public class AttackBase implements Iconable {
 		if (!isPossible(26)) {
 			return;
 		} else {
-			attackMode(36, 37, 8);
+			attackMode(Types.SORA, Types.RIKU, 8);
 			return;
 		}
 	}
@@ -1039,7 +1040,7 @@ public class AttackBase implements Iconable {
 		if (!isPossible(27)) {
 			return;
 		} else {
-			attackMode(37, 36, 9);
+			attackMode(Types.RIKU, Types.SORA, 9);
 			return;
 		}
 	}

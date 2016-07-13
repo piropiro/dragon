@@ -1,8 +1,4 @@
 package dragon2;
-// Decompiled by Jad v1.5.8g. Copyright 2001 Pavel Kouznetsov.
-// Jad home page: http://www.kpdus.com/jad.html
-// Decompiler options: packimports(3) 
-// Source File Name:   Collection.java
 
 import java.util.Arrays;
 import java.util.List;
@@ -11,6 +7,8 @@ import java.util.Vector;
 import dragon2.attack.AttackData;
 import dragon2.common.Body;
 import dragon2.common.constant.Colors;
+import dragon2.common.constant.Kinds;
+import dragon2.common.constant.Types;
 import mine.DataStream;
 import mine.UnitMap;
 import mine.io.JsonIO;
@@ -70,7 +68,7 @@ public class Collection {
 	public void setList(List<Body> vector) {
 		for (Body body : vector) {
 		
-			if (body.type[0] != 52)
+			if (body.kind != Kinds.WAZA) {
 				switch (body.img) {
 				case 59: // ';'
 					setChara(body, 0);
@@ -88,6 +86,7 @@ public class Collection {
 					setItem(body);
 					break;
 				}
+			}
 		}
 
 	}
@@ -98,7 +97,7 @@ public class Collection {
 				for (int i = 0; i < body.atk.length; i++)
 					waza[body.atk[i]] = true;
 
-			} else if (body.type[0] == 52)
+			} else if (body.kind == Kinds.WAZA)
 				waza[body.level] = true;
 		}
 
@@ -188,7 +187,7 @@ public class Collection {
 		for (Body body : Charas) {
 			if (body.x == i && body.y == j) {
 				body.setMax();
-				body.newType(100);
+				body.newType();
 				setMaterial(body);
 				return body;
 			}
@@ -201,7 +200,7 @@ public class Collection {
 		for (Body body : Items) {
 			if (body.x == i && body.y == j) {
 				body.setMax();
-				body.newType(100);
+				body.newType();
 				return body;
 			}
 		}
@@ -212,16 +211,16 @@ public class Collection {
 	public void setMaterial(Body body) {
 		int i = getCharaNum(body);
 		if (i != -1) {
-			body.setTypeState(53, chara[i][0]);
-			body.setTypeState(54, chara[i][1]);
-			body.setTypeState(55, chara[i][2]);
+			body.setTypeState(Types.M_RED, chara[i][0]);
+			body.setTypeState(Types.M_GREEN, chara[i][1]);
+			body.setTypeState(Types.M_BLUE, chara[i][2]);
 		}
 	}
 
 	private int getCharaNum(Body body) {
-		if (body.isType(51))
+		if (body.isType(Types.HERO))
 			return 0;
-		if (body.isType(50))
+		if (body.isType(Types.SISTER))
 			return 1;
 		int i = -1;
 		for (Body body1 : Charas) {

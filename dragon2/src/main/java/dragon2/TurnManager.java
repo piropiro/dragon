@@ -1,8 +1,4 @@
 package dragon2;
-// Decompiled by Jad v1.5.8g. Copyright 2001 Pavel Kouznetsov.
-// Jad home page: http://www.kpdus.com/jad.html
-// Decompiler options: packimports(3) 
-// Source File Name:   TurnManager.java
 
 import java.awt.Point;
 import java.util.Iterator;
@@ -10,6 +6,8 @@ import java.util.Vector;
 
 import dragon2.common.Body;
 import dragon2.common.constant.Colors;
+import dragon2.common.constant.Kinds;
+import dragon2.common.constant.Types;
 import dragon2.cpu.EnemyTurn;
 import dragon2.paint.PaintBase;
 
@@ -69,32 +67,32 @@ public class TurnManager extends ActionBase {
 		for (Iterator iterator = Charas.iterator(); iterator.hasNext();) {
 			Body body = (Body) iterator.next();
 			if (body.isAlive()) {
-				if (!body.isType(32))
+				if (!body.isType(Types.S_WAIT))
 					PaintBase.V.S(5, 0, body.x, body.y, 0);
-				body.setTypeState(36, false);
-				body.setTypeState(37, false);
+				body.setTypeState(Types.SORA, false);
+				body.setTypeState(Types.RIKU, false);
 				setTikei(body, flag);
 				setPoison(body, flag);
 				setHeal(body, flag);
 				setBersek(body, flag);
-				setStatus(body, 30, 4);
-				setStatus(body, 31, 5);
-				setStatus(body, 25, 3);
-				setStatus(body, 26, 10);
-				setStatus(body, 27, 6);
-				setStatus(body, 21, 1);
-				if (body.isType(32)) {
-					body.setTypeState(32, false);
-					if (body.isType(27) || body.isType(21))
-						body.setTypeState(35, true);
+				setStatus(body, Types.ATTACK_UP, 4);
+				setStatus(body, Types.GUARD_UP, 5);
+				setStatus(body, Types.CLOSE, 3);
+				setStatus(body, Types.OIL, 10);
+				setStatus(body, Types.CHARM, 6);
+				setStatus(body, Types.ANTI_SLEEP, 1);
+				if (body.isType(Types.S_WAIT)) {
+					body.setTypeState(Types.S_WAIT, false);
+					if (body.isType(Types.CHARM) || body.isType(Types.ANTI_SLEEP))
+						body.setTypeState(Types.S_LOCK, true);
 				}
 			}
 		}
 
 	}
 
-	private void setStatus(Body body, int i, int j) {
-		if (!body.isType(32))
+	private void setStatus(Body body, Types i, int j) {
+		if (!body.isType(Types.S_WAIT))
 			body.setTypeState(i, false);
 		else if (body.isType(i))
 			PaintBase.V.S(5, 0, body.x, body.y, j);
@@ -108,10 +106,10 @@ public class TurnManager extends ActionBase {
 		case 17: // '\021'
 			if (Colors.isPlayer(body) != flag)
 				return;
-			if (body.hp == body.hpMax && !body.isType(23)) {
+			if (body.hp == body.hpMax && !body.isType(Types.POISON)) {
 				return;
 			} else {
-				body.setTypeState(23, false);
+				body.setTypeState(Types.POISON, false);
 				uw.setAnime(1, -1, point, point);
 				body.hp += Math.max(2, body.hpMax / 4);
 				body.hp = Math.min(body.hp, body.hpMax);
@@ -120,58 +118,58 @@ public class TurnManager extends ActionBase {
 
 		case 3: // '\003'
 		case 4: // '\004'
-			if (body.isType(17))
+			if (body.isType(Types.ANTI_ALL))
 				return;
-			if (body.isType(47))
+			if (body.isType(Types.SWIM_ABLE))
 				return;
 			if (body.itype == 4)
 				return;
 			if (body.itype == 5)
 				return;
-			body.setTypeState(25, true);
-			if (body.isType(21))
+			body.setTypeState(Types.CLOSE, true);
+			if (body.isType(Types.ANTI_SLEEP))
 				return;
-			if (body.isType(27)) {
+			if (body.isType(Types.CHARM)) {
 				return;
 			} else {
-				body.setTypeState(32, true);
+				body.setTypeState(Types.S_WAIT, true);
 				return;
 			}
 
 		case 7: // '\007'
-			if (body.isType(17))
+			if (body.isType(Types.ANTI_ALL))
 				return;
-			if (body.isType(24)) {
+			if (body.isType(Types.ANTI_POISON)) {
 				return;
 			} else {
-				body.setTypeState(23, true);
+				body.setTypeState(Types.POISON, true);
 				return;
 			}
 
 		case 8: // '\b'
-			if (body.isType(17))
+			if (body.isType(Types.ANTI_ALL))
 				return;
-			body.setTypeState(26, true);
-			if (body.isType(21))
+			body.setTypeState(Types.OIL, true);
+			if (body.isType(Types.ANTI_SLEEP))
 				return;
-			if (body.isType(27)) {
+			if (body.isType(Types.CHARM)) {
 				return;
 			} else {
-				body.setTypeState(32, true);
+				body.setTypeState(Types.S_WAIT, true);
 				return;
 			}
 
 		case 9: // '\t'
 			if (Colors.isPlayer(body) != flag)
 				return;
-			if (body.isType(8))
+			if (body.isType(Types.FIRE_0))
 				return;
 			int i = 4;
-			if (body.isType(6))
+			if (body.isType(Types.FIRE_200))
 				i *= 2;
-			if (body.isType(26))
+			if (body.isType(Types.OIL))
 				i *= 2;
-			if (body.isType(7))
+			if (body.isType(Types.FIRE_50))
 				i /= 2;
 			uw.setAnime(1, -10, point, point);
 			body.hp -= Math.max(2, (body.hpMax * i) / 16);
@@ -193,7 +191,7 @@ public class TurnManager extends ActionBase {
 	}
 
 	private void setPoison(Body body, boolean flag) {
-		if (!body.isType(23))
+		if (!body.isType(Types.POISON))
 			return;
 		if (Colors.isPlayer(body) != flag || body.hp == 1) {
 			PaintBase.V.S(5, 0, body.x, body.y, 2);
@@ -204,13 +202,13 @@ public class TurnManager extends ActionBase {
 			body.hp = Math.max(1, body.hp);
 		}
 		if (body.hp == 1)
-			body.setTypeState(23, false);
+			body.setTypeState(Types.POISON, false);
 	}
 
 	private void setBersek(Body body, boolean flag) {
-		if (!body.isType(39))
+		if (body.kind != Kinds.DOLL)
 			return;
-		if (!body.isType(58))
+		if (!body.isType(Types.BERSERK))
 			return;
 		if (Colors.isPlayer(body) != flag) {
 			PaintBase.V.S(5, 0, body.x, body.y, 12);
@@ -227,7 +225,7 @@ public class TurnManager extends ActionBase {
 	}
 
 	private void setHeal(Body body, boolean flag) {
-		if (!body.isType(29))
+		if (!body.isType(Types.HEAL))
 			return;
 		if (Colors.isPlayer(body) != flag || body.hp == body.hpMax)
 			PaintBase.V.S(5, 0, body.x, body.y, 7);
@@ -237,7 +235,7 @@ public class TurnManager extends ActionBase {
 			body.mst = Math.max(0, body.mst - 2);
 			body.hp = Math.min(body.hpMax, body.hp + body.hpMax / 2);
 		} else {
-			body.setTypeState(29, false);
+			body.setTypeState(Types.HEAL, false);
 		}
 	}
 

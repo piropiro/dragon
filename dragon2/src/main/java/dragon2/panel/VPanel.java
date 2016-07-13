@@ -32,7 +32,9 @@ import dragon2.card.CardPaint;
 import dragon2.card.CardPanel;
 import dragon2.common.Body;
 import dragon2.common.constant.Colors;
+import dragon2.common.constant.Kinds;
 import dragon2.common.constant.Texts;
+import dragon2.common.constant.Types;
 import dragon2.common.util.Equip;
 import dragon2.common.util.Luck;
 import dragon2.common.util.Rank;
@@ -348,9 +350,9 @@ public class VPanel extends JPanelBase implements UnitWorks, ActionListener,
 						(body.misMax * j) / 256 + Luck.rnd(10, body) + 5);
 			Equip.restrict(body);
 			body.setMax();
-			body.newType(100);
+			body.newType();
 			col.setMaterial(body);
-			if (body.color == 3 && !body.isType(16) && body.isType(15)) {
+			if (body.color == 3 && !body.isType(Types.ASK) && body.isType(Types.TALKABLE)) {
 				body.str = Math.max(0, body.str - 2);
 				body.def = Math.max(0, body.def - 2);
 				body.mst = Math.max(0, body.mst - 2);
@@ -358,7 +360,7 @@ public class VPanel extends JPanelBase implements UnitWorks, ActionListener,
 				body.hit = Math.max(0, body.hit - 2);
 				body.mis = Math.max(0, body.mis - 2);
 			}
-			if (body.isType(33)) {
+			if (body.isType(Types.POWERUP)) {
 				body.str = Math.min(999, (body.str * 3) / 2);
 				body.def = Math.min(999, (body.def * 3) / 2);
 				body.mst = Math.min(999, (body.mst * 3) / 2);
@@ -616,9 +618,9 @@ public class VPanel extends JPanelBase implements UnitWorks, ActionListener,
 	private boolean isTurnEnd() {
 		for (Iterator iterator = Charas.iterator(); iterator.hasNext();) {
 			Body body = (Body) iterator.next();
-			if (body.isAlive() && Colors.isPlayer(body) && !body.isType(21)
-					&& !body.isType(27)
-					&& (!body.isType(39) || !body.isType(58))) {
+			if (body.isAlive() && Colors.isPlayer(body) && !body.isType(Types.ANTI_SLEEP)
+					&& !body.isType(Types.CHARM)
+					&& (body.kind != Kinds.DOLL || !body.isType(Types.BERSERK))) {
 				if (getChangeChara(body) != null)
 					return false;
 				if (V.G(3, 0, body.x, body.y) == 0)
@@ -873,10 +875,10 @@ public class VPanel extends JPanelBase implements UnitWorks, ActionListener,
 			for (int j = 1; j <= 10; j += 3) {
 				Body body2 = equip.search(i, j);
 				if (body2 != null) {
-					body2.newType(100);
-					if (body2.isType(51))
+					body2.newType();
+					if (body2.isType(Types.HERO))
 						body = body2;
-					if (body2.isType(50))
+					if (body2.isType(Types.SISTER))
 						body1 = body2;
 				}
 			}

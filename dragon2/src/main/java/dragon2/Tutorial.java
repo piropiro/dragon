@@ -6,6 +6,7 @@ package dragon2;
 
 import dragon2.common.Body;
 import dragon2.common.constant.Texts;
+import dragon2.common.constant.Types;
 
 public class Tutorial {
 
@@ -16,7 +17,7 @@ public class Tutorial {
 		String as[] = Texts.tuto[0];
 		byte byte0 = 1;
 		if (body1 != null)
-			if (body.isType(51)) {
+			if (body.isType(Types.HERO)) {
 				if (i == 0) {
 					if (body1.name.equals(Texts.goburin)) {
 						as = Texts.tuto[1];
@@ -43,7 +44,7 @@ public class Tutorial {
 						as = Texts.tuto[8];
 						byte0 = 3;
 					}
-			} else if (body.isType(50))
+			} else if (body.isType(Types.HERO))
 				if (i == 0) {
 					if (body1.name.equals(Texts.goburin))
 						as = Texts.tuto[9];

@@ -1,17 +1,11 @@
-package dragon2.common;
+package dragon2;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
 
-import dragon2.common.constant.Kinds;
-import dragon2.common.constant.Types;
 import mine.MineException;
 
 
-public class Body implements Serializable, Cloneable {
+public class OldBody implements Serializable, Cloneable {
 
     public static final long serialVersionUID = -2486607915340385590L;
     
@@ -39,27 +33,24 @@ public class Body implements Serializable, Cloneable {
 	public int color;
 	public int img;
 	public int atk[];
-	public Kinds kind;
-
-
-	public List<Types> type;
+	public int type[];
 	public int maai;
 	public int scope;
 	public int moveturn;
 	public int gx;
 	public int gy;
 	public int store;
-	private Set<Types> typeState;
+	private boolean[] typeState;
         
-	public Body() {
+	public OldBody() {
 		atk = new int[6];
-		type = new ArrayList<>();
+		type = new int[5];
 		name = "none";
 	}
 
-	public Body copy() {
+	public OldBody copy() {
 		try {
-			return (Body) clone();
+			return (OldBody) clone();
 		} catch (CloneNotSupportedException clonenotsupportedexception) {
                     throw new MineException(clonenotsupportedexception);
 		}
@@ -76,27 +67,23 @@ public class Body implements Serializable, Cloneable {
 		store = 8;
 	}
 
-	public void newType() {
-		typeState = new HashSet<>();
-		Body.this.mergeTypeState(type);
+	public void newType(int i) {
+		typeState = new boolean[i];
+		OldBody.this.mergeTypeState(type);
 	}
 
-	public void mergeTypeState(List<Types> ai) {
-		for (Types type : ai) {
-			typeState.add(type);
-		}
+	public void mergeTypeState(int ai[]) {
+		for (int i = 0; i < ai.length; i++)
+			typeState[ai[i]] = true;
+
 	}
 
-	public void setTypeState(Types type, boolean flag) {
-		if (flag) {
-			typeState.add(type);
-		} else {
-			typeState.remove(type);
-		}
+	public void setTypeState(int i, boolean flag) {
+		typeState[i] = flag;
 	}
 
-	public boolean isType(Types type) {
-		return typeState.contains(type);
+	public boolean isType(int i) {
+		return typeState[i];
 	}
 
 	public boolean isAlive() {
@@ -295,11 +282,11 @@ public class Body implements Serializable, Cloneable {
 		this.atk = atk;
 	}
 
-	public List<Types> getType() {
+	public int[] getType() {
 		return type;
 	}
 
-	public void setType(List<Types> type) {
+	public void setType(int[] type) {
 		this.type = type;
 	}
 
@@ -351,20 +338,13 @@ public class Body implements Serializable, Cloneable {
 		this.store = store;
 	}
 
-	public Set<Types> getTypeState() {
+	public boolean[] getTypeState() {
 		return typeState;
 	}
 
-	public void setTypeState(Set<Types> typeState) {
+	public void setTypeState(boolean[] typeState) {
 		this.typeState = typeState;
 	}  
 	
-	public Kinds getKind() {
-		return kind;
-	}
-
-	public void setKind(Kinds kind) {
-		this.kind = kind;
-	}
 	
 }
