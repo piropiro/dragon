@@ -5,14 +5,17 @@ package dragon2;
 // Source File Name:   MainFrame.java
 
 import java.awt.Color;
+
 import javax.swing.JApplet;
 import javax.swing.JFrame;
 
 import dragon2.common.constant.Colors;
-import dragon2.common.constant.Texts;
 import dragon2.common.util.Luck;
 import dragon2.panel.VPanel;
-import mine.*;
+import mine.BMenuBar;
+import mine.DataStream;
+import mine.ImageLoader;
+import mine.JFrameBase;
 
 public class MainFrame implements MainWorks {
 
@@ -20,7 +23,6 @@ public class MainFrame implements MainWorks {
 		DataStream.setup(this);
 		ImageLoader.setup(this);
 		Statics.setup();
-		Texts.setup();
 		Colors.setup(1, 3);
 		Luck.setup(0);
 		mb = new BMenuBar();
