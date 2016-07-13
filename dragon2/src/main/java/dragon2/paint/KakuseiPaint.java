@@ -8,7 +8,7 @@ import java.awt.Point;
 import java.util.Vector;
 
 import dragon2.ActionBase;
-import dragon2.Body;
+import dragon2.common.Body;
 import mine.DataStream;
 import mine.UnitMap;
 import mine.io.BeanIO;

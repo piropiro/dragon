@@ -8,6 +8,7 @@ import java.awt.Point;
 import java.util.Vector;
 
 import dragon2.attack.AttackBase;
+import dragon2.common.Body;
 
 public interface UnitWorks {
 

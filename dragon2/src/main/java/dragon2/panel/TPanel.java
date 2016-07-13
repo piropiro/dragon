@@ -6,10 +6,10 @@ package dragon2.panel;
 
 import java.awt.*;
 
-import dragon2.Body;
 import dragon2.Iconable;
 import dragon2.Map;
 import dragon2.UnitWorks;
+import dragon2.common.Body;
 import mine.JCanvas;
 import mine.Mine;
 

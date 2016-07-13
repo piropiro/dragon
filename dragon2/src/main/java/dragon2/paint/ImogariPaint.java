@@ -8,9 +8,9 @@ import imo.ImoDialog;
 import javax.swing.JFrame;
 
 import dragon2.ActionBase;
-import dragon2.Body;
-import dragon2.Equip;
-import dragon2.Texts;
+import dragon2.common.Body;
+import dragon2.common.constant.Texts;
+import dragon2.common.util.Equip;
 
 public class ImogariPaint extends ActionBase {
 

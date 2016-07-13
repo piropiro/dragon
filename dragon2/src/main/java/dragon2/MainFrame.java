@@ -8,6 +8,9 @@ import java.awt.Color;
 import javax.swing.JApplet;
 import javax.swing.JFrame;
 
+import dragon2.common.constant.Colors;
+import dragon2.common.constant.Texts;
+import dragon2.common.util.Luck;
 import dragon2.panel.VPanel;
 import mine.*;
 

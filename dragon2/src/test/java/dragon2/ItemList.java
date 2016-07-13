@@ -6,9 +6,9 @@ package dragon2;
 
 import java.util.Vector;
 
-import dragon2.Body;
 import dragon2.Sort;
 import dragon2.Statics;
+import dragon2.common.Body;
 import mine.DataStream;
 import mine.io.BeanIO;
 

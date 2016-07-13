@@ -6,7 +6,7 @@ package dragon2.paint;
 
 import java.awt.Point;
 
-import dragon2.Body;
+import dragon2.common.Body;
 import mine.UnitMap;
 
 public class WaitPaint extends PaintBase {

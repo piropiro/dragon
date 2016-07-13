@@ -7,6 +7,9 @@ package dragon2;
 import java.util.Arrays;
 import java.util.Vector;
 
+import dragon2.common.Body;
+import dragon2.common.util.Equip;
+import dragon2.common.util.Rank;
 import mine.DataStream;
 import mine.io.JsonIO;
 import mine.io.MatrixIO;

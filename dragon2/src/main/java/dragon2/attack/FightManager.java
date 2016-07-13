@@ -7,11 +7,11 @@ package dragon2.attack;
 import java.awt.Point;
 
 import dragon2.ActionBase;
-import dragon2.Body;
-import dragon2.Colors;
 import dragon2.Rewalk;
-import dragon2.Texts;
 import dragon2.Tutorial;
+import dragon2.common.Body;
+import dragon2.common.constant.Colors;
+import dragon2.common.constant.Texts;
 import dragon2.paint.PaintBase;
 import dragon2.paint.TalkPaint;
 

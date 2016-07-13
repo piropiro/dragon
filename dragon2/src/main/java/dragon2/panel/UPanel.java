@@ -7,11 +7,11 @@ package dragon2.panel;
 import java.awt.*;
 import java.awt.event.*;
 
-import dragon2.Body;
 import dragon2.Map;
 import dragon2.UnitWorks;
 import dragon2.Walk;
 import dragon2.attack.FightManager;
+import dragon2.common.Body;
 import dragon2.paint.BasicPaint;
 import dragon2.paint.BerserkPaint;
 import dragon2.paint.ButtonPaint;

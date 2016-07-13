@@ -9,14 +9,14 @@ import java.awt.Point;
 import java.util.ArrayList;
 import java.util.List;
 
-import dragon2.Body;
 import dragon2.Iconable;
-import dragon2.Luck;
 import dragon2.Map;
 import dragon2.Rewalk;
 import dragon2.Statics;
 import dragon2.UnitWorks;
 import dragon2.Walk;
+import dragon2.common.Body;
+import dragon2.common.util.Luck;
 import mine.Mine;
 import mine.UnitMap;
 

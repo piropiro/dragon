@@ -7,11 +7,11 @@ package dragon2.card;
 import java.awt.Graphics;
 import java.awt.Point;
 
-import dragon2.Body;
-import dragon2.Luck;
 import dragon2.Statics;
-import dragon2.Texts;
 import dragon2.UnitWorks;
+import dragon2.common.Body;
+import dragon2.common.constant.Texts;
+import dragon2.common.util.Luck;
 import mine.JCanvas;
 import mine.UnitMap;
 

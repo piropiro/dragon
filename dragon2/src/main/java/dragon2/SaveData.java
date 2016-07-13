@@ -8,6 +8,8 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import dragon2.common.Body;
+
 public class SaveData implements Serializable, Cloneable {
 
 	public SaveData() {

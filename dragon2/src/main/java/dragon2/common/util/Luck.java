@@ -1,10 +1,13 @@
-package dragon2;
+package dragon2.common.util;
 // Decompiled by Jad v1.5.8g. Copyright 2001 Pavel Kouznetsov.
 // Jad home page: http://www.kpdus.com/jad.html
 // Decompiler options: packimports(3) 
 // Source File Name:   Luck.java
 
 import java.util.Random;
+
+import dragon2.common.Body;
+import dragon2.common.constant.Colors;
 
 public class Luck {
 

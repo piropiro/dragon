@@ -7,6 +7,8 @@ package dragon2;
 import java.awt.Point;
 import java.util.Iterator;
 import java.util.Vector;
+
+import dragon2.common.Body;
 import mine.UnitMap;
 
 public class Summon {

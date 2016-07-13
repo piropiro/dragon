@@ -7,7 +7,7 @@ package dragon2.paint;
 import java.awt.Point;
 
 import dragon2.Collection;
-import dragon2.Texts;
+import dragon2.common.constant.Texts;
 
 public class WazalistPaint extends PaintBase {
 

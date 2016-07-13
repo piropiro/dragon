@@ -8,6 +8,9 @@ import java.awt.Point;
 import java.util.Iterator;
 import java.util.Vector;
 
+import dragon2.common.Body;
+import dragon2.common.constant.Colors;
+import dragon2.cpu.EnemyTurn;
 import dragon2.paint.PaintBase;
 
 public class TurnManager extends ActionBase {

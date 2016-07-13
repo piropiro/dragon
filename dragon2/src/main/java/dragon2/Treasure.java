@@ -8,6 +8,8 @@ import java.awt.Point;
 import java.util.ArrayList;
 import java.util.List;
 
+import dragon2.common.Body;
+import dragon2.common.constant.Texts;
 import mine.UnitMap;
 
 public class Treasure {

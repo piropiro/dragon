@@ -7,6 +7,9 @@ package dragon2;
 import java.awt.Point;
 import java.util.Vector;
 
+import dragon2.common.Body;
+import dragon2.common.constant.Colors;
+import dragon2.common.constant.Texts;
 import dragon2.paint.PaintBase;
 import mine.UnitMap;
 

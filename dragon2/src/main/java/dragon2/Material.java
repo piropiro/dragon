@@ -5,6 +5,9 @@ package dragon2;
 // Source File Name:   Material.java
 
 import dragon2.attack.AttackBase;
+import dragon2.common.Body;
+import dragon2.common.constant.Colors;
+import dragon2.common.constant.Texts;
 
 public class Material {
 

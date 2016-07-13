@@ -4,6 +4,8 @@ package dragon2;
 // Decompiler options: packimports(3) 
 // Source File Name:   Iconable.java
 
+import dragon2.common.Body;
+
 public interface Iconable {
 
 	public abstract String getSubName();

@@ -4,6 +4,7 @@ package dragon2;
 // Decompiler options: packimports(3) 
 // Source File Name:   Rewalk.java
 
+import dragon2.common.Body;
 import mine.UnitMap;
 
 public class Rewalk {

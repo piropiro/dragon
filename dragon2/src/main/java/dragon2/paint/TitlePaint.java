@@ -7,7 +7,7 @@ package dragon2.paint;
 import java.awt.Point;
 
 import dragon2.ActionBase;
-import dragon2.Body;
+import dragon2.common.Body;
 
 public class TitlePaint extends ActionBase {
 

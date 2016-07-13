@@ -1,4 +1,4 @@
-package dragon2;
+package dragon2.camp;
 // Decompiled by Jad v1.5.8g. Copyright 2001 Pavel Kouznetsov.
 // Jad home page: http://www.kpdus.com/jad.html
 // Decompiler options: packimports(3) 
@@ -9,7 +9,14 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Vector;
 
+import dragon2.Sort;
+import dragon2.Statics;
+import dragon2.Treasure;
 import dragon2.attack.AttackData;
+import dragon2.common.Body;
+import dragon2.common.constant.Colors;
+import dragon2.common.constant.Texts;
+import dragon2.common.util.Equip;
 import dragon2.paint.PaintBase;
 
 public class Camp extends PaintBase {

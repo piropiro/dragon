@@ -10,6 +10,7 @@ import java.util.List;
 
 import dragon2.anime.AnimeData;
 import dragon2.attack.AttackData;
+import dragon2.common.Body;
 import mine.ImageLoader;
 import mine.Mine;
 import mine.io.JsonIO;

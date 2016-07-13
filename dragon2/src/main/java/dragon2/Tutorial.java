@@ -4,6 +4,9 @@ package dragon2;
 // Decompiler options: packimports(3) 
 // Source File Name:   Tutorial.java
 
+import dragon2.common.Body;
+import dragon2.common.constant.Texts;
+
 public class Tutorial {
 
 	public Tutorial() {

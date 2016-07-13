@@ -8,9 +8,9 @@ import java.awt.Dimension;
 import java.awt.Point;
 import java.util.Vector;
 
-import dragon2.Body;
-import dragon2.Colors;
-import dragon2.Texts;
+import dragon2.common.Body;
+import dragon2.common.constant.Colors;
+import dragon2.common.constant.Texts;
 import mine.UnitMap;
 
 public class SetMensPaint extends PaintBase {

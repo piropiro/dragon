@@ -20,7 +20,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import dragon2.Body;
+import dragon2.common.Body;
 import mine.DataStream;
 import mine.io.BeanIO;
 import net.arnx.jsonic.JSON;

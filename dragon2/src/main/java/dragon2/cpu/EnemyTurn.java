@@ -1,4 +1,4 @@
-package dragon2;
+package dragon2.cpu;
 // Decompiled by Jad v1.5.8g. Copyright 2001 Pavel Kouznetsov.
 // Jad home page: http://www.kpdus.com/jad.html
 // Decompiler options: packimports(3) 
@@ -9,7 +9,12 @@ import java.awt.Point;
 import java.util.Iterator;
 import java.util.Vector;
 
+import dragon2.ActionBase;
+import dragon2.Rewalk;
+import dragon2.Walk;
 import dragon2.attack.FightManager;
+import dragon2.common.Body;
+import dragon2.common.constant.Colors;
 import dragon2.paint.PaintBase;
 import mine.UnitMap;
 

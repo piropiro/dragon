@@ -8,8 +8,8 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.util.Vector;
 
-import dragon2.Body;
 import dragon2.UnitWorks;
+import dragon2.common.Body;
 import mine.Mine;
 
 public class MPanel extends StatusBase {

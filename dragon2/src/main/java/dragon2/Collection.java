@@ -9,6 +9,8 @@ import java.util.List;
 import java.util.Vector;
 
 import dragon2.attack.AttackData;
+import dragon2.common.Body;
+import dragon2.common.constant.Colors;
 import mine.DataStream;
 import mine.UnitMap;
 import mine.io.JsonIO;

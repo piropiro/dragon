@@ -7,10 +7,10 @@ package dragon2.paint;
 import java.awt.Point;
 
 import dragon2.ActionBase;
-import dragon2.Body;
 import dragon2.Rewalk;
-import dragon2.Texts;
 import dragon2.card.CardPaint;
+import dragon2.common.Body;
+import dragon2.common.constant.Texts;
 
 public class TalkPaint extends ActionBase {
 

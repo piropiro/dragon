@@ -8,6 +8,7 @@ import java.awt.Point;
 import java.util.Iterator;
 import java.util.Vector;
 
+import dragon2.common.Body;
 import dragon2.paint.PaintBase;
 import mine.DataStream;
 import mine.UnitMap;
