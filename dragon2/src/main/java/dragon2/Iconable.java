@@ -5,6 +5,7 @@ package dragon2;
 // Source File Name:   Iconable.java
 
 import dragon2.common.Body;
+import dragon2.common.constant.Effects;
 
 public interface Iconable {
 
@@ -26,7 +27,7 @@ public interface Iconable {
 
 	public abstract boolean isHit();
 
-	public abstract boolean isPossible(int i);
+	public abstract boolean isPossible(Effects i);
 
-	public abstract boolean isEffect(int i);
+	public abstract boolean isEffect(Effects effect);
 }

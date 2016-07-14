@@ -1,25 +1,25 @@
-package dragon2.attack;
+package dragon2;
+// Decompiled by Jad v1.5.8g. Copyright 2001 Pavel Kouznetsov.
+// Jad home page: http://www.kpdus.com/jad.html
+// Decompiler options: packimports(3) 
+// Source File Name:   AttackData.java
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 
-import dragon2.common.constant.Effects;
-
-public class AttackData implements Serializable {
+public class OldAttackData implements Serializable {
 
         public static final long serialVersionUID = -7934201877652688018L;
         
-	public AttackData() {
+	public OldAttackData() {
 		name = "none";
 		sname = "none";
-		effect = new ArrayList<>();
+		effect = new int[5];
 	}
 
 	public String name;
 	public String sname;
 	public int color;
-	public List<Effects> effect;
+	public int effect[];
 	public int AttackType;
 	public int AttackN1;
 	public int TRType;
@@ -58,11 +58,11 @@ public class AttackData implements Serializable {
         this.color = color;
     }
 
-    public List<Effects> getEffect() {
+    public int[] getEffect() {
         return effect;
     }
 
-    public void setEffect(List<Effects> effect) {
+    public void setEffect(int[] effect) {
         this.effect = effect;
     }
 

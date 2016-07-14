@@ -3,14 +3,24 @@ package dragon2.common.constant;
 
 public enum Kinds {
 
-	CHARA,
-	CLASS, // 1
-	WEPON, // 2
-	ARMOR, // 3
-	ITEM, // 4
-	DOLL, // 39
-	WAZA, // 52
+	CHARA("キャラ"),
+	CLASS("職業"), // 1
+	WEPON("武器"), // 2
+	ARMOR("防具"), // 3
+	ITEM("小物"), // 4
+	DOLL("ドール"), // 39
+	WAZA("技"), // 52
 	;
+	
+	private String text;
+	
+	Kinds(String text) {
+		this.text = text;
+	}
+	
+	public String getText() {
+		return text;
+	}
 	
 	public Kinds convert(int n) {
 		switch (n) {

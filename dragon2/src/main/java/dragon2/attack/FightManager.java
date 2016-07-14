@@ -1,8 +1,4 @@
 package dragon2.attack;
-// Decompiled by Jad v1.5.8g. Copyright 2001 Pavel Kouznetsov.
-// Jad home page: http://www.kpdus.com/jad.html
-// Decompiler options: packimports(3) 
-// Source File Name:   FightManager.java
 
 import java.awt.Point;
 
@@ -11,6 +7,7 @@ import dragon2.Rewalk;
 import dragon2.Tutorial;
 import dragon2.common.Body;
 import dragon2.common.constant.Colors;
+import dragon2.common.constant.Effects;
 import dragon2.common.constant.Texts;
 import dragon2.common.constant.Types;
 import dragon2.paint.PaintBase;
@@ -91,7 +88,7 @@ public class FightManager extends ActionBase {
 	private void setCounter(Body body) {
 		bb = body;
 		counter = null;
-		if (!attack.isEffect(5))
+		if (!attack.isEffect(Effects.COUNTER_ABLE))
 			return;
 		for (int i = body.atk.length - 1; i >= 0; i--) {
 			if (body.atk[i] == 0)

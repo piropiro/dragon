@@ -2,6 +2,8 @@ package dragon2.panel;
 
 import java.awt.Graphics;
 import java.awt.Point;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.StringTokenizer;
 
 import dragon2.Iconable;
@@ -10,6 +12,7 @@ import dragon2.Statics;
 import dragon2.UnitWorks;
 import dragon2.attack.AttackData;
 import dragon2.common.Body;
+import dragon2.common.constant.Effects;
 import dragon2.common.constant.Kinds;
 import dragon2.common.constant.Texts;
 import dragon2.common.constant.Types;
@@ -322,18 +325,16 @@ public class SPanel extends StatusBase {
 		else
 			drawLine(Texts.sp[33], 0, 0, g);
 		drawLine(Statics.trtype[attackdata.TRType], 1, 0, g);
-		boolean aflag[] = new boolean[40];
-		for (int i = 0; i < attackdata.effect.length; i++)
-			aflag[attackdata.effect[i]] = true;
-
+		Set<Effects> aflag = new HashSet<>(attackdata.getEffect());
+		
 		int j = 0;
-		if (aflag[25])
+		if (aflag.contains(Effects.MISS_4))
 			j -= 4;
-		if (aflag[24])
+		if (aflag.contains(Effects.HIT_4))
 			j += 4;
-		if (aflag[37])
+		if (aflag.contains(Effects.HIT_12))
 			j += 12;
-		if (aflag[3])
+		if (aflag.contains(Effects.HICHU))
 			j = 32;
 		switch (j) {
 		case -4:
@@ -382,44 +383,47 @@ public class SPanel extends StatusBase {
 			break;
 		}
 		n = 4;
-		drawWazaEffect(g, aflag, 31);
-		drawWazaEffect(g, aflag, 1);
-		drawWazaEffect(g, aflag, 2);
-		drawWazaEffect(g, aflag, 4);
-		drawWazaEffect(g, aflag, 12);
-		drawWazaEffect(g, aflag, 29);
-		drawWazaEffect(g, aflag, 34);
-		drawWazaEffect(g, aflag, 30);
-		drawWazaEffect(g, aflag, 36);
-		drawWazaEffect(g, aflag, 35);
-		drawWazaEffect(g, aflag, 7);
-		drawWazaEffect(g, aflag, 8);
-		drawWazaEffect(g, aflag, 9);
-		drawWazaEffect(g, aflag, 10);
-		drawWazaEffect(g, aflag, 11);
-		drawWazaEffect(g, aflag, 32);
-		drawWazaEffect(g, aflag, 26);
-		drawWazaEffect(g, aflag, 27);
-		drawWazaEffect(g, aflag, 14);
-		drawWazaEffect(g, aflag, 15);
-		drawWazaEffect(g, aflag, 16);
-		drawWazaEffect(g, aflag, 17);
-		drawWazaEffect(g, aflag, 18);
-		drawWazaEffect(g, aflag, 19);
-		drawWazaEffect(g, aflag, 20);
-		drawWazaEffect(g, aflag, 21);
-		drawWazaEffect(g, aflag, 23);
-		drawWazaEffect(g, aflag, 28);
-		drawWazaEffect(g, aflag, 33);
+		drawWazaEffect(g, aflag, Effects.DAMAGE_150);
+		drawWazaEffect(g, aflag, Effects.DAMAGE_200);
+		drawWazaEffect(g, aflag, Effects.DAMAGE_300);
+		drawWazaEffect(g, aflag, Effects.TAME);
+		drawWazaEffect(g, aflag, Effects.COUNTER_ONLY);
+
+		drawWazaEffect(g, aflag, Effects.RIKU_0);
+		drawWazaEffect(g, aflag, Effects.RIKU_150);
+		drawWazaEffect(g, aflag, Effects.MIZU_0);
+		drawWazaEffect(g, aflag, Effects.MIZU_100);
+		drawWazaEffect(g, aflag, Effects.MIZU_200);
+
+		drawWazaEffect(g, aflag, Effects.FIRE);
+		drawWazaEffect(g, aflag, Effects.ICE);
+		drawWazaEffect(g, aflag, Effects.THUNDER);
+		drawWazaEffect(g, aflag, Effects.SORA_200);
+		drawWazaEffect(g, aflag, Effects.DRAGON_200);
+		drawWazaEffect(g, aflag, Effects.UNDEAD_200);
+
+		drawWazaEffect(g, aflag, Effects.UPPER);
+		drawWazaEffect(g, aflag, Effects.CHOP);
+		drawWazaEffect(g, aflag, Effects.CRITICAL);
+		drawWazaEffect(g, aflag, Effects.DEATH);
+		drawWazaEffect(g, aflag, Effects.SLEEP);
+		drawWazaEffect(g, aflag, Effects.POISON);
+		drawWazaEffect(g, aflag, Effects.WET);
+		drawWazaEffect(g, aflag, Effects.CHARM);
+		drawWazaEffect(g, aflag, Effects.ATTACK_UP);
+		drawWazaEffect(g, aflag, Effects.GUARD_UP);
+		drawWazaEffect(g, aflag, Effects.REFRESH);
+		drawWazaEffect(g, aflag, Effects.HEAL);
+		drawWazaEffect(g, aflag, Effects.OIL);
 	}
 
-	private boolean drawWazaEffect(Graphics g, boolean aflag[], int i) {
+	private boolean drawWazaEffect(Graphics g, Set<Effects> aflag, Effects i) {
 		if (n == 8)
 			return false;
-		if (!aflag[i]) {
+		if (!aflag.contains(i)) {
 			return false;
 		} else {
-			drawLine(Statics.effect[i], n % 2, n / 2, g);
+			drawLine(i.getText(), n % 2, n / 2, g);
 			n++;
 			return true;
 		}
@@ -543,7 +547,7 @@ public class SPanel extends StatusBase {
 		if (atkb == null)
 			return;
 		drawLine(atkb.getName(), 0, 1, g);
-		if (atkb.isEffect(22)) {
+		if (atkb.isEffect(Effects.NO_ATTACK)) {
 			drawEffect(g);
 		} else {
 			drawLine(Texts.sp[55], Math.abs(atkb.getDamage()), 0, 2, g);
@@ -558,29 +562,29 @@ public class SPanel extends StatusBase {
 
 	private void drawEffect(Graphics g) {
 		String s = "NO EFFECT";
-		if (atkb.isPossible(23))
+		if (atkb.isPossible(Effects.REFRESH))
 			s = "REFRESH";
-		if (atkb.isPossible(33))
+		if (atkb.isPossible(Effects.OIL))
 			s = "OIL";
-		if (atkb.isPossible(20))
+		if (atkb.isPossible(Effects.ATTACK_UP))
 			s = "ATTACK";
-		if (atkb.isPossible(21))
+		if (atkb.isPossible(Effects.ATTACK_UP))
 			s = "GUARD";
-		if (atkb.isPossible(26))
+		if (atkb.isPossible(Effects.UPPER))
 			s = "UP";
-		if (atkb.isPossible(27))
+		if (atkb.isPossible(Effects.CHOP))
 			s = "DOWN";
-		if (atkb.isPossible(18))
+		if (atkb.isPossible(Effects.WET))
 			s = "CLOSE";
-		if (atkb.isPossible(17))
+		if (atkb.isPossible(Effects.POISON))
 			s = "POISON";
-		if (atkb.isPossible(16))
+		if (atkb.isPossible(Effects.SLEEP))
 			s = "SLEEP";
-		if (atkb.isPossible(19))
+		if (atkb.isPossible(Effects.CHARM))
 			s = "CHARM";
-		if (atkb.isPossible(14))
+		if (atkb.isPossible(Effects.CRITICAL))
 			s = "FINISH";
-		if (atkb.isPossible(15))
+		if (atkb.isPossible(Effects.DEATH))
 			s = "DEATH";
 		if ((s.equals("SLEEP") || s.equals("CHARM")) && bb.isType(Types.S_LOCK))
 			s = "LOCK";
