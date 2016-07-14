@@ -22,6 +22,7 @@ import org.junit.Test;
 
 import dragon2.common.Body;
 import dragon2.common.constant.Kinds;
+import dragon2.common.constant.MoveType;
 import dragon2.common.constant.Types;
 import mine.DataStream;
 import mine.io.BeanIO;
@@ -112,6 +113,70 @@ public class BodyMigration {
     
     @Test
     public void migrate_004() throws Exception {
+        List<String> bodys = new ArrayList<>();
+        bodys.add("E90");
+        bodys.add("E91");
+        bodys.add("init");
+        bodys.add("kakusei");
+        for (int i = 1; i <= 27; i++) {
+            bodys.add(String.format("E%02d", i));
+        }
+
+      for (String body : bodys) {
+    	  
+    	  OldBody2[] oldBodys = JsonIO.read("data/body/" + body + ".json", OldBody2[].class);
+          
+          List<Body> newBodys = new ArrayList<>();
+    	  for (OldBody2 old : oldBodys) {
+    		  Body newBody = new Body();
+    		  newBody.name = old.name;
+    		  newBody.x = old.x;
+    		  newBody.y = old.y;
+    		  newBody.level = old.level;
+    		  newBody.exp = old.exp;
+    		  newBody.hp = old.hp;
+    		  newBody.hpMax = old.hpMax;
+    		  newBody.str = old.str;
+    		  newBody.strMax = old.strMax;
+    		  newBody.def = old.def;
+    		  newBody.defMax = old.defMax;
+    		  newBody.mst = old.mst;
+    		  newBody.mstMax = old.mstMax;
+    		  newBody.mdf = old.mdf;
+    		  newBody.mdfMax = old.mdfMax;
+    		  newBody.hit = old.hit;
+    		  newBody.hitMax = old.hitMax;
+    		  newBody.mis = old.mis;
+    		  newBody.misMax = old.misMax;
+    		  newBody.moveStep = old.ido;
+    		  newBody.color = old.color;
+    		  newBody.img = old.img;
+    		  newBody.maai = old.maai;
+    		  newBody.scope = old.scope;
+    		  newBody.moveturn = old.moveturn;
+    		  newBody.gx = old.gx;
+    		  newBody.gy = old.gy;
+    		  newBody.store = old.store;
+    		  newBody.atk = old.atk;
+    		  newBody.type = old.type;
+    		  newBody.kind = old.kind;
+    		  newBody.moveType = MoveType.convert(old.itype);
+
+    		  
+    		  
+    		  newBodys.add(newBody);
+    	  }
+ 
+          
+          String json = JSON.encode(newBodys, true);
+          
+          FileUtils.write(new File("target/body/" + body + ".json"), json, "UTF-8");
+
+      }
+    }
+    
+    @Test
+    public void migrate_005() throws Exception {
         List<String> bodys = new ArrayList<>();
         bodys.add("E90");
         bodys.add("E91");
