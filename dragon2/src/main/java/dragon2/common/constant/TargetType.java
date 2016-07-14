@@ -37,7 +37,7 @@ public enum TargetType {
 		this.rangeN1 = rangeN1;
 		this.rangeN2 = rangeN2;
 		this.targetType = targetType;
-		this.rangeN1 = targetN1;
+		this.targetN1 = targetN1;
 		this.targetN2 = targetN2;
 	}
 	

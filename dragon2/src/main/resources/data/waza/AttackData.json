@@ -9,14 +9,8 @@
 		"fuelN1": 0,
 		"fuelType": 0,
 		"name": "none",
-		"rangeN1": 0,
-		"rangeN2": 0,
-		"rangeType": 0,
 		"sname": "none",
-		"targetN1": 0,
-		"targetN2": 0,
-		"targetType": 0,
-		"trType": 0
+		"targetType": "TARGET_SINGLE_1"
 	},
 	{
 		"animeN1": 1,
@@ -31,14 +25,8 @@
 		"fuelN1": 0,
 		"fuelType": 0,
 		"name": "剣",
-		"rangeN1": 1,
-		"rangeN2": 0,
-		"rangeType": 0,
 		"sname": "攻撃",
-		"targetN1": 0,
-		"targetN2": 0,
-		"targetType": 0,
-		"trType": 0
+		"targetType": "TARGET_SINGLE_1"
 	},
 	{
 		"animeN1": 19,
@@ -53,14 +41,8 @@
 		"fuelN1": 0,
 		"fuelType": 0,
 		"name": "斧",
-		"rangeN1": 1,
-		"rangeN2": 0,
-		"rangeType": 0,
 		"sname": "攻撃",
-		"targetN1": 0,
-		"targetN2": 0,
-		"targetType": 0,
-		"trType": 0
+		"targetType": "TARGET_SINGLE_1"
 	},
 	{
 		"animeN1": 3,
@@ -75,14 +57,8 @@
 		"fuelN1": 0,
 		"fuelType": 0,
 		"name": "突進",
-		"rangeN1": 1,
-		"rangeN2": 0,
-		"rangeType": 0,
 		"sname": "突進",
-		"targetN1": 0,
-		"targetN2": 0,
-		"targetType": 0,
-		"trType": 0
+		"targetType": "TARGET_SINGLE_1"
 	},
 	{
 		"animeN1": 1,
@@ -98,14 +74,8 @@
 		"fuelN1": 0,
 		"fuelType": 0,
 		"name": "短剣",
-		"rangeN1": 1,
-		"rangeN2": 0,
-		"rangeType": 0,
 		"sname": "攻撃",
-		"targetN1": 0,
-		"targetN2": 0,
-		"targetType": 0,
-		"trType": 0
+		"targetType": "TARGET_SINGLE_1"
 	},
 	{
 		"animeN1": 18,
@@ -121,14 +91,8 @@
 		"fuelN1": 0,
 		"fuelType": 0,
 		"name": "槍",
-		"rangeN1": 2,
-		"rangeN2": 0,
-		"rangeType": 0,
 		"sname": "攻撃",
-		"targetN1": 0,
-		"targetN2": 0,
-		"targetType": 0,
-		"trType": 1
+		"targetType": "TARGET_SINGLE_2"
 	},
 	{
 		"animeN1": 13,
@@ -144,14 +108,8 @@
 		"fuelN1": 0,
 		"fuelType": 0,
 		"name": "弓",
-		"rangeN1": 2,
-		"rangeN2": 1,
-		"rangeType": 1,
 		"sname": "攻撃",
-		"targetN1": 0,
-		"targetN2": 0,
-		"targetType": 0,
-		"trType": 7
+		"targetType": "TARGET_LONG_2"
 	},
 	{
 		"animeN1": 4,
@@ -163,14 +121,8 @@
 		"fuelN1": 0,
 		"fuelType": 0,
 		"name": "魔法",
-		"rangeN1": 2,
-		"rangeN2": 1,
-		"rangeType": 1,
 		"sname": "魔法",
-		"targetN1": 0,
-		"targetN2": 0,
-		"targetType": 0,
-		"trType": 7
+		"targetType": "TARGET_LONG_2"
 	},
 	{
 		"animeN1": 20,
@@ -184,14 +136,8 @@
 		"fuelN1": 0,
 		"fuelType": 0,
 		"name": "ブレス",
-		"rangeN1": 2,
-		"rangeN2": 0,
-		"rangeType": 4,
 		"sname": "ブレス",
-		"targetN1": 2,
-		"targetN2": 0,
-		"targetType": 4,
-		"trType": 15
+		"targetType": "TARGET_BREATH"
 	},
 	{
 		"animeN1": 17,
@@ -208,14 +154,8 @@
 		"fuelN1": 0,
 		"fuelType": 0,
 		"name": "つばめ返し",
-		"rangeN1": 1,
-		"rangeN2": 0,
-		"rangeType": 0,
 		"sname": "反撃",
-		"targetN1": 0,
-		"targetN2": 0,
-		"targetType": 0,
-		"trType": 0
+		"targetType": "TARGET_SINGLE_1"
 	},
 	{
 		"animeN1": 4,
@@ -229,14 +169,8 @@
 		"fuelN1": 1,
 		"fuelType": 3,
 		"name": "大魔法",
-		"rangeN1": 2,
-		"rangeN2": 1,
-		"rangeType": 1,
 		"sname": "大魔法",
-		"targetN1": 1,
-		"targetN2": 0,
-		"targetType": 3,
-		"trType": 18
+		"targetType": "TARGET_SPREAD"
 	},
 	{
 		"animeN1": 22,
@@ -251,14 +185,8 @@
 		"fuelN1": 1,
 		"fuelType": 1,
 		"name": "直斬り",
-		"rangeN1": 4,
-		"rangeN2": 0,
-		"rangeType": 3,
 		"sname": "直斬り",
-		"targetN1": 4,
-		"targetN2": 0,
-		"targetType": 2,
-		"trType": 12
+		"targetType": "TARGET_LASER_3"
 	},
 	{
 		"animeN1": 13,
@@ -275,14 +203,8 @@
 		"fuelN1": 1,
 		"fuelType": 1,
 		"name": "強弓",
-		"rangeN1": 2,
-		"rangeN2": 1,
-		"rangeType": 1,
 		"sname": "強弓",
-		"targetN1": 0,
-		"targetN2": 0,
-		"targetType": 0,
-		"trType": 7
+		"targetType": "TARGET_LONG_2"
 	},
 	{
 		"animeN1": 3,
@@ -296,14 +218,8 @@
 		"fuelN1": 0,
 		"fuelType": 0,
 		"name": "アイスボール",
-		"rangeN1": 2,
-		"rangeN2": 1,
-		"rangeType": 1,
 		"sname": "氷玉",
-		"targetN1": 0,
-		"targetN2": 0,
-		"targetType": 0,
-		"trType": 7
+		"targetType": "TARGET_LONG_2"
 	},
 	{
 		"animeN1": 3,
@@ -320,14 +236,8 @@
 		"fuelN1": 2,
 		"fuelType": 3,
 		"name": "ゼロキャノン",
-		"rangeN1": 2,
-		"rangeN2": 0,
-		"rangeType": 3,
 		"sname": "零砲",
-		"targetN1": 2,
-		"targetN2": 0,
-		"targetType": 2,
-		"trType": 11
+		"targetType": "TARGET_LASER_2"
 	},
 	{
 		"animeN1": 6,
@@ -343,14 +253,8 @@
 		"fuelN1": 0,
 		"fuelType": 0,
 		"name": "ファイアソード",
-		"rangeN1": 1,
-		"rangeN2": 0,
-		"rangeType": 0,
 		"sname": "火剣",
-		"targetN1": 0,
-		"targetN2": 0,
-		"targetType": 0,
-		"trType": 0
+		"targetType": "TARGET_SINGLE_1"
 	},
 	{
 		"animeN1": 4,
@@ -365,14 +269,8 @@
 		"fuelN1": 3,
 		"fuelType": 3,
 		"name": "ヒーリング",
-		"rangeN1": 1,
-		"rangeN2": 0,
-		"rangeType": 0,
 		"sname": "回復",
-		"targetN1": 0,
-		"targetN2": 0,
-		"targetType": 0,
-		"trType": 0
+		"targetType": "TARGET_SINGLE_1"
 	},
 	{
 		"animeN1": 14,
@@ -387,14 +285,8 @@
 		"fuelN1": 1,
 		"fuelType": 3,
 		"name": "ファイヤーブレス",
-		"rangeN1": 2,
-		"rangeN2": 0,
-		"rangeType": 4,
 		"sname": "火炎",
-		"targetN1": 2,
-		"targetN2": 0,
-		"targetType": 4,
-		"trType": 15
+		"targetType": "TARGET_BREATH"
 	},
 	{
 		"animeN1": 7,
@@ -409,14 +301,8 @@
 		"fuelN1": 0,
 		"fuelType": 0,
 		"name": "鋼の牙",
-		"rangeN1": 1,
-		"rangeN2": 0,
-		"rangeType": 0,
 		"sname": "鋼牙",
-		"targetN1": 0,
-		"targetN2": 0,
-		"targetType": 0,
-		"trType": 0
+		"targetType": "TARGET_SINGLE_1"
 	},
 	{
 		"animeN1": 15,
@@ -432,14 +318,8 @@
 		"fuelN1": 0,
 		"fuelType": 0,
 		"name": "アイスソード",
-		"rangeN1": 1,
-		"rangeN2": 0,
-		"rangeType": 0,
 		"sname": "氷剣",
-		"targetN1": 0,
-		"targetN2": 0,
-		"targetType": 0,
-		"trType": 0
+		"targetType": "TARGET_SINGLE_1"
 	},
 	{
 		"animeN1": 24,
@@ -456,14 +336,8 @@
 		"fuelN1": 0,
 		"fuelType": 0,
 		"name": "雷神の弓",
-		"rangeN1": 2,
-		"rangeN2": 1,
-		"rangeType": 1,
 		"sname": "雷弓",
-		"targetN1": 0,
-		"targetN2": 0,
-		"targetType": 0,
-		"trType": 7
+		"targetType": "TARGET_LONG_2"
 	},
 	{
 		"animeN1": 1,
@@ -479,14 +353,8 @@
 		"fuelN1": 0,
 		"fuelType": 0,
 		"name": "ムラマサ",
-		"rangeN1": 1,
-		"rangeN2": 0,
-		"rangeType": 0,
 		"sname": "攻撃",
-		"targetN1": 0,
-		"targetN2": 0,
-		"targetType": 0,
-		"trType": 0
+		"targetType": "TARGET_SINGLE_1"
 	},
 	{
 		"animeN1": 4,
@@ -503,14 +371,8 @@
 		"fuelN1": 3,
 		"fuelType": 3,
 		"name": "プリティキッス",
-		"rangeN1": 1,
-		"rangeN2": 0,
-		"rangeType": 0,
 		"sname": "KISS",
-		"targetN1": 0,
-		"targetN2": 0,
-		"targetType": 0,
-		"trType": 0
+		"targetType": "TARGET_SINGLE_1"
 	},
 	{
 		"animeN1": 4,
@@ -526,14 +388,8 @@
 		"fuelN1": 1,
 		"fuelType": 3,
 		"name": "チャーム",
-		"rangeN1": 1,
-		"rangeN2": 0,
-		"rangeType": 0,
 		"sname": "魅了",
-		"targetN1": 0,
-		"targetN2": 0,
-		"targetType": 0,
-		"trType": 0
+		"targetType": "TARGET_SINGLE_1"
 	},
 	{
 		"animeN1": 17,
@@ -549,14 +405,8 @@
 		"fuelN1": 1,
 		"fuelType": 1,
 		"name": "スマッシュ",
-		"rangeN1": 1,
-		"rangeN2": 0,
-		"rangeType": 0,
 		"sname": "昇斬",
-		"targetN1": 0,
-		"targetN2": 0,
-		"targetType": 0,
-		"trType": 0
+		"targetType": "TARGET_SINGLE_1"
 	},
 	{
 		"animeN1": 4,
@@ -572,14 +422,8 @@
 		"fuelN1": 2,
 		"fuelType": 3,
 		"name": "子守唄",
-		"rangeN1": 1,
-		"rangeN2": 0,
-		"rangeType": 2,
 		"sname": "子守唄",
-		"targetN1": 0,
-		"targetN2": 0,
-		"targetType": 1,
-		"trType": 4
+		"targetType": "TARGET_ALL_2"
 	},
 	{
 		"animeN1": 18,
@@ -596,14 +440,8 @@
 		"fuelN1": 1,
 		"fuelType": 3,
 		"name": "人魚の槍",
-		"rangeN1": 2,
-		"rangeN2": 0,
-		"rangeType": 0,
 		"sname": "魚槍",
-		"targetN1": 0,
-		"targetN2": 0,
-		"targetType": 0,
-		"trType": 1
+		"targetType": "TARGET_SINGLE_2"
 	},
 	{
 		"animeN1": 18,
@@ -619,14 +457,8 @@
 		"fuelN1": 1,
 		"fuelType": 1,
 		"name": "串刺し",
-		"rangeN1": 2,
-		"rangeN2": 0,
-		"rangeType": 3,
 		"sname": "串刺",
-		"targetN1": 2,
-		"targetN2": 0,
-		"targetType": 2,
-		"trType": 11
+		"targetType": "TARGET_LASER_2"
 	},
 	{
 		"animeN1": 2,
@@ -640,14 +472,8 @@
 		"fuelN1": 0,
 		"fuelType": 0,
 		"name": "ファイヤーボール",
-		"rangeN1": 2,
-		"rangeN2": 1,
-		"rangeType": 1,
 		"sname": "火玉",
-		"targetN1": 0,
-		"targetN2": 0,
-		"targetType": 0,
-		"trType": 7
+		"targetType": "TARGET_LONG_2"
 	},
 	{
 		"animeN1": 5,
@@ -662,14 +488,8 @@
 		"fuelN1": 2,
 		"fuelType": 1,
 		"name": "倍斬り",
-		"rangeN1": 1,
-		"rangeN2": 0,
-		"rangeType": 0,
 		"sname": "倍斬り",
-		"targetN1": 0,
-		"targetN2": 0,
-		"targetType": 0,
-		"trType": 0
+		"targetType": "TARGET_SINGLE_1"
 	},
 	{
 		"animeN1": 2,
@@ -684,14 +504,8 @@
 		"fuelN1": 1,
 		"fuelType": 3,
 		"name": "ファイヤーリング",
-		"rangeN1": 2,
-		"rangeN2": 1,
-		"rangeType": 1,
 		"sname": "火輪",
-		"targetN1": 0,
-		"targetN2": 0,
-		"targetType": 1,
-		"trType": 9
+		"targetType": "TARGET_RING_2"
 	},
 	{
 		"animeN1": 16,
@@ -705,14 +519,8 @@
 		"fuelN1": 1,
 		"fuelType": 3,
 		"name": "スプラッシュ",
-		"rangeN1": 2,
-		"rangeN2": 1,
-		"rangeType": 1,
 		"sname": "水鉄砲",
-		"targetN1": 0,
-		"targetN2": 0,
-		"targetType": 0,
-		"trType": 7
+		"targetType": "TARGET_LONG_2"
 	},
 	{
 		"animeN1": 16,
@@ -729,14 +537,8 @@
 		"fuelN1": 0,
 		"fuelType": 0,
 		"name": "凍土の弓",
-		"rangeN1": 2,
-		"rangeN2": 1,
-		"rangeType": 1,
 		"sname": "氷弓",
-		"targetN1": 0,
-		"targetN2": 0,
-		"targetType": 0,
-		"trType": 7
+		"targetType": "TARGET_LONG_2"
 	},
 	{
 		"animeN1": 13,
@@ -751,14 +553,8 @@
 		"fuelN1": 1,
 		"fuelType": 1,
 		"name": "貫通矢",
-		"rangeN1": 3,
-		"rangeN2": 0,
-		"rangeType": 3,
 		"sname": "貫通矢",
-		"targetN1": 3,
-		"targetN2": 0,
-		"targetType": 2,
-		"trType": 12
+		"targetType": "TARGET_LASER_3"
 	},
 	{
 		"animeN1": 21,
@@ -774,14 +570,8 @@
 		"fuelN1": 2,
 		"fuelType": 3,
 		"name": "デス",
-		"rangeN1": 2,
-		"rangeN2": 1,
-		"rangeType": 1,
 		"sname": "デス",
-		"targetN1": 0,
-		"targetN2": 0,
-		"targetType": 1,
-		"trType": 7
+		"targetType": "TARGET_LONG_2"
 	},
 	{
 		"animeN1": 11,
@@ -797,14 +587,8 @@
 		"fuelN1": 2,
 		"fuelType": 1,
 		"name": "回転斬り",
-		"rangeN1": 1,
-		"rangeN2": 0,
-		"rangeType": 2,
 		"sname": "回転",
-		"targetN1": 0,
-		"targetN2": 0,
-		"targetType": 1,
-		"trType": 17
+		"targetType": "TARGET_SQUARE_1"
 	},
 	{
 		"animeN1": 7,
@@ -819,14 +603,8 @@
 		"fuelN1": 2,
 		"fuelType": 1,
 		"name": "大地斬",
-		"rangeN1": 2,
-		"rangeN2": 0,
-		"rangeType": 4,
 		"sname": "大地斬",
-		"targetN1": 2,
-		"targetN2": 0,
-		"targetType": 4,
-		"trType": 15
+		"targetType": "TARGET_BREATH"
 	},
 	{
 		"animeN1": 13,
@@ -841,14 +619,8 @@
 		"fuelN1": 2,
 		"fuelType": 1,
 		"name": "乱れ射ち",
-		"rangeN1": 2,
-		"rangeN2": 0,
-		"rangeType": 4,
 		"sname": "乱射",
-		"targetN1": 2,
-		"targetN2": 0,
-		"targetType": 4,
-		"trType": 15
+		"targetType": "TARGET_BREATH"
 	},
 	{
 		"animeN1": 25,
@@ -862,14 +634,8 @@
 		"fuelN1": 0,
 		"fuelType": 0,
 		"name": "サンダーボルト",
-		"rangeN1": 2,
-		"rangeN2": 1,
-		"rangeType": 1,
 		"sname": "雷撃",
-		"targetN1": 0,
-		"targetN2": 0,
-		"targetType": 0,
-		"trType": 7
+		"targetType": "TARGET_LONG_2"
 	},
 	{
 		"animeN1": 7,
@@ -885,14 +651,8 @@
 		"fuelN1": 0,
 		"fuelType": 0,
 		"name": "毒の牙",
-		"rangeN1": 1,
-		"rangeN2": 0,
-		"rangeType": 0,
 		"sname": "毒牙",
-		"targetN1": 0,
-		"targetN2": 0,
-		"targetType": 0,
-		"trType": 0
+		"targetType": "TARGET_SINGLE_1"
 	},
 	{
 		"animeN1": 1,
@@ -909,14 +669,8 @@
 		"fuelN1": 0,
 		"fuelType": 0,
 		"name": "毒針",
-		"rangeN1": 1,
-		"rangeN2": 0,
-		"rangeType": 0,
 		"sname": "毒針",
-		"targetN1": 0,
-		"targetN2": 0,
-		"targetType": 0,
-		"trType": 0
+		"targetType": "TARGET_SINGLE_1"
 	},
 	{
 		"animeN1": 18,
@@ -933,14 +687,8 @@
 		"fuelN1": 0,
 		"fuelType": 0,
 		"name": "手裏剣",
-		"rangeN1": 2,
-		"rangeN2": 1,
-		"rangeType": 1,
 		"sname": "手裏剣",
-		"targetN1": 0,
-		"targetN2": 0,
-		"targetType": 0,
-		"trType": 7
+		"targetType": "TARGET_LONG_2"
 	},
 	{
 		"animeN1": 7,
@@ -956,14 +704,8 @@
 		"fuelN1": 0,
 		"fuelType": 0,
 		"name": "ウインドカッター",
-		"rangeN1": 2,
-		"rangeN2": 1,
-		"rangeType": 1,
 		"sname": "風刃",
-		"targetN1": 0,
-		"targetN2": 0,
-		"targetType": 0,
-		"trType": 7
+		"targetType": "TARGET_LONG_2"
 	},
 	{
 		"animeN1": 23,
@@ -979,14 +721,8 @@
 		"fuelN1": 0,
 		"fuelType": 0,
 		"name": "神獣の斧",
-		"rangeN1": 1,
-		"rangeN2": 0,
-		"rangeType": 0,
 		"sname": "獣斧",
-		"targetN1": 0,
-		"targetN2": 0,
-		"targetType": 0,
-		"trType": 0
+		"targetType": "TARGET_SINGLE_1"
 	},
 	{
 		"animeN1": 23,
@@ -1003,14 +739,8 @@
 		"fuelN1": 2,
 		"fuelType": 1,
 		"name": "飛竜殺し",
-		"rangeN1": 1,
-		"rangeN2": 0,
-		"rangeType": 0,
 		"sname": "飛竜殺",
-		"targetN1": 0,
-		"targetN2": 0,
-		"targetType": 0,
-		"trType": 0
+		"targetType": "TARGET_SINGLE_1"
 	},
 	{
 		"animeN1": 18,
@@ -1027,14 +757,8 @@
 		"fuelN1": 0,
 		"fuelType": 0,
 		"name": "ミストルテイン",
-		"rangeN1": 2,
-		"rangeN2": 0,
-		"rangeType": 0,
 		"sname": "魔槍",
-		"targetN1": 0,
-		"targetN2": 0,
-		"targetType": 0,
-		"trType": 1
+		"targetType": "TARGET_SINGLE_2"
 	},
 	{
 		"animeN1": 4,
@@ -1050,14 +774,8 @@
 		"fuelN1": 2,
 		"fuelType": 3,
 		"name": "シャイニング",
-		"rangeN1": 2,
-		"rangeN2": 0,
-		"rangeType": 1,
 		"sname": "聖光",
-		"targetN1": 0,
-		"targetN2": 0,
-		"targetType": 1,
-		"trType": 4
+		"targetType": "TARGET_ALL_2"
 	},
 	{
 		"animeN1": 10,
@@ -1074,14 +792,8 @@
 		"fuelN1": 2,
 		"fuelType": 3,
 		"name": "ブリザード",
-		"rangeN1": 3,
-		"rangeN2": 1,
-		"rangeType": 1,
 		"sname": "吹雪",
-		"targetN1": 0,
-		"targetN2": 0,
-		"targetType": 1,
-		"trType": 10
+		"targetType": "TARGET_RING_3"
 	},
 	{
 		"animeN1": 7,
@@ -1097,14 +809,8 @@
 		"fuelN1": 0,
 		"fuelType": 0,
 		"name": "猛毒の牙",
-		"rangeN1": 1,
-		"rangeN2": 0,
-		"rangeType": 0,
 		"sname": "猛毒",
-		"targetN1": 0,
-		"targetN2": 0,
-		"targetType": 0,
-		"trType": 0
+		"targetType": "TARGET_SINGLE_1"
 	},
 	{
 		"animeN1": 21,
@@ -1120,14 +826,8 @@
 		"fuelN1": 4,
 		"fuelType": 3,
 		"name": "デスウインド",
-		"rangeN1": 3,
-		"rangeN2": 1,
-		"rangeType": 1,
 		"sname": "死風",
-		"targetN1": 0,
-		"targetN2": 0,
-		"targetType": 1,
-		"trType": 10
+		"targetType": "TARGET_RING_3"
 	},
 	{
 		"animeN1": 7,
@@ -1145,14 +845,8 @@
 		"fuelN1": 2,
 		"fuelType": 1,
 		"name": "地竜殺し",
-		"rangeN1": 2,
-		"rangeN2": 0,
-		"rangeType": 0,
 		"sname": "地竜殺",
-		"targetN1": 0,
-		"targetN2": 0,
-		"targetType": 0,
-		"trType": 1
+		"targetType": "TARGET_SINGLE_2"
 	},
 	{
 		"animeN1": 5,
@@ -1167,14 +861,8 @@
 		"fuelN1": 1,
 		"fuelType": 1,
 		"name": "電光石火",
-		"rangeN1": 1,
-		"rangeN2": 0,
-		"rangeType": 0,
 		"sname": "光速斬",
-		"targetN1": 0,
-		"targetN2": 0,
-		"targetType": 0,
-		"trType": 0
+		"targetType": "TARGET_SINGLE_1"
 	},
 	{
 		"animeN1": 3,
@@ -1190,14 +878,8 @@
 		"fuelN1": 2,
 		"fuelType": 3,
 		"name": "アイスブレード",
-		"rangeN1": 2,
-		"rangeN2": 1,
-		"rangeType": 1,
 		"sname": "氷刃",
-		"targetN1": 1,
-		"targetN2": 0,
-		"targetType": 3,
-		"trType": 16
+		"targetType": "TARGET_HLINE"
 	},
 	{
 		"animeN1": 6,
@@ -1213,14 +895,8 @@
 		"fuelN1": 1,
 		"fuelType": 3,
 		"name": "誘惑の鞭",
-		"rangeN1": 2,
-		"rangeN2": 0,
-		"rangeType": 0,
 		"sname": "誘惑",
-		"targetN1": 0,
-		"targetN2": 0,
-		"targetType": 0,
-		"trType": 1
+		"targetType": "TARGET_SINGLE_2"
 	},
 	{
 		"animeN1": 25,
@@ -1236,14 +912,8 @@
 		"fuelN1": 4,
 		"fuelType": 3,
 		"name": "スパーク",
-		"rangeN1": 1,
-		"rangeN2": 0,
-		"rangeType": 0,
 		"sname": "電撃",
-		"targetN1": 0,
-		"targetN2": 0,
-		"targetType": 0,
-		"trType": 0
+		"targetType": "TARGET_SINGLE_1"
 	},
 	{
 		"animeN1": 5,
@@ -1259,14 +929,8 @@
 		"fuelN1": 1,
 		"fuelType": 1,
 		"name": "切り落とし",
-		"rangeN1": 0,
-		"rangeN2": 0,
-		"rangeType": 0,
 		"sname": "落斬",
-		"targetN1": 0,
-		"targetN2": 0,
-		"targetType": 0,
-		"trType": 0
+		"targetType": "TARGET_SINGLE_1"
 	},
 	{
 		"animeN1": 23,
@@ -1282,14 +946,8 @@
 		"fuelN1": 0,
 		"fuelType": 0,
 		"name": "魔神の斧",
-		"rangeN1": 1,
-		"rangeN2": 0,
-		"rangeType": 0,
 		"sname": "魔斧",
-		"targetN1": 0,
-		"targetN2": 0,
-		"targetType": 0,
-		"trType": 0
+		"targetType": "TARGET_SINGLE_1"
 	},
 	{
 		"animeN1": 7,
@@ -1305,14 +963,8 @@
 		"fuelN1": 2,
 		"fuelType": 1,
 		"name": "グランドクロス",
-		"rangeN1": 0,
-		"rangeN2": 0,
-		"rangeType": 0,
 		"sname": "十字斬",
-		"targetN1": 0,
-		"targetN2": 0,
-		"targetType": 0,
-		"trType": 13
+		"targetType": "TARGET_CROSS_2"
 	},
 	{
 		"animeN1": 7,
@@ -1328,14 +980,8 @@
 		"fuelN1": 1,
 		"fuelType": 3,
 		"name": "カウンター",
-		"rangeN1": 0,
-		"rangeN2": 0,
-		"rangeType": 0,
 		"sname": "反撃",
-		"targetN1": 0,
-		"targetN2": 0,
-		"targetType": 0,
-		"trType": 0
+		"targetType": "TARGET_SINGLE_1"
 	},
 	{
 		"animeN1": 20,
@@ -1350,14 +996,8 @@
 		"fuelN1": 1,
 		"fuelType": 3,
 		"name": "油玉",
-		"rangeN1": 0,
-		"rangeN2": 0,
-		"rangeType": 0,
 		"sname": "油玉",
-		"targetN1": 0,
-		"targetN2": 0,
-		"targetType": 0,
-		"trType": 7
+		"targetType": "TARGET_LONG_2"
 	},
 	{
 		"animeN1": 5,
@@ -1373,14 +1013,8 @@
 		"fuelN1": 1,
 		"fuelType": 1,
 		"name": "ドラゴンキラー",
-		"rangeN1": 0,
-		"rangeN2": 0,
-		"rangeType": 0,
 		"sname": "竜殺剣",
-		"targetN1": 0,
-		"targetN2": 0,
-		"targetType": 0,
-		"trType": 0
+		"targetType": "TARGET_SINGLE_1"
 	},
 	{
 		"animeN1": 9,
@@ -1395,14 +1029,8 @@
 		"fuelN1": 1,
 		"fuelType": 3,
 		"name": "ファイヤーストーム",
-		"rangeN1": 0,
-		"rangeN2": 0,
-		"rangeType": 0,
 		"sname": "火炎",
-		"targetN1": 0,
-		"targetN2": 0,
-		"targetType": 0,
-		"trType": 0
+		"targetType": "TARGET_SINGLE_1"
 	},
 	{
 		"animeN1": 10,
@@ -1417,14 +1045,8 @@
 		"fuelN1": 1,
 		"fuelType": 3,
 		"name": "アイスストーム",
-		"rangeN1": 0,
-		"rangeN2": 0,
-		"rangeType": 0,
 		"sname": "氷結",
-		"targetN1": 0,
-		"targetN2": 0,
-		"targetType": 0,
-		"trType": 0
+		"targetType": "TARGET_SINGLE_1"
 	},
 	{
 		"animeN1": 25,
@@ -1439,14 +1061,8 @@
 		"fuelN1": 2,
 		"fuelType": 3,
 		"name": "ギガスラッシュ",
-		"rangeN1": 0,
-		"rangeN2": 0,
-		"rangeType": 0,
 		"sname": "雷切",
-		"targetN1": 0,
-		"targetN2": 0,
-		"targetType": 0,
-		"trType": 11
+		"targetType": "TARGET_LASER_2"
 	},
 	{
 		"animeN1": 14,
@@ -1462,14 +1078,8 @@
 		"fuelN1": 1,
 		"fuelType": 3,
 		"name": "フレイムレーザー",
-		"rangeN1": 0,
-		"rangeN2": 0,
-		"rangeType": 0,
 		"sname": "火炎",
-		"targetN1": 0,
-		"targetN2": 0,
-		"targetType": 0,
-		"trType": 12
+		"targetType": "TARGET_LASER_3"
 	},
 	{
 		"animeN1": 24,
@@ -1485,14 +1095,8 @@
 		"fuelN1": 1,
 		"fuelType": 1,
 		"name": "サンダーアロー",
-		"rangeN1": 0,
-		"rangeN2": 0,
-		"rangeType": 0,
 		"sname": "雷矢",
-		"targetN1": 0,
-		"targetN2": 0,
-		"targetType": 0,
-		"trType": 12
+		"targetType": "TARGET_LASER_3"
 	},
 	{
 		"animeN1": 16,
@@ -1508,14 +1112,8 @@
 		"fuelN1": 1,
 		"fuelType": 1,
 		"name": "アイスアロー",
-		"rangeN1": 0,
-		"rangeN2": 0,
-		"rangeType": 0,
 		"sname": "氷矢",
-		"targetN1": 0,
-		"targetN2": 0,
-		"targetType": 0,
-		"trType": 12
+		"targetType": "TARGET_LASER_3"
 	},
 	{
 		"animeN1": 4,
@@ -1532,14 +1130,8 @@
 		"fuelN1": 2,
 		"fuelType": 3,
 		"name": "ヒートアップ",
-		"rangeN1": 0,
-		"rangeN2": 0,
-		"rangeType": 0,
 		"sname": "加熱",
-		"targetN1": 0,
-		"targetN2": 0,
-		"targetType": 0,
-		"trType": 0
+		"targetType": "TARGET_SINGLE_1"
 	},
 	{
 		"animeN1": 4,
@@ -1556,14 +1148,8 @@
 		"fuelN1": 2,
 		"fuelType": 3,
 		"name": "ガードアップ",
-		"rangeN1": 0,
-		"rangeN2": 0,
-		"rangeType": 0,
 		"sname": "防御",
-		"targetN1": 0,
-		"targetN2": 0,
-		"targetType": 0,
-		"trType": 0
+		"targetType": "TARGET_SINGLE_1"
 	},
 	{
 		"animeN1": 1,
@@ -1580,14 +1166,8 @@
 		"fuelN1": 1,
 		"fuelType": 3,
 		"name": "デスブリンガー",
-		"rangeN1": 0,
-		"rangeN2": 0,
-		"rangeType": 0,
 		"sname": "暗黒剣",
-		"targetN1": 0,
-		"targetN2": 0,
-		"targetType": 0,
-		"trType": 0
+		"targetType": "TARGET_SINGLE_1"
 	},
 	{
 		"animeN1": 23,
@@ -1604,14 +1184,8 @@
 		"fuelN1": 1,
 		"fuelType": 1,
 		"name": "メガトンプレス",
-		"rangeN1": 0,
-		"rangeN2": 0,
-		"rangeType": 0,
 		"sname": "プレス",
-		"targetN1": 0,
-		"targetN2": 0,
-		"targetType": 0,
-		"trType": 0
+		"targetType": "TARGET_SINGLE_1"
 	},
 	{
 		"animeN1": 5,
@@ -1628,14 +1202,8 @@
 		"fuelN1": 2,
 		"fuelType": 1,
 		"name": "金の斧",
-		"rangeN1": 0,
-		"rangeN2": 0,
-		"rangeType": 0,
 		"sname": "金斧",
-		"targetN1": 0,
-		"targetN2": 0,
-		"targetType": 0,
-		"trType": 0
+		"targetType": "TARGET_SINGLE_1"
 	},
 	{
 		"animeN1": 8,
@@ -1650,14 +1218,8 @@
 		"fuelN1": 2,
 		"fuelType": 3,
 		"name": "ラブバイン",
-		"rangeN1": 0,
-		"rangeN2": 0,
-		"rangeType": 0,
 		"sname": "蔓草",
-		"targetN1": 0,
-		"targetN2": 0,
-		"targetType": 0,
-		"trType": 7
+		"targetType": "TARGET_LONG_2"
 	},
 	{
 		"animeN1": 16,
@@ -1673,14 +1235,8 @@
 		"fuelN1": 1,
 		"fuelType": 3,
 		"name": "アイスレーザー",
-		"rangeN1": 0,
-		"rangeN2": 0,
-		"rangeType": 0,
 		"sname": "氷結",
-		"targetN1": 0,
-		"targetN2": 0,
-		"targetType": 0,
-		"trType": 12
+		"targetType": "TARGET_LASER_3"
 	},
 	{
 		"animeN1": 16,
@@ -1696,14 +1252,8 @@
 		"fuelN1": 2,
 		"fuelType": 1,
 		"name": "ナッツシュート",
-		"rangeN1": 0,
-		"rangeN2": 0,
-		"rangeType": 0,
 		"sname": "木の実",
-		"targetN1": 0,
-		"targetN2": 0,
-		"targetType": 0,
-		"trType": 8
+		"targetType": "TARGET_LONG_3"
 	},
 	{
 		"animeN1": 6,
@@ -1720,14 +1270,8 @@
 		"fuelN1": 1,
 		"fuelType": 3,
 		"name": "火炎斬り",
-		"rangeN1": 0,
-		"rangeN2": 0,
-		"rangeType": 0,
 		"sname": "火炎斬",
-		"targetN1": 0,
-		"targetN2": 0,
-		"targetType": 0,
-		"trType": 0
+		"targetType": "TARGET_SINGLE_1"
 	},
 	{
 		"animeN1": 15,
@@ -1744,14 +1288,8 @@
 		"fuelN1": 1,
 		"fuelType": 3,
 		"name": "氷結斬り",
-		"rangeN1": 0,
-		"rangeN2": 0,
-		"rangeType": 0,
 		"sname": "氷結斬",
-		"targetN1": 0,
-		"targetN2": 0,
-		"targetType": 0,
-		"trType": 0
+		"targetType": "TARGET_SINGLE_1"
 	},
 	{
 		"animeN1": 1,
@@ -1767,14 +1305,8 @@
 		"fuelN1": 0,
 		"fuelType": 0,
 		"name": "クナイ",
-		"rangeN1": 0,
-		"rangeN2": 0,
-		"rangeType": 0,
 		"sname": "クナイ",
-		"targetN1": 0,
-		"targetN2": 0,
-		"targetType": 0,
-		"trType": 0
+		"targetType": "TARGET_SINGLE_1"
 	},
 	{
 		"animeN1": 1,
@@ -1792,14 +1324,8 @@
 		"fuelN1": 0,
 		"fuelType": 0,
 		"name": "アイシングダガー",
-		"rangeN1": 0,
-		"rangeN2": 0,
-		"rangeType": 0,
 		"sname": "氷刃",
-		"targetN1": 0,
-		"targetN2": 0,
-		"targetType": 0,
-		"trType": 0
+		"targetType": "TARGET_SINGLE_1"
 	},
 	{
 		"animeN1": 21,
@@ -1815,14 +1341,8 @@
 		"fuelN1": 1,
 		"fuelType": 3,
 		"name": "デスサイズ",
-		"rangeN1": 0,
-		"rangeN2": 0,
-		"rangeType": 0,
 		"sname": "死鎌",
-		"targetN1": 0,
-		"targetN2": 0,
-		"targetType": 0,
-		"trType": 1
+		"targetType": "TARGET_SINGLE_2"
 	},
 	{
 		"animeN1": 3,
@@ -1837,14 +1357,8 @@
 		"fuelN1": 2,
 		"fuelType": 3,
 		"name": "ラブアイス",
-		"rangeN1": 0,
-		"rangeN2": 0,
-		"rangeType": 0,
 		"sname": "氷玉",
-		"targetN1": 0,
-		"targetN2": 0,
-		"targetType": 0,
-		"trType": 7
+		"targetType": "TARGET_LONG_2"
 	},
 	{
 		"animeN1": 2,
@@ -1859,14 +1373,8 @@
 		"fuelN1": 2,
 		"fuelType": 3,
 		"name": "ラブファイア",
-		"rangeN1": 0,
-		"rangeN2": 0,
-		"rangeType": 0,
 		"sname": "火玉",
-		"targetN1": 0,
-		"targetN2": 0,
-		"targetType": 0,
-		"trType": 7
+		"targetType": "TARGET_LONG_2"
 	},
 	{
 		"animeN1": 4,
@@ -1881,14 +1389,8 @@
 		"fuelN1": 1,
 		"fuelType": 3,
 		"name": "ナイトメア",
-		"rangeN1": 0,
-		"rangeN2": 0,
-		"rangeType": 0,
 		"sname": "悪夢",
-		"targetN1": 0,
-		"targetN2": 0,
-		"targetType": 0,
-		"trType": 7
+		"targetType": "TARGET_LONG_2"
 	},
 	{
 		"animeN1": 3,
@@ -1903,14 +1405,8 @@
 		"fuelN1": 1,
 		"fuelType": 3,
 		"name": "アイスリング",
-		"rangeN1": 0,
-		"rangeN2": 0,
-		"rangeType": 0,
 		"sname": "氷輪",
-		"targetN1": 0,
-		"targetN2": 0,
-		"targetType": 0,
-		"trType": 9
+		"targetType": "TARGET_RING_2"
 	},
 	{
 		"animeN1": 19,
@@ -1925,14 +1421,8 @@
 		"fuelN1": 1,
 		"fuelType": 3,
 		"name": "グラビティブラスト",
-		"rangeN1": 0,
-		"rangeN2": 0,
-		"rangeType": 0,
 		"sname": "重力波",
-		"targetN1": 0,
-		"targetN2": 0,
-		"targetType": 0,
-		"trType": 7
+		"targetType": "TARGET_LONG_2"
 	},
 	{
 		"animeN1": 4,
@@ -1947,14 +1437,8 @@
 		"fuelN1": 2,
 		"fuelType": 3,
 		"name": "チャームライト",
-		"rangeN1": 0,
-		"rangeN2": 0,
-		"rangeType": 0,
 		"sname": "淫夢",
-		"targetN1": 0,
-		"targetN2": 0,
-		"targetType": 0,
-		"trType": 5
+		"targetType": "TARGET_ALL_3"
 	},
 	{
 		"animeN1": 22,
@@ -1971,14 +1455,8 @@
 		"fuelN1": 2,
 		"fuelType": 3,
 		"name": "マジックシュート",
-		"rangeN1": 0,
-		"rangeN2": 0,
-		"rangeType": 0,
 		"sname": "魔矢",
-		"targetN1": 0,
-		"targetN2": 0,
-		"targetType": 0,
-		"trType": 8
+		"targetType": "TARGET_LONG_3"
 	},
 	{
 		"animeN1": 25,
@@ -1994,14 +1472,8 @@
 		"fuelN1": 0,
 		"fuelType": 0,
 		"name": "サンダーバード",
-		"rangeN1": 0,
-		"rangeN2": 0,
-		"rangeType": 0,
 		"sname": "雷鳥",
-		"targetN1": 0,
-		"targetN2": 0,
-		"targetType": 0,
-		"trType": 7
+		"targetType": "TARGET_LONG_2"
 	},
 	{
 		"animeN1": 5,
@@ -2018,14 +1490,8 @@
 		"fuelN1": 2,
 		"fuelType": 3,
 		"name": "マジカルソード",
-		"rangeN1": 0,
-		"rangeN2": 0,
-		"rangeType": 0,
 		"sname": "氷雷火",
-		"targetN1": 0,
-		"targetN2": 0,
-		"targetType": 0,
-		"trType": 0
+		"targetType": "TARGET_SINGLE_1"
 	},
 	{
 		"animeN1": 22,
@@ -2041,14 +1507,8 @@
 		"fuelN1": 2,
 		"fuelType": 3,
 		"name": "タイダルウエイブ",
-		"rangeN1": 0,
-		"rangeN2": 0,
-		"rangeType": 0,
 		"sname": "津波",
-		"targetN1": 0,
-		"targetN2": 0,
-		"targetType": 0,
-		"trType": 5
+		"targetType": "TARGET_ALL_3"
 	},
 	{
 		"animeN1": 18,
@@ -2065,14 +1525,8 @@
 		"fuelN1": 0,
 		"fuelType": 3,
 		"name": "海神の槍",
-		"rangeN1": 0,
-		"rangeN2": 0,
-		"rangeType": 0,
 		"sname": "海槍",
-		"targetN1": 0,
-		"targetN2": 0,
-		"targetType": 0,
-		"trType": 1
+		"targetType": "TARGET_SINGLE_2"
 	},
 	{
 		"animeN1": 1,
@@ -2088,14 +1542,8 @@
 		"fuelN1": 2,
 		"fuelType": 3,
 		"name": "ソウルスティール",
-		"rangeN1": 0,
-		"rangeN2": 0,
-		"rangeType": 0,
 		"sname": "魂狩",
-		"targetN1": 0,
-		"targetN2": 0,
-		"targetType": 0,
-		"trType": 0
+		"targetType": "TARGET_SINGLE_1"
 	},
 	{
 		"animeN1": 26,
@@ -2111,14 +1559,8 @@
 		"fuelN1": 8,
 		"fuelType": 1,
 		"name": "ゴッドフィンガー",
-		"rangeN1": 0,
-		"rangeN2": 0,
-		"rangeType": 0,
 		"sname": "爆熱拳",
-		"targetN1": 0,
-		"targetN2": 0,
-		"targetType": 0,
-		"trType": 0
+		"targetType": "TARGET_SINGLE_1"
 	},
 	{
 		"animeN1": 25,
@@ -2133,14 +1575,8 @@
 		"fuelN1": 0,
 		"fuelType": 0,
 		"name": "エレキアタック",
-		"rangeN1": 0,
-		"rangeN2": 0,
-		"rangeType": 0,
 		"sname": "感電",
-		"targetN1": 0,
-		"targetN2": 0,
-		"targetType": 0,
-		"trType": 0
+		"targetType": "TARGET_SINGLE_1"
 	},
 	{
 		"animeN1": 13,
@@ -2156,14 +1592,8 @@
 		"fuelN1": 0,
 		"fuelType": 0,
 		"name": "森人の弓",
-		"rangeN1": 0,
-		"rangeN2": 0,
-		"rangeType": 0,
 		"sname": "森弓",
-		"targetN1": 0,
-		"targetN2": 0,
-		"targetType": 0,
-		"trType": 8
+		"targetType": "TARGET_LONG_3"
 	},
 	{
 		"animeN1": 13,
@@ -2180,14 +1610,8 @@
 		"fuelN1": 2,
 		"fuelType": 1,
 		"name": "ツインショット",
-		"rangeN1": 0,
-		"rangeN2": 0,
-		"rangeType": 0,
 		"sname": "連弾",
-		"targetN1": 0,
-		"targetN2": 0,
-		"targetType": 0,
-		"trType": 7
+		"targetType": "TARGET_LONG_2"
 	},
 	{
 		"animeN1": 8,
@@ -2204,14 +1628,8 @@
 		"fuelN1": 2,
 		"fuelType": 1,
 		"name": "マッドバイン",
-		"rangeN1": 0,
-		"rangeN2": 0,
-		"rangeType": 0,
 		"sname": "毒蔓",
-		"targetN1": 0,
-		"targetN2": 0,
-		"targetType": 0,
-		"trType": 4
+		"targetType": "TARGET_ALL_2"
 	},
 	{
 		"animeN1": 8,
@@ -2229,14 +1647,8 @@
 		"fuelN1": 0,
 		"fuelType": 0,
 		"name": "芋づる",
-		"rangeN1": 0,
-		"rangeN2": 0,
-		"rangeType": 0,
 		"sname": "芋づる",
-		"targetN1": 0,
-		"targetN2": 0,
-		"targetType": 0,
-		"trType": 7
+		"targetType": "TARGET_LONG_2"
 	},
 	{
 		"animeN1": 5,
@@ -2254,14 +1666,8 @@
 		"fuelN1": 3,
 		"fuelType": 1,
 		"name": "三連殺",
-		"rangeN1": 0,
-		"rangeN2": 0,
-		"rangeType": 0,
 		"sname": "三連殺",
-		"targetN1": 0,
-		"targetN2": 0,
-		"targetType": 0,
-		"trType": 0
+		"targetType": "TARGET_SINGLE_1"
 	},
 	{
 		"animeN1": 6,
@@ -2277,14 +1683,8 @@
 		"fuelN1": 4,
 		"fuelType": 3,
 		"name": "炎殺剣",
-		"rangeN1": 0,
-		"rangeN2": 0,
-		"rangeType": 0,
 		"sname": "炎殺剣",
-		"targetN1": 0,
-		"targetN2": 0,
-		"targetType": 0,
-		"trType": 0
+		"targetType": "TARGET_SINGLE_1"
 	},
 	{
 		"animeN1": 9,
@@ -2299,14 +1699,8 @@
 		"fuelN1": 4,
 		"fuelType": 3,
 		"name": "クリムゾンフレア",
-		"rangeN1": 3,
-		"rangeN2": 1,
-		"rangeType": 1,
 		"sname": "灼熱",
-		"targetN1": 0,
-		"targetN2": 0,
-		"targetType": 1,
-		"trType": 10
+		"targetType": "TARGET_RING_3"
 	},
 	{
 		"animeN1": 10,
@@ -2322,14 +1716,8 @@
 		"fuelN1": 4,
 		"fuelType": 3,
 		"name": "ダイアモンドダスト",
-		"rangeN1": 0,
-		"rangeN2": 0,
-		"rangeType": 0,
 		"sname": "氷塵",
-		"targetN1": 0,
-		"targetN2": 0,
-		"targetType": 0,
-		"trType": 5
+		"targetType": "TARGET_ALL_3"
 	},
 	{
 		"animeN1": 5,
@@ -2344,14 +1732,8 @@
 		"fuelN1": 1,
 		"fuelType": 3,
 		"name": "リフレクト",
-		"rangeN1": 0,
-		"rangeN2": 0,
-		"rangeType": 0,
 		"sname": "反射",
-		"targetN1": 0,
-		"targetN2": 0,
-		"targetType": 0,
-		"trType": 0
+		"targetType": "TARGET_SINGLE_1"
 	},
 	{
 		"animeN1": 4,
@@ -2368,14 +1750,8 @@
 		"fuelN1": 2,
 		"fuelType": 3,
 		"name": "レビテーション",
-		"rangeN1": 0,
-		"rangeN2": 0,
-		"rangeType": 0,
 		"sname": "浮遊",
-		"targetN1": 0,
-		"targetN2": 0,
-		"targetType": 0,
-		"trType": 0
+		"targetType": "TARGET_SINGLE_1"
 	},
 	{
 		"animeN1": 1,
@@ -2391,14 +1767,8 @@
 		"fuelN1": 2,
 		"fuelType": 1,
 		"name": "ライトブリンガー",
-		"rangeN1": 0,
-		"rangeN2": 0,
-		"rangeType": 0,
 		"sname": "聖光斬",
-		"targetN1": 0,
-		"targetN2": 0,
-		"targetType": 0,
-		"trType": 0
+		"targetType": "TARGET_SINGLE_1"
 	},
 	{
 		"animeN1": 5,
@@ -2410,14 +1780,8 @@
 		"fuelN1": 8,
 		"fuelType": 1,
 		"name": "真竜斬り",
-		"rangeN1": 0,
-		"rangeN2": 0,
-		"rangeType": 0,
 		"sname": "真竜斬",
-		"targetN1": 0,
-		"targetN2": 0,
-		"targetType": 0,
-		"trType": 0
+		"targetType": "TARGET_SINGLE_1"
 	},
 	{
 		"animeN1": 4,
@@ -2434,14 +1798,8 @@
 		"fuelN1": 4,
 		"fuelType": 3,
 		"name": "チャームフラッシュ",
-		"rangeN1": 0,
-		"rangeN2": 0,
-		"rangeType": 0,
 		"sname": "淫夢",
-		"targetN1": 0,
-		"targetN2": 0,
-		"targetType": 0,
-		"trType": 10
+		"targetType": "TARGET_RING_3"
 	},
 	{
 		"animeN1": 16,
@@ -2458,14 +1816,8 @@
 		"fuelN1": 1,
 		"fuelType": 3,
 		"name": "マジックミサイル",
-		"rangeN1": 0,
-		"rangeN2": 0,
-		"rangeType": 0,
 		"sname": "魔法弾",
-		"targetN1": 0,
-		"targetN2": 0,
-		"targetType": 0,
-		"trType": 7
+		"targetType": "TARGET_LONG_2"
 	},
 	{
 		"animeN1": 25,
@@ -2481,14 +1833,8 @@
 		"fuelN1": 2,
 		"fuelType": 3,
 		"name": "ケイオスウエイブ",
-		"rangeN1": 0,
-		"rangeN2": 0,
-		"rangeType": 0,
 		"sname": "波動",
-		"targetN1": 0,
-		"targetN2": 0,
-		"targetType": 0,
-		"trType": 6
+		"targetType": "TARGET_ALL_4"
 	},
 	{
 		"animeN1": 8,
@@ -2504,14 +1850,8 @@
 		"fuelN1": 1,
 		"fuelType": 3,
 		"name": "リジェネレーション",
-		"rangeN1": 0,
-		"rangeN2": 0,
-		"rangeType": 0,
 		"sname": "再生",
-		"targetN1": 0,
-		"targetN2": 0,
-		"targetType": 0,
-		"trType": 6
+		"targetType": "TARGET_ALL_4"
 	},
 	{
 		"animeN1": 6,
@@ -2526,14 +1866,8 @@
 		"fuelN1": 0,
 		"fuelType": 0,
 		"name": "フレイムタックル",
-		"rangeN1": 0,
-		"rangeN2": 0,
-		"rangeType": 0,
 		"sname": "炎撃",
-		"targetN1": 0,
-		"targetN2": 0,
-		"targetType": 0,
-		"trType": 0
+		"targetType": "TARGET_SINGLE_1"
 	},
 	{
 		"animeN1": 3,
@@ -2548,14 +1882,8 @@
 		"fuelN1": 0,
 		"fuelType": 0,
 		"name": "アイスタックル",
-		"rangeN1": 0,
-		"rangeN2": 0,
-		"rangeType": 0,
 		"sname": "氷撃",
-		"targetN1": 0,
-		"targetN2": 0,
-		"targetType": 0,
-		"trType": 0
+		"targetType": "TARGET_SINGLE_1"
 	},
 	{
 		"animeN1": 4,
@@ -2572,14 +1900,8 @@
 		"fuelN1": 3,
 		"fuelType": 3,
 		"name": "アクアプリズン",
-		"rangeN1": 0,
-		"rangeN2": 0,
-		"rangeType": 0,
 		"sname": "水壁",
-		"targetN1": 0,
-		"targetN2": 0,
-		"targetType": 0,
-		"trType": 4
+		"targetType": "TARGET_ALL_2"
 	},
 	{
 		"animeN1": 22,
@@ -2596,14 +1918,8 @@
 		"fuelN1": 2,
 		"fuelType": 1,
 		"name": "海波斬",
-		"rangeN1": 0,
-		"rangeN2": 0,
-		"rangeType": 0,
 		"sname": "海波斬",
-		"targetN1": 0,
-		"targetN2": 0,
-		"targetType": 0,
-		"trType": 12
+		"targetType": "TARGET_LASER_3"
 	},
 	{
 		"animeN1": 3,
@@ -2620,14 +1936,8 @@
 		"fuelN1": 0,
 		"fuelType": 0,
 		"name": "音速弾",
-		"rangeN1": 0,
-		"rangeN2": 0,
-		"rangeType": 0,
 		"sname": "音速弾",
-		"targetN1": 0,
-		"targetN2": 0,
-		"targetType": 0,
-		"trType": 1
+		"targetType": "TARGET_SINGLE_2"
 	},
 	{
 		"animeN1": 25,
@@ -2643,14 +1953,8 @@
 		"fuelN1": 4,
 		"fuelType": 3,
 		"name": "サンダーストーム",
-		"rangeN1": 0,
-		"rangeN2": 0,
-		"rangeType": 0,
 		"sname": "雷嵐",
-		"targetN1": 0,
-		"targetN2": 0,
-		"targetType": 0,
-		"trType": 4
+		"targetType": "TARGET_ALL_2"
 	},
 	{
 		"animeN1": 18,
@@ -2667,14 +1971,8 @@
 		"fuelN1": 0,
 		"fuelType": 0,
 		"name": "ホーリーランス",
-		"rangeN1": 0,
-		"rangeN2": 0,
-		"rangeType": 0,
 		"sname": "聖槍",
-		"targetN1": 0,
-		"targetN2": 0,
-		"targetType": 0,
-		"trType": 1
+		"targetType": "TARGET_SINGLE_2"
 	},
 	{
 		"animeN1": 3,
@@ -2690,14 +1988,8 @@
 		"fuelN1": 0,
 		"fuelType": 0,
 		"name": "必殺針",
-		"rangeN1": 0,
-		"rangeN2": 0,
-		"rangeType": 0,
 		"sname": "猛毒",
-		"targetN1": 0,
-		"targetN2": 0,
-		"targetType": 0,
-		"trType": 0
+		"targetType": "TARGET_SINGLE_1"
 	},
 	{
 		"animeN1": 7,
@@ -2712,14 +2004,8 @@
 		"fuelN1": 4,
 		"fuelType": 3,
 		"name": "ポイズンストーム",
-		"rangeN1": 0,
-		"rangeN2": 0,
-		"rangeType": 0,
 		"sname": "毒嵐",
-		"targetN1": 0,
-		"targetN2": 0,
-		"targetType": 0,
-		"trType": 4
+		"targetType": "TARGET_ALL_2"
 	},
 	{
 		"animeN1": 21,
@@ -2736,14 +2022,8 @@
 		"fuelN1": 2,
 		"fuelType": 3,
 		"name": "デッドエンド",
-		"rangeN1": 0,
-		"rangeN2": 0,
-		"rangeType": 0,
 		"sname": "終焉",
-		"targetN1": 0,
-		"targetN2": 0,
-		"targetType": 0,
-		"trType": 17
+		"targetType": "TARGET_SQUARE_1"
 	},
 	{
 		"animeN1": 1,
@@ -2759,14 +2039,8 @@
 		"fuelN1": 1,
 		"fuelType": 1,
 		"name": "誘惑の剣",
-		"rangeN1": 0,
-		"rangeN2": 0,
-		"rangeType": 0,
 		"sname": "誘惑",
-		"targetN1": 0,
-		"targetN2": 0,
-		"targetType": 0,
-		"trType": 0
+		"targetType": "TARGET_SINGLE_1"
 	},
 	{
 		"animeN1": 1,
@@ -2782,14 +2056,8 @@
 		"fuelN1": 1,
 		"fuelType": 1,
 		"name": "空裂斬",
-		"rangeN1": 0,
-		"rangeN2": 0,
-		"rangeType": 0,
 		"sname": "空裂斬",
-		"targetN1": 0,
-		"targetN2": 0,
-		"targetType": 0,
-		"trType": 16
+		"targetType": "TARGET_HLINE"
 	},
 	{
 		"animeN1": 16,
@@ -2804,14 +2072,8 @@
 		"fuelN1": 1,
 		"fuelType": 3,
 		"name": "アイスブレス",
-		"rangeN1": 0,
-		"rangeN2": 0,
-		"rangeType": 0,
 		"sname": "氷息",
-		"targetN1": 0,
-		"targetN2": 0,
-		"targetType": 0,
-		"trType": 15
+		"targetType": "TARGET_BREATH"
 	},
 	{
 		"animeN1": 5,
@@ -2828,14 +2090,8 @@
 		"fuelN1": 1,
 		"fuelType": 1,
 		"name": "竜斬り",
-		"rangeN1": 0,
-		"rangeN2": 0,
-		"rangeType": 0,
 		"sname": "竜斬り",
-		"targetN1": 0,
-		"targetN2": 0,
-		"targetType": 0,
-		"trType": 0
+		"targetType": "TARGET_SINGLE_1"
 	},
 	{
 		"animeN1": 5,
@@ -2852,14 +2108,8 @@
 		"fuelN1": 2,
 		"fuelType": 3,
 		"name": "スターティアラ",
-		"rangeN1": 0,
-		"rangeN2": 0,
-		"rangeType": 0,
 		"sname": "星屑",
-		"targetN1": 0,
-		"targetN2": 0,
-		"targetType": 0,
-		"trType": 9
+		"targetType": "TARGET_RING_2"
 	},
 	{
 		"animeN1": 14,
@@ -2876,14 +2126,8 @@
 		"fuelN1": 0,
 		"fuelType": 0,
 		"name": "ファイヤーアロー",
-		"rangeN1": 0,
-		"rangeN2": 0,
-		"rangeType": 0,
 		"sname": "炎矢",
-		"targetN1": 0,
-		"targetN2": 0,
-		"targetType": 0,
-		"trType": 7
+		"targetType": "TARGET_LONG_2"
 	},
 	{
 		"animeN1": 25,
@@ -2898,14 +2142,8 @@
 		"fuelN1": 1,
 		"fuelType": 3,
 		"name": "サンダーフレア",
-		"rangeN1": 0,
-		"rangeN2": 0,
-		"rangeType": 0,
 		"sname": "雷電",
-		"targetN1": 0,
-		"targetN2": 0,
-		"targetType": 0,
-		"trType": 3
+		"targetType": "TARGET_ALL_1"
 	},
 	{
 		"animeN1": 12,
@@ -2921,14 +2159,8 @@
 		"fuelN1": 2,
 		"fuelType": 5,
 		"name": "ダブルヒット",
-		"rangeN1": 0,
-		"rangeN2": 0,
-		"rangeType": 0,
 		"sname": "連撃",
-		"targetN1": 0,
-		"targetN2": 0,
-		"targetType": 0,
-		"trType": 0
+		"targetType": "TARGET_SINGLE_1"
 	},
 	{
 		"animeN1": 18,
@@ -2945,14 +2177,8 @@
 		"fuelN1": 0,
 		"fuelType": 0,
 		"name": "飛苦無",
-		"rangeN1": 0,
-		"rangeN2": 0,
-		"rangeType": 0,
 		"sname": "飛苦無",
-		"targetN1": 0,
-		"targetN2": 0,
-		"targetType": 0,
-		"trType": 7
+		"targetType": "TARGET_LONG_2"
 	},
 	{
 		"animeN1": 1,
@@ -2970,14 +2196,8 @@
 		"fuelN1": 2,
 		"fuelType": 1,
 		"name": "エクスカリバー",
-		"rangeN1": 0,
-		"rangeN2": 0,
-		"rangeType": 0,
 		"sname": "聖剣",
-		"targetN1": 0,
-		"targetN2": 0,
-		"targetType": 0,
-		"trType": 0
+		"targetType": "TARGET_SINGLE_1"
 	},
 	{
 		"animeN1": 21,
@@ -2994,14 +2214,8 @@
 		"fuelN1": 4,
 		"fuelType": 3,
 		"name": "カラミティエンド",
-		"rangeN1": 0,
-		"rangeN2": 0,
-		"rangeType": 0,
 		"sname": "終焉",
-		"targetN1": 0,
-		"targetN2": 0,
-		"targetType": 0,
-		"trType": 5
+		"targetType": "TARGET_ALL_3"
 	},
 	{
 		"animeN1": 2,
@@ -3018,14 +2232,8 @@
 		"fuelN1": 3,
 		"fuelType": 3,
 		"name": "バーニング",
-		"rangeN1": 0,
-		"rangeN2": 0,
-		"rangeType": 0,
 		"sname": "熱血",
-		"targetN1": 0,
-		"targetN2": 0,
-		"targetType": 0,
-		"trType": 3
+		"targetType": "TARGET_ALL_1"
 	},
 	{
 		"animeN1": 20,
@@ -3039,14 +2247,8 @@
 		"fuelN1": 2,
 		"fuelType": 3,
 		"name": "みだれ油",
-		"rangeN1": 0,
-		"rangeN2": 0,
-		"rangeType": 0,
 		"sname": "乱油",
-		"targetN1": 0,
-		"targetN2": 0,
-		"targetType": 0,
-		"trType": 9
+		"targetType": "TARGET_RING_2"
 	},
 	{
 		"animeN1": 1,
@@ -3062,14 +2264,8 @@
 		"fuelN1": 1,
 		"fuelType": 5,
 		"name": "芋切り",
-		"rangeN1": 0,
-		"rangeN2": 0,
-		"rangeType": 0,
 		"sname": "芋切",
-		"targetN1": 0,
-		"targetN2": 0,
-		"targetType": 0,
-		"trType": 0
+		"targetType": "TARGET_SINGLE_1"
 	},
 	{
 		"animeN1": 18,
@@ -3083,13 +2279,7 @@
 		"fuelN1": 1,
 		"fuelType": 3,
 		"name": "誘導弾",
-		"rangeN1": 0,
-		"rangeN2": 0,
-		"rangeType": 0,
 		"sname": "誘導弾",
-		"targetN1": 0,
-		"targetN2": 0,
-		"targetType": 0,
-		"trType": 7
+		"targetType": "TARGET_LONG_2"
 	}
 ]
