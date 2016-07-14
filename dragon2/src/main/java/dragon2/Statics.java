@@ -61,7 +61,7 @@ public class Statics {
 	public static Body getWaza(int i) {
 		AttackData attackdata = getAttackData(i);
 		Body body = new Body();
-		body.img = attackdata.AttackN1 + 169;
+		body.img = attackdata.attackN1 + 169;
 		body.name = attackdata.name;
 		body.level = i;
 		body.hpMax = 1;

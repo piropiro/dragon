@@ -320,11 +320,11 @@ public class SPanel extends StatusBase {
 				22);
 		g.drawString("No." + ba.level, 52, 41);
 		AttackData attackdata = Statics.getAttackData(ba.atk[0]);
-		if (attackdata.AttackType != 0)
-			drawLine(Statics.atype[attackdata.AttackType], 0, 0, g);
+		if (attackdata.attackType != 0)
+			drawLine(Statics.atype[attackdata.attackType], 0, 0, g);
 		else
 			drawLine(Texts.sp[33], 0, 0, g);
-		drawLine(Statics.trtype[attackdata.TRType], 1, 0, g);
+		drawLine(Statics.trtype[attackdata.trType], 1, 0, g);
 		Set<Effects> aflag = new HashSet<>(attackdata.getEffect());
 		
 		int j = 0;
@@ -357,7 +357,7 @@ public class SPanel extends StatusBase {
 			drawLine(Texts.sp[38], 0, 1, g);
 			break;
 		}
-		switch (attackdata.FuelType) {
+		switch (attackdata.fuelType) {
 		case 1: // '\001'
 			drawLine(Texts.sp[39], 1, 1, g);
 			break;

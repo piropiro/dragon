@@ -14,7 +14,7 @@ public enum Effects {
 	SORA_200("飛行倍打"), // 10
 	DRAGON_200("竜族倍打"), // 11
 	COUNTER_ONLY("反撃専用"), // 12
-	WHITE("回復効果"), // 13
+	REGENE("回復効果"), // 13
 	CRITICAL("一撃必殺"), // 14
 	DEATH("デス"), // 15
 	SLEEP("睡眠"), // 16
@@ -50,7 +50,7 @@ public enum Effects {
 	public String getText() {
 		return text;
 	}
-	public Effects convert(int n) {
+	public static Effects convert(int n) {
 		switch (n) {
 		case 1: return DAMAGE_200;
 		case 2: return DAMAGE_300;
@@ -64,7 +64,7 @@ public enum Effects {
 		case 10: return SORA_200;
 		case 11: return DRAGON_200;
 		case 12: return COUNTER_ONLY;
-		case 13: return WHITE;
+		case 13: return REGENE;
 		case 14: return CRITICAL;
 		case 15: return DEATH;
 		case 16: return SLEEP;

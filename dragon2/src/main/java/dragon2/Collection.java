@@ -168,7 +168,7 @@ public class Collection {
 		for (int i = 0; i < waza.length; i++)
 			if (waza[i]) {
 				AttackData attackdata = Statics.getAttackData(i);
-				int j = attackdata.AttackN1 != 0 ? attackdata.AttackN1 + 169
+				int j = attackdata.attackN1 != 0 ? attackdata.attackN1 + 169
 						: 0;
 				unitmap.S(2, 0, 2 + i % 16, 2 + i / 16, j);
 			}

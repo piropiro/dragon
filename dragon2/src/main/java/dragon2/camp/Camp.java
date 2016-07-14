@@ -373,14 +373,14 @@ public class Camp extends PaintBase {
 			return false;
 		AttackData attackdata = Statics.getAttackData(body.atk[0]);
 		AttackData attackdata1 = Statics.getAttackData(body1.atk[0]);
-		if (attackdata.AttackN1 == 0)
+		if (attackdata.attackN1 == 0)
 			return true;
-		if (attackdata1.AttackN1 == 0)
+		if (attackdata1.attackN1 == 0)
 			return true;
 		switch (i) {
 		case 1: // '\001'
-			int j = Statics.getBukiType(attackdata.AttackN1);
-			int k = Statics.getBukiType(attackdata1.AttackN1);
+			int j = Statics.getBukiType(attackdata.attackN1);
+			int k = Statics.getBukiType(attackdata1.attackN1);
 			if (j == k) {
 				return true;
 			} else {
@@ -389,7 +389,7 @@ public class Camp extends PaintBase {
 			}
 
 		case 2: // '\002'
-			if (attackdata.AttackN1 == attackdata1.AttackN1) {
+			if (attackdata.attackN1 == attackdata1.attackN1) {
 				return true;
 			} else {
 				PaintBase.uw.setLPanel(Texts.warning4, 3, 1000);

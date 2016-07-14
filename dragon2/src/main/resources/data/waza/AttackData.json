@@ -1,12 +1,11 @@
 [
 	{
-		"TRType": 0,
 		"animeN1": 0,
 		"animeType": 0,
 		"attackN1": 0,
 		"attackType": 0,
 		"color": 0,
-		"effect": [0, 0, 0, 0, 0],
+		"effect": [],
 		"fuelN1": 0,
 		"fuelType": 0,
 		"name": "none",
@@ -16,16 +15,19 @@
 		"sname": "none",
 		"targetN1": 0,
 		"targetN2": 0,
-		"targetType": 0
+		"targetType": 0,
+		"trType": 0
 	},
 	{
-		"TRType": 0,
 		"animeN1": 1,
 		"animeType": 1,
 		"attackN1": 1,
 		"attackType": 1,
 		"color": 0,
-		"effect": [5, 6, 0, 0, 0],
+		"effect": [
+			"COUNTER_ABLE",
+			"COMBO"
+		],
 		"fuelN1": 0,
 		"fuelType": 0,
 		"name": "剣",
@@ -35,16 +37,19 @@
 		"sname": "攻撃",
 		"targetN1": 0,
 		"targetN2": 0,
-		"targetType": 0
+		"targetType": 0,
+		"trType": 0
 	},
 	{
-		"TRType": 0,
 		"animeN1": 19,
 		"animeType": 1,
 		"attackN1": 2,
 		"attackType": 1,
 		"color": 4,
-		"effect": [34, 5, 0, 0, 0],
+		"effect": [
+			"RIKU_150",
+			"COUNTER_ABLE"
+		],
 		"fuelN1": 0,
 		"fuelType": 0,
 		"name": "斧",
@@ -54,16 +59,19 @@
 		"sname": "攻撃",
 		"targetN1": 0,
 		"targetN2": 0,
-		"targetType": 0
+		"targetType": 0,
+		"trType": 0
 	},
 	{
-		"TRType": 0,
 		"animeN1": 3,
 		"animeType": 1,
 		"attackN1": 3,
 		"attackType": 1,
 		"color": 0,
-		"effect": [5, 6, 0, 0, 0],
+		"effect": [
+			"COUNTER_ABLE",
+			"COMBO"
+		],
 		"fuelN1": 0,
 		"fuelType": 0,
 		"name": "突進",
@@ -73,16 +81,20 @@
 		"sname": "突進",
 		"targetN1": 0,
 		"targetN2": 0,
-		"targetType": 0
+		"targetType": 0,
+		"trType": 0
 	},
 	{
-		"TRType": 0,
 		"animeN1": 1,
 		"animeType": 1,
 		"attackN1": 4,
 		"attackType": 1,
 		"color": 0,
-		"effect": [24, 5, 6, 0, 0],
+		"effect": [
+			"HIT_4",
+			"COUNTER_ABLE",
+			"COMBO"
+		],
 		"fuelN1": 0,
 		"fuelType": 0,
 		"name": "短剣",
@@ -92,16 +104,20 @@
 		"sname": "攻撃",
 		"targetN1": 0,
 		"targetN2": 0,
-		"targetType": 0
+		"targetType": 0,
+		"trType": 0
 	},
 	{
-		"TRType": 1,
 		"animeN1": 18,
 		"animeType": 3,
 		"attackN1": 5,
 		"attackType": 1,
 		"color": 0,
-		"effect": [5, 6, 36, 0, 0],
+		"effect": [
+			"COUNTER_ABLE",
+			"COMBO",
+			"MIZU_100"
+		],
 		"fuelN1": 0,
 		"fuelType": 0,
 		"name": "槍",
@@ -111,16 +127,20 @@
 		"sname": "攻撃",
 		"targetN1": 0,
 		"targetN2": 0,
-		"targetType": 0
+		"targetType": 0,
+		"trType": 1
 	},
 	{
-		"TRType": 7,
 		"animeN1": 13,
 		"animeType": 3,
 		"attackN1": 6,
 		"attackType": 1,
 		"color": 0,
-		"effect": [5, 6, 10, 0, 0],
+		"effect": [
+			"COUNTER_ABLE",
+			"COMBO",
+			"SORA_200"
+		],
 		"fuelN1": 0,
 		"fuelType": 0,
 		"name": "弓",
@@ -130,16 +150,16 @@
 		"sname": "攻撃",
 		"targetN1": 0,
 		"targetN2": 0,
-		"targetType": 0
+		"targetType": 0,
+		"trType": 7
 	},
 	{
-		"TRType": 7,
 		"animeN1": 4,
 		"animeType": 1,
 		"attackN1": 7,
 		"attackType": 2,
 		"color": 0,
-		"effect": [0, 0, 0, 0, 0],
+		"effect": [],
 		"fuelN1": 0,
 		"fuelType": 0,
 		"name": "魔法",
@@ -149,16 +169,18 @@
 		"sname": "魔法",
 		"targetN1": 0,
 		"targetN2": 0,
-		"targetType": 0
+		"targetType": 0,
+		"trType": 7
 	},
 	{
-		"TRType": 15,
 		"animeN1": 20,
 		"animeType": 5,
 		"attackN1": 8,
 		"attackType": 2,
 		"color": 3,
-		"effect": [3, 0, 0, 0, 0],
+		"effect": [
+			"HICHU"
+		],
 		"fuelN1": 0,
 		"fuelType": 0,
 		"name": "ブレス",
@@ -168,16 +190,21 @@
 		"sname": "ブレス",
 		"targetN1": 2,
 		"targetN2": 0,
-		"targetType": 4
+		"targetType": 4,
+		"trType": 15
 	},
 	{
-		"TRType": 0,
 		"animeN1": 17,
 		"animeType": 1,
 		"attackN1": 1,
 		"attackType": 1,
 		"color": 5,
-		"effect": [31, 12, 3, 10, 0],
+		"effect": [
+			"DAMAGE_150",
+			"COUNTER_ONLY",
+			"HICHU",
+			"SORA_200"
+		],
 		"fuelN1": 0,
 		"fuelType": 0,
 		"name": "つばめ返し",
@@ -187,16 +214,18 @@
 		"sname": "反撃",
 		"targetN1": 0,
 		"targetN2": 0,
-		"targetType": 0
+		"targetType": 0,
+		"trType": 0
 	},
 	{
-		"TRType": 18,
 		"animeN1": 4,
 		"animeType": 2,
 		"attackN1": 7,
 		"attackType": 2,
 		"color": 4,
-		"effect": [3, 0, 0, 0, 0],
+		"effect": [
+			"HICHU"
+		],
 		"fuelN1": 1,
 		"fuelType": 3,
 		"name": "大魔法",
@@ -206,16 +235,19 @@
 		"sname": "大魔法",
 		"targetN1": 1,
 		"targetN2": 0,
-		"targetType": 3
+		"targetType": 3,
+		"trType": 18
 	},
 	{
-		"TRType": 12,
 		"animeN1": 22,
 		"animeType": 4,
 		"attackN1": 1,
 		"attackType": 1,
 		"color": 5,
-		"effect": [4, 24, 0, 0, 0],
+		"effect": [
+			"TAME",
+			"HIT_4"
+		],
 		"fuelN1": 1,
 		"fuelType": 1,
 		"name": "直斬り",
@@ -225,16 +257,21 @@
 		"sname": "直斬り",
 		"targetN1": 4,
 		"targetN2": 0,
-		"targetType": 2
+		"targetType": 2,
+		"trType": 12
 	},
 	{
-		"TRType": 7,
 		"animeN1": 13,
 		"animeType": 3,
 		"attackN1": 6,
 		"attackType": 1,
 		"color": 0,
-		"effect": [31, 10, 27, 5, 0],
+		"effect": [
+			"DAMAGE_150",
+			"SORA_200",
+			"CHOP",
+			"COUNTER_ABLE"
+		],
 		"fuelN1": 1,
 		"fuelType": 1,
 		"name": "強弓",
@@ -244,16 +281,18 @@
 		"sname": "強弓",
 		"targetN1": 0,
 		"targetN2": 0,
-		"targetType": 0
+		"targetType": 0,
+		"trType": 7
 	},
 	{
-		"TRType": 7,
 		"animeN1": 3,
 		"animeType": 1,
 		"attackN1": 7,
 		"attackType": 2,
 		"color": 1,
-		"effect": [8, 0, 0, 0, 0],
+		"effect": [
+			"ICE"
+		],
 		"fuelN1": 0,
 		"fuelType": 0,
 		"name": "アイスボール",
@@ -263,16 +302,21 @@
 		"sname": "氷玉",
 		"targetN1": 0,
 		"targetN2": 0,
-		"targetType": 0
+		"targetType": 0,
+		"trType": 7
 	},
 	{
-		"TRType": 11,
 		"animeN1": 3,
 		"animeType": 2,
 		"attackN1": 7,
 		"attackType": 2,
 		"color": 1,
-		"effect": [2, 3, 4, 8, 0],
+		"effect": [
+			"DAMAGE_300",
+			"HICHU",
+			"TAME",
+			"ICE"
+		],
 		"fuelN1": 2,
 		"fuelType": 3,
 		"name": "ゼロキャノン",
@@ -282,16 +326,20 @@
 		"sname": "零砲",
 		"targetN1": 2,
 		"targetN2": 0,
-		"targetType": 2
+		"targetType": 2,
+		"trType": 11
 	},
 	{
-		"TRType": 0,
 		"animeN1": 6,
 		"animeType": 1,
 		"attackN1": 1,
 		"attackType": 1,
 		"color": 2,
-		"effect": [6, 5, 7, 0, 0],
+		"effect": [
+			"COMBO",
+			"COUNTER_ABLE",
+			"FIRE"
+		],
 		"fuelN1": 0,
 		"fuelType": 0,
 		"name": "ファイアソード",
@@ -301,16 +349,19 @@
 		"sname": "火剣",
 		"targetN1": 0,
 		"targetN2": 0,
-		"targetType": 0
+		"targetType": 0,
+		"trType": 0
 	},
 	{
-		"TRType": 0,
 		"animeN1": 4,
 		"animeType": 1,
 		"attackN1": 7,
 		"attackType": 6,
 		"color": 5,
-		"effect": [13, 3, 0, 0, 0],
+		"effect": [
+			"REGENE",
+			"HICHU"
+		],
 		"fuelN1": 3,
 		"fuelType": 3,
 		"name": "ヒーリング",
@@ -320,16 +371,19 @@
 		"sname": "回復",
 		"targetN1": 0,
 		"targetN2": 0,
-		"targetType": 0
+		"targetType": 0,
+		"trType": 0
 	},
 	{
-		"TRType": 15,
 		"animeN1": 14,
 		"animeType": 5,
 		"attackN1": 8,
 		"attackType": 2,
 		"color": 2,
-		"effect": [3, 7, 0, 0, 0],
+		"effect": [
+			"HICHU",
+			"FIRE"
+		],
 		"fuelN1": 1,
 		"fuelType": 3,
 		"name": "ファイヤーブレス",
@@ -339,16 +393,19 @@
 		"sname": "火炎",
 		"targetN1": 2,
 		"targetN2": 0,
-		"targetType": 4
+		"targetType": 4,
+		"trType": 15
 	},
 	{
-		"TRType": 0,
 		"animeN1": 7,
 		"animeType": 1,
 		"attackN1": 3,
 		"attackType": 1,
 		"color": 4,
-		"effect": [5, 6, 0, 0, 0],
+		"effect": [
+			"COUNTER_ABLE",
+			"COMBO"
+		],
 		"fuelN1": 0,
 		"fuelType": 0,
 		"name": "鋼の牙",
@@ -358,16 +415,20 @@
 		"sname": "鋼牙",
 		"targetN1": 0,
 		"targetN2": 0,
-		"targetType": 0
+		"targetType": 0,
+		"trType": 0
 	},
 	{
-		"TRType": 0,
 		"animeN1": 15,
 		"animeType": 1,
 		"attackN1": 1,
 		"attackType": 1,
 		"color": 1,
-		"effect": [6, 5, 8, 0, 0],
+		"effect": [
+			"COMBO",
+			"COUNTER_ABLE",
+			"ICE"
+		],
 		"fuelN1": 0,
 		"fuelType": 0,
 		"name": "アイスソード",
@@ -377,16 +438,21 @@
 		"sname": "氷剣",
 		"targetN1": 0,
 		"targetN2": 0,
-		"targetType": 0
+		"targetType": 0,
+		"trType": 0
 	},
 	{
-		"TRType": 7,
 		"animeN1": 24,
 		"animeType": 3,
 		"attackN1": 6,
 		"attackType": 1,
 		"color": 4,
-		"effect": [9, 10, 5, 6, 0],
+		"effect": [
+			"THUNDER",
+			"SORA_200",
+			"COUNTER_ABLE",
+			"COMBO"
+		],
 		"fuelN1": 0,
 		"fuelType": 0,
 		"name": "雷神の弓",
@@ -396,16 +462,20 @@
 		"sname": "雷弓",
 		"targetN1": 0,
 		"targetN2": 0,
-		"targetType": 0
+		"targetType": 0,
+		"trType": 7
 	},
 	{
-		"TRType": 0,
 		"animeN1": 1,
 		"animeType": 1,
 		"attackN1": 1,
 		"attackType": 1,
 		"color": 2,
-		"effect": [5, 6, 14, 0, 0],
+		"effect": [
+			"COUNTER_ABLE",
+			"COMBO",
+			"CRITICAL"
+		],
 		"fuelN1": 0,
 		"fuelType": 0,
 		"name": "ムラマサ",
@@ -415,16 +485,21 @@
 		"sname": "攻撃",
 		"targetN1": 0,
 		"targetN2": 0,
-		"targetType": 0
+		"targetType": 0,
+		"trType": 0
 	},
 	{
-		"TRType": 0,
 		"animeN1": 4,
 		"animeType": 1,
 		"attackN1": 7,
 		"attackType": 0,
 		"color": 2,
-		"effect": [23, 22, 13, 3, 0],
+		"effect": [
+			"REFRESH",
+			"NO_ATTACK",
+			"REGENE",
+			"HICHU"
+		],
 		"fuelN1": 3,
 		"fuelType": 3,
 		"name": "プリティキッス",
@@ -434,16 +509,20 @@
 		"sname": "KISS",
 		"targetN1": 0,
 		"targetN2": 0,
-		"targetType": 0
+		"targetType": 0,
+		"trType": 0
 	},
 	{
-		"TRType": 0,
 		"animeN1": 4,
 		"animeType": 1,
 		"attackN1": 7,
 		"attackType": 0,
 		"color": 2,
-		"effect": [19, 22, 3, 0, 0],
+		"effect": [
+			"CHARM",
+			"NO_ATTACK",
+			"HICHU"
+		],
 		"fuelN1": 1,
 		"fuelType": 3,
 		"name": "チャーム",
@@ -453,16 +532,20 @@
 		"sname": "魅了",
 		"targetN1": 0,
 		"targetN2": 0,
-		"targetType": 0
+		"targetType": 0,
+		"trType": 0
 	},
 	{
-		"TRType": 0,
 		"animeN1": 17,
 		"animeType": 1,
 		"attackN1": 1,
 		"attackType": 1,
 		"color": 5,
-		"effect": [26, 31, 5, 0, 0],
+		"effect": [
+			"UPPER",
+			"DAMAGE_150",
+			"COUNTER_ABLE"
+		],
 		"fuelN1": 1,
 		"fuelType": 1,
 		"name": "スマッシュ",
@@ -472,16 +555,20 @@
 		"sname": "昇斬",
 		"targetN1": 0,
 		"targetN2": 0,
-		"targetType": 0
+		"targetType": 0,
+		"trType": 0
 	},
 	{
-		"TRType": 4,
 		"animeN1": 4,
 		"animeType": 2,
 		"attackN1": 7,
 		"attackType": 0,
 		"color": 4,
-		"effect": [16, 3, 22, 0, 0],
+		"effect": [
+			"SLEEP",
+			"HICHU",
+			"NO_ATTACK"
+		],
 		"fuelN1": 2,
 		"fuelType": 3,
 		"name": "子守唄",
@@ -491,16 +578,21 @@
 		"sname": "子守唄",
 		"targetN1": 0,
 		"targetN2": 0,
-		"targetType": 1
+		"targetType": 1,
+		"trType": 4
 	},
 	{
-		"TRType": 1,
 		"animeN1": 18,
 		"animeType": 3,
 		"attackN1": 5,
 		"attackType": 1,
 		"color": 1,
-		"effect": [5, 6, 16, 36, 0],
+		"effect": [
+			"COUNTER_ABLE",
+			"COMBO",
+			"SLEEP",
+			"MIZU_100"
+		],
 		"fuelN1": 1,
 		"fuelType": 3,
 		"name": "人魚の槍",
@@ -510,16 +602,20 @@
 		"sname": "魚槍",
 		"targetN1": 0,
 		"targetN2": 0,
-		"targetType": 0
+		"targetType": 0,
+		"trType": 1
 	},
 	{
-		"TRType": 11,
 		"animeN1": 18,
 		"animeType": 4,
 		"attackN1": 5,
 		"attackType": 1,
 		"color": 4,
-		"effect": [24, 31, 36, 0, 0],
+		"effect": [
+			"HIT_4",
+			"DAMAGE_150",
+			"MIZU_100"
+		],
 		"fuelN1": 1,
 		"fuelType": 1,
 		"name": "串刺し",
@@ -529,16 +625,18 @@
 		"sname": "串刺",
 		"targetN1": 2,
 		"targetN2": 0,
-		"targetType": 2
+		"targetType": 2,
+		"trType": 11
 	},
 	{
-		"TRType": 7,
 		"animeN1": 2,
 		"animeType": 1,
 		"attackN1": 7,
 		"attackType": 2,
 		"color": 2,
-		"effect": [7, 0, 0, 0, 0],
+		"effect": [
+			"FIRE"
+		],
 		"fuelN1": 0,
 		"fuelType": 0,
 		"name": "ファイヤーボール",
@@ -548,16 +646,19 @@
 		"sname": "火玉",
 		"targetN1": 0,
 		"targetN2": 0,
-		"targetType": 0
+		"targetType": 0,
+		"trType": 7
 	},
 	{
-		"TRType": 0,
 		"animeN1": 5,
 		"animeType": 1,
 		"attackN1": 1,
 		"attackType": 1,
 		"color": 4,
-		"effect": [5, 1, 0, 0, 0],
+		"effect": [
+			"COUNTER_ABLE",
+			"DAMAGE_200"
+		],
 		"fuelN1": 2,
 		"fuelType": 1,
 		"name": "倍斬り",
@@ -567,16 +668,19 @@
 		"sname": "倍斬り",
 		"targetN1": 0,
 		"targetN2": 0,
-		"targetType": 0
+		"targetType": 0,
+		"trType": 0
 	},
 	{
-		"TRType": 9,
 		"animeN1": 2,
 		"animeType": 2,
 		"attackN1": 7,
 		"attackType": 2,
 		"color": 2,
-		"effect": [7, 3, 0, 0, 0],
+		"effect": [
+			"FIRE",
+			"HICHU"
+		],
 		"fuelN1": 1,
 		"fuelType": 3,
 		"name": "ファイヤーリング",
@@ -586,16 +690,18 @@
 		"sname": "火輪",
 		"targetN1": 0,
 		"targetN2": 0,
-		"targetType": 1
+		"targetType": 1,
+		"trType": 9
 	},
 	{
-		"TRType": 7,
 		"animeN1": 16,
 		"animeType": 3,
 		"attackN1": 7,
 		"attackType": 2,
 		"color": 5,
-		"effect": [18, 0, 0, 0, 0],
+		"effect": [
+			"WET"
+		],
 		"fuelN1": 1,
 		"fuelType": 3,
 		"name": "スプラッシュ",
@@ -605,16 +711,21 @@
 		"sname": "水鉄砲",
 		"targetN1": 0,
 		"targetN2": 0,
-		"targetType": 0
+		"targetType": 0,
+		"trType": 7
 	},
 	{
-		"TRType": 7,
 		"animeN1": 16,
 		"animeType": 3,
 		"attackN1": 6,
 		"attackType": 1,
 		"color": 1,
-		"effect": [8, 10, 6, 5, 0],
+		"effect": [
+			"ICE",
+			"SORA_200",
+			"COMBO",
+			"COUNTER_ABLE"
+		],
 		"fuelN1": 0,
 		"fuelType": 0,
 		"name": "凍土の弓",
@@ -624,16 +735,19 @@
 		"sname": "氷弓",
 		"targetN1": 0,
 		"targetN2": 0,
-		"targetType": 0
+		"targetType": 0,
+		"trType": 7
 	},
 	{
-		"TRType": 12,
 		"animeN1": 13,
 		"animeType": 4,
 		"attackN1": 6,
 		"attackType": 1,
 		"color": 4,
-		"effect": [24, 10, 0, 0, 0],
+		"effect": [
+			"HIT_4",
+			"SORA_200"
+		],
 		"fuelN1": 1,
 		"fuelType": 1,
 		"name": "貫通矢",
@@ -643,16 +757,20 @@
 		"sname": "貫通矢",
 		"targetN1": 3,
 		"targetN2": 0,
-		"targetType": 2
+		"targetType": 2,
+		"trType": 12
 	},
 	{
-		"TRType": 7,
 		"animeN1": 21,
 		"animeType": 1,
 		"attackN1": 7,
 		"attackType": 0,
 		"color": 2,
-		"effect": [15, 22, 3, 0, 0],
+		"effect": [
+			"DEATH",
+			"NO_ATTACK",
+			"HICHU"
+		],
 		"fuelN1": 2,
 		"fuelType": 3,
 		"name": "デス",
@@ -662,16 +780,20 @@
 		"sname": "デス",
 		"targetN1": 0,
 		"targetN2": 0,
-		"targetType": 1
+		"targetType": 1,
+		"trType": 7
 	},
 	{
-		"TRType": 17,
 		"animeN1": 11,
 		"animeType": 6,
 		"attackN1": 2,
 		"attackType": 1,
 		"color": 4,
-		"effect": [29, 24, 34, 0, 0],
+		"effect": [
+			"RIKU_0",
+			"HIT_4",
+			"RIKU_150"
+		],
 		"fuelN1": 2,
 		"fuelType": 1,
 		"name": "回転斬り",
@@ -681,16 +803,19 @@
 		"sname": "回転",
 		"targetN1": 0,
 		"targetN2": 0,
-		"targetType": 1
+		"targetType": 1,
+		"trType": 17
 	},
 	{
-		"TRType": 15,
 		"animeN1": 7,
 		"animeType": 2,
 		"attackN1": 2,
 		"attackType": 1,
 		"color": 4,
-		"effect": [31, 29, 0, 0, 0],
+		"effect": [
+			"DAMAGE_150",
+			"RIKU_0"
+		],
 		"fuelN1": 2,
 		"fuelType": 1,
 		"name": "大地斬",
@@ -700,16 +825,19 @@
 		"sname": "大地斬",
 		"targetN1": 2,
 		"targetN2": 0,
-		"targetType": 4
+		"targetType": 4,
+		"trType": 15
 	},
 	{
-		"TRType": 15,
 		"animeN1": 13,
 		"animeType": 3,
 		"attackN1": 6,
 		"attackType": 1,
 		"color": 5,
-		"effect": [10, 37, 0, 0, 0],
+		"effect": [
+			"SORA_200",
+			"HIT_12"
+		],
 		"fuelN1": 2,
 		"fuelType": 1,
 		"name": "乱れ射ち",
@@ -719,16 +847,18 @@
 		"sname": "乱射",
 		"targetN1": 2,
 		"targetN2": 0,
-		"targetType": 4
+		"targetType": 4,
+		"trType": 15
 	},
 	{
-		"TRType": 7,
 		"animeN1": 25,
 		"animeType": 1,
 		"attackN1": 7,
 		"attackType": 2,
 		"color": 4,
-		"effect": [9, 0, 0, 0, 0],
+		"effect": [
+			"THUNDER"
+		],
 		"fuelN1": 0,
 		"fuelType": 0,
 		"name": "サンダーボルト",
@@ -738,16 +868,20 @@
 		"sname": "雷撃",
 		"targetN1": 0,
 		"targetN2": 0,
-		"targetType": 0
+		"targetType": 0,
+		"trType": 7
 	},
 	{
-		"TRType": 0,
 		"animeN1": 7,
 		"animeType": 1,
 		"attackN1": 3,
 		"attackType": 1,
 		"color": 3,
-		"effect": [5, 6, 17, 0, 0],
+		"effect": [
+			"COUNTER_ABLE",
+			"COMBO",
+			"POISON"
+		],
 		"fuelN1": 0,
 		"fuelType": 0,
 		"name": "毒の牙",
@@ -757,16 +891,21 @@
 		"sname": "毒牙",
 		"targetN1": 0,
 		"targetN2": 0,
-		"targetType": 0
+		"targetType": 0,
+		"trType": 0
 	},
 	{
-		"TRType": 0,
 		"animeN1": 1,
 		"animeType": 1,
 		"attackN1": 4,
 		"attackType": 1,
 		"color": 3,
-		"effect": [24, 17, 6, 5, 0],
+		"effect": [
+			"HIT_4",
+			"POISON",
+			"COMBO",
+			"COUNTER_ABLE"
+		],
 		"fuelN1": 0,
 		"fuelType": 0,
 		"name": "毒針",
@@ -776,16 +915,21 @@
 		"sname": "毒針",
 		"targetN1": 0,
 		"targetN2": 0,
-		"targetType": 0
+		"targetType": 0,
+		"trType": 0
 	},
 	{
-		"TRType": 7,
 		"animeN1": 18,
 		"animeType": 3,
 		"attackN1": 4,
 		"attackType": 1,
 		"color": 4,
-		"effect": [6, 37, 5, 14, 0],
+		"effect": [
+			"COMBO",
+			"HIT_12",
+			"COUNTER_ABLE",
+			"CRITICAL"
+		],
 		"fuelN1": 0,
 		"fuelType": 0,
 		"name": "手裏剣",
@@ -795,16 +939,20 @@
 		"sname": "手裏剣",
 		"targetN1": 0,
 		"targetN2": 0,
-		"targetType": 0
+		"targetType": 0,
+		"trType": 7
 	},
 	{
-		"TRType": 7,
 		"animeN1": 7,
 		"animeType": 3,
 		"attackN1": 7,
 		"attackType": 2,
 		"color": 3,
-		"effect": [5, 6, 10, 0, 0],
+		"effect": [
+			"COUNTER_ABLE",
+			"COMBO",
+			"SORA_200"
+		],
 		"fuelN1": 0,
 		"fuelType": 0,
 		"name": "ウインドカッター",
@@ -814,16 +962,20 @@
 		"sname": "風刃",
 		"targetN1": 0,
 		"targetN2": 0,
-		"targetType": 0
+		"targetType": 0,
+		"trType": 7
 	},
 	{
-		"TRType": 0,
 		"animeN1": 23,
 		"animeType": 1,
 		"attackN1": 2,
 		"attackType": 1,
 		"color": 5,
-		"effect": [34, 5, 10, 0, 0],
+		"effect": [
+			"RIKU_150",
+			"COUNTER_ABLE",
+			"SORA_200"
+		],
 		"fuelN1": 0,
 		"fuelType": 0,
 		"name": "神獣の斧",
@@ -833,16 +985,21 @@
 		"sname": "獣斧",
 		"targetN1": 0,
 		"targetN2": 0,
-		"targetType": 0
+		"targetType": 0,
+		"trType": 0
 	},
 	{
-		"TRType": 0,
 		"animeN1": 23,
 		"animeType": 1,
 		"attackN1": 5,
 		"attackType": 1,
 		"color": 5,
-		"effect": [10, 27, 5, 11, 0],
+		"effect": [
+			"SORA_200",
+			"CHOP",
+			"COUNTER_ABLE",
+			"DRAGON_200"
+		],
 		"fuelN1": 2,
 		"fuelType": 1,
 		"name": "飛竜殺し",
@@ -852,16 +1009,21 @@
 		"sname": "飛竜殺",
 		"targetN1": 0,
 		"targetN2": 0,
-		"targetType": 0
+		"targetType": 0,
+		"trType": 0
 	},
 	{
-		"TRType": 1,
 		"animeN1": 18,
 		"animeType": 3,
 		"attackN1": 5,
 		"attackType": 1,
 		"color": 5,
-		"effect": [5, 6, 36, 32, 0],
+		"effect": [
+			"COUNTER_ABLE",
+			"COMBO",
+			"MIZU_100",
+			"UNDEAD_200"
+		],
 		"fuelN1": 0,
 		"fuelType": 0,
 		"name": "ミストルテイン",
@@ -871,16 +1033,20 @@
 		"sname": "魔槍",
 		"targetN1": 0,
 		"targetN2": 0,
-		"targetType": 0
+		"targetType": 0,
+		"trType": 1
 	},
 	{
-		"TRType": 4,
 		"animeN1": 4,
 		"animeType": 2,
 		"attackN1": 7,
 		"attackType": 2,
 		"color": 5,
-		"effect": [0, 3, 36, 32, 0],
+		"effect": [
+			"HICHU",
+			"MIZU_100",
+			"UNDEAD_200"
+		],
 		"fuelN1": 2,
 		"fuelType": 3,
 		"name": "シャイニング",
@@ -890,16 +1056,21 @@
 		"sname": "聖光",
 		"targetN1": 0,
 		"targetN2": 0,
-		"targetType": 1
+		"targetType": 1,
+		"trType": 4
 	},
 	{
-		"TRType": 10,
 		"animeN1": 10,
 		"animeType": 2,
 		"attackN1": 7,
 		"attackType": 2,
 		"color": 1,
-		"effect": [8, 3, 4, 16, 0],
+		"effect": [
+			"ICE",
+			"HICHU",
+			"TAME",
+			"SLEEP"
+		],
 		"fuelN1": 2,
 		"fuelType": 3,
 		"name": "ブリザード",
@@ -909,16 +1080,20 @@
 		"sname": "吹雪",
 		"targetN1": 0,
 		"targetN2": 0,
-		"targetType": 1
+		"targetType": 1,
+		"trType": 10
 	},
 	{
-		"TRType": 0,
 		"animeN1": 7,
 		"animeType": 1,
 		"attackN1": 3,
 		"attackType": 1,
 		"color": 3,
-		"effect": [5, 17, 15, 0, 0],
+		"effect": [
+			"COUNTER_ABLE",
+			"POISON",
+			"DEATH"
+		],
 		"fuelN1": 0,
 		"fuelType": 0,
 		"name": "猛毒の牙",
@@ -928,16 +1103,20 @@
 		"sname": "猛毒",
 		"targetN1": 0,
 		"targetN2": 0,
-		"targetType": 0
+		"targetType": 0,
+		"trType": 0
 	},
 	{
-		"TRType": 10,
 		"animeN1": 21,
 		"animeType": 2,
 		"attackN1": 7,
 		"attackType": 2,
 		"color": 0,
-		"effect": [15, 10, 4, 0, 0],
+		"effect": [
+			"DEATH",
+			"SORA_200",
+			"TAME"
+		],
 		"fuelN1": 4,
 		"fuelType": 3,
 		"name": "デスウインド",
@@ -947,16 +1126,22 @@
 		"sname": "死風",
 		"targetN1": 0,
 		"targetN2": 0,
-		"targetType": 1
+		"targetType": 1,
+		"trType": 10
 	},
 	{
-		"TRType": 1,
 		"animeN1": 7,
 		"animeType": 1,
 		"attackN1": 5,
 		"attackType": 1,
 		"color": 4,
-		"effect": [11, 29, 5, 26, 1],
+		"effect": [
+			"DRAGON_200",
+			"RIKU_0",
+			"COUNTER_ABLE",
+			"UPPER",
+			"DAMAGE_200"
+		],
 		"fuelN1": 2,
 		"fuelType": 1,
 		"name": "地竜殺し",
@@ -966,16 +1151,19 @@
 		"sname": "地竜殺",
 		"targetN1": 0,
 		"targetN2": 0,
-		"targetType": 0
+		"targetType": 0,
+		"trType": 1
 	},
 	{
-		"TRType": 0,
 		"animeN1": 5,
 		"animeType": 1,
 		"attackN1": 1,
 		"attackType": 1,
 		"color": 4,
-		"effect": [6, 37, 0, 0, 0],
+		"effect": [
+			"COMBO",
+			"HIT_12"
+		],
 		"fuelN1": 1,
 		"fuelType": 1,
 		"name": "電光石火",
@@ -985,16 +1173,20 @@
 		"sname": "光速斬",
 		"targetN1": 0,
 		"targetN2": 0,
-		"targetType": 0
+		"targetType": 0,
+		"trType": 0
 	},
 	{
-		"TRType": 16,
 		"animeN1": 3,
 		"animeType": 2,
 		"attackN1": 7,
 		"attackType": 2,
 		"color": 1,
-		"effect": [3, 31, 8, 0, 0],
+		"effect": [
+			"HICHU",
+			"DAMAGE_150",
+			"ICE"
+		],
 		"fuelN1": 2,
 		"fuelType": 3,
 		"name": "アイスブレード",
@@ -1004,16 +1196,20 @@
 		"sname": "氷刃",
 		"targetN1": 1,
 		"targetN2": 0,
-		"targetType": 3
+		"targetType": 3,
+		"trType": 16
 	},
 	{
-		"TRType": 1,
 		"animeN1": 6,
 		"animeType": 1,
 		"attackN1": 5,
 		"attackType": 1,
 		"color": 2,
-		"effect": [19, 12, 6, 0, 0],
+		"effect": [
+			"CHARM",
+			"COUNTER_ONLY",
+			"COMBO"
+		],
 		"fuelN1": 1,
 		"fuelType": 3,
 		"name": "誘惑の鞭",
@@ -1023,16 +1219,20 @@
 		"sname": "誘惑",
 		"targetN1": 0,
 		"targetN2": 0,
-		"targetType": 0
+		"targetType": 0,
+		"trType": 1
 	},
 	{
-		"TRType": 0,
 		"animeN1": 25,
 		"animeType": 1,
 		"attackN1": 7,
 		"attackType": 2,
 		"color": 5,
-		"effect": [3, 1, 9, 0, 0],
+		"effect": [
+			"HICHU",
+			"DAMAGE_200",
+			"THUNDER"
+		],
 		"fuelN1": 4,
 		"fuelType": 3,
 		"name": "スパーク",
@@ -1042,16 +1242,20 @@
 		"sname": "電撃",
 		"targetN1": 0,
 		"targetN2": 0,
-		"targetType": 0
+		"targetType": 0,
+		"trType": 0
 	},
 	{
-		"TRType": 0,
 		"animeN1": 5,
 		"animeType": 1,
 		"attackN1": 1,
 		"attackType": 1,
 		"color": 4,
-		"effect": [5, 31, 27, 0, 0],
+		"effect": [
+			"COUNTER_ABLE",
+			"DAMAGE_150",
+			"CHOP"
+		],
 		"fuelN1": 1,
 		"fuelType": 1,
 		"name": "切り落とし",
@@ -1061,16 +1265,20 @@
 		"sname": "落斬",
 		"targetN1": 0,
 		"targetN2": 0,
-		"targetType": 0
+		"targetType": 0,
+		"trType": 0
 	},
 	{
-		"TRType": 0,
 		"animeN1": 23,
 		"animeType": 1,
 		"attackN1": 2,
 		"attackType": 1,
 		"color": 1,
-		"effect": [34, 5, 32, 0, 0],
+		"effect": [
+			"RIKU_150",
+			"COUNTER_ABLE",
+			"UNDEAD_200"
+		],
 		"fuelN1": 0,
 		"fuelType": 0,
 		"name": "魔神の斧",
@@ -1080,16 +1288,20 @@
 		"sname": "魔斧",
 		"targetN1": 0,
 		"targetN2": 0,
-		"targetType": 0
+		"targetType": 0,
+		"trType": 0
 	},
 	{
-		"TRType": 13,
 		"animeN1": 7,
 		"animeType": 5,
 		"attackN1": 2,
 		"attackType": 1,
 		"color": 3,
-		"effect": [31, 29, 24, 0, 0],
+		"effect": [
+			"DAMAGE_150",
+			"RIKU_0",
+			"HIT_4"
+		],
 		"fuelN1": 2,
 		"fuelType": 1,
 		"name": "グランドクロス",
@@ -1099,16 +1311,20 @@
 		"sname": "十字斬",
 		"targetN1": 0,
 		"targetN2": 0,
-		"targetType": 0
+		"targetType": 0,
+		"trType": 13
 	},
 	{
-		"TRType": 0,
 		"animeN1": 7,
 		"animeType": 1,
 		"attackN1": 1,
 		"attackType": 1,
 		"color": 4,
-		"effect": [1, 12, 24, 0, 0],
+		"effect": [
+			"DAMAGE_200",
+			"COUNTER_ONLY",
+			"HIT_4"
+		],
 		"fuelN1": 1,
 		"fuelType": 3,
 		"name": "カウンター",
@@ -1118,16 +1334,19 @@
 		"sname": "反撃",
 		"targetN1": 0,
 		"targetN2": 0,
-		"targetType": 0
+		"targetType": 0,
+		"trType": 0
 	},
 	{
-		"TRType": 7,
 		"animeN1": 20,
 		"animeType": 3,
 		"attackN1": 6,
 		"attackType": 2,
 		"color": 3,
-		"effect": [33, 25, 0, 0, 0],
+		"effect": [
+			"OIL",
+			"MISS_4"
+		],
 		"fuelN1": 1,
 		"fuelType": 3,
 		"name": "油玉",
@@ -1137,16 +1356,20 @@
 		"sname": "油玉",
 		"targetN1": 0,
 		"targetN2": 0,
-		"targetType": 0
+		"targetType": 0,
+		"trType": 7
 	},
 	{
-		"TRType": 0,
 		"animeN1": 5,
 		"animeType": 1,
 		"attackN1": 1,
 		"attackType": 1,
 		"color": 4,
-		"effect": [5, 6, 11, 0, 0],
+		"effect": [
+			"COUNTER_ABLE",
+			"COMBO",
+			"DRAGON_200"
+		],
 		"fuelN1": 1,
 		"fuelType": 1,
 		"name": "ドラゴンキラー",
@@ -1156,16 +1379,19 @@
 		"sname": "竜殺剣",
 		"targetN1": 0,
 		"targetN2": 0,
-		"targetType": 0
+		"targetType": 0,
+		"trType": 0
 	},
 	{
-		"TRType": 0,
 		"animeN1": 9,
 		"animeType": 1,
 		"attackN1": 8,
 		"attackType": 2,
 		"color": 2,
-		"effect": [3, 7, 0, 0, 0],
+		"effect": [
+			"HICHU",
+			"FIRE"
+		],
 		"fuelN1": 1,
 		"fuelType": 3,
 		"name": "ファイヤーストーム",
@@ -1175,16 +1401,19 @@
 		"sname": "火炎",
 		"targetN1": 0,
 		"targetN2": 0,
-		"targetType": 0
+		"targetType": 0,
+		"trType": 0
 	},
 	{
-		"TRType": 0,
 		"animeN1": 10,
 		"animeType": 1,
 		"attackN1": 8,
 		"attackType": 2,
 		"color": 1,
-		"effect": [3, 8, 0, 0, 0],
+		"effect": [
+			"HICHU",
+			"ICE"
+		],
 		"fuelN1": 1,
 		"fuelType": 3,
 		"name": "アイスストーム",
@@ -1194,16 +1423,19 @@
 		"sname": "氷結",
 		"targetN1": 0,
 		"targetN2": 0,
-		"targetType": 0
+		"targetType": 0,
+		"trType": 0
 	},
 	{
-		"TRType": 11,
 		"animeN1": 25,
 		"animeType": 5,
 		"attackN1": 1,
 		"attackType": 1,
 		"color": 4,
-		"effect": [25, 0, 9, 0, 0],
+		"effect": [
+			"MISS_4",
+			"THUNDER"
+		],
 		"fuelN1": 2,
 		"fuelType": 3,
 		"name": "ギガスラッシュ",
@@ -1213,16 +1445,20 @@
 		"sname": "雷切",
 		"targetN1": 0,
 		"targetN2": 0,
-		"targetType": 0
+		"targetType": 0,
+		"trType": 11
 	},
 	{
-		"TRType": 12,
 		"animeN1": 14,
 		"animeType": 4,
 		"attackN1": 7,
 		"attackType": 2,
 		"color": 2,
-		"effect": [7, 24, 10, 0, 0],
+		"effect": [
+			"FIRE",
+			"HIT_4",
+			"SORA_200"
+		],
 		"fuelN1": 1,
 		"fuelType": 3,
 		"name": "フレイムレーザー",
@@ -1232,16 +1468,20 @@
 		"sname": "火炎",
 		"targetN1": 0,
 		"targetN2": 0,
-		"targetType": 0
+		"targetType": 0,
+		"trType": 12
 	},
 	{
-		"TRType": 12,
 		"animeN1": 24,
 		"animeType": 4,
 		"attackN1": 6,
 		"attackType": 1,
 		"color": 4,
-		"effect": [9, 24, 10, 0, 0],
+		"effect": [
+			"THUNDER",
+			"HIT_4",
+			"SORA_200"
+		],
 		"fuelN1": 1,
 		"fuelType": 1,
 		"name": "サンダーアロー",
@@ -1251,16 +1491,20 @@
 		"sname": "雷矢",
 		"targetN1": 0,
 		"targetN2": 0,
-		"targetType": 0
+		"targetType": 0,
+		"trType": 12
 	},
 	{
-		"TRType": 12,
 		"animeN1": 16,
 		"animeType": 4,
 		"attackN1": 6,
 		"attackType": 1,
 		"color": 1,
-		"effect": [8, 24, 10, 0, 0],
+		"effect": [
+			"ICE",
+			"HIT_4",
+			"SORA_200"
+		],
 		"fuelN1": 1,
 		"fuelType": 1,
 		"name": "アイスアロー",
@@ -1270,16 +1514,21 @@
 		"sname": "氷矢",
 		"targetN1": 0,
 		"targetN2": 0,
-		"targetType": 0
+		"targetType": 0,
+		"trType": 12
 	},
 	{
-		"TRType": 0,
 		"animeN1": 4,
 		"animeType": 1,
 		"attackN1": 3,
 		"attackType": 0,
 		"color": 2,
-		"effect": [20, 22, 13, 3, 0],
+		"effect": [
+			"ATTACK_UP",
+			"NO_ATTACK",
+			"REGENE",
+			"HICHU"
+		],
 		"fuelN1": 2,
 		"fuelType": 3,
 		"name": "ヒートアップ",
@@ -1289,16 +1538,21 @@
 		"sname": "加熱",
 		"targetN1": 0,
 		"targetN2": 0,
-		"targetType": 0
+		"targetType": 0,
+		"trType": 0
 	},
 	{
-		"TRType": 0,
 		"animeN1": 4,
 		"animeType": 1,
 		"attackN1": 3,
 		"attackType": 0,
 		"color": 1,
-		"effect": [21, 22, 13, 3, 0],
+		"effect": [
+			"GUARD_UP",
+			"NO_ATTACK",
+			"REGENE",
+			"HICHU"
+		],
 		"fuelN1": 2,
 		"fuelType": 3,
 		"name": "ガードアップ",
@@ -1308,16 +1562,21 @@
 		"sname": "防御",
 		"targetN1": 0,
 		"targetN2": 0,
-		"targetType": 0
+		"targetType": 0,
+		"trType": 0
 	},
 	{
-		"TRType": 0,
 		"animeN1": 1,
 		"animeType": 1,
 		"attackN1": 1,
 		"attackType": 1,
 		"color": 4,
-		"effect": [5, 6, 14, 15, 0],
+		"effect": [
+			"COUNTER_ABLE",
+			"COMBO",
+			"CRITICAL",
+			"DEATH"
+		],
 		"fuelN1": 1,
 		"fuelType": 3,
 		"name": "デスブリンガー",
@@ -1327,16 +1586,21 @@
 		"sname": "暗黒剣",
 		"targetN1": 0,
 		"targetN2": 0,
-		"targetType": 0
+		"targetType": 0,
+		"trType": 0
 	},
 	{
-		"TRType": 0,
 		"animeN1": 23,
 		"animeType": 1,
 		"attackN1": 3,
 		"attackType": 1,
 		"color": 2,
-		"effect": [2, 3, 4, 29, 0],
+		"effect": [
+			"DAMAGE_300",
+			"HICHU",
+			"TAME",
+			"RIKU_0"
+		],
 		"fuelN1": 1,
 		"fuelType": 1,
 		"name": "メガトンプレス",
@@ -1346,16 +1610,21 @@
 		"sname": "プレス",
 		"targetN1": 0,
 		"targetN2": 0,
-		"targetType": 0
+		"targetType": 0,
+		"trType": 0
 	},
 	{
-		"TRType": 0,
 		"animeN1": 5,
 		"animeType": 1,
 		"attackN1": 2,
 		"attackType": 1,
 		"color": 4,
-		"effect": [1, 29, 25, 5, 0],
+		"effect": [
+			"DAMAGE_200",
+			"RIKU_0",
+			"MISS_4",
+			"COUNTER_ABLE"
+		],
 		"fuelN1": 2,
 		"fuelType": 1,
 		"name": "金の斧",
@@ -1365,16 +1634,19 @@
 		"sname": "金斧",
 		"targetN1": 0,
 		"targetN2": 0,
-		"targetType": 0
+		"targetType": 0,
+		"trType": 0
 	},
 	{
-		"TRType": 7,
 		"animeN1": 8,
 		"animeType": 1,
 		"attackN1": 7,
 		"attackType": 2,
 		"color": 3,
-		"effect": [33, 19, 0, 0, 0],
+		"effect": [
+			"OIL",
+			"CHARM"
+		],
 		"fuelN1": 2,
 		"fuelType": 3,
 		"name": "ラブバイン",
@@ -1384,16 +1656,20 @@
 		"sname": "蔓草",
 		"targetN1": 0,
 		"targetN2": 0,
-		"targetType": 0
+		"targetType": 0,
+		"trType": 7
 	},
 	{
-		"TRType": 12,
 		"animeN1": 16,
 		"animeType": 4,
 		"attackN1": 7,
 		"attackType": 2,
 		"color": 1,
-		"effect": [8, 24, 10, 0, 0],
+		"effect": [
+			"ICE",
+			"HIT_4",
+			"SORA_200"
+		],
 		"fuelN1": 1,
 		"fuelType": 3,
 		"name": "アイスレーザー",
@@ -1403,16 +1679,20 @@
 		"sname": "氷結",
 		"targetN1": 0,
 		"targetN2": 0,
-		"targetType": 0
+		"targetType": 0,
+		"trType": 12
 	},
 	{
-		"TRType": 8,
 		"animeN1": 16,
 		"animeType": 3,
 		"attackN1": 6,
 		"attackType": 1,
 		"color": 3,
-		"effect": [16, 18, 5, 0, 0],
+		"effect": [
+			"SLEEP",
+			"WET",
+			"COUNTER_ABLE"
+		],
 		"fuelN1": 2,
 		"fuelType": 1,
 		"name": "ナッツシュート",
@@ -1422,16 +1702,21 @@
 		"sname": "木の実",
 		"targetN1": 0,
 		"targetN2": 0,
-		"targetType": 0
+		"targetType": 0,
+		"trType": 8
 	},
 	{
-		"TRType": 0,
 		"animeN1": 6,
 		"animeType": 1,
 		"attackN1": 1,
 		"attackType": 1,
 		"color": 2,
-		"effect": [6, 5, 7, 31, 0],
+		"effect": [
+			"COMBO",
+			"COUNTER_ABLE",
+			"FIRE",
+			"DAMAGE_150"
+		],
 		"fuelN1": 1,
 		"fuelType": 3,
 		"name": "火炎斬り",
@@ -1441,16 +1726,21 @@
 		"sname": "火炎斬",
 		"targetN1": 0,
 		"targetN2": 0,
-		"targetType": 0
+		"targetType": 0,
+		"trType": 0
 	},
 	{
-		"TRType": 0,
 		"animeN1": 15,
 		"animeType": 1,
 		"attackN1": 1,
 		"attackType": 1,
 		"color": 1,
-		"effect": [6, 5, 8, 31, 0],
+		"effect": [
+			"COMBO",
+			"COUNTER_ABLE",
+			"ICE",
+			"DAMAGE_150"
+		],
 		"fuelN1": 1,
 		"fuelType": 3,
 		"name": "氷結斬り",
@@ -1460,16 +1750,20 @@
 		"sname": "氷結斬",
 		"targetN1": 0,
 		"targetN2": 0,
-		"targetType": 0
+		"targetType": 0,
+		"trType": 0
 	},
 	{
-		"TRType": 0,
 		"animeN1": 1,
 		"animeType": 1,
 		"attackN1": 4,
 		"attackType": 1,
 		"color": 4,
-		"effect": [6, 24, 5, 0, 0],
+		"effect": [
+			"COMBO",
+			"HIT_4",
+			"COUNTER_ABLE"
+		],
 		"fuelN1": 0,
 		"fuelType": 0,
 		"name": "クナイ",
@@ -1479,16 +1773,22 @@
 		"sname": "クナイ",
 		"targetN1": 0,
 		"targetN2": 0,
-		"targetType": 0
+		"targetType": 0,
+		"trType": 0
 	},
 	{
-		"TRType": 0,
 		"animeN1": 1,
 		"animeType": 1,
 		"attackN1": 4,
 		"attackType": 1,
 		"color": 5,
-		"effect": [6, 24, 5, 8, 16],
+		"effect": [
+			"COMBO",
+			"HIT_4",
+			"COUNTER_ABLE",
+			"ICE",
+			"SLEEP"
+		],
 		"fuelN1": 0,
 		"fuelType": 0,
 		"name": "アイシングダガー",
@@ -1498,16 +1798,20 @@
 		"sname": "氷刃",
 		"targetN1": 0,
 		"targetN2": 0,
-		"targetType": 0
+		"targetType": 0,
+		"trType": 0
 	},
 	{
-		"TRType": 1,
 		"animeN1": 21,
 		"animeType": 1,
 		"attackN1": 5,
 		"attackType": 1,
 		"color": 2,
-		"effect": [5, 24, 15, 0, 0],
+		"effect": [
+			"COUNTER_ABLE",
+			"HIT_4",
+			"DEATH"
+		],
 		"fuelN1": 1,
 		"fuelType": 3,
 		"name": "デスサイズ",
@@ -1517,16 +1821,19 @@
 		"sname": "死鎌",
 		"targetN1": 0,
 		"targetN2": 0,
-		"targetType": 0
+		"targetType": 0,
+		"trType": 1
 	},
 	{
-		"TRType": 7,
 		"animeN1": 3,
 		"animeType": 1,
 		"attackN1": 7,
 		"attackType": 2,
 		"color": 1,
-		"effect": [8, 19, 0, 0, 0],
+		"effect": [
+			"ICE",
+			"CHARM"
+		],
 		"fuelN1": 2,
 		"fuelType": 3,
 		"name": "ラブアイス",
@@ -1536,16 +1843,19 @@
 		"sname": "氷玉",
 		"targetN1": 0,
 		"targetN2": 0,
-		"targetType": 0
+		"targetType": 0,
+		"trType": 7
 	},
 	{
-		"TRType": 7,
 		"animeN1": 2,
 		"animeType": 1,
 		"attackN1": 7,
 		"attackType": 2,
 		"color": 2,
-		"effect": [7, 19, 0, 0, 0],
+		"effect": [
+			"FIRE",
+			"CHARM"
+		],
 		"fuelN1": 2,
 		"fuelType": 3,
 		"name": "ラブファイア",
@@ -1555,16 +1865,19 @@
 		"sname": "火玉",
 		"targetN1": 0,
 		"targetN2": 0,
-		"targetType": 0
+		"targetType": 0,
+		"trType": 7
 	},
 	{
-		"TRType": 7,
 		"animeN1": 4,
 		"animeType": 1,
 		"attackN1": 7,
 		"attackType": 2,
 		"color": 3,
-		"effect": [3, 16, 0, 0, 0],
+		"effect": [
+			"HICHU",
+			"SLEEP"
+		],
 		"fuelN1": 1,
 		"fuelType": 3,
 		"name": "ナイトメア",
@@ -1574,16 +1887,19 @@
 		"sname": "悪夢",
 		"targetN1": 0,
 		"targetN2": 0,
-		"targetType": 0
+		"targetType": 0,
+		"trType": 7
 	},
 	{
-		"TRType": 9,
 		"animeN1": 3,
 		"animeType": 2,
 		"attackN1": 7,
 		"attackType": 2,
 		"color": 1,
-		"effect": [8, 3, 0, 0, 0],
+		"effect": [
+			"ICE",
+			"HICHU"
+		],
 		"fuelN1": 1,
 		"fuelType": 3,
 		"name": "アイスリング",
@@ -1593,16 +1909,19 @@
 		"sname": "氷輪",
 		"targetN1": 0,
 		"targetN2": 0,
-		"targetType": 0
+		"targetType": 0,
+		"trType": 9
 	},
 	{
-		"TRType": 7,
 		"animeN1": 19,
 		"animeType": 1,
 		"attackN1": 7,
 		"attackType": 2,
 		"color": 3,
-		"effect": [24, 27, 0, 0, 0],
+		"effect": [
+			"HIT_4",
+			"CHOP"
+		],
 		"fuelN1": 1,
 		"fuelType": 3,
 		"name": "グラビティブラスト",
@@ -1612,16 +1931,19 @@
 		"sname": "重力波",
 		"targetN1": 0,
 		"targetN2": 0,
-		"targetType": 0
+		"targetType": 0,
+		"trType": 7
 	},
 	{
-		"TRType": 5,
 		"animeN1": 4,
 		"animeType": 2,
 		"attackN1": 7,
 		"attackType": 0,
 		"color": 2,
-		"effect": [22, 19, 0, 0, 0],
+		"effect": [
+			"NO_ATTACK",
+			"CHARM"
+		],
 		"fuelN1": 2,
 		"fuelType": 3,
 		"name": "チャームライト",
@@ -1631,16 +1953,21 @@
 		"sname": "淫夢",
 		"targetN1": 0,
 		"targetN2": 0,
-		"targetType": 0
+		"targetType": 0,
+		"trType": 5
 	},
 	{
-		"TRType": 8,
 		"animeN1": 22,
 		"animeType": 3,
 		"attackN1": 6,
 		"attackType": 2,
 		"color": 5,
-		"effect": [31, 5, 10, 6, 0],
+		"effect": [
+			"DAMAGE_150",
+			"COUNTER_ABLE",
+			"SORA_200",
+			"COMBO"
+		],
 		"fuelN1": 2,
 		"fuelType": 3,
 		"name": "マジックシュート",
@@ -1650,16 +1977,20 @@
 		"sname": "魔矢",
 		"targetN1": 0,
 		"targetN2": 0,
-		"targetType": 0
+		"targetType": 0,
+		"trType": 8
 	},
 	{
-		"TRType": 7,
 		"animeN1": 25,
 		"animeType": 3,
 		"attackN1": 7,
 		"attackType": 2,
 		"color": 4,
-		"effect": [9, 26, 24, 0, 0],
+		"effect": [
+			"THUNDER",
+			"UPPER",
+			"HIT_4"
+		],
 		"fuelN1": 0,
 		"fuelType": 0,
 		"name": "サンダーバード",
@@ -1669,16 +2000,21 @@
 		"sname": "雷鳥",
 		"targetN1": 0,
 		"targetN2": 0,
-		"targetType": 0
+		"targetType": 0,
+		"trType": 7
 	},
 	{
-		"TRType": 0,
 		"animeN1": 5,
 		"animeType": 1,
 		"attackN1": 1,
 		"attackType": 1,
 		"color": 5,
-		"effect": [7, 8, 9, 5, 0],
+		"effect": [
+			"FIRE",
+			"ICE",
+			"THUNDER",
+			"COUNTER_ABLE"
+		],
 		"fuelN1": 2,
 		"fuelType": 3,
 		"name": "マジカルソード",
@@ -1688,16 +2024,20 @@
 		"sname": "氷雷火",
 		"targetN1": 0,
 		"targetN2": 0,
-		"targetType": 0
+		"targetType": 0,
+		"trType": 0
 	},
 	{
-		"TRType": 5,
 		"animeN1": 22,
 		"animeType": 5,
 		"attackN1": 7,
 		"attackType": 2,
 		"color": 1,
-		"effect": [18, 3, 4, 0, 0],
+		"effect": [
+			"WET",
+			"HICHU",
+			"TAME"
+		],
 		"fuelN1": 2,
 		"fuelType": 3,
 		"name": "タイダルウエイブ",
@@ -1707,16 +2047,21 @@
 		"sname": "津波",
 		"targetN1": 0,
 		"targetN2": 0,
-		"targetType": 0
+		"targetType": 0,
+		"trType": 5
 	},
 	{
-		"TRType": 1,
 		"animeN1": 18,
 		"animeType": 3,
 		"attackN1": 5,
 		"attackType": 1,
 		"color": 1,
-		"effect": [5, 6, 18, 36, 0],
+		"effect": [
+			"COUNTER_ABLE",
+			"COMBO",
+			"WET",
+			"MIZU_100"
+		],
 		"fuelN1": 0,
 		"fuelType": 3,
 		"name": "海神の槍",
@@ -1726,16 +2071,20 @@
 		"sname": "海槍",
 		"targetN1": 0,
 		"targetN2": 0,
-		"targetType": 0
+		"targetType": 0,
+		"trType": 1
 	},
 	{
-		"TRType": 0,
 		"animeN1": 1,
 		"animeType": 1,
 		"attackN1": 1,
 		"attackType": 1,
 		"color": 4,
-		"effect": [3, 15, 34, 0, 0],
+		"effect": [
+			"HICHU",
+			"DEATH",
+			"RIKU_150"
+		],
 		"fuelN1": 2,
 		"fuelType": 3,
 		"name": "ソウルスティール",
@@ -1745,16 +2094,20 @@
 		"sname": "魂狩",
 		"targetN1": 0,
 		"targetN2": 0,
-		"targetType": 0
+		"targetType": 0,
+		"trType": 0
 	},
 	{
-		"TRType": 0,
 		"animeN1": 26,
 		"animeType": 1,
 		"attackN1": 3,
 		"attackType": 1,
 		"color": 4,
-		"effect": [5, 2, 25, 0, 0],
+		"effect": [
+			"COUNTER_ABLE",
+			"DAMAGE_300",
+			"MISS_4"
+		],
 		"fuelN1": 8,
 		"fuelType": 1,
 		"name": "ゴッドフィンガー",
@@ -1764,16 +2117,19 @@
 		"sname": "爆熱拳",
 		"targetN1": 0,
 		"targetN2": 0,
-		"targetType": 0
+		"targetType": 0,
+		"trType": 0
 	},
 	{
-		"TRType": 0,
 		"animeN1": 25,
 		"animeType": 3,
 		"attackN1": 3,
 		"attackType": 1,
 		"color": 4,
-		"effect": [5, 9, 0, 0, 0],
+		"effect": [
+			"COUNTER_ABLE",
+			"THUNDER"
+		],
 		"fuelN1": 0,
 		"fuelType": 0,
 		"name": "エレキアタック",
@@ -1783,16 +2139,20 @@
 		"sname": "感電",
 		"targetN1": 0,
 		"targetN2": 0,
-		"targetType": 0
+		"targetType": 0,
+		"trType": 0
 	},
 	{
-		"TRType": 8,
 		"animeN1": 13,
 		"animeType": 3,
 		"attackN1": 6,
 		"attackType": 1,
 		"color": 3,
-		"effect": [5, 6, 10, 0, 0],
+		"effect": [
+			"COUNTER_ABLE",
+			"COMBO",
+			"SORA_200"
+		],
 		"fuelN1": 0,
 		"fuelType": 0,
 		"name": "森人の弓",
@@ -1802,16 +2162,21 @@
 		"sname": "森弓",
 		"targetN1": 0,
 		"targetN2": 0,
-		"targetType": 0
+		"targetType": 0,
+		"trType": 8
 	},
 	{
-		"TRType": 7,
 		"animeN1": 13,
 		"animeType": 3,
 		"attackN1": 6,
 		"attackType": 1,
 		"color": 3,
-		"effect": [5, 6, 10, 37, 0],
+		"effect": [
+			"COUNTER_ABLE",
+			"COMBO",
+			"SORA_200",
+			"HIT_12"
+		],
 		"fuelN1": 2,
 		"fuelType": 1,
 		"name": "ツインショット",
@@ -1821,16 +2186,21 @@
 		"sname": "連弾",
 		"targetN1": 0,
 		"targetN2": 0,
-		"targetType": 0
+		"targetType": 0,
+		"trType": 7
 	},
 	{
-		"TRType": 4,
 		"animeN1": 8,
 		"animeType": 2,
 		"attackN1": 3,
 		"attackType": 1,
 		"color": 3,
-		"effect": [17, 33, 29, 4, 0],
+		"effect": [
+			"POISON",
+			"OIL",
+			"RIKU_0",
+			"TAME"
+		],
 		"fuelN1": 2,
 		"fuelType": 1,
 		"name": "マッドバイン",
@@ -1840,16 +2210,22 @@
 		"sname": "毒蔓",
 		"targetN1": 0,
 		"targetN2": 0,
-		"targetType": 0
+		"targetType": 0,
+		"trType": 4
 	},
 	{
-		"TRType": 7,
 		"animeN1": 8,
 		"animeType": 1,
 		"attackN1": 3,
 		"attackType": 2,
 		"color": 3,
-		"effect": [6, 14, 18, 19, 17],
+		"effect": [
+			"COMBO",
+			"CRITICAL",
+			"WET",
+			"CHARM",
+			"POISON"
+		],
 		"fuelN1": 0,
 		"fuelType": 0,
 		"name": "芋づる",
@@ -1859,16 +2235,22 @@
 		"sname": "芋づる",
 		"targetN1": 0,
 		"targetN2": 0,
-		"targetType": 0
+		"targetType": 0,
+		"trType": 7
 	},
 	{
-		"TRType": 0,
 		"animeN1": 5,
 		"animeType": 1,
 		"attackN1": 4,
 		"attackType": 1,
 		"color": 4,
-		"effect": [6, 37, 24, 9, 5],
+		"effect": [
+			"COMBO",
+			"HIT_12",
+			"HIT_4",
+			"THUNDER",
+			"COUNTER_ABLE"
+		],
 		"fuelN1": 3,
 		"fuelType": 1,
 		"name": "三連殺",
@@ -1878,16 +2260,20 @@
 		"sname": "三連殺",
 		"targetN1": 0,
 		"targetN2": 0,
-		"targetType": 0
+		"targetType": 0,
+		"trType": 0
 	},
 	{
-		"TRType": 0,
 		"animeN1": 6,
 		"animeType": 1,
 		"attackN1": 1,
 		"attackType": 6,
 		"color": 2,
-		"effect": [7, 3, 5, 0, 0],
+		"effect": [
+			"FIRE",
+			"HICHU",
+			"COUNTER_ABLE"
+		],
 		"fuelN1": 4,
 		"fuelType": 3,
 		"name": "炎殺剣",
@@ -1897,16 +2283,19 @@
 		"sname": "炎殺剣",
 		"targetN1": 0,
 		"targetN2": 0,
-		"targetType": 0
+		"targetType": 0,
+		"trType": 0
 	},
 	{
-		"TRType": 10,
 		"animeN1": 9,
 		"animeType": 2,
 		"attackN1": 7,
 		"attackType": 2,
 		"color": 2,
-		"effect": [7, 3, 0, 0, 0],
+		"effect": [
+			"FIRE",
+			"HICHU"
+		],
 		"fuelN1": 4,
 		"fuelType": 3,
 		"name": "クリムゾンフレア",
@@ -1916,16 +2305,20 @@
 		"sname": "灼熱",
 		"targetN1": 0,
 		"targetN2": 0,
-		"targetType": 1
+		"targetType": 1,
+		"trType": 10
 	},
 	{
-		"TRType": 5,
 		"animeN1": 10,
 		"animeType": 2,
 		"attackN1": 7,
 		"attackType": 2,
 		"color": 1,
-		"effect": [36, 3, 8, 0, 0],
+		"effect": [
+			"MIZU_100",
+			"HICHU",
+			"ICE"
+		],
 		"fuelN1": 4,
 		"fuelType": 3,
 		"name": "ダイアモンドダスト",
@@ -1935,16 +2328,19 @@
 		"sname": "氷塵",
 		"targetN1": 0,
 		"targetN2": 0,
-		"targetType": 0
+		"targetType": 0,
+		"trType": 5
 	},
 	{
-		"TRType": 0,
 		"animeN1": 5,
 		"animeType": 1,
 		"attackN1": 7,
 		"attackType": 2,
 		"color": 4,
-		"effect": [0, 12, 3, 0, 0],
+		"effect": [
+			"COUNTER_ONLY",
+			"HICHU"
+		],
 		"fuelN1": 1,
 		"fuelType": 3,
 		"name": "リフレクト",
@@ -1954,16 +2350,21 @@
 		"sname": "反射",
 		"targetN1": 0,
 		"targetN2": 0,
-		"targetType": 0
+		"targetType": 0,
+		"trType": 0
 	},
 	{
-		"TRType": 0,
 		"animeN1": 4,
 		"animeType": 1,
 		"attackN1": 7,
 		"attackType": 0,
 		"color": 5,
-		"effect": [26, 22, 13, 3, 0],
+		"effect": [
+			"UPPER",
+			"NO_ATTACK",
+			"REGENE",
+			"HICHU"
+		],
 		"fuelN1": 2,
 		"fuelType": 3,
 		"name": "レビテーション",
@@ -1973,16 +2374,20 @@
 		"sname": "浮遊",
 		"targetN1": 0,
 		"targetN2": 0,
-		"targetType": 0
+		"targetType": 0,
+		"trType": 0
 	},
 	{
-		"TRType": 0,
 		"animeN1": 1,
 		"animeType": 1,
 		"attackN1": 2,
 		"attackType": 1,
 		"color": 5,
-		"effect": [5, 32, 1, 0, 0],
+		"effect": [
+			"COUNTER_ABLE",
+			"UNDEAD_200",
+			"DAMAGE_200"
+		],
 		"fuelN1": 2,
 		"fuelType": 1,
 		"name": "ライトブリンガー",
@@ -1992,16 +2397,16 @@
 		"sname": "聖光斬",
 		"targetN1": 0,
 		"targetN2": 0,
-		"targetType": 0
+		"targetType": 0,
+		"trType": 0
 	},
 	{
-		"TRType": 0,
 		"animeN1": 5,
 		"animeType": 1,
 		"attackN1": 1,
 		"attackType": 5,
 		"color": 4,
-		"effect": [0, 0, 0, 0, 0],
+		"effect": [],
 		"fuelN1": 8,
 		"fuelType": 1,
 		"name": "真竜斬り",
@@ -2011,16 +2416,21 @@
 		"sname": "真竜斬",
 		"targetN1": 0,
 		"targetN2": 0,
-		"targetType": 0
+		"targetType": 0,
+		"trType": 0
 	},
 	{
-		"TRType": 10,
 		"animeN1": 4,
 		"animeType": 2,
 		"attackN1": 7,
 		"attackType": 0,
 		"color": 2,
-		"effect": [3, 19, 16, 0, 22],
+		"effect": [
+			"HICHU",
+			"CHARM",
+			"SLEEP",
+			"NO_ATTACK"
+		],
 		"fuelN1": 4,
 		"fuelType": 3,
 		"name": "チャームフラッシュ",
@@ -2030,16 +2440,21 @@
 		"sname": "淫夢",
 		"targetN1": 0,
 		"targetN2": 0,
-		"targetType": 0
+		"targetType": 0,
+		"trType": 10
 	},
 	{
-		"TRType": 7,
 		"animeN1": 16,
 		"animeType": 3,
 		"attackN1": 7,
 		"attackType": 2,
 		"color": 5,
-		"effect": [31, 36, 24, 26, 0],
+		"effect": [
+			"DAMAGE_150",
+			"MIZU_100",
+			"HIT_4",
+			"UPPER"
+		],
 		"fuelN1": 1,
 		"fuelType": 3,
 		"name": "マジックミサイル",
@@ -2049,16 +2464,20 @@
 		"sname": "魔法弾",
 		"targetN1": 0,
 		"targetN2": 0,
-		"targetType": 0
+		"targetType": 0,
+		"trType": 7
 	},
 	{
-		"TRType": 6,
 		"animeN1": 25,
 		"animeType": 5,
 		"attackN1": 7,
 		"attackType": 2,
 		"color": 4,
-		"effect": [9, 3, 4, 0, 0],
+		"effect": [
+			"THUNDER",
+			"HICHU",
+			"TAME"
+		],
 		"fuelN1": 2,
 		"fuelType": 3,
 		"name": "ケイオスウエイブ",
@@ -2068,16 +2487,20 @@
 		"sname": "波動",
 		"targetN1": 0,
 		"targetN2": 0,
-		"targetType": 0
+		"targetType": 0,
+		"trType": 6
 	},
 	{
-		"TRType": 6,
 		"animeN1": 8,
 		"animeType": 1,
 		"attackN1": 7,
 		"attackType": 6,
 		"color": 5,
-		"effect": [13, 3, 4, 0, 0],
+		"effect": [
+			"REGENE",
+			"HICHU",
+			"TAME"
+		],
 		"fuelN1": 1,
 		"fuelType": 3,
 		"name": "リジェネレーション",
@@ -2087,16 +2510,19 @@
 		"sname": "再生",
 		"targetN1": 0,
 		"targetN2": 0,
-		"targetType": 0
+		"targetType": 0,
+		"trType": 6
 	},
 	{
-		"TRType": 0,
 		"animeN1": 6,
 		"animeType": 1,
 		"attackN1": 3,
 		"attackType": 1,
 		"color": 2,
-		"effect": [5, 7, 0, 0, 0],
+		"effect": [
+			"COUNTER_ABLE",
+			"FIRE"
+		],
 		"fuelN1": 0,
 		"fuelType": 0,
 		"name": "フレイムタックル",
@@ -2106,16 +2532,19 @@
 		"sname": "炎撃",
 		"targetN1": 0,
 		"targetN2": 0,
-		"targetType": 0
+		"targetType": 0,
+		"trType": 0
 	},
 	{
-		"TRType": 0,
 		"animeN1": 3,
 		"animeType": 1,
 		"attackN1": 3,
 		"attackType": 1,
 		"color": 1,
-		"effect": [5, 8, 0, 0, 0],
+		"effect": [
+			"COUNTER_ABLE",
+			"ICE"
+		],
 		"fuelN1": 0,
 		"fuelType": 0,
 		"name": "アイスタックル",
@@ -2125,16 +2554,21 @@
 		"sname": "氷撃",
 		"targetN1": 0,
 		"targetN2": 0,
-		"targetType": 0
+		"targetType": 0,
+		"trType": 0
 	},
 	{
-		"TRType": 4,
 		"animeN1": 4,
 		"animeType": 2,
 		"attackN1": 7,
 		"attackType": 0,
 		"color": 1,
-		"effect": [21, 22, 13, 3, 0],
+		"effect": [
+			"GUARD_UP",
+			"NO_ATTACK",
+			"REGENE",
+			"HICHU"
+		],
 		"fuelN1": 3,
 		"fuelType": 3,
 		"name": "アクアプリズン",
@@ -2144,16 +2578,21 @@
 		"sname": "水壁",
 		"targetN1": 0,
 		"targetN2": 0,
-		"targetType": 0
+		"targetType": 0,
+		"trType": 4
 	},
 	{
-		"TRType": 12,
 		"animeN1": 22,
 		"animeType": 4,
 		"attackN1": 5,
 		"attackType": 1,
 		"color": 1,
-		"effect": [18, 1, 30, 36, 0],
+		"effect": [
+			"WET",
+			"DAMAGE_200",
+			"MIZU_0",
+			"MIZU_100"
+		],
 		"fuelN1": 2,
 		"fuelType": 1,
 		"name": "海波斬",
@@ -2163,16 +2602,21 @@
 		"sname": "海波斬",
 		"targetN1": 0,
 		"targetN2": 0,
-		"targetType": 0
+		"targetType": 0,
+		"trType": 12
 	},
 	{
-		"TRType": 1,
 		"animeN1": 3,
 		"animeType": 1,
 		"attackN1": 3,
 		"attackType": 1,
 		"color": 5,
-		"effect": [5, 6, 26, 10, 0],
+		"effect": [
+			"COUNTER_ABLE",
+			"COMBO",
+			"UPPER",
+			"SORA_200"
+		],
 		"fuelN1": 0,
 		"fuelType": 0,
 		"name": "音速弾",
@@ -2182,16 +2626,20 @@
 		"sname": "音速弾",
 		"targetN1": 0,
 		"targetN2": 0,
-		"targetType": 0
+		"targetType": 0,
+		"trType": 1
 	},
 	{
-		"TRType": 4,
 		"animeN1": 25,
 		"animeType": 5,
 		"attackN1": 7,
 		"attackType": 2,
 		"color": 4,
-		"effect": [9, 4, 1, 0, 0],
+		"effect": [
+			"THUNDER",
+			"TAME",
+			"DAMAGE_200"
+		],
 		"fuelN1": 4,
 		"fuelType": 3,
 		"name": "サンダーストーム",
@@ -2201,16 +2649,21 @@
 		"sname": "雷嵐",
 		"targetN1": 0,
 		"targetN2": 0,
-		"targetType": 0
+		"targetType": 0,
+		"trType": 4
 	},
 	{
-		"TRType": 1,
 		"animeN1": 18,
 		"animeType": 3,
 		"attackN1": 5,
 		"attackType": 2,
 		"color": 5,
-		"effect": [5, 6, 36, 32, 0],
+		"effect": [
+			"COUNTER_ABLE",
+			"COMBO",
+			"MIZU_100",
+			"UNDEAD_200"
+		],
 		"fuelN1": 0,
 		"fuelType": 0,
 		"name": "ホーリーランス",
@@ -2220,16 +2673,20 @@
 		"sname": "聖槍",
 		"targetN1": 0,
 		"targetN2": 0,
-		"targetType": 0
+		"targetType": 0,
+		"trType": 1
 	},
 	{
-		"TRType": 0,
 		"animeN1": 3,
 		"animeType": 1,
 		"attackN1": 4,
 		"attackType": 1,
 		"color": 3,
-		"effect": [5, 17, 14, 0, 0],
+		"effect": [
+			"COUNTER_ABLE",
+			"POISON",
+			"CRITICAL"
+		],
 		"fuelN1": 0,
 		"fuelType": 0,
 		"name": "必殺針",
@@ -2239,16 +2696,19 @@
 		"sname": "猛毒",
 		"targetN1": 0,
 		"targetN2": 0,
-		"targetType": 0
+		"targetType": 0,
+		"trType": 0
 	},
 	{
-		"TRType": 4,
 		"animeN1": 7,
 		"animeType": 5,
 		"attackN1": 7,
 		"attackType": 2,
 		"color": 3,
-		"effect": [0, 17, 3, 0, 0],
+		"effect": [
+			"POISON",
+			"HICHU"
+		],
 		"fuelN1": 4,
 		"fuelType": 3,
 		"name": "ポイズンストーム",
@@ -2258,16 +2718,21 @@
 		"sname": "毒嵐",
 		"targetN1": 0,
 		"targetN2": 0,
-		"targetType": 0
+		"targetType": 0,
+		"trType": 4
 	},
 	{
-		"TRType": 17,
 		"animeN1": 21,
 		"animeType": 2,
 		"attackN1": 5,
 		"attackType": 1,
 		"color": 2,
-		"effect": [31, 3, 15, 4, 0],
+		"effect": [
+			"DAMAGE_150",
+			"HICHU",
+			"DEATH",
+			"TAME"
+		],
 		"fuelN1": 2,
 		"fuelType": 3,
 		"name": "デッドエンド",
@@ -2277,16 +2742,20 @@
 		"sname": "終焉",
 		"targetN1": 0,
 		"targetN2": 0,
-		"targetType": 0
+		"targetType": 0,
+		"trType": 17
 	},
 	{
-		"TRType": 0,
 		"animeN1": 1,
 		"animeType": 1,
 		"attackN1": 1,
 		"attackType": 1,
 		"color": 2,
-		"effect": [5, 6, 19, 0, 0],
+		"effect": [
+			"COUNTER_ABLE",
+			"COMBO",
+			"CHARM"
+		],
 		"fuelN1": 1,
 		"fuelType": 1,
 		"name": "誘惑の剣",
@@ -2296,16 +2765,20 @@
 		"sname": "誘惑",
 		"targetN1": 0,
 		"targetN2": 0,
-		"targetType": 0
+		"targetType": 0,
+		"trType": 0
 	},
 	{
-		"TRType": 16,
 		"animeN1": 1,
 		"animeType": 2,
 		"attackN1": 1,
 		"attackType": 1,
 		"color": 5,
-		"effect": [10, 27, 24, 0, 0],
+		"effect": [
+			"SORA_200",
+			"CHOP",
+			"HIT_4"
+		],
 		"fuelN1": 1,
 		"fuelType": 1,
 		"name": "空裂斬",
@@ -2315,16 +2788,19 @@
 		"sname": "空裂斬",
 		"targetN1": 0,
 		"targetN2": 0,
-		"targetType": 0
+		"targetType": 0,
+		"trType": 16
 	},
 	{
-		"TRType": 15,
 		"animeN1": 16,
 		"animeType": 5,
 		"attackN1": 8,
 		"attackType": 2,
 		"color": 1,
-		"effect": [3, 8, 0, 0, 0],
+		"effect": [
+			"HICHU",
+			"ICE"
+		],
 		"fuelN1": 1,
 		"fuelType": 3,
 		"name": "アイスブレス",
@@ -2334,16 +2810,21 @@
 		"sname": "氷息",
 		"targetN1": 0,
 		"targetN2": 0,
-		"targetType": 0
+		"targetType": 0,
+		"trType": 15
 	},
 	{
-		"TRType": 0,
 		"animeN1": 5,
 		"animeType": 1,
 		"attackN1": 1,
 		"attackType": 1,
 		"color": 4,
-		"effect": [5, 6, 11, 31, 0],
+		"effect": [
+			"COUNTER_ABLE",
+			"COMBO",
+			"DRAGON_200",
+			"DAMAGE_150"
+		],
 		"fuelN1": 1,
 		"fuelType": 1,
 		"name": "竜斬り",
@@ -2353,16 +2834,21 @@
 		"sname": "竜斬り",
 		"targetN1": 0,
 		"targetN2": 0,
-		"targetType": 0
+		"targetType": 0,
+		"trType": 0
 	},
 	{
-		"TRType": 9,
 		"animeN1": 5,
 		"animeType": 2,
 		"attackN1": 7,
 		"attackType": 2,
 		"color": 4,
-		"effect": [4, 3, 1, 32, 0],
+		"effect": [
+			"TAME",
+			"HICHU",
+			"DAMAGE_200",
+			"UNDEAD_200"
+		],
 		"fuelN1": 2,
 		"fuelType": 3,
 		"name": "スターティアラ",
@@ -2372,16 +2858,21 @@
 		"sname": "星屑",
 		"targetN1": 0,
 		"targetN2": 0,
-		"targetType": 0
+		"targetType": 0,
+		"trType": 9
 	},
 	{
-		"TRType": 7,
 		"animeN1": 14,
 		"animeType": 3,
 		"attackN1": 6,
 		"attackType": 1,
 		"color": 2,
-		"effect": [7, 10, 5, 6, 0],
+		"effect": [
+			"FIRE",
+			"SORA_200",
+			"COUNTER_ABLE",
+			"COMBO"
+		],
 		"fuelN1": 0,
 		"fuelType": 0,
 		"name": "ファイヤーアロー",
@@ -2391,16 +2882,19 @@
 		"sname": "炎矢",
 		"targetN1": 0,
 		"targetN2": 0,
-		"targetType": 0
+		"targetType": 0,
+		"trType": 7
 	},
 	{
-		"TRType": 3,
 		"animeN1": 25,
 		"animeType": 2,
 		"attackN1": 7,
 		"attackType": 2,
 		"color": 4,
-		"effect": [9, 31, 0, 0, 0],
+		"effect": [
+			"THUNDER",
+			"DAMAGE_150"
+		],
 		"fuelN1": 1,
 		"fuelType": 3,
 		"name": "サンダーフレア",
@@ -2410,16 +2904,20 @@
 		"sname": "雷電",
 		"targetN1": 0,
 		"targetN2": 0,
-		"targetType": 0
+		"targetType": 0,
+		"trType": 3
 	},
 	{
-		"TRType": 0,
 		"animeN1": 12,
 		"animeType": 1,
 		"attackN1": 4,
 		"attackType": 1,
 		"color": 5,
-		"effect": [5, 6, 37, 0, 0],
+		"effect": [
+			"COUNTER_ABLE",
+			"COMBO",
+			"HIT_12"
+		],
 		"fuelN1": 2,
 		"fuelType": 5,
 		"name": "ダブルヒット",
@@ -2429,16 +2927,21 @@
 		"sname": "連撃",
 		"targetN1": 0,
 		"targetN2": 0,
-		"targetType": 0
+		"targetType": 0,
+		"trType": 0
 	},
 	{
-		"TRType": 7,
 		"animeN1": 18,
 		"animeType": 3,
 		"attackN1": 4,
 		"attackType": 1,
 		"color": 4,
-		"effect": [6, 24, 5, 10, 0],
+		"effect": [
+			"COMBO",
+			"HIT_4",
+			"COUNTER_ABLE",
+			"SORA_200"
+		],
 		"fuelN1": 0,
 		"fuelType": 0,
 		"name": "飛苦無",
@@ -2448,16 +2951,22 @@
 		"sname": "飛苦無",
 		"targetN1": 0,
 		"targetN2": 0,
-		"targetType": 0
+		"targetType": 0,
+		"trType": 7
 	},
 	{
-		"TRType": 0,
 		"animeN1": 1,
 		"animeType": 1,
 		"attackN1": 1,
 		"attackType": 1,
 		"color": 5,
-		"effect": [5, 6, 14, 19, 32],
+		"effect": [
+			"COUNTER_ABLE",
+			"COMBO",
+			"CRITICAL",
+			"CHARM",
+			"UNDEAD_200"
+		],
 		"fuelN1": 2,
 		"fuelType": 1,
 		"name": "エクスカリバー",
@@ -2467,16 +2976,21 @@
 		"sname": "聖剣",
 		"targetN1": 0,
 		"targetN2": 0,
-		"targetType": 0
+		"targetType": 0,
+		"trType": 0
 	},
 	{
-		"TRType": 5,
 		"animeN1": 21,
 		"animeType": 2,
 		"attackN1": 7,
 		"attackType": 2,
 		"color": 2,
-		"effect": [4, 3, 15, 16, 0],
+		"effect": [
+			"TAME",
+			"HICHU",
+			"DEATH",
+			"SLEEP"
+		],
 		"fuelN1": 4,
 		"fuelType": 3,
 		"name": "カラミティエンド",
@@ -2486,16 +3000,21 @@
 		"sname": "終焉",
 		"targetN1": 0,
 		"targetN2": 0,
-		"targetType": 0
+		"targetType": 0,
+		"trType": 5
 	},
 	{
-		"TRType": 3,
 		"animeN1": 2,
 		"animeType": 2,
 		"attackN1": 3,
 		"attackType": 0,
 		"color": 2,
-		"effect": [20, 22, 13, 3, 0],
+		"effect": [
+			"ATTACK_UP",
+			"NO_ATTACK",
+			"REGENE",
+			"HICHU"
+		],
 		"fuelN1": 3,
 		"fuelType": 3,
 		"name": "バーニング",
@@ -2505,16 +3024,18 @@
 		"sname": "熱血",
 		"targetN1": 0,
 		"targetN2": 0,
-		"targetType": 0
+		"targetType": 0,
+		"trType": 3
 	},
 	{
-		"TRType": 9,
 		"animeN1": 20,
 		"animeType": 5,
 		"attackN1": 6,
 		"attackType": 2,
 		"color": 3,
-		"effect": [33, 0, 0, 0, 0],
+		"effect": [
+			"OIL"
+		],
 		"fuelN1": 2,
 		"fuelType": 3,
 		"name": "みだれ油",
@@ -2524,16 +3045,20 @@
 		"sname": "乱油",
 		"targetN1": 0,
 		"targetN2": 0,
-		"targetType": 0
+		"targetType": 0,
+		"trType": 9
 	},
 	{
-		"TRType": 0,
 		"animeN1": 1,
 		"animeType": 1,
 		"attackN1": 1,
 		"attackType": 1,
 		"color": 3,
-		"effect": [31, 25, 5, 0, 0],
+		"effect": [
+			"DAMAGE_150",
+			"MISS_4",
+			"COUNTER_ABLE"
+		],
 		"fuelN1": 1,
 		"fuelType": 5,
 		"name": "芋切り",
@@ -2543,16 +3068,18 @@
 		"sname": "芋切",
 		"targetN1": 0,
 		"targetN2": 0,
-		"targetType": 0
+		"targetType": 0,
+		"trType": 0
 	},
 	{
-		"TRType": 7,
 		"animeN1": 18,
 		"animeType": 3,
 		"attackN1": 7,
 		"attackType": 2,
 		"color": 5,
-		"effect": [24, 0, 0, 0, 0],
+		"effect": [
+			"HIT_4"
+		],
 		"fuelN1": 1,
 		"fuelType": 3,
 		"name": "誘導弾",
@@ -2562,6 +3089,7 @@
 		"sname": "誘導弾",
 		"targetN1": 0,
 		"targetN2": 0,
-		"targetType": 0
+		"targetType": 0,
+		"trType": 7
 	}
 ]

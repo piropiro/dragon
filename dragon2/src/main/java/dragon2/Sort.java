@@ -47,7 +47,7 @@ public class Sort {
 		case WEPON: // '\002'
 			i = 0x2faf080;
 			AttackData attackdata = Statics.getAttackData(body.atk[0]);
-			i -= attackdata.AttackN1 * 0xf4240;
+			i -= attackdata.attackN1 * 0xf4240;
 			break;
 
 		case ARMOR: // '\003'
@@ -74,7 +74,7 @@ public class Sort {
 		case CLASS: // '\001'
 			i = 0x3938700;
 			AttackData attackdata1 = Statics.getAttackData(body.atk[0]);
-			i -= attackdata1.AttackN1 * 0xf4240;
+			i -= attackdata1.attackN1 * 0xf4240;
 			break;
 
 		case DOLL: // '\''

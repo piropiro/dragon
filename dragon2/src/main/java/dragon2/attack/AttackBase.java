@@ -29,8 +29,8 @@ public class AttackBase implements Iconable {
 		Targets = null;
 		setECT();
 		setTRType();
-		setRange(ad.RangeType, ad.RangeN1, ad.RangeN2);
-		getAttackUnit(ad.TargetType, ad.TargetN1);
+		setRange(ad.rangeType, ad.rangeN1, ad.rangeN2);
+		getAttackUnit(ad.targetType, ad.targetN1);
 	}
 
 	public void show() {
@@ -47,16 +47,16 @@ public class AttackBase implements Iconable {
 	}
 
 	private void setTRType(int i, int j, int k, int l, int i1, int j1) {
-		ad.RangeType = i;
-		ad.RangeN1 = j;
-		ad.RangeN2 = k;
-		ad.TargetType = l;
-		ad.TargetN1 = i1;
-		ad.TargetN2 = j1;
+		ad.rangeType = i;
+		ad.rangeN1 = j;
+		ad.rangeN2 = k;
+		ad.targetType = l;
+		ad.targetN1 = i1;
+		ad.targetN2 = j1;
 	}
 
 	private void setTRType() {
-		switch (ad.TRType) {
+		switch (ad.trType) {
 		case 0: // '\0'
 			setTRType(0, 1, 0, 0, 0, 0);
 			break;
@@ -140,17 +140,17 @@ public class AttackBase implements Iconable {
 	}
 
 	private boolean countFuel() {
-		if (ad.FuelType == 1 && ad.FuelN1 > ba.str)
+		if (ad.fuelType == 1 && ad.fuelN1 > ba.str)
 			return false;
-		if (ad.FuelType == 2 && ad.FuelN1 > ba.def)
+		if (ad.fuelType == 2 && ad.fuelN1 > ba.def)
 			return false;
-		if (ad.FuelType == 3 && ad.FuelN1 > ba.mst)
+		if (ad.fuelType == 3 && ad.fuelN1 > ba.mst)
 			return false;
-		if (ad.FuelType == 4 && ad.FuelN1 > ba.mdf)
+		if (ad.fuelType == 4 && ad.fuelN1 > ba.mdf)
 			return false;
-		if (ad.FuelType == 5 && ad.FuelN1 > ba.hit)
+		if (ad.fuelType == 5 && ad.fuelN1 > ba.hit)
 			return false;
-		return ad.FuelType != 6 || ad.FuelN1 <= ba.mis;
+		return ad.fuelType != 6 || ad.fuelN1 <= ba.mis;
 	}
 
 	public boolean isEffect(Effects effect) {
@@ -158,7 +158,7 @@ public class AttackBase implements Iconable {
 	}
 
 	public int getBuki() {
-		return ad.AttackN1;
+		return ad.attackN1;
 	}
 
 	public boolean isCounterable(Body body, boolean flag) {
@@ -211,7 +211,7 @@ public class AttackBase implements Iconable {
 					}
 					if (isPossible(body, Effects.DEATH))
 						k += body.hp;
-					if (ad.TargetType == 1)
+					if (ad.targetType == 1)
 						k *= 2;
 					if (body.color == ba.color)
 						k = -k;
@@ -240,18 +240,18 @@ public class AttackBase implements Iconable {
 	}
 
 	private void decrease() {
-		if (ad.FuelType == 1)
-			ba.str -= ad.FuelN1;
-		if (ad.FuelType == 2)
-			ba.def -= ad.FuelN1;
-		if (ad.FuelType == 3)
-			ba.mst -= ad.FuelN1;
-		if (ad.FuelType == 4)
-			ba.mdf -= ad.FuelN1;
-		if (ad.FuelType == 5)
-			ba.hit -= ad.FuelN1;
-		if (ad.FuelType == 6)
-			ba.mis -= ad.FuelN1;
+		if (ad.fuelType == 1)
+			ba.str -= ad.fuelN1;
+		if (ad.fuelType == 2)
+			ba.def -= ad.fuelN1;
+		if (ad.fuelType == 3)
+			ba.mst -= ad.fuelN1;
+		if (ad.fuelType == 4)
+			ba.mdf -= ad.fuelN1;
+		if (ad.fuelType == 5)
+			ba.hit -= ad.fuelN1;
+		if (ad.fuelType == 6)
+			ba.mis -= ad.fuelN1;
 	}
 
 	private int getFace(int i, int j) {
@@ -264,9 +264,9 @@ public class AttackBase implements Iconable {
 
 	public void setTarget(int i, int j) {
 		target = new Point(i, j);
-		int k = ad.TargetType;
-		int l = ad.TargetN1;
-		int i1 = ad.TargetN2;
+		int k = ad.targetType;
+		int l = ad.targetN1;
+		int i1 = ad.targetN2;
 		switch (k) {
 		default:
 			break;
@@ -389,7 +389,7 @@ public class AttackBase implements Iconable {
 		int j = 0;
 		int k = 0;
 		int l = 0;
-		switch (ad.AttackType) {
+		switch (ad.attackType) {
 		case 1: // '\001'
 			k = ba.str;
 			l = body.def;
@@ -405,7 +405,7 @@ public class AttackBase implements Iconable {
 			break;
 
 		case 4: // '\004'
-			k = ad.FuelN1 / 2;
+			k = ad.fuelN1 / 2;
 			break;
 
 		case 5: // '\005'
@@ -439,7 +439,7 @@ public class AttackBase implements Iconable {
 		if (ba.isType(Types.UNDEAD_KILLER) && body.isType(Types.UNDEAD))
 			k = (int) ((double) k * 1.5D);
 		j = Math.max(0, k - l);
-		if (isEffect(Effects.WHITE) && !body.isType(Types.UNDEAD))
+		if (isEffect(Effects.REGENE) && !body.isType(Types.UNDEAD))
 			j *= -1;
 		return j;
 	}
@@ -485,7 +485,7 @@ public class AttackBase implements Iconable {
 			j /= 2;
 		if (isEffect(Effects.FIRE) && i == 5)
 			j /= 2;
-		if (Statics.getBukiType(ad.AttackN1) == 1 && body.isType(Types.SWORD_50))
+		if (Statics.getBukiType(ad.attackN1) == 1 && body.isType(Types.SWORD_50))
 			j /= 2;
 		if ((body.itype == 4 || body.itype == 5) && !isEffect(Effects.MIZU_100)) {
 			if (i == 3 && !isEffect(Effects.THUNDER))
@@ -564,9 +564,9 @@ public class AttackBase implements Iconable {
 		if (!body.isAlive())
 			return false;
 		if (isEffect(Effects.NO_ATTACK)) {
-			if (isEffect(Effects.WHITE) && body.color != ba.color)
+			if (isEffect(Effects.REGENE) && body.color != ba.color)
 				return false;
-			if (!isEffect(Effects.WHITE) && body.color == ba.color)
+			if (!isEffect(Effects.REGENE) && body.color == ba.color)
 				return false;
 			if (isPossible(body, Effects.CRITICAL))
 				return true;
@@ -596,7 +596,7 @@ public class AttackBase implements Iconable {
 			return true;
 		int i = getDamage(body);
 		if (i == 0)
-			if (isEffect(Effects.WHITE))
+			if (isEffect(Effects.REGENE))
 				return body.color == ba.color;
 			else
 				return body.color != ba.color;
@@ -666,7 +666,7 @@ public class AttackBase implements Iconable {
 			point1 = new Point(bb.x, bb.y);
 		else
 			point1 = target;
-		switch (ad.AnimeType) {
+		switch (ad.animeType) {
 		default:
 			break;
 
@@ -674,37 +674,37 @@ public class AttackBase implements Iconable {
 		case 5: // '\005'
 		case 6: // '\006'
 			if (!flag)
-				uw.setAnime(ad.AnimeType, ad.AnimeN1, point, point1);
+				uw.setAnime(ad.animeType, ad.animeN1, point, point1);
 			break;
 
 		case 1: // '\001'
 		case 3: // '\003'
 			if (flag)
-				uw.setAnime(ad.AnimeType, ad.AnimeN1, point, point1);
+				uw.setAnime(ad.animeType, ad.animeN1, point, point1);
 			break;
 
 		case 4: // '\004'
 			if (flag)
 				break;
-			if (ad.TargetType == 2)
+			if (ad.targetType == 2)
 				switch (face) {
 				case 0: // '\0'
-					point1.x = Math.max(0, point.x - ad.TargetN1);
+					point1.x = Math.max(0, point.x - ad.targetN1);
 					break;
 
 				case 1: // '\001'
-					point1.x = Math.min(19, point.x + ad.TargetN1);
+					point1.x = Math.min(19, point.x + ad.targetN1);
 					break;
 
 				case 2: // '\002'
-					point1.y = Math.max(0, point.y - ad.TargetN1);
+					point1.y = Math.max(0, point.y - ad.targetN1);
 					break;
 
 				case 3: // '\003'
-					point1.y = Math.min(14, point.y + ad.TargetN1);
+					point1.y = Math.min(14, point.y + ad.targetN1);
 					break;
 				}
-			uw.setAnime(ad.AnimeType, ad.AnimeN1, point, point1);
+			uw.setAnime(ad.animeType, ad.animeN1, point, point1);
 			break;
 		}
 	}

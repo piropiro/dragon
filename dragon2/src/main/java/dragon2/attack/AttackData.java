@@ -20,19 +20,19 @@ public class AttackData implements Serializable {
 	public String sname;
 	public int color;
 	public List<Effects> effect;
-	public int AttackType;
-	public int AttackN1;
-	public int TRType;
-	public int TargetType;
-	public int TargetN1;
-	public int TargetN2;
-	public int RangeType;
-	public int RangeN1;
-	public int RangeN2;
-	public int AnimeType;
-	public int AnimeN1;
-	public int FuelType;
-	public int FuelN1;
+	public int attackType;
+	public int attackN1;
+	public int trType;
+	public int targetType;
+	public int targetN1;
+	public int targetN2;
+	public int rangeType;
+	public int rangeN1;
+	public int rangeN2;
+	public int animeType;
+	public int animeN1;
+	public int fuelType;
+	public int fuelN1;
 
     public String getName() {
         return name;
@@ -67,106 +67,106 @@ public class AttackData implements Serializable {
     }
 
     public int getAttackType() {
-        return AttackType;
+        return attackType;
     }
 
     public void setAttackType(int AttackType) {
-        this.AttackType = AttackType;
+        this.attackType = AttackType;
     }
 
     public int getAttackN1() {
-        return AttackN1;
+        return attackN1;
     }
 
     public void setAttackN1(int AttackN1) {
-        this.AttackN1 = AttackN1;
+        this.attackN1 = AttackN1;
     }
 
-    public int getTRType() {
-        return TRType;
+    public int getTrType() {
+        return trType;
     }
 
-    public void setTRType(int TRType) {
-        this.TRType = TRType;
+    public void setTrType(int TRType) {
+        this.trType = TRType;
     }
 
     public int getTargetType() {
-        return TargetType;
+        return targetType;
     }
 
     public void setTargetType(int TargetType) {
-        this.TargetType = TargetType;
+        this.targetType = TargetType;
     }
 
     public int getTargetN1() {
-        return TargetN1;
+        return targetN1;
     }
 
     public void setTargetN1(int TargetN1) {
-        this.TargetN1 = TargetN1;
+        this.targetN1 = TargetN1;
     }
 
     public int getTargetN2() {
-        return TargetN2;
+        return targetN2;
     }
 
     public void setTargetN2(int TargetN2) {
-        this.TargetN2 = TargetN2;
+        this.targetN2 = TargetN2;
     }
 
     public int getRangeType() {
-        return RangeType;
+        return rangeType;
     }
 
     public void setRangeType(int RangeType) {
-        this.RangeType = RangeType;
+        this.rangeType = RangeType;
     }
 
     public int getRangeN1() {
-        return RangeN1;
+        return rangeN1;
     }
 
     public void setRangeN1(int RangeN1) {
-        this.RangeN1 = RangeN1;
+        this.rangeN1 = RangeN1;
     }
 
     public int getRangeN2() {
-        return RangeN2;
+        return rangeN2;
     }
 
     public void setRangeN2(int RangeN2) {
-        this.RangeN2 = RangeN2;
+        this.rangeN2 = RangeN2;
     }
 
     public int getAnimeType() {
-        return AnimeType;
+        return animeType;
     }
 
     public void setAnimeType(int AnimeType) {
-        this.AnimeType = AnimeType;
+        this.animeType = AnimeType;
     }
 
     public int getAnimeN1() {
-        return AnimeN1;
+        return animeN1;
     }
 
     public void setAnimeN1(int AnimeN1) {
-        this.AnimeN1 = AnimeN1;
+        this.animeN1 = AnimeN1;
     }
 
     public int getFuelType() {
-        return FuelType;
+        return fuelType;
     }
 
     public void setFuelType(int FuelType) {
-        this.FuelType = FuelType;
+        this.fuelType = FuelType;
     }
 
     public int getFuelN1() {
-        return FuelN1;
+        return fuelN1;
     }
 
     public void setFuelN1(int FuelN1) {
-        this.FuelN1 = FuelN1;
+        this.fuelN1 = FuelN1;
     }
 }

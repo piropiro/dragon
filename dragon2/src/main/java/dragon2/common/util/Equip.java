@@ -358,7 +358,7 @@ public class Equip {
 				body.atk[1] = 0;
 		} else {
 			AttackData attackdata = Statics.getAttackData(body.atk[0]);
-			body.atk[0] = attackdata.AttackN1;
+			body.atk[0] = attackdata.attackN1;
 			body.atk[1] = 0;
 		}
 		if (body3 != null) {
