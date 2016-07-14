@@ -19,8 +19,10 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import dragon2.OldAttackData;
+import dragon2.OldAttackData2;
 import dragon2.attack.AttackData;
 import dragon2.common.constant.Effects;
+import dragon2.common.constant.TargetType;
 import mine.io.BeanIO;
 import mine.io.JsonIO;
 import net.arnx.jsonic.JSON;
@@ -73,13 +75,13 @@ public class AttackDataMigration {
 			newData.color = oldData.color;
 			newData.attackType = oldData.AttackType;
 			newData.attackN1 = oldData.AttackN1;
-			newData.trType = oldData.TRType;
-			newData.targetType = oldData.TargetType;
-			newData.targetN1 = oldData.TargetN1;
-			newData.targetN2 = oldData.TargetN2;
-			newData.rangeType = oldData.RangeType;
-			newData.rangeN1 = oldData.RangeN1;
-			newData.rangeN2 = oldData.RangeN2;
+//			newData.trType = oldData.TRType;
+//			newData.targetType = oldData.TargetType;
+//			newData.targetN1 = oldData.TargetN1;
+//			newData.targetN2 = oldData.TargetN2;
+//			newData.rangeType = oldData.RangeType;
+//			newData.rangeN1 = oldData.RangeN1;
+//			newData.rangeN2 = oldData.RangeN2;
 			newData.animeType = oldData.AnimeType;
 			newData.animeN1 = oldData.AnimeN1;
 			newData.fuelType = oldData.FuelType;
@@ -93,6 +95,43 @@ public class AttackDataMigration {
 					newData.effect.add(Effects.convert(i));
 				}
 			}
+			
+			newDatas.add(newData);
+		}
+
+		String json = JSON.encode(newDatas, true);
+
+		FileUtils.write(new File("target/AttackData.json"), json, "UTF-8");
+
+	}
+	
+	@Test
+	public void migrate_003() throws Exception {
+		OldAttackData2[] oldDatas = JsonIO.read("data/waza/AttackData.json", OldAttackData2[].class);
+
+		List<AttackData> newDatas = new ArrayList<>();
+		for (OldAttackData2 oldData : oldDatas) {
+			AttackData newData = new AttackData();
+
+			newData.name = oldData.name;
+			newData.sname = oldData.sname;
+			newData.color = oldData.color;
+			newData.attackType = oldData.attackType;
+			newData.attackN1 = oldData.attackN1;
+			newData.targetType = TargetType.convert(oldData.trType);
+//			newData.trType = oldData.TRType;
+//			newData.targetType = oldData.TargetType;
+//			newData.targetN1 = oldData.TargetN1;
+//			newData.targetN2 = oldData.TargetN2;
+//			newData.rangeType = oldData.RangeType;
+//			newData.rangeN1 = oldData.RangeN1;
+//			newData.rangeN2 = oldData.RangeN2;
+			newData.animeType = oldData.animeType;
+			newData.animeN1 = oldData.animeN1;
+			newData.fuelType = oldData.fuelType;
+			newData.fuelN1 = oldData.fuelN1;
+			newData.effect = oldData.effect;
+			
 			
 			newDatas.add(newData);
 		}

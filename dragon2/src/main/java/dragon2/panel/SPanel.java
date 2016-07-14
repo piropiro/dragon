@@ -324,7 +324,7 @@ public class SPanel extends StatusBase {
 			drawLine(Statics.atype[attackdata.attackType], 0, 0, g);
 		else
 			drawLine(Texts.sp[33], 0, 0, g);
-		drawLine(Statics.trtype[attackdata.trType], 1, 0, g);
+		drawLine(attackdata.getTargetType().getText(), 1, 0, g);
 		Set<Effects> aflag = new HashSet<>(attackdata.getEffect());
 		
 		int j = 0;

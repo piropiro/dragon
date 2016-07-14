@@ -28,9 +28,9 @@ public class AttackBase implements Iconable {
 		bb = null;
 		Targets = null;
 		setECT();
-		setTRType();
-		setRange(ad.rangeType, ad.rangeN1, ad.rangeN2);
-		getAttackUnit(ad.targetType, ad.targetN1);
+		
+		setRange(ad.targetType.getRangeType(), ad.targetType.getRangeN1(), ad.targetType.getRangeN2());
+		getAttackUnit(ad.targetType.getTargetType(), ad.targetType.getTargetN1());
 	}
 
 	public void show() {
@@ -46,94 +46,9 @@ public class AttackBase implements Iconable {
 		Charas = vector;
 	}
 
-	private void setTRType(int i, int j, int k, int l, int i1, int j1) {
-		ad.rangeType = i;
-		ad.rangeN1 = j;
-		ad.rangeN2 = k;
-		ad.targetType = l;
-		ad.targetN1 = i1;
-		ad.targetN2 = j1;
-	}
 
-	private void setTRType() {
-		switch (ad.trType) {
-		case 0: // '\0'
-			setTRType(0, 1, 0, 0, 0, 0);
-			break;
 
-		case 1: // '\001'
-			setTRType(0, 2, 0, 0, 0, 0);
-			break;
 
-		case 2: // '\002'
-			setTRType(0, 3, 0, 0, 0, 0);
-			break;
-
-		case 3: // '\003'
-			setTRType(1, 1, 0, 1, 0, 0);
-			break;
-
-		case 4: // '\004'
-			setTRType(1, 2, 0, 1, 0, 0);
-			break;
-
-		case 5: // '\005'
-			setTRType(1, 3, 0, 1, 0, 0);
-			break;
-
-		case 6: // '\006'
-			setTRType(1, 4, 0, 1, 0, 0);
-			break;
-
-		case 7: // '\007'
-			setTRType(1, 2, 1, 0, 0, 0);
-			break;
-
-		case 8: // '\b'
-			setTRType(1, 3, 1, 0, 0, 0);
-			break;
-
-		case 9: // '\t'
-			setTRType(1, 2, 1, 1, 0, 0);
-			break;
-
-		case 10: // '\n'
-			setTRType(1, 3, 1, 1, 0, 0);
-			break;
-
-		case 11: // '\013'
-			setTRType(3, 2, 0, 2, 2, 0);
-			break;
-
-		case 12: // '\f'
-			setTRType(3, 3, 0, 2, 3, 0);
-			break;
-
-		case 13: // '\r'
-			setTRType(3, 2, 0, 1, 0, 0);
-			break;
-
-		case 14: // '\016'
-			setTRType(3, 3, 0, 1, 0, 0);
-			break;
-
-		case 15: // '\017'
-			setTRType(4, 2, 0, 4, 2, 0);
-			break;
-
-		case 16: // '\020'
-			setTRType(4, 2, 1, 4, 2, 1);
-			break;
-
-		case 17: // '\021'
-			setTRType(2, 1, 0, 1, 0, 0);
-			break;
-
-		case 18: // '\022'
-			setTRType(1, 2, 1, 3, 1, 0);
-			break;
-		}
-	}
 
 	private void setECT() {
 		ECT = new HashSet<>(ad.getEffect());
@@ -211,7 +126,7 @@ public class AttackBase implements Iconable {
 					}
 					if (isPossible(body, Effects.DEATH))
 						k += body.hp;
-					if (ad.targetType == 1)
+					if (ad.targetType.getTargetType() == 1)
 						k *= 2;
 					if (body.color == ba.color)
 						k = -k;
@@ -264,9 +179,9 @@ public class AttackBase implements Iconable {
 
 	public void setTarget(int i, int j) {
 		target = new Point(i, j);
-		int k = ad.targetType;
-		int l = ad.targetN1;
-		int i1 = ad.targetN2;
+		int k = ad.targetType.getTargetType();
+		int l = ad.targetType.getTargetN1();
+		int i1 = ad.targetType.getTargetN2();
 		switch (k) {
 		default:
 			break;
@@ -686,22 +601,22 @@ public class AttackBase implements Iconable {
 		case 4: // '\004'
 			if (flag)
 				break;
-			if (ad.targetType == 2)
+			if (ad.targetType.getTargetType() == 2)
 				switch (face) {
 				case 0: // '\0'
-					point1.x = Math.max(0, point.x - ad.targetN1);
+					point1.x = Math.max(0, point.x - ad.targetType.getTargetN1());
 					break;
 
 				case 1: // '\001'
-					point1.x = Math.min(19, point.x + ad.targetN1);
+					point1.x = Math.min(19, point.x + ad.targetType.getTargetN1());
 					break;
 
 				case 2: // '\002'
-					point1.y = Math.max(0, point.y - ad.targetN1);
+					point1.y = Math.max(0, point.y - ad.targetType.getTargetN1());
 					break;
 
 				case 3: // '\003'
-					point1.y = Math.min(14, point.y + ad.targetN1);
+					point1.y = Math.min(14, point.y + ad.targetType.getTargetN1());
 					break;
 				}
 			uw.setAnime(ad.animeType, ad.animeN1, point, point1);
