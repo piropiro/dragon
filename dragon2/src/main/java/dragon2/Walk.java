@@ -5,6 +5,7 @@ import java.awt.Point;
 import dragon2.common.Body;
 import dragon2.common.constant.Colors;
 import dragon2.common.constant.Kinds;
+import dragon2.common.constant.MoveType;
 import dragon2.common.constant.Texts;
 import dragon2.common.constant.Types;
 import dragon2.paint.PaintBase;
@@ -13,8 +14,8 @@ public class Walk extends ActionBase {
 
 	public Walk(Body body) {
 		ba = body;
-		int i = body.itype;
-		ido = body.ido;
+		MoveType i = body.moveType;
+		ido = body.moveStep;
 		if (body.isType(Types.MOVE_UP_2))
 			ido = ido + 2;
 		if (body.isType(Types.MOVE_UP_1))
@@ -24,53 +25,13 @@ public class Walk extends ActionBase {
 		if (body.isType(Types.OIL))
 			ido = (ido + 1) / 2;
 		if (body.isType(Types.SORA))
-			i = 1;
+			i = MoveType.FLY;
 		if (body.isType(Types.RIKU))
-			i = 2;
+			i = MoveType.HEAVY;
 		if (body.isType(Types.FLY_ABLE))
-			i = 1;
-		int ai[];
-		switch (i) {
-		case 1: // '\001'
-			int ai1[] = { 1, 1, 1, 1, 1, 99, 1, 1, 1, 1, 1 };
-			ai = ai1;
-			break;
-
-		case 2: // '\002'
-			int ai2[] = { 1, 3, 99, 6, 99, 99, 1, 2, 2, 2, 99 };
-			ai = ai2;
-			break;
-
-		case 3: // '\003'
-			int ai3[] = { 1, 1, 99, 3, 99, 99, 1, 2, 2, 2, 99 };
-			ai = ai3;
-			break;
-
-		case 4: // '\004'
-			int ai4[] = { 99, 99, 99, 1, 1, 99, 1, 1, 1, 1, 99 };
-			ai = ai4;
-			break;
-
-		case 5: // '\005'
-			int ai5[] = { 2, 6, 99, 1, 1, 99, 1, 1, 1, 1, 99 };
-			ai = ai5;
-			break;
-
-		case 6: // '\006'
-			int ai6[] = { 1, 1, 99, 1, 1, 99, 1, 1, 1, 1, 99 };
-			ai = ai6;
-			break;
-
-		case 7: // '\007'
-			int ai7[] = { 1, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99 };
-			ai = ai7;
-			break;
-
-		default:
-			int ai8[] = { 1, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9 };
-			ai = ai8;
-			break;
-		}
+			i = MoveType.FLY;
+		int ai[] = i.getSteps().clone();
+		
 		if (body.isType(Types.LITE_WALK)) {
 			ai[0] = 1;
 			ai[1] = 1;
@@ -168,9 +129,9 @@ public class Walk extends ActionBase {
 		if (body.isType(Types.SORA))
 			return 1;
 		if (!body.isType(Types.RIKU) && !body.isType(Types.ANTI_SLEEP)) {
-			if (body.itype == 1)
+			if (body.moveType == MoveType.FLY)
 				return 1;
-			if (body.itype == 6)
+			if (body.moveType == MoveType.HOVER)
 				return 1;
 		}
 		switch (PaintBase.V.G(0, 0, body.x, body.y)) {

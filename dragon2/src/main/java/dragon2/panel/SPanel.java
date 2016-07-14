@@ -430,14 +430,14 @@ public class SPanel extends StatusBase {
 	}
 
 	private void drawAnalyze(Graphics g) {
-		int i = ba.ido;
+		int i = ba.moveStep;
 		if (ba.isType(Types.MOVE_UP_1))
 			i++;
 		if (ba.isType(Types.MOVE_UP_2))
 			i += 2;
 		if (ba.isType(Types.MOVE_DOWN_1))
 			i--;
-		drawLine(Statics.idoType[ba.itype], i, 0, 1, g);
+		drawLine(ba.moveType.getText(), i, 0, 1, g);
 		drawLine(Texts.sp[45], ba.store, 1, 1, g);
 		drawLine(Texts.sp[46], ba.maai, 0, 2, g);
 		drawLine(Texts.sp[47], ba.scope, 1, 2, g);

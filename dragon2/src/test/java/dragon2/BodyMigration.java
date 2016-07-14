@@ -147,8 +147,8 @@ public class BodyMigration {
     		  newBody.hitMax = old.hitMax;
     		  newBody.mis = old.mis;
     		  newBody.misMax = old.misMax;
-    		  newBody.ido = old.ido;
-    		  newBody.itype = old.itype;
+    		  newBody.moveStep = old.ido;
+//    		  newBody.moveType = old.itype;
     		  newBody.color = old.color;
     		  newBody.img = old.img;
     		  newBody.maai = old.maai;

@@ -7,6 +7,7 @@ import java.util.Vector;
 import dragon2.common.Body;
 import dragon2.common.constant.Colors;
 import dragon2.common.constant.Kinds;
+import dragon2.common.constant.MoveType;
 import dragon2.common.constant.Types;
 import dragon2.cpu.EnemyTurn;
 import dragon2.paint.PaintBase;
@@ -122,9 +123,9 @@ public class TurnManager extends ActionBase {
 				return;
 			if (body.isType(Types.SWIM_ABLE))
 				return;
-			if (body.itype == 4)
+			if (body.getMoveType() == MoveType.SWIM)
 				return;
-			if (body.itype == 5)
+			if (body.getMoveType() == MoveType.TWIN)
 				return;
 			body.setTypeState(Types.CLOSE, true);
 			if (body.isType(Types.ANTI_SLEEP))

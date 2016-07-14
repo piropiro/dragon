@@ -60,7 +60,7 @@ public class Kakusei extends ActionBase {
 		kakusei.strMax = sister.strMax * 2 + i;
 		kakusei.mstMax = sister.mstMax + i;
 		kakusei.hitMax = sister.hitMax + i;
-		kakusei.ido = sister.ido * 2;
+		kakusei.moveStep = sister.moveStep * 2;
 		kakusei.setMax();
 		kakusei.newType();
 		kakusei.x = sister.x;

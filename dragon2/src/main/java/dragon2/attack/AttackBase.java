@@ -14,6 +14,7 @@ import dragon2.UnitWorks;
 import dragon2.Walk;
 import dragon2.common.Body;
 import dragon2.common.constant.Effects;
+import dragon2.common.constant.MoveType;
 import dragon2.common.constant.Types;
 import dragon2.common.util.Luck;
 import dragon2.map.Map;
@@ -402,13 +403,13 @@ public class AttackBase implements Iconable {
 			j /= 2;
 		if (Statics.getBukiType(ad.attackN1) == 1 && body.isType(Types.SWORD_50))
 			j /= 2;
-		if ((body.itype == 4 || body.itype == 5) && !isEffect(Effects.MIZU_100)) {
+		if ((body.moveType == MoveType.SWIM || body.moveType == MoveType.TWIN) && !isEffect(Effects.MIZU_100)) {
 			if (i == 3 && !isEffect(Effects.THUNDER))
 				j /= 2;
 			if (i == 4 && !isEffect(Effects.FIRE))
 				j /= 2;
 		}
-		if (ba.itype == 4 || ba.itype == 5) {
+		if (body.moveType == MoveType.SWIM || body.moveType == MoveType.TWIN) {
 			if (Walk.getTikei(ba) == 1)
 				j /= 2;
 			if (Walk.getTikei(ba) == 2)

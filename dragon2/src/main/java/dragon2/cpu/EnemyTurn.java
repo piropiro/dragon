@@ -225,7 +225,7 @@ public class EnemyTurn extends ActionBase {
 
 		}
 
-		int j3 = ba.ido;
+		int j3 = ba.moveStep;
 		if (ba.isType(Types.OIL))
 			j3 /= 2;
 		if (i2 <= j3 + 1)
