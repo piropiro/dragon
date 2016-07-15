@@ -127,39 +127,28 @@ public class Walk extends ActionBase {
 
 	public static int getTikei(Body body) {
 		if (body.isType(Types.SORA))
-			return 1;
-		if (!body.isType(Types.RIKU) && !body.isType(Types.ANTI_SLEEP)) {
-			if (body.moveType == MoveType.FLY)
-				return 1;
-			if (body.moveType == MoveType.HOVER)
-				return 1;
+			return T_SKY;
+		if (!body.isType(Types.RIKU) && !body.isType(Types.SLEEP)) {
+			if (body.getMoveType() == MoveType.FLY)
+				return T_SKY;
+			if (body.getMoveType() == MoveType.HOVER)
+				return T_SKY;
 		}
 		switch (PaintBase.V.G(0, 0, body.x, body.y)) {
-		case 6: // '\006'
-			return 5;
-
-		case 3: // '\003'
-		case 4: // '\004'
-			return 3;
-
-		case 7: // '\007'
-		case 8: // '\b'
-		case 9: // '\t'
-			return 4;
-
-		case 5: // '\005'
-		default:
-			return 2;
+		case ICE :
+			return T_ICE;
+		case AQUA :
+		case BLUE :
+			return T_SEA;
+		case POISONP :
+		case OILP :
+		case FIREP :
+			return T_POOL;
+		default :
+			return T_LAND;
 		}
 	}
 
-	static final int SKY = 1;
-	static final int WALK = 2;
-	static final int RUN = 3;
-	static final int SWIM = 4;
-	static final int TWIN = 5;
-	static final int FLY = 6;
-	static final int OLD = 7;
 	static final int WHITE = 0;
 	static final int YELLOW = 1;
 	static final int GREEN = 2;
