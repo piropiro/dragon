@@ -1,17 +1,16 @@
-package dragon2.attack;
+package dragon2;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 import dragon2.common.constant.Effects;
-import dragon2.common.constant.TargetType;
 
-public class AttackData implements Serializable {
+public class OldAttackData2 implements Serializable {
 
         public static final long serialVersionUID = -7934201877652688018L;
         
-	public AttackData() {
+	public OldAttackData2() {
 		name = "none";
 		sname = "none";
 		effect = new ArrayList<>();
@@ -23,7 +22,13 @@ public class AttackData implements Serializable {
 	public List<Effects> effect;
 	public int attackType;
 	public int attackN1;
-	public TargetType targetType;
+	public int trType;
+	public int targetType;
+	public int targetN1;
+	public int targetN2;
+	public int rangeType;
+	public int rangeN1;
+	public int rangeN2;
 	public int animeType;
 	public int animeN1;
 	public int fuelType;
@@ -77,14 +82,61 @@ public class AttackData implements Serializable {
         this.attackN1 = AttackN1;
     }
 
-    public TargetType getTargetType() {
+    public int getTrType() {
+        return trType;
+    }
+
+    public void setTrType(int TRType) {
+        this.trType = TRType;
+    }
+
+    public int getTargetType() {
         return targetType;
     }
 
-    public void setTargetType(TargetType targetType) {
-        this.targetType = targetType;
+    public void setTargetType(int TargetType) {
+        this.targetType = TargetType;
     }
 
+    public int getTargetN1() {
+        return targetN1;
+    }
+
+    public void setTargetN1(int TargetN1) {
+        this.targetN1 = TargetN1;
+    }
+
+    public int getTargetN2() {
+        return targetN2;
+    }
+
+    public void setTargetN2(int TargetN2) {
+        this.targetN2 = TargetN2;
+    }
+
+    public int getRangeType() {
+        return rangeType;
+    }
+
+    public void setRangeType(int RangeType) {
+        this.rangeType = RangeType;
+    }
+
+    public int getRangeN1() {
+        return rangeN1;
+    }
+
+    public void setRangeN1(int RangeN1) {
+        this.rangeN1 = RangeN1;
+    }
+
+    public int getRangeN2() {
+        return rangeN2;
+    }
+
+    public void setRangeN2(int RangeN2) {
+        this.rangeN2 = RangeN2;
+    }
 
     public int getAnimeType() {
         return animeType;

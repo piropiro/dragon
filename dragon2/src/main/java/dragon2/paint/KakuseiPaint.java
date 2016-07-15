@@ -1,17 +1,9 @@
 package dragon2.paint;
-// Decompiled by Jad v1.5.8g. Copyright 2001 Pavel Kouznetsov.
-// Jad home page: http://www.kpdus.com/jad.html
-// Decompiler options: packimports(3) 
-// Source File Name:   KakuseiPaint.java
 
 import java.awt.Point;
-import java.util.Vector;
 
 import dragon2.ActionBase;
 import dragon2.common.Body;
-import mine.DataStream;
-import mine.UnitMap;
-import mine.io.BeanIO;
 import mine.io.JsonIO;
 
 public class KakuseiPaint extends ActionBase {
@@ -46,7 +38,7 @@ public class KakuseiPaint extends ActionBase {
 		kakusei.mstMax = sister.mstMax + i;
 		kakusei.hitMax = sister.hitMax + i;
 		kakusei.setMax();
-		kakusei.newType(100);
+		kakusei.newType();
 		kakusei.x = sister.x;
 		kakusei.y = sister.y;
 		kakusei.gx = sister.gx;

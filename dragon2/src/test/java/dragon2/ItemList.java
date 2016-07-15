@@ -26,12 +26,12 @@ public class ItemList {
 			if (vector2 != null) {
 				for (int j = 0; j < vector2.size(); j++) {
 					Body body = (Body) vector2.elementAt(j);
-					switch (body.type[0]) {
-					case 1: // '\001'
-					case 2: // '\002'
-					case 3: // '\003'
-					case 4: // '\004'
-					case 39: // '\''
+					switch (body.kind) {
+					case CLASS: // '\001'
+					case WEPON: // '\002'
+					case ARMOR: // '\003'
+					case ITEM: // '\004'
+					case DOLL: // '\''
 						add(vector, body);
 						break;
 

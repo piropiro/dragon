@@ -1,8 +1,4 @@
 package dragon2.panel;
-// Decompiled by Jad v1.5.8g. Copyright 2001 Pavel Kouznetsov.
-// Jad home page: http://www.kpdus.com/jad.html
-// Decompiler options: packimports(3) 
-// Source File Name:   StatusBase.java
 
 import java.awt.*;
 
@@ -10,9 +6,11 @@ import dragon2.Statics;
 import dragon2.UnitWorks;
 import dragon2.common.Body;
 import dragon2.common.constant.Texts;
+import dragon2.common.constant.Types;
 import mine.JCanvas;
 import mine.Mine;
 
+@SuppressWarnings("serial")
 public abstract class StatusBase extends JCanvas {
 
 	public StatusBase(int i, int j, boolean flag) {
@@ -64,9 +62,9 @@ public abstract class StatusBase extends JCanvas {
 		drawImage(Statics.chara, body.img, 10, 10, g);
 		g.drawString(body.name, 50, 22);
 		g.drawString("Lv." + body.level, 52, 41);
-		String s = body.isType(53) ? "R" : "";
-		String s1 = body.isType(54) ? "G" : "";
-		String s2 = body.isType(55) ? "B" : "";
+		String s = body.isType(Types.M_RED) ? "R" : "";
+		String s1 = body.isType(Types.M_GREEN) ? "G" : "";
+		String s2 = body.isType(Types.M_BLUE) ? "B" : "";
 		g.drawString(s + s1 + s2, 112, 41);
 		if (flag) {
 			drawLine(Texts.hp, 0, 0, g);

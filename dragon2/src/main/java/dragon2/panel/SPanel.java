@@ -1,11 +1,9 @@
 package dragon2.panel;
-// Decompiled by Jad v1.5.8g. Copyright 2001 Pavel Kouznetsov.
-// Jad home page: http://www.kpdus.com/jad.html
-// Decompiler options: packimports(3) 
-// Source File Name:   SPanel.java
 
 import java.awt.Graphics;
 import java.awt.Point;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.StringTokenizer;
 
 import dragon2.Iconable;
@@ -14,9 +12,13 @@ import dragon2.Statics;
 import dragon2.UnitWorks;
 import dragon2.attack.AttackData;
 import dragon2.common.Body;
+import dragon2.common.constant.Effects;
+import dragon2.common.constant.Kinds;
 import dragon2.common.constant.Texts;
+import dragon2.common.constant.Types;
 import dragon2.common.util.Rank;
 
+@SuppressWarnings("serial")
 public class SPanel extends StatusBase {
 
 	public SPanel(UnitWorks unitworks, SaveManager savemanager, boolean flag) {
@@ -69,7 +71,7 @@ public class SPanel extends StatusBase {
 			setVisible(false);
 			return;
 		}
-		if (body.isType(52))
+		if (body.kind == Kinds.WAZA )
 			i = 12;
 		else if (i == 3)
 			switch (type) {
@@ -318,23 +320,21 @@ public class SPanel extends StatusBase {
 				22);
 		g.drawString("No." + ba.level, 52, 41);
 		AttackData attackdata = Statics.getAttackData(ba.atk[0]);
-		if (attackdata.AttackType != 0)
-			drawLine(Statics.atype[attackdata.AttackType], 0, 0, g);
+		if (attackdata.attackType != 0)
+			drawLine(Statics.atype[attackdata.attackType], 0, 0, g);
 		else
 			drawLine(Texts.sp[33], 0, 0, g);
-		drawLine(Statics.trtype[attackdata.TRType], 1, 0, g);
-		boolean aflag[] = new boolean[40];
-		for (int i = 0; i < attackdata.effect.length; i++)
-			aflag[attackdata.effect[i]] = true;
-
+		drawLine(attackdata.getTargetType().getText(), 1, 0, g);
+		Set<Effects> aflag = new HashSet<>(attackdata.getEffect());
+		
 		int j = 0;
-		if (aflag[25])
+		if (aflag.contains(Effects.MISS_4))
 			j -= 4;
-		if (aflag[24])
+		if (aflag.contains(Effects.HIT_4))
 			j += 4;
-		if (aflag[37])
+		if (aflag.contains(Effects.HIT_12))
 			j += 12;
-		if (aflag[3])
+		if (aflag.contains(Effects.HICHU))
 			j = 32;
 		switch (j) {
 		case -4:
@@ -357,7 +357,7 @@ public class SPanel extends StatusBase {
 			drawLine(Texts.sp[38], 0, 1, g);
 			break;
 		}
-		switch (attackdata.FuelType) {
+		switch (attackdata.fuelType) {
 		case 1: // '\001'
 			drawLine(Texts.sp[39], 1, 1, g);
 			break;
@@ -383,58 +383,61 @@ public class SPanel extends StatusBase {
 			break;
 		}
 		n = 4;
-		drawWazaEffect(g, aflag, 31);
-		drawWazaEffect(g, aflag, 1);
-		drawWazaEffect(g, aflag, 2);
-		drawWazaEffect(g, aflag, 4);
-		drawWazaEffect(g, aflag, 12);
-		drawWazaEffect(g, aflag, 29);
-		drawWazaEffect(g, aflag, 34);
-		drawWazaEffect(g, aflag, 30);
-		drawWazaEffect(g, aflag, 36);
-		drawWazaEffect(g, aflag, 35);
-		drawWazaEffect(g, aflag, 7);
-		drawWazaEffect(g, aflag, 8);
-		drawWazaEffect(g, aflag, 9);
-		drawWazaEffect(g, aflag, 10);
-		drawWazaEffect(g, aflag, 11);
-		drawWazaEffect(g, aflag, 32);
-		drawWazaEffect(g, aflag, 26);
-		drawWazaEffect(g, aflag, 27);
-		drawWazaEffect(g, aflag, 14);
-		drawWazaEffect(g, aflag, 15);
-		drawWazaEffect(g, aflag, 16);
-		drawWazaEffect(g, aflag, 17);
-		drawWazaEffect(g, aflag, 18);
-		drawWazaEffect(g, aflag, 19);
-		drawWazaEffect(g, aflag, 20);
-		drawWazaEffect(g, aflag, 21);
-		drawWazaEffect(g, aflag, 23);
-		drawWazaEffect(g, aflag, 28);
-		drawWazaEffect(g, aflag, 33);
+		drawWazaEffect(g, aflag, Effects.DAMAGE_150);
+		drawWazaEffect(g, aflag, Effects.DAMAGE_200);
+		drawWazaEffect(g, aflag, Effects.DAMAGE_300);
+		drawWazaEffect(g, aflag, Effects.TAME);
+		drawWazaEffect(g, aflag, Effects.COUNTER_ONLY);
+
+		drawWazaEffect(g, aflag, Effects.RIKU_0);
+		drawWazaEffect(g, aflag, Effects.RIKU_150);
+		drawWazaEffect(g, aflag, Effects.MIZU_0);
+		drawWazaEffect(g, aflag, Effects.MIZU_100);
+		drawWazaEffect(g, aflag, Effects.MIZU_200);
+
+		drawWazaEffect(g, aflag, Effects.FIRE);
+		drawWazaEffect(g, aflag, Effects.ICE);
+		drawWazaEffect(g, aflag, Effects.THUNDER);
+		drawWazaEffect(g, aflag, Effects.SORA_200);
+		drawWazaEffect(g, aflag, Effects.DRAGON_200);
+		drawWazaEffect(g, aflag, Effects.UNDEAD_200);
+
+		drawWazaEffect(g, aflag, Effects.UPPER);
+		drawWazaEffect(g, aflag, Effects.CHOP);
+		drawWazaEffect(g, aflag, Effects.CRITICAL);
+		drawWazaEffect(g, aflag, Effects.DEATH);
+		drawWazaEffect(g, aflag, Effects.SLEEP);
+		drawWazaEffect(g, aflag, Effects.POISON);
+		drawWazaEffect(g, aflag, Effects.WET);
+		drawWazaEffect(g, aflag, Effects.CHARM);
+		drawWazaEffect(g, aflag, Effects.ATTACK_UP);
+		drawWazaEffect(g, aflag, Effects.GUARD_UP);
+		drawWazaEffect(g, aflag, Effects.REFRESH);
+		drawWazaEffect(g, aflag, Effects.HEAL);
+		drawWazaEffect(g, aflag, Effects.OIL);
 	}
 
-	private boolean drawWazaEffect(Graphics g, boolean aflag[], int i) {
+	private boolean drawWazaEffect(Graphics g, Set<Effects> aflag, Effects i) {
 		if (n == 8)
 			return false;
-		if (!aflag[i]) {
+		if (!aflag.contains(i)) {
 			return false;
 		} else {
-			drawLine(Statics.effect[i], n % 2, n / 2, g);
+			drawLine(i.getText(), n % 2, n / 2, g);
 			n++;
 			return true;
 		}
 	}
 
 	private void drawAnalyze(Graphics g) {
-		int i = ba.ido;
-		if (ba.isType(48))
+		int i = ba.moveStep;
+		if (ba.isType(Types.MOVE_UP_1))
 			i++;
-		if (ba.isType(49))
+		if (ba.isType(Types.MOVE_UP_2))
 			i += 2;
-		if (ba.isType(56))
+		if (ba.isType(Types.MOVE_DOWN_1))
 			i--;
-		drawLine(Statics.idoType[ba.itype], i, 0, 1, g);
+		drawLine(ba.moveType.getText(), i, 0, 1, g);
 		drawLine(Texts.sp[45], ba.store, 1, 1, g);
 		drawLine(Texts.sp[46], ba.maai, 0, 2, g);
 		drawLine(Texts.sp[47], ba.scope, 1, 2, g);
@@ -459,55 +462,55 @@ public class SPanel extends StatusBase {
 	private void drawTypeList(Graphics g) {
 		drawMain(uw, ba, g, false);
 		n = 0;
-		drawType(g, 44);
-		drawType(g, 42);
-		drawType(g, 5);
-		drawType(g, 34);
-		drawType(g, 40);
-		drawType(g, 41);
-		drawType(g, 43);
-		drawType(g, 45);
-		drawType(g, 6, 7, 8);
-		drawType(g, 9, 10, 11);
-		drawType(g, 12, 13, 14);
-		if (drawType(g, 17))
+		drawType(g, Types.BADITEM);
+		drawType(g, Types.MASTER);
+		drawType(g, Types.DRAGON);
+		drawType(g, Types.UNDEAD);
+		drawType(g, Types.DRAGON_KILLER);
+		drawType(g, Types.UNDEAD_KILLER);
+		drawType(g, Types.SWORD_50);
+		drawType(g, Types.MAGIC_50);
+		drawType(g, Types.FIRE_200, Types.FIRE_50, Types.FIRE_0);
+		drawType(g, Types.ICE_200, Types.ICE_50, Types.ICE_0);
+		drawType(g, Types.THUNDER_200, Types.THUNDER_50, Types.THUNDER_0);
+		if (drawType(g, Types.ANTI_ALL))
 			return;
-		if (!drawType(g, 20)) {
-			drawType(g, 18);
-			drawType(g, 19);
+		if (!drawType(g, Types.NKILL)) {
+			drawType(g, Types.ANTI_CRITICAL);
+			drawType(g, Types.ANTI_DEATH);
 		}
-		drawType(g, 22);
-		drawType(g, 24);
-		drawType(g, 28);
-		drawType(g, 23);
-		drawType(g, 29);
-		drawType(g, 46);
-		drawType(g, 47);
-		drawType(g, 57);
+		drawType(g, Types.ANTI_SLEEP);
+		drawType(g, Types.ANTI_POISON);
+		drawType(g, Types.ANTI_CHARM);
+		drawType(g, Types.POISON);
+		drawType(g, Types.HEAL);
+		drawType(g, Types.FLY_ABLE);
+		drawType(g, Types.SWIM_ABLE);
+		drawType(g, Types.LITE_WALK);
 		int i = 0;
-		if (ba.isType(48))
+		if (ba.isType(Types.MOVE_UP_1))
 			i++;
-		if (ba.isType(49))
+		if (ba.isType(Types.MOVE_UP_2))
 			i += 2;
-		if (ba.isType(56))
+		if (ba.isType(Types.MOVE_DOWN_1))
 			i--;
 		switch (i) {
 		case -1:
-			drawType(g, 56);
+			drawType(g, Types.MOVE_DOWN_1);
 			break;
 
 		case 1: // '\001'
-			drawType(g, 48);
+			drawType(g, Types.MOVE_UP_1);
 			break;
 
 		case 2: // '\002'
-			drawType(g, 49);
+			drawType(g, Types.MOVE_UP_2);
 			break;
 		}
-		drawType(g, 35);
+		drawType(g, Types.S_LOCK);
 	}
 
-	private boolean drawType(Graphics g, int i, int j, int k) {
+	private boolean drawType(Graphics g, Types i, Types j, Types k) {
 		if (drawType(g, k))
 			return true;
 		if (ba.isType(i) && ba.isType(j)) {
@@ -519,13 +522,13 @@ public class SPanel extends StatusBase {
 		}
 	}
 
-	private boolean drawType(Graphics g, int i) {
+	private boolean drawType(Graphics g, Types type) {
 		if (n == 8)
 			return false;
-		if (!ba.isType(i)) {
+		if (!ba.isType(type)) {
 			return false;
 		} else {
-			drawLine(Statics.tokusei[i], n / 4, n % 4, g);
+			drawLine(type.getText(), n / 4, n % 4, g);
 			n++;
 			return true;
 		}
@@ -544,7 +547,7 @@ public class SPanel extends StatusBase {
 		if (atkb == null)
 			return;
 		drawLine(atkb.getName(), 0, 1, g);
-		if (atkb.isEffect(22)) {
+		if (atkb.isEffect(Effects.NO_ATTACK)) {
 			drawEffect(g);
 		} else {
 			drawLine(Texts.sp[55], Math.abs(atkb.getDamage()), 0, 2, g);
@@ -559,37 +562,37 @@ public class SPanel extends StatusBase {
 
 	private void drawEffect(Graphics g) {
 		String s = "NO EFFECT";
-		if (atkb.isPossible(23))
+		if (atkb.isPossible(Effects.REFRESH))
 			s = "REFRESH";
-		if (atkb.isPossible(33))
+		if (atkb.isPossible(Effects.OIL))
 			s = "OIL";
-		if (atkb.isPossible(20))
+		if (atkb.isPossible(Effects.ATTACK_UP))
 			s = "ATTACK";
-		if (atkb.isPossible(21))
+		if (atkb.isPossible(Effects.ATTACK_UP))
 			s = "GUARD";
-		if (atkb.isPossible(26))
+		if (atkb.isPossible(Effects.UPPER))
 			s = "UP";
-		if (atkb.isPossible(27))
+		if (atkb.isPossible(Effects.CHOP))
 			s = "DOWN";
-		if (atkb.isPossible(18))
+		if (atkb.isPossible(Effects.WET))
 			s = "CLOSE";
-		if (atkb.isPossible(17))
+		if (atkb.isPossible(Effects.POISON))
 			s = "POISON";
-		if (atkb.isPossible(16))
+		if (atkb.isPossible(Effects.SLEEP))
 			s = "SLEEP";
-		if (atkb.isPossible(19))
+		if (atkb.isPossible(Effects.CHARM))
 			s = "CHARM";
-		if (atkb.isPossible(14))
+		if (atkb.isPossible(Effects.CRITICAL))
 			s = "FINISH";
-		if (atkb.isPossible(15))
+		if (atkb.isPossible(Effects.DEATH))
 			s = "DEATH";
-		if ((s.equals("SLEEP") || s.equals("CHARM")) && bb.isType(35))
+		if ((s.equals("SLEEP") || s.equals("CHARM")) && bb.isType(Types.S_LOCK))
 			s = "LOCK";
 		drawLine(Texts.sp[59] + s, 0, 2, g);
 	}
 
 	private void drawCounter(Graphics g) {
-		if (ba.isType(21))
+		if (ba.isType(Types.ANTI_SLEEP))
 			drawLine("  SLEEPING...", 0, 2, g);
 	}
 

@@ -11,6 +11,7 @@ import java.util.List;
 import dragon2.anime.AnimeData;
 import dragon2.attack.AttackData;
 import dragon2.common.Body;
+import dragon2.common.constant.Kinds;
 import mine.ImageLoader;
 import mine.Mine;
 import mine.io.JsonIO;
@@ -60,15 +61,15 @@ public class Statics {
 	public static Body getWaza(int i) {
 		AttackData attackdata = getAttackData(i);
 		Body body = new Body();
-		body.img = attackdata.AttackN1 + 169;
+		body.img = attackdata.attackN1 + 169;
 		body.name = attackdata.name;
 		body.level = i;
 		body.hpMax = 1;
 		body.color = 2;
 		body.atk[0] = i;
-		body.type[0] = 52;
+		body.kind = Kinds.WAZA;
 		body.setMax();
-		body.newType(100);
+		body.newType();
 		return body;
 	}
 

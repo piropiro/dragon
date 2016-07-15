@@ -15,6 +15,8 @@ import dragon2.Walk;
 import dragon2.attack.FightManager;
 import dragon2.common.Body;
 import dragon2.common.constant.Colors;
+import dragon2.common.constant.Kinds;
+import dragon2.common.constant.Types;
 import dragon2.paint.PaintBase;
 import mine.UnitMap;
 
@@ -46,9 +48,9 @@ public class EnemyTurn extends ActionBase {
 				.hasNext();) {
 			ba = (Body) iterator.next();
 			if (ba.isAlive()
-					&& !ba.isType(21)
-					&& (ba.isType(39) && ba.isType(58) || (Colors.isPlayer(ba) ? ba
-							.isType(27) : !ba.isType(27)))) {
+					&& !ba.isType(Types.ANTI_SLEEP)
+					&& (ba.kind == Kinds.DOLL && ba.isType(Types.BERSERK) || (Colors.isPlayer(ba) ? ba
+							.isType(Types.CHARM) : !ba.isType(Types.CHARM)))) {
 				move();
 				if (PaintBase.uw.endJudge(ba))
 					return;
@@ -136,7 +138,7 @@ public class EnemyTurn extends ActionBase {
 			Body body = (Body) iterator.next();
 			if (body.isAlive()
 					&& body != ba
-					&& (ba.isType(27) ? body.color == ba.color
+					&& (ba.isType(Types.CHARM) ? body.color == ba.color
 							: body.color != ba.color))
 				PaintBase.V.fillDia(1, 1, body.x, body.y, ba.scope - 1, 2);
 		}
@@ -146,7 +148,7 @@ public class EnemyTurn extends ActionBase {
 			Body body1 = (Body) iterator1.next();
 			if (body1.isAlive()
 					&& body1 != ba
-					&& (ba.isType(27) ? body1.color == ba.color
+					&& (ba.isType(Types.CHARM) ? body1.color == ba.color
 							: body1.color != ba.color))
 				PaintBase.V.drawDia(1, 1, body1.x, body1.y, ba.scope, 3);
 		}
@@ -156,7 +158,7 @@ public class EnemyTurn extends ActionBase {
 			Body body2 = (Body) iterator2.next();
 			if (body2.isAlive()
 					&& body2 != ba
-					&& (ba.isType(27) ? body2.color != ba.color
+					&& (ba.isType(Types.CHARM) ? body2.color != ba.color
 							: body2.color == ba.color)
 					&& PaintBase.V.G(1, 1, body2.x, body2.y) != 0)
 				PaintBase.V.S(1, 1, body2.x, body2.y, 1);
@@ -223,8 +225,8 @@ public class EnemyTurn extends ActionBase {
 
 		}
 
-		int j3 = ba.ido;
-		if (ba.isType(26))
+		int j3 = ba.moveStep;
+		if (ba.isType(Types.OIL))
 			j3 /= 2;
 		if (i2 <= j3 + 1)
 			PaintBase.V.J(0, k1, l1, 100);

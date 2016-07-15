@@ -11,6 +11,7 @@ import dragon2.Rewalk;
 import dragon2.card.CardPaint;
 import dragon2.common.Body;
 import dragon2.common.constant.Texts;
+import dragon2.common.constant.Types;
 
 public class TalkPaint extends ActionBase {
 
@@ -55,16 +56,16 @@ public class TalkPaint extends ActionBase {
 			return null;
 		if (body.color == ba.color)
 			return null;
-		if (body.isType(21))
+		if (body.isType(Types.ANTI_SLEEP))
 			return null;
 		if (ba.level != 0 && body.level > ba.level)
 			return null;
 		if (PaintBase.uw.have(body))
 			return null;
-		if (ba.isType(42))
+		if (ba.isType(Types.MASTER))
 			return body;
-		if ((ba.isType(16) || ba.isType(15))
-				&& (body.isType(16) || body.isType(15)))
+		if ((ba.isType(Types.ASK) || ba.isType(Types.TALKABLE))
+				&& (body.isType(Types.ASK) || body.isType(Types.TALKABLE)))
 			return body;
 		else
 			return null;

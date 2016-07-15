@@ -1,8 +1,4 @@
 package dragon2.common.util;
-// Decompiled by Jad v1.5.8g. Copyright 2001 Pavel Kouznetsov.
-// Jad home page: http://www.kpdus.com/jad.html
-// Decompiler options: packimports(3) 
-// Source File Name:   Equip.java
 
 import java.util.Iterator;
 import java.util.List;
@@ -13,6 +9,7 @@ import dragon2.UnitWorks;
 import dragon2.attack.AttackData;
 import dragon2.common.Body;
 import dragon2.common.constant.Colors;
+import dragon2.common.constant.Kinds;
 import dragon2.common.constant.Texts;
 
 public class Equip {
@@ -65,7 +62,7 @@ public class Equip {
 				i += (i * (body1.level - body.level)) / 2;
 		body.exp += i;
 		body1.exp = 0;
-		if (body.isType(39)) {
+		if (body.kind == Kinds.DOLL) {
 			for (int j = 2; j <= 11; j++) {
 				Body body2 = searchItem(body.gx + j, body.gy);
 				if (body2 != null)
@@ -270,8 +267,8 @@ public class Equip {
 
 	public void equip(Body body) {
 		body.setMax();
-		body.newType(100);
-		if (body.isType(39)) {
+		body.newType();
+		if (body.kind == Kinds.DOLL) {
 			equipDoll(body);
 			return;
 		}
@@ -361,7 +358,7 @@ public class Equip {
 				body.atk[1] = 0;
 		} else {
 			AttackData attackdata = Statics.getAttackData(body.atk[0]);
-			body.atk[0] = attackdata.AttackN1;
+			body.atk[0] = attackdata.attackN1;
 			body.atk[1] = 0;
 		}
 		if (body3 != null) {

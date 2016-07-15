@@ -40,21 +40,21 @@ public class Sort {
 
 	private static int getScore(Body body) {
 		int i = 0;
-		switch (body.type[0]) {
-		case 52: // '4'
+		switch (body.kind) {
+		case WAZA: // '4'
 			return -body.level - body.img * 100;
 
-		case 2: // '\002'
+		case WEPON: // '\002'
 			i = 0x2faf080;
 			AttackData attackdata = Statics.getAttackData(body.atk[0]);
-			i -= attackdata.AttackN1 * 0xf4240;
+			i -= attackdata.attackN1 * 0xf4240;
 			break;
 
-		case 3: // '\003'
+		case ARMOR: // '\003'
 			i = 0x2625a00;
 			break;
 
-		case 4: // '\004'
+		case ITEM: // '\004'
 			i = 0x1c9c380;
 			switch (body.img) {
 			case 59: // ';'
@@ -71,13 +71,13 @@ public class Sort {
 			}
 			break;
 
-		case 1: // '\001'
+		case CLASS: // '\001'
 			i = 0x3938700;
 			AttackData attackdata1 = Statics.getAttackData(body.atk[0]);
-			i -= attackdata1.AttackN1 * 0xf4240;
+			i -= attackdata1.attackN1 * 0xf4240;
 			break;
 
-		case 39: // '\''
+		case DOLL: // '\''
 			i = 0x42c1d80;
 			break;
 

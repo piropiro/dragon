@@ -15,7 +15,9 @@ import dragon2.Treasure;
 import dragon2.attack.AttackData;
 import dragon2.common.Body;
 import dragon2.common.constant.Colors;
+import dragon2.common.constant.Kinds;
 import dragon2.common.constant.Texts;
+import dragon2.common.constant.Types;
 import dragon2.common.util.Equip;
 import dragon2.paint.PaintBase;
 
@@ -44,15 +46,15 @@ public class Camp extends PaintBase {
 				as = Texts.help[4];
 			}
 		} else {
-			switch (ba.type[0]) {
-			case 1: // '\001'
-			case 2: // '\002'
-			case 3: // '\003'
-			case 4: // '\004'
+			switch (ba.kind) {
+			case CLASS: // '\001'
+			case WEPON: // '\002'
+			case ARMOR: // '\003'
+			case ITEM: // '\004'
 				as = Texts.help[5];
 				break;
 
-			case 39: // '\''
+			case DOLL: // '\''
 				as = Texts.help[6];
 				break;
 
@@ -94,7 +96,7 @@ public class Camp extends PaintBase {
 	private void setEquip() {
 		for (Body body : equips) {
 			body.setMax();
-			body.newType(100);
+			body.newType();
 			if (Colors.isPlayer(body)) {
 				body.x = body.gx;
 				body.y = body.gy;
@@ -133,7 +135,7 @@ public class Camp extends PaintBase {
 	public void removeDust() {
 		for (int i = equips.size() - 1; i >= 0; i--) {
 			Body body = equips.get(i);
-			if (body.isType(52) || PaintBase.V.G(1, 0, body.x, body.y) == 3) {
+			if (body.kind == Kinds.WAZA || PaintBase.V.G(1, 0, body.x, body.y) == 3) {
 				equips.remove(body);
 				PaintBase.V.S(2, 0, body.x, body.y, 0);
 				PaintBase.map.ppaint(body.x, body.y);
@@ -148,7 +150,7 @@ public class Camp extends PaintBase {
 		for (int i = equips.size() - 1; i >= 0; i--) {
 			Body body = equips.get(i);
 			if (body.y != 0 && body.y != 14 && body.x >= 14) {
-				if (body.isType(52))
+				if (body.kind == Kinds.WAZA)
 					vector1.add(body);
 				else
 					vector.add(body);
@@ -189,7 +191,7 @@ public class Camp extends PaintBase {
 
 	private void backChara() {
 		for (int i = 1; i < 15; i++) {
-			int j = ba.isType(52) ? 14 - i : i;
+			int j = ba.kind == Kinds.WAZA ? 14 - i : i;
 			for (int k = 14; k < 20; k++)
 				if (PaintBase.V.G(2, 0, k, j) == 0) {
 					moveChara(k, j);
@@ -236,8 +238,8 @@ public class Camp extends PaintBase {
 	private void putChara2(int i, int j) {
 		if (equip.search(i, j) != null)
 			return;
-		switch (ba.type[0]) {
-		case 1: // '\001'
+		switch (ba.kind) {
+		case CLASS: // '\001'
 			if (i == 2 || i == 9) {
 				Body body = charaCheck(i - 1, j);
 				if (body == null)
@@ -258,11 +260,11 @@ public class Camp extends PaintBase {
 			}
 			break;
 
-		case 39: // '\''
-		case 52: // '4'
+		case DOLL: // '\''
+		case WAZA: // '4'
 			break;
 
-		case 2: // '\002'
+		case WEPON: // '\002'
 			if (i != 3 && i != 10)
 				break;
 			Body body1 = charaCheck(i - 2, j);
@@ -277,7 +279,7 @@ public class Camp extends PaintBase {
 				return;
 			}
 
-		case 3: // '\003'
+		case ARMOR: // '\003'
 			if (i != 4 && i != 11)
 				break;
 			Body body2 = charaCheck(i - 3, j);
@@ -290,7 +292,7 @@ public class Camp extends PaintBase {
 				return;
 			}
 
-		case 4: // '\004'
+		case ITEM: // '\004'
 			if (i != 5 && i != 12)
 				break;
 			Body body3 = charaCheck(i - 4, j);
@@ -322,28 +324,28 @@ public class Camp extends PaintBase {
 
 	private void alarm(Body body) {
 		String s = null;
-		switch (body.type[0]) {
-		case 1: // '\001'
+		switch (body.kind) {
+		case CLASS: // '\001'
 			s = Texts.shokugyo;
 			break;
 
-		case 2: // '\002'
+		case WEPON: // '\002'
 			s = Texts.buki;
 			break;
 
-		case 3: // '\003'
+		case ARMOR: // '\003'
 			s = Texts.bougu;
 			break;
 
-		case 4: // '\004'
+		case ITEM: // '\004'
 			s = Texts.komono;
 			break;
 
-		case 39: // '\''
+		case DOLL: // '\''
 			s = Texts.ningyo;
 			break;
 
-		case 52: // '4'
+		case WAZA: // '4'
 			s = Texts.wazasetumei;
 			break;
 
@@ -371,14 +373,14 @@ public class Camp extends PaintBase {
 			return false;
 		AttackData attackdata = Statics.getAttackData(body.atk[0]);
 		AttackData attackdata1 = Statics.getAttackData(body1.atk[0]);
-		if (attackdata.AttackN1 == 0)
+		if (attackdata.attackN1 == 0)
 			return true;
-		if (attackdata1.AttackN1 == 0)
+		if (attackdata1.attackN1 == 0)
 			return true;
 		switch (i) {
 		case 1: // '\001'
-			int j = Statics.getBukiType(attackdata.AttackN1);
-			int k = Statics.getBukiType(attackdata1.AttackN1);
+			int j = Statics.getBukiType(attackdata.attackN1);
+			int k = Statics.getBukiType(attackdata1.attackN1);
 			if (j == k) {
 				return true;
 			} else {
@@ -387,7 +389,7 @@ public class Camp extends PaintBase {
 			}
 
 		case 2: // '\002'
-			if (attackdata.AttackN1 == attackdata1.AttackN1) {
+			if (attackdata.attackN1 == attackdata1.attackN1) {
 				return true;
 			} else {
 				PaintBase.uw.setLPanel(Texts.warning4, 3, 1000);
@@ -516,8 +518,8 @@ public class Camp extends PaintBase {
 		Body body = equip.search(i, j);
 		equips.remove(body);
 		end = null;
-		switch (body.type[0]) {
-		case 1: // '\001'
+		switch (body.kind) {
+		case CLASS: // '\001'
 			PaintBase.V.S(1, 0, i, j, 1);
 			Vector vector = new Vector();
 			body.exp = 0;
@@ -526,7 +528,7 @@ public class Camp extends PaintBase {
 			PaintBase.map.ppaint(body.x, body.y);
 			break;
 
-		case 52: // '4'
+		case WAZA: // '4'
 			PaintBase.V.S(1, 0, i, j, 0);
 			break;
 		}
@@ -539,14 +541,15 @@ public class Camp extends PaintBase {
 		if (PaintBase.V.G(3, 0, i, j) == 0)
 			return;
 		Body body = equip.search(i, j);
-		switch (body.type[0]) {
-		case 1: // '\001'
+		switch (body.kind) {
+		case CLASS: // '\001'
 			PaintBase.V.S(1, 0, i, j, 2);
 			break;
 
-		case 52: // '4'
+		case WAZA: // '4'
 			PaintBase.V.S(1, 0, i, j, 0);
 			break;
+		default:
 		}
 		PaintBase.V.S(3, 0, i, j, 0);
 		PaintBase.map.ppaint(i, j);
@@ -612,33 +615,33 @@ public class Camp extends PaintBase {
 	private void putDoll(int i, int j) {
 		if (PaintBase.V.G(1, 0, i, j) == 2)
 			return;
-		switch (ba.type[0]) {
-		case 52: // '4'
+		switch (ba.kind) {
+		case WAZA: 
 		default:
 			break;
 
-		case 2: // '\002'
+		case WEPON: // '\002'
 			if (i == 3) {
 				changeChara(i, j);
 				return;
 			}
 			break;
 
-		case 3: // '\003'
+		case ARMOR: // '\003'
 			if (i == 4) {
 				changeChara(i, j);
 				return;
 			}
 			break;
 
-		case 4: // '\004'
+		case ITEM: // '\004'
 			if (i >= 6) {
 				changeChara(i, j);
 				return;
 			}
 			break;
 
-		case 39: // '\''
+		case DOLL: // '\''
 			if (i == 1) {
 				ba.gx = i;
 				ba.gy = j;
@@ -677,7 +680,7 @@ public class Camp extends PaintBase {
 			}
 			if (body == null)
 				break;
-			if (body.isType(52))
+			if (body.kind == Kinds.WAZA)
 				removeChara1(point.x, point.y);
 			else
 				ba = pickChara(point.x, point.y);
@@ -737,7 +740,7 @@ public class Camp extends PaintBase {
 			}
 			Body body = equip.search(point.x, point.y);
 			if (body != null) {
-				if (body.isType(52))
+				if (body.kind == Kinds.WAZA)
 					removeChara1(point.x, point.y);
 				else
 					PaintBase.uw.setAnalyze(body);

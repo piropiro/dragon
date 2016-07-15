@@ -1,85 +1,42 @@
 package dragon2;
-// Decompiled by Jad v1.5.8g. Copyright 2001 Pavel Kouznetsov.
-// Jad home page: http://www.kpdus.com/jad.html
-// Decompiler options: packimports(3) 
-// Source File Name:   Walk.java
 
 import java.awt.Point;
-import java.util.Vector;
 
 import dragon2.common.Body;
 import dragon2.common.constant.Colors;
+import dragon2.common.constant.Kinds;
+import dragon2.common.constant.MoveType;
 import dragon2.common.constant.Texts;
+import dragon2.common.constant.Types;
 import dragon2.paint.PaintBase;
-import mine.UnitMap;
 
 public class Walk extends ActionBase {
 
 	public Walk(Body body) {
 		ba = body;
-		int i = body.itype;
-		ido = body.ido;
-		if (body.isType(49))
+		MoveType i = body.moveType;
+		ido = body.moveStep;
+		if (body.isType(Types.MOVE_UP_2))
 			ido = ido + 2;
-		if (body.isType(48))
+		if (body.isType(Types.MOVE_UP_1))
 			ido = ido + 1;
-		if (body.isType(56))
+		if (body.isType(Types.MOVE_DOWN_1))
 			ido = ido - 1;
-		if (body.isType(26))
+		if (body.isType(Types.OIL))
 			ido = (ido + 1) / 2;
-		if (body.isType(36))
-			i = 1;
-		if (body.isType(37))
-			i = 2;
-		if (body.isType(46))
-			i = 1;
-		int ai[];
-		switch (i) {
-		case 1: // '\001'
-			int ai1[] = { 1, 1, 1, 1, 1, 99, 1, 1, 1, 1, 1 };
-			ai = ai1;
-			break;
-
-		case 2: // '\002'
-			int ai2[] = { 1, 3, 99, 6, 99, 99, 1, 2, 2, 2, 99 };
-			ai = ai2;
-			break;
-
-		case 3: // '\003'
-			int ai3[] = { 1, 1, 99, 3, 99, 99, 1, 2, 2, 2, 99 };
-			ai = ai3;
-			break;
-
-		case 4: // '\004'
-			int ai4[] = { 99, 99, 99, 1, 1, 99, 1, 1, 1, 1, 99 };
-			ai = ai4;
-			break;
-
-		case 5: // '\005'
-			int ai5[] = { 2, 6, 99, 1, 1, 99, 1, 1, 1, 1, 99 };
-			ai = ai5;
-			break;
-
-		case 6: // '\006'
-			int ai6[] = { 1, 1, 99, 1, 1, 99, 1, 1, 1, 1, 99 };
-			ai = ai6;
-			break;
-
-		case 7: // '\007'
-			int ai7[] = { 1, 99, 99, 99, 99, 99, 99, 99, 99, 99, 99 };
-			ai = ai7;
-			break;
-
-		default:
-			int ai8[] = { 1, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9 };
-			ai = ai8;
-			break;
-		}
-		if (body.isType(57)) {
+		if (body.isType(Types.SORA))
+			i = MoveType.FLY;
+		if (body.isType(Types.RIKU))
+			i = MoveType.HEAVY;
+		if (body.isType(Types.FLY_ABLE))
+			i = MoveType.FLY;
+		int ai[] = i.getSteps().clone();
+		
+		if (body.isType(Types.LITE_WALK)) {
 			ai[0] = 1;
 			ai[1] = 1;
 		}
-		if (body.isType(47)) {
+		if (body.isType(Types.SWIM_ABLE)) {
 			ai[3] = 1;
 			ai[4] = 1;
 		}
@@ -148,14 +105,14 @@ public class Walk extends ActionBase {
 			return;
 		}
 		if (!Statics.isDebug()) {
-			if (ba.isType(21))
+			if (ba.isType(Types.ANTI_SLEEP))
 				return;
-			if (ba.isType(39) && ba.isType(58))
+			if (ba.kind == Kinds.DOLL && ba.isType(Types.BERSERK))
 				return;
 			if (Colors.isPlayer(ba)) {
-				if (ba.isType(27))
+				if (ba.isType(Types.CHARM))
 					return;
-			} else if (!ba.isType(27))
+			} else if (!ba.isType(Types.CHARM))
 				return;
 		}
 
@@ -169,40 +126,29 @@ public class Walk extends ActionBase {
 	}
 
 	public static int getTikei(Body body) {
-		if (body.isType(36))
-			return 1;
-		if (!body.isType(37) && !body.isType(21)) {
-			if (body.itype == 1)
-				return 1;
-			if (body.itype == 6)
-				return 1;
+		if (body.isType(Types.SORA))
+			return T_SKY;
+		if (!body.isType(Types.RIKU) && !body.isType(Types.SLEEP)) {
+			if (body.getMoveType() == MoveType.FLY)
+				return T_SKY;
+			if (body.getMoveType() == MoveType.HOVER)
+				return T_SKY;
 		}
 		switch (PaintBase.V.G(0, 0, body.x, body.y)) {
-		case 6: // '\006'
-			return 5;
-
-		case 3: // '\003'
-		case 4: // '\004'
-			return 3;
-
-		case 7: // '\007'
-		case 8: // '\b'
-		case 9: // '\t'
-			return 4;
-
-		case 5: // '\005'
-		default:
-			return 2;
+		case ICE :
+			return T_ICE;
+		case AQUA :
+		case BLUE :
+			return T_SEA;
+		case POISONP :
+		case OILP :
+		case FIREP :
+			return T_POOL;
+		default :
+			return T_LAND;
 		}
 	}
 
-	static final int SKY = 1;
-	static final int WALK = 2;
-	static final int RUN = 3;
-	static final int SWIM = 4;
-	static final int TWIN = 5;
-	static final int FLY = 6;
-	static final int OLD = 7;
 	static final int WHITE = 0;
 	static final int YELLOW = 1;
 	static final int GREEN = 2;

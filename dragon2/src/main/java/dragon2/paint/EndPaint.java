@@ -11,6 +11,7 @@ import dragon2.Rewalk;
 import dragon2.common.Body;
 import dragon2.common.constant.Colors;
 import dragon2.common.constant.Texts;
+import dragon2.common.constant.Types;
 
 public class EndPaint extends ActionBase {
 
@@ -52,14 +53,14 @@ public class EndPaint extends ActionBase {
 		Body body = PaintBase.uw.search(point.x, point.y);
 		if (body == null)
 			return false;
-		if (body.isType(21))
+		if (body.isType(Types.ANTI_SLEEP))
 			return false;
 		if (PaintBase.V.G(3, 0, point.x, point.y) != 0)
 			return false;
 		if (Colors.isPlayer(body)) {
-			if (body.isType(27))
+			if (body.isType(Types.CHARM))
 				return false;
-		} else if (!body.isType(27))
+		} else if (!body.isType(Types.CHARM))
 			return false;
 		return true;
 	}

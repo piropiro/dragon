@@ -8,6 +8,7 @@ import java.awt.Point;
 
 import dragon2.ActionBase;
 import dragon2.common.Body;
+import dragon2.common.constant.Types;
 
 public class BerserkPaint extends ActionBase {
 
@@ -29,7 +30,7 @@ public class BerserkPaint extends ActionBase {
 	}
 
 	private void setStatus() {
-		ba.setTypeState(58, true);
+		ba.setTypeState(Types.BERSERK, true);
 		ba.hp = ba.hpMax;
 		ba.str *= 1.5D;
 		ba.def *= 1.5D;

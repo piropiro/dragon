@@ -1,4 +1,4 @@
-package dragon2.common;
+package dragon2;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -7,12 +7,11 @@ import java.util.List;
 import java.util.Set;
 
 import dragon2.common.constant.Kinds;
-import dragon2.common.constant.MoveType;
 import dragon2.common.constant.Types;
 import mine.MineException;
 
 
-public class Body implements Serializable, Cloneable {
+public class OldBody2 implements Serializable, Cloneable {
 
     public static final long serialVersionUID = -2486607915340385590L;
     
@@ -35,8 +34,8 @@ public class Body implements Serializable, Cloneable {
 	public int hitMax;
 	public int mis;
 	public int misMax;
-	public int moveStep;
-	public MoveType moveType;
+	public int ido;
+	public int itype;
 	public int color;
 	public int img;
 	public int atk[];
@@ -52,15 +51,15 @@ public class Body implements Serializable, Cloneable {
 	public int store;
 	private Set<Types> typeState;
         
-	public Body() {
+	public OldBody2() {
 		atk = new int[6];
 		type = new ArrayList<>();
 		name = "none";
 	}
 
-	public Body copy() {
+	public OldBody2 copy() {
 		try {
-			return (Body) clone();
+			return (OldBody2) clone();
 		} catch (CloneNotSupportedException clonenotsupportedexception) {
                     throw new MineException(clonenotsupportedexception);
 		}
@@ -79,7 +78,7 @@ public class Body implements Serializable, Cloneable {
 
 	public void newType() {
 		typeState = new HashSet<>();
-		Body.this.mergeTypeState(type);
+		OldBody2.this.mergeTypeState(type);
 	}
 
 	public void mergeTypeState(List<Types> ai) {
@@ -256,20 +255,20 @@ public class Body implements Serializable, Cloneable {
 		this.misMax = misMax;
 	}
 
-	public int getMoveStep() {
-		return moveStep;
+	public int getIdo() {
+		return ido;
 	}
 
-	public void setMoveStep(int moveStep) {
-		this.moveStep = moveStep;
+	public void setIdo(int ido) {
+		this.ido = ido;
 	}
 
-	public MoveType getMoveType() {
-		return moveType;
+	public int getItype() {
+		return itype;
 	}
 
-	public void setMoveType(MoveType moveType) {
-		this.moveType = moveType;
+	public void setItype(int itype) {
+		this.itype = itype;
 	}
 
 	public int getColor() {
