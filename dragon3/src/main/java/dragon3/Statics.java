@@ -9,16 +9,17 @@ import mine.MineUtils;
 import mine.io.BeanIO;
 import mine.io.MatrixIO;
 import dragon3.bean.BodyData;
+import dragon3.bean.StageData;
 import dragon3.bean.WazaData;
 import dragon3.common.Body;
 import dragon3.common.DataList;
 
 public class Statics {
 
-	public static final String STAGE_FILE = "StageData.xml";
-	public static final String[] WAZA_FILES = new String[] { "WazaData.xml" };
-	public static final String[] BODY_FILES = new String[] { "BodyData.xml" };
-	public static final String[] DEPLOY_FILES = new String[] { "init.xml" };
+	public static final String[] STAGE_FILES = { "StageData.json" };
+	public static final String[] WAZA_FILES =  { "WazaData.json" };
+	public static final String[] BODY_FILES =  { "BodyData.json" };
+	public static final String[] DEPLOY_FILES = { "InitDeploy.json" };
 
 	public static final String WAZA_DIR = "dragon3/data/waza/";
 
@@ -46,13 +47,15 @@ public class Statics {
 
 	public static final DataList<BodyData> bodyList;
 	public static final DataList<WazaData> wazaList;
+	public static final DataList<StageData> stageList;
 
 	public static final String[] idoType;
 
 	static {
 		try {
-			bodyList = new DataList<BodyData>(BODY_DIR, BODY_FILES);
-			wazaList = new DataList<WazaData>(WAZA_DIR, WAZA_FILES);
+			bodyList = new DataList<BodyData>(BODY_DIR, BODY_FILES, BodyData[].class);
+			wazaList = new DataList<WazaData>(WAZA_DIR, WAZA_FILES, WazaData[].class);
+			stageList = new DataList<StageData>(STAGE_DIR, STAGE_FILES, StageData[].class);
 
 			kind = MineUtils.readIdAndTextMap(TEXT_DIR + "kind.txt");
 			soul = MineUtils.readIdAndTextMap(TEXT_DIR + "soul.txt");

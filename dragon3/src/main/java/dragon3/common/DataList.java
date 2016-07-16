@@ -10,10 +10,9 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-import mine.MineException;
-import mine.MineUtils;
-import mine.io.BeanIO;
 import dragon3.bean.Data;
+import mine.MineException;
+import mine.io.JsonIO;
 
 /**
  * @author k-saito
@@ -25,22 +24,23 @@ public class DataList<T extends Data> {
 	private Map<String, T> map;
 
 	@SuppressWarnings("unchecked")
-	public DataList(String baseDir, String[] fileList) {
+	public DataList(String baseDir, String[] fileList, Class<?> clazz) {
 		super();
 
 		list = new ArrayList<T>();
+		map = new HashMap<String, T>();
+		
 		for (int i=0; i<fileList.length; i++) {
 			String file = baseDir + fileList[i];
 			try {
-				MineUtils.addToList(list, (T[])BeanIO.read(file));
+				T[] array = (T[])JsonIO.read(file, clazz);
+				for (T t : array) {
+					list.add(t);
+					map.put(t.getId(), t);
+				}
 			} catch (MineException e) {
-				throw new RuntimeException("Dataファイルのロードに失敗しました。fileName:[" + file + "]");
+				throw new RuntimeException("Dataファイルのロードに失敗しました。fileName:[" + file + "]", e);
 			}
-		}
-
-		map = new HashMap<String, T>();
-		for (T data: list) {
-			map.put(data.getId(), data);
 		}
 	}
 

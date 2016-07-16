@@ -15,7 +15,7 @@ public class WazaEditor extends EditPanel<WazaData> implements EditListener<Waza
 	private static final long serialVersionUID = 1L;
 
 	public static void main(String[] args) throws MineException {
-		new BeanEditor<>("WazaEditor", "wazas.txt", "data.xml", new WazaEditor());
+		new BeanEditor<>("WazaEditor", "wazas.txt", "data.json", new WazaEditor());
 	}
 
 	WazaEditor() throws MineException {

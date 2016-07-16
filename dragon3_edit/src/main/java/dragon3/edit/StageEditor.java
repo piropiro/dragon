@@ -10,7 +10,7 @@ public class StageEditor extends EditPanel<StageData> implements EditListener<St
 	private static final long serialVersionUID = 1L;
 
 	public static void main(String[] args) {
-		new BeanEditor<>("StageEditor", "stages.txt", "data.xml", new StageEditor());
+		new BeanEditor<>("StageEditor", "stages.txt", "data.json", new StageEditor());
 	}
 
 	StageEditor() {

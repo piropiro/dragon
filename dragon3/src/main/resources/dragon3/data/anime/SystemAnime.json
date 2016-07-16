@@ -1,0 +1,44 @@
+[
+	{
+		"id": "system.refresh",
+		"image": "refresh.png",
+		"name": "リフレッシュ",
+		"sleep": 80,
+		"type": "single"
+	},
+	{
+		"id": "system.kakusei",
+		"image": "kakusei.png",
+		"name": "妹覚醒",
+		"sleep": 15,
+		"type": "single"
+	},
+	{
+		"id": "system.finish",
+		"image": "finish.png",
+		"name": "フィニッシュ",
+		"sleep": 40,
+		"type": "single"
+	},
+	{
+		"id": "system.death",
+		"image": "death.png",
+		"name": "デス",
+		"sleep": 40,
+		"type": "single"
+	},
+	{
+		"id": "system.summon",
+		"image": "summon.png",
+		"name": "召喚",
+		"sleep": 99,
+		"type": "single"
+	},
+	{
+		"id": "system.fire",
+		"image": "fire.png",
+		"name": "溶岩ダメージ",
+		"sleep": 70,
+		"type": "single"
+	}
+]

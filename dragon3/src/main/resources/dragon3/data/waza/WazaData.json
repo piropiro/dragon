@@ -1,0 +1,56 @@
+[
+	{
+		"animeId": "none",
+		"damageType": "none",
+		"effect": [
+			null,
+			null,
+			null,
+			null,
+			null
+		],
+		"id": "none",
+		"label": "none",
+		"labelColor": "none",
+		"name": "none",
+		"star": 0,
+		"targetType": "none",
+		"weponType": "none"
+	},
+	{
+		"animeId": "slash",
+		"damageType": "sword",
+		"effect": [
+			"counter",
+			"none",
+			"none",
+			"none",
+			"none"
+		],
+		"id": "slash",
+		"label": "斬撃",
+		"labelColor": "white",
+		"name": "斬撃",
+		"star": 0,
+		"targetType": "single1",
+		"weponType": "sword"
+	},
+	{
+		"animeId": "fire",
+		"damageType": "magic",
+		"effect": [
+			"fire",
+			"none",
+			"none",
+			"none",
+			"none"
+		],
+		"id": "fire",
+		"label": "火炎",
+		"labelColor": "red",
+		"name": "ファイア",
+		"star": 0,
+		"targetType": "long2",
+		"weponType": "magic"
+	}
+]

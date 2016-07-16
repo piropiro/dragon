@@ -18,7 +18,7 @@ public class BodyEditor extends EditPanel<BodyData> implements EditListener<Body
 	private static final long serialVersionUID = 1L;
 
 	public static void main(String[] args) throws Exception {
-		new BeanEditor<>("BodyEditor", "bodys.txt", "data.xml", new BodyEditor());
+		new BeanEditor<>("BodyEditor", "bodys.txt", "data.json", new BodyEditor());
 	}
 
 	public BodyEditor() throws Exception {

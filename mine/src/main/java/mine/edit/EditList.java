@@ -2,6 +2,7 @@ package mine.edit;
 
 import java.awt.Font;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import javax.swing.JList;
@@ -10,8 +11,7 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
 import mine.MineException;
-import mine.MineUtils;
-import mine.io.BeanIO;
+import mine.io.JsonIO;
 
 /**
  * 編集するBeanのリストを扱うクラス。
@@ -55,7 +55,8 @@ public class EditList<B> extends JList<String> implements ListSelectionListener 
 	@SuppressWarnings("unchecked")
 	public void loadData(String file) {
 		try {
-			List<B> list = MineUtils.addToList(new ArrayList<B>(), (B[])BeanIO.read(file));
+			B[] array = (B[])JsonIO.read(file, editListener.createArray().getClass());
+			List<B> list = new ArrayList<>(Arrays.asList(array));
 			setList(list);
 		} catch (MineException e) {
 			initData();
@@ -69,7 +70,7 @@ public class EditList<B> extends JList<String> implements ListSelectionListener 
 	 */
 	public void saveData(String file) {
 		try {
-			BeanIO.write(file, beanList.toArray(editListener.createArray()));
+			JsonIO.write(file, beanList.toArray(editListener.createArray()));
 		} catch (MineException e) {
 			e.printStackTrace();
 		}
