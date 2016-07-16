@@ -1,0 +1,32 @@
+[
+	{
+		"bodyId": "hero",
+		"color": "blue",
+		"goalX": 0,
+		"goalY": 0,
+		"id": null,
+		"level": 1,
+		"limitTurn": 0,
+		"name": null,
+		"range": 0,
+		"scope": 0,
+		"type": "chara",
+		"x": 1,
+		"y": 1
+	},
+	{
+		"bodyId": "sister",
+		"color": "blue",
+		"goalX": 0,
+		"goalY": 0,
+		"id": null,
+		"level": 1,
+		"limitTurn": 0,
+		"name": null,
+		"range": 0,
+		"scope": 0,
+		"type": "chara",
+		"x": 1,
+		"y": 4
+	}
+]

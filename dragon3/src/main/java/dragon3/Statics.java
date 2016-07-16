@@ -15,10 +15,10 @@ import dragon3.common.DataList;
 
 public class Statics {
 
-	public static final String STAGE_FILE = "StageData.xml";
-	public static final String[] WAZA_FILES = new String[] { "WazaData.xml" };
-	public static final String[] BODY_FILES = new String[] { "BodyData.xml" };
-	public static final String[] DEPLOY_FILES = new String[] { "init.xml" };
+	public static final String STAGE_FILE = "StageData.json";
+	public static final String[] WAZA_FILES = new String[] { "WazaData.json" };
+	public static final String[] BODY_FILES = new String[] { "BodyData.json" };
+	public static final String[] DEPLOY_FILES = new String[] { "InitDeploy.json" };
 
 	public static final String WAZA_DIR = "dragon3/data/waza/";
 
@@ -51,8 +51,8 @@ public class Statics {
 
 	static {
 		try {
-			bodyList = new DataList<BodyData>(BODY_DIR, BODY_FILES);
-			wazaList = new DataList<WazaData>(WAZA_DIR, WAZA_FILES);
+			bodyList = new DataList<BodyData>(BODY_DIR, BODY_FILES, BodyData[].class);
+			wazaList = new DataList<WazaData>(WAZA_DIR, WAZA_FILES, WazaData[].class);
 
 			kind = MineUtils.readIdAndTextMap(TEXT_DIR + "kind.txt");
 			soul = MineUtils.readIdAndTextMap(TEXT_DIR + "soul.txt");

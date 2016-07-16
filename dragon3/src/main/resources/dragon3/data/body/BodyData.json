@@ -1,0 +1,92 @@
+[
+	{
+		"armorType": "none",
+		"def": 0,
+		"hit": 0,
+		"hp": 0,
+		"id": "none",
+		"image": "none.png",
+		"kind": "none",
+		"mdf": 0,
+		"mis": 0,
+		"moveStep": 0,
+		"moveType": "none",
+		"mst": 0,
+		"name": "none",
+		"soulType": "none",
+		"str": 0,
+		"typeList": [
+			"none",
+			"none",
+			"none",
+			"none",
+			"none"
+		],
+		"wazaList": [
+			"none",
+			"none",
+			"none"
+		],
+		"weponType": "none"
+	},
+	{
+		"armorType": "heavy",
+		"def": 8,
+		"hit": 20,
+		"hp": 25,
+		"id": "hero",
+		"image": "hero.png",
+		"kind": "chara",
+		"mdf": 4,
+		"mis": 10,
+		"moveStep": 5,
+		"moveType": "heavy",
+		"mst": 0,
+		"name": "僕",
+		"soulType": "red",
+		"str": 20,
+		"typeList": [
+			"hero",
+			"none",
+			"none",
+			"none",
+			"none"
+		],
+		"wazaList": [
+			"none",
+			"none",
+			"none"
+		],
+		"weponType": "sword"
+	},
+	{
+		"armorType": "lite",
+		"def": 4,
+		"hit": 18,
+		"hp": 20,
+		"id": "sister",
+		"image": "sister.png",
+		"kind": "chara",
+		"mdf": 12,
+		"mis": 10,
+		"moveStep": 4,
+		"moveType": "lite",
+		"mst": 20,
+		"name": "妹",
+		"soulType": "blue",
+		"str": 0,
+		"typeList": [
+			"sister",
+			"none",
+			"none",
+			"none",
+			"none"
+		],
+		"wazaList": [
+			"fire",
+			"none",
+			"none"
+		],
+		"weponType": "magic"
+	}
+]
