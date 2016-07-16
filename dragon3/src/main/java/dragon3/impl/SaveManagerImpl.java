@@ -1,26 +1,19 @@
 package dragon3.impl;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import dragon3.Statics;
 import dragon3.UnitWorks;
 import dragon3.bean.SaveData;
-import dragon3.bean.StageData;
 import dragon3.common.Body;
 import dragon3.common.util.Equip;
 import dragon3.manage.SaveManager;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
 import mine.MineException;
-import mine.io.BeanIO;
 import mine.io.MatrixIO;
 import mine.io.ObjectIO;
 
 public class SaveManagerImpl implements SaveManager {
-
-    Map<String, StageData> stageMap = new HashMap<>();
 
     @SuppressWarnings("unused")
     private UnitWorks uw;
@@ -34,9 +27,6 @@ public class SaveManagerImpl implements SaveManager {
         sd = null;
 
         try {
-            List<StageData> stageList = Arrays.asList((StageData[]) BeanIO.read(Statics.STAGE_DIR + "StageData.xml"));
-            stageMap = stageList.stream().collect(Collectors.toMap(StageData::getId, s -> s));
-            
             stage = (int[][]) MatrixIO.read(Statics.STAGE_DIR + "stages.txt");
 
         } catch (MineException e) {

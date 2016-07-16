@@ -15,7 +15,7 @@ public class AnimeEditor extends EditPanel<AnimeData> {
 	private static final long serialVersionUID = 1L;
 
 	public static void main(String[] args) throws Exception {
-		new BeanEditor<>("AnimeEditor", "animes.txt", "data.xml", new AnimeEditor());
+		new BeanEditor<>("AnimeEditor", "animes.txt", "data.json", new AnimeEditor());
 	}
 
 	AnimeEditor() throws Exception {

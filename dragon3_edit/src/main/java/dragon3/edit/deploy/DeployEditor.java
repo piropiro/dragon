@@ -68,7 +68,7 @@ public class DeployEditor extends JFrame implements MainWorks<DeployData>, Comma
 		help = new JLabel("help");
 		help.setFont(MineAwtUtils.getFont(12));
 
-		fileManager = new FileManager("deploys.txt", 10, "data.xml", statusPanel, this);
+		fileManager = new FileManager("deploys.txt", 10, "data.json", statusPanel, this);
 		menuBar = new EditMenuBar(this);
 		editList = new EditList<>(statusPanel);
 		editList.addListSelectionListener(this);
@@ -257,15 +257,15 @@ public class DeployEditor extends JFrame implements MainWorks<DeployData>, Comma
 	public void create(String file) {
 		editList.initData();
 		String name = new File(file).getName();
-		String deployFile = name.replaceAll(".txt", ".xml");
+		String deployFile = name.replaceAll(".txt", ".json");
 		// String mapFile = name.replaceAll(".xml", ".txt");
 		setTitle(deployFile + " - " + title);
 	}
 
 	@Override
 	public void load(String file) throws MineException {
-		String deployFile = file.replaceAll("\\\\", "/").replaceAll(Statics.MAP_DIR, Statics.DEPLOY_DIR).replaceAll(".txt", ".xml");
-		String mapFile = file.replaceAll("\\\\", "/").replaceAll(Statics.DEPLOY_DIR, Statics.MAP_DIR).replaceAll(".xml", ".txt");
+		String deployFile = file.replaceAll("\\\\", "/").replaceAll(Statics.MAP_DIR, Statics.DEPLOY_DIR).replaceAll(".txt", ".json");
+		String mapFile = file.replaceAll("\\\\", "/").replaceAll(Statics.DEPLOY_DIR, Statics.MAP_DIR).replaceAll(".json", ".txt");
 
 		editList.loadData(deployFile);
 
@@ -287,7 +287,7 @@ public class DeployEditor extends JFrame implements MainWorks<DeployData>, Comma
 
 	@Override
 	public void save(String file) throws MineException {
-		String deployFile = file.replace('\\', '/').replaceAll(Statics.MAP_DIR, Statics.DEPLOY_DIR).replaceAll(".txt", ".xml");
+		String deployFile = file.replace('\\', '/').replaceAll(Statics.MAP_DIR, Statics.DEPLOY_DIR).replaceAll(".txt", ".json");
 
 		editList.saveData(deployFile);
 
