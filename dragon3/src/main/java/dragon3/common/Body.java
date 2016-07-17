@@ -1,12 +1,13 @@
 package dragon3.common;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.LinkedHashSet;
+import java.util.List;
 import java.util.Set;
 
+@SuppressWarnings("serial")
 public class Body implements Serializable, Cloneable {
-
-	private static final long serialVersionUID = 3331367671423174029L;
 
 	private String id = "none";
 	private String name = "none";
@@ -14,6 +15,8 @@ public class Body implements Serializable, Cloneable {
 	private String kind = "none";
 	private String color = "none";
 
+	private String deployType;
+	
 	private int hp;
 	private int hpMax;
 
@@ -31,7 +34,7 @@ public class Body implements Serializable, Cloneable {
 	private String weponType = "none";
 	private String armorType = "none";
 
-	private Set<String> wazaSet = new LinkedHashSet<String>();
+	private List<String> wazaList = new ArrayList<>();
 	private Set<String> typeSet = new LinkedHashSet<String>();
 
 	private int x;
@@ -58,10 +61,6 @@ public class Body implements Serializable, Cloneable {
 
 	public boolean isAlive(){
 		return (hp > 0);
-	}
-
-	public String[] getWazaList(){
-		return (String[])wazaSet.toArray(new String[0]);
 	}
 
 	public void addType(String type){
@@ -261,12 +260,6 @@ public class Body implements Serializable, Cloneable {
 		return typeSet;
 	}
 
-	/**
-	 * @return
-	 */
-	public Set<String> getWazaSet() {
-		return wazaSet;
-	}
 
 	/**
 	 * @return
@@ -301,6 +294,15 @@ public class Body implements Serializable, Cloneable {
 	 */
 	public void setColor(String string) {
 		color = string;
+	}
+
+	
+	public String getDeployType() {
+		return deployType;
+	}
+
+	public void setDeployType(String deployType) {
+		this.deployType = deployType;
 	}
 
 	/**
@@ -471,12 +473,6 @@ public class Body implements Serializable, Cloneable {
 		typeSet = set;
 	}
 
-	/**
-	 * @param set
-	 */
-	public void setWazaSet(LinkedHashSet<String> set) {
-		wazaSet = set;
-	}
 
 	/**
 	 * @param string
@@ -506,4 +502,25 @@ public class Body implements Serializable, Cloneable {
 	public void setImageNum(int imageNum) {
 		this.imageNum = imageNum;
 	}
+
+	public List<String> getWazaList() {
+		return wazaList;
+	}
+
+	public void setWazaList(List<String> wazaList) {
+		this.wazaList = wazaList;
+	}
+
+	@Override
+	public String toString() {
+		return "Body [id=" + id + ", name=" + name + ", image=" + image + ", kind=" + kind + ", color=" + color
+				+ ", deployType=" + deployType + ", hp=" + hp + ", hpMax=" + hpMax + ", str=" + str + ", def=" + def
+				+ ", mst=" + mst + ", mdf=" + mdf + ", hit=" + hit + ", mis=" + mis + ", moveStep=" + moveStep
+				+ ", moveType=" + moveType + ", soulType=" + soulType + ", weponType=" + weponType + ", armorType="
+				+ armorType + ", wazaList=" + wazaList + ", typeSet=" + typeSet + ", x=" + x + ", y=" + y + ", scope="
+				+ scope + ", range=" + range + ", limitTurn=" + limitTurn + ", goalX=" + goalX + ", goalY=" + goalY
+				+ ", level=" + level + ", exp=" + exp + ", store=" + store + ", imageNum=" + imageNum + "]";
+	}
+	
+	
 }

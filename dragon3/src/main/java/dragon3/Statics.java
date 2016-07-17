@@ -1,25 +1,24 @@
 package dragon3;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
-
-import mine.MineException;
-import mine.MineUtils;
-import mine.io.BeanIO;
-import mine.io.MatrixIO;
 import dragon3.bean.BodyData;
+import dragon3.bean.DeployData;
 import dragon3.bean.StageData;
 import dragon3.bean.WazaData;
-import dragon3.common.Body;
 import dragon3.common.DataList;
+import mine.MineException;
+import mine.MineUtils;
+import mine.io.JsonIO;
+import mine.io.MatrixIO;
 
 public class Statics {
 
 	public static final String[] STAGE_FILES = { "StageData.json" };
 	public static final String[] WAZA_FILES =  { "WazaData.json" };
 	public static final String[] BODY_FILES =  { "BodyData.json" };
-	public static final String[] DEPLOY_FILES = { "InitDeploy.json" };
 
 	public static final String WAZA_DIR = "dragon3/data/waza/";
 
@@ -93,20 +92,23 @@ public class Statics {
 		}
 	}
 
-	@SuppressWarnings("unchecked")
-	public static List<Body> getEnemyData(int n) {
+
+	
+	public static List<DeployData> getDeployData(String stageId) {
 		try {
-			String file = String.format("E%02d.txt", n);
-			return (List<Body>) BeanIO.read(BODY_DIR + file);
+			return Arrays.asList(JsonIO.read(DEPLOY_DIR + stageId + ".json", DeployData[].class));
 		} catch (MineException e) {
 			throw new RuntimeException(e);
 		}
 	}
+	
+	public static StageData getStageData(String stageId) {
+		return stageList.getData(stageId);
+	}
 
-	public static int[][] getMapData(int n) {
+	public static int[][] getMapData(String stageId) {
 		try {
-			String file = String.format("D%02d.txt", n);
-			return MatrixIO.read(MAP_DIR + file);
+			return MatrixIO.read(MAP_DIR + stageId + ".txt");
 		} catch (MineException e) {
 			throw new RuntimeException(e);
 		}

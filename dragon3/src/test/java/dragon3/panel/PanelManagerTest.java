@@ -2,21 +2,11 @@ package dragon3.panel;
 
 import java.awt.Graphics;
 import java.awt.Point;
-import java.util.LinkedHashSet;
+import java.util.Arrays;
 
 import javax.swing.JFrame;
 import javax.swing.JLayeredPane;
 
-import junit.framework.TestCase;
-import mine.MineException;
-import mine.awt.GraphicsAWT;
-import mine.awt.ImageLoaderAWT;
-import mine.awt.MineAwtUtils;
-import mine.awt.SleepManagerAWT;
-import mine.event.SleepManager;
-import mine.paint.MineGraphics;
-import mine.paint.MineImageLoader;
-import mine.paint.UnitMap;
 import dragon3.Statics;
 import dragon3.common.Body;
 import dragon3.common.constant.GameColors;
@@ -27,6 +17,16 @@ import dragon3.manage.SummonManagerMock;
 import dragon3.manage.TreasureManagerMock;
 import dragon3.manage.TurnManagerMock;
 import dragon3.panel.paint.CampDataPaint;
+import junit.framework.TestCase;
+import mine.MineException;
+import mine.awt.GraphicsAWT;
+import mine.awt.ImageLoaderAWT;
+import mine.awt.MineAwtUtils;
+import mine.awt.SleepManagerAWT;
+import mine.event.SleepManager;
+import mine.paint.MineGraphics;
+import mine.paint.MineImageLoader;
+import mine.paint.UnitMap;
 
 public class PanelManagerTest extends TestCase {
 
@@ -45,7 +45,7 @@ public class PanelManagerTest extends TestCase {
 			map.setTile(Page.P20, im.getBodyList().getImageList(), 0);
 			map.setVisible(Page.P50, true);
 			map.setTile(Page.P50, im.getStatus(), 0);
-			map.setPage(Page.P00, Statics.getMapData(1));
+			map.setPage(Page.P00, Statics.getMapData("D01"));
 			map.setData(Page.P00, 11, 10, MoveUtils.OPEN_MAGIC);
 			map.setData(Page.P20, 10, 10, 1);
 			map.fillDia(Page.P41, 10, 10, 2, 1);
@@ -216,10 +216,9 @@ public class PanelManagerTest extends TestCase {
 		ba.setHpMax(20);
 		ba.setImageNum(1);
 
-		LinkedHashSet<String> wazaSet = new LinkedHashSet<String>();
-		wazaSet.add("slash");
-		wazaSet.add("fire");
-		ba.setWazaSet(wazaSet);
+		String[] wazaList = { "slash", "fire" };
+		ba.setWazaList(Arrays.asList(wazaList));
+
 
 		pm.displayWazaList(ba);
 	}
@@ -268,10 +267,8 @@ public class PanelManagerTest extends TestCase {
 		ba.setHpMax(20);
 		ba.setImageNum(1);
 
-		LinkedHashSet<String> wazaSet = new LinkedHashSet<String>();
-		wazaSet.add("slash");
-		wazaSet.add("fire");
-		ba.setWazaSet(wazaSet);
+		String[] wazaList = { "slash", "fire" };
+		ba.setWazaList(Arrays.asList(wazaList));
 
 		pm.displayWaza(ba, 0);
 	}

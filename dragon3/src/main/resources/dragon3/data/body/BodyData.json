@@ -53,7 +53,7 @@
 			"none"
 		],
 		"wazaList": [
-			"none",
+			"slash",
 			"none",
 			"none"
 		],
@@ -88,5 +88,35 @@
 			"none"
 		],
 		"weponType": "magic"
+	},
+	{
+		"armorType": "lite",
+		"def": 5,
+		"hit": 13,
+		"hp": 10,
+		"id": "gobrin",
+		"image": "chara_006.png",
+		"kind": "chara",
+		"mdf": 4,
+		"mis": 13,
+		"moveStep": 4,
+		"moveType": "lite",
+		"mst": 0,
+		"name": "ゴブリン",
+		"soulType": "red",
+		"str": 12,
+		"typeList": [
+			"none",
+			"none",
+			"none",
+			"none",
+			"none"
+		],
+		"wazaList": [
+			"slash",
+			"none",
+			"none"
+		],
+		"weponType": "knife"
 	}
 ]

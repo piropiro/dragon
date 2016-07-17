@@ -139,7 +139,7 @@ public class DataPanel extends PanelBase {
 	}
 
 	public void displayWaza(Body ba, int i) {
-		WazaData waza = (WazaData)Statics.wazaList.getData(ba.getWazaList()[i]);
+		WazaData waza = (WazaData)Statics.wazaList.getData(ba.getWazaList().get(i));
 		display(ba, new WazaPaint(waza, im.getBack()));
 	}
 	

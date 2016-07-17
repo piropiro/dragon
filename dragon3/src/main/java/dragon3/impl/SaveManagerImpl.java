@@ -15,7 +15,6 @@ import mine.io.ObjectIO;
 
 public class SaveManagerImpl implements SaveManager {
 
-    @SuppressWarnings("unused")
     private UnitWorks uw;
     private SaveData sd;
     private long startTime;
@@ -40,7 +39,7 @@ public class SaveManagerImpl implements SaveManager {
      */
     private List<Object> initData() {
         List<Object> list = new ArrayList<>();
-        list.add(Statics.getEnemyData(0));
+        list.add(uw.loadEnemyData("init"));
         list.add(new SaveData());
         return list;
     }
@@ -80,17 +79,17 @@ public class SaveManagerImpl implements SaveManager {
      */
     @Override
     public int[][] getCampMap() {
-        return Statics.getMapData(0);
+        return Statics.getMapData("camp");
     }
 
     @Override
     public int[][] getCollectionMap() {
-        return Statics.getMapData(90);
+        return Statics.getMapData("collection");
     }
 
     @Override
     public int[][] getWazalistMap() {
-        return Statics.getMapData(92);
+        return Statics.getMapData("wazalist");
     }
 
     @Override

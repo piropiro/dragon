@@ -12,7 +12,7 @@ public class DeployData implements Data {
 	private String name;
 
 	private String bodyId;
-	private String type;
+	private String deployType;
 	private String color;
 	private int level;
 	private int scope;
@@ -25,7 +25,7 @@ public class DeployData implements Data {
 
 	public DeployData() {
 		bodyId = "none";
-		type = "none";
+		deployType = "none";
 		color = "none";
 	}
 
@@ -114,8 +114,8 @@ public class DeployData implements Data {
 	/**
 	 * @return
 	 */
-	public String getType() {
-		return type;
+	public String getDeployType() {
+		return deployType;
 	}
 
 	/**
@@ -191,8 +191,8 @@ public class DeployData implements Data {
 	/**
 	 * @param string
 	 */
-	public void setType(String string) {
-		type = string;
+	public void setDeployType(String string) {
+		deployType = string;
 	}
 
 	/**

@@ -22,7 +22,7 @@ import mine.edit.component.EditIntComboArray;
 import mine.edit.component.EditIntSlider;
 import mine.edit.component.EditIntSliderArray;
 import mine.edit.component.EditTextCombo;
-import mine.edit.component.EditTextComboArray;
+import mine.edit.component.EditTextComboList;
 import mine.edit.component.EditTextField;
 import mine.edit.component.EditTextFieldArray;
 import mine.paint.MineImage;
@@ -179,7 +179,7 @@ public class EditPanel<B> extends JPanel implements EditListener<B> {
 	}
 
 	public void setTextCombo(int pos, String name, int index, String label) {
-		add(new EditTextComboArray(name, index), name + "." + index, label, pos);
+		add(new EditTextComboList(name, index), name + "." + index, label, pos);
 	}
 
 	public void setIntCombo(int pos, String name, int index, String label, int max) {

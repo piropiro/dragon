@@ -2,7 +2,6 @@ package dragon3.paint;
 
 import java.util.List;
 
-import dragon3.Statics;
 import dragon3.UnitWorks;
 import dragon3.anime.AnimeManager;
 import dragon3.common.Body;
@@ -43,7 +42,7 @@ public class KakuseiPaint extends PaintAdapter {
 	 * @return
 	 */
 	private Body getKakuseiData() {
-		List<Body> data = Statics.getEnemyData(99);
+		List<Body> data = uw.loadEnemyData("kakusei");
 		return (Body) data.get(0);
 	}
 

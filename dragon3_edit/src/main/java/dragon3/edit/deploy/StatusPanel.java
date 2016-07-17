@@ -22,8 +22,8 @@ public class StatusPanel extends EditPanel<DeployData> implements EditListener<D
 		super(DeployData.class);
 
 		setImageCombo(CENTER, "bodyId", "BODY");
-		setTextCombo(CENTER, "type", "種類");
-		initCombo("type", Statics.deployType);
+		setTextCombo(CENTER, "deployType", "配置種別");
+		initCombo("deployType", Statics.deployType);
 		setSlider(CENTER, "level", "Level", 99);
 		setTextCombo(LEFT, "color", "色");
 		initCombo("color", Statics.color);

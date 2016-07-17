@@ -3,6 +3,9 @@
  */
 package dragon3.bean;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * @author k-saito
  */
@@ -27,8 +30,8 @@ public class BodyData implements Data {
 	private String weponType;
 	private String armorType;
 
-	private String[] wazaList;
-	private String[] typeList;
+	private List<String> wazaList;
+	private List<String> typeList;
 
 	public BodyData() {
 		id = "none";
@@ -39,8 +42,8 @@ public class BodyData implements Data {
 		moveType = "none";
 		weponType = "none";
 		armorType = "none";
-		wazaList = new String[3];
-		typeList = new String[5];
+		wazaList = new ArrayList<>();
+		typeList = new ArrayList<>();
 	}
 
 	public String toString(){
@@ -157,18 +160,22 @@ public class BodyData implements Data {
 		return str;
 	}
 
-	/**
-	 * @return
-	 */
-	public String[] getTypeList() {
+
+
+	public List<String> getWazaList() {
+		return wazaList;
+	}
+
+	public void setWazaList(List<String> wazaList) {
+		this.wazaList = wazaList;
+	}
+
+	public List<String> getTypeList() {
 		return typeList;
 	}
 
-	/**
-	 * @return
-	 */
-	public String[] getWazaList() {
-		return wazaList;
+	public void setTypeList(List<String> typeList) {
+		this.typeList = typeList;
 	}
 
 	/**
@@ -283,19 +290,6 @@ public class BodyData implements Data {
 		str = i;
 	}
 
-	/**
-	 * @param strings
-	 */
-	public void setTypeList(String[] strings) {
-		typeList = strings;
-	}
-
-	/**
-	 * @param strings
-	 */
-	public void setWazaList(String[] strings) {
-		wazaList = strings;
-	}
 
 	/**
 	 * @param string

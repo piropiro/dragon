@@ -2,7 +2,6 @@ package dragon3.impl;
 
 import java.util.List;
 
-import mine.paint.UnitMap;
 import dragon3.DragonBuster;
 import dragon3.FrameWorks;
 import dragon3.UnitWorks;
@@ -14,19 +13,17 @@ import dragon3.common.constant.Types;
 import dragon3.common.util.MoveUtils;
 import dragon3.cpu.EnemyTurn;
 import dragon3.manage.TurnManager;
-import dragon3.map.MapWorks;
 import dragon3.paint.PaintUtils;
-import dragon3.panel.PanelManager;
+import mine.paint.UnitMap;
 
 public class TurnManagerImpl implements TurnManager {
 
 	private int turn;
 	private List<Body> charaList;
 	private UnitWorks uw;
-	private MapWorks mw;
+
 	private UnitMap map;
 	private AnimeManager anime;
-	private PanelManager pm;
 	private FrameWorks fw;
 
 	/*** Constructer ************************************/
@@ -34,10 +31,8 @@ public class TurnManagerImpl implements TurnManager {
 	public TurnManagerImpl(UnitWorks uw) {
 		this.uw = uw;
 		this.anime = uw.getAnimeManager();
-		this.pm = uw.getPanelManager();
 		this.charaList = uw.getCharaList();
 		this.map = uw.getUnitMap();
-		this.mw = uw.getMapWorks();
 		this.fw = uw.getFrameWorks();
 	}
 
@@ -60,9 +55,8 @@ public class TurnManagerImpl implements TurnManager {
 		turn++;
 		turnChange(true);
 		PaintUtils.setBasicPaint(uw);
-		mw.repaint();
-		pm.displayLarge("Turn " + turn, GameColors.BLUE, 1500);
 		fw.setMenu(DragonBuster.T_PLAYER);
+		uw.getMapWorks().repaint();
 	}
 
 	/*** Enemy ******************************/
@@ -72,9 +66,8 @@ public class TurnManagerImpl implements TurnManager {
 		uw.limitOver();
 		EnemyTurn et = new EnemyTurn(uw);
 		PaintUtils.setWaitPaint(uw);
-		pm.displayLarge("Enemy Turn " + turn, GameColors.RED, 1000);
 		fw.setMenu(DragonBuster.T_ENEMY);
-		et.start();
+		et.start(turn);
 	}
 
 	/*** Change *****************************/

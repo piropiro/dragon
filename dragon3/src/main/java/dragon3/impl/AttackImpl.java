@@ -1,10 +1,9 @@
 package dragon3.impl;
 
+import java.util.HashSet;
 import java.util.Set;
 
-import mine.paint.UnitMap;
 import dragon3.anime.AnimeManager;
-import dragon3.attack.AttackUtils;
 import dragon3.attack.calc.Damage;
 import dragon3.attack.calc.DamageRate;
 import dragon3.attack.calc.HitRate;
@@ -12,9 +11,9 @@ import dragon3.attack.special.SpecialEffectManager;
 import dragon3.bean.WazaData;
 import dragon3.common.Body;
 import dragon3.common.constant.Effects;
-import dragon3.common.constant.Page;
 import dragon3.common.constant.Types;
 import dragon3.manage.Attack;
+import mine.paint.UnitMap;
 
 public class AttackImpl implements Attack {
 
@@ -37,7 +36,7 @@ public class AttackImpl implements Attack {
 		this.map = map;
 		this.ba = ba;
 		this.waza = waza;
-		this.effectSet = AttackUtils.createEffectSet(waza.getEffect());
+		this.effectSet = new HashSet<>(waza.getEffect());
 
 		bb = null;
 	}
@@ -58,25 +57,6 @@ public class AttackImpl implements Attack {
 	public Set<String> getEffectSet() {
 		return effectSet;
 	}
-
-	/*** Counter ***************************************************************/
-
-	// 2-1 Counter Range
-
-	public boolean isCounterable(Body b, boolean flag) {
-		if (ba.isType(Types.SLEEP))
-			return false;
-		if (flag && !hasEffect(Effects.COUNTER_ONLY))
-			return false;
-		if (!flag && !hasEffect(Effects.COUNTER_ABLE))
-			return false;
-
-		if (map.getData(Page.P21, b.getX(), b.getY()) == 0)
-			return false;
-		return true;
-	}
-
-
 
 	/*** Iconable *************************************************/
 
@@ -112,6 +92,13 @@ public class AttackImpl implements Attack {
 	public Body getReceiver() {
 		return bb;
 	}
+
+	
+	public void setReceiver(Body bb) {
+		this.bb = bb;
+	}
+
+
 
 	public boolean isHit() {
 		if (hasEffect(Effects.HICHU))

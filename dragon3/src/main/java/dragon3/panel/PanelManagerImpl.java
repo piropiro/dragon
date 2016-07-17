@@ -66,7 +66,11 @@ public class PanelManagerImpl implements PanelManager {
 			case MoveUtils.CLOSE_BOX :
 			case MoveUtils.OPEN_BOX :
 			case MoveUtils.BROKEN_BOX :
-				dataP1.displayItem(p, turnManager.getTurn(), treasure.getLimitTurn(p), tikei);
+				dataP1.displayItem(
+						p, 
+						turnManager.getTurn(), 
+						treasure.getLimitTurn(p), 
+						tikei);
 				return true;
 			case MoveUtils.CLOSE_MAGIC :
 			case MoveUtils.OPEN_MAGIC :

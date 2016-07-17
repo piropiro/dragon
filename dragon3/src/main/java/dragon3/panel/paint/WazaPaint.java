@@ -49,10 +49,7 @@ public class WazaPaint implements DataPanelPainter {
 
 		pw.drawLine((String)Statics.targetType.get(waza.getTargetType()), 1, 0, g);
 
-		Set<String> ect = new HashSet<String>();
-		for (int i = 0; i < waza.getEffect().length; i++) {
-			ect.add(waza.getEffect()[i]);
-		}
+		Set<String> ect = new HashSet<>(waza.getEffect());
 
 		int hit = 0;
 		if (ect.contains(Effects.MISS_4));

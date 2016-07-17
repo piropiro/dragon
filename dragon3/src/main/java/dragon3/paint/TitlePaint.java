@@ -26,7 +26,7 @@ public class TitlePaint extends PaintAdapter {
 	 * @see dragon3.paint.PaintListener#leftPressed()
 	 */
 	public void leftPressed() {
-		uw.nameChange();
+		//uw.nameChange();
 		action();
 	}
 

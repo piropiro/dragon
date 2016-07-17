@@ -1,6 +1,7 @@
 package dragon3;
 
 import java.awt.Point;
+import java.util.List;
 
 import mine.event.SleepManager;
 import mine.paint.UnitMap;
@@ -29,7 +30,7 @@ public class FightManager {
 
 	private Body ba;
 	private Body bb;
-	private String[] baWazaList;
+	private List<String> baWazaList;
 	private AttackManager attack;
 	private AttackManager counter;
 	private int n;
@@ -63,7 +64,7 @@ public class FightManager {
 	/*** Select *********************************************/
 
 	public void nextSelect() {
-		while (++n < baWazaList.length) {
+		while (++n < baWazaList.size()) {
 			if (select(n, false)) {
 				PaintUtils.setAttackPaint(uw, this, ba);
 				return;
@@ -82,12 +83,12 @@ public class FightManager {
 	}
 
 	public boolean select(int i, boolean enemyFlag) {
-		if (baWazaList[i].equals("none"))
+		if (baWazaList.get(i).equals("none"))
 			return false;
 		if (i > 0 && ba.isType(Types.WET))
 			return false;
 		
-		attack = new AttackManagerImpl(uw, map, ba, baWazaList[i]);
+		attack = new AttackManagerImpl(uw, map, ba, baWazaList.get(i));
 		if (attack.isAlive(enemyFlag)) {
 			attack.show();
 			pm.selectHp(true);
@@ -101,10 +102,10 @@ public class FightManager {
 	public boolean enemySelect() {
 		int n = -1;
 		int dmax = -1;
-		for (int i = 0; i < baWazaList.length; i++) {
+		for (int i = 0; i < baWazaList.size(); i++) {
 			if (i > 0 && ba.isType(Types.WET))
 				break;
-			AttackManager ab = new AttackManagerImpl(uw, map, ba, baWazaList[i]);
+			AttackManager ab = new AttackManagerImpl(uw, map, ba, baWazaList.get(i));
 			if (ab.isAlive(true)) {
 				if (dmax < ab.getBestDamage()) {
 					dmax = ab.getBestDamage();
@@ -127,24 +128,26 @@ public class FightManager {
 		if (!attack.getAttack().hasEffect(Effects.COUNTER_ABLE))
 			return;
 
-		String[] bbWazaList = bb.getWazaList();
-		for (int i = bbWazaList.length - 1; i >= 0; i--) {
-			if (bbWazaList[i].equals("none"))
+		List<String> bbWazaList = bb.getWazaList();
+		for (int i = bbWazaList.size() - 1; i >= 0; i--) {
+			if (bbWazaList.get(i).equals("none"))
 				continue;
-			AttackManager ab = new AttackManagerImpl(uw, map, bb, bbWazaList[i]);
+			AttackManager ab = new AttackManagerImpl(uw, map, bb, bbWazaList.get(i));
 			if (ab.isCounterable(ba, true)) {
 				counter = ab;
+				counter.selectTarget(ba);
 				break;
 			}
 		}
-		for (int i = 0; i < bbWazaList.length; i++) {
+		for (int i = 0; i < bbWazaList.size(); i++) {
 			if (counter != null)
 				break;
-			if (bbWazaList[i].equals("none"))
+			if (bbWazaList.get(i).equals("none"))
 				continue;
-			AttackManager ab = new AttackManagerImpl(uw, map, bb, bbWazaList[i]);
+			AttackManager ab = new AttackManagerImpl(uw, map, bb, bbWazaList.get(i));
 			if (ab.isCounterable(ba, false)) {
 				counter = ab;
+				counter.selectTarget(ba);
 				break;
 			}
 		}
@@ -221,8 +224,13 @@ public class FightManager {
 		map.clear(Page.P40, 0);
 		mw.repaint();
 		setCounter(bb);
-		if (bb != null)
-			pm.displayAttack(attack.getAttack(), counter.getAttack());
+		if (bb != null) {
+			if (counter == null) {
+				pm.displayAttack(attack.getAttack(), null);
+			} else {
+				pm.displayAttack(attack.getAttack(), counter.getAttack());
+			}
+		}
 		sm.sleep(300);
 		attack();
 		mw.repaint();

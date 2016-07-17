@@ -1,5 +1,8 @@
 package dragon3.bean;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class WazaData implements Data {
 
 	private String id;
@@ -13,7 +16,7 @@ public class WazaData implements Data {
 	private String animeId;
 	private int star;
 
-	private String effect[];
+	private List<String> effect;
 
 	public WazaData() {
 		id = "none";
@@ -24,7 +27,7 @@ public class WazaData implements Data {
 		weponType = "none";
 		targetType = "none";
 		animeId = "none";
-		effect = new String[5];
+		effect = new ArrayList<>();
 	}
 
 	public String toString(){
@@ -48,7 +51,7 @@ public class WazaData implements Data {
 	/**
 	 * @return
 	 */
-	public String[] getEffect() {
+	public List<String> getEffect() {
 		return effect;
 	}
 
@@ -118,7 +121,7 @@ public class WazaData implements Data {
 	/**
 	 * @param strings
 	 */
-	public void setEffect(String[] strings) {
+	public void setEffect(List<String> strings) {
 		effect = strings;
 	}
 

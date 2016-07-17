@@ -39,7 +39,8 @@ public class EnemyTurn {
 
 	/*** Main *********************************************/
 
-	public void start() {
+	public void start(int turn) {
+		pm.displayLarge("Enemy Turn " + turn, GameColors.RED, 1000);
 		pm.closeHelp();
 		pm.closeData();
 		sm.sleep(300);

@@ -24,12 +24,12 @@ public class WazaListPaint implements DataPanelPainter {
 	public void paint(PanelWorks pw, MineGraphics g) {
 		pw.drawMain(ba, g, false);
 		int n = 0;
-		String[] wazaList = ba.getWazaList();
-		for (int i = 0; i < wazaList.length; i++) {
-			if (wazaList[i] == null) { 
+
+		for (String wazaId : ba.getWazaList()) {
+			if (wazaId == null) { 
 				continue;
 			}
-			Data waza = Statics.wazaList.getData(wazaList[i]);
+			Data waza = Statics.wazaList.getData(wazaId);
 			pw.drawLine(waza.getName(), 0, n++, g);
 			if (n == 4)
 				break;

@@ -52,9 +52,6 @@ public class AttackManagerImpl implements AttackManager {
 
 	private List<Body> enemy;
 
-	private Body ba;
-	private Body bb;
-
 	private Body bestEnemy;
 	private int bestDamage;
 
@@ -76,13 +73,11 @@ public class AttackManagerImpl implements AttackManager {
 		this.anime = uw.getAnimeManager();
 		this.sm = uw.getSleepManager();
 		this.pm = uw.getPanelManager();
-		this.ba = ba;
 		this.waza = (WazaData)Statics.wazaList.getData(wazaId);
 
 		se = SpecialEffectManager.getInstance(map);
 		this.attack = new AttackImpl(uw.getAnimeManager(), map, ba, waza);
 
-		bb = null;
 		enemy = null;
 
 		setTargetType(waza.getTargetType(), ba.getX(), ba.getY());
@@ -97,6 +92,7 @@ public class AttackManagerImpl implements AttackManager {
 	 */
 
 	public void show() {
+		Body ba = attack.getAttacker();
 		map.copyPage(Page.P21, Page.P10);
 		map.setData(Page.P30, ba.getX(), ba.getY(), 0);
 	}
@@ -161,6 +157,8 @@ public class AttackManagerImpl implements AttackManager {
 		} else if (targetType.equals(TargetType.TARGET_SPREAD)) {
 			range = new DonutRange(2, 1);
 			target = new SpreadTarget(x, y, 1);
+		} else {
+			throw new IllegalArgumentException("Unknown TargetType:" + targetType);
 		}
 	}
 
@@ -170,7 +168,8 @@ public class AttackManagerImpl implements AttackManager {
 
 	// 2-1 Counter Range
 
-	public boolean isCounterable(Body b, boolean flag) {
+	public boolean isCounterable(Body bb, boolean flag) {
+		Body ba = attack.getAttacker();
 		if (ba.isType(Types.SLEEP))
 			return false;
 		if (flag && !attack.hasEffect(Effects.COUNTER_ONLY))
@@ -178,7 +177,7 @@ public class AttackManagerImpl implements AttackManager {
 		if (!flag && !attack.hasEffect(Effects.COUNTER_ABLE))
 			return false;
 
-		if (map.getData(Page.P21, b.getX(), b.getY()) == 0)
+		if (map.getData(Page.P21, bb.getX(), bb.getY()) == 0)
 			return false;
 		return true;
 	}
@@ -191,6 +190,8 @@ public class AttackManagerImpl implements AttackManager {
 	// 1-1 Search Enemy
 
 	public boolean isAlive(boolean enemyFlag) {
+		Body ba = attack.getAttacker();
+		
 		if (attack.hasEffect(Effects.COUNTER_ONLY))
 			return false;
 		if (attack.hasEffect(Effects.TAME) && Rewalk.isWalked(ba))
@@ -220,6 +221,7 @@ public class AttackManagerImpl implements AttackManager {
 	// 4-0 Over Frame
 
 	public void setTarget(int x, int y) {
+		Body ba = attack.getAttacker();
 		target.paint(map, Page.P40, x, y);
 		map.setData(Page.P40, ba.getX(), ba.getY(), 0);
 		map.copyPage(Page.P40, Page.P41);
@@ -229,8 +231,10 @@ public class AttackManagerImpl implements AttackManager {
 	 * @see dragon3.impl.AttackManager#selectTarget(dragon3.common.Body)
 	 */
 
-	public void selectTarget(Body bb_) {
-		this.bb = bb_;
+	public void selectTarget(Body bb) {
+		attack.setReceiver(bb);
+		Body ba = attack.getAttacker();
+		
 		if (bb == null) {
 			pm.closeHp();
 		} else {
@@ -254,6 +258,8 @@ public class AttackManagerImpl implements AttackManager {
 	// 4-0 Over Frame
 
 	public boolean searchTargets() {
+		Body bb = attack.getReceiver();
+		
 		if (attack.hasEffect(Effects.COUNTER_ABLE) && bb == null)
 			return false;
 
@@ -273,6 +279,8 @@ public class AttackManagerImpl implements AttackManager {
 	 */
 
 	public boolean isTarget(Body b) {
+		Body ba = attack.getAttacker();
+		
 		if (b == ba)
 			return false;
 		if (!b.isAlive())
@@ -283,31 +291,31 @@ public class AttackManagerImpl implements AttackManager {
 				return false;
 			if (!attack.hasEffect(Effects.HEAL) && b.getColor() == ba.getColor())
 				return false;
-			if (se.isEffective(ba, bb, attack.getEffectSet(), Effects.CRITICAL))
+			if (se.isEffective(ba, b, attack.getEffectSet(), Effects.CRITICAL))
 				return true;
-			if (se.isEffective(ba, bb, attack.getEffectSet(), Effects.DEATH))
+			if (se.isEffective(ba, b, attack.getEffectSet(), Effects.DEATH))
 				return true;
-			if (se.isEffective(ba, bb, attack.getEffectSet(), Effects.SLEEP))
+			if (se.isEffective(ba, b, attack.getEffectSet(), Effects.SLEEP))
 				return true;
-			if (se.isEffective(ba, bb, attack.getEffectSet(), Effects.CHARM))
+			if (se.isEffective(ba, b, attack.getEffectSet(), Effects.CHARM))
 				return true;
-			if (se.isEffective(ba, bb, attack.getEffectSet(), Effects.POISON))
+			if (se.isEffective(ba, b, attack.getEffectSet(), Effects.POISON))
 				return true;
-			if (se.isEffective(ba, bb, attack.getEffectSet(), Effects.WET))
+			if (se.isEffective(ba, b, attack.getEffectSet(), Effects.WET))
 				return true;
-			if (se.isEffective(ba, bb, attack.getEffectSet(), Effects.ATTACK_UP))
+			if (se.isEffective(ba, b, attack.getEffectSet(), Effects.ATTACK_UP))
 				return true;
-			if (se.isEffective(ba, bb, attack.getEffectSet(), Effects.GUARD_UP))
+			if (se.isEffective(ba, b, attack.getEffectSet(), Effects.GUARD_UP))
 				return true;
-			if (se.isEffective(ba, bb, attack.getEffectSet(), Effects.UPPER))
+			if (se.isEffective(ba, b, attack.getEffectSet(), Effects.UPPER))
 				return true;
-			if (se.isEffective(ba, bb, attack.getEffectSet(), Effects.CHOP))
+			if (se.isEffective(ba, b, attack.getEffectSet(), Effects.CHOP))
 				return true;
-			if (se.isEffective(ba, bb, attack.getEffectSet(), Effects.REFRESH))
+			if (se.isEffective(ba, b, attack.getEffectSet(), Effects.REFRESH))
 				return true;
-			if (se.isEffective(ba, bb, attack.getEffectSet(), Effects.OIL))
+			if (se.isEffective(ba, b, attack.getEffectSet(), Effects.OIL))
 				return true;
-			if (se.isEffective(ba, bb, attack.getEffectSet(), Effects.REGENE))
+			if (se.isEffective(ba, b, attack.getEffectSet(), Effects.REGENE))
 				return true;
 
 			return false;
@@ -315,7 +323,7 @@ public class AttackManagerImpl implements AttackManager {
 
 		if (b.isType(Types.CHARM))
 			return true;
-		int damage = Damage.calc(waza.getDamageType(), map, ba, bb, attack.getEffectSet());
+		int damage = Damage.calc(waza.getDamageType(), map, ba, b, attack.getEffectSet());
 		if (damage == 0) {
 			if (attack.hasEffect(Effects.HEAL))
 				return (b.getColor() == ba.getColor());
@@ -327,7 +335,7 @@ public class AttackManagerImpl implements AttackManager {
 				return false;
 		}
 		boolean flag = true;
-		if (b.getColor() == ba.getColor())
+		if (b.getColor().equals(ba.getColor()))
 			flag = !flag;
 		if (ba.isType(Types.CHARM))
 			flag = !flag;
@@ -358,19 +366,21 @@ public class AttackManagerImpl implements AttackManager {
 	 * @see dragon3.impl.AttackManager#getAttacker()
 	 */
 	public Body getAttacker() {
-		return ba;
+		return attack.getAttacker();
 	}
 
 	/* (non-Javadoc)
 	 * @see dragon3.impl.AttackManager#getReceiver()
 	 */
 	public Body getReceiver() {
-		return bb;
+		return attack.getReceiver();
 	}
 
 	/*** Anime *********************************************/
 
 	private void singleAnime() {
+		Body ba = attack.getAttacker();
+		Body bb = attack.getReceiver();
 		AnimeData data = anime.getData(waza.getAnimeId());
 		if (data.getType().equals(AnimeManager.TYPE_SINGLE)) {
 			anime.singleAnime(data, bb.getX(), bb.getY());
@@ -380,6 +390,7 @@ public class AttackManagerImpl implements AttackManager {
 	}
 
 	private void allAnime() {
+		Body ba = attack.getAttacker();
 		AnimeData data = anime.getData(waza.getAnimeId());
 		if (data.getType().equals(AnimeManager.TYPE_ALL)) {
 			anime.allAnime(data);
@@ -395,6 +406,7 @@ public class AttackManagerImpl implements AttackManager {
 	}
 
 	private void laserAnime(AnimeData data, int length) {
+		Body ba = attack.getAttacker();
 		Point goal = new Point(target.getX(), target.getY());
 		switch (target.getFace(target.getX(), target.getY())) {
 			case Target.WEST :
@@ -421,6 +433,7 @@ public class AttackManagerImpl implements AttackManager {
 	// 1-1 Search Enemy
 
 	public void getAttackUnit(List<Body> charaList) {
+		Body ba = attack.getAttacker();
 		map.clear(Page.P11, 0);
 		bestDamage = -1;
 		for (Body b: charaList) {
@@ -432,13 +445,13 @@ public class AttackManagerImpl implements AttackManager {
 				int d =
 					Damage.calc(waza.getDamageType(), map, ba, b, attack.getEffectSet()) * DamageRate.calc(map, ba, b, attack.getEffectSet());
 
-				if (!b.isType(Types.CHARM_LOCK) && se.isEffective(ba, bb, attack.getEffectSet(), Effects.CHARM))
+				if (!b.isType(Types.CHARM_LOCK) && se.isEffective(ba, b, attack.getEffectSet(), Effects.CHARM))
 					d += b.getHp() / 2;
 
-				if (!b.isType(Types.SLEEP_LOCK) && se.isEffective(ba, bb, attack.getEffectSet(), Effects.SLEEP))
+				if (!b.isType(Types.SLEEP_LOCK) && se.isEffective(ba, b, attack.getEffectSet(), Effects.SLEEP))
 					d += b.getHp() / 2;
 
-				if (se.isEffective(ba, bb, attack.getEffectSet(), Effects.DEATH))
+				if (se.isEffective(ba, b, attack.getEffectSet(), Effects.DEATH))
 					d += b.getHp();
 				if (b.getColor() == ba.getColor())
 					d = -d;
@@ -458,19 +471,23 @@ public class AttackManagerImpl implements AttackManager {
 	 */
 
 	public void attack() {
-
+		Body ba = attack.getAttacker();
+		Body bb = attack.getReceiver();
+		
 		allAnime();
 		if (bb != null) {
 			enemy.remove(bb);
 			enemy.add(0, bb);
 		} else {
 			bb = (Body) enemy.get(0);
+			attack.setReceiver(bb);
 			pm.displayAttack(attack, null);
 		}
 
 		int i = 0;
 		for (Body b : enemy) {
 			bb = b;
+			attack.setReceiver(bb);
 			meichu = HitRate.calcReal(ba, bb, attack.getEffectSet());
 			pm.displayHp(
 				bb,
@@ -538,6 +555,8 @@ public class AttackManagerImpl implements AttackManager {
 	/*** Hit *********************************/
 
 	private boolean attackHit() {
+		Body ba = attack.getAttacker();
+		Body bb = attack.getReceiver();
 		if (attack.hasEffect(Effects.NO_ATTACK)) {
 			bb.setStore(bb.getStore() + meichu);
 			bb.setStore(bb.getStore() % HitRate.SINGLE_HIT);
@@ -583,6 +602,7 @@ public class AttackManagerImpl implements AttackManager {
 	/*** Miss *********************************/
 
 	private boolean attackMiss() {
+		Body bb = attack.getReceiver();
 		if (meichu + bb.getStore() >= HitRate.SINGLE_HIT)
 			return false;
 
