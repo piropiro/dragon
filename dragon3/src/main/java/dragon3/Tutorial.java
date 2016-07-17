@@ -10,7 +10,7 @@ public class Tutorial {
 		String[] line;
 		line = Texts.tuto[0];
 
-		String color = GameColors.BLUE;
+		GameColors color = GameColors.BLUE;
 		if (bb != null) {
 			if (ba.isType(Types.HERO)) {
 				if (n == 0) {

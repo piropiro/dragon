@@ -5,14 +5,13 @@ import java.awt.Graphics;
 
 import javax.swing.JComponent;
 
+import dragon3.common.Body;
+import dragon3.panel.item.HPBar;
 import mine.awt.GraphicsAWT;
 import mine.awt.MineAwtUtils;
 import mine.event.SleepManager;
 import mine.paint.Colors;
 import mine.paint.MineGraphics;
-import dragon3.common.Body;
-import dragon3.common.constant.GameColors;
-import dragon3.panel.item.HPBar;
 
 public class HPanel extends JComponent {
 
@@ -88,7 +87,7 @@ public class HPanel extends JComponent {
 		MineGraphics mg = new GraphicsAWT(g);
 		
 		Dimension d = getSize();
-		mg.setColor(GameColors.getColor(ba.getColor()));
+		mg.setColor(ba.getColor().getAlphaBg());
 		mg.fillRect(0, 0, d.width, d.height);
 		mg.setColor(Colors.BLACK);
 		mg.drawRect(0, 0, d.width - 1, d.height - 1);

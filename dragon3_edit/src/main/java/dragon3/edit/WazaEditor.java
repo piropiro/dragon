@@ -4,11 +4,16 @@ import mine.MineException;
 import mine.edit.BeanEditor;
 import mine.edit.EditListener;
 import mine.edit.EditPanel;
+
+import java.util.LinkedHashMap;
+import java.util.Map;
+
 import dragon3.Statics;
 import dragon3.bean.AnimeData;
 import dragon3.bean.WazaData;
 import dragon3.bean.load.AnimeDataLoader;
 import dragon3.common.DataList;
+import dragon3.common.constant.GameColors;
 
 public class WazaEditor extends EditPanel<WazaData> implements EditListener<WazaData> {
 
@@ -24,8 +29,13 @@ public class WazaEditor extends EditPanel<WazaData> implements EditListener<Waza
 		setField(CENTER, "id", "ID");
 		setField(CENTER, "name", "名前");
 		setField(LEFT, "label", "ラベル");
-		setTextCombo(RIGHT, "labelColor", "カラー");
-		initCombo("labelColor", Statics.color);
+		setEnumCombo(RIGHT, "labelColor", "カラー", GameColors.class);
+		
+		Map<String, String> idAndText = new LinkedHashMap<>();
+		for (GameColors gc : GameColors.values()) {	
+			idAndText.put(gc.name(), gc.getText());
+		}
+		initCombo("labelColor", idAndText);
 		setSlider(CENTER, "star", "Star", 5);
 		setTextCombo(CENTER, "targetType", "範囲タイプ");
 		initCombo("targetType", Statics.targetType);

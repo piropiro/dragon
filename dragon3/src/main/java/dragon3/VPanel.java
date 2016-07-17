@@ -434,7 +434,7 @@ public class VPanel extends JLayeredPane implements UnitWorks, ActionListener, K
 		}
 	}
 
-	public Point getCrystal(String color) {
+	public Point getCrystal(GameColors color) {
 		if (color.equals(GameColors.BLUE)) {
 			return blueCrystal;
 		} else if (color.equals(GameColors.RED)) {

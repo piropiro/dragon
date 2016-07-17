@@ -3,12 +3,14 @@ package dragon3.bean;
 import java.util.ArrayList;
 import java.util.List;
 
+import dragon3.common.constant.GameColors;
+
 public class WazaData implements Data {
 
 	private String id;
 	private String name;
 	private String label;
-	private String labelColor;
+	private GameColors labelColor;
 
 	private String damageType;
 	private String weponType;
@@ -22,7 +24,7 @@ public class WazaData implements Data {
 		id = "none";
 		name = "none";
 		label = "none";
-		labelColor = "none";
+		labelColor = GameColors.BLACK;
 		damageType = "none";
 		weponType = "none";
 		targetType = "none";
@@ -72,7 +74,7 @@ public class WazaData implements Data {
 	/**
 	 * @return
 	 */
-	public String getLabelColor() {
+	public GameColors getLabelColor() {
 		return labelColor;
 	}
 
@@ -142,7 +144,7 @@ public class WazaData implements Data {
 	/**
 	 * @param string
 	 */
-	public void setLabelColor(String string) {
+	public void setLabelColor(GameColors string) {
 		labelColor = string;
 	}
 

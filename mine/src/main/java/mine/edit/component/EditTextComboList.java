@@ -22,7 +22,7 @@ public class EditTextComboList extends EditTextCombo implements EditComponent {
 		@SuppressWarnings("unchecked")
 		List<String> strs = (List<String>)MineUtils.getField(obj, fieldName);
 		
-		while (index < strs.size()) {
+		while (index > strs.size()) {
 			strs.add("none");
 		}
 		

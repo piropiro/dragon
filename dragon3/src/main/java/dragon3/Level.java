@@ -83,7 +83,7 @@ public class Level {
 		boolean flag[] = equip.getAttack(ba);
 		List<String> baAtk = ba.getWazaList();
 
-		attacklearn(Texts.buki, flag[1], baAtk.get(1));
+//		attacklearn(Texts.buki, flag[1], baAtk.get(1));
 //		attacklearn(Texts.bougu, flag[2], baAtk.get(2));
 //		attacklearn(Texts.shokugyo, flag[3], baAtk.get(3));
 //		attacklearn(Texts.shokugyo, flag[4], baAtk.get(4));

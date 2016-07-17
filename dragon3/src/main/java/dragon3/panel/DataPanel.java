@@ -39,7 +39,7 @@ public class DataPanel extends PanelBase {
 
 	private DataPanelPainter pp;
 
-	private String bgcolor;
+	private GameColors bgcolor = GameColors.BLUE;
 
 
 	/*** Constructer *******************************************/
@@ -69,7 +69,7 @@ public class DataPanel extends PanelBase {
 
 	/*** Status *******************************************/
 
-	public void displayCamp(Point pa, int tikei, String bgcolor_) {
+	public void displayCamp(Point pa, int tikei, GameColors bgcolor_) {
 		this.bgcolor = bgcolor_;
 		setLocate(pa, 1);
 		pp = new CampDataPaint(tikei, im.getBack(), im.getWaku());

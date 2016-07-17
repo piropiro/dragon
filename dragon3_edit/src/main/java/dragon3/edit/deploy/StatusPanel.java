@@ -1,6 +1,8 @@
 package dragon3.edit.deploy;
 
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 import mine.MineException;
 import mine.awt.ImageLoaderAWT;
@@ -11,6 +13,7 @@ import mine.paint.MineImageLoader;
 import dragon3.Statics;
 import dragon3.bean.BodyData;
 import dragon3.bean.DeployData;
+import dragon3.common.constant.GameColors;
 import dragon3.image.BodyImageList;
 import dragon3.image.ImageManager;
 
@@ -25,8 +28,13 @@ public class StatusPanel extends EditPanel<DeployData> implements EditListener<D
 		setTextCombo(CENTER, "deployType", "配置種別");
 		initCombo("deployType", Statics.deployType);
 		setSlider(CENTER, "level", "Level", 99);
-		setTextCombo(LEFT, "color", "色");
-		initCombo("color", Statics.color);
+		setEnumCombo(LEFT, "color", "色", GameColors.class);
+		Map<String, String> idAndText = new LinkedHashMap<>();
+		for (GameColors gc : GameColors.values()) {	
+			idAndText.put(gc.name(), gc.getText());
+		}
+		initCombo("color", idAndText);
+		
 		setIntCombo(RIGHT, "limitTurn", "制限時間", 20);
 		setIntCombo(LEFT, "scope", "射程", 5);
 		setIntCombo(RIGHT, "range", "領域", 20);

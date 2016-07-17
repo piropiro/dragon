@@ -1,12 +1,13 @@
 package dragon3.manage;
 
 import dragon3.common.Body;
+import dragon3.common.constant.GameColors;
 
 
 public interface Attack {
     public String getName();
     public String getLabel();
-    public String getLabelColor();
+    public GameColors getLabelColor();
     public int getStore();
     public int getDamage();
     public int getMeichu();

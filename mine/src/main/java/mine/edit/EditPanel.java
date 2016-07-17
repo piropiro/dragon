@@ -15,6 +15,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import mine.edit.component.EditComponent;
+import mine.edit.component.EditEnumCombo;
 import mine.edit.component.EditImageCombo;
 import mine.edit.component.EditImageComboArray;
 import mine.edit.component.EditIntCombo;
@@ -25,6 +26,7 @@ import mine.edit.component.EditTextCombo;
 import mine.edit.component.EditTextComboList;
 import mine.edit.component.EditTextField;
 import mine.edit.component.EditTextFieldArray;
+import mine.edit.component.TextCombo;
 import mine.paint.MineImage;
 
 
@@ -83,7 +85,7 @@ public class EditPanel<B> extends JPanel implements EditListener<B> {
 				component.getData(obj);
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
+			throw new RuntimeException(e);
 		}
 	}
 
@@ -95,7 +97,7 @@ public class EditPanel<B> extends JPanel implements EditListener<B> {
 				component.setData(obj);
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
+			throw new RuntimeException(e);
 		}
 	}
 
@@ -158,6 +160,10 @@ public class EditPanel<B> extends JPanel implements EditListener<B> {
 	public void setTextCombo(int pos, String name, String label) {
 		add(new EditTextCombo(name), name, label, pos);
 	}
+	
+	public void setEnumCombo(int pos, String name, String label, Class<?> enu) {
+		add(new EditEnumCombo(name, enu), name, label, pos);
+	}
 
 	public void setIntCombo(int pos, String name, String label, int max) {
 		EditIntCombo combo = new EditIntCombo(name);
@@ -196,14 +202,14 @@ public class EditPanel<B> extends JPanel implements EditListener<B> {
 
 
 	/*** 選択項目初期化 **********************************************/
-
+	
 	public void initCombo(String name, Map<String, String> idAndText) {
-		EditTextCombo combo = (EditTextCombo)componentMap.get(name);
+		TextCombo combo = (TextCombo)componentMap.get(name);
 		combo.init(idAndText);
 	}
 
 	public void initCombo(String name, String[] id, String[] text) {
-		EditTextCombo combo = (EditTextCombo)componentMap.get(name);
+		TextCombo combo = (TextCombo)componentMap.get(name);
 		combo.init(id, text);
 	}
 

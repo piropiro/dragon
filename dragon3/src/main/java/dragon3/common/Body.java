@@ -6,6 +6,8 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 
+import dragon3.common.constant.GameColors;
+
 @SuppressWarnings("serial")
 public class Body implements Serializable, Cloneable {
 
@@ -13,7 +15,7 @@ public class Body implements Serializable, Cloneable {
 	private String name = "none";
 	private String image = "0.png";
 	private String kind = "none";
-	private String color = "none";
+	private GameColors color = GameColors.BLACK;
 
 	private String deployType;
 	
@@ -88,7 +90,7 @@ public class Body implements Serializable, Cloneable {
 	/**
 	 * @return
 	 */
-	public String getColor() {
+	public GameColors getColor() {
 		return color;
 	}
 
@@ -292,7 +294,7 @@ public class Body implements Serializable, Cloneable {
 	/**
 	 * @param string
 	 */
-	public void setColor(String string) {
+	public void setColor(GameColors string) {
 		color = string;
 	}
 
