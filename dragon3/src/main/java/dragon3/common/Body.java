@@ -8,6 +8,7 @@ import java.util.Set;
 
 import dragon3.common.constant.GameColors;
 import dragon3.common.constant.BodyKind;
+import dragon3.common.constant.DeployType;
 import dragon3.common.constant.MoveType;
 
 @SuppressWarnings("serial")
@@ -19,7 +20,7 @@ public class Body implements Serializable, Cloneable {
 	private BodyKind kind = BodyKind.CHARA;
 	private GameColors color = GameColors.BLACK;
 
-	private String deployType;
+	private DeployType deployType;
 	
 	private int hp;
 	private int hpMax;
@@ -301,11 +302,11 @@ public class Body implements Serializable, Cloneable {
 	}
 
 	
-	public String getDeployType() {
+	public DeployType getDeployType() {
 		return deployType;
 	}
 
-	public void setDeployType(String deployType) {
+	public void setDeployType(DeployType deployType) {
 		this.deployType = deployType;
 	}
 

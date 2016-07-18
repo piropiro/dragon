@@ -1,5 +1,8 @@
 package dragon3.common.constant;
 
+import java.util.LinkedHashMap;
+import java.util.Map;
+
 import dragon3.common.Body;
 
 
@@ -52,4 +55,11 @@ public enum GameColors {
 		return b.getColor().equals(RED);
 	}
 
+	public static Map<String, String> createMap() {
+		Map<String, String> idAndText = new LinkedHashMap<>();
+		for (GameColors a : values()) {	
+			idAndText.put(a.name(), a.getText());
+		}
+		return idAndText;
+	}
 }

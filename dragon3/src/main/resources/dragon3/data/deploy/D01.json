@@ -2,7 +2,7 @@
 	{
 		"bodyId": "gobrin",
 		"color": "RED",
-		"deployType": "chara",
+		"deployType": "CHARA",
 		"goalX": 0,
 		"goalY": 0,
 		"id": null,
@@ -17,7 +17,7 @@
 	{
 		"bodyId": "gobrin",
 		"color": "RED",
-		"deployType": "chara",
+		"deployType": "CHARA",
 		"goalX": 0,
 		"goalY": 0,
 		"id": null,
@@ -32,7 +32,7 @@
 	{
 		"bodyId": "gobrin",
 		"color": "RED",
-		"deployType": "chara",
+		"deployType": "CHARA",
 		"goalX": 0,
 		"goalY": 0,
 		"id": null,

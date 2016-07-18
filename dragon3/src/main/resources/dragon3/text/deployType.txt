@@ -1,7 +1,0 @@
-none None
-chara 普通キャラ
-sumon 召喚キャラ
-box.item 宝箱アイテム
-clear.item クリアアイテム
-enemy.item 敵持ちアイテム
-secret.item 隠しアイテム

@@ -37,9 +37,7 @@ public class Statics {
 	public static final Map<String, String> armorType;
 	public static final Map<String, String> targetType;
 	public static final Map<String, String> damageType;
-	public static final Map<String, String> animeRange;
 	public static final Map<String, String> tokusei;
-	public static final Map<String, String> deployType;
 
 	public static final DataList<BodyData> bodyList;
 	public static final DataList<WazaData> wazaList;
@@ -56,12 +54,8 @@ public class Statics {
 			weponType = MineUtils.readIdAndTextMap(TEXT_DIR + "wepon.txt");
 			targetType = MineUtils.readIdAndTextMap(TEXT_DIR + "target.txt");
 			damageType = MineUtils.readIdAndTextMap(TEXT_DIR + "damage.txt");
-			animeRange = MineUtils
-					.readIdAndTextMap(TEXT_DIR + "animeRange.txt");
 			tokusei = MineUtils.readIdAndTextMap(TEXT_DIR + "tokusei.txt");
 			effect = MineUtils.readIdAndTextMap(TEXT_DIR + "effect.txt");
-			deployType = MineUtils
-					.readIdAndTextMap(TEXT_DIR + "deployType.txt");
 
 		} catch (MineException e) {
 			throw new RuntimeException(e);

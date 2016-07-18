@@ -30,7 +30,7 @@ public class SummonManagerImpl implements SummonManager {
 		this.devils = new ArrayList<>();
 
 		for (Body b : enemys) {
-			if (b.getDeployType().equals(DeployType.SUMMON)) {
+			if (b.getDeployType() == DeployType.SUMMON) {
 				map.setData(Page.P00, b.getGoalX(), b.getGoalY(), MoveUtils.CLOSE_MAGIC);
 				b.setX(b.getGoalX());
 				b.setY(b.getGoalY());

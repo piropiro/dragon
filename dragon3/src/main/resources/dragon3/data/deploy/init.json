@@ -2,7 +2,7 @@
 	{
 		"bodyId": "hero",
 		"color": "BLUE",
-		"deployType": "chara",
+		"deployType": "CHARA",
 		"goalX": 1,
 		"goalY": 1,
 		"id": null,
@@ -17,7 +17,7 @@
 	{
 		"bodyId": "sister",
 		"color": "BLUE",
-		"deployType": "chara",
+		"deployType": "CHARA",
 		"goalX": 1,
 		"goalY": 4,
 		"id": null,
