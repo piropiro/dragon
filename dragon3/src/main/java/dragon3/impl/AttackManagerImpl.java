@@ -5,9 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
 
-import mine.MineUtils;
-import mine.event.SleepManager;
-import mine.paint.UnitMap;
 import dragon3.Rewalk;
 import dragon3.Statics;
 import dragon3.UnitWorks;
@@ -38,6 +35,9 @@ import dragon3.common.constant.Types;
 import dragon3.common.util.Luck;
 import dragon3.manage.AttackManager;
 import dragon3.panel.PanelManager;
+import mine.MineUtils;
+import mine.event.SleepManager;
+import mine.paint.UnitMap;
 
 public class AttackManagerImpl implements AttackManager {
 
@@ -382,26 +382,38 @@ public class AttackManagerImpl implements AttackManager {
 		Body ba = attack.getAttacker();
 		Body bb = attack.getReceiver();
 		AnimeData data = anime.getData(waza.getAnimeId());
-		if (data.getType().equals(AnimeManager.TYPE_SINGLE)) {
+		switch (data.getType()) {
+		case SINGLE:
 			anime.singleAnime(data, bb.getX(), bb.getY());
-		} else if (data.getType().equals(AnimeManager.TYPE_SINGLE_ARROW)) {
+			break;
+		case SINGLE_ARROW:
 			anime.singleArrowAnime(data, ba.getX(), ba.getY(), bb.getX(), bb.getY());
+			break;
+		default:
 		}
 	}
 
 	private void allAnime() {
 		Body ba = attack.getAttacker();
 		AnimeData data = anime.getData(waza.getAnimeId());
-		if (data.getType().equals(AnimeManager.TYPE_ALL)) {
+		
+		switch (data.getType()) {
+		case ALL:
 			anime.allAnime(data);
-		} else if (data.getType().equals(AnimeManager.TYPE_ROTATE)) {
+			break;
+		case ROTATE:
 			anime.rotateAnime(data, ba.getX(), ba.getY(), target.getX(), target.getY());
-		} else if (data.getType().equals(AnimeManager.TYPE_SOME_ARROW)) {
+			break;
+		case SOME_ARROW:
 			anime.someArrowAnime(data, ba.getX(), ba.getY());
-		} else if (data.getType().equals(AnimeManager.TYPE_LASER_ARROW_2)) {
+			break;
+		case LASER_ARROW_2:
 			laserAnime(data, 2);
-		} else if (data.getType().equals(AnimeManager.TYPE_LASER_ARROW_3)) {
+			break;
+		case LASER_ARROW_3:
 			laserAnime(data, 3);
+			break;
+		default:
 		}
 	}
 

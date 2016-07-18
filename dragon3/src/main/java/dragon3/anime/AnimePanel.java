@@ -28,6 +28,7 @@ import dragon3.anime.listener.SummonAnime;
 import dragon3.anime.listener.WalkAnime;
 import dragon3.bean.AnimeData;
 import dragon3.common.DataList;
+import dragon3.common.constant.AnimeType;
 import dragon3.image.ImageManager;
 
 public class AnimePanel extends JComponent implements AnimeManager, AnimeWorks {
@@ -317,7 +318,7 @@ public class AnimePanel extends JComponent implements AnimeManager, AnimeWorks {
 	public void systemAnime(String id, int x, int y) {
 		AnimeData animeData = animeList.getData(id);
 
-		if (animeData.getType().equals(TYPE_SINGLE)) {
+		if (animeData.getType() == AnimeType.SINGLE) {
 			singleAnime(animeData, x, y);
 			return;
 		}

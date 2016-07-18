@@ -29,6 +29,7 @@ public class AttackPaint implements DataPanelPainter {
 		if (attack == null) {
 			return;
 		}
+		pw.drawMain(attack.getAttacker(), g, true);
 		
 		pw.drawLine(attack.getName(), 0, 1, g);
 		if (attack.hasEffect(Effects.NO_ATTACK)) {

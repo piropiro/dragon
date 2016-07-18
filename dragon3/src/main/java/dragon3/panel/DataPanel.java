@@ -170,10 +170,12 @@ public class DataPanel extends PanelBase {
 		if (attack != null) {
 			ba = attack.getAttacker();
 			bb = attack.getReceiver();
+			bgcolor = ba.getColor();
 			pp = new AttackPaint(bb, attack);
 		} else {
 			ba = counter.getReceiver();
 			bb = counter.getAttacker();
+			bgcolor = ba.getColor();
 			pp = new CounterPaint(ba);
 		}
 		setLocate(ba, bb, 2);
