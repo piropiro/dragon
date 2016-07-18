@@ -35,8 +35,6 @@ public class Statics {
 	public static final Map<String, String> effect;
 	public static final Map<String, String> weponType;
 	public static final Map<String, String> armorType;
-	public static final Map<String, String> targetType;
-	public static final Map<String, String> damageType;
 	public static final Map<String, String> tokusei;
 
 	public static final DataList<BodyData> bodyList;
@@ -52,8 +50,6 @@ public class Statics {
 			soul = MineUtils.readIdAndTextMap(TEXT_DIR + "soul.txt");
 			armorType = MineUtils.readIdAndTextMap(TEXT_DIR + "armor.txt");
 			weponType = MineUtils.readIdAndTextMap(TEXT_DIR + "wepon.txt");
-			targetType = MineUtils.readIdAndTextMap(TEXT_DIR + "target.txt");
-			damageType = MineUtils.readIdAndTextMap(TEXT_DIR + "damage.txt");
 			tokusei = MineUtils.readIdAndTextMap(TEXT_DIR + "tokusei.txt");
 			effect = MineUtils.readIdAndTextMap(TEXT_DIR + "effect.txt");
 

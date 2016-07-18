@@ -99,67 +99,87 @@ public class AttackManagerImpl implements AttackManager {
 
 	/*** Set Range and Target ************************************************/
 
-	private void setTargetType(String targetType, int x, int y) {
-		if (targetType.equals(TargetType.TARGET_SINGLE_1)) {
+	private void setTargetType(TargetType targetType, int x, int y) {
+		switch (targetType) {
+		case SINGLE_1:
 			range = new NormalRange(1);
-			target = new PointTarget(x, y);
-		} else if (targetType.equals(TargetType.TARGET_SINGLE_2)) {
+			target = new PointTarget();
+			break;
+		case SINGLE_2:
 			range = new NormalRange(2);
-			target = new PointTarget(x, y);
-		} else if (targetType.equals(TargetType.TARGET_SINGLE_3)) {
+			target = new PointTarget();
+			break;
+		case SINGLE_3:
 			range = new NormalRange(3);
-			target = new PointTarget(x, y);
-		} else if (targetType.equals(TargetType.TARGET_ALL_1)) {
+			target = new PointTarget();
+			break;
+		case ALL_1:
 			range = new NormalRange(1);
-			target = new AllTarget(x, y);
-		} else if (targetType.equals(TargetType.TARGET_ALL_2)) {
+			target = new AllTarget();
+			break;
+		case ALL_2:
 			range = new NormalRange(2);
-			target = new AllTarget(x, y);
-		} else if (targetType.equals(TargetType.TARGET_ALL_3)) {
+			target = new AllTarget();
+			break;
+		case ALL_3:
 			range = new NormalRange(3);
-			target = new AllTarget(x, y);
-		} else if (targetType.equals(TargetType.TARGET_ALL_4)) {
+			target = new AllTarget();
+			break;
+		case ALL_4:
 			range = new NormalRange(4);
-			target = new AllTarget(x, y);
-		} else if (targetType.equals(TargetType.TARGET_LONG_2)) {
+			target = new AllTarget();
+			break;
+		case LONG_2:
 			range = new DonutRange(2, 1);
-			target = new PointTarget(x, y);
-		} else if (targetType.equals(TargetType.TARGET_LONG_3)) {
+			target = new PointTarget();
+			break;
+		case LONG_3:
 			range = new DonutRange(3, 1);
-			target = new PointTarget(x, y);
-		} else if (targetType.equals(TargetType.TARGET_RING_2)) {
+			target = new PointTarget();
+			break;
+		case RING_2:
 			range = new DonutRange(2, 1);
-			target = new AllTarget(x, y);
-		} else if (targetType.equals(TargetType.TARGET_RING_3)) {
+			target = new AllTarget();
+			break;
+		case RING_3:
 			range = new DonutRange(3, 1);
-			target = new AllTarget(x, y);
-		} else if (targetType.equals(TargetType.TARGET_LASER_2)) {
+			target = new AllTarget();
+			break;
+		case LASER_2:
 			range = new LaserRange(2, 0);
-			target = new LaserTarget(x, y, 2, 0);
-		} else if (targetType.equals(TargetType.TARGET_LASER_3)) {
+			target = new LaserTarget(2, 0);
+			break;
+		case LASER_3:
 			range = new LaserRange(3, 0);
-			target = new LaserTarget(x, y, 3, 0);
-		} else if (targetType.equals(TargetType.TARGET_CROSS_2)) {
+			target = new LaserTarget(3, 0);
+			break;
+		case CROSS_2:
 			range = new LaserRange(2, 0);
-			target = new AllTarget(x, y);
-		} else if (targetType.equals(TargetType.TARGET_CROSS_3)) {
+			target = new AllTarget();
+			break;
+		case CROSS_3:
 			range = new LaserRange(3, 0);
-			target = new AllTarget(x, y);
-		} else if (targetType.equals(TargetType.TARGET_BREATH)) {
+			target = new AllTarget();
+			break;
+		case BREATH:
 			range = new BreathRange(2, 0);
-			target = new BreathTarget(x, y, 2, 0);
-		} else if (targetType.equals(TargetType.TARGET_HLINE)) {
+			target = new BreathTarget(2, 0);
+			break;
+		case HLINE:
 			range = new BreathRange(2, 1);
-			target = new BreathTarget(x, y, 2, 1);
-		} else if (targetType.equals(TargetType.TARGET_SQUARE_1)) {
+			target = new BreathTarget(2, 1);
+			break;
+		case SQUARE_1:
 			range = new SquareRange(1);
-			target = new AllTarget(x, y);
-		} else if (targetType.equals(TargetType.TARGET_SPREAD)) {
+			target = new AllTarget();
+			break;
+		case SPREAD:
 			range = new DonutRange(2, 1);
-			target = new SpreadTarget(x, y, 1);
-		} else {
+			target = new SpreadTarget(1);
+		default:
 			throw new IllegalArgumentException("Unknown TargetType:" + targetType);
 		}
+		target.setBasePoint(x, y);
 	}
 
 	/* (non-Javadoc)

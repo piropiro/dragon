@@ -42,12 +42,12 @@ public class WazaPaint implements DataPanelPainter {
 
 
 		if (waza.getDamageType() != null) {
-			pw.drawLine((String)Statics.damageType.get(waza.getDamageType()), 0, 0, g);
+			pw.drawLine(waza.getDamageType().getText(), 0, 0, g);
 		} else {
 			pw.drawLine(Texts.sp[33], 0, 0, g);
 		}
 
-		pw.drawLine((String)Statics.targetType.get(waza.getTargetType()), 1, 0, g);
+		pw.drawLine(waza.getTargetType().getText(), 1, 0, g);
 
 		Set<String> ect = new HashSet<>(waza.getEffect());
 

@@ -1,3 +1,0 @@
-none None
-sword 物理攻撃
-magic 魔法攻撃

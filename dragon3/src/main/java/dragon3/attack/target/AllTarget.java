@@ -14,8 +14,8 @@ public class AllTarget extends Target {
 	/**
 	 * 
 	 */
-	public AllTarget(int x, int y) {
-		super(x, y);
+	public AllTarget() {
+		super();
 	}
 
 	/* (非 Javadoc)

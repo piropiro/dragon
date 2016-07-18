@@ -20,7 +20,10 @@ public abstract class Target {
 	private int targetX;
 	private int targetY;
 
-	public Target(int bodyX, int bodyY) {
+	public Target() {
+	}
+	
+	public void setBasePoint(int bodyX, int bodyY) {
 		this.bodyX = bodyX;
 		this.bodyY = bodyY;
 	}

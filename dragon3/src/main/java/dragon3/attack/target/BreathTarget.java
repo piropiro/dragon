@@ -16,8 +16,8 @@ public class BreathTarget extends Target {
 	/**
 	 * 
 	 */
-	public BreathTarget(int x, int y, int range, int donut) {
-		super(x, y);
+	public BreathTarget(int range, int donut) {
+		super();
 		this.range = range;
 		this.donut = donut;
 	}

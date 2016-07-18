@@ -13,7 +13,9 @@ import dragon3.bean.AnimeData;
 import dragon3.bean.WazaData;
 import dragon3.bean.load.AnimeDataLoader;
 import dragon3.common.DataList;
+import dragon3.common.constant.DamageType;
 import dragon3.common.constant.GameColors;
+import dragon3.common.constant.TargetType;
 
 public class WazaEditor extends EditPanel<WazaData> implements EditListener<WazaData> {
 
@@ -37,12 +39,10 @@ public class WazaEditor extends EditPanel<WazaData> implements EditListener<Waza
 		}
 		initCombo("labelColor", idAndText);
 		setSlider(CENTER, "star", "Star", 5);
-		setTextCombo(CENTER, "targetType", "範囲タイプ");
-		initCombo("targetType", Statics.targetType);
-		setTextCombo(CENTER, "damageType", "攻撃タイプ");
-		initCombo("damageType", Statics.damageType);
-		setTextCombo(CENTER, "weponType", "武器タイプ");
-		initCombo("weponType", Statics.weponType);
+		setEnumCombo(CENTER, "targetType", "範囲タイプ", TargetType.class);
+		initCombo("targetType", TargetType.createMap());
+		setEnumCombo(CENTER, "damageType", "攻撃タイプ", DamageType.class);
+		initCombo("damageType", DamageType.createMap());
 
 		DataList<AnimeData> animeList = AnimeDataLoader.loadAnimeList();
 		setTextCombo(CENTER, "animeId", "動画タイプ");

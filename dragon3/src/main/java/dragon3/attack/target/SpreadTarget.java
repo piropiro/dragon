@@ -15,8 +15,8 @@ public class SpreadTarget extends Target {
 	/**
 	 * 
 	 */
-	public SpreadTarget(int x, int y, int range) {
-		super(x, y);
+	public SpreadTarget(int range) {
+		super();
 		this.range = range;
 	}
 

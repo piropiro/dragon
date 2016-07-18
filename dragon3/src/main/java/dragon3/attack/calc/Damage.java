@@ -7,6 +7,7 @@ import java.util.Set;
 
 import mine.paint.UnitMap;
 import dragon3.common.Body;
+import dragon3.common.constant.DamageType;
 import dragon3.common.constant.Effects;
 import dragon3.common.constant.Types;
 import dragon3.common.util.MoveUtils;
@@ -16,13 +17,7 @@ import dragon3.common.util.MoveUtils;
  */
 public class Damage {
 
-	public static final String DAMAGE_SWORD = "sword";
-	public static final String DAMAGE_MAGIC = "magic";
-	public static final String DAMAGE_SWORD_ALL = "sword.all";
-	public static final String DAMAGE_MAGIC_ALL = "magic.all";
-
-
-	public static int calc(String damageType, UnitMap map, Body ba, Body bb, Set<String> effect) {
+	public static int calc(DamageType damageType, UnitMap map, Body ba, Body bb, Set<String> effect) {
 
 		if (bb == null)
 			return 0;
@@ -32,16 +27,24 @@ public class Damage {
 		int attack = 0;
 		int guard = 0;
 
-		if (damageType.equals(DAMAGE_SWORD)) {
+		switch (damageType) {
+		case NONE:
+			break;
+		case SWORD:
 			attack = ba.getStr();
 			guard = bb.getDef();
-		} else if (damageType.equals(DAMAGE_MAGIC)) {
+			break;
+		case MAGIC:
 			attack = ba.getMst();
 			guard = bb.getMdf();
-		} else if (damageType.equals(DAMAGE_SWORD_ALL)) {
+			break;
+		case SWORD_ALL:
 			attack = ba.getStr();
-		} else if (damageType.equals(DAMAGE_MAGIC_ALL)) {
+			break;
+		case MAGIC_ALL:
 			attack = ba.getMst();
+		default:
+			throw new IllegalArgumentException("DamageType unmatch: " + damageType);
 		}
 
 		if (ba.isType(Types.ATTACK_UP))

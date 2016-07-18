@@ -1,6 +1,0 @@
-white 白
-blue 青
-red 赤
-green 緑
-yellow 黄
-sky 空

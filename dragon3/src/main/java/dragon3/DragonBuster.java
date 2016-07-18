@@ -32,7 +32,7 @@ public class DragonBuster implements FrameWorks {
 		vp.title();
 		frame.pack();
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		MineAwtUtils.setCenter(frame);
+		//MineAwtUtils.setCenter(frame);
 		frame.setVisible(true);
 		vp.requestFocus();
 	}

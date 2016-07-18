@@ -3,7 +3,9 @@ package dragon3.bean;
 import java.util.ArrayList;
 import java.util.List;
 
+import dragon3.common.constant.DamageType;
 import dragon3.common.constant.GameColors;
+import dragon3.common.constant.TargetType;
 
 public class WazaData implements Data {
 
@@ -12,9 +14,8 @@ public class WazaData implements Data {
 	private String label;
 	private GameColors labelColor;
 
-	private String damageType;
-	private String weponType;
-	private String targetType;
+	private DamageType damageType;
+	private TargetType targetType;
 	private String animeId;
 	private int star;
 
@@ -25,9 +26,8 @@ public class WazaData implements Data {
 		name = "none";
 		label = "none";
 		labelColor = GameColors.BLACK;
-		damageType = "none";
-		weponType = "none";
-		targetType = "none";
+		damageType = DamageType.NONE;
+		targetType = TargetType.SINGLE_1;
 		animeId = "none";
 		effect = new ArrayList<>();
 	}
@@ -46,7 +46,7 @@ public class WazaData implements Data {
 	/**
 	 * @return
 	 */
-	public String getDamageType() {
+	public DamageType getDamageType() {
 		return damageType;
 	}
 
@@ -95,15 +95,8 @@ public class WazaData implements Data {
 	/**
 	 * @return
 	 */
-	public String getTargetType() {
+	public TargetType getTargetType() {
 		return targetType;
-	}
-
-	/**
-	 * @return
-	 */
-	public String getWeponType() {
-		return weponType;
 	}
 
 	/**
@@ -116,7 +109,7 @@ public class WazaData implements Data {
 	/**
 	 * @param string
 	 */
-	public void setDamageType(String string) {
+	public void setDamageType(DamageType string) {
 		damageType = string;
 	}
 
@@ -165,15 +158,8 @@ public class WazaData implements Data {
 	/**
 	 * @param string
 	 */
-	public void setTargetType(String string) {
+	public void setTargetType(TargetType string) {
 		targetType = string;
-	}
-
-	/**
-	 * @param string
-	 */
-	public void setWeponType(String string) {
-		weponType = string;
 	}
 
 }

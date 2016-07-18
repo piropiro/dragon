@@ -1,7 +1,7 @@
 [
 	{
 		"animeId": "none",
-		"damageType": "none",
+		"damageType": "NONE",
 		"effect": [
 			null,
 			null,
@@ -14,12 +14,11 @@
 		"labelColor": "BLACK",
 		"name": "none",
 		"star": 0,
-		"targetType": "none",
-		"weponType": "none"
+		"targetType": "SINGLE_1"
 	},
 	{
 		"animeId": "slash",
-		"damageType": "sword",
+		"damageType": "SWORD",
 		"effect": [
 			"counter",
 			"none",
@@ -32,12 +31,11 @@
 		"labelColor": "WHITE",
 		"name": "斬撃",
 		"star": 0,
-		"targetType": "single1",
-		"weponType": "sword"
+		"targetType": "SINGLE_1"
 	},
 	{
 		"animeId": "fire",
-		"damageType": "magic",
+		"damageType": "MAGIC",
 		"effect": [
 			"fire",
 			"none",
@@ -50,7 +48,6 @@
 		"labelColor": "RED",
 		"name": "ファイア",
 		"star": 0,
-		"targetType": "long2",
-		"weponType": "magic"
+		"targetType": "LONG_2"
 	}
 ]

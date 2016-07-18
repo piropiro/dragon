@@ -13,8 +13,8 @@ public class PointTarget extends Target {
 	/**
 	 * 
 	 */
-	public PointTarget(int x, int y) {
-		super(x, y);
+	public PointTarget() {
+		super();
 	}
 
 	/* (非 Javadoc)
