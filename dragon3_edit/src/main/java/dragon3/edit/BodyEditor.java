@@ -1,10 +1,10 @@
 package dragon3.edit;
 
-import java.util.LinkedHashMap;
 import java.util.Map;
 
 import dragon3.Statics;
 import dragon3.bean.BodyData;
+import dragon3.common.constant.BodyKind;
 import dragon3.common.constant.MoveType;
 import dragon3.image.BodyImageList;
 import dragon3.image.ImageManager;
@@ -34,8 +34,8 @@ public class BodyEditor extends EditPanel<BodyData> implements EditListener<Body
 		setField(CENTER, "name", "名前");
 		setImageCombo(CENTER, "image", "画像");
 		initCombo("image", bil.getPathList(), bil.getImageList());
-		setTextCombo(LEFT, "kind", "種別");
-		initCombo("kind", Statics.kind);
+		setEnumCombo(LEFT, "kind", "種別", BodyKind.class);
+		initCombo("kind", BodyKind.createMap());
 		setTextCombo(RIGHT, "soulType", "魂色");
 		initCombo("soulType", Statics.soul);
 		setSlider(CENTER, "hp", "HP", 99);
@@ -46,11 +46,7 @@ public class BodyEditor extends EditPanel<BodyData> implements EditListener<Body
 		setSlider(CENTER, "hit", "命中", 30);
 		setSlider(CENTER, "mis", "回避", 30);
 		setEnumCombo(LEFT, "moveType", "移動", MoveType.class);
-		Map<String, String> idAndText = new LinkedHashMap<>();
-		for (MoveType mt : MoveType.values()) {	
-			idAndText.put(mt.name(), mt.getText());
-		}
-		initCombo("moveType", idAndText);
+		initCombo("moveType", MoveType.createMap());
 		setIntCombo(RIGHT, "moveStep", "歩数", 20);
 		setTextCombo(LEFT, "weponType", "武器");
 		initCombo("weponType", Statics.weponType);

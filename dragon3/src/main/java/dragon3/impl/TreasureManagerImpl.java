@@ -10,7 +10,7 @@ import dragon3.UnitWorks;
 import dragon3.anime.AnimeManager;
 import dragon3.common.Body;
 import dragon3.common.constant.GameColors;
-import dragon3.common.constant.Kinds;
+import dragon3.common.constant.BodyKind;
 import dragon3.common.constant.Page;
 import dragon3.common.constant.Texts;
 import dragon3.common.util.MoveUtils;
@@ -72,7 +72,7 @@ public class TreasureManagerImpl implements TreasureManager {
 				n++;
 				continue;
 			} else {
-				if (b.isKind(Kinds.CHARA)) {
+				if (b.isKind(BodyKind.CHARA)) {
 					continue;
 				} else {
 					treasure[n] = b;

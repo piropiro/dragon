@@ -10,7 +10,7 @@ import dragon3.Statics;
 import dragon3.bean.WazaData;
 import dragon3.common.Body;
 import dragon3.common.constant.GameColors;
-import dragon3.common.constant.Kinds;
+import dragon3.common.constant.BodyKind;
 import dragon3.common.util.Equip;
 import dragon3.image.ImageManager;
 import dragon3.manage.Attack;
@@ -144,7 +144,7 @@ public class DataPanel extends PanelBase {
 	}
 	
 	public void displayNext(Body ba) {
-		if (ba != null && ba.isKind(Kinds.WAZA)) {
+		if (ba != null && ba.isKind(BodyKind.WAZA)) {
 			displayWaza(ba, 0);
 		} else if (pp == null) {
 			displayAnalyze(ba);

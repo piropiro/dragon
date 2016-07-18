@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Set;
 
 import dragon3.common.constant.GameColors;
+import dragon3.common.constant.BodyKind;
 import dragon3.common.constant.MoveType;
 
 @SuppressWarnings("serial")
@@ -15,7 +16,7 @@ public class Body implements Serializable, Cloneable {
 	private String id = "none";
 	private String name = "none";
 	private String image = "0.png";
-	private String kind = "none";
+	private BodyKind kind = BodyKind.CHARA;
 	private GameColors color = GameColors.BLACK;
 
 	private String deployType;
@@ -75,7 +76,7 @@ public class Body implements Serializable, Cloneable {
 	public boolean isType(String type){
 		return typeSet.contains(type);
 	}
-	public boolean isKind(String kind_) {
+	public boolean isKind(BodyKind kind_) {
 		return kind_.equals(this.kind);
 	}
 
@@ -161,7 +162,7 @@ public class Body implements Serializable, Cloneable {
 	/**
 	 * @return
 	 */
-	public String getKind() {
+	public BodyKind getKind() {
 		return kind;
 	}
 
@@ -374,7 +375,7 @@ public class Body implements Serializable, Cloneable {
 	/**
 	 * @param string
 	 */
-	public void setKind(String string) {
+	public void setKind(BodyKind string) {
 		kind = string;
 	}
 

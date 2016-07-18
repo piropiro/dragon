@@ -1,5 +1,7 @@
 package dragon3.common.constant;
 
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 public enum MoveType {
 
@@ -46,6 +48,12 @@ public enum MoveType {
 		}
 	}
 
-
+	public static Map<String, String> createMap() {
+		Map<String, String> idAndText = new LinkedHashMap<>();
+		for (MoveType a : values()) {	
+			idAndText.put(a.name(), a.getText());
+		}
+		return idAndText;
+	}
 
 }

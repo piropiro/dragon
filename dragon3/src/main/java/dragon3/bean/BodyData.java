@@ -6,6 +6,7 @@ package dragon3.bean;
 import java.util.ArrayList;
 import java.util.List;
 
+import dragon3.common.constant.BodyKind;
 import dragon3.common.constant.MoveType;
 
 /**
@@ -16,7 +17,7 @@ public class BodyData implements Data {
 	private String id;
 	private String name;
 	private String image;
-	private String kind;
+	private BodyKind kind;
 
 	private int hp;
 	private int str;
@@ -39,7 +40,7 @@ public class BodyData implements Data {
 		id = "none";
 		name = "none";
 		image = "0.png";
-		kind = "none";
+		kind = BodyKind.CHARA;
 		soulType = "none";
 		moveType = MoveType.NONE;
 		weponType = "none";
@@ -100,7 +101,7 @@ public class BodyData implements Data {
 	/**
 	 * @return
 	 */
-	public String getKind() {
+	public BodyKind getKind() {
 		return kind;
 	}
 
@@ -232,7 +233,7 @@ public class BodyData implements Data {
 	/**
 	 * @param string
 	 */
-	public void setKind(String string) {
+	public void setKind(BodyKind string) {
 		kind = string;
 	}
 
