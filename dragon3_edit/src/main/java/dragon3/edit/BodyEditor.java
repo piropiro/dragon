@@ -4,8 +4,11 @@ import java.util.Map;
 
 import dragon3.Statics;
 import dragon3.bean.BodyData;
+import dragon3.common.constant.ArmorType;
 import dragon3.common.constant.BodyKind;
 import dragon3.common.constant.MoveType;
+import dragon3.common.constant.SoulType;
+import dragon3.common.constant.WeponType;
 import dragon3.image.BodyImageList;
 import dragon3.image.ImageManager;
 import mine.awt.ImageLoaderAWT;
@@ -36,8 +39,8 @@ public class BodyEditor extends EditPanel<BodyData> implements EditListener<Body
 		initCombo("image", bil.getPathList(), bil.getImageList());
 		setEnumCombo(LEFT, "kind", "種別", BodyKind.class);
 		initCombo("kind", BodyKind.createMap());
-		setTextCombo(RIGHT, "soulType", "魂色");
-		initCombo("soulType", Statics.soul);
+		setEnumCombo(RIGHT, "soulType", "魂色", SoulType.class);
+		initCombo("soulType", SoulType.createMap());
 		setSlider(CENTER, "hp", "HP", 99);
 		setSlider(CENTER, "str", "攻撃", 30);
 		setSlider(CENTER, "def", "防御", 30);
@@ -48,10 +51,10 @@ public class BodyEditor extends EditPanel<BodyData> implements EditListener<Body
 		setEnumCombo(LEFT, "moveType", "移動", MoveType.class);
 		initCombo("moveType", MoveType.createMap());
 		setIntCombo(RIGHT, "moveStep", "歩数", 20);
-		setTextCombo(LEFT, "weponType", "武器");
-		initCombo("weponType", Statics.weponType);
-		setTextCombo(RIGHT, "armorType", "防具");
-		initCombo("armorType", Statics.armorType);
+		setEnumCombo(LEFT, "weponType", "武器", WeponType.class);
+		initCombo("weponType", WeponType.createMap());
+		setEnumCombo(RIGHT, "armorType", "防具", ArmorType.class);
+		initCombo("armorType", ArmorType.createMap());
 
 		Map<String, String> wazaIdAndName = Statics.wazaList.getIdAndName();
 		for (int i=0; i<3; i++) {

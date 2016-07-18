@@ -109,7 +109,7 @@ public class PanelManagerImpl implements PanelManager {
 	}
 	public void displayAttack(Attack attack, Attack counter) {
 		dataP1.displayAttack(attack, counter);
-		dataP2.displayAttack(attack, counter);
+		dataP2.displayAttack(counter, attack);
 	}
 
 	public void closeData() {

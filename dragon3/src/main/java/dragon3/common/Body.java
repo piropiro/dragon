@@ -7,9 +7,12 @@ import java.util.List;
 import java.util.Set;
 
 import dragon3.common.constant.GameColors;
+import dragon3.common.constant.ArmorType;
 import dragon3.common.constant.BodyKind;
 import dragon3.common.constant.DeployType;
 import dragon3.common.constant.MoveType;
+import dragon3.common.constant.SoulType;
+import dragon3.common.constant.WeponType;
 
 @SuppressWarnings("serial")
 public class Body implements Serializable, Cloneable {
@@ -34,10 +37,10 @@ public class Body implements Serializable, Cloneable {
 
 	private int moveStep;
 	private MoveType moveType = MoveType.NONE;
-	private String soulType = "none";
+	private SoulType soulType = SoulType.NONE;
 
-	private String weponType = "none";
-	private String armorType = "none";
+	private WeponType weponType = WeponType.NONE;
+	private ArmorType armorType = ArmorType.NONE;
 
 	private List<String> wazaList = new ArrayList<>();
 	private Set<String> typeSet = new LinkedHashSet<String>();
@@ -86,7 +89,7 @@ public class Body implements Serializable, Cloneable {
 	/**
 	 * @return
 	 */
-	public String getArmorType() {
+	public ArmorType getArmorType() {
 		return armorType;
 	}
 
@@ -240,7 +243,7 @@ public class Body implements Serializable, Cloneable {
 	/**
 	 * @return
 	 */
-	public String getSoulType() {
+	public SoulType getSoulType() {
 		return soulType;
 	}
 
@@ -269,7 +272,7 @@ public class Body implements Serializable, Cloneable {
 	/**
 	 * @return
 	 */
-	public String getWeponType() {
+	public WeponType getWeponType() {
 		return weponType;
 	}
 
@@ -290,7 +293,7 @@ public class Body implements Serializable, Cloneable {
 	/**
 	 * @param string
 	 */
-	public void setArmorType(String string) {
+	public void setArmorType(ArmorType string) {
 		armorType = string;
 	}
 
@@ -453,7 +456,7 @@ public class Body implements Serializable, Cloneable {
 	/**
 	 * @param string
 	 */
-	public void setSoulType(String string) {
+	public void setSoulType(SoulType string) {
 		soulType = string;
 	}
 
@@ -482,7 +485,7 @@ public class Body implements Serializable, Cloneable {
 	/**
 	 * @param string
 	 */
-	public void setWeponType(String string) {
+	public void setWeponType(WeponType string) {
 		weponType = string;
 	}
 

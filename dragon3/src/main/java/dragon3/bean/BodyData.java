@@ -6,8 +6,11 @@ package dragon3.bean;
 import java.util.ArrayList;
 import java.util.List;
 
+import dragon3.common.constant.ArmorType;
 import dragon3.common.constant.BodyKind;
 import dragon3.common.constant.MoveType;
+import dragon3.common.constant.SoulType;
+import dragon3.common.constant.WeponType;
 
 /**
  * @author k-saito
@@ -28,10 +31,10 @@ public class BodyData implements Data {
 	private int mis;
 	private int moveStep;
 	private MoveType moveType;
-	private String soulType;
+	private SoulType soulType;
 
-	private String weponType;
-	private String armorType;
+	private WeponType weponType;
+	private ArmorType armorType;
 
 	private List<String> wazaList;
 	private List<String> typeList;
@@ -41,10 +44,10 @@ public class BodyData implements Data {
 		name = "none";
 		image = "0.png";
 		kind = BodyKind.CHARA;
-		soulType = "none";
+		soulType = SoulType.NONE;
 		moveType = MoveType.NONE;
-		weponType = "none";
-		armorType = "none";
+		weponType = WeponType.NONE;
+		armorType = ArmorType.NONE;
 		wazaList = new ArrayList<>();
 		typeList = new ArrayList<>();
 	}
@@ -58,7 +61,7 @@ public class BodyData implements Data {
 	/**
 	 * @return
 	 */
-	public String getArmorType() {
+	public ArmorType getArmorType() {
 		return armorType;
 	}
 
@@ -151,7 +154,7 @@ public class BodyData implements Data {
 	/**
 	 * @return
 	 */
-	public String getSoulType() {
+	public SoulType getSoulType() {
 		return soulType;
 	}
 
@@ -184,14 +187,14 @@ public class BodyData implements Data {
 	/**
 	 * @return
 	 */
-	public String getWeponType() {
+	public WeponType getWeponType() {
 		return weponType;
 	}
 
 	/**
 	 * @param string
 	 */
-	public void setArmorType(String string) {
+	public void setArmorType(ArmorType string) {
 		armorType = string;
 	}
 
@@ -282,7 +285,7 @@ public class BodyData implements Data {
 	/**
 	 * @param string
 	 */
-	public void setSoulType(String string) {
+	public void setSoulType(SoulType string) {
 		soulType = string;
 	}
 
@@ -297,7 +300,7 @@ public class BodyData implements Data {
 	/**
 	 * @param string
 	 */
-	public void setWeponType(String string) {
+	public void setWeponType(WeponType string) {
 		weponType = string;
 	}
 

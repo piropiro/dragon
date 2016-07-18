@@ -1,4 +1,4 @@
-0.png
+none.png
 hero.png
 imo.png
 sister.png

@@ -1,6 +1,6 @@
 [
 	{
-		"armorType": "none",
+		"armorType": "NONE",
 		"def": 0,
 		"hit": 0,
 		"hp": 0,
@@ -13,7 +13,7 @@
 		"moveType": "NONE",
 		"mst": 0,
 		"name": "none",
-		"soulType": "none",
+		"soulType": "NONE",
 		"str": 0,
 		"typeList": [
 			"none",
@@ -27,10 +27,10 @@
 			"none",
 			"none"
 		],
-		"weponType": "none"
+		"weponType": "NONE"
 	},
 	{
-		"armorType": "heavy",
+		"armorType": "HEAVY",
 		"def": 8,
 		"hit": 20,
 		"hp": 25,
@@ -43,7 +43,7 @@
 		"moveType": "HEAVY",
 		"mst": 0,
 		"name": "僕",
-		"soulType": "red",
+		"soulType": "RED",
 		"str": 20,
 		"typeList": [
 			"hero",
@@ -57,10 +57,10 @@
 			"none",
 			"none"
 		],
-		"weponType": "sword"
+		"weponType": "SWORD"
 	},
 	{
-		"armorType": "lite",
+		"armorType": "LITE",
 		"def": 4,
 		"hit": 18,
 		"hp": 20,
@@ -73,7 +73,7 @@
 		"moveType": "LITE",
 		"mst": 20,
 		"name": "妹",
-		"soulType": "blue",
+		"soulType": "BLUE",
 		"str": 0,
 		"typeList": [
 			"sister",
@@ -87,10 +87,10 @@
 			"none",
 			"none"
 		],
-		"weponType": "magic"
+		"weponType": "MAGIC"
 	},
 	{
-		"armorType": "lite",
+		"armorType": "LITE",
 		"def": 5,
 		"hit": 13,
 		"hp": 10,
@@ -103,7 +103,7 @@
 		"moveType": "LITE",
 		"mst": 0,
 		"name": "ゴブリン",
-		"soulType": "red",
+		"soulType": "RED",
 		"str": 12,
 		"typeList": [
 			"none",
@@ -117,6 +117,6 @@
 			"none",
 			"none"
 		],
-		"weponType": "knife"
+		"weponType": "KNIFE"
 	}
 ]

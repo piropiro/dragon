@@ -1,7 +1,0 @@
-none None
-red 赤
-blue 青
-yellow 黄
-green 緑
-pink 桃
-orange 橙

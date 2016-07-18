@@ -31,10 +31,7 @@ public class Statics {
 
 	public static final int TYPE_MAX = 100;
 
-	public static final Map<String, String> soul;
 	public static final Map<String, String> effect;
-	public static final Map<String, String> weponType;
-	public static final Map<String, String> armorType;
 	public static final Map<String, String> tokusei;
 
 	public static final DataList<BodyData> bodyList;
@@ -47,9 +44,6 @@ public class Statics {
 			wazaList = new DataList<WazaData>(WAZA_DIR, WAZA_FILES, WazaData[].class);
 			stageList = new DataList<StageData>(STAGE_DIR, STAGE_FILES, StageData[].class);
 
-			soul = MineUtils.readIdAndTextMap(TEXT_DIR + "soul.txt");
-			armorType = MineUtils.readIdAndTextMap(TEXT_DIR + "armor.txt");
-			weponType = MineUtils.readIdAndTextMap(TEXT_DIR + "wepon.txt");
 			tokusei = MineUtils.readIdAndTextMap(TEXT_DIR + "tokusei.txt");
 			effect = MineUtils.readIdAndTextMap(TEXT_DIR + "effect.txt");
 

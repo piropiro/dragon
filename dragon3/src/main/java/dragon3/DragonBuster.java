@@ -5,9 +5,8 @@ import java.awt.event.KeyEvent;
 
 import javax.swing.JFrame;
 
-import mine.awt.BMenuBar;
-import mine.awt.MineAwtUtils;
 import dragon3.common.util.Luck;
+import mine.awt.BMenuBar;
 
 public class DragonBuster implements FrameWorks {
 	
