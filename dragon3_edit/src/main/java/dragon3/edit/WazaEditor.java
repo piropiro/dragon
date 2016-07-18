@@ -1,21 +1,20 @@
 package dragon3.edit;
 
-import mine.MineException;
-import mine.edit.BeanEditor;
-import mine.edit.EditListener;
-import mine.edit.EditPanel;
-
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-import dragon3.Statics;
 import dragon3.bean.AnimeData;
 import dragon3.bean.WazaData;
 import dragon3.bean.load.AnimeDataLoader;
 import dragon3.common.DataList;
+import dragon3.common.constant.AttackEffect;
 import dragon3.common.constant.DamageType;
 import dragon3.common.constant.GameColors;
 import dragon3.common.constant.TargetType;
+import mine.MineException;
+import mine.edit.BeanEditor;
+import mine.edit.EditListener;
+import mine.edit.EditPanel;
 
 public class WazaEditor extends EditPanel<WazaData> implements EditListener<WazaData> {
 
@@ -49,8 +48,8 @@ public class WazaEditor extends EditPanel<WazaData> implements EditListener<Waza
 		initCombo("animeId", animeList.getIdAndName());
 
 		for (int i=0; i<5; i++) {
-			setTextCombo(CENTER, "effect", i, "効果" + i);
-			initCombo("effect", i, Statics.effect);
+			setEnumCombo(CENTER, "effect", i, "効果" + i, AttackEffect.class);
+			initCombo("effect", i, AttackEffect.createMap());
 		}
 	}
 }

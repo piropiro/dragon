@@ -7,7 +7,7 @@ import mine.event.SleepManager;
 import mine.paint.UnitMap;
 import dragon3.anime.AnimeManager;
 import dragon3.common.Body;
-import dragon3.common.constant.Effects;
+import dragon3.common.constant.AttackEffect;
 import dragon3.common.constant.GameColors;
 import dragon3.common.constant.Page;
 import dragon3.common.constant.Texts;
@@ -125,7 +125,7 @@ public class FightManager {
 	private void setCounter(Body bb) {
 		this.bb = bb;
 		counter = null;
-		if (!attack.getAttack().hasEffect(Effects.COUNTER_ABLE))
+		if (!attack.getAttack().hasEffect(AttackEffect.COUNTER_ABLE))
 			return;
 
 		List<String> bbWazaList = bb.getWazaList();

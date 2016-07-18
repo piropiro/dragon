@@ -28,7 +28,7 @@ import dragon3.attack.target.Target;
 import dragon3.bean.AnimeData;
 import dragon3.bean.WazaData;
 import dragon3.common.Body;
-import dragon3.common.constant.Effects;
+import dragon3.common.constant.AttackEffect;
 import dragon3.common.constant.Page;
 import dragon3.common.constant.TargetType;
 import dragon3.common.constant.Types;
@@ -192,9 +192,9 @@ public class AttackManagerImpl implements AttackManager {
 		Body ba = attack.getAttacker();
 		if (ba.isType(Types.SLEEP))
 			return false;
-		if (flag && !attack.hasEffect(Effects.COUNTER_ONLY))
+		if (flag && !attack.hasEffect(AttackEffect.COUNTER_ONLY))
 			return false;
-		if (!flag && !attack.hasEffect(Effects.COUNTER_ABLE))
+		if (!flag && !attack.hasEffect(AttackEffect.COUNTER_ABLE))
 			return false;
 
 		if (map.getData(Page.P21, bb.getX(), bb.getY()) == 0)
@@ -212,9 +212,9 @@ public class AttackManagerImpl implements AttackManager {
 	public boolean isAlive(boolean enemyFlag) {
 		Body ba = attack.getAttacker();
 		
-		if (attack.hasEffect(Effects.COUNTER_ONLY))
+		if (attack.hasEffect(AttackEffect.COUNTER_ONLY))
 			return false;
-		if (attack.hasEffect(Effects.TAME) && Rewalk.isWalked(ba))
+		if (attack.hasEffect(AttackEffect.TAME) && Rewalk.isWalked(ba))
 			return false;
 
 		if (!enemyFlag) {
@@ -280,7 +280,7 @@ public class AttackManagerImpl implements AttackManager {
 	public boolean searchTargets() {
 		Body bb = attack.getReceiver();
 		
-		if (attack.hasEffect(Effects.COUNTER_ABLE) && bb == null)
+		if (attack.hasEffect(AttackEffect.COUNTER_ABLE) && bb == null)
 			return false;
 
 		enemy = new ArrayList<Body>();
@@ -306,36 +306,36 @@ public class AttackManagerImpl implements AttackManager {
 		if (!b.isAlive())
 			return false;
 
-		if (attack.hasEffect(Effects.NO_ATTACK)) {
-			if (attack.hasEffect(Effects.HEAL) && b.getColor() != ba.getColor())
+		if (attack.hasEffect(AttackEffect.NO_ATTACK)) {
+			if (attack.hasEffect(AttackEffect.HEAL) && b.getColor() != ba.getColor())
 				return false;
-			if (!attack.hasEffect(Effects.HEAL) && b.getColor() == ba.getColor())
+			if (!attack.hasEffect(AttackEffect.HEAL) && b.getColor() == ba.getColor())
 				return false;
-			if (se.isEffective(ba, b, attack.getEffectSet(), Effects.CRITICAL))
+			if (se.isEffective(ba, b, attack.getEffectSet(), AttackEffect.CRITICAL))
 				return true;
-			if (se.isEffective(ba, b, attack.getEffectSet(), Effects.DEATH))
+			if (se.isEffective(ba, b, attack.getEffectSet(), AttackEffect.DEATH))
 				return true;
-			if (se.isEffective(ba, b, attack.getEffectSet(), Effects.SLEEP))
+			if (se.isEffective(ba, b, attack.getEffectSet(), AttackEffect.SLEEP))
 				return true;
-			if (se.isEffective(ba, b, attack.getEffectSet(), Effects.CHARM))
+			if (se.isEffective(ba, b, attack.getEffectSet(), AttackEffect.CHARM))
 				return true;
-			if (se.isEffective(ba, b, attack.getEffectSet(), Effects.POISON))
+			if (se.isEffective(ba, b, attack.getEffectSet(), AttackEffect.POISON))
 				return true;
-			if (se.isEffective(ba, b, attack.getEffectSet(), Effects.WET))
+			if (se.isEffective(ba, b, attack.getEffectSet(), AttackEffect.WET))
 				return true;
-			if (se.isEffective(ba, b, attack.getEffectSet(), Effects.ATTACK_UP))
+			if (se.isEffective(ba, b, attack.getEffectSet(), AttackEffect.ATTACK_UP))
 				return true;
-			if (se.isEffective(ba, b, attack.getEffectSet(), Effects.GUARD_UP))
+			if (se.isEffective(ba, b, attack.getEffectSet(), AttackEffect.GUARD_UP))
 				return true;
-			if (se.isEffective(ba, b, attack.getEffectSet(), Effects.UPPER))
+			if (se.isEffective(ba, b, attack.getEffectSet(), AttackEffect.UPPER))
 				return true;
-			if (se.isEffective(ba, b, attack.getEffectSet(), Effects.CHOP))
+			if (se.isEffective(ba, b, attack.getEffectSet(), AttackEffect.CHOP))
 				return true;
-			if (se.isEffective(ba, b, attack.getEffectSet(), Effects.REFRESH))
+			if (se.isEffective(ba, b, attack.getEffectSet(), AttackEffect.REFRESH))
 				return true;
-			if (se.isEffective(ba, b, attack.getEffectSet(), Effects.OIL))
+			if (se.isEffective(ba, b, attack.getEffectSet(), AttackEffect.OIL))
 				return true;
-			if (se.isEffective(ba, b, attack.getEffectSet(), Effects.REGENE))
+			if (se.isEffective(ba, b, attack.getEffectSet(), AttackEffect.REGENE))
 				return true;
 
 			return false;
@@ -345,7 +345,7 @@ public class AttackManagerImpl implements AttackManager {
 			return true;
 		int damage = Damage.calc(waza.getDamageType(), map, ba, b, attack.getEffectSet());
 		if (damage == 0) {
-			if (attack.hasEffect(Effects.HEAL))
+			if (attack.hasEffect(AttackEffect.HEAL))
 				return (b.getColor() == ba.getColor());
 			else
 				return (b.getColor() != ba.getColor());
@@ -477,13 +477,13 @@ public class AttackManagerImpl implements AttackManager {
 				int d =
 					Damage.calc(waza.getDamageType(), map, ba, b, attack.getEffectSet()) * DamageRate.calc(map, ba, b, attack.getEffectSet());
 
-				if (!b.isType(Types.CHARM_LOCK) && se.isEffective(ba, b, attack.getEffectSet(), Effects.CHARM))
+				if (!b.isType(Types.CHARM_LOCK) && se.isEffective(ba, b, attack.getEffectSet(), AttackEffect.CHARM))
 					d += b.getHp() / 2;
 
-				if (!b.isType(Types.SLEEP_LOCK) && se.isEffective(ba, b, attack.getEffectSet(), Effects.SLEEP))
+				if (!b.isType(Types.SLEEP_LOCK) && se.isEffective(ba, b, attack.getEffectSet(), AttackEffect.SLEEP))
 					d += b.getHp() / 2;
 
-				if (se.isEffective(ba, b, attack.getEffectSet(), Effects.DEATH))
+				if (se.isEffective(ba, b, attack.getEffectSet(), AttackEffect.DEATH))
 					d += b.getHp();
 				if (b.getColor() == ba.getColor())
 					d = -d;
@@ -539,10 +539,10 @@ public class AttackManagerImpl implements AttackManager {
 				continue;
 			}
 
-			if (se.isEffective(ba, bb, attack.getEffectSet(), Effects.CRITICAL) && Luck.rnd(1, ba) != 1) {
+			if (se.isEffective(ba, bb, attack.getEffectSet(), AttackEffect.CRITICAL) && Luck.rnd(1, ba) != 1) {
 				pm.repaintData();
 				pm.damageHp(bb, bb.getHpMax());
-				se.execute(ba, bb, anime, attack.getEffectSet(), Effects.CRITICAL);
+				se.execute(ba, bb, anime, attack.getEffectSet(), AttackEffect.CRITICAL);
 				pm.repaintData();
 				sm.sleep(200);
 				pm.animeHp();
@@ -552,10 +552,10 @@ public class AttackManagerImpl implements AttackManager {
 				continue;
 			}
 
-			if (se.isEffective(ba, bb, attack.getEffectSet(), Effects.DEATH)) {
+			if (se.isEffective(ba, bb, attack.getEffectSet(), AttackEffect.DEATH)) {
 				pm.repaintData();
 				pm.damageHp(bb, bb.getHpMax());
-				se.execute(ba, bb, anime, attack.getEffectSet(), Effects.DEATH);
+				se.execute(ba, bb, anime, attack.getEffectSet(), AttackEffect.DEATH);
 				pm.repaintData();
 				sm.sleep(200);
 				pm.animeHp();
@@ -569,17 +569,17 @@ public class AttackManagerImpl implements AttackManager {
 				continue;
 			}
 
-			se.execute(ba, bb, anime, attack.getEffectSet(), Effects.SLEEP);
-			se.execute(ba, bb, anime, attack.getEffectSet(), Effects.CHARM);
-			se.execute(ba, bb, anime, attack.getEffectSet(), Effects.POISON);
-			se.execute(ba, bb, anime, attack.getEffectSet(), Effects.REGENE);
-			se.execute(ba, bb, anime, attack.getEffectSet(), Effects.WET);
-			se.execute(ba, bb, anime, attack.getEffectSet(), Effects.OIL);
-			se.execute(ba, bb, anime, attack.getEffectSet(), Effects.ATTACK_UP);
-			se.execute(ba, bb, anime, attack.getEffectSet(), Effects.GUARD_UP);
-			se.execute(ba, bb, anime, attack.getEffectSet(), Effects.UPPER);
-			se.execute(ba, bb, anime, attack.getEffectSet(), Effects.CHOP);
-			se.execute(ba, bb, anime, attack.getEffectSet(), Effects.REFRESH);
+			se.execute(ba, bb, anime, attack.getEffectSet(), AttackEffect.SLEEP);
+			se.execute(ba, bb, anime, attack.getEffectSet(), AttackEffect.CHARM);
+			se.execute(ba, bb, anime, attack.getEffectSet(), AttackEffect.POISON);
+			se.execute(ba, bb, anime, attack.getEffectSet(), AttackEffect.REGENE);
+			se.execute(ba, bb, anime, attack.getEffectSet(), AttackEffect.WET);
+			se.execute(ba, bb, anime, attack.getEffectSet(), AttackEffect.OIL);
+			se.execute(ba, bb, anime, attack.getEffectSet(), AttackEffect.ATTACK_UP);
+			se.execute(ba, bb, anime, attack.getEffectSet(), AttackEffect.GUARD_UP);
+			se.execute(ba, bb, anime, attack.getEffectSet(), AttackEffect.UPPER);
+			se.execute(ba, bb, anime, attack.getEffectSet(), AttackEffect.CHOP);
+			se.execute(ba, bb, anime, attack.getEffectSet(), AttackEffect.REFRESH);
 			sm.sleep(300);
 		}
 	}
@@ -589,7 +589,7 @@ public class AttackManagerImpl implements AttackManager {
 	private boolean attackHit() {
 		Body ba = attack.getAttacker();
 		Body bb = attack.getReceiver();
-		if (attack.hasEffect(Effects.NO_ATTACK)) {
+		if (attack.hasEffect(AttackEffect.NO_ATTACK)) {
 			bb.setStore(bb.getStore() + meichu);
 			bb.setStore(bb.getStore() % HitRate.SINGLE_HIT);
 			meichu = 0;

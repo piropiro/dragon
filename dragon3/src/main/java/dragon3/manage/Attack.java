@@ -1,6 +1,7 @@
 package dragon3.manage;
 
 import dragon3.common.Body;
+import dragon3.common.constant.AttackEffect;
 import dragon3.common.constant.GameColors;
 
 
@@ -13,8 +14,8 @@ public interface Attack {
     public int getMeichu();
     public int getRate();
     public boolean isHit();
-    public boolean isEffective(String effect);
-    public boolean hasEffect(String effect);
+    public boolean isEffective(AttackEffect effect);
+    public boolean hasEffect(AttackEffect effect);
     public Body getAttacker();
     public Body getReceiver();
 }

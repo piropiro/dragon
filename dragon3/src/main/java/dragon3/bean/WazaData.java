@@ -3,6 +3,7 @@ package dragon3.bean;
 import java.util.ArrayList;
 import java.util.List;
 
+import dragon3.common.constant.AttackEffect;
 import dragon3.common.constant.DamageType;
 import dragon3.common.constant.GameColors;
 import dragon3.common.constant.TargetType;
@@ -19,7 +20,7 @@ public class WazaData implements Data {
 	private String animeId;
 	private int star;
 
-	private List<String> effect;
+	private List<AttackEffect> effect;
 
 	public WazaData() {
 		id = "none";
@@ -53,7 +54,7 @@ public class WazaData implements Data {
 	/**
 	 * @return
 	 */
-	public List<String> getEffect() {
+	public List<AttackEffect> getEffect() {
 		return effect;
 	}
 
@@ -116,7 +117,7 @@ public class WazaData implements Data {
 	/**
 	 * @param strings
 	 */
-	public void setEffect(List<String> strings) {
+	public void setEffect(List<AttackEffect> strings) {
 		effect = strings;
 	}
 

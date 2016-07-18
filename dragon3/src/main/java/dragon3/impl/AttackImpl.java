@@ -10,7 +10,7 @@ import dragon3.attack.calc.HitRate;
 import dragon3.attack.special.SpecialEffectManager;
 import dragon3.bean.WazaData;
 import dragon3.common.Body;
-import dragon3.common.constant.Effects;
+import dragon3.common.constant.AttackEffect;
 import dragon3.common.constant.GameColors;
 import dragon3.common.constant.Types;
 import dragon3.manage.Attack;
@@ -26,7 +26,7 @@ public class AttackImpl implements Attack {
 	private Body bb;
 
 
-	private Set<String> effectSet;
+	private Set<AttackEffect> effectSet;
 
 	private int meichu;
 
@@ -46,16 +46,16 @@ public class AttackImpl implements Attack {
 
 	/*** Effect ********************************/
 
-	public boolean isEffective(String effect) {
+	public boolean isEffective(AttackEffect effect) {
 		SpecialEffectManager sem = SpecialEffectManager.getInstance(map);
 		return sem.isEffective(ba, bb, effectSet, effect);
 	}
 
-	public boolean hasEffect(String type) {
+	public boolean hasEffect(AttackEffect type) {
 		return effectSet.contains(type);
 	}
 
-	public Set<String> getEffectSet() {
+	public Set<AttackEffect> getEffectSet() {
 		return effectSet;
 	}
 
@@ -102,7 +102,7 @@ public class AttackImpl implements Attack {
 
 
 	public boolean isHit() {
-		if (hasEffect(Effects.HICHU))
+		if (hasEffect(AttackEffect.HICHU))
 			return true;
 		if (bb.isType(Types.SLEEP))
 			return true;

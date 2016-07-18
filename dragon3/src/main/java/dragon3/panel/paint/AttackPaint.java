@@ -6,7 +6,7 @@ package dragon3.panel.paint;
 
 import mine.paint.MineGraphics;
 import dragon3.common.Body;
-import dragon3.common.constant.Effects;
+import dragon3.common.constant.AttackEffect;
 import dragon3.common.constant.Texts;
 import dragon3.common.constant.Types;
 import dragon3.manage.Attack;
@@ -32,7 +32,7 @@ public class AttackPaint implements DataPanelPainter {
 		pw.drawMain(attack.getAttacker(), g, true);
 		
 		pw.drawLine(attack.getName(), 0, 1, g);
-		if (attack.hasEffect(Effects.NO_ATTACK)) {
+		if (attack.hasEffect(AttackEffect.NO_ATTACK)) {
 			paintEffect(pw, g);
 		} else {
 			pw.drawLine(Texts.sp[55], Math.abs(attack.getDamage()), 0, 2, g);
@@ -48,29 +48,29 @@ public class AttackPaint implements DataPanelPainter {
 	
 	private void paintEffect(PanelWorks pw, MineGraphics g) {
 		String s = "NO EFFECT";
-		if (attack.isEffective(Effects.REFRESH))
+		if (attack.isEffective(AttackEffect.REFRESH))
 			s = "REFRESH";
-		if (attack.isEffective(Effects.OIL))
+		if (attack.isEffective(AttackEffect.OIL))
 			s = "OIL";
-		if (attack.isEffective(Effects.ATTACK_UP))
+		if (attack.isEffective(AttackEffect.ATTACK_UP))
 			s = "ATTACK";
-		if (attack.isEffective(Effects.GUARD_UP))
+		if (attack.isEffective(AttackEffect.GUARD_UP))
 			s = "GUARD";
-		if (attack.isEffective(Effects.UPPER))
+		if (attack.isEffective(AttackEffect.UPPER))
 			s = "UP";
-		if (attack.isEffective(Effects.CHOP))
+		if (attack.isEffective(AttackEffect.CHOP))
 			s = "DOWN";
-		if (attack.isEffective(Effects.WET))
+		if (attack.isEffective(AttackEffect.WET))
 			s = "CLOSE";
-		if (attack.isEffective(Effects.POISON))
+		if (attack.isEffective(AttackEffect.POISON))
 			s = "POISON";
-		if (attack.isEffective(Effects.SLEEP))
+		if (attack.isEffective(AttackEffect.SLEEP))
 			s = "SLEEP";
-		if (attack.isEffective(Effects.CHARM))
+		if (attack.isEffective(AttackEffect.CHARM))
 			s = "CHARM";
-		if (attack.isEffective(Effects.CRITICAL))
+		if (attack.isEffective(AttackEffect.CRITICAL))
 			s = "FINISH";
-		if (attack.isEffective(Effects.DEATH))
+		if (attack.isEffective(AttackEffect.DEATH))
 			s = "DEATH";
 		if (s.equals("SLEEP")) {
 			if (bb.isType(Types.SLEEP_LOCK)) {

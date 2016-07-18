@@ -7,7 +7,7 @@ import java.util.Set;
 
 import dragon3.anime.AnimeManager;
 import dragon3.common.Body;
-import dragon3.common.constant.Effects;
+import dragon3.common.constant.AttackEffect;
 import dragon3.common.constant.Types;
 
 /**
@@ -15,11 +15,11 @@ import dragon3.common.constant.Types;
  */
 public class Oil implements SpecialEffect {
 
-	public boolean isEffective(Body ba, Body bb, Set<String> effect) {
+	public boolean isEffective(Body ba, Body bb, Set<AttackEffect> effect) {
 
 		if (bb.isType(Types.ANTI_ALL))
 			return false;
-		if (!effect.contains(Effects.OIL))
+		if (!effect.contains(AttackEffect.OIL))
 			return false;
 
 		if (bb.isType(Types.OIL))

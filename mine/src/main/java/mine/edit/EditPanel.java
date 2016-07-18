@@ -16,6 +16,7 @@ import javax.swing.JPanel;
 
 import mine.edit.component.EditComponent;
 import mine.edit.component.EditEnumCombo;
+import mine.edit.component.EditEnumComboList;
 import mine.edit.component.EditImageCombo;
 import mine.edit.component.EditImageComboArray;
 import mine.edit.component.EditIntCombo;
@@ -186,6 +187,10 @@ public class EditPanel<B> extends JPanel implements EditListener<B> {
 
 	public void setTextCombo(int pos, String name, int index, String label) {
 		add(new EditTextComboList(name, index), name + "." + index, label, pos);
+	}
+	
+	public <T> void setEnumCombo(int pos, String name, int index, String label, Class<T> enu) {
+		add(new EditEnumComboList<T>(name, index, enu), name + "." + index, label, pos);
 	}
 
 	public void setIntCombo(int pos, String name, int index, String label, int max) {

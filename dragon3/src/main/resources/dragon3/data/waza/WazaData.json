@@ -3,11 +3,11 @@
 		"animeId": "none",
 		"damageType": "NONE",
 		"effect": [
-			null,
-			null,
-			null,
-			null,
-			null
+			"NONE",
+			"NONE",
+			"NONE",
+			"NONE",
+			"NONE"
 		],
 		"id": "none",
 		"label": "none",
@@ -20,11 +20,11 @@
 		"animeId": "slash",
 		"damageType": "SWORD",
 		"effect": [
-			"counter",
-			"none",
-			"none",
-			"none",
-			"none"
+			"COUNTER_ABLE",
+			"NONE",
+			"NONE",
+			"NONE",
+			"NONE"
 		],
 		"id": "slash",
 		"label": "斬撃",
@@ -37,11 +37,11 @@
 		"animeId": "fire",
 		"damageType": "MAGIC",
 		"effect": [
-			"fire",
-			"none",
-			"none",
-			"none",
-			"none"
+			"FIRE",
+			"DAMAGE_200",
+			"NONE",
+			"NONE",
+			"NONE"
 		],
 		"id": "fire",
 		"label": "火炎",

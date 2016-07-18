@@ -7,7 +7,7 @@ import java.util.Set;
 
 import dragon3.anime.AnimeManager;
 import dragon3.common.Body;
-import dragon3.common.constant.Effects;
+import dragon3.common.constant.AttackEffect;
 import dragon3.common.constant.Types;
 
 /**
@@ -16,11 +16,11 @@ import dragon3.common.constant.Types;
 public class GuardUp implements SpecialEffect {
 
 
-	public boolean isEffective(Body ba, Body bb, Set<String> effect) {
+	public boolean isEffective(Body ba, Body bb, Set<AttackEffect> effect) {
 
 		if (bb.isType(Types.ANTI_ALL))
 			return false;
-		if (!effect.contains(Effects.GUARD_UP))
+		if (!effect.contains(AttackEffect.GUARD_UP))
 			return false;
 
 		if (bb.isType(Types.GUARD_UP))
