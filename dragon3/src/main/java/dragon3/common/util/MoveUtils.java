@@ -3,27 +3,16 @@
  */
 package dragon3.common.util;
 
-import java.util.HashMap;
-
 import dragon3.common.Body;
+import dragon3.common.constant.MoveType;
 import dragon3.common.constant.Page;
 import dragon3.common.constant.Types;
-
-
 import mine.paint.UnitMap;
 
 /**
  * @author k-saito
  */
 public class MoveUtils {
-
-	public static final String NONE = "none";
-	public static final String FLY = "fly";
-	public static final String HEAVY = "heavy";
-	public static final String LITE = "lite";
-	public static final String SWIM = "swim";
-	public static final String TWIN = "twin";
-	public static final String HOVER = "hover";
 
 	public static final int WHITE = 0;
 	public static final int YELLOW = 1;
@@ -53,19 +42,6 @@ public class MoveUtils {
 	public static final int T_SEA = 3;
 	public static final int T_POOL = 4;
 	public static final int T_ICE = 5;
-
-	private static final HashMap<String, int[]> stepMap;
-
-	static {
-		stepMap = new HashMap<String, int[]>();
-		stepMap.put(FLY,   new int[]{ 1, 1, 1, 1, 1, 99, 1, 1, 1, 1, 1 });
-		stepMap.put(HEAVY, new int[]{ 1, 3, 99, 6, 99, 99, 1, 2, 2, 2, 99 });
-		stepMap.put(LITE,  new int[]{ 1, 1, 99, 3, 99, 99, 1, 2, 2, 2, 99 });
-		stepMap.put(SWIM,  new int[]{ 99, 99, 99, 1, 1, 99, 1, 1, 1, 1, 99 });
-		stepMap.put(TWIN,  new int[]{ 2, 6, 99, 1, 1, 99, 1, 1, 1, 1, 99 });
-		stepMap.put(HOVER, new int[]{ 1, 1, 99, 1, 1, 99, 1, 1, 1, 1, 99 });
-		stepMap.put(NONE,  new int[]{ 1, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9 });
-	}
 	
 	/**
 	 * キャラの歩数を返す。<p>
@@ -97,18 +73,18 @@ public class MoveUtils {
 	 */
 	public static int[] getStepList(Body b) {
 
-		String moveType = b.getMoveType();
+		MoveType moveType = b.getMoveType();
 
 		if (b.isType(Types.SORA))
-			moveType = FLY;
+			moveType = MoveType.FLY;
 			
 		if (b.isType(Types.RIKU))
-			moveType = HEAVY;
+			moveType = MoveType.HEAVY;
 			
 		if (b.isType(Types.FLY_ABLE))
-			moveType = FLY;
+			moveType = MoveType.FLY;
 
-		int[] stepList = (int[])stepMap.get(moveType);
+		int[] stepList = moveType.getSteps().clone();
 
 		if (b.isType(Types.LITE_WALK)) {
 			stepList[WHITE] = 1;
@@ -134,9 +110,9 @@ public class MoveUtils {
 		if (b.isType(Types.SORA))
 			return T_SKY;
 		if (!b.isType(Types.RIKU) && !b.isType(Types.SLEEP)) {
-			if (b.getMoveType().equals(FLY))
+			if (b.getMoveType().equals(MoveType.FLY))
 				return T_SKY;
-			if (b.getMoveType().equals(HOVER))
+			if (b.getMoveType().equals(MoveType.HOVER))
 				return T_SKY;
 		}
 		switch (map.getData(Page.P00, b.getX(), b.getY())) {

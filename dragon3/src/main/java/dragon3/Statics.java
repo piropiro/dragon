@@ -37,7 +37,6 @@ public class Statics {
 	public static final Map<String, String> effect;
 	public static final Map<String, String> weponType;
 	public static final Map<String, String> armorType;
-	public static final Map<String, String> moveType;
 	public static final Map<String, String> targetType;
 	public static final Map<String, String> damageType;
 	public static final Map<String, String> animeRange;
@@ -47,8 +46,6 @@ public class Statics {
 	public static final DataList<BodyData> bodyList;
 	public static final DataList<WazaData> wazaList;
 	public static final DataList<StageData> stageList;
-
-	public static final String[] idoType;
 
 	static {
 		try {
@@ -60,13 +57,11 @@ public class Statics {
 			soul = MineUtils.readIdAndTextMap(TEXT_DIR + "soul.txt");
 			armorType = MineUtils.readIdAndTextMap(TEXT_DIR + "armor.txt");
 			weponType = MineUtils.readIdAndTextMap(TEXT_DIR + "wepon.txt");
-			moveType = MineUtils.readIdAndTextMap(TEXT_DIR + "move.txt");
 			color = MineUtils.readIdAndTextMap(TEXT_DIR + "color.txt");
 			targetType = MineUtils.readIdAndTextMap(TEXT_DIR + "target.txt");
 			damageType = MineUtils.readIdAndTextMap(TEXT_DIR + "damage.txt");
 			animeRange = MineUtils
 					.readIdAndTextMap(TEXT_DIR + "animeRange.txt");
-			idoType = MineUtils.readStringArray(TEXT_DIR + "move.txt");
 			tokusei = MineUtils.readIdAndTextMap(TEXT_DIR + "tokusei.txt");
 			effect = MineUtils.readIdAndTextMap(TEXT_DIR + "effect.txt");
 			deployType = MineUtils

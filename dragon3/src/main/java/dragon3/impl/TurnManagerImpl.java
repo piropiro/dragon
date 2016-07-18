@@ -8,6 +8,7 @@ import dragon3.UnitWorks;
 import dragon3.anime.AnimeManager;
 import dragon3.common.Body;
 import dragon3.common.constant.GameColors;
+import dragon3.common.constant.MoveType;
 import dragon3.common.constant.Page;
 import dragon3.common.constant.Types;
 import dragon3.common.util.MoveUtils;
@@ -184,9 +185,9 @@ public class TurnManagerImpl implements TurnManager {
 			return;
 		if (b.isType(Types.SWIM_ABLE))
 			return;
-		if (b.getMoveType().equals(MoveUtils.SWIM))
+		if (b.getMoveType().equals(MoveType.SWIM))
 			return;
-		if (b.getMoveType().equals(MoveUtils.TWIN))
+		if (b.getMoveType().equals(MoveType.TWIN))
 			return;
 		b.addType(Types.WET);
 		b.addType(Types.WET_LOCK);

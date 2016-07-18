@@ -1,16 +1,18 @@
 package dragon3.edit;
 
+import java.util.LinkedHashMap;
 import java.util.Map;
 
+import dragon3.Statics;
+import dragon3.bean.BodyData;
+import dragon3.common.constant.MoveType;
+import dragon3.image.BodyImageList;
+import dragon3.image.ImageManager;
 import mine.awt.ImageLoaderAWT;
 import mine.edit.BeanEditor;
 import mine.edit.EditListener;
 import mine.edit.EditPanel;
 import mine.paint.MineImageLoader;
-import dragon3.Statics;
-import dragon3.bean.BodyData;
-import dragon3.image.BodyImageList;
-import dragon3.image.ImageManager;
 
 
 public class BodyEditor extends EditPanel<BodyData> implements EditListener<BodyData> {
@@ -43,8 +45,12 @@ public class BodyEditor extends EditPanel<BodyData> implements EditListener<Body
 		setSlider(CENTER, "mdf", "抵抗", 30);
 		setSlider(CENTER, "hit", "命中", 30);
 		setSlider(CENTER, "mis", "回避", 30);
-		setTextCombo(LEFT, "moveType", "移動");
-		initCombo("moveType", Statics.moveType);
+		setEnumCombo(LEFT, "moveType", "移動", MoveType.class);
+		Map<String, String> idAndText = new LinkedHashMap<>();
+		for (MoveType mt : MoveType.values()) {	
+			idAndText.put(mt.name(), mt.getText());
+		}
+		initCombo("moveType", idAndText);
 		setIntCombo(RIGHT, "moveStep", "歩数", 20);
 		setTextCombo(LEFT, "weponType", "武器");
 		initCombo("weponType", Statics.weponType);

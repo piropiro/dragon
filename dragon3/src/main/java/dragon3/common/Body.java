@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Set;
 
 import dragon3.common.constant.GameColors;
+import dragon3.common.constant.MoveType;
 
 @SuppressWarnings("serial")
 public class Body implements Serializable, Cloneable {
@@ -30,7 +31,7 @@ public class Body implements Serializable, Cloneable {
 	private int mis;
 
 	private int moveStep;
-	private String moveType = "none";
+	private MoveType moveType = MoveType.NONE;
 	private String soulType = "none";
 
 	private String weponType = "none";
@@ -202,7 +203,7 @@ public class Body implements Serializable, Cloneable {
 	/**
 	 * @return
 	 */
-	public String getMoveType() {
+	public MoveType getMoveType() {
 		return moveType;
 	}
 
@@ -415,8 +416,8 @@ public class Body implements Serializable, Cloneable {
 	/**
 	 * @param string
 	 */
-	public void setMoveType(String string) {
-		moveType = string;
+	public void setMoveType(MoveType m) {
+		moveType = m;
 	}
 
 	/**

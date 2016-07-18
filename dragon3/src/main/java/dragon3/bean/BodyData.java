@@ -6,6 +6,8 @@ package dragon3.bean;
 import java.util.ArrayList;
 import java.util.List;
 
+import dragon3.common.constant.MoveType;
+
 /**
  * @author k-saito
  */
@@ -24,7 +26,7 @@ public class BodyData implements Data {
 	private int hit;
 	private int mis;
 	private int moveStep;
-	private String moveType;
+	private MoveType moveType;
 	private String soulType;
 
 	private String weponType;
@@ -39,7 +41,7 @@ public class BodyData implements Data {
 		image = "0.png";
 		kind = "none";
 		soulType = "none";
-		moveType = "none";
+		moveType = MoveType.NONE;
 		weponType = "none";
 		armorType = "none";
 		wazaList = new ArrayList<>();
@@ -126,7 +128,7 @@ public class BodyData implements Data {
 	/**
 	 * @return
 	 */
-	public String getMoveType() {
+	public MoveType getMoveType() {
 		return moveType;
 	}
 
@@ -258,7 +260,7 @@ public class BodyData implements Data {
 	/**
 	 * @param string
 	 */
-	public void setMoveType(String string) {
+	public void setMoveType(MoveType string) {
 		moveType = string;
 	}
 

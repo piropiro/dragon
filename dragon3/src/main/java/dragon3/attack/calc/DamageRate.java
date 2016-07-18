@@ -8,6 +8,7 @@ import java.util.Set;
 import mine.paint.UnitMap;
 import dragon3.common.Body;
 import dragon3.common.constant.Effects;
+import dragon3.common.constant.MoveType;
 import dragon3.common.constant.Types;
 import dragon3.common.util.MoveUtils;
 
@@ -60,7 +61,7 @@ public class DamageRate {
 			rate /= 2;
 
 		// Aquatic Guard
-		if (bb.getMoveType().equals(MoveUtils.SWIM) || bb.getMoveType().equals(MoveUtils.TWIN)) {
+		if (bb.getMoveType().equals(MoveType.SWIM) || bb.getMoveType().equals(MoveType.TWIN)) {
 			if (!effect.contains(Effects.MIZU_100)) {
 				if (tikei == MoveUtils.T_SEA && !effect.contains(Effects.THUNDER))
 					rate /= 2;
@@ -69,7 +70,7 @@ public class DamageRate {
 			}
 		}
 		// Aquatic Attack
-		if (bb.getMoveType().equals(MoveUtils.SWIM) || bb.getMoveType().equals(MoveUtils.TWIN)) {
+		if (bb.getMoveType().equals(MoveType.SWIM) || bb.getMoveType().equals(MoveType.TWIN)) {
 			if (MoveUtils.getTikei(map, ba) == MoveUtils.T_SKY)
 				rate /= 2;
 			if (MoveUtils.getTikei(map, ba) == MoveUtils.T_LAND)
