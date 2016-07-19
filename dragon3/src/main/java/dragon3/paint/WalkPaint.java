@@ -11,7 +11,7 @@ import dragon3.common.Body;
 import dragon3.common.constant.GameColors;
 import dragon3.common.constant.Page;
 import dragon3.common.constant.Texts;
-import dragon3.common.constant.Types;
+import dragon3.common.constant.BodyAttribute;
 import dragon3.common.util.MoveUtils;
 
 public class WalkPaint extends PaintAdapter {
@@ -110,13 +110,13 @@ public class WalkPaint extends PaintAdapter {
 			return;
 		}
 
-		if (ba.isType(Types.SLEEP))
+		if (ba.hasAttr(BodyAttribute.SLEEP))
 			return;
 		if (GameColors.isPlayer(ba)) {
-			if (ba.isType(Types.CHARM))
+			if (ba.hasAttr(BodyAttribute.CHARM))
 				return;
 		} else {
-			if (!ba.isType(Types.CHARM))
+			if (!ba.hasAttr(BodyAttribute.CHARM))
 				return;
 		}
 		action();

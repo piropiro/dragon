@@ -5,6 +5,7 @@ import java.util.Map;
 import dragon3.Statics;
 import dragon3.bean.BodyData;
 import dragon3.common.constant.ArmorType;
+import dragon3.common.constant.BodyAttribute;
 import dragon3.common.constant.BodyKind;
 import dragon3.common.constant.MoveType;
 import dragon3.common.constant.SoulType;
@@ -63,8 +64,8 @@ public class BodyEditor extends EditPanel<BodyData> implements EditListener<Body
 		}
 
 		for (int i=0; i<5; i++) {
-			setTextCombo(CENTER, "typeList", i, "特性" + i);
-			initCombo("typeList", i, Statics.tokusei);
+			setEnumCombo(CENTER, "attrList", i, "特性" + i, BodyAttribute.class);
+			initCombo("attrList", i, BodyAttribute.createMap());
 		}
 	}
 }

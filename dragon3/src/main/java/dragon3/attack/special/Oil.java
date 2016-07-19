@@ -8,7 +8,7 @@ import java.util.Set;
 import dragon3.anime.AnimeManager;
 import dragon3.common.Body;
 import dragon3.common.constant.AttackEffect;
-import dragon3.common.constant.Types;
+import dragon3.common.constant.BodyAttribute;
 
 /**
  * @author k-saito
@@ -17,12 +17,12 @@ public class Oil implements SpecialEffect {
 
 	public boolean isEffective(Body ba, Body bb, Set<AttackEffect> effect) {
 
-		if (bb.isType(Types.ANTI_ALL))
+		if (bb.hasAttr(BodyAttribute.ANTI_ALL))
 			return false;
 		if (!effect.contains(AttackEffect.OIL))
 			return false;
 
-		if (bb.isType(Types.OIL))
+		if (bb.hasAttr(BodyAttribute.OIL))
 			return false;
 
 		return true;
@@ -31,8 +31,8 @@ public class Oil implements SpecialEffect {
 	public void execute(Body ba, Body bb, AnimeManager anime) {
 
 		anime.statusAnime(AnimeManager.STATUS_OIL, bb.getX(), bb.getY());
-		bb.addType(Types.OIL);
-		bb.addType(Types.OIL_LOCK);
+		bb.addAttr(BodyAttribute.OIL);
+		bb.addAttr(BodyAttribute.OIL_LOCK);
 	}
 
 }

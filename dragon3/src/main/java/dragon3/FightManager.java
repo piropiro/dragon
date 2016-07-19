@@ -11,7 +11,7 @@ import dragon3.common.constant.AttackEffect;
 import dragon3.common.constant.GameColors;
 import dragon3.common.constant.Page;
 import dragon3.common.constant.Texts;
-import dragon3.common.constant.Types;
+import dragon3.common.constant.BodyAttribute;
 import dragon3.impl.AttackManagerImpl;
 import dragon3.manage.AttackManager;
 import dragon3.map.MapWorks;
@@ -85,7 +85,7 @@ public class FightManager {
 	public boolean select(int i, boolean enemyFlag) {
 		if (baWazaList.get(i).equals("none"))
 			return false;
-		if (i > 0 && ba.isType(Types.WET))
+		if (i > 0 && ba.hasAttr(BodyAttribute.WET))
 			return false;
 		
 		attack = new AttackManagerImpl(uw, map, ba, baWazaList.get(i));
@@ -103,7 +103,7 @@ public class FightManager {
 		int n = -1;
 		int dmax = -1;
 		for (int i = 0; i < baWazaList.size(); i++) {
-			if (i > 0 && ba.isType(Types.WET))
+			if (i > 0 && ba.hasAttr(BodyAttribute.WET))
 				break;
 			AttackManager ab = new AttackManagerImpl(uw, map, ba, baWazaList.get(i));
 			if (ab.isAlive(true)) {
@@ -245,7 +245,7 @@ public class FightManager {
 			return;
 		if (!bb.isAlive())
 			return;
-		if (bb.isType(Types.SLEEP))
+		if (bb.hasAttr(BodyAttribute.SLEEP))
 			return;
 		pm.displaySmall(counter.getAttack().getLabel(), counter.getAttack().getLabelColor(), bb);
 		pm.selectHp(false);

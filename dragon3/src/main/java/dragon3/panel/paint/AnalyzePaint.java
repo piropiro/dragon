@@ -6,7 +6,7 @@ package dragon3.panel.paint;
 
 import dragon3.common.Body;
 import dragon3.common.constant.Texts;
-import dragon3.common.constant.Types;
+import dragon3.common.constant.BodyAttribute;
 import dragon3.panel.PanelWorks;
 import mine.paint.MineGraphics;
 
@@ -24,11 +24,11 @@ public class AnalyzePaint implements DataPanelPainter {
 	public void paint(PanelWorks pw, MineGraphics g) {
 		pw.drawMain(ba, g, false);
 		int step = ba.getMoveStep();
-		if (ba.isType(Types.MOVE_UP_1))
+		if (ba.hasAttr(BodyAttribute.MOVE_UP_1))
 			step++;
-		if (ba.isType(Types.MOVE_UP_2))
+		if (ba.hasAttr(BodyAttribute.MOVE_UP_2))
 			step += 2;
-		if (ba.isType(Types.MOVE_DOWN_1))
+		if (ba.hasAttr(BodyAttribute.MOVE_DOWN_1))
 			step -= 1;
 		pw.drawLine(ba.getMoveType().getText(), step, 0, 1, g);
 		pw.drawLine(Texts.sp[45], ba.getStore(), 1, 1, g);

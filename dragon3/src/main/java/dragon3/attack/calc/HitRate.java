@@ -8,7 +8,7 @@ import java.util.Set;
 import mine.MineUtils;
 import dragon3.common.Body;
 import dragon3.common.constant.AttackEffect;
-import dragon3.common.constant.Types;
+import dragon3.common.constant.BodyAttribute;
 import dragon3.common.util.Luck;
 
 /**
@@ -47,10 +47,10 @@ public class HitRate {
 		if (effect.contains(AttackEffect.MISS_4))
 			hit -= 4;
 
-		if (bb.isType(Types.SLEEP)) {
+		if (bb.hasAttr(BodyAttribute.SLEEP)) {
 			hit = Math.max(SINGLE_HIT - bb.getStore(), hit);
 		}
-		if (bb.isType(Types.RIKU)) {
+		if (bb.hasAttr(BodyAttribute.RIKU)) {
 			hit = Math.max(SINGLE_HIT - bb.getStore(), hit);
 		}
 		if (effect.contains(AttackEffect.COMBO)) {
@@ -58,10 +58,10 @@ public class HitRate {
 		} else {
 			hit = MineUtils.mid(2, hit, DOUBLE_HIT - bb.getStore() - 1);
 		}
-		if (ba.isType(Types.ATTACK_UP)) {
+		if (ba.hasAttr(BodyAttribute.ATTACK_UP)) {
 			hit += 2;
 		}
-		if (bb.isType(Types.GUARD_UP)) {
+		if (bb.hasAttr(BodyAttribute.GUARD_UP)) {
 			hit -= 2;
 		}
 		return hit;

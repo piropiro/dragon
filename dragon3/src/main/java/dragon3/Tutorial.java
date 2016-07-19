@@ -3,7 +3,7 @@ package dragon3;
 import dragon3.common.Body;
 import dragon3.common.constant.GameColors;
 import dragon3.common.constant.Texts;
-import dragon3.common.constant.Types;
+import dragon3.common.constant.BodyAttribute;
 
 public class Tutorial {
 	public static void setHelp(Body ba, Body bb, int n, UnitWorks uw) {
@@ -12,7 +12,7 @@ public class Tutorial {
 
 		GameColors color = GameColors.BLUE;
 		if (bb != null) {
-			if (ba.isType(Types.HERO)) {
+			if (ba.hasAttr(BodyAttribute.HERO)) {
 				if (n == 0) {
 					if (bb.getName().equals(Texts.goburin)) {
 						line = Texts.tuto[1];
@@ -43,7 +43,7 @@ public class Tutorial {
 						}
 					}
 				}
-			} else if (ba.isType(Types.SISTER)) {
+			} else if (ba.hasAttr(BodyAttribute.SISTER)) {
 				if (n == 0) {
 					if (bb.getName().equals(Texts.goburin)) {
 						line = Texts.tuto[9];

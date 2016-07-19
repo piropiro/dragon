@@ -7,13 +7,12 @@ package dragon3.panel.paint;
 import java.util.HashSet;
 import java.util.Set;
 
-import mine.paint.MineGraphics;
-import mine.paint.MineImage;
-import dragon3.Statics;
 import dragon3.bean.WazaData;
 import dragon3.common.constant.AttackEffect;
 import dragon3.common.constant.Texts;
 import dragon3.panel.PanelWorks;
+import mine.paint.MineGraphics;
+import mine.paint.MineImage;
 
 /**
  * @author saito
@@ -118,7 +117,7 @@ public class WazaPaint implements DataPanelPainter {
 			return false;
 		if (!effectSet.contains(effect))
 			return false;
-		pw.drawLine((String)Statics.effect.get(effect), n % 2, n / 2, g);
+		pw.drawLine(effect.getText(), n % 2, n / 2, g);
 		n++;
 		return true;
 	}

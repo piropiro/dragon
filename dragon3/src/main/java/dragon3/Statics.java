@@ -2,7 +2,6 @@ package dragon3;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.Map;
 
 import dragon3.bean.BodyData;
 import dragon3.bean.DeployData;
@@ -10,7 +9,6 @@ import dragon3.bean.StageData;
 import dragon3.bean.WazaData;
 import dragon3.common.DataList;
 import mine.MineException;
-import mine.MineUtils;
 import mine.io.JsonIO;
 import mine.io.MatrixIO;
 
@@ -31,26 +29,11 @@ public class Statics {
 
 	public static final int TYPE_MAX = 100;
 
-	public static final Map<String, String> effect;
-	public static final Map<String, String> tokusei;
 
-	public static final DataList<BodyData> bodyList;
-	public static final DataList<WazaData> wazaList;
-	public static final DataList<StageData> stageList;
+	public static final DataList<BodyData> bodyList = new DataList<BodyData>(BODY_DIR, BODY_FILES, BodyData[].class);
+	public static final DataList<WazaData> wazaList = new DataList<WazaData>(WAZA_DIR, WAZA_FILES, WazaData[].class);
+	public static final DataList<StageData> stageList = new DataList<StageData>(STAGE_DIR, STAGE_FILES, StageData[].class);
 
-	static {
-		try {
-			bodyList = new DataList<BodyData>(BODY_DIR, BODY_FILES, BodyData[].class);
-			wazaList = new DataList<WazaData>(WAZA_DIR, WAZA_FILES, WazaData[].class);
-			stageList = new DataList<StageData>(STAGE_DIR, STAGE_FILES, StageData[].class);
-
-			tokusei = MineUtils.readIdAndTextMap(TEXT_DIR + "tokusei.txt");
-			effect = MineUtils.readIdAndTextMap(TEXT_DIR + "effect.txt");
-
-		} catch (MineException e) {
-			throw new RuntimeException(e);
-		}
-	}
 
 	public static int getBukiType(int type) {
 		switch (type) {

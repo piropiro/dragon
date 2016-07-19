@@ -7,7 +7,7 @@ import dragon3.common.Body;
 import dragon3.common.constant.GameColors;
 import dragon3.common.constant.Page;
 import dragon3.common.constant.Texts;
-import dragon3.common.constant.Types;
+import dragon3.common.constant.BodyAttribute;
 
 public class BasicPaint extends PaintAdapter {
 
@@ -36,10 +36,10 @@ public class BasicPaint extends PaintAdapter {
 			PaintUtils.setWalkPaint(uw, ba);
 			mw.repaint();
 			pm.displayWazaList(ba);
-		} else if (uw.getSaveManager().getSaveData().isAllClear() && ba.isType(Types.SISTER)) {
+		} else if (uw.getSaveManager().getSaveData().isAllClear() && ba.hasAttr(BodyAttribute.SISTER)) {
 			PaintUtils.setKakuseiPaint(uw, ba);
 			mw.repaint();
-		} else if (!ba.isType(Types.BERSERK)) {
+		} else if (!ba.hasAttr(BodyAttribute.BERSERK)) {
 			PaintUtils.setBerserkPaint(uw, ba);
 			mw.repaint();
 		} else {
@@ -87,15 +87,15 @@ public class BasicPaint extends PaintAdapter {
 		Body b = uw.search(x, y);
 		if (b == null)
 			return false;
-		if (b.isType(Types.SLEEP))
+		if (b.hasAttr(BodyAttribute.SLEEP))
 			return false;
 		if (map.getData(Page.P30, x, y) != 0)
 			return false;
 		if (GameColors.isPlayer(b)) {
-			if (b.isType(Types.CHARM))
+			if (b.hasAttr(BodyAttribute.CHARM))
 				return false;
 		} else {
-			if (!b.isType(Types.CHARM))
+			if (!b.hasAttr(BodyAttribute.CHARM))
 				return false;
 		}
 		return true;

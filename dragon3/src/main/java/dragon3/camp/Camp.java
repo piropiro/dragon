@@ -8,6 +8,7 @@ import java.util.List;
 import dragon3.UnitWorks;
 import dragon3.common.Body;
 import dragon3.common.constant.GameColors;
+import dragon3.common.constant.BodyAttribute;
 import dragon3.common.constant.BodyKind;
 import dragon3.common.constant.Page;
 import dragon3.common.constant.Texts;
@@ -116,7 +117,7 @@ public class Camp extends PaintAdapter {
 		for (int i = equips.size() - 1; i >= 0; i--) {
 			Body b = (Body) equips.get(i);
 			b.setMax();
-			b.setTypeSet(new LinkedHashSet<String>());
+			b.setAttrSet(new LinkedHashSet<BodyAttribute>());
 			if (GameColors.isPlayer(b)) {
 				b.setX(b.getGoalX());
 				b.setY(b.getGoalY());

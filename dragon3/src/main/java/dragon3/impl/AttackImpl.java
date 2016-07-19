@@ -12,7 +12,7 @@ import dragon3.bean.WazaData;
 import dragon3.common.Body;
 import dragon3.common.constant.AttackEffect;
 import dragon3.common.constant.GameColors;
-import dragon3.common.constant.Types;
+import dragon3.common.constant.BodyAttribute;
 import dragon3.manage.Attack;
 import mine.paint.UnitMap;
 
@@ -104,9 +104,9 @@ public class AttackImpl implements Attack {
 	public boolean isHit() {
 		if (hasEffect(AttackEffect.HICHU))
 			return true;
-		if (bb.isType(Types.SLEEP))
+		if (bb.hasAttr(BodyAttribute.SLEEP))
 			return true;
-		if (bb.isType(Types.RIKU))
+		if (bb.hasAttr(BodyAttribute.RIKU))
 			return true;
 		int hit = HitRate.calcPredict(ba, bb, effectSet);
 		if (hit + bb.getStore() > HitRate.SINGLE_HIT)

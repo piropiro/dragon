@@ -6,7 +6,7 @@ package dragon3.common.util;
 import dragon3.common.Body;
 import dragon3.common.constant.MoveType;
 import dragon3.common.constant.Page;
-import dragon3.common.constant.Types;
+import dragon3.common.constant.BodyAttribute;
 import mine.paint.UnitMap;
 
 /**
@@ -53,13 +53,13 @@ public class MoveUtils {
 
 		int step = b.getMoveStep();
 
-		if (b.isType(Types.MOVE_UP_2))
+		if (b.hasAttr(BodyAttribute.MOVE_UP_2))
 			step = step + 2;
-		if (b.isType(Types.MOVE_UP_1))
+		if (b.hasAttr(BodyAttribute.MOVE_UP_1))
 			step = step + 1;
-		if (b.isType(Types.MOVE_DOWN_1))
+		if (b.hasAttr(BodyAttribute.MOVE_DOWN_1))
 			step = step - 1;
-		if (b.isType(Types.OIL))
+		if (b.hasAttr(BodyAttribute.OIL))
 			step = 1;
 		
 		return step;
@@ -75,22 +75,22 @@ public class MoveUtils {
 
 		MoveType moveType = b.getMoveType();
 
-		if (b.isType(Types.SORA))
+		if (b.hasAttr(BodyAttribute.SORA))
 			moveType = MoveType.FLY;
 			
-		if (b.isType(Types.RIKU))
+		if (b.hasAttr(BodyAttribute.RIKU))
 			moveType = MoveType.HEAVY;
 			
-		if (b.isType(Types.FLY_ABLE))
+		if (b.hasAttr(BodyAttribute.FLY_ABLE))
 			moveType = MoveType.FLY;
 
 		int[] stepList = moveType.getSteps().clone();
 
-		if (b.isType(Types.LITE_WALK)) {
+		if (b.hasAttr(BodyAttribute.LITE_WALK)) {
 			stepList[WHITE] = 1;
 			stepList[YELLOW] = 1;
 		}
-		if (b.isType(Types.SWIM_ABLE)) {
+		if (b.hasAttr(BodyAttribute.SWIM_ABLE)) {
 			stepList[AQUA] = 1;
 			stepList[BLUE] = 1;
 		}
@@ -107,9 +107,9 @@ public class MoveUtils {
 	 * @return
 	 */
 	public static int getTikei(UnitMap map, Body b) {
-		if (b.isType(Types.SORA))
+		if (b.hasAttr(BodyAttribute.SORA))
 			return T_SKY;
-		if (!b.isType(Types.RIKU) && !b.isType(Types.SLEEP)) {
+		if (!b.hasAttr(BodyAttribute.RIKU) && !b.hasAttr(BodyAttribute.SLEEP)) {
 			if (b.getMoveType().equals(MoveType.FLY))
 				return T_SKY;
 			if (b.getMoveType().equals(MoveType.HOVER))

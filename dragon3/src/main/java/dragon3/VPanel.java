@@ -41,7 +41,7 @@ import dragon3.common.DataList;
 import dragon3.common.constant.GameColors;
 import dragon3.common.constant.Page;
 import dragon3.common.constant.Texts;
-import dragon3.common.constant.Types;
+import dragon3.common.constant.BodyAttribute;
 import dragon3.common.util.Equip;
 import dragon3.common.util.MoveUtils;
 import dragon3.common.util.Rank;
@@ -387,9 +387,9 @@ public class VPanel extends JLayeredPane implements UnitWorks, ActionListener, K
 			b.setHpMax(b.getHpMax() * rate / 256);
 			Equip.restrict(b);
 			b.setMax();
-			b.setTypeSet(new LinkedHashSet<String>());
+			b.setAttrSet(new LinkedHashSet<BodyAttribute>());
 			if (b.getColor() == GameColors.RED) {
-				if (!b.isType(Types.TALKABLE)) {
+				if (!b.hasAttr(BodyAttribute.TALKABLE)) {
 					b.setStr(Math.max(0, b.getStr() - 2));
 					b.setDef(Math.max(0, b.getDef() - 2));
 					b.setMst(Math.max(0, b.getMst() - 2));
@@ -514,9 +514,9 @@ public class VPanel extends JLayeredPane implements UnitWorks, ActionListener, K
 				continue;
 			if (!GameColors.isPlayer(b))
 				continue;
-			if (b.isType(Types.SLEEP))
+			if (b.hasAttr(BodyAttribute.SLEEP))
 				continue;
-			if (b.isType(Types.CHARM))
+			if (b.hasAttr(BodyAttribute.CHARM))
 				continue;
 			if (getChangeChara(b) != null)
 				return false;
@@ -664,10 +664,10 @@ public class VPanel extends JLayeredPane implements UnitWorks, ActionListener, K
 				Body b = equip.search(x, y);
 				if (b == null)
 					continue;
-				b.setTypeSet(new LinkedHashSet<String>());
-				if (b.isType(Types.HERO))
+				b.setAttrSet(new LinkedHashSet<BodyAttribute>());
+				if (b.hasAttr(BodyAttribute.HERO))
 					hero = b;
-				if (b.isType(Types.SISTER))
+				if (b.hasAttr(BodyAttribute.SISTER))
 					sister = b;
 			}
 		}
@@ -905,10 +905,10 @@ public class VPanel extends JLayeredPane implements UnitWorks, ActionListener, K
 				BeanUtils.copyProperties(body, bodyData);
 				body.setHpMax(bodyData.getHp());
 				body.setImageNum(imageManager.getBodyList().getNum(body.getImage()));
-				for (String type : bodyData.getTypeList()) {
-					body.addType(type);
+				for (BodyAttribute type : bodyData.getAttrList()) {
+					body.addAttr(type);
 				}
-				body.removeType("none");
+				body.removeAttr(BodyAttribute.NONE);
 				body.getWazaList().removeIf(a -> a.equals("none") );
 				
 				body.setDeployType(deploy.getDeployType());

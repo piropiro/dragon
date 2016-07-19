@@ -10,7 +10,7 @@ import dragon3.anime.AnimeManager;
 import dragon3.common.Body;
 import dragon3.common.constant.AttackEffect;
 import dragon3.common.constant.Page;
-import dragon3.common.constant.Types;
+import dragon3.common.constant.BodyAttribute;
 
 /**
  * @author k-saito
@@ -25,7 +25,7 @@ public class Refresh implements SpecialEffect {
 
 	public boolean isEffective(Body ba, Body bb, Set<AttackEffect> effect) {
 
-		if (bb.isType(Types.ANTI_ALL))
+		if (bb.hasAttr(BodyAttribute.ANTI_ALL))
 			return false;
 		if (!effect.contains(AttackEffect.REFRESH))
 			return false;

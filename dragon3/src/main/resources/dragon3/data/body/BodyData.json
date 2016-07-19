@@ -1,6 +1,13 @@
 [
 	{
 		"armorType": "NONE",
+		"attrList": [
+			"NONE",
+			"NONE",
+			"NONE",
+			"NONE",
+			"NONE"
+		],
 		"def": 0,
 		"hit": 0,
 		"hp": 0,
@@ -15,13 +22,6 @@
 		"name": "none",
 		"soulType": "NONE",
 		"str": 0,
-		"typeList": [
-			"none",
-			"none",
-			"none",
-			"none",
-			"none"
-		],
 		"wazaList": [
 			"none",
 			"none",
@@ -31,6 +31,13 @@
 	},
 	{
 		"armorType": "HEAVY",
+		"attrList": [
+			"HERO",
+			"NONE",
+			"NONE",
+			"NONE",
+			"NONE"
+		],
 		"def": 8,
 		"hit": 20,
 		"hp": 25,
@@ -45,13 +52,6 @@
 		"name": "僕",
 		"soulType": "RED",
 		"str": 20,
-		"typeList": [
-			"hero",
-			"none",
-			"none",
-			"none",
-			"none"
-		],
 		"wazaList": [
 			"slash",
 			"none",
@@ -61,6 +61,13 @@
 	},
 	{
 		"armorType": "LITE",
+		"attrList": [
+			"SISTER",
+			"NONE",
+			"NONE",
+			"NONE",
+			"NONE"
+		],
 		"def": 4,
 		"hit": 18,
 		"hp": 20,
@@ -75,13 +82,6 @@
 		"name": "妹",
 		"soulType": "BLUE",
 		"str": 0,
-		"typeList": [
-			"sister",
-			"none",
-			"none",
-			"none",
-			"none"
-		],
 		"wazaList": [
 			"fire",
 			"none",
@@ -91,6 +91,13 @@
 	},
 	{
 		"armorType": "LITE",
+		"attrList": [
+			"NONE",
+			"NONE",
+			"NONE",
+			"NONE",
+			"NONE"
+		],
 		"def": 5,
 		"hit": 13,
 		"hp": 10,
@@ -105,13 +112,6 @@
 		"name": "ゴブリン",
 		"soulType": "RED",
 		"str": 12,
-		"typeList": [
-			"none",
-			"none",
-			"none",
-			"none",
-			"none"
-		],
 		"wazaList": [
 			"slash",
 			"none",

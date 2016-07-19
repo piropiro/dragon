@@ -31,7 +31,7 @@ import dragon3.common.Body;
 import dragon3.common.constant.AttackEffect;
 import dragon3.common.constant.Page;
 import dragon3.common.constant.TargetType;
-import dragon3.common.constant.Types;
+import dragon3.common.constant.BodyAttribute;
 import dragon3.common.util.Luck;
 import dragon3.manage.AttackManager;
 import dragon3.panel.PanelManager;
@@ -190,7 +190,7 @@ public class AttackManagerImpl implements AttackManager {
 
 	public boolean isCounterable(Body bb, boolean flag) {
 		Body ba = attack.getAttacker();
-		if (ba.isType(Types.SLEEP))
+		if (ba.hasAttr(BodyAttribute.SLEEP))
 			return false;
 		if (flag && !attack.hasEffect(AttackEffect.COUNTER_ONLY))
 			return false;
@@ -341,7 +341,7 @@ public class AttackManagerImpl implements AttackManager {
 			return false;
 		}
 
-		if (b.isType(Types.CHARM))
+		if (b.hasAttr(BodyAttribute.CHARM))
 			return true;
 		int damage = Damage.calc(waza.getDamageType(), map, ba, b, attack.getEffectSet());
 		if (damage == 0) {
@@ -357,7 +357,7 @@ public class AttackManagerImpl implements AttackManager {
 		boolean flag = true;
 		if (b.getColor().equals(ba.getColor()))
 			flag = !flag;
-		if (ba.isType(Types.CHARM))
+		if (ba.hasAttr(BodyAttribute.CHARM))
 			flag = !flag;
 		if (damage < 0)
 			flag = !flag;
@@ -477,17 +477,17 @@ public class AttackManagerImpl implements AttackManager {
 				int d =
 					Damage.calc(waza.getDamageType(), map, ba, b, attack.getEffectSet()) * DamageRate.calc(map, ba, b, attack.getEffectSet());
 
-				if (!b.isType(Types.CHARM_LOCK) && se.isEffective(ba, b, attack.getEffectSet(), AttackEffect.CHARM))
+				if (!b.hasAttr(BodyAttribute.CHARM_LOCK) && se.isEffective(ba, b, attack.getEffectSet(), AttackEffect.CHARM))
 					d += b.getHp() / 2;
 
-				if (!b.isType(Types.SLEEP_LOCK) && se.isEffective(ba, b, attack.getEffectSet(), AttackEffect.SLEEP))
+				if (!b.hasAttr(BodyAttribute.SLEEP_LOCK) && se.isEffective(ba, b, attack.getEffectSet(), AttackEffect.SLEEP))
 					d += b.getHp() / 2;
 
 				if (se.isEffective(ba, b, attack.getEffectSet(), AttackEffect.DEATH))
 					d += b.getHp();
 				if (b.getColor() == ba.getColor())
 					d = -d;
-				if (ba.isType(Types.CHARM))
+				if (ba.hasAttr(BodyAttribute.CHARM))
 					d = -d;
 				if (bestDamage < d) {
 					bestDamage = d;

@@ -8,7 +8,7 @@ import java.util.Set;
 import dragon3.anime.AnimeManager;
 import dragon3.common.Body;
 import dragon3.common.constant.AttackEffect;
-import dragon3.common.constant.Types;
+import dragon3.common.constant.BodyAttribute;
 
 /**
  * @author k-saito
@@ -18,19 +18,19 @@ public class Charm implements SpecialEffect {
 
 	public boolean isEffective(Body ba, Body bb, Set<AttackEffect> effect) {
 
-		if (bb.isType(Types.ANTI_ALL))
+		if (bb.hasAttr(BodyAttribute.ANTI_ALL))
 			return false;
 		if (!effect.contains(AttackEffect.CHARM))
 			return false;
 
 		if (bb.getMdf() * 2 >= ba.getMst())
 			return false;
-		if (bb.isType(Types.GUARD_UP))
+		if (bb.hasAttr(BodyAttribute.GUARD_UP))
 			return false;
 
-		if (bb.isType(Types.ANTI_CHARM))
+		if (bb.hasAttr(BodyAttribute.ANTI_CHARM))
 			return false;
-		if (bb.isType(Types.CHARM))
+		if (bb.hasAttr(BodyAttribute.CHARM))
 			return false;
 
 		return true;
@@ -39,12 +39,12 @@ public class Charm implements SpecialEffect {
 
 	public void execute(Body ba, Body bb, AnimeManager anime) {
 
-		if (bb.isType(Types.CHARM_LOCK)) {
-			bb.removeType(Types.CHARM_LOCK);
+		if (bb.hasAttr(BodyAttribute.CHARM_LOCK)) {
+			bb.removeAttr(BodyAttribute.CHARM_LOCK);
 		} else {
 			anime.statusAnime(AnimeManager.STATUS_CHARM, bb.getX(), bb.getY());
-			bb.addType(Types.CHARM);
-			bb.addType(Types.CHARM_LOCK);
+			bb.addAttr(BodyAttribute.CHARM);
+			bb.addAttr(BodyAttribute.CHARM_LOCK);
 		}
 	}
 

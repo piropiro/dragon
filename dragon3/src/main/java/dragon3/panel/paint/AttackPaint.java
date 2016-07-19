@@ -8,7 +8,7 @@ import mine.paint.MineGraphics;
 import dragon3.common.Body;
 import dragon3.common.constant.AttackEffect;
 import dragon3.common.constant.Texts;
-import dragon3.common.constant.Types;
+import dragon3.common.constant.BodyAttribute;
 import dragon3.manage.Attack;
 import dragon3.panel.PanelWorks;
 
@@ -73,12 +73,12 @@ public class AttackPaint implements DataPanelPainter {
 		if (attack.isEffective(AttackEffect.DEATH))
 			s = "DEATH";
 		if (s.equals("SLEEP")) {
-			if (bb.isType(Types.SLEEP_LOCK)) {
+			if (bb.hasAttr(BodyAttribute.SLEEP_LOCK)) {
 				s = "SLEEP_LOCK";
 			}
 		}
 		if (s.equals("CHARM")) {
-			if (bb.isType(Types.CHARM_LOCK)) {
+			if (bb.hasAttr(BodyAttribute.CHARM_LOCK)) {
 				s = "CHARM_LOCK";
 			}
 		}

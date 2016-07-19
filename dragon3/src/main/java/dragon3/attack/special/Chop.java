@@ -8,7 +8,7 @@ import java.util.Set;
 import dragon3.anime.AnimeManager;
 import dragon3.common.Body;
 import dragon3.common.constant.AttackEffect;
-import dragon3.common.constant.Types;
+import dragon3.common.constant.BodyAttribute;
 
 /**
  * @author k-saito
@@ -18,7 +18,7 @@ public class Chop implements SpecialEffect {
 
 	public boolean isEffective(Body ba, Body bb, Set<AttackEffect> effect) {
 
-		if (bb.isType(Types.ANTI_ALL))
+		if (bb.hasAttr(BodyAttribute.ANTI_ALL))
 			return false;
 		if (!effect.contains(AttackEffect.CHOP))
 			return false;
@@ -30,8 +30,8 @@ public class Chop implements SpecialEffect {
 	public void execute(Body ba, Body bb, AnimeManager anime) {
 
 		anime.statusAnime(AnimeManager.STATUS_RIKU, bb.getX(), bb.getY());
-		bb.removeType(Types.SORA);
-		bb.addType(Types.RIKU);
+		bb.removeAttr(BodyAttribute.SORA);
+		bb.addAttr(BodyAttribute.RIKU);
 	}
 
 }

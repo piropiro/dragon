@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import dragon3.common.constant.ArmorType;
+import dragon3.common.constant.BodyAttribute;
 import dragon3.common.constant.BodyKind;
 import dragon3.common.constant.MoveType;
 import dragon3.common.constant.SoulType;
@@ -37,7 +38,7 @@ public class BodyData implements Data {
 	private ArmorType armorType;
 
 	private List<String> wazaList;
-	private List<String> typeList;
+	private List<BodyAttribute> attrList;
 
 	public BodyData() {
 		id = "none";
@@ -49,7 +50,7 @@ public class BodyData implements Data {
 		weponType = WeponType.NONE;
 		armorType = ArmorType.NONE;
 		wazaList = new ArrayList<>();
-		typeList = new ArrayList<>();
+		attrList = new ArrayList<>();
 	}
 
 	public String toString(){
@@ -176,12 +177,12 @@ public class BodyData implements Data {
 		this.wazaList = wazaList;
 	}
 
-	public List<String> getTypeList() {
-		return typeList;
+	public List<BodyAttribute> getAttrList() {
+		return attrList;
 	}
 
-	public void setTypeList(List<String> typeList) {
-		this.typeList = typeList;
+	public void setAttrList(List<BodyAttribute> attrList) {
+		this.attrList = attrList;
 	}
 
 	/**

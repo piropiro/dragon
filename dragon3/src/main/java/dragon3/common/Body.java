@@ -8,6 +8,7 @@ import java.util.Set;
 
 import dragon3.common.constant.GameColors;
 import dragon3.common.constant.ArmorType;
+import dragon3.common.constant.BodyAttribute;
 import dragon3.common.constant.BodyKind;
 import dragon3.common.constant.DeployType;
 import dragon3.common.constant.MoveType;
@@ -19,7 +20,7 @@ public class Body implements Serializable, Cloneable {
 
 	private String id = "none";
 	private String name = "none";
-	private String image = "0.png";
+	private String image = "none.png";
 	private BodyKind kind = BodyKind.CHARA;
 	private GameColors color = GameColors.BLACK;
 
@@ -43,7 +44,7 @@ public class Body implements Serializable, Cloneable {
 	private ArmorType armorType = ArmorType.NONE;
 
 	private List<String> wazaList = new ArrayList<>();
-	private Set<String> typeSet = new LinkedHashSet<String>();
+	private Set<BodyAttribute> attrSet = new LinkedHashSet<BodyAttribute>();
 
 	private int x;
 	private int y;
@@ -71,14 +72,14 @@ public class Body implements Serializable, Cloneable {
 		return (hp > 0);
 	}
 
-	public void addType(String type){
-		typeSet.add(type);
+	public void addAttr(BodyAttribute attr){
+		attrSet.add(attr);
 	}
-	public void removeType(String type){
-		typeSet.remove(type);
+	public void removeAttr(BodyAttribute attr){
+		attrSet.remove(attr);
 	}
-	public boolean isType(String type){
-		return typeSet.contains(type);
+	public boolean hasAttr(BodyAttribute attr){
+		return attrSet.contains(attr);
 	}
 	public boolean isKind(BodyKind kind_) {
 		return kind_.equals(this.kind);
@@ -264,8 +265,8 @@ public class Body implements Serializable, Cloneable {
 	/**
 	 * @return
 	 */
-	public Set<String> getTypeSet() {
-		return typeSet;
+	public Set<BodyAttribute> getAttrSet() {
+		return attrSet;
 	}
 
 
@@ -477,8 +478,8 @@ public class Body implements Serializable, Cloneable {
 	/**
 	 * @param set
 	 */
-	public void setTypeSet(LinkedHashSet<String> set) {
-		typeSet = set;
+	public void setAttrSet(Set<BodyAttribute> set) {
+		attrSet = set;
 	}
 
 
@@ -525,7 +526,7 @@ public class Body implements Serializable, Cloneable {
 				+ ", deployType=" + deployType + ", hp=" + hp + ", hpMax=" + hpMax + ", str=" + str + ", def=" + def
 				+ ", mst=" + mst + ", mdf=" + mdf + ", hit=" + hit + ", mis=" + mis + ", moveStep=" + moveStep
 				+ ", moveType=" + moveType + ", soulType=" + soulType + ", weponType=" + weponType + ", armorType="
-				+ armorType + ", wazaList=" + wazaList + ", typeSet=" + typeSet + ", x=" + x + ", y=" + y + ", scope="
+				+ armorType + ", wazaList=" + wazaList + ", attrSet=" + attrSet + ", x=" + x + ", y=" + y + ", scope="
 				+ scope + ", range=" + range + ", limitTurn=" + limitTurn + ", goalX=" + goalX + ", goalY=" + goalY
 				+ ", level=" + level + ", exp=" + exp + ", store=" + store + ", imageNum=" + imageNum + "]";
 	}

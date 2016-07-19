@@ -9,7 +9,7 @@ import mine.paint.UnitMap;
 import dragon3.common.Body;
 import dragon3.common.constant.DamageType;
 import dragon3.common.constant.AttackEffect;
-import dragon3.common.constant.Types;
+import dragon3.common.constant.BodyAttribute;
 import dragon3.common.util.MoveUtils;
 
 /**
@@ -47,33 +47,33 @@ public class Damage {
 			throw new IllegalArgumentException("DamageType unmatch: " + damageType);
 		}
 
-		if (ba.isType(Types.ATTACK_UP))
+		if (ba.hasAttr(BodyAttribute.ATTACK_UP))
 			attack += (ba.getStr() + ba.getMst()) / 4;
-		if (bb.isType(Types.GUARD_UP))
+		if (bb.hasAttr(BodyAttribute.GUARD_UP))
 			attack -= (bb.getDef() + bb.getMdf()) / 4;
 
-		if (effect.contains(AttackEffect.ICE) && bb.isType(Types.SLEEP))
+		if (effect.contains(AttackEffect.ICE) && bb.hasAttr(BodyAttribute.SLEEP))
 			attack *= 1.25;
-		if (effect.contains(AttackEffect.THUNDER) && bb.isType(Types.CHARM))
+		if (effect.contains(AttackEffect.THUNDER) && bb.hasAttr(BodyAttribute.CHARM))
 			attack *= 1.25;
-		if (effect.contains(AttackEffect.ICE) && bb.isType(Types.WET))
+		if (effect.contains(AttackEffect.ICE) && bb.hasAttr(BodyAttribute.WET))
 			attack *= 1.25;
-		if (effect.contains(AttackEffect.THUNDER) && bb.isType(Types.WET))
+		if (effect.contains(AttackEffect.THUNDER) && bb.hasAttr(BodyAttribute.WET))
 			attack *= 1.25;
-		if (effect.contains(AttackEffect.FIRE) && bb.isType(Types.OIL))
+		if (effect.contains(AttackEffect.FIRE) && bb.hasAttr(BodyAttribute.OIL))
 			attack *= 1.5;
 		if (effect.contains(AttackEffect.THUNDER) && tikei == MoveUtils.T_SEA)
 			attack *= 1.5;
 		if (effect.contains(AttackEffect.ICE) && tikei == MoveUtils.T_ICE)
 			attack *= 1.5;
-		if (ba.isType(Types.DRAGON_KILLER) && bb.isType(Types.DRAGON))
+		if (ba.hasAttr(BodyAttribute.DRAGON_KILLER) && bb.hasAttr(BodyAttribute.DRAGON))
 			attack *= 1.5;
-		if (ba.isType(Types.UNDEAD_KILLER) && bb.isType(Types.UNDEAD))
+		if (ba.hasAttr(BodyAttribute.UNDEAD_KILLER) && bb.hasAttr(BodyAttribute.UNDEAD))
 			attack *= 1.5;
 
 		damage = Math.max(0, attack - guard);
 
-		if (effect.contains(AttackEffect.HEAL) && !bb.isType(Types.UNDEAD))
+		if (effect.contains(AttackEffect.HEAL) && !bb.hasAttr(BodyAttribute.UNDEAD))
 			damage *= -1;
 		return damage;
 	}
