@@ -7,12 +7,15 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.io.File;
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.LinkedHashSet;
 import java.util.List;
 
 import javax.swing.AbstractButton;
 import javax.swing.JLayeredPane;
+
+import org.apache.commons.beanutils.BeanUtils;
 
 import mine.MineException;
 import mine.MineUtils;
@@ -27,6 +30,9 @@ import mine.paint.UnitMap;
 import dragon3.anime.AnimeManager;
 import dragon3.anime.AnimePanel;
 import dragon3.bean.AnimeData;
+import dragon3.bean.BodyData;
+import dragon3.bean.DeployData;
+import dragon3.bean.StageData;
 import dragon3.bean.load.AnimeDataLoader;
 import dragon3.camp.Camp;
 import dragon3.card.CardPanel;
@@ -35,7 +41,7 @@ import dragon3.common.DataList;
 import dragon3.common.constant.GameColors;
 import dragon3.common.constant.Page;
 import dragon3.common.constant.Texts;
-import dragon3.common.constant.Types;
+import dragon3.common.constant.BodyAttribute;
 import dragon3.common.util.Equip;
 import dragon3.common.util.MoveUtils;
 import dragon3.common.util.Rank;
@@ -116,9 +122,10 @@ public class VPanel extends JLayeredPane implements UnitWorks, ActionListener, K
 		sleepManager = new SleepManagerAWT(this);
 		saveManager = new SaveManagerImpl(this);
 		Charas = new ArrayList<>();
-		Vinit();
-		Pinit();
+		map = createMap();
 		turnManager = new TurnManagerImpl(this);
+		Pinit();
+
 		mouseManager.setMouseAllListener(up);
 		addMouseListener(mouseManager);
 		addMouseMotionListener(mouseManager);
@@ -141,7 +148,7 @@ public class VPanel extends JLayeredPane implements UnitWorks, ActionListener, K
 	public void startup() {
 		if (saveManager.isFirst()) {
 			panelManager.setHelpVisible(true);
-			stageStart();
+			campStart();
 		} else {
 			campStart();
 		}
@@ -164,7 +171,7 @@ public class VPanel extends JLayeredPane implements UnitWorks, ActionListener, K
 		LargePanel lp = new LargePanel();
 		MessagePanel mp = new MessagePanel(sleepManager, imageManager);
 		cp = new CardPanel(this);
-		Rewalk.setup(this);
+
 
 		panelManager = new PanelManagerImpl();
 		panelManager.setUnitMap(map);
@@ -178,7 +185,8 @@ public class VPanel extends JLayeredPane implements UnitWorks, ActionListener, K
 		panelManager.setLargeP(lp);
 		panelManager.setMessageP(mp);
 
-
+		Rewalk.setup(this);
+		
 		setLayout(null);
 
 		add(up, new Integer(1));
@@ -207,13 +215,13 @@ public class VPanel extends JLayeredPane implements UnitWorks, ActionListener, K
 
 	/*** UnitMap *********************************/
 
-	private void Vinit() {
+	private UnitMap createMap() {
 //		int mapW = 20;
 //		int mapH = 15;
 //		int unitW = 32;
 //		int unitH = 32;
 
-		map = new UnitMap(14, 20, 15, mil);
+		UnitMap map = new UnitMap(14, 20, 15, mil);
 		map.setTile(Page.P00, imageManager.getBack(), -1);
 		map.setTile(Page.P10, imageManager.getWaku()[1], 0);
 		map.setTile(Page.P20, imageManager.getBodyList().getImageList(), 0);
@@ -226,6 +234,8 @@ public class VPanel extends JLayeredPane implements UnitWorks, ActionListener, K
 		map.setVisible(Page.P30, true);
 		map.setVisible(Page.P40, true);
 		map.setVisible(Page.P50, true);
+		
+		return map;
 	}
 	// 0-0 Background
 	// 0-1 Reverse
@@ -273,7 +283,8 @@ public class VPanel extends JLayeredPane implements UnitWorks, ActionListener, K
 	/*** Map Load **********************************/
 
 	private void mapLoad() {
-		int[][] data = Statics.getMapData(saveManager.getMapNum());
+		StageData stageData = Statics.getStageData("D01");
+		int[][] data = Statics.getMapData(stageData.getId());
 		if (data != null) {
 			map.setPage(Page.P00, data);
 		}
@@ -286,7 +297,7 @@ public class VPanel extends JLayeredPane implements UnitWorks, ActionListener, K
 		setCrystal();
 		Charas.clear();
 		Players = equip.getPlayers();
-		Enemys = Statics.getEnemyData(saveManager.getMapNum());
+		Enemys = this.loadEnemyData(stageData.getId());
 		randomize(Enemys);
 		reverse(Enemys);
 		treasure = new TreasureManagerImpl(this, Enemys);
@@ -310,6 +321,7 @@ public class VPanel extends JLayeredPane implements UnitWorks, ActionListener, K
 		map.change(Page.P00, MoveUtils.S_RED, Page.P00, 0);
 		putUnit(Charas);
 		turnManager.playerTurnStart();
+		panelManager.displayLarge("Turn " + turnManager.getTurn(), GameColors.BLUE, 1500);
 	}
 
 
@@ -375,9 +387,9 @@ public class VPanel extends JLayeredPane implements UnitWorks, ActionListener, K
 			b.setHpMax(b.getHpMax() * rate / 256);
 			Equip.restrict(b);
 			b.setMax();
-			b.setTypeSet(new LinkedHashSet<String>());
+			b.setAttrSet(new LinkedHashSet<BodyAttribute>());
 			if (b.getColor() == GameColors.RED) {
-				if (!b.isType(Types.TALKABLE)) {
+				if (!b.hasAttr(BodyAttribute.TALKABLE)) {
 					b.setStr(Math.max(0, b.getStr() - 2));
 					b.setDef(Math.max(0, b.getDef() - 2));
 					b.setMst(Math.max(0, b.getMst() - 2));
@@ -422,7 +434,7 @@ public class VPanel extends JLayeredPane implements UnitWorks, ActionListener, K
 		}
 	}
 
-	public Point getCrystal(String color) {
+	public Point getCrystal(GameColors color) {
 		if (color.equals(GameColors.BLUE)) {
 			return blueCrystal;
 		} else if (color.equals(GameColors.RED)) {
@@ -502,9 +514,9 @@ public class VPanel extends JLayeredPane implements UnitWorks, ActionListener, K
 				continue;
 			if (!GameColors.isPlayer(b))
 				continue;
-			if (b.isType(Types.SLEEP))
+			if (b.hasAttr(BodyAttribute.SLEEP))
 				continue;
-			if (b.isType(Types.CHARM))
+			if (b.hasAttr(BodyAttribute.CHARM))
 				continue;
 			if (getChangeChara(b) != null)
 				return false;
@@ -641,6 +653,7 @@ public class VPanel extends JLayeredPane implements UnitWorks, ActionListener, K
 
 	/*** Name Change **************************************/
 
+	@Deprecated
 	public void nameChange() {
 		if (saveManager.getSaveData().getPlayerName() != null)
 			return;
@@ -651,10 +664,10 @@ public class VPanel extends JLayeredPane implements UnitWorks, ActionListener, K
 				Body b = equip.search(x, y);
 				if (b == null)
 					continue;
-				b.setTypeSet(new LinkedHashSet<String>());
-				if (b.isType(Types.HERO))
+				b.setAttrSet(new LinkedHashSet<BodyAttribute>());
+				if (b.hasAttr(BodyAttribute.HERO))
 					hero = b;
-				if (b.isType(Types.SISTER))
+				if (b.hasAttr(BodyAttribute.SISTER))
 					sister = b;
 			}
 		}
@@ -877,6 +890,53 @@ public class VPanel extends JLayeredPane implements UnitWorks, ActionListener, K
 		}
 	}
 
+	public List<Body> loadEnemyData(String file) {
+		
+		List<Body> enemyList = new ArrayList<>();
+		
+		List<DeployData> deployList = Statics.getDeployData(file);
+		for (DeployData deploy : deployList) {
+			
+			Body body = new Body();
+			
+			BodyData bodyData = Statics.bodyList.getData(deploy.getBodyId());
+			
+			try {
+				BeanUtils.copyProperties(body, bodyData);
+				body.setHpMax(bodyData.getHp());
+				body.setImageNum(imageManager.getBodyList().getNum(body.getImage()));
+				for (BodyAttribute type : bodyData.getAttrList()) {
+					body.addAttr(type);
+				}
+				body.removeAttr(BodyAttribute.NONE);
+				body.getWazaList().removeIf(a -> a.equals("none") );
+				
+				body.setDeployType(deploy.getDeployType());
+				body.setColor(deploy.getColor());
+				body.setLevel(deploy.getLevel());
+				body.setScope(deploy.getScope());
+				body.setRange(deploy.getRange());
+				body.setLimitTurn(deploy.getLimitTurn());
+				body.setX(deploy.getX());
+				body.setY(deploy.getY());
+				body.setGoalX(deploy.getGoalX());
+				body.setGoalY(deploy.getGoalY());
+				
+				System.out.println(body);
+
+			} catch (IllegalAccessException | InvocationTargetException e) {
+				throw new RuntimeException(e);
+			}
+			
+
+			
+			
+			enemyList.add(body);
+		}
+
+		return enemyList;
+	}
+	
 	public SaveManager getSaveManager() {
 		return saveManager;
 	}

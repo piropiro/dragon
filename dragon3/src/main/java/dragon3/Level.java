@@ -1,5 +1,7 @@
 package dragon3;
 
+import java.util.List;
+
 import dragon3.bean.WazaData;
 import dragon3.common.Body;
 import dragon3.common.constant.Texts;
@@ -79,13 +81,13 @@ public class Level {
 
 	private void attackup(Body ba) {
 		boolean flag[] = equip.getAttack(ba);
-		String[] baAtk = ba.getWazaList();
+		List<String> baAtk = ba.getWazaList();
 
-		attacklearn(Texts.buki, flag[1], baAtk[1]);
-		attacklearn(Texts.bougu, flag[2], baAtk[2]);
-		attacklearn(Texts.shokugyo, flag[3], baAtk[3]);
-		attacklearn(Texts.shokugyo, flag[4], baAtk[4]);
-		attacklearn(Texts.komono, flag[5], baAtk[5]);
+//		attacklearn(Texts.buki, flag[1], baAtk.get(1));
+//		attacklearn(Texts.bougu, flag[2], baAtk.get(2));
+//		attacklearn(Texts.shokugyo, flag[3], baAtk.get(3));
+//		attacklearn(Texts.shokugyo, flag[4], baAtk.get(4));
+//		attacklearn(Texts.komono, flag[5], baAtk.get(5));
 	}
 
 	private void attacklearn(String type, boolean flag, String id) {

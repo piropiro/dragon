@@ -4,11 +4,10 @@
 package dragon3.panel.paint;
 
 
-import mine.paint.MineGraphics;
-import dragon3.Statics;
 import dragon3.common.Body;
-import dragon3.common.constant.Types;
+import dragon3.common.constant.BodyAttribute;
 import dragon3.panel.PanelWorks;
+import mine.paint.MineGraphics;
 
 /**
  * @author saito
@@ -25,70 +24,70 @@ public class TypeListPaint implements DataPanelPainter {
 	public void paint(PanelWorks pw, MineGraphics g) {
 		pw.drawMain(ba, g, false);
 		n = 0;
-		drawType(pw, g, Types.DRAGON);
-		drawType(pw, g, Types.UNDEAD);
-		drawType(pw, g, Types.DRAGON_KILLER);
-		drawType(pw, g, Types.UNDEAD_KILLER);
-		drawType(pw, g, Types.MAGIC_50);
+		drawType(pw, g, BodyAttribute.DRAGON);
+		drawType(pw, g, BodyAttribute.UNDEAD);
+		drawType(pw, g, BodyAttribute.DRAGON_KILLER);
+		drawType(pw, g, BodyAttribute.UNDEAD_KILLER);
+		drawType(pw, g, BodyAttribute.MAGIC_50);
 
-		drawType(pw, g, Types.FIRE_200, Types.FIRE_50, Types.FIRE_0);
-		drawType(pw, g, Types.ICE_200, Types.ICE_50, Types.ICE_0);
-		drawType(pw, g, Types.THUNDER_200, Types.THUNDER_50, Types.THUNDER_0);
+		drawType(pw, g, BodyAttribute.FIRE_200, BodyAttribute.FIRE_50, BodyAttribute.FIRE_0);
+		drawType(pw, g, BodyAttribute.ICE_200, BodyAttribute.ICE_50, BodyAttribute.ICE_0);
+		drawType(pw, g, BodyAttribute.THUNDER_200, BodyAttribute.THUNDER_50, BodyAttribute.THUNDER_0);
 
-		if (!drawType(pw, g, Types.ANTI_ALL)) {
-			drawType(pw, g, Types.ANTI_CRITICAL);
-			drawType(pw, g, Types.ANTI_DEATH);
+		if (!drawType(pw, g, BodyAttribute.ANTI_ALL)) {
+			drawType(pw, g, BodyAttribute.ANTI_CRITICAL);
+			drawType(pw, g, BodyAttribute.ANTI_DEATH);
 
-			drawType(pw, g, Types.ANTI_SLEEP);
-			drawType(pw, g, Types.ANTI_POISON);
-			drawType(pw, g, Types.ANTI_CHARM);
-			drawType(pw, g, Types.POISON);
-			drawType(pw, g, Types.REGENE);
+			drawType(pw, g, BodyAttribute.ANTI_SLEEP);
+			drawType(pw, g, BodyAttribute.ANTI_POISON);
+			drawType(pw, g, BodyAttribute.ANTI_CHARM);
+			drawType(pw, g, BodyAttribute.POISON);
+			drawType(pw, g, BodyAttribute.REGENE);
 		}
 
-		drawType(pw, g, Types.FLY_ABLE);
-		drawType(pw, g, Types.SWIM_ABLE);
-		drawType(pw, g, Types.LITE_WALK);
+		drawType(pw, g, BodyAttribute.FLY_ABLE);
+		drawType(pw, g, BodyAttribute.SWIM_ABLE);
+		drawType(pw, g, BodyAttribute.LITE_WALK);
 
 		int ido = 0;
-		if (ba.isType(Types.MOVE_UP_1))
+		if (ba.hasAttr(BodyAttribute.MOVE_UP_1))
 			ido++;
-		if (ba.isType(Types.MOVE_UP_2))
+		if (ba.hasAttr(BodyAttribute.MOVE_UP_2))
 			ido += 2;
-		if (ba.isType(Types.MOVE_DOWN_1))
+		if (ba.hasAttr(BodyAttribute.MOVE_DOWN_1))
 			ido--;
 		switch (ido) {
 			case -1 :
-				drawType(pw, g, Types.MOVE_DOWN_1);
+				drawType(pw, g, BodyAttribute.MOVE_DOWN_1);
 				break;
 			case 1 :
-				drawType(pw, g, Types.MOVE_UP_1);
+				drawType(pw, g, BodyAttribute.MOVE_UP_1);
 				break;
 			case 2 :
-				drawType(pw, g, Types.MOVE_UP_2);
+				drawType(pw, g, BodyAttribute.MOVE_UP_2);
 				break;
 		}
 
-		drawType(pw, g, Types.SLEEP_LOCK);
-		drawType(pw, g, Types.CHARM_LOCK);
+		drawType(pw, g, BodyAttribute.SLEEP_LOCK);
+		drawType(pw, g, BodyAttribute.CHARM_LOCK);
 	}
 
-	private boolean drawType(PanelWorks pw, MineGraphics g, String t2, String th, String t0) {
+	private boolean drawType(PanelWorks pw, MineGraphics g, BodyAttribute t2, BodyAttribute th, BodyAttribute t0) {
 		if (drawType(pw, g, t0))
 			return true;
-		if (ba.isType(t2) && ba.isType(th))
+		if (ba.hasAttr(t2) && ba.hasAttr(th))
 			return false;
 		drawType(pw, g, t2);
 		drawType(pw, g, th);
 		return true;
 	}
 
-	private boolean drawType(PanelWorks pw, MineGraphics g, String type) {
+	private boolean drawType(PanelWorks pw, MineGraphics g, BodyAttribute type) {
 		if (n == 8)
 			return false;
-		if (!ba.isType(type))
+		if (!ba.hasAttr(type))
 			return false;
-		pw.drawLine((String)Statics.tokusei.get(type), n / 4, n % 4, g);
+		pw.drawLine(type.getText(), n / 4, n % 4, g);
 		n++;
 		return true;
 	}

@@ -3,6 +3,16 @@
  */
 package dragon3.bean;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import dragon3.common.constant.ArmorType;
+import dragon3.common.constant.BodyAttribute;
+import dragon3.common.constant.BodyKind;
+import dragon3.common.constant.MoveType;
+import dragon3.common.constant.SoulType;
+import dragon3.common.constant.WeponType;
+
 /**
  * @author k-saito
  */
@@ -11,7 +21,7 @@ public class BodyData implements Data {
 	private String id;
 	private String name;
 	private String image;
-	private String kind;
+	private BodyKind kind;
 
 	private int hp;
 	private int str;
@@ -21,26 +31,26 @@ public class BodyData implements Data {
 	private int hit;
 	private int mis;
 	private int moveStep;
-	private String moveType;
-	private String soulType;
+	private MoveType moveType;
+	private SoulType soulType;
 
-	private String weponType;
-	private String armorType;
+	private WeponType weponType;
+	private ArmorType armorType;
 
-	private String[] wazaList;
-	private String[] typeList;
+	private List<String> wazaList;
+	private List<BodyAttribute> attrList;
 
 	public BodyData() {
 		id = "none";
 		name = "none";
 		image = "0.png";
-		kind = "none";
-		soulType = "none";
-		moveType = "none";
-		weponType = "none";
-		armorType = "none";
-		wazaList = new String[3];
-		typeList = new String[5];
+		kind = BodyKind.CHARA;
+		soulType = SoulType.NONE;
+		moveType = MoveType.NONE;
+		weponType = WeponType.NONE;
+		armorType = ArmorType.NONE;
+		wazaList = new ArrayList<>();
+		attrList = new ArrayList<>();
 	}
 
 	public String toString(){
@@ -52,7 +62,7 @@ public class BodyData implements Data {
 	/**
 	 * @return
 	 */
-	public String getArmorType() {
+	public ArmorType getArmorType() {
 		return armorType;
 	}
 
@@ -95,7 +105,7 @@ public class BodyData implements Data {
 	/**
 	 * @return
 	 */
-	public String getKind() {
+	public BodyKind getKind() {
 		return kind;
 	}
 
@@ -123,7 +133,7 @@ public class BodyData implements Data {
 	/**
 	 * @return
 	 */
-	public String getMoveType() {
+	public MoveType getMoveType() {
 		return moveType;
 	}
 
@@ -145,7 +155,7 @@ public class BodyData implements Data {
 	/**
 	 * @return
 	 */
-	public String getSoulType() {
+	public SoulType getSoulType() {
 		return soulType;
 	}
 
@@ -157,31 +167,35 @@ public class BodyData implements Data {
 		return str;
 	}
 
-	/**
-	 * @return
-	 */
-	public String[] getTypeList() {
-		return typeList;
-	}
 
-	/**
-	 * @return
-	 */
-	public String[] getWazaList() {
+
+	public List<String> getWazaList() {
 		return wazaList;
 	}
 
+	public void setWazaList(List<String> wazaList) {
+		this.wazaList = wazaList;
+	}
+
+	public List<BodyAttribute> getAttrList() {
+		return attrList;
+	}
+
+	public void setAttrList(List<BodyAttribute> attrList) {
+		this.attrList = attrList;
+	}
+
 	/**
 	 * @return
 	 */
-	public String getWeponType() {
+	public WeponType getWeponType() {
 		return weponType;
 	}
 
 	/**
 	 * @param string
 	 */
-	public void setArmorType(String string) {
+	public void setArmorType(ArmorType string) {
 		armorType = string;
 	}
 
@@ -223,7 +237,7 @@ public class BodyData implements Data {
 	/**
 	 * @param string
 	 */
-	public void setKind(String string) {
+	public void setKind(BodyKind string) {
 		kind = string;
 	}
 
@@ -251,7 +265,7 @@ public class BodyData implements Data {
 	/**
 	 * @param string
 	 */
-	public void setMoveType(String string) {
+	public void setMoveType(MoveType string) {
 		moveType = string;
 	}
 
@@ -272,7 +286,7 @@ public class BodyData implements Data {
 	/**
 	 * @param string
 	 */
-	public void setSoulType(String string) {
+	public void setSoulType(SoulType string) {
 		soulType = string;
 	}
 
@@ -283,24 +297,11 @@ public class BodyData implements Data {
 		str = i;
 	}
 
-	/**
-	 * @param strings
-	 */
-	public void setTypeList(String[] strings) {
-		typeList = strings;
-	}
-
-	/**
-	 * @param strings
-	 */
-	public void setWazaList(String[] strings) {
-		wazaList = strings;
-	}
 
 	/**
 	 * @param string
 	 */
-	public void setWeponType(String string) {
+	public void setWeponType(WeponType string) {
 		weponType = string;
 	}
 

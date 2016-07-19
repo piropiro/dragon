@@ -1,0 +1,47 @@
+[
+	{
+		"bodyId": "gobrin",
+		"color": "RED",
+		"deployType": "CHARA",
+		"goalX": 0,
+		"goalY": 0,
+		"id": null,
+		"level": 1,
+		"limitTurn": 0,
+		"name": null,
+		"range": 5,
+		"scope": 1,
+		"x": 9,
+		"y": 5
+	},
+	{
+		"bodyId": "gobrin",
+		"color": "RED",
+		"deployType": "CHARA",
+		"goalX": 0,
+		"goalY": 0,
+		"id": null,
+		"level": 1,
+		"limitTurn": 0,
+		"name": null,
+		"range": 5,
+		"scope": 1,
+		"x": 11,
+		"y": 5
+	},
+	{
+		"bodyId": "gobrin",
+		"color": "RED",
+		"deployType": "CHARA",
+		"goalX": 0,
+		"goalY": 0,
+		"id": null,
+		"level": 1,
+		"limitTurn": 0,
+		"name": null,
+		"range": 5,
+		"scope": 1,
+		"x": 10,
+		"y": 5
+	}
+]

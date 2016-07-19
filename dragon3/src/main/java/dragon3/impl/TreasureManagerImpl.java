@@ -4,25 +4,23 @@ import java.awt.Point;
 import java.util.ArrayList;
 import java.util.List;
 
-import mine.event.SleepManager;
-import mine.paint.UnitMap;
 import dragon3.UnitWorks;
 import dragon3.anime.AnimeManager;
 import dragon3.common.Body;
-import dragon3.common.constant.GameColors;
-import dragon3.common.constant.Kinds;
 import dragon3.common.constant.Page;
 import dragon3.common.constant.Texts;
 import dragon3.common.util.MoveUtils;
 import dragon3.manage.TreasureManager;
 import dragon3.panel.PanelManager;
+import mine.event.SleepManager;
+import mine.paint.UnitMap;
 
 
 public class TreasureManagerImpl implements TreasureManager {
 
 	private static final int MAX = 30;
 
-	private Body item;
+	private Body clearItem;
 	private Body[] treasure;
 	private Body[] holder;
 	private int[] status;
@@ -53,32 +51,34 @@ public class TreasureManagerImpl implements TreasureManager {
 		this.anime = uw.getAnimeManager();
 		this.sm = uw.getSleepManager();
 		this.pm = uw.getPanelManager();
-		item = null;
+		clearItem = null;
 		treasure = new Body[MAX];
 		holder = new Body[MAX];
 		status = new int[MAX];
 		sources = new ArrayList<>();
 		comments = new ArrayList<>();
-		Point bc = uw.getCrystal(GameColors.BLUE);
 		int n = 0;
 		for (Body b : Charas) {
 			if (uw.have(b)) {
 				b.setHp(0);
 				continue;
-			} else if (b.getX() == bc.x && b.getY() == bc.y) {
-				item = b;
+			}
+			
+			switch (b.getDeployType()) {
+			case CLEAR_ITEM:
+				clearItem = b;
 				b.setHp(0);
 				status[n] = S_CLEAR;
 				n++;
 				continue;
-			} else {
-				if (b.isKind(Kinds.CHARA)) {
-					continue;
-				} else {
-					treasure[n] = b;
-					b.setHp(0);
-					n++;
-				}
+			case ENEMY_ITEM:
+			case SECRET_ITEM:
+				treasure[n] = b;
+				b.setHp(0);
+				n++;
+				break;
+			default:
+				continue;
 			}
 		}
 
@@ -142,9 +142,9 @@ public class TreasureManagerImpl implements TreasureManager {
 	 * @see dragon3.TreasureManager#getLimitTurn()
 	 */
 	public int getLimitTurn() {
-		if (item == null)
+		if (clearItem == null)
 			return 0;
-		return item.getLimitTurn();
+		return clearItem.getLimitTurn();
 	}
 	/* (non-Javadoc)
 	 * @see dragon3.TreasureManager#getCount()
@@ -178,7 +178,7 @@ public class TreasureManagerImpl implements TreasureManager {
 					}
 					break;
 				case S_CLEAR :
-					if (isAlive(item)) {
+					if (isAlive(clearItem)) {
 						count = count + Texts.kigo[6];
 					} else {
 						count = count + Texts.kigo[7];
@@ -288,10 +288,10 @@ public class TreasureManagerImpl implements TreasureManager {
 	 */
 
 	public void getClearItem() {
-		if (!isAlive(item))
+		if (!isAlive(clearItem))
 			return;
-		message(null, item);
-		add(item);
+		message(null, clearItem);
+		add(clearItem);
 	}
 
 	/*** Alive *************************************/

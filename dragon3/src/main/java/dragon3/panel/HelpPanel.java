@@ -20,7 +20,7 @@ public class HelpPanel extends JComponent {
 	private String[] line;
 	private boolean leftf;
 	private boolean upf;
-	private String color;
+	private GameColors bgcolor = GameColors.BLUE;
 
 	public HelpPanel() {
 		super();
@@ -30,9 +30,9 @@ public class HelpPanel extends JComponent {
 		setBackground(new Color(0, 0, 150, 200));
 	}
 
-	public void setLine(String[] line, String color) {
+	public void setLine(String[] line, GameColors bgcolor) {
 		this.line = line;
-		this.color = color;
+		this.bgcolor = bgcolor;
 	}
 
 	/*** Locate ***********************************************/
@@ -74,7 +74,7 @@ public class HelpPanel extends JComponent {
 
 	public void paintComponent(Graphics g) {
 		g.setFont(getFont());
-		clear(color, new GraphicsAWT(g));
+		clear(bgcolor, new GraphicsAWT(g));
 
 		if (line == null)
 			return;
@@ -99,9 +99,9 @@ public class HelpPanel extends JComponent {
 
 	/*** Clear *********************************************/
 
-	public boolean clear(String color_, MineGraphics g) {
+	public boolean clear(GameColors color, MineGraphics g) {
 		Dimension d = getSize();
-		g.setColor(GameColors.getColor(color_));
+		g.setColor(color.getAlphaBg());
 		g.fillRect(0, 0, d.width, d.height);
 		g.setColor(Colors.WHITE);
 		g.drawRect(2, 2, d.width - 5, d.height - 5);

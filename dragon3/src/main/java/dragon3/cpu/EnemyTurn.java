@@ -11,7 +11,7 @@ import dragon3.UnitWorks;
 import dragon3.common.Body;
 import dragon3.common.constant.GameColors;
 import dragon3.common.constant.Page;
-import dragon3.common.constant.Types;
+import dragon3.common.constant.BodyAttribute;
 import dragon3.map.MapWorks;
 import dragon3.paint.WalkPaint;
 import dragon3.panel.PanelManager;
@@ -39,7 +39,8 @@ public class EnemyTurn {
 
 	/*** Main *********************************************/
 
-	public void start() {
+	public void start(int turn) {
+		pm.displayLarge("Enemy Turn " + turn, GameColors.RED, 1000);
 		pm.closeHelp();
 		pm.closeData();
 		sm.sleep(300);
@@ -47,14 +48,14 @@ public class EnemyTurn {
 			ba = b;
 			if (!ba.isAlive())
 				continue;
-			if (ba.isType(Types.SLEEP))
+			if (ba.hasAttr(BodyAttribute.SLEEP))
 				continue;
-			if (ba.isType(Types.BERSERK)) {
+			if (ba.hasAttr(BodyAttribute.BERSERK)) {
 			} else if (GameColors.isPlayer(ba)) {
-				if (!ba.isType(Types.CHARM))
+				if (!ba.hasAttr(BodyAttribute.CHARM))
 					continue;
 			} else {
-				if (ba.isType(Types.CHARM))
+				if (ba.hasAttr(BodyAttribute.CHARM))
 					continue;
 			}
 			move();
@@ -165,7 +166,7 @@ public class EnemyTurn {
 				continue;
 			if (b == ba)
 				continue;
-			if (ba.isType(Types.CHARM)) {
+			if (ba.hasAttr(BodyAttribute.CHARM)) {
 				if (b.getColor() != ba.getColor())
 					continue;
 			} else {
@@ -181,7 +182,7 @@ public class EnemyTurn {
 				continue;
 			if (b == ba)
 				continue;
-			if (ba.isType(Types.CHARM)) {
+			if (ba.hasAttr(BodyAttribute.CHARM)) {
 				if (b.getColor() != ba.getColor())
 					continue;
 			} else {
@@ -197,7 +198,7 @@ public class EnemyTurn {
 				continue;
 			if (b == ba)
 				continue;
-			if (ba.isType(Types.CHARM)) {
+			if (ba.hasAttr(BodyAttribute.CHARM)) {
 				if (b.getColor() == ba.getColor())
 					continue;
 			} else {
@@ -281,7 +282,7 @@ public class EnemyTurn {
 			}
 		}
 		int ido = ba.getMoveStep();
-		if (ba.isType(Types.OIL))
+		if (ba.hasAttr(BodyAttribute.OIL))
 			ido /= 2;
 
 		if (h3 <= ido + 1) {

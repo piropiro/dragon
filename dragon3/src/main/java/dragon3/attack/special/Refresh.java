@@ -8,9 +8,9 @@ import java.util.Set;
 import mine.paint.UnitMap;
 import dragon3.anime.AnimeManager;
 import dragon3.common.Body;
-import dragon3.common.constant.Effects;
+import dragon3.common.constant.AttackEffect;
 import dragon3.common.constant.Page;
-import dragon3.common.constant.Types;
+import dragon3.common.constant.BodyAttribute;
 
 /**
  * @author k-saito
@@ -23,11 +23,11 @@ public class Refresh implements SpecialEffect {
 		this.map = map;
 	}
 
-	public boolean isEffective(Body ba, Body bb, Set<String> effect) {
+	public boolean isEffective(Body ba, Body bb, Set<AttackEffect> effect) {
 
-		if (bb.isType(Types.ANTI_ALL))
+		if (bb.hasAttr(BodyAttribute.ANTI_ALL))
 			return false;
-		if (!effect.contains(Effects.REFRESH))
+		if (!effect.contains(AttackEffect.REFRESH))
 			return false;
 
 		if (map.getData(Page.P30, bb.getX(), bb.getY()) == 0)

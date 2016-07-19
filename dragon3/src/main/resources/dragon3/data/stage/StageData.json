@@ -1,10 +1,12 @@
 [
 	{
-		"deployFile": "init.xml",
 		"id": "init",
-		"image": "init.png",
-		"level": 4,
-		"mapFile": "init.txt",
+		"level": 0,
 		"name": "初期化"
+	},
+	{
+		"id": "D01",
+		"level": 1,
+		"name": "ステージ１"
 	}
 ]

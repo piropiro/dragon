@@ -1,7 +1,0 @@
-none None
-lite 軽量
-heavy 重量
-beast 獣型
-bird 鳥型
-small 小型
-big 大型

@@ -10,7 +10,7 @@ import dragon3.Statics;
 import dragon3.bean.WazaData;
 import dragon3.common.Body;
 import dragon3.common.constant.GameColors;
-import dragon3.common.constant.Kinds;
+import dragon3.common.constant.BodyKind;
 import dragon3.common.util.Equip;
 import dragon3.image.ImageManager;
 import dragon3.manage.Attack;
@@ -39,7 +39,7 @@ public class DataPanel extends PanelBase {
 
 	private DataPanelPainter pp;
 
-	private String bgcolor;
+	private GameColors bgcolor = GameColors.BLUE;
 
 
 	/*** Constructer *******************************************/
@@ -69,7 +69,7 @@ public class DataPanel extends PanelBase {
 
 	/*** Status *******************************************/
 
-	public void displayCamp(Point pa, int tikei, String bgcolor_) {
+	public void displayCamp(Point pa, int tikei, GameColors bgcolor_) {
 		this.bgcolor = bgcolor_;
 		setLocate(pa, 1);
 		pp = new CampDataPaint(tikei, im.getBack(), im.getWaku());
@@ -139,12 +139,12 @@ public class DataPanel extends PanelBase {
 	}
 
 	public void displayWaza(Body ba, int i) {
-		WazaData waza = (WazaData)Statics.wazaList.getData(ba.getWazaList()[i]);
+		WazaData waza = (WazaData)Statics.wazaList.getData(ba.getWazaList().get(i));
 		display(ba, new WazaPaint(waza, im.getBack()));
 	}
 	
 	public void displayNext(Body ba) {
-		if (ba != null && ba.isKind(Kinds.WAZA)) {
+		if (ba != null && ba.isKind(BodyKind.WAZA)) {
 			displayWaza(ba, 0);
 		} else if (pp == null) {
 			displayAnalyze(ba);
@@ -170,10 +170,12 @@ public class DataPanel extends PanelBase {
 		if (attack != null) {
 			ba = attack.getAttacker();
 			bb = attack.getReceiver();
+			bgcolor = ba.getColor();
 			pp = new AttackPaint(bb, attack);
 		} else {
 			ba = counter.getReceiver();
 			bb = counter.getAttacker();
+			bgcolor = ba.getColor();
 			pp = new CounterPaint(ba);
 		}
 		setLocate(ba, bb, 2);

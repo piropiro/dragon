@@ -7,6 +7,7 @@ import mine.event.SleepManager;
 import mine.paint.UnitMap;
 import dragon3.anime.AnimeManager;
 import dragon3.common.Body;
+import dragon3.common.constant.GameColors;
 import dragon3.image.ImageManager;
 import dragon3.manage.SaveManager;
 import dragon3.manage.TurnManager;
@@ -21,7 +22,7 @@ public interface UnitWorks {
 	public void setMensEnd();
 	public void escape();
 	public boolean endJudge(Body b);
-	public Point getCrystal(String color);
+	public Point getCrystal(GameColors color);
 	public void changeChara(Body before, Body after);
 	public Body getChangeChara(Body before);
 	public void bersekChara(Body doll);
@@ -29,6 +30,7 @@ public interface UnitWorks {
 	public void backToCamp();
 	public void backFromImogari();
 	public void nameChange();
+	public List<Body> loadEnemyData(String file);
 
 	/*** Main2 **************************/
 

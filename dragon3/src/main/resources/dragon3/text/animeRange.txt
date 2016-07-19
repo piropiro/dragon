@@ -1,8 +1,0 @@
-none None
-single 単体
-all 全体
-single.arrow 一人矢
-laser.arrow2 貫通矢２
-laser.arrow3 貫通矢３
-some.arrow 複数矢
-rotate 回転

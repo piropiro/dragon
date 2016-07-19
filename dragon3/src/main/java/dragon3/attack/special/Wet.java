@@ -7,22 +7,22 @@ import java.util.Set;
 
 import dragon3.anime.AnimeManager;
 import dragon3.common.Body;
-import dragon3.common.constant.Effects;
-import dragon3.common.constant.Types;
+import dragon3.common.constant.AttackEffect;
+import dragon3.common.constant.BodyAttribute;
 
 /**
  * @author k-saito
  */
 public class Wet implements SpecialEffect {
 
-	public boolean isEffective(Body ba, Body bb, Set<String> effect) {
+	public boolean isEffective(Body ba, Body bb, Set<AttackEffect> effect) {
 
-		if (bb.isType(Types.ANTI_ALL))
+		if (bb.hasAttr(BodyAttribute.ANTI_ALL))
 			return false;
-		if (!effect.contains(Effects.WET))
+		if (!effect.contains(AttackEffect.WET))
 			return false;
 
-		if (bb.isType(Types.WET))
+		if (bb.hasAttr(BodyAttribute.WET))
 			return false;
 
 		return true;
@@ -33,8 +33,8 @@ public class Wet implements SpecialEffect {
 	public void execute(Body ba, Body bb, AnimeManager anime) {
 
 		anime.statusAnime(AnimeManager.STATUS_WET, bb.getX(), bb.getY());
-		bb.addType(Types.WET);
-		bb.addType(Types.WET_LOCK);
+		bb.addAttr(BodyAttribute.WET);
+		bb.addAttr(BodyAttribute.WET_LOCK);
 	}
 
 }

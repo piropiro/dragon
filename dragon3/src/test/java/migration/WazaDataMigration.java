@@ -9,7 +9,6 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import dragon3.bean.AnimeData;
 import dragon3.bean.WazaData;
 import mine.io.BeanIO;
 import net.arnx.jsonic.JSON;

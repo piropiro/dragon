@@ -1,25 +1,22 @@
 package dragon3;
 
+import java.util.Arrays;
 import java.util.List;
-import java.util.Map;
 
-
-import mine.MineException;
-import mine.MineUtils;
-import mine.io.BeanIO;
-import mine.io.MatrixIO;
 import dragon3.bean.BodyData;
+import dragon3.bean.DeployData;
 import dragon3.bean.StageData;
 import dragon3.bean.WazaData;
-import dragon3.common.Body;
 import dragon3.common.DataList;
+import mine.MineException;
+import mine.io.JsonIO;
+import mine.io.MatrixIO;
 
 public class Statics {
 
 	public static final String[] STAGE_FILES = { "StageData.json" };
 	public static final String[] WAZA_FILES =  { "WazaData.json" };
 	public static final String[] BODY_FILES =  { "BodyData.json" };
-	public static final String[] DEPLOY_FILES = { "InitDeploy.json" };
 
 	public static final String WAZA_DIR = "dragon3/data/waza/";
 
@@ -32,51 +29,11 @@ public class Statics {
 
 	public static final int TYPE_MAX = 100;
 
-	public static final Map<String, String> color;
-	public static final Map<String, String> kind;
-	public static final Map<String, String> soul;
-	public static final Map<String, String> effect;
-	public static final Map<String, String> weponType;
-	public static final Map<String, String> armorType;
-	public static final Map<String, String> moveType;
-	public static final Map<String, String> targetType;
-	public static final Map<String, String> damageType;
-	public static final Map<String, String> animeRange;
-	public static final Map<String, String> tokusei;
-	public static final Map<String, String> deployType;
 
-	public static final DataList<BodyData> bodyList;
-	public static final DataList<WazaData> wazaList;
-	public static final DataList<StageData> stageList;
+	public static final DataList<BodyData> bodyList = new DataList<BodyData>(BODY_DIR, BODY_FILES, BodyData[].class);
+	public static final DataList<WazaData> wazaList = new DataList<WazaData>(WAZA_DIR, WAZA_FILES, WazaData[].class);
+	public static final DataList<StageData> stageList = new DataList<StageData>(STAGE_DIR, STAGE_FILES, StageData[].class);
 
-	public static final String[] idoType;
-
-	static {
-		try {
-			bodyList = new DataList<BodyData>(BODY_DIR, BODY_FILES, BodyData[].class);
-			wazaList = new DataList<WazaData>(WAZA_DIR, WAZA_FILES, WazaData[].class);
-			stageList = new DataList<StageData>(STAGE_DIR, STAGE_FILES, StageData[].class);
-
-			kind = MineUtils.readIdAndTextMap(TEXT_DIR + "kind.txt");
-			soul = MineUtils.readIdAndTextMap(TEXT_DIR + "soul.txt");
-			armorType = MineUtils.readIdAndTextMap(TEXT_DIR + "armor.txt");
-			weponType = MineUtils.readIdAndTextMap(TEXT_DIR + "wepon.txt");
-			moveType = MineUtils.readIdAndTextMap(TEXT_DIR + "move.txt");
-			color = MineUtils.readIdAndTextMap(TEXT_DIR + "color.txt");
-			targetType = MineUtils.readIdAndTextMap(TEXT_DIR + "target.txt");
-			damageType = MineUtils.readIdAndTextMap(TEXT_DIR + "damage.txt");
-			animeRange = MineUtils
-					.readIdAndTextMap(TEXT_DIR + "animeRange.txt");
-			idoType = MineUtils.readStringArray(TEXT_DIR + "move.txt");
-			tokusei = MineUtils.readIdAndTextMap(TEXT_DIR + "tokusei.txt");
-			effect = MineUtils.readIdAndTextMap(TEXT_DIR + "effect.txt");
-			deployType = MineUtils
-					.readIdAndTextMap(TEXT_DIR + "deployType.txt");
-
-		} catch (MineException e) {
-			throw new RuntimeException(e);
-		}
-	}
 
 	public static int getBukiType(int type) {
 		switch (type) {
@@ -93,20 +50,23 @@ public class Statics {
 		}
 	}
 
-	@SuppressWarnings("unchecked")
-	public static List<Body> getEnemyData(int n) {
+
+	
+	public static List<DeployData> getDeployData(String stageId) {
 		try {
-			String file = String.format("E%02d.txt", n);
-			return (List<Body>) BeanIO.read(BODY_DIR + file);
+			return Arrays.asList(JsonIO.read(DEPLOY_DIR + stageId + ".json", DeployData[].class));
 		} catch (MineException e) {
 			throw new RuntimeException(e);
 		}
 	}
+	
+	public static StageData getStageData(String stageId) {
+		return stageList.getData(stageId);
+	}
 
-	public static int[][] getMapData(int n) {
+	public static int[][] getMapData(String stageId) {
 		try {
-			String file = String.format("D%02d.txt", n);
-			return MatrixIO.read(MAP_DIR + file);
+			return MatrixIO.read(MAP_DIR + stageId + ".txt");
 		} catch (MineException e) {
 			throw new RuntimeException(e);
 		}

@@ -7,19 +7,19 @@ import java.util.Set;
 
 import dragon3.anime.AnimeManager;
 import dragon3.common.Body;
-import dragon3.common.constant.Effects;
-import dragon3.common.constant.Types;
+import dragon3.common.constant.AttackEffect;
+import dragon3.common.constant.BodyAttribute;
 
 /**
  * @author k-saito
  */
 public class Regene implements SpecialEffect {
 
-	public boolean isEffective(Body ba, Body bb, Set<String> effect) {
+	public boolean isEffective(Body ba, Body bb, Set<AttackEffect> effect) {
 
-		if (bb.isType(Types.ANTI_ALL))
+		if (bb.hasAttr(BodyAttribute.ANTI_ALL))
 			return false;
-		if (!effect.contains(Effects.REGENE))
+		if (!effect.contains(AttackEffect.REGENE))
 			return false;
 
 		return true;
@@ -29,8 +29,8 @@ public class Regene implements SpecialEffect {
 	public void execute(Body ba, Body bb, AnimeManager anime) {
 
 		anime.statusAnime(AnimeManager.STATUS_REGENE, bb.getX(), bb.getY());
-		bb.removeType(Types.POISON);
-		bb.addType(Types.REGENE);
+		bb.removeAttr(BodyAttribute.POISON);
+		bb.addAttr(BodyAttribute.REGENE);
 
 	}
 

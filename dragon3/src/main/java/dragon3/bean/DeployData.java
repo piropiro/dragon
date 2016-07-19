@@ -3,6 +3,9 @@
  */
 package dragon3.bean;
 
+import dragon3.common.constant.DeployType;
+import dragon3.common.constant.GameColors;
+
 /**
  * @author k-saito
  */
@@ -12,8 +15,8 @@ public class DeployData implements Data {
 	private String name;
 
 	private String bodyId;
-	private String type;
-	private String color;
+	private DeployType deployType;
+	private GameColors color;
 	private int level;
 	private int scope;
 	private int range;
@@ -25,8 +28,8 @@ public class DeployData implements Data {
 
 	public DeployData() {
 		bodyId = "none";
-		type = "none";
-		color = "none";
+		deployType = DeployType.CHARA;
+		color = GameColors.BLACK;
 	}
 
 
@@ -65,7 +68,7 @@ public class DeployData implements Data {
 	/**
 	 * @return
 	 */
-	public String getColor() {
+	public GameColors getColor() {
 		return color;
 	}
 
@@ -114,8 +117,8 @@ public class DeployData implements Data {
 	/**
 	 * @return
 	 */
-	public String getType() {
-		return type;
+	public DeployType getDeployType() {
+		return deployType;
 	}
 
 	/**
@@ -142,7 +145,7 @@ public class DeployData implements Data {
 	/**
 	 * @param string
 	 */
-	public void setColor(String string) {
+	public void setColor(GameColors string) {
 		color = string;
 	}
 
@@ -191,8 +194,8 @@ public class DeployData implements Data {
 	/**
 	 * @param string
 	 */
-	public void setType(String string) {
-		type = string;
+	public void setDeployType(DeployType string) {
+		deployType = string;
 	}
 
 	/**

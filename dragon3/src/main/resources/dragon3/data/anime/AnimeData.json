@@ -4,27 +4,27 @@
 		"image": "slash.png",
 		"name": "斬撃",
 		"sleep": 30,
-		"type": "single"
+		"type": "SINGLE"
 	},
 	{
 		"id": "fire",
 		"image": "fire.png",
 		"name": "ファイア",
 		"sleep": 30,
-		"type": "single"
+		"type": "SINGLE"
 	},
 	{
 		"id": "arrow",
 		"image": "arrow.png",
 		"name": "矢",
 		"sleep": 30,
-		"type": "single.arrow"
+		"type": "SINGLE_ARROW"
 	},
 	{
 		"id": "roll",
 		"image": "roll_blue.png",
 		"name": "回転",
 		"sleep": 30,
-		"type": "rotate"
+		"type": "ROTATE"
 	}
 ]

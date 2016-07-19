@@ -7,13 +7,12 @@ package dragon3.panel.paint;
 import java.util.HashSet;
 import java.util.Set;
 
-import mine.paint.MineGraphics;
-import mine.paint.MineImage;
-import dragon3.Statics;
 import dragon3.bean.WazaData;
-import dragon3.common.constant.Effects;
+import dragon3.common.constant.AttackEffect;
 import dragon3.common.constant.Texts;
 import dragon3.panel.PanelWorks;
+import mine.paint.MineGraphics;
+import mine.paint.MineImage;
 
 /**
  * @author saito
@@ -42,26 +41,23 @@ public class WazaPaint implements DataPanelPainter {
 
 
 		if (waza.getDamageType() != null) {
-			pw.drawLine((String)Statics.damageType.get(waza.getDamageType()), 0, 0, g);
+			pw.drawLine(waza.getDamageType().getText(), 0, 0, g);
 		} else {
 			pw.drawLine(Texts.sp[33], 0, 0, g);
 		}
 
-		pw.drawLine((String)Statics.targetType.get(waza.getTargetType()), 1, 0, g);
+		pw.drawLine(waza.getTargetType().getText(), 1, 0, g);
 
-		Set<String> ect = new HashSet<String>();
-		for (int i = 0; i < waza.getEffect().length; i++) {
-			ect.add(waza.getEffect()[i]);
-		}
+		Set<AttackEffect> ect = new HashSet<>(waza.getEffect());
 
 		int hit = 0;
-		if (ect.contains(Effects.MISS_4));
+		if (ect.contains(AttackEffect.MISS_4));
 			hit -= 4;
-		if (ect.contains(Effects.HIT_4))
+		if (ect.contains(AttackEffect.HIT_4))
 			hit += 4;
-		if (ect.contains(Effects.HIT_12))
+		if (ect.contains(AttackEffect.HIT_12))
 			hit += 12;
-		if (ect.contains(Effects.HICHU))
+		if (ect.contains(AttackEffect.HICHU))
 			hit = 32;
 		switch (hit) {
 			case -4 :
@@ -82,46 +78,46 @@ public class WazaPaint implements DataPanelPainter {
 		}
 
 		n = 4;
-		drawWazaEffect(pw, g, ect, Effects.DAMAGE_150);
-		drawWazaEffect(pw, g, ect, Effects.DAMAGE_200);
-		drawWazaEffect(pw, g, ect, Effects.DAMAGE_300);
-		drawWazaEffect(pw, g, ect, Effects.TAME);
-		drawWazaEffect(pw, g, ect, Effects.COUNTER_ONLY);
+		drawWazaEffect(pw, g, ect, AttackEffect.DAMAGE_150);
+		drawWazaEffect(pw, g, ect, AttackEffect.DAMAGE_200);
+		drawWazaEffect(pw, g, ect, AttackEffect.DAMAGE_300);
+		drawWazaEffect(pw, g, ect, AttackEffect.TAME);
+		drawWazaEffect(pw, g, ect, AttackEffect.COUNTER_ONLY);
 
-		drawWazaEffect(pw, g, ect, Effects.RIKU_0);
-		drawWazaEffect(pw, g, ect, Effects.RIKU_150);
-		drawWazaEffect(pw, g, ect, Effects.MIZU_0);
-		drawWazaEffect(pw, g, ect, Effects.MIZU_100);
-		drawWazaEffect(pw, g, ect, Effects.MIZU_200);
+		drawWazaEffect(pw, g, ect, AttackEffect.RIKU_0);
+		drawWazaEffect(pw, g, ect, AttackEffect.RIKU_150);
+		drawWazaEffect(pw, g, ect, AttackEffect.MIZU_0);
+		drawWazaEffect(pw, g, ect, AttackEffect.MIZU_100);
+		drawWazaEffect(pw, g, ect, AttackEffect.MIZU_200);
 
-		drawWazaEffect(pw, g, ect, Effects.FIRE);
-		drawWazaEffect(pw, g, ect, Effects.ICE);
-		drawWazaEffect(pw, g, ect, Effects.THUNDER);
-		drawWazaEffect(pw, g, ect, Effects.SORA_200);
-		drawWazaEffect(pw, g, ect, Effects.DRAGON_200);
-		drawWazaEffect(pw, g, ect, Effects.UNDEAD_200);
+		drawWazaEffect(pw, g, ect, AttackEffect.FIRE);
+		drawWazaEffect(pw, g, ect, AttackEffect.ICE);
+		drawWazaEffect(pw, g, ect, AttackEffect.THUNDER);
+		drawWazaEffect(pw, g, ect, AttackEffect.SORA_200);
+		drawWazaEffect(pw, g, ect, AttackEffect.DRAGON_200);
+		drawWazaEffect(pw, g, ect, AttackEffect.UNDEAD_200);
 
-		drawWazaEffect(pw, g, ect, Effects.UPPER);
-		drawWazaEffect(pw, g, ect, Effects.CHOP);
-		drawWazaEffect(pw, g, ect, Effects.CRITICAL);
-		drawWazaEffect(pw, g, ect, Effects.DEATH);
-		drawWazaEffect(pw, g, ect, Effects.SLEEP);
-		drawWazaEffect(pw, g, ect, Effects.POISON);
-		drawWazaEffect(pw, g, ect, Effects.WET);
-		drawWazaEffect(pw, g, ect, Effects.CHARM);
-		drawWazaEffect(pw, g, ect, Effects.ATTACK_UP);
-		drawWazaEffect(pw, g, ect, Effects.GUARD_UP);
-		drawWazaEffect(pw, g, ect, Effects.REFRESH);
-		drawWazaEffect(pw, g, ect, Effects.HEAL);
-		drawWazaEffect(pw, g, ect, Effects.OIL);
+		drawWazaEffect(pw, g, ect, AttackEffect.UPPER);
+		drawWazaEffect(pw, g, ect, AttackEffect.CHOP);
+		drawWazaEffect(pw, g, ect, AttackEffect.CRITICAL);
+		drawWazaEffect(pw, g, ect, AttackEffect.DEATH);
+		drawWazaEffect(pw, g, ect, AttackEffect.SLEEP);
+		drawWazaEffect(pw, g, ect, AttackEffect.POISON);
+		drawWazaEffect(pw, g, ect, AttackEffect.WET);
+		drawWazaEffect(pw, g, ect, AttackEffect.CHARM);
+		drawWazaEffect(pw, g, ect, AttackEffect.ATTACK_UP);
+		drawWazaEffect(pw, g, ect, AttackEffect.GUARD_UP);
+		drawWazaEffect(pw, g, ect, AttackEffect.REFRESH);
+		drawWazaEffect(pw, g, ect, AttackEffect.HEAL);
+		drawWazaEffect(pw, g, ect, AttackEffect.OIL);
 	}
 
-	private boolean drawWazaEffect(PanelWorks pw, MineGraphics g, Set<String> ect, String type) {
+	private boolean drawWazaEffect(PanelWorks pw, MineGraphics g, Set<AttackEffect> effectSet, AttackEffect effect) {
 		if (n == 8)
 			return false;
-		if (!ect.contains(type))
+		if (!effectSet.contains(effect))
 			return false;
-		pw.drawLine((String)Statics.effect.get(type), n % 2, n / 2, g);
+		pw.drawLine(effect.getText(), n % 2, n / 2, g);
 		n++;
 		return true;
 	}

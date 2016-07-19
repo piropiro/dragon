@@ -8,7 +8,7 @@ import dragon3.common.Body;
 import dragon3.common.constant.GameColors;
 import dragon3.common.constant.Page;
 import dragon3.common.constant.Texts;
-import dragon3.common.constant.Types;
+import dragon3.common.constant.BodyAttribute;
 
 public class EndPaint extends PaintAdapter {
 
@@ -74,15 +74,15 @@ public class EndPaint extends PaintAdapter {
 		Body b = uw.search(x, y);
 		if (b == null)
 			return false;
-		if (b.isType(Types.SLEEP))
+		if (b.hasAttr(BodyAttribute.SLEEP))
 			return false;
 		if (map.getData(Page.P30, x, y) != 0)
 			return false;
 		if (GameColors.isPlayer(b)) {
-			if (b.isType(Types.CHARM))
+			if (b.hasAttr(BodyAttribute.CHARM))
 				return false;
 		} else {
-			if (!b.isType(Types.CHARM))
+			if (!b.hasAttr(BodyAttribute.CHARM))
 				return false;
 		}
 		return true;

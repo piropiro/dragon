@@ -1,14 +1,14 @@
 package dragon3.edit;
 
+import dragon3.bean.AnimeData;
+import dragon3.common.constant.AnimeType;
+import dragon3.image.AnimeImageList;
+import dragon3.image.ImageManager;
 import mine.awt.ImageLoaderAWT;
 import mine.edit.BeanEditor;
 import mine.edit.EditPanel;
 import mine.paint.MineImage;
 import mine.paint.MineImageLoader;
-import dragon3.Statics;
-import dragon3.bean.AnimeData;
-import dragon3.image.AnimeImageList;
-import dragon3.image.ImageManager;
 
 public class AnimeEditor extends EditPanel<AnimeData> {
 
@@ -35,10 +35,10 @@ public class AnimeEditor extends EditPanel<AnimeData> {
 		setField(CENTER, "id", "ID");
 		setField(CENTER, "name", "名前");
 		setImageCombo(CENTER, "image", "画像");
-		setTextCombo(CENTER, "type", "タイプ");
+		setEnumCombo(CENTER, "type", "タイプ", AnimeType.class);
 		setSlider(CENTER, "sleep", "ウエイト", 100);
 
 		initCombo("image", pathList, firstImageList);
-		initCombo("type", Statics.animeRange);
+		initCombo("type", AnimeType.createMap());
 	}
 }

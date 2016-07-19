@@ -5,9 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
 
-import mine.MineUtils;
-import mine.event.SleepManager;
-import mine.paint.UnitMap;
 import dragon3.Rewalk;
 import dragon3.Statics;
 import dragon3.UnitWorks;
@@ -31,13 +28,16 @@ import dragon3.attack.target.Target;
 import dragon3.bean.AnimeData;
 import dragon3.bean.WazaData;
 import dragon3.common.Body;
-import dragon3.common.constant.Effects;
+import dragon3.common.constant.AttackEffect;
 import dragon3.common.constant.Page;
 import dragon3.common.constant.TargetType;
-import dragon3.common.constant.Types;
+import dragon3.common.constant.BodyAttribute;
 import dragon3.common.util.Luck;
 import dragon3.manage.AttackManager;
 import dragon3.panel.PanelManager;
+import mine.MineUtils;
+import mine.event.SleepManager;
+import mine.paint.UnitMap;
 
 public class AttackManagerImpl implements AttackManager {
 
@@ -51,9 +51,6 @@ public class AttackManagerImpl implements AttackManager {
 	private SpecialEffectManager se;
 
 	private List<Body> enemy;
-
-	private Body ba;
-	private Body bb;
 
 	private Body bestEnemy;
 	private int bestDamage;
@@ -76,13 +73,11 @@ public class AttackManagerImpl implements AttackManager {
 		this.anime = uw.getAnimeManager();
 		this.sm = uw.getSleepManager();
 		this.pm = uw.getPanelManager();
-		this.ba = ba;
 		this.waza = (WazaData)Statics.wazaList.getData(wazaId);
 
 		se = SpecialEffectManager.getInstance(map);
 		this.attack = new AttackImpl(uw.getAnimeManager(), map, ba, waza);
 
-		bb = null;
 		enemy = null;
 
 		setTargetType(waza.getTargetType(), ba.getX(), ba.getY());
@@ -97,71 +92,94 @@ public class AttackManagerImpl implements AttackManager {
 	 */
 
 	public void show() {
+		Body ba = attack.getAttacker();
 		map.copyPage(Page.P21, Page.P10);
 		map.setData(Page.P30, ba.getX(), ba.getY(), 0);
 	}
 
 	/*** Set Range and Target ************************************************/
 
-	private void setTargetType(String targetType, int x, int y) {
-		if (targetType.equals(TargetType.TARGET_SINGLE_1)) {
+	private void setTargetType(TargetType targetType, int x, int y) {
+		switch (targetType) {
+		case SINGLE_1:
 			range = new NormalRange(1);
-			target = new PointTarget(x, y);
-		} else if (targetType.equals(TargetType.TARGET_SINGLE_2)) {
+			target = new PointTarget();
+			break;
+		case SINGLE_2:
 			range = new NormalRange(2);
-			target = new PointTarget(x, y);
-		} else if (targetType.equals(TargetType.TARGET_SINGLE_3)) {
+			target = new PointTarget();
+			break;
+		case SINGLE_3:
 			range = new NormalRange(3);
-			target = new PointTarget(x, y);
-		} else if (targetType.equals(TargetType.TARGET_ALL_1)) {
+			target = new PointTarget();
+			break;
+		case ALL_1:
 			range = new NormalRange(1);
-			target = new AllTarget(x, y);
-		} else if (targetType.equals(TargetType.TARGET_ALL_2)) {
+			target = new AllTarget();
+			break;
+		case ALL_2:
 			range = new NormalRange(2);
-			target = new AllTarget(x, y);
-		} else if (targetType.equals(TargetType.TARGET_ALL_3)) {
+			target = new AllTarget();
+			break;
+		case ALL_3:
 			range = new NormalRange(3);
-			target = new AllTarget(x, y);
-		} else if (targetType.equals(TargetType.TARGET_ALL_4)) {
+			target = new AllTarget();
+			break;
+		case ALL_4:
 			range = new NormalRange(4);
-			target = new AllTarget(x, y);
-		} else if (targetType.equals(TargetType.TARGET_LONG_2)) {
+			target = new AllTarget();
+			break;
+		case LONG_2:
 			range = new DonutRange(2, 1);
-			target = new PointTarget(x, y);
-		} else if (targetType.equals(TargetType.TARGET_LONG_3)) {
+			target = new PointTarget();
+			break;
+		case LONG_3:
 			range = new DonutRange(3, 1);
-			target = new PointTarget(x, y);
-		} else if (targetType.equals(TargetType.TARGET_RING_2)) {
+			target = new PointTarget();
+			break;
+		case RING_2:
 			range = new DonutRange(2, 1);
-			target = new AllTarget(x, y);
-		} else if (targetType.equals(TargetType.TARGET_RING_3)) {
+			target = new AllTarget();
+			break;
+		case RING_3:
 			range = new DonutRange(3, 1);
-			target = new AllTarget(x, y);
-		} else if (targetType.equals(TargetType.TARGET_LASER_2)) {
+			target = new AllTarget();
+			break;
+		case LASER_2:
 			range = new LaserRange(2, 0);
-			target = new LaserTarget(x, y, 2, 0);
-		} else if (targetType.equals(TargetType.TARGET_LASER_3)) {
+			target = new LaserTarget(2, 0);
+			break;
+		case LASER_3:
 			range = new LaserRange(3, 0);
-			target = new LaserTarget(x, y, 3, 0);
-		} else if (targetType.equals(TargetType.TARGET_CROSS_2)) {
+			target = new LaserTarget(3, 0);
+			break;
+		case CROSS_2:
 			range = new LaserRange(2, 0);
-			target = new AllTarget(x, y);
-		} else if (targetType.equals(TargetType.TARGET_CROSS_3)) {
+			target = new AllTarget();
+			break;
+		case CROSS_3:
 			range = new LaserRange(3, 0);
-			target = new AllTarget(x, y);
-		} else if (targetType.equals(TargetType.TARGET_BREATH)) {
+			target = new AllTarget();
+			break;
+		case BREATH:
 			range = new BreathRange(2, 0);
-			target = new BreathTarget(x, y, 2, 0);
-		} else if (targetType.equals(TargetType.TARGET_HLINE)) {
+			target = new BreathTarget(2, 0);
+			break;
+		case HLINE:
 			range = new BreathRange(2, 1);
-			target = new BreathTarget(x, y, 2, 1);
-		} else if (targetType.equals(TargetType.TARGET_SQUARE_1)) {
+			target = new BreathTarget(2, 1);
+			break;
+		case SQUARE_1:
 			range = new SquareRange(1);
-			target = new AllTarget(x, y);
-		} else if (targetType.equals(TargetType.TARGET_SPREAD)) {
+			target = new AllTarget();
+			break;
+		case SPREAD:
 			range = new DonutRange(2, 1);
-			target = new SpreadTarget(x, y, 1);
+			target = new SpreadTarget(1);
+		default:
+			throw new IllegalArgumentException("Unknown TargetType:" + targetType);
 		}
+		target.setBasePoint(x, y);
 	}
 
 	/* (non-Javadoc)
@@ -170,15 +188,16 @@ public class AttackManagerImpl implements AttackManager {
 
 	// 2-1 Counter Range
 
-	public boolean isCounterable(Body b, boolean flag) {
-		if (ba.isType(Types.SLEEP))
+	public boolean isCounterable(Body bb, boolean flag) {
+		Body ba = attack.getAttacker();
+		if (ba.hasAttr(BodyAttribute.SLEEP))
 			return false;
-		if (flag && !attack.hasEffect(Effects.COUNTER_ONLY))
+		if (flag && !attack.hasEffect(AttackEffect.COUNTER_ONLY))
 			return false;
-		if (!flag && !attack.hasEffect(Effects.COUNTER_ABLE))
+		if (!flag && !attack.hasEffect(AttackEffect.COUNTER_ABLE))
 			return false;
 
-		if (map.getData(Page.P21, b.getX(), b.getY()) == 0)
+		if (map.getData(Page.P21, bb.getX(), bb.getY()) == 0)
 			return false;
 		return true;
 	}
@@ -191,9 +210,11 @@ public class AttackManagerImpl implements AttackManager {
 	// 1-1 Search Enemy
 
 	public boolean isAlive(boolean enemyFlag) {
-		if (attack.hasEffect(Effects.COUNTER_ONLY))
+		Body ba = attack.getAttacker();
+		
+		if (attack.hasEffect(AttackEffect.COUNTER_ONLY))
 			return false;
-		if (attack.hasEffect(Effects.TAME) && Rewalk.isWalked(ba))
+		if (attack.hasEffect(AttackEffect.TAME) && Rewalk.isWalked(ba))
 			return false;
 
 		if (!enemyFlag) {
@@ -220,6 +241,7 @@ public class AttackManagerImpl implements AttackManager {
 	// 4-0 Over Frame
 
 	public void setTarget(int x, int y) {
+		Body ba = attack.getAttacker();
 		target.paint(map, Page.P40, x, y);
 		map.setData(Page.P40, ba.getX(), ba.getY(), 0);
 		map.copyPage(Page.P40, Page.P41);
@@ -229,8 +251,10 @@ public class AttackManagerImpl implements AttackManager {
 	 * @see dragon3.impl.AttackManager#selectTarget(dragon3.common.Body)
 	 */
 
-	public void selectTarget(Body bb_) {
-		this.bb = bb_;
+	public void selectTarget(Body bb) {
+		attack.setReceiver(bb);
+		Body ba = attack.getAttacker();
+		
 		if (bb == null) {
 			pm.closeHp();
 		} else {
@@ -254,7 +278,9 @@ public class AttackManagerImpl implements AttackManager {
 	// 4-0 Over Frame
 
 	public boolean searchTargets() {
-		if (attack.hasEffect(Effects.COUNTER_ABLE) && bb == null)
+		Body bb = attack.getReceiver();
+		
+		if (attack.hasEffect(AttackEffect.COUNTER_ABLE) && bb == null)
 			return false;
 
 		enemy = new ArrayList<Body>();
@@ -273,51 +299,53 @@ public class AttackManagerImpl implements AttackManager {
 	 */
 
 	public boolean isTarget(Body b) {
+		Body ba = attack.getAttacker();
+		
 		if (b == ba)
 			return false;
 		if (!b.isAlive())
 			return false;
 
-		if (attack.hasEffect(Effects.NO_ATTACK)) {
-			if (attack.hasEffect(Effects.HEAL) && b.getColor() != ba.getColor())
+		if (attack.hasEffect(AttackEffect.NO_ATTACK)) {
+			if (attack.hasEffect(AttackEffect.HEAL) && b.getColor() != ba.getColor())
 				return false;
-			if (!attack.hasEffect(Effects.HEAL) && b.getColor() == ba.getColor())
+			if (!attack.hasEffect(AttackEffect.HEAL) && b.getColor() == ba.getColor())
 				return false;
-			if (se.isEffective(ba, bb, attack.getEffectSet(), Effects.CRITICAL))
+			if (se.isEffective(ba, b, attack.getEffectSet(), AttackEffect.CRITICAL))
 				return true;
-			if (se.isEffective(ba, bb, attack.getEffectSet(), Effects.DEATH))
+			if (se.isEffective(ba, b, attack.getEffectSet(), AttackEffect.DEATH))
 				return true;
-			if (se.isEffective(ba, bb, attack.getEffectSet(), Effects.SLEEP))
+			if (se.isEffective(ba, b, attack.getEffectSet(), AttackEffect.SLEEP))
 				return true;
-			if (se.isEffective(ba, bb, attack.getEffectSet(), Effects.CHARM))
+			if (se.isEffective(ba, b, attack.getEffectSet(), AttackEffect.CHARM))
 				return true;
-			if (se.isEffective(ba, bb, attack.getEffectSet(), Effects.POISON))
+			if (se.isEffective(ba, b, attack.getEffectSet(), AttackEffect.POISON))
 				return true;
-			if (se.isEffective(ba, bb, attack.getEffectSet(), Effects.WET))
+			if (se.isEffective(ba, b, attack.getEffectSet(), AttackEffect.WET))
 				return true;
-			if (se.isEffective(ba, bb, attack.getEffectSet(), Effects.ATTACK_UP))
+			if (se.isEffective(ba, b, attack.getEffectSet(), AttackEffect.ATTACK_UP))
 				return true;
-			if (se.isEffective(ba, bb, attack.getEffectSet(), Effects.GUARD_UP))
+			if (se.isEffective(ba, b, attack.getEffectSet(), AttackEffect.GUARD_UP))
 				return true;
-			if (se.isEffective(ba, bb, attack.getEffectSet(), Effects.UPPER))
+			if (se.isEffective(ba, b, attack.getEffectSet(), AttackEffect.UPPER))
 				return true;
-			if (se.isEffective(ba, bb, attack.getEffectSet(), Effects.CHOP))
+			if (se.isEffective(ba, b, attack.getEffectSet(), AttackEffect.CHOP))
 				return true;
-			if (se.isEffective(ba, bb, attack.getEffectSet(), Effects.REFRESH))
+			if (se.isEffective(ba, b, attack.getEffectSet(), AttackEffect.REFRESH))
 				return true;
-			if (se.isEffective(ba, bb, attack.getEffectSet(), Effects.OIL))
+			if (se.isEffective(ba, b, attack.getEffectSet(), AttackEffect.OIL))
 				return true;
-			if (se.isEffective(ba, bb, attack.getEffectSet(), Effects.REGENE))
+			if (se.isEffective(ba, b, attack.getEffectSet(), AttackEffect.REGENE))
 				return true;
 
 			return false;
 		}
 
-		if (b.isType(Types.CHARM))
+		if (b.hasAttr(BodyAttribute.CHARM))
 			return true;
-		int damage = Damage.calc(waza.getDamageType(), map, ba, bb, attack.getEffectSet());
+		int damage = Damage.calc(waza.getDamageType(), map, ba, b, attack.getEffectSet());
 		if (damage == 0) {
-			if (attack.hasEffect(Effects.HEAL))
+			if (attack.hasEffect(AttackEffect.HEAL))
 				return (b.getColor() == ba.getColor());
 			else
 				return (b.getColor() != ba.getColor());
@@ -327,9 +355,9 @@ public class AttackManagerImpl implements AttackManager {
 				return false;
 		}
 		boolean flag = true;
-		if (b.getColor() == ba.getColor())
+		if (b.getColor().equals(ba.getColor()))
 			flag = !flag;
-		if (ba.isType(Types.CHARM))
+		if (ba.hasAttr(BodyAttribute.CHARM))
 			flag = !flag;
 		if (damage < 0)
 			flag = !flag;
@@ -358,43 +386,59 @@ public class AttackManagerImpl implements AttackManager {
 	 * @see dragon3.impl.AttackManager#getAttacker()
 	 */
 	public Body getAttacker() {
-		return ba;
+		return attack.getAttacker();
 	}
 
 	/* (non-Javadoc)
 	 * @see dragon3.impl.AttackManager#getReceiver()
 	 */
 	public Body getReceiver() {
-		return bb;
+		return attack.getReceiver();
 	}
 
 	/*** Anime *********************************************/
 
 	private void singleAnime() {
+		Body ba = attack.getAttacker();
+		Body bb = attack.getReceiver();
 		AnimeData data = anime.getData(waza.getAnimeId());
-		if (data.getType().equals(AnimeManager.TYPE_SINGLE)) {
+		switch (data.getType()) {
+		case SINGLE:
 			anime.singleAnime(data, bb.getX(), bb.getY());
-		} else if (data.getType().equals(AnimeManager.TYPE_SINGLE_ARROW)) {
+			break;
+		case SINGLE_ARROW:
 			anime.singleArrowAnime(data, ba.getX(), ba.getY(), bb.getX(), bb.getY());
+			break;
+		default:
 		}
 	}
 
 	private void allAnime() {
+		Body ba = attack.getAttacker();
 		AnimeData data = anime.getData(waza.getAnimeId());
-		if (data.getType().equals(AnimeManager.TYPE_ALL)) {
+		
+		switch (data.getType()) {
+		case ALL:
 			anime.allAnime(data);
-		} else if (data.getType().equals(AnimeManager.TYPE_ROTATE)) {
+			break;
+		case ROTATE:
 			anime.rotateAnime(data, ba.getX(), ba.getY(), target.getX(), target.getY());
-		} else if (data.getType().equals(AnimeManager.TYPE_SOME_ARROW)) {
+			break;
+		case SOME_ARROW:
 			anime.someArrowAnime(data, ba.getX(), ba.getY());
-		} else if (data.getType().equals(AnimeManager.TYPE_LASER_ARROW_2)) {
+			break;
+		case LASER_ARROW_2:
 			laserAnime(data, 2);
-		} else if (data.getType().equals(AnimeManager.TYPE_LASER_ARROW_3)) {
+			break;
+		case LASER_ARROW_3:
 			laserAnime(data, 3);
+			break;
+		default:
 		}
 	}
 
 	private void laserAnime(AnimeData data, int length) {
+		Body ba = attack.getAttacker();
 		Point goal = new Point(target.getX(), target.getY());
 		switch (target.getFace(target.getX(), target.getY())) {
 			case Target.WEST :
@@ -421,6 +465,7 @@ public class AttackManagerImpl implements AttackManager {
 	// 1-1 Search Enemy
 
 	public void getAttackUnit(List<Body> charaList) {
+		Body ba = attack.getAttacker();
 		map.clear(Page.P11, 0);
 		bestDamage = -1;
 		for (Body b: charaList) {
@@ -432,17 +477,17 @@ public class AttackManagerImpl implements AttackManager {
 				int d =
 					Damage.calc(waza.getDamageType(), map, ba, b, attack.getEffectSet()) * DamageRate.calc(map, ba, b, attack.getEffectSet());
 
-				if (!b.isType(Types.CHARM_LOCK) && se.isEffective(ba, bb, attack.getEffectSet(), Effects.CHARM))
+				if (!b.hasAttr(BodyAttribute.CHARM_LOCK) && se.isEffective(ba, b, attack.getEffectSet(), AttackEffect.CHARM))
 					d += b.getHp() / 2;
 
-				if (!b.isType(Types.SLEEP_LOCK) && se.isEffective(ba, bb, attack.getEffectSet(), Effects.SLEEP))
+				if (!b.hasAttr(BodyAttribute.SLEEP_LOCK) && se.isEffective(ba, b, attack.getEffectSet(), AttackEffect.SLEEP))
 					d += b.getHp() / 2;
 
-				if (se.isEffective(ba, bb, attack.getEffectSet(), Effects.DEATH))
+				if (se.isEffective(ba, b, attack.getEffectSet(), AttackEffect.DEATH))
 					d += b.getHp();
 				if (b.getColor() == ba.getColor())
 					d = -d;
-				if (ba.isType(Types.CHARM))
+				if (ba.hasAttr(BodyAttribute.CHARM))
 					d = -d;
 				if (bestDamage < d) {
 					bestDamage = d;
@@ -458,19 +503,23 @@ public class AttackManagerImpl implements AttackManager {
 	 */
 
 	public void attack() {
-
+		Body ba = attack.getAttacker();
+		Body bb = attack.getReceiver();
+		
 		allAnime();
 		if (bb != null) {
 			enemy.remove(bb);
 			enemy.add(0, bb);
 		} else {
 			bb = (Body) enemy.get(0);
+			attack.setReceiver(bb);
 			pm.displayAttack(attack, null);
 		}
 
 		int i = 0;
 		for (Body b : enemy) {
 			bb = b;
+			attack.setReceiver(bb);
 			meichu = HitRate.calcReal(ba, bb, attack.getEffectSet());
 			pm.displayHp(
 				bb,
@@ -490,10 +539,10 @@ public class AttackManagerImpl implements AttackManager {
 				continue;
 			}
 
-			if (se.isEffective(ba, bb, attack.getEffectSet(), Effects.CRITICAL) && Luck.rnd(1, ba) != 1) {
+			if (se.isEffective(ba, bb, attack.getEffectSet(), AttackEffect.CRITICAL) && Luck.rnd(1, ba) != 1) {
 				pm.repaintData();
 				pm.damageHp(bb, bb.getHpMax());
-				se.execute(ba, bb, anime, attack.getEffectSet(), Effects.CRITICAL);
+				se.execute(ba, bb, anime, attack.getEffectSet(), AttackEffect.CRITICAL);
 				pm.repaintData();
 				sm.sleep(200);
 				pm.animeHp();
@@ -503,10 +552,10 @@ public class AttackManagerImpl implements AttackManager {
 				continue;
 			}
 
-			if (se.isEffective(ba, bb, attack.getEffectSet(), Effects.DEATH)) {
+			if (se.isEffective(ba, bb, attack.getEffectSet(), AttackEffect.DEATH)) {
 				pm.repaintData();
 				pm.damageHp(bb, bb.getHpMax());
-				se.execute(ba, bb, anime, attack.getEffectSet(), Effects.DEATH);
+				se.execute(ba, bb, anime, attack.getEffectSet(), AttackEffect.DEATH);
 				pm.repaintData();
 				sm.sleep(200);
 				pm.animeHp();
@@ -520,17 +569,17 @@ public class AttackManagerImpl implements AttackManager {
 				continue;
 			}
 
-			se.execute(ba, bb, anime, attack.getEffectSet(), Effects.SLEEP);
-			se.execute(ba, bb, anime, attack.getEffectSet(), Effects.CHARM);
-			se.execute(ba, bb, anime, attack.getEffectSet(), Effects.POISON);
-			se.execute(ba, bb, anime, attack.getEffectSet(), Effects.REGENE);
-			se.execute(ba, bb, anime, attack.getEffectSet(), Effects.WET);
-			se.execute(ba, bb, anime, attack.getEffectSet(), Effects.OIL);
-			se.execute(ba, bb, anime, attack.getEffectSet(), Effects.ATTACK_UP);
-			se.execute(ba, bb, anime, attack.getEffectSet(), Effects.GUARD_UP);
-			se.execute(ba, bb, anime, attack.getEffectSet(), Effects.UPPER);
-			se.execute(ba, bb, anime, attack.getEffectSet(), Effects.CHOP);
-			se.execute(ba, bb, anime, attack.getEffectSet(), Effects.REFRESH);
+			se.execute(ba, bb, anime, attack.getEffectSet(), AttackEffect.SLEEP);
+			se.execute(ba, bb, anime, attack.getEffectSet(), AttackEffect.CHARM);
+			se.execute(ba, bb, anime, attack.getEffectSet(), AttackEffect.POISON);
+			se.execute(ba, bb, anime, attack.getEffectSet(), AttackEffect.REGENE);
+			se.execute(ba, bb, anime, attack.getEffectSet(), AttackEffect.WET);
+			se.execute(ba, bb, anime, attack.getEffectSet(), AttackEffect.OIL);
+			se.execute(ba, bb, anime, attack.getEffectSet(), AttackEffect.ATTACK_UP);
+			se.execute(ba, bb, anime, attack.getEffectSet(), AttackEffect.GUARD_UP);
+			se.execute(ba, bb, anime, attack.getEffectSet(), AttackEffect.UPPER);
+			se.execute(ba, bb, anime, attack.getEffectSet(), AttackEffect.CHOP);
+			se.execute(ba, bb, anime, attack.getEffectSet(), AttackEffect.REFRESH);
 			sm.sleep(300);
 		}
 	}
@@ -538,7 +587,9 @@ public class AttackManagerImpl implements AttackManager {
 	/*** Hit *********************************/
 
 	private boolean attackHit() {
-		if (attack.hasEffect(Effects.NO_ATTACK)) {
+		Body ba = attack.getAttacker();
+		Body bb = attack.getReceiver();
+		if (attack.hasEffect(AttackEffect.NO_ATTACK)) {
 			bb.setStore(bb.getStore() + meichu);
 			bb.setStore(bb.getStore() % HitRate.SINGLE_HIT);
 			meichu = 0;
@@ -583,6 +634,7 @@ public class AttackManagerImpl implements AttackManager {
 	/*** Miss *********************************/
 
 	private boolean attackMiss() {
+		Body bb = attack.getReceiver();
 		if (meichu + bb.getStore() >= HitRate.SINGLE_HIT)
 			return false;
 

@@ -5,9 +5,8 @@ import java.awt.event.KeyEvent;
 
 import javax.swing.JFrame;
 
-import mine.awt.BMenuBar;
-import mine.awt.MineAwtUtils;
 import dragon3.common.util.Luck;
+import mine.awt.BMenuBar;
 
 public class DragonBuster implements FrameWorks {
 	
@@ -32,7 +31,7 @@ public class DragonBuster implements FrameWorks {
 		vp.title();
 		frame.pack();
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		MineAwtUtils.setCenter(frame);
+		//MineAwtUtils.setCenter(frame);
 		frame.setVisible(true);
 		vp.requestFocus();
 	}

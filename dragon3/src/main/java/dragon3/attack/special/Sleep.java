@@ -7,29 +7,29 @@ import java.util.Set;
 
 import dragon3.anime.AnimeManager;
 import dragon3.common.Body;
-import dragon3.common.constant.Effects;
-import dragon3.common.constant.Types;
+import dragon3.common.constant.AttackEffect;
+import dragon3.common.constant.BodyAttribute;
 
 /**
  * @author k-saito
  */
 public class Sleep implements SpecialEffect {
 
-	public boolean isEffective(Body ba, Body bb, Set<String> effect) {
+	public boolean isEffective(Body ba, Body bb, Set<AttackEffect> effect) {
 
-		if (bb.isType(Types.ANTI_SLEEP))
+		if (bb.hasAttr(BodyAttribute.ANTI_SLEEP))
 			return false;
-		if (!effect.contains(Effects.SLEEP))
+		if (!effect.contains(AttackEffect.SLEEP))
 			return false;
 
 		if (bb.getMdf() * 2 >= ba.getMst())
 			return false;
-		if (bb.isType(Types.GUARD_UP))
+		if (bb.hasAttr(BodyAttribute.GUARD_UP))
 			return false;
 
-		if (bb.isType(Types.ANTI_SLEEP))
+		if (bb.hasAttr(BodyAttribute.ANTI_SLEEP))
 			return false;
-		if (bb.isType(Types.SLEEP))
+		if (bb.hasAttr(BodyAttribute.SLEEP))
 			return false;
 
 		return true;
@@ -39,12 +39,12 @@ public class Sleep implements SpecialEffect {
 
 	public void execute(Body ba, Body bb, AnimeManager anime) {
 
-		if (bb.isType(Types.SLEEP_LOCK)) {
-			bb.removeType(Types.SLEEP_LOCK);
+		if (bb.hasAttr(BodyAttribute.SLEEP_LOCK)) {
+			bb.removeAttr(BodyAttribute.SLEEP_LOCK);
 		}
 		anime.statusAnime(AnimeManager.STATUS_SLEEP, bb.getX(), bb.getY());
-		bb.addType(Types.SLEEP);
-		bb.addType(Types.SLEEP_LOCK);
+		bb.addAttr(BodyAttribute.SLEEP);
+		bb.addAttr(BodyAttribute.SLEEP_LOCK);
 	}
 
 }

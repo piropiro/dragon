@@ -8,6 +8,7 @@ import mine.paint.UnitMap;
 import dragon3.UnitWorks;
 import dragon3.anime.AnimeManager;
 import dragon3.common.Body;
+import dragon3.common.constant.DeployType;
 import dragon3.common.constant.Page;
 import dragon3.common.util.MoveUtils;
 import dragon3.manage.SummonManager;
@@ -29,13 +30,15 @@ public class SummonManagerImpl implements SummonManager {
 		this.devils = new ArrayList<>();
 
 		for (Body b : enemys) {
-			map.setData(Page.P00, b.getGoalX(), b.getGoalY(), MoveUtils.CLOSE_MAGIC);
-			b.setX(b.getGoalX());
-			b.setY(b.getGoalY());
-			b.setGoalX(0);
-			b.setGoalY(0);
-			b.setHp(0);
-			devils.add(b);
+			if (b.getDeployType() == DeployType.SUMMON) {
+				map.setData(Page.P00, b.getGoalX(), b.getGoalY(), MoveUtils.CLOSE_MAGIC);
+				b.setX(b.getGoalX());
+				b.setY(b.getGoalY());
+				b.setGoalX(0);
+				b.setGoalY(0);
+				b.setHp(0);
+				devils.add(b);
+			}
 		}
 	}
 

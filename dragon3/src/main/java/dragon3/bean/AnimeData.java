@@ -3,6 +3,8 @@
  */
 package dragon3.bean;
 
+import dragon3.common.constant.AnimeType;
+
 /**
  * @author k-saito
  */
@@ -10,14 +12,14 @@ public class AnimeData implements Data {
 
 	private String id;
 	private String name;
-	private String type;
+	private AnimeType type;
 	private String image;
 	private int sleep;
 
 	public AnimeData() {
 		id = "none";
 		name = "none";
-		type = "none";
+		type = AnimeType.SINGLE;
 		image = "0.png";
 	}
 
@@ -56,7 +58,7 @@ public class AnimeData implements Data {
 	/**
 	 * @return
 	 */
-	public String getType() {
+	public AnimeType getType() {
 		return type;
 	}
 
@@ -91,7 +93,7 @@ public class AnimeData implements Data {
 	/**
 	 * @param string
 	 */
-	public void setType(String string) {
+	public void setType(AnimeType string) {
 		type = string;
 	}
 

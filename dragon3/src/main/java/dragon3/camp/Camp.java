@@ -8,7 +8,8 @@ import java.util.List;
 import dragon3.UnitWorks;
 import dragon3.common.Body;
 import dragon3.common.constant.GameColors;
-import dragon3.common.constant.Kinds;
+import dragon3.common.constant.BodyAttribute;
+import dragon3.common.constant.BodyKind;
 import dragon3.common.constant.Page;
 import dragon3.common.constant.Texts;
 import dragon3.common.util.Equip;
@@ -66,13 +67,13 @@ public class Camp extends PaintAdapter {
 				line = Texts.help[Texts.H_CAMP3];
 			}
 		} else {
-			if (ba.isKind(Kinds.SOUL)) {
+			if (ba.isKind(BodyKind.SOUL)) {
 				line = Texts.help[Texts.H_CAMP4];
-			} else if (ba.isKind(Kinds.WEPON)) {
+			} else if (ba.isKind(BodyKind.WEPON)) {
 				line = Texts.help[Texts.H_CAMP4];
-			} else if (ba.isKind(Kinds.ARMOR)) {
+			} else if (ba.isKind(BodyKind.ARMOR)) {
 				line = Texts.help[Texts.H_CAMP4];
-			} else if (ba.isKind(Kinds.ITEM)) {
+			} else if (ba.isKind(BodyKind.ITEM)) {
 				line = Texts.help[Texts.H_CAMP4];
 			} else {
 				line = Texts.help[Texts.H_CAMP6];
@@ -116,7 +117,7 @@ public class Camp extends PaintAdapter {
 		for (int i = equips.size() - 1; i >= 0; i--) {
 			Body b = (Body) equips.get(i);
 			b.setMax();
-			b.setTypeSet(new LinkedHashSet<String>());
+			b.setAttrSet(new LinkedHashSet<BodyAttribute>());
 			if (GameColors.isPlayer(b)) {
 				b.setX(b.getGoalX());
 				b.setY(b.getGoalY());
@@ -158,7 +159,7 @@ public class Camp extends PaintAdapter {
 	public void removeDust() {
 		for (int i = equips.size() - 1; i >= 0; i--) {
 			Body b = (Body) equips.get(i);
-			if (b.isKind(Kinds.WAZA)
+			if (b.isKind(BodyKind.WAZA)
 				|| map.getData(Page.P10, b.getX(), b.getY()) == T_ERASE) {
 				equips.remove(i);
 				map.setData(Page.P20, b.getX(), b.getY(), 0);
@@ -179,7 +180,7 @@ public class Camp extends PaintAdapter {
 				continue;
 			if (b.getX() < 14)
 				continue;
-			if (b.isKind(Kinds.WAZA)) {
+			if (b.isKind(BodyKind.WAZA)) {
 				wazaList.add(b);
 			} else {
 				itemList.add(b);
@@ -245,12 +246,12 @@ public class Camp extends PaintAdapter {
 			return;
 		Body bb;
 
-		if (ba.isKind(Kinds.SOUL)) {
+		if (ba.isKind(BodyKind.SOUL)) {
 			if (x == 2 || x == 9) {
 				bb = charaCheck(x - 1, y);
 				if (bb == null)
 					return;
-				if (!equipCheck(bb, ba, Kinds.SOUL))
+				if (!equipCheck(bb, ba, BodyKind.SOUL))
 					return;
 				if (!levelCheck(bb, ba))
 					return;
@@ -263,19 +264,19 @@ public class Camp extends PaintAdapter {
 				equip.equip(bb);
 				return;
 			}
-		} else if (ba.isKind(Kinds.WEPON)) {
+		} else if (ba.isKind(BodyKind.WEPON)) {
 			if (x == 3 || x == 10) {
 				bb = charaCheck(x - 2, y);
 				if (bb == null)
 					return;
-				if (!equipCheck(bb, ba, Kinds.WEPON))
+				if (!equipCheck(bb, ba, BodyKind.WEPON))
 					return;
 				if (!levelCheck(bb, ba))
 					return;
 				putChara(x, y, ba);
 				return;
 			}
-		} else if (ba.isKind(Kinds.ARMOR)) {
+		} else if (ba.isKind(BodyKind.ARMOR)) {
 			if (x == 4 || x == 11) {
 				bb = charaCheck(x - 3, y);
 				if (bb == null)
@@ -285,7 +286,7 @@ public class Camp extends PaintAdapter {
 				putChara(x, y, ba);
 				return;
 			}
-		} else if (ba.isKind(Kinds.ITEM)) {
+		} else if (ba.isKind(BodyKind.ITEM)) {
 			if (x == 5 || x == 12) {
 				bb = charaCheck(x - 4, y);
 				if (bb == null)
@@ -295,7 +296,7 @@ public class Camp extends PaintAdapter {
 				putChara(x, y, ba);
 				return;
 			}
-		} else if (ba.isKind(Kinds.WAZA)) {
+		} else if (ba.isKind(BodyKind.WAZA)) {
 		} else {
 			if (x == 1 || x == 8) {
 				if (sortf) {
@@ -317,15 +318,15 @@ public class Camp extends PaintAdapter {
 
 	private void alarm(Body ba) {
 		String s = null;
-		if (ba.isKind(Kinds.SOUL)) {
+		if (ba.isKind(BodyKind.SOUL)) {
 			s = Texts.shokugyo;
-		} else if (ba.isKind(Kinds.WEPON)) {
+		} else if (ba.isKind(BodyKind.WEPON)) {
 			s = Texts.buki;
-		} else if (ba.isKind(Kinds.ARMOR)) {
+		} else if (ba.isKind(BodyKind.ARMOR)) {
 			s = Texts.bougu;
-		} else if (ba.isKind(Kinds.ITEM)) {
+		} else if (ba.isKind(BodyKind.ITEM)) {
 			s = Texts.komono;
-		} else if (ba.isKind(Kinds.WAZA)) {
+		} else if (ba.isKind(BodyKind.WAZA)) {
 			s = Texts.wazasetumei;
 		} else {
 			s = Texts.nakama;
@@ -341,19 +342,19 @@ public class Camp extends PaintAdapter {
 		return null;
 	}
 
-	private boolean equipCheck(Body ba, Body bb, String kind) {
+	private boolean equipCheck(Body ba, Body bb, BodyKind kind) {
 		if (ba == null)
 			return false;
 		if (bb == null)
 			return false;
 
-		if (kind.equals(Kinds.WEPON)) {
+		if (kind.equals(BodyKind.WEPON)) {
 			if (ba.getWeponType().equals(bb.getWeponType())) {
 				return true;
 			}
 		}
 
-		if (kind.equals(Kinds.ARMOR)) {
+		if (kind.equals(BodyKind.ARMOR)) {
 			if (ba.getArmorType().equals(bb.getArmorType())) {
 				return true;
 			}
@@ -442,14 +443,14 @@ public class Camp extends PaintAdapter {
 		equips.remove(bb);
 
 		end = null;
-		if (bb.isKind(Kinds.SOUL)) {
+		if (bb.isKind(BodyKind.SOUL)) {
 			map.setData(Page.P10, x, y, T_FREE);
 			List<Body> list = new ArrayList<>();
 			bb.setExp(0);
 			list.add(bb);
 			setSource(list, false);
 			mw.ppaint(bb.getX(), bb.getY());
-		} else if (bb.isKind(Kinds.WAZA)) {
+		} else if (bb.isKind(BodyKind.WAZA)) {
 			map.setData(Page.P10, x, y, T_NONE);
 		}
 		map.setData(Page.P20, x, y, 0);
@@ -463,9 +464,9 @@ public class Camp extends PaintAdapter {
 		if (map.getData(Page.P30, x, y) == 0)
 			return;
 		Body bb = equip.search(x, y);
-		if (bb.isKind(Kinds.SOUL)) {
+		if (bb.isKind(BodyKind.SOUL)) {
 			map.setData(Page.P10, x, y, T_PASTE);
-		} else if (bb.isKind(Kinds.WAZA)) {
+		} else if (bb.isKind(BodyKind.WAZA)) {
 			map.setData(Page.P10, x, y, T_NONE);
 		}
 		map.setData(Page.P30, x, y, 0);
@@ -547,7 +548,7 @@ public class Camp extends PaintAdapter {
 					changeChara(p.x, p.y);
 				} else {
 					if (b != null) {
-						if (b.isKind(Kinds.WAZA)) {
+						if (b.isKind(BodyKind.WAZA)) {
 							removeChara1(p.x, p.y);
 						} else {
 							ba = pickChara(p.x, p.y);
@@ -605,7 +606,7 @@ public class Camp extends PaintAdapter {
 				} else {
 					Body b = equip.search(p.x, p.y);
 					if (b != null) {
-						if (b.isKind(Kinds.WAZA)) {
+						if (b.isKind(BodyKind.WAZA)) {
 							removeChara1(p.x, p.y);
 						} else {
 							pm.displayAnalyze(b);

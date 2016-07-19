@@ -8,7 +8,7 @@ import dragon3.common.Body;
 import dragon3.common.constant.GameColors;
 import dragon3.common.constant.Page;
 import dragon3.common.constant.Texts;
-import dragon3.common.constant.Types;
+import dragon3.common.constant.BodyAttribute;
 
 public class TalkPaint extends PaintAdapter {
 
@@ -78,7 +78,7 @@ public class TalkPaint extends PaintAdapter {
 			return null;
 		if (bb.getColor() == ba.getColor())
 			return null;
-		if (bb.isType(Types.SLEEP))
+		if (bb.hasAttr(BodyAttribute.SLEEP))
 			return null;
 		if (ba.getLevel() != 0) {
 			if (bb.getLevel() > ba.getLevel())
@@ -88,7 +88,7 @@ public class TalkPaint extends PaintAdapter {
 		if (uw.have(bb))
 			return null;
 
-		if (bb.isType(Types.TALKABLE)) {
+		if (bb.hasAttr(BodyAttribute.TALKABLE)) {
 			return bb;
 		}
 

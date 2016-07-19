@@ -4,14 +4,6 @@ import dragon3.bean.AnimeData;
 
 public interface AnimeManager {
 
-	public static final String TYPE_SINGLE = "single";
-	public static final String TYPE_ALL = "all";
-	public static final String TYPE_SINGLE_ARROW = "single.arrow";
-	public static final String TYPE_LASER_ARROW_2 = "laser.arrow2";
-	public static final String TYPE_LASER_ARROW_3 = "laser.arrow3";
-	public static final String TYPE_SOME_ARROW = "some.arrow";
-	public static final String TYPE_ROTATE = "rotate";
-
 	public static final String ID_REFRESH = "system.refresh";
 	public static final String ID_KAKUSEI = "system.kakusei";
 	public static final String ID_FINISH = "system.finish";

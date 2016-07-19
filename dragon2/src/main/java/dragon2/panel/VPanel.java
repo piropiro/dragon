@@ -76,7 +76,8 @@ public class VPanel extends JPanelBase implements UnitWorks, ActionListener,
 	public void startup() {
 		if (sm.isFirst()) {
 			Statics.setHelp(true);
-			stageStart();
+			//stageStart();
+			campStart();
 		} else {
 			campStart();
 		}

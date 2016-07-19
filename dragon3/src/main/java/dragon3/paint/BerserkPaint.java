@@ -4,7 +4,7 @@ import dragon3.UnitWorks;
 import dragon3.anime.AnimeManager;
 import dragon3.common.Body;
 import dragon3.common.constant.Page;
-import dragon3.common.constant.Types;
+import dragon3.common.constant.BodyAttribute;
 
 /**
  * @author k-saito
@@ -42,7 +42,7 @@ public class BerserkPaint extends PaintAdapter {
 	 * 
 	 */
 	private void setStatus() {
-		ba.addType(Types.BERSERK);
+		ba.addAttr(BodyAttribute.BERSERK);
 		ba.setHp(ba.getHpMax());
 		ba.setStr((int) (ba.getStr() * 1.5));
 		ba.setDef((int) (ba.getDef() * 1.5));

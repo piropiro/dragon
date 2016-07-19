@@ -72,7 +72,7 @@ public class AnimeManagerTest {
 
 	@Before
 	public void setUp() throws Exception {
-		map.setPage(Page.P00, Statics.getMapData(1));
+		map.setPage(Page.P00, Statics.getMapData("D01"));
 		map.setData(Page.P00, 11, 10, MoveUtils.OPEN_MAGIC);
 		map.setData(Page.P20, 10, 10, 1);
 		map.fillDia(Page.P41, 10, 10, 2, 1);

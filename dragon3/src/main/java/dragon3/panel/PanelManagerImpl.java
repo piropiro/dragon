@@ -7,6 +7,7 @@ import java.awt.Point;
 
 import mine.paint.UnitMap;
 import dragon3.common.Body;
+import dragon3.common.constant.GameColors;
 import dragon3.common.constant.Page;
 import dragon3.common.util.Equip;
 import dragon3.common.util.MoveUtils;
@@ -66,7 +67,11 @@ public class PanelManagerImpl implements PanelManager {
 			case MoveUtils.CLOSE_BOX :
 			case MoveUtils.OPEN_BOX :
 			case MoveUtils.BROKEN_BOX :
-				dataP1.displayItem(p, turnManager.getTurn(), treasure.getLimitTurn(p), tikei);
+				dataP1.displayItem(
+						p, 
+						turnManager.getTurn(), 
+						treasure.getLimitTurn(p), 
+						tikei);
 				return true;
 			case MoveUtils.CLOSE_MAGIC :
 			case MoveUtils.OPEN_MAGIC :
@@ -77,7 +82,7 @@ public class PanelManagerImpl implements PanelManager {
 				return false;
 		}
 	}
-	public void displayCampData(int x, int y, int tikei, String bgcolor) {
+	public void displayCampData(int x, int y, int tikei, GameColors bgcolor) {
 		dataP1.displayCamp(new Point(x, y), tikei, bgcolor);
 	}
 
@@ -104,7 +109,7 @@ public class PanelManagerImpl implements PanelManager {
 	}
 	public void displayAttack(Attack attack, Attack counter) {
 		dataP1.displayAttack(attack, counter);
-		dataP2.displayAttack(attack, counter);
+		dataP2.displayAttack(counter, attack);
 	}
 
 	public void closeData() {
@@ -160,7 +165,8 @@ public class PanelManagerImpl implements PanelManager {
 	}
 	
 	// SmallPanel
-	public void displaySmall(String label, String color, Body b) {
+	@Override
+	public void displaySmall(String label, GameColors color, Body b) {
 		smallP.display(label, color, b.getX(), b.getY());
 	}
 	
@@ -169,30 +175,34 @@ public class PanelManagerImpl implements PanelManager {
 	}	
 	
 	// HelpPanel
-	
-	public void displayHelp(Point p, String[] line, String color) {
+	@Override
+	public void displayHelp(Point p, String[] line, GameColors color) {
 		helpP.setLocate(p.x, p.y, true);
 		helpP.setLine(line, color);
 		helpP.setVisible(helpVisible);
 		helpP.repaint();
 	}
+	@Override
 	public void setHelpLocation(int x, int y) {
 		helpP.setLocate(x, y, false);
 	}
+	@Override
 	public void setHelpVisible(boolean helpVisible){
 		this.helpVisible = helpVisible;
 		helpP.setVisible(helpVisible);
 	}
+	@Override
 	public boolean isHelpVisible(){
 		return helpVisible;
 	}
+	@Override
 	public void closeHelp(){
 		helpP.setVisible(false);
 	}
 
 	// LargePanel
-	
-	public void displayLarge(String text, String color, int sleep) {
+	@Override
+	public void displayLarge(String text, GameColors color, int sleep) {
 		largeP.display(text, color, sleep);
 	}
 

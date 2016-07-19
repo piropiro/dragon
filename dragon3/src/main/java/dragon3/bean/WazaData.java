@@ -1,30 +1,36 @@
 package dragon3.bean;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import dragon3.common.constant.AttackEffect;
+import dragon3.common.constant.DamageType;
+import dragon3.common.constant.GameColors;
+import dragon3.common.constant.TargetType;
+
 public class WazaData implements Data {
 
 	private String id;
 	private String name;
 	private String label;
-	private String labelColor;
+	private GameColors labelColor;
 
-	private String damageType;
-	private String weponType;
-	private String targetType;
+	private DamageType damageType;
+	private TargetType targetType;
 	private String animeId;
 	private int star;
 
-	private String effect[];
+	private List<AttackEffect> effect;
 
 	public WazaData() {
 		id = "none";
 		name = "none";
 		label = "none";
-		labelColor = "none";
-		damageType = "none";
-		weponType = "none";
-		targetType = "none";
+		labelColor = GameColors.BLACK;
+		damageType = DamageType.NONE;
+		targetType = TargetType.SINGLE_1;
 		animeId = "none";
-		effect = new String[5];
+		effect = new ArrayList<>();
 	}
 
 	public String toString(){
@@ -41,14 +47,14 @@ public class WazaData implements Data {
 	/**
 	 * @return
 	 */
-	public String getDamageType() {
+	public DamageType getDamageType() {
 		return damageType;
 	}
 
 	/**
 	 * @return
 	 */
-	public String[] getEffect() {
+	public List<AttackEffect> getEffect() {
 		return effect;
 	}
 
@@ -69,7 +75,7 @@ public class WazaData implements Data {
 	/**
 	 * @return
 	 */
-	public String getLabelColor() {
+	public GameColors getLabelColor() {
 		return labelColor;
 	}
 
@@ -90,15 +96,8 @@ public class WazaData implements Data {
 	/**
 	 * @return
 	 */
-	public String getTargetType() {
+	public TargetType getTargetType() {
 		return targetType;
-	}
-
-	/**
-	 * @return
-	 */
-	public String getWeponType() {
-		return weponType;
 	}
 
 	/**
@@ -111,14 +110,14 @@ public class WazaData implements Data {
 	/**
 	 * @param string
 	 */
-	public void setDamageType(String string) {
+	public void setDamageType(DamageType string) {
 		damageType = string;
 	}
 
 	/**
 	 * @param strings
 	 */
-	public void setEffect(String[] strings) {
+	public void setEffect(List<AttackEffect> strings) {
 		effect = strings;
 	}
 
@@ -139,7 +138,7 @@ public class WazaData implements Data {
 	/**
 	 * @param string
 	 */
-	public void setLabelColor(String string) {
+	public void setLabelColor(GameColors string) {
 		labelColor = string;
 	}
 
@@ -160,15 +159,8 @@ public class WazaData implements Data {
 	/**
 	 * @param string
 	 */
-	public void setTargetType(String string) {
+	public void setTargetType(TargetType string) {
 		targetType = string;
-	}
-
-	/**
-	 * @param string
-	 */
-	public void setWeponType(String string) {
-		weponType = string;
 	}
 
 }

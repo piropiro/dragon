@@ -3,43 +3,39 @@
  */
 package dragon3.common.constant;
 
+import java.util.LinkedHashMap;
+import java.util.Map;
+
 /**
  * @author k-saito
  */
-public class DeployType {
+public enum DeployType {
 	
-	/**
-	 *  None
-	 */
-	public static final String NONE = "none";
+	CHARA("普通キャラ"),
+	SUMMON("召喚キャラ"),
+	BOX_ITEM("宝箱アイテム"),
+	CLEAR_ITEM("クリアアイテム"),
+	ENEMY_ITEM("敵持ちアイテム"),
+	SECRET_ITEM("隠しアイテム"),
 	
-	/**
-	 * 普通キャラ
-	 */
-	public static final String CHARA = "chara";
+	;
 	
-	/**
-	 * 召喚キャラ
-	 */
-	public static final String SUMMON = "summon";
+	private String text;
 	
-	/**
-	 * 宝箱アイテム
-	 */
-	public static final String BOX_ITEM = "box.item";
+	DeployType(String text) {
+		this.text = text;
+	}
 	
-	/**
-	 * クリアアイテム
-	 */
-	public static final String CLEAR_ITEM = "clear.item";
+	public String getText() {
+		return text;
+	}
 	
-	/**
-	 * 敵持ちアイテム
-	 */
-	public static final String ENEMY_ITEM = "enemy.item";
-	
-	/**
-	 * 隠しアイテム
-	 */
-	public static final String SECRET_ITEM = "secret.item";
+	public static Map<String, String> createMap() {
+		Map<String, String> idAndText = new LinkedHashMap<>();
+		for (DeployType a : values()) {	
+			idAndText.put(a.name(), a.getText());
+		}
+		return idAndText;
+	}
+
 }

@@ -131,8 +131,8 @@ public abstract class PanelBase extends JComponent implements PanelWorks {
 
 	/*** Clear *********************************************/
 
-	public boolean clear(String color, MineGraphics g) {
-		g.setColor(GameColors.getAlphaColor(color));
+	public boolean clear(GameColors color, MineGraphics g) {
+		g.setColor(color.getAlphaBg());
 
 		Dimension d = getSize();
 		g.fillRect(0, 0, d.width, d.height);

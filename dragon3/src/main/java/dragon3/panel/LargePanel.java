@@ -41,10 +41,10 @@ public class LargePanel extends JComponent implements ActionListener {
 
 	/*** Display ******************************************************************/
 
-	public void display(String text_, String color, int sleep) {
+	public void display(String text_, GameColors bgcolor, int sleep) {
 		this.text = text_;
-		int[] rgb = GameColors.getColor(color);
-		setBackground(new Color(rgb[0], rgb[1], rgb[2]));
+		int[] rgba = bgcolor.getAlphaBg();
+		setBackground(new Color(rgba[0], rgba[1], rgba[2], rgba[3]));
 		setSize(getFontMetrics(getFont()).stringWidth(text) + 20, 32);
 		setLocate();
 		setVisible(true);

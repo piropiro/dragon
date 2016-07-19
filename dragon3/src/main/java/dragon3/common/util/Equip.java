@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Vector;
 
 import dragon3.common.Body;
+import dragon3.common.constant.BodyAttribute;
 import dragon3.common.constant.GameColors;
 
 public class Equip {
@@ -126,7 +127,7 @@ public class Equip {
 
 	public void equip(Body ba) {
 		ba.setMax();
-		ba.setTypeSet(new LinkedHashSet<String>());
+		ba.setAttrSet(new LinkedHashSet<BodyAttribute>());
 		Body wepon = searchItem(ba.getGoalX() + 2, ba.getGoalY());
 		Body armor = searchItem(ba.getGoalX() + 3, ba.getGoalY());
 		Body item = searchItem(ba.getGoalX() + 4, ba.getGoalY());

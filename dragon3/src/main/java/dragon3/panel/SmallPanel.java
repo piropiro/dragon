@@ -36,29 +36,16 @@ public class SmallPanel extends JComponent {
 
 	/*** Display ******************************************************/
 
-	public void display(String label_, String color, int x, int y) {
+	public void display(String label_, GameColors color, int x, int y) {
 
 		this.label = label_;
-
-		if (color.equals(GameColors.WHITE)) {
-			setBackground(Color.white);
-			setForeground(Color.black);
-		} else if (color.equals(GameColors.BLUE)) {
-			setBackground(Color.blue);
-			setForeground(Color.white);
-		} else if (color.equals(GameColors.RED)) {
-			setBackground(Color.red);
-			setForeground(Color.white);
-		} else if (color.equals(GameColors.GREEN)) {
-			setBackground(Color.green);
-			setForeground(Color.black);
-		} else if (color.equals(GameColors.YELLOW)) {
-			setBackground(Color.yellow);
-			setForeground(Color.black);
-		} else if (color.equals(GameColors.SKY)) {
-			setBackground(new Color(50, 100, 255));
-			setForeground(Color.white);
-		}
+		
+		int[] bg = color.getBg();
+		int[] fg = color.getFg();
+		
+		setBackground(new Color(bg[0], bg[1], bg[2]));
+		setForeground(new Color(fg[0], fg[1], fg[2]));
+		
 		setSize(getFontMetrics(getFont()).stringWidth(label) + 3, 15);
 		calcLocation(x, y);
 		setVisible(true);

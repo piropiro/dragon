@@ -2,17 +2,19 @@ package dragon3.edit.deploy;
 
 import java.util.List;
 
+import dragon3.Statics;
+import dragon3.bean.BodyData;
+import dragon3.bean.DeployData;
+import dragon3.common.constant.DeployType;
+import dragon3.common.constant.GameColors;
+import dragon3.image.BodyImageList;
+import dragon3.image.ImageManager;
 import mine.MineException;
 import mine.awt.ImageLoaderAWT;
 import mine.edit.EditListener;
 import mine.edit.EditPanel;
 import mine.paint.MineImage;
 import mine.paint.MineImageLoader;
-import dragon3.Statics;
-import dragon3.bean.BodyData;
-import dragon3.bean.DeployData;
-import dragon3.image.BodyImageList;
-import dragon3.image.ImageManager;
 
 public class StatusPanel extends EditPanel<DeployData> implements EditListener<DeployData> {
 
@@ -22,11 +24,12 @@ public class StatusPanel extends EditPanel<DeployData> implements EditListener<D
 		super(DeployData.class);
 
 		setImageCombo(CENTER, "bodyId", "BODY");
-		setTextCombo(CENTER, "type", "種類");
-		initCombo("type", Statics.deployType);
+		setEnumCombo(CENTER, "deployType", "配置種別", DeployType.class);
+		initCombo("deployType", DeployType.createMap());
 		setSlider(CENTER, "level", "Level", 99);
-		setTextCombo(LEFT, "color", "色");
-		initCombo("color", Statics.color);
+		setEnumCombo(LEFT, "color", "色", GameColors.class);
+		initCombo("color", GameColors.createMap());
+		
 		setIntCombo(RIGHT, "limitTurn", "制限時間", 20);
 		setIntCombo(LEFT, "scope", "射程", 5);
 		setIntCombo(RIGHT, "range", "領域", 20);

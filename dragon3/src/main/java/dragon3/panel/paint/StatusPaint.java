@@ -21,6 +21,8 @@ public class StatusPaint implements DataPanelPainter {
 	}
 
 	public void paint(PanelWorks pw, MineGraphics g) {
+		pw.drawMain(ba, g, true);
+
 		pw.drawLine(Texts.sp[49], ba.getStr(), 0, 1, g);
 		pw.drawLine(Texts.sp[50], ba.getDef(), 1, 1, g);
 		pw.drawLine(Texts.sp[51], ba.getMst(), 0, 2, g);

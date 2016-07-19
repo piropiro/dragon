@@ -1,19 +1,31 @@
 package dragon3.common;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.LinkedHashSet;
+import java.util.List;
 import java.util.Set;
 
-public class Body implements Serializable, Cloneable {
+import dragon3.common.constant.GameColors;
+import dragon3.common.constant.ArmorType;
+import dragon3.common.constant.BodyAttribute;
+import dragon3.common.constant.BodyKind;
+import dragon3.common.constant.DeployType;
+import dragon3.common.constant.MoveType;
+import dragon3.common.constant.SoulType;
+import dragon3.common.constant.WeponType;
 
-	private static final long serialVersionUID = 3331367671423174029L;
+@SuppressWarnings("serial")
+public class Body implements Serializable, Cloneable {
 
 	private String id = "none";
 	private String name = "none";
-	private String image = "0.png";
-	private String kind = "none";
-	private String color = "none";
+	private String image = "none.png";
+	private BodyKind kind = BodyKind.CHARA;
+	private GameColors color = GameColors.BLACK;
 
+	private DeployType deployType;
+	
 	private int hp;
 	private int hpMax;
 
@@ -25,14 +37,14 @@ public class Body implements Serializable, Cloneable {
 	private int mis;
 
 	private int moveStep;
-	private String moveType = "none";
-	private String soulType = "none";
+	private MoveType moveType = MoveType.NONE;
+	private SoulType soulType = SoulType.NONE;
 
-	private String weponType = "none";
-	private String armorType = "none";
+	private WeponType weponType = WeponType.NONE;
+	private ArmorType armorType = ArmorType.NONE;
 
-	private Set<String> wazaSet = new LinkedHashSet<String>();
-	private Set<String> typeSet = new LinkedHashSet<String>();
+	private List<String> wazaList = new ArrayList<>();
+	private Set<BodyAttribute> attrSet = new LinkedHashSet<BodyAttribute>();
 
 	private int x;
 	private int y;
@@ -60,20 +72,16 @@ public class Body implements Serializable, Cloneable {
 		return (hp > 0);
 	}
 
-	public String[] getWazaList(){
-		return (String[])wazaSet.toArray(new String[0]);
+	public void addAttr(BodyAttribute attr){
+		attrSet.add(attr);
 	}
-
-	public void addType(String type){
-		typeSet.add(type);
+	public void removeAttr(BodyAttribute attr){
+		attrSet.remove(attr);
 	}
-	public void removeType(String type){
-		typeSet.remove(type);
+	public boolean hasAttr(BodyAttribute attr){
+		return attrSet.contains(attr);
 	}
-	public boolean isType(String type){
-		return typeSet.contains(type);
-	}
-	public boolean isKind(String kind_) {
+	public boolean isKind(BodyKind kind_) {
 		return kind_.equals(this.kind);
 	}
 
@@ -82,14 +90,14 @@ public class Body implements Serializable, Cloneable {
 	/**
 	 * @return
 	 */
-	public String getArmorType() {
+	public ArmorType getArmorType() {
 		return armorType;
 	}
 
 	/**
 	 * @return
 	 */
-	public String getColor() {
+	public GameColors getColor() {
 		return color;
 	}
 
@@ -159,7 +167,7 @@ public class Body implements Serializable, Cloneable {
 	/**
 	 * @return
 	 */
-	public String getKind() {
+	public BodyKind getKind() {
 		return kind;
 	}
 
@@ -201,7 +209,7 @@ public class Body implements Serializable, Cloneable {
 	/**
 	 * @return
 	 */
-	public String getMoveType() {
+	public MoveType getMoveType() {
 		return moveType;
 	}
 
@@ -236,7 +244,7 @@ public class Body implements Serializable, Cloneable {
 	/**
 	 * @return
 	 */
-	public String getSoulType() {
+	public SoulType getSoulType() {
 		return soulType;
 	}
 
@@ -257,21 +265,15 @@ public class Body implements Serializable, Cloneable {
 	/**
 	 * @return
 	 */
-	public Set<String> getTypeSet() {
-		return typeSet;
+	public Set<BodyAttribute> getAttrSet() {
+		return attrSet;
 	}
+
 
 	/**
 	 * @return
 	 */
-	public Set<String> getWazaSet() {
-		return wazaSet;
-	}
-
-	/**
-	 * @return
-	 */
-	public String getWeponType() {
+	public WeponType getWeponType() {
 		return weponType;
 	}
 
@@ -292,15 +294,24 @@ public class Body implements Serializable, Cloneable {
 	/**
 	 * @param string
 	 */
-	public void setArmorType(String string) {
+	public void setArmorType(ArmorType string) {
 		armorType = string;
 	}
 
 	/**
 	 * @param string
 	 */
-	public void setColor(String string) {
+	public void setColor(GameColors string) {
 		color = string;
+	}
+
+	
+	public DeployType getDeployType() {
+		return deployType;
+	}
+
+	public void setDeployType(DeployType deployType) {
+		this.deployType = deployType;
 	}
 
 	/**
@@ -369,7 +380,7 @@ public class Body implements Serializable, Cloneable {
 	/**
 	 * @param string
 	 */
-	public void setKind(String string) {
+	public void setKind(BodyKind string) {
 		kind = string;
 	}
 
@@ -411,8 +422,8 @@ public class Body implements Serializable, Cloneable {
 	/**
 	 * @param string
 	 */
-	public void setMoveType(String string) {
-		moveType = string;
+	public void setMoveType(MoveType m) {
+		moveType = m;
 	}
 
 	/**
@@ -446,7 +457,7 @@ public class Body implements Serializable, Cloneable {
 	/**
 	 * @param string
 	 */
-	public void setSoulType(String string) {
+	public void setSoulType(SoulType string) {
 		soulType = string;
 	}
 
@@ -467,21 +478,15 @@ public class Body implements Serializable, Cloneable {
 	/**
 	 * @param set
 	 */
-	public void setTypeSet(LinkedHashSet<String> set) {
-		typeSet = set;
+	public void setAttrSet(Set<BodyAttribute> set) {
+		attrSet = set;
 	}
 
-	/**
-	 * @param set
-	 */
-	public void setWazaSet(LinkedHashSet<String> set) {
-		wazaSet = set;
-	}
 
 	/**
 	 * @param string
 	 */
-	public void setWeponType(String string) {
+	public void setWeponType(WeponType string) {
 		weponType = string;
 	}
 
@@ -506,4 +511,25 @@ public class Body implements Serializable, Cloneable {
 	public void setImageNum(int imageNum) {
 		this.imageNum = imageNum;
 	}
+
+	public List<String> getWazaList() {
+		return wazaList;
+	}
+
+	public void setWazaList(List<String> wazaList) {
+		this.wazaList = wazaList;
+	}
+
+	@Override
+	public String toString() {
+		return "Body [id=" + id + ", name=" + name + ", image=" + image + ", kind=" + kind + ", color=" + color
+				+ ", deployType=" + deployType + ", hp=" + hp + ", hpMax=" + hpMax + ", str=" + str + ", def=" + def
+				+ ", mst=" + mst + ", mdf=" + mdf + ", hit=" + hit + ", mis=" + mis + ", moveStep=" + moveStep
+				+ ", moveType=" + moveType + ", soulType=" + soulType + ", weponType=" + weponType + ", armorType="
+				+ armorType + ", wazaList=" + wazaList + ", attrSet=" + attrSet + ", x=" + x + ", y=" + y + ", scope="
+				+ scope + ", range=" + range + ", limitTurn=" + limitTurn + ", goalX=" + goalX + ", goalY=" + goalY
+				+ ", level=" + level + ", exp=" + exp + ", store=" + store + ", imageNum=" + imageNum + "]";
+	}
+	
+	
 }

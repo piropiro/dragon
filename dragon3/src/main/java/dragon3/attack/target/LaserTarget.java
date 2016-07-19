@@ -16,8 +16,8 @@ public class LaserTarget extends Target {
 	/**
 	 * 
 	 */
-	public LaserTarget(int x, int y, int range, int donut) {
-		super(x, y);
+	public LaserTarget(int range, int donut) {
+		super();
 		this.range = range;
 		this.donut = donut;
 	}

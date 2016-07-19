@@ -18,9 +18,6 @@ public class StageEditor extends EditPanel<StageData> implements EditListener<St
 
 		setField(CENTER, "id", "ID");
 		setField(CENTER, "name", "名前");
-		setField(CENTER, "image", "画像");
-		setField(CENTER, "deployFile", "配置データ");
-		setField(CENTER, "mapFile", "マップデータ");
 		setSlider(CENTER, "level", "レベル", 10);
 	}
 }

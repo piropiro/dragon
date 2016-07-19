@@ -6,7 +6,7 @@ package dragon3.panel.paint;
 
 import mine.paint.MineGraphics;
 import dragon3.common.Body;
-import dragon3.common.constant.Types;
+import dragon3.common.constant.BodyAttribute;
 import dragon3.panel.PanelWorks;
 
 /**
@@ -21,7 +21,7 @@ public class CounterPaint implements DataPanelPainter {
 	}
 
 	public void paint(PanelWorks pw, MineGraphics g) {
-		if (ba.isType(Types.SLEEP)) {
+		if (ba.hasAttr(BodyAttribute.SLEEP)) {
 			pw.drawLine("  SLEEPING...", 0, 2, g);
 		}
 	}
