@@ -1,0 +1,32 @@
+[
+	{
+		"armorType": "NONE",
+		"attrList": [
+			"NONE",
+			"NONE",
+			"NONE",
+			"NONE",
+			"NONE"
+		],
+		"def": 0,
+		"hit": 1,
+		"hp": 1,
+		"id": "short.sword",
+		"image": "chara_039.png",
+		"kind": "WEPON",
+		"mdf": 0,
+		"mis": 0,
+		"moveStep": 0,
+		"moveType": "NONE",
+		"mst": 0,
+		"name": "ショートソード",
+		"soulType": "RED",
+		"str": 2,
+		"wazaList": [
+			"slash",
+			"none",
+			"none"
+		],
+		"weponType": "SWORD"
+	}
+]

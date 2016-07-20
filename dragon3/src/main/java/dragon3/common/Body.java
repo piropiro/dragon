@@ -81,9 +81,6 @@ public class Body implements Serializable, Cloneable {
 	public boolean hasAttr(BodyAttribute attr){
 		return attrSet.contains(attr);
 	}
-	public boolean isKind(BodyKind kind_) {
-		return kind_.equals(this.kind);
-	}
 
 
 

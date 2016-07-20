@@ -144,7 +144,7 @@ public class DataPanel extends PanelBase {
 	}
 	
 	public void displayNext(Body ba) {
-		if (ba != null && ba.isKind(BodyKind.WAZA)) {
+		if (ba != null && ba.getKind() == BodyKind.WAZA) {
 			displayWaza(ba, 0);
 		} else if (pp == null) {
 			displayAnalyze(ba);

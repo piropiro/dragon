@@ -55,15 +55,14 @@ public class CampPaint implements PaintListener {
 				line = Texts.help[Texts.H_CAMP3];
 			}
 		} else {
-			if (ba.isKind(BodyKind.SOUL)) {
+			switch (ba.getKind()) {
+			case SOUL:
+			case WEPON:
+			case ARMOR:
+			case ITEM:
 				line = Texts.help[Texts.H_CAMP4];
-			} else if (ba.isKind(BodyKind.WEPON)) {
-				line = Texts.help[Texts.H_CAMP4];
-			} else if (ba.isKind(BodyKind.ARMOR)) {
-				line = Texts.help[Texts.H_CAMP4];
-			} else if (ba.isKind(BodyKind.ITEM)) {
-				line = Texts.help[Texts.H_CAMP4];
-			} else {
+				break;
+			default:
 				line = Texts.help[Texts.H_CAMP6];
 			}
 		}
@@ -89,10 +88,10 @@ public class CampPaint implements PaintListener {
 					camp.changeChara(p.x, p.y);
 				} else {
 					if (b != null) {
-						if (b.isKind(BodyKind.WAZA)) {
+						if (b.getKind() == BodyKind.WAZA) {
 							camp.removeChara1(p.x, p.y);
 						} else {
-							ba = camp.pickChara(p.x, p.y);
+							camp.pickChara(p.x, p.y);
 						}
 					}
 				}
@@ -102,7 +101,7 @@ public class CampPaint implements PaintListener {
 				if (ba != null)
 					camp.putChara2(p.x, p.y);
 				else
-					ba = camp.pickChara(p.x, p.y);
+					camp.pickChara(p.x, p.y);
 				break;
 			case Camp.T_PASTE :
 				if (ba != null)
@@ -117,7 +116,7 @@ public class CampPaint implements PaintListener {
 					if (ba != null)
 						camp.putChara(p.x, p.y, ba);
 					else
-						ba = camp.pickChara(p.x, p.y);
+						camp.pickChara(p.x, p.y);
 				} else {
 					if (ba == null)
 						camp.removeChara2(p.x, p.y);
@@ -149,7 +148,7 @@ public class CampPaint implements PaintListener {
 				} else {
 					Body b = camp.getEquip().search(p.x, p.y);
 					if (b != null) {
-						if (b.isKind(BodyKind.WAZA)) {
+						if (b.getKind() == BodyKind.WAZA) {
 							camp.removeChara1(p.x, p.y);
 						} else {
 							pm.displayAnalyze(b);

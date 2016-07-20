@@ -139,7 +139,7 @@ public class Camp {
 	public void removeDust() {
 		for (int i = equips.size() - 1; i >= 0; i--) {
 			Body b = (Body) equips.get(i);
-			if (b.isKind(BodyKind.WAZA)
+			if (b.getKind() == BodyKind.WAZA
 				|| map.getData(Page.P10, b.getX(), b.getY()) == T_ERASE) {
 				equips.remove(i);
 				map.setData(Page.P20, b.getX(), b.getY(), 0);
@@ -160,7 +160,7 @@ public class Camp {
 				continue;
 			if (b.getX() < 14)
 				continue;
-			if (b.isKind(BodyKind.WAZA)) {
+			if (b.getKind() == BodyKind.WAZA) {
 				wazaList.add(b);
 			} else {
 				itemList.add(b);
@@ -226,7 +226,8 @@ public class Camp {
 			return;
 		Body bb;
 
-		if (ba.isKind(BodyKind.SOUL)) {
+		switch (ba.getKind()) {
+		case SOUL:
 			if (x == 2 || x == 9) {
 				bb = charaCheck(x - 1, y);
 				if (bb == null)
@@ -244,7 +245,8 @@ public class Camp {
 				equip.equip(bb);
 				return;
 			}
-		} else if (ba.isKind(BodyKind.WEPON)) {
+			break;
+		case WEPON:
 			if (x == 3 || x == 10) {
 				bb = charaCheck(x - 2, y);
 				if (bb == null)
@@ -256,7 +258,8 @@ public class Camp {
 				putChara(x, y, ba);
 				return;
 			}
-		} else if (ba.isKind(BodyKind.ARMOR)) {
+			break;
+		case ARMOR:
 			if (x == 4 || x == 11) {
 				bb = charaCheck(x - 3, y);
 				if (bb == null)
@@ -266,7 +269,8 @@ public class Camp {
 				putChara(x, y, ba);
 				return;
 			}
-		} else if (ba.isKind(BodyKind.ITEM)) {
+			break;
+		case ITEM:
 			if (x == 5 || x == 12) {
 				bb = charaCheck(x - 4, y);
 				if (bb == null)
@@ -276,8 +280,10 @@ public class Camp {
 				putChara(x, y, ba);
 				return;
 			}
-		} else if (ba.isKind(BodyKind.WAZA)) {
-		} else {
+			break;
+		case WAZA:
+			break;
+		default:
 			if (x == 1 || x == 8) {
 				if (sortf) {
 					putSortItems(x, y, items);
@@ -290,6 +296,7 @@ public class Camp {
 				}
 				return;
 			}
+			break;
 		}
 		alarm(ba);
 	}
@@ -298,18 +305,25 @@ public class Camp {
 
 	private void alarm(Body ba) {
 		String s = null;
-		if (ba.isKind(BodyKind.SOUL)) {
+		switch (ba.getKind()) {
+		case SOUL:
 			s = Texts.shokugyo;
-		} else if (ba.isKind(BodyKind.WEPON)) {
+			break;
+		case WEPON:
 			s = Texts.buki;
-		} else if (ba.isKind(BodyKind.ARMOR)) {
+			break;
+		case ARMOR:
 			s = Texts.bougu;
-		} else if (ba.isKind(BodyKind.ITEM)) {
+			break;
+		case ITEM:
 			s = Texts.komono;
-		} else if (ba.isKind(BodyKind.WAZA)) {
+			break;
+		case WAZA:
 			s = Texts.wazasetumei;
-		} else {
+			break;
+		default:
 			s = Texts.nakama;
+			break;
 		}
 		pm.displayLarge(Texts.sokoni + s + Texts.haokemasen, GameColors.RED, 1000);
 	}
@@ -376,16 +390,16 @@ public class Camp {
 
 	/*** Pick Chara ***************************/
 
-	public Body pickChara(int x, int y) {
+	public void pickChara(int x, int y) {
 		Body b = equip.search(x, y);
 		if (b == null) {
 			help(x, y);
-			return null;
+		} else {
+			b.setColor(GameColors.GREEN);
+			equips.remove(b);
+			ps = new Point(x, y);
+			ba = b;
 		}
-		b.setColor(GameColors.GREEN);
-		equips.remove(b);
-		ps = new Point(x, y);
-		return b;
 	}
 
 	/*** Change Chara ***********************/
@@ -395,7 +409,8 @@ public class Camp {
 			putChara(x, y, ba);
 			return;
 		} else {
-			Body bb = pickChara(x, y);
+			pickChara(x, y);
+			Body bb = ba;
 			putChara(x, y, ba);
 			ba = bb;
 		}
@@ -423,15 +438,19 @@ public class Camp {
 		equips.remove(bb);
 
 		end = null;
-		if (bb.isKind(BodyKind.SOUL)) {
+		switch (bb.getKind()) {
+		case SOUL:
 			map.setData(Page.P10, x, y, T_FREE);
 			List<Body> list = new ArrayList<>();
 			bb.setExp(0);
 			list.add(bb);
 			setSource(list, false);
 			mw.ppaint(bb.getX(), bb.getY());
-		} else if (bb.isKind(BodyKind.WAZA)) {
+			break;
+		case WAZA:
 			map.setData(Page.P10, x, y, T_NONE);
+			break;
+		default:
 		}
 		map.setData(Page.P20, x, y, 0);
 		map.setData(Page.P30, x, y, 0);
@@ -444,10 +463,14 @@ public class Camp {
 		if (map.getData(Page.P30, x, y) == 0)
 			return;
 		Body bb = equip.search(x, y);
-		if (bb.isKind(BodyKind.SOUL)) {
+		switch (bb.getKind()) {
+		case SOUL:
 			map.setData(Page.P10, x, y, T_PASTE);
-		} else if (bb.isKind(BodyKind.WAZA)) {
+			break;
+		case WAZA:
 			map.setData(Page.P10, x, y, T_NONE);
+			break;
+		default:
 		}
 		map.setData(Page.P30, x, y, 0);
 		mw.ppaint(x, y);
@@ -468,8 +491,8 @@ public class Camp {
 		}
 		map.setData(Page.P10, x, y, T_FREE);
 		map.setData(Page.P10, x + 1, y, T_FREE);
-		tmp[0] = pickChara(x, y);
-		ba = tmp[0];
+		pickChara(x, y);
+		tmp[0] = ba;
 		mw.repaint();
 		return tmp;
 	}
