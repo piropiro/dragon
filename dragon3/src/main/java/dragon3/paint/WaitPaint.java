@@ -12,52 +12,36 @@ public class WaitPaint implements PaintListener {
 		uw.getMapWorks().repaint();
 	}
 
-	/* (非 Javadoc)
-	 * @see dragon3.paint.PaintListener#setSelectPlace(int, int)
-	 */
+	@Override
 	public void setSelectPlace(int x, int y) {
 	}
 
-	/* (非 Javadoc)
-	 * @see dragon3.paint.PaintListener#isNextPoint(int, int)
-	 */
+	@Override
 	public boolean isNextPoint(int x, int y) {
 		return false;
 	}
 
-	/* (非 Javadoc)
-	 * @see dragon3.paint.PaintListener#mouseMoved(int, int)
-	 */
+	@Override
 	public void mouseMoved(int x, int y) {
 	}
 
-	/* (非 Javadoc)
-	 * @see dragon3.paint.PaintListener#leftReleased()
-	 */
+	@Override
 	public void leftReleased() {
 	}
 
-	/* (非 Javadoc)
-	 * @see dragon3.paint.PaintListener#rightReleased()
-	 */
+	@Override
 	public void rightReleased() {
 	}
 
-	/* (非 Javadoc)
-	 * @see dragon3.paint.PaintListener#setSelectBody(dragon3.common.Body)
-	 */
+	@Override
 	public void setSelectBody(Body b) {
 	}
 
-	/* (非 Javadoc)
-	 * @see dragon3.paint.PaintListener#leftPressed()
-	 */
+	@Override
 	public void leftPressed() {
 	}
 
-	/* (非 Javadoc)
-	 * @see dragon3.paint.PaintListener#rightPressed()
-	 */
+	@Override
 	public void rightPressed() {
 	}
 

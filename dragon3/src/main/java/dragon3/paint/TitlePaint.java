@@ -1,16 +1,20 @@
 package dragon3.paint;
 
 import dragon3.UnitWorks;
+import dragon3.anime.AnimeManager;
 import dragon3.common.Body;
 
-public class TitlePaint extends PaintAdapter {
+public class TitlePaint implements PaintListener {
 
+	private UnitWorks uw;
+	private AnimeManager anime;
 
 	/**
 	 * @param uw
 	 */
 	public TitlePaint(UnitWorks uw) {
-		super(uw);
+		this.uw = uw;
+		this.anime = uw.getAnimeManager();
 	}
 
 	/**
@@ -22,29 +26,48 @@ public class TitlePaint extends PaintAdapter {
 		anime.closeTitleIn();
 	}
 
-	/* (非 Javadoc)
-	 * @see dragon3.paint.PaintListener#leftPressed()
-	 */
+	@Override
 	public void leftPressed() {
 		//uw.nameChange();
 		action();
 	}
 
-	/* (非 Javadoc)
-	 * @see dragon3.paint.PaintListener#rightPressed()
-	 */
+	@Override
 	public void rightPressed() {
 	}
 
-	/* (非 Javadoc)
-	 * @see dragon3.paint.PaintListener#setSelectBody(dragon3.common.Body)
-	 */
+	@Override
 	public void setSelectBody(Body b) {
 	}
 
-	/* (非 Javadoc)
-	 * @see dragon3.paint.PaintListener#mouseMoved(int, int)
-	 */
+	@Override
 	public void mouseMoved(int x, int y) {
 	}
+	
+	/*** Place *****************************************/
+
+	@Override
+	public void setSelectPlace(int x, int y) {
+		uw.getPanelManager().displayPlace(x, y);
+	}
+
+	/*** Select Body *****************************************/
+
+	@Override
+	public boolean isNextPoint(int x, int y) {
+		return false;
+	}
+
+	/*** Mouse Moved ***********************************/
+
+	/*** Event ************************************/
+
+	@Override
+	public void leftReleased() {
+	};
+	
+	@Override
+	public void rightReleased() {
+	};
+
 }

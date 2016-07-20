@@ -5,15 +5,26 @@ import dragon3.common.Body;
 import dragon3.common.constant.GameColors;
 import dragon3.common.constant.Page;
 import dragon3.common.constant.Texts;
+import dragon3.map.MapWorks;
+import dragon3.panel.PanelManager;
+import mine.paint.UnitMap;
 
-public class ScorePaint extends PaintAdapter {
+public class ScorePaint implements PaintListener {
 
-
+	private UnitWorks uw;
+	private MapWorks mw;
+	private UnitMap map;
+	private PanelManager pm;
+	
 	/**
 	 * @param uw
 	 */
 	public ScorePaint(UnitWorks uw) {
-		super(uw);
+		this.uw = uw;
+		this.mw = uw.getMapWorks();
+		this.map = uw.getUnitMap();
+		this.pm = uw.getPanelManager();
+		
 		map.clear(Page.P40, 0);
 		mw.repaint();
 		setHelp();
@@ -26,28 +37,46 @@ public class ScorePaint extends PaintAdapter {
 		pm.displayHelp(mw.getWaku(), Texts.help[Texts.H_SCORE], GameColors.BLUE);
 	}
 
-	/* (非 Javadoc)
-	 * @see dragon3.paint.PaintListener#setSelectBody(dragon3.common.Body)
-	 */
+	@Override
 	public void setSelectBody(Body b) {
 	}
 
-	/* (非 Javadoc)
-	 * @see dragon3.paint.PaintListener#mouseMoved(int, int)
-	 */
+	@Override
 	public void mouseMoved(int x, int y) {
 	}
-	/* (非 Javadoc)
-	 * @see dragon3.paint.PaintListener#leftPressed()
-	 */
+	@Override
 	public void leftPressed() {
 		uw.backToCamp();
 	}
-	/* (非 Javadoc)
-	 * @see dragon3.paint.PaintListener#rightPressed()
-	 */
+	@Override
 	public void rightPressed() {
 		uw.backToCamp();
 	}
+
+	/*** Place *****************************************/
+
+	@Override
+	public void setSelectPlace(int x, int y) {
+		uw.getPanelManager().displayPlace(x, y);
+	}
+
+	/*** Select Body *****************************************/
+
+	@Override
+	public boolean isNextPoint(int x, int y) {
+		return false;
+	}
+
+	/*** Mouse Moved ***********************************/
+
+	/*** Event ************************************/
+	
+	@Override
+	public void leftReleased() {
+	};
+	
+	@Override
+	public void rightReleased() {
+	};
 
 }

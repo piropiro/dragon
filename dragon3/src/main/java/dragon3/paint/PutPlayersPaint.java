@@ -9,9 +9,17 @@ import dragon3.common.constant.GameColors;
 import dragon3.common.constant.Page;
 import dragon3.common.constant.Texts;
 import dragon3.common.util.MoveUtils;
+import dragon3.map.MapWorks;
+import dragon3.panel.PanelManager;
+import mine.paint.UnitMap;
 
-public class PutPlayersPaint extends PaintAdapter {
+public class PutPlayersPaint implements PaintListener {
 
+	private UnitWorks uw;
+	private MapWorks mw;
+	private UnitMap map;
+	private PanelManager pm;
+	
 	static final int MAX = 5;
 
 	private List<Body> charaList;
@@ -31,7 +39,12 @@ public class PutPlayersPaint extends PaintAdapter {
 	 * @param playerList
 	 */
 	public PutPlayersPaint(UnitWorks uw, List<Body> charaList, List<Body> playerList) {
-		super(uw);
+		this.uw = uw;
+		this.mw = uw.getMapWorks();
+		this.map = uw.getUnitMap();
+		this.pm = uw.getPanelManager();
+		this.pm = uw.getPanelManager();
+		
 		this.charaList = charaList;
 		this.playerList = playerList;
 		n = 0;
@@ -194,9 +207,7 @@ public class PutPlayersPaint extends PaintAdapter {
 	}
 
 
-	/* (非 Javadoc)
-	 * @see dragon3.paint.PaintListener#leftPressed()
-	 */
+	@Override
 	public void leftPressed() {
 		Point p = mw.getWaku();
 		if (map.getData(Page.P20, p.x, p.y) == 0) {
@@ -215,9 +226,7 @@ public class PutPlayersPaint extends PaintAdapter {
 	}
 
 
-	/* (非 Javadoc)
-	 * @see dragon3.paint.PaintListener#rightPressed()
-	 */
+	@Override
 	public void rightPressed() {
 		Point p = mw.getWaku();
 		if (map.getData(Page.P20, p.x, p.y) == 0) {
@@ -239,9 +248,7 @@ public class PutPlayersPaint extends PaintAdapter {
 	}
 
 
-	/* (非 Javadoc)
-	 * @see dragon3.paint.PaintListener#mouseMoved(int, int)
-	 */
+	@Override
 	public void mouseMoved(int x, int y) {
 		mw.wakuMove(x, y);
 		moveChara(x, y);
@@ -249,13 +256,39 @@ public class PutPlayersPaint extends PaintAdapter {
 	}
 
 
-	/* (非 Javadoc)
-	 * @see dragon3.paint.PaintListener#isNextPoint(int, int)
-	 */
+	@Override
 	public boolean isNextPoint(int x, int y) {
 		Body b = uw.search(x, y);
 		if (b != null)
 			return (GameColors.isPlayer(b));
 		return false;
 	}
+	
+	/*** Place *****************************************/
+
+	@Override
+	public void setSelectPlace(int x, int y) {
+		uw.getPanelManager().displayPlace(x, y);
+	}
+
+	/*** Select Body *****************************************/
+
+	@Override
+	public void setSelectBody(Body b) {
+		pm.displayStatus(b);
+	}
+
+	/*** Mouse Moved ***********************************/
+
+
+	/*** Event ************************************/
+
+	@Override
+	public void leftReleased() {
+	};
+	
+	@Override
+	public void rightReleased() {
+	};
+
 }

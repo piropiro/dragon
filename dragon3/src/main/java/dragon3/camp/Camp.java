@@ -7,22 +7,29 @@ import java.util.List;
 
 import dragon3.UnitWorks;
 import dragon3.common.Body;
-import dragon3.common.constant.GameColors;
 import dragon3.common.constant.BodyAttribute;
 import dragon3.common.constant.BodyKind;
+import dragon3.common.constant.GameColors;
 import dragon3.common.constant.Page;
 import dragon3.common.constant.Texts;
 import dragon3.common.util.Equip;
 import dragon3.manage.TreasureManager;
 import dragon3.map.MapWorks;
-import dragon3.paint.PaintAdapter;
+import dragon3.paint.PaintListener;
+import dragon3.panel.PanelManager;
 import dragon3.panel.paint.CampDataPaint;
+import mine.paint.UnitMap;
 
-public class Camp extends PaintAdapter {
+public class Camp implements PaintListener {
 
+	private UnitWorks uw;
+	private MapWorks mw;
+	private UnitMap map;
+	private PanelManager pm;
+	
 	Equip equip;
 	List<Body> equips;
-	MapWorks mw;
+
 
 
 	Point ps; // Last Position
@@ -40,7 +47,12 @@ public class Camp extends PaintAdapter {
 	/*** Constructer **********************************/
 
 	public Camp(UnitWorks uw, TreasureManager treasure, Equip equip) {
-		super(uw);
+		this.uw = uw;
+		this.mw = uw.getMapWorks();
+		this.map = uw.getUnitMap();
+		this.pm = uw.getPanelManager();
+		this.pm = uw.getPanelManager();
+		
 		this.equip = equip;
 		this.mw = uw.getMapWorks();
 		equips = equip.getEquips();
@@ -534,6 +546,7 @@ public class Camp extends PaintAdapter {
 
 	/*** Left Pressed ***********************************/
 
+	@Override
 	public void leftPressed() {
 		Point p = mw.getWaku();
 		Body b = equip.search(p.x, p.y);
@@ -588,6 +601,7 @@ public class Camp extends PaintAdapter {
 
 	/*** Right Pressed ******************************/
 
+	@Override
 	public void rightPressed() {
 		Point p = mw.getWaku();
 		if (sortf) {
@@ -625,25 +639,54 @@ public class Camp extends PaintAdapter {
 
 	/*** Mouse Moved ***********************************/
 
-	public void mouseMoved(Point p) {
-		mw.wakuMove(p.x, p.y);
-		Body b = equip.search(p.x, p.y);
+	@Override
+	public void mouseMoved(int x, int y) {
+		mw.wakuMove(x, y);
+		Body b = equip.search(x, y);
 		if (b != null && b.getColor() == GameColors.BLUE) {
 			equip.equip(b);
 		}
 		pm.displayStatus(b);
-		moveChara(p.x, p.y);
+		moveChara(x, y);
 		mw.wakuPaint(true);
 	}
 
 	/*** Next Point *************************************/
 
-	public boolean isNextPoint(Point p) {
-		if (map.getData(Page.P10, p.x, p.y) != 0)
+	@Override
+	public boolean isNextPoint(int x, int y) {
+		if (map.getData(Page.P10, x, y) != 0)
 			return false;
 
-		Body b = equip.search(p.x, p.y);
+		Body b = equip.search(x, y);
 		return (b != null);
 	}
+
+	/*** Place *****************************************/
+
+	@Override
+	public void setSelectPlace(int x, int y) {
+		uw.getPanelManager().displayPlace(x, y);
+	}
+
+	/*** Select Body *****************************************/
+
+	@Override
+	public void setSelectBody(Body b) {
+		pm.displayStatus(b);
+	}
+
+	/*** Mouse Moved ***********************************/
+
+
+	/*** Event ************************************/
+
+	@Override
+	public void leftReleased() {
+	};
+	
+	@Override
+	public void rightReleased() {
+	};
 
 }

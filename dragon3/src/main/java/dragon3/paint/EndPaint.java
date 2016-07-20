@@ -5,13 +5,21 @@ import java.awt.Point;
 import dragon3.Rewalk;
 import dragon3.UnitWorks;
 import dragon3.common.Body;
+import dragon3.common.constant.BodyAttribute;
 import dragon3.common.constant.GameColors;
 import dragon3.common.constant.Page;
 import dragon3.common.constant.Texts;
-import dragon3.common.constant.BodyAttribute;
+import dragon3.map.MapWorks;
+import dragon3.panel.PanelManager;
+import mine.paint.UnitMap;
 
-public class EndPaint extends PaintAdapter {
+public class EndPaint implements PaintListener {
 
+	private UnitWorks uw;
+	private MapWorks mw;
+	private UnitMap map;
+	private PanelManager pm;
+	
 	private Body ba;
 
 
@@ -20,7 +28,12 @@ public class EndPaint extends PaintAdapter {
 	 * @param ba
 	 */
 	public EndPaint(UnitWorks uw, Body ba) {
-		super(uw);
+		this.uw = uw;
+		this.mw = uw.getMapWorks();
+		this.map = uw.getUnitMap();
+		this.pm = uw.getPanelManager();
+		this.pm = uw.getPanelManager();
+		
 		this.ba = ba;
 		map.clear(Page.P10, 0);
 		map.setData(Page.P10, ba.getX(), ba.getY(), 3);
@@ -50,26 +63,20 @@ public class EndPaint extends PaintAdapter {
 	}
 
 
-	/* (非 Javadoc)
-	 * @see dragon3.paint.PaintListener#leftPressed()
-	 */
+	@Override
 	public void leftPressed() {
 		map.setData(Page.P10, ba.getX(), ba.getY(), 0);
 		action();
 	}
 
 
-	/* (非 Javadoc)
-	 * @see dragon3.paint.PaintListener#rightPressed()
-	 */
+	@Override
 	public void rightPressed() {
 		Rewalk.rewalk(ba);
 	}
 
 
-	/* (非 Javadoc)
-	 * @see dragon3.paint.PaintListener#isNextPoint(int, int)
-	 */
+	@Override
 	public boolean isNextPoint(int x, int y) {
 		Body b = uw.search(x, y);
 		if (b == null)
@@ -87,4 +94,37 @@ public class EndPaint extends PaintAdapter {
 		}
 		return true;
 	}
+	
+	/*** Place *****************************************/
+
+	@Override
+	public void setSelectPlace(int x, int y) {
+		uw.getPanelManager().displayPlace(x, y);
+	}
+
+	/*** Select Body *****************************************/
+
+	@Override
+	public void setSelectBody(Body b) {
+		pm.displayStatus(b);
+	}
+
+	/*** Mouse Moved ***********************************/
+
+	@Override
+	public void mouseMoved(int x, int y) {
+		mw.wakuMove(x, y);
+		mw.wakuPaint(true);
+	}
+
+	/*** Event ************************************/
+	
+	@Override
+	public void leftReleased() {
+	};
+	
+	@Override
+	public void rightReleased() {
+	};
+
 }
