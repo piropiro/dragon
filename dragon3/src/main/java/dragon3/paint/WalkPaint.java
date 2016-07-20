@@ -47,7 +47,7 @@ public class WalkPaint extends PaintAdapter {
 			map.setData(Page.P02, b.getX(), b.getY(), 255);
 		}
 		map.setData(Page.P02, ba.getX(), ba.getY(), 1);
-		map.paintStep(Page.P02, Page.P03, ba.getX(), ba.getY(), step + 1);
+		map.paintStep(Page.P02, Page.P03, ba.getX(), ba.getY(), step);
 		map.change(Page.P03, UnitMap.FALSE, Page.P10, 0, 1);
 		for (Body b : charaList) {
 			if (!b.isAlive())
