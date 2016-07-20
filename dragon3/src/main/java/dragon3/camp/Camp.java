@@ -15,42 +15,39 @@ import dragon3.common.constant.Texts;
 import dragon3.common.util.Equip;
 import dragon3.manage.TreasureManager;
 import dragon3.map.MapWorks;
-import dragon3.paint.PaintListener;
 import dragon3.panel.PanelManager;
 import dragon3.panel.paint.CampDataPaint;
+import lombok.Getter;
 import mine.paint.UnitMap;
 
-public class Camp implements PaintListener {
+public class Camp {
 
-	private UnitWorks uw;
+	// private UnitWorks uw;
 	private MapWorks mw;
 	private UnitMap map;
 	private PanelManager pm;
 	
-	Equip equip;
+	@Getter Equip equip;
 	List<Body> equips;
-
-
 
 	Point ps; // Last Position
 	Point end;
-	Body ba; // Selected Body
+	@Getter Body ba; // Selected Body
 	Body[] items; // Stock Item
-	boolean sortf; // Sorting Flag
+	@Getter boolean sortf; // Sorting Flag
 
-	static final int T_NONE = 0;
-	static final int T_FREE = 1;
-	static final int T_PASTE = 2;
-	static final int T_ERASE = 3;
-	static final int T_STORE = 4;
+	public static final int T_NONE = 0;
+	public static final int T_FREE = 1;
+	public static final int T_PASTE = 2;
+	public static final int T_ERASE = 3;
+	public static final int T_STORE = 4;
 
 	/*** Constructer **********************************/
 
 	public Camp(UnitWorks uw, TreasureManager treasure, Equip equip) {
-		this.uw = uw;
+		// this.uw = uw;
 		this.mw = uw.getMapWorks();
 		this.map = uw.getUnitMap();
-		this.pm = uw.getPanelManager();
 		this.pm = uw.getPanelManager();
 		
 		this.equip = equip;
@@ -61,38 +58,9 @@ public class Camp implements PaintListener {
 			setSource(treasure.getSources(), false);
 		}
 		setColor();
-		setHelp();
+
 	}
 
-	public void setHelp() {
-		String[] line;
-
-		if (ba == null) {
-			Point p = mw.getWaku();
-			if (map.getData(Page.P30, p.x, p.y) != 0) {
-				if (p.x < 14) {
-					line = Texts.help[Texts.H_CAMP1];
-				} else {
-					line = Texts.help[Texts.H_CAMP2];
-				}
-			} else {
-				line = Texts.help[Texts.H_CAMP3];
-			}
-		} else {
-			if (ba.isKind(BodyKind.SOUL)) {
-				line = Texts.help[Texts.H_CAMP4];
-			} else if (ba.isKind(BodyKind.WEPON)) {
-				line = Texts.help[Texts.H_CAMP4];
-			} else if (ba.isKind(BodyKind.ARMOR)) {
-				line = Texts.help[Texts.H_CAMP4];
-			} else if (ba.isKind(BodyKind.ITEM)) {
-				line = Texts.help[Texts.H_CAMP4];
-			} else {
-				line = Texts.help[Texts.H_CAMP6];
-			}
-		}
-		pm.displayHelp(uw.getMapWorks().getWaku(), line, GameColors.BLUE);
-	}
 
 	/*** Repaint ******************************************/
 
@@ -206,7 +174,7 @@ public class Camp implements PaintListener {
 
 	/*** Back to Source **************************************/
 
-	private void backChara() {
+	public void backChara() {
 		for (int y = 1; y < 15; y++) {
 			for (int x = 14; x < 20; x++) {
 				if (map.getData(Page.P20, x, y) == 0) {
@@ -221,7 +189,7 @@ public class Camp implements PaintListener {
 
 	/*** Move Chara ************************/
 
-	private void moveChara(int x, int y) {
+	public void moveChara(int x, int y) {
 		if (end != null) {
 			removeCancel(end.x, end.y);
 			end = null;
@@ -242,7 +210,7 @@ public class Camp implements PaintListener {
 
 	/*** Put Chara ***************************/
 
-	private void putChara(int x, int y, Body b) {
+	public void putChara(int x, int y, Body b) {
 		if (equip.search(x, y) != null)
 			return;
 		equips.add(b);
@@ -253,7 +221,7 @@ public class Camp implements PaintListener {
 		ba = null;
 	}
 
-	private void putChara2(int x, int y) {
+	public void putChara2(int x, int y) {
 		if (equip.search(x, y) != null)
 			return;
 		Body bb;
@@ -408,7 +376,7 @@ public class Camp implements PaintListener {
 
 	/*** Pick Chara ***************************/
 
-	private Body pickChara(int x, int y) {
+	public Body pickChara(int x, int y) {
 		Body b = equip.search(x, y);
 		if (b == null) {
 			help(x, y);
@@ -422,7 +390,7 @@ public class Camp implements PaintListener {
 
 	/*** Change Chara ***********************/
 
-	private void changeChara(int x, int y) {
+	public void changeChara(int x, int y) {
 		if (equip.search(x, y) == null) {
 			putChara(x, y, ba);
 			return;
@@ -435,7 +403,7 @@ public class Camp implements PaintListener {
 
 	/*** Remove Chara **********************/
 
-	private void removeChara1(int x, int y) {
+	public void removeChara1(int x, int y) {
 		Body bb = equip.search(x, y);
 		if (bb == null)
 			return;
@@ -450,7 +418,7 @@ public class Camp implements PaintListener {
 		map.setData(Page.P40, x, y, 0);
 		mw.ppaint(x, y);
 	}
-	private void removeChara2(int x, int y) {
+	public void removeChara2(int x, int y) {
 		Body bb = equip.search(x, y);
 		equips.remove(bb);
 
@@ -472,7 +440,7 @@ public class Camp implements PaintListener {
 
 	/*** Remove Cancel ***********************************/
 
-	private void removeCancel(int x, int y) {
+	public void removeCancel(int x, int y) {
 		if (map.getData(Page.P30, x, y) == 0)
 			return;
 		Body bb = equip.search(x, y);
@@ -483,12 +451,11 @@ public class Camp implements PaintListener {
 		}
 		map.setData(Page.P30, x, y, 0);
 		mw.ppaint(x, y);
-		setHelp();
 	}
 
 	/*** Sort ***************************************/
 
-	private Body[] pickSortItems(int x, int y) {
+	public Body[] pickSortItems(int x, int y) {
 		Body[] tmp = new Body[5];
 		for (int i = 1; i <= 4; i++) {
 			tmp[i] = equip.search(x + i, y);
@@ -527,7 +494,7 @@ public class Camp implements PaintListener {
 		mw.repaint();
 	}
 
-	private void changeSortChara(int x, int y) {
+	public void changeSortChara(int x, int y) {
 		if (x != 1 && x != 8)
 			return;
 		if (!sortf)
@@ -542,151 +509,5 @@ public class Camp implements PaintListener {
 		}
 		mw.repaint();
 	}
-
-
-	/*** Left Pressed ***********************************/
-
-	@Override
-	public void leftPressed() {
-		Point p = mw.getWaku();
-		Body b = equip.search(p.x, p.y);
-		if (b != null)
-			pm.displayWazaList(b);
-
-		switch (map.getData(Page.P10, p.x, p.y)) {
-			case T_NONE :
-				if (sortf)
-					return;
-				if (ba != null) {
-					changeChara(p.x, p.y);
-				} else {
-					if (b != null) {
-						if (b.isKind(BodyKind.WAZA)) {
-							removeChara1(p.x, p.y);
-						} else {
-							ba = pickChara(p.x, p.y);
-						}
-					}
-				}
-				break;
-			case T_FREE :
-			case T_STORE :
-				if (ba != null)
-					putChara2(p.x, p.y);
-				else
-					ba = pickChara(p.x, p.y);
-				break;
-			case T_PASTE :
-				if (ba != null)
-					changeSortChara(p.x, p.y);
-				else
-					removeChara1(p.x, p.y);
-				break;
-			case T_ERASE :
-				if (sortf)
-					return;
-				if (map.getData(Page.P30, p.x, p.y) == 0) {
-					if (ba != null)
-						putChara(p.x, p.y, ba);
-					else
-						ba = pickChara(p.x, p.y);
-				} else {
-					if (ba == null)
-						removeChara2(p.x, p.y);
-				}
-				break;
-		}
-		setHelp();
-	}
-
-	/*** Right Pressed ******************************/
-
-	@Override
-	public void rightPressed() {
-		Point p = mw.getWaku();
-		if (sortf) {
-			moveChara(ba.getGoalX(), ba.getGoalY());
-			putChara2(ba.getGoalX(), ba.getGoalY());
-			setHelp();
-			return;
-		}
-		switch (map.getData(Page.P10, p.x, p.y)) {
-			case T_NONE :
-			case T_FREE :
-			case T_STORE :
-			case T_PASTE :
-				if (ba != null) {
-					backChara();
-				} else {
-					Body b = equip.search(p.x, p.y);
-					if (b != null) {
-						if (b.isKind(BodyKind.WAZA)) {
-							removeChara1(p.x, p.y);
-						} else {
-							pm.displayAnalyze(b);
-						}
-					} else {
-						leftPressed();
-					}
-				}
-				break;
-			case T_ERASE :
-				removeCancel(p.x, p.y);
-				break;
-		}
-		setHelp();
-	}
-
-	/*** Mouse Moved ***********************************/
-
-	@Override
-	public void mouseMoved(int x, int y) {
-		mw.wakuMove(x, y);
-		Body b = equip.search(x, y);
-		if (b != null && b.getColor() == GameColors.BLUE) {
-			equip.equip(b);
-		}
-		pm.displayStatus(b);
-		moveChara(x, y);
-		mw.wakuPaint(true);
-	}
-
-	/*** Next Point *************************************/
-
-	@Override
-	public boolean isNextPoint(int x, int y) {
-		if (map.getData(Page.P10, x, y) != 0)
-			return false;
-
-		Body b = equip.search(x, y);
-		return (b != null);
-	}
-
-	/*** Place *****************************************/
-
-	@Override
-	public void setSelectPlace(int x, int y) {
-		uw.getPanelManager().displayPlace(x, y);
-	}
-
-	/*** Select Body *****************************************/
-
-	@Override
-	public void setSelectBody(Body b) {
-		pm.displayStatus(b);
-	}
-
-	/*** Mouse Moved ***********************************/
-
-
-	/*** Event ************************************/
-
-	@Override
-	public void leftReleased() {
-	};
-	
-	@Override
-	public void rightReleased() {
-	};
 
 }

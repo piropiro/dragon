@@ -275,7 +275,7 @@ public class VPanel extends JLayeredPane implements UnitWorks, ActionListener, K
 		Charas.clear();
 		camp = new Camp(this, treasure, equip);
 		camp.repaint(saveManager.getCampMap());
-		up.setPaintListener(camp);
+		PaintUtils.setCampPaint(this, camp);
 		cp.setVisible(false);
 		up.repaint();
 	}
@@ -751,14 +751,12 @@ public class VPanel extends JLayeredPane implements UnitWorks, ActionListener, K
 	public void backToCamp() {
 		panelManager.closeData();
 		mw.setMenu(DragonBuster.T_CAMP);
-		up.setPaintListener(camp);
+		PaintUtils.setCampPaint(this, camp);
 		camp.repaint(saveManager.getCampMap());
-		camp.setHelp();
 		up.repaint();
 	}
 	public void backFromImogari() {
-		up.setPaintListener(camp);
-		camp.setHelp();
+		PaintUtils.setCampPaint(this, camp);
 	}
 
 	/*** KeyEvent **************************************/
