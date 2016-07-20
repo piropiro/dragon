@@ -42,13 +42,20 @@ public class BodyEditor extends EditPanel<BodyData> implements EditListener<Body
 		initCombo("kind", BodyKind.createMap());
 		setEnumCombo(RIGHT, "soulType", "魂色", SoulType.class);
 		initCombo("soulType", SoulType.createMap());
+		
 		setSlider(CENTER, "hp", "HP", 99);
-		setSlider(CENTER, "str", "攻撃", 30);
-		setSlider(CENTER, "def", "防御", 30);
-		setSlider(CENTER, "mst", "魔法", 30);
-		setSlider(CENTER, "mdf", "抵抗", 30);
-		setSlider(CENTER, "hit", "命中", 30);
-		setSlider(CENTER, "mis", "回避", 30);
+		setIntCombo(LEFT, "str", "攻撃", 30);
+		setIntCombo(RIGHT, "def", "防御", 30);
+		setIntCombo(LEFT, "mst", "魔法", 30);
+		setIntCombo(RIGHT, "mdf", "抵抗", 30);
+		setIntCombo(LEFT, "hit", "命中", 30);
+		setIntCombo(RIGHT, "mis", "回避", 30);
+//		setSlider(CENTER, "str", "攻撃", 30);
+//		setSlider(CENTER, "def", "防御", 30);
+//		setSlider(CENTER, "mst", "魔法", 30);
+//		setSlider(CENTER, "mdf", "抵抗", 30);
+//		setSlider(CENTER, "hit", "命中", 30);
+//		setSlider(CENTER, "mis", "回避", 30);
 		setEnumCombo(LEFT, "moveType", "移動", MoveType.class);
 		initCombo("moveType", MoveType.createMap());
 		setIntCombo(RIGHT, "moveStep", "歩数", 20);
