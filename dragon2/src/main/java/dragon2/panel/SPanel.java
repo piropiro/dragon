@@ -357,30 +357,31 @@ public class SPanel extends StatusBase {
 			drawLine(Texts.sp[38], 0, 1, g);
 			break;
 		}
-		switch (attackdata.fuelType) {
-		case 1: // '\001'
+		switch (attackdata.energyType) {
+		case STR: // '\001'
 			drawLine(Texts.sp[39], 1, 1, g);
 			break;
 
-		case 2: // '\002'
+		case DEF: // '\002'
 			drawLine(Texts.sp[40], 1, 1, g);
 			break;
 
-		case 3: // '\003'
+		case MST: // '\003'
 			drawLine(Texts.sp[41], 1, 1, g);
 			break;
 
-		case 4: // '\004'
+		case MDF: // '\004'
 			drawLine(Texts.sp[42], 1, 1, g);
 			break;
 
-		case 5: // '\005'
+		case HIT: // '\005'
 			drawLine(Texts.sp[43], 1, 1, g);
 			break;
 
-		case 6: // '\006'
+		case MIS: // '\006'
 			drawLine(Texts.sp[44], 1, 1, g);
 			break;
+		default:
 		}
 		n = 4;
 		drawWazaEffect(g, aflag, Effects.DAMAGE_150);

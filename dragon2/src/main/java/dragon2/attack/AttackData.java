@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import dragon2.common.constant.Effects;
+import dragon2.common.constant.EnergyType;
 import dragon2.common.constant.TargetType;
 
 public class AttackData implements Serializable {
@@ -26,8 +27,8 @@ public class AttackData implements Serializable {
 	public TargetType targetType;
 	public int animeType;
 	public int animeN1;
-	public int fuelType;
-	public int fuelN1;
+	public EnergyType energyType;
+	public int energyN1;
 
     public String getName() {
         return name;
@@ -102,19 +103,19 @@ public class AttackData implements Serializable {
         this.animeN1 = AnimeN1;
     }
 
-    public int getFuelType() {
-        return fuelType;
+    public EnergyType getEnergyType() {
+        return energyType;
     }
 
-    public void setFuelType(int FuelType) {
-        this.fuelType = FuelType;
+    public void setEnergyType(EnergyType energyType) {
+        this.energyType = energyType;
     }
 
-    public int getFuelN1() {
-        return fuelN1;
+    public int getEnergyN1() {
+        return energyN1;
     }
 
-    public void setFuelN1(int FuelN1) {
-        this.fuelN1 = FuelN1;
+    public void setEnergyN1(int energyN1) {
+        this.energyN1 = energyN1;
     }
 }
