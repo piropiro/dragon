@@ -14,7 +14,7 @@ public class WazaData implements Data {
 	private String id = "none";
 	private String name = "none";
 	private String label = "none";
-	private GameColors labelColor = GameColors.BLACK;
+	private GameColors labelColor = GameColors.NONE;
 
 	private DamageType damageType = DamageType.NONE;
 	private TargetType targetType = TargetType.SINGLE_1;

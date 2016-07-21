@@ -29,7 +29,6 @@ public interface UnitWorks {
 	public void startup();
 	public void backToCamp();
 	public void backFromImogari();
-	public void nameChange();
 	public List<Body> loadEnemyData(String file);
 
 	/*** Main2 **************************/

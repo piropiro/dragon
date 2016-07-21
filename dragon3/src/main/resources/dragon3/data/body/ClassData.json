@@ -1,0 +1,32 @@
+[
+	{
+		"armorType": "NONE",
+		"attrList": [
+			"NONE",
+			"NONE",
+			"NONE",
+			"NONE",
+			"NONE"
+		],
+		"def": 5,
+		"hit": 10,
+		"hp": 15,
+		"id": "class.fighter",
+		"image": "class_sword.png",
+		"kind": "CLASS",
+		"mdf": 0,
+		"mis": 5,
+		"moveStep": 0,
+		"moveType": "NONE",
+		"mst": 0,
+		"name": "ファイター",
+		"soulType": "RED",
+		"str": 10,
+		"wazaList": [
+			"slash",
+			"none",
+			"none"
+		],
+		"weponType": "SWORD"
+	}
+]

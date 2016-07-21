@@ -3,6 +3,8 @@ package dragon3.common.constant;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+import lombok.Getter;
+
 public enum BodyAttribute {
 	
 	NONE("NONE"), // 0
@@ -76,15 +78,12 @@ public enum BodyAttribute {
 	//M_BLUE("青玉"), // 55
 	;
 	
-	private String text;
+	@Getter private String text;
 	
 	BodyAttribute(String text) {
 		this.text = text;
 	}
 	
-	public String getText() {
-		return text;
-	}
 	public static BodyAttribute convert(int n) {
 		switch (n) {
 		//case 1: return CLASS;

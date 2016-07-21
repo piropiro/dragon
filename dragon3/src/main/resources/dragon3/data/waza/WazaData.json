@@ -11,7 +11,7 @@
 		],
 		"id": "none",
 		"label": "none",
-		"labelColor": "BLACK",
+		"labelColor": "NONE",
 		"name": "none",
 		"star": 0,
 		"targetType": "SINGLE_1"
@@ -49,5 +49,39 @@
 		"name": "ファイア",
 		"star": 0,
 		"targetType": "LONG_2"
+	},
+	{
+		"animeId": "slash_upper",
+		"damageType": "SWORD",
+		"effect": [
+			"DAMAGE_200",
+			"NONE",
+			"NONE",
+			"NONE",
+			"NONE"
+		],
+		"id": "long.slash",
+		"label": "縦切り",
+		"labelColor": "YELLOW",
+		"name": "スラッシュ",
+		"star": 0,
+		"targetType": "LASER_3"
+	},
+	{
+		"animeId": "slash",
+		"damageType": "SWORD",
+		"effect": [
+			"COMBO",
+			"NONE",
+			"NONE",
+			"NONE",
+			"NONE"
+		],
+		"id": "double.slash",
+		"label": "連続斬",
+		"labelColor": "RED",
+		"name": "ダブルスラッシュ",
+		"star": 0,
+		"targetType": "SINGLE_1"
 	}
 ]

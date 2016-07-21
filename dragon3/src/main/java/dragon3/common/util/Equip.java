@@ -125,7 +125,7 @@ public class Equip {
 
 	public void equip(Body ba) {
 		ba.setMax();
-		ba.clearAttr();
+		ba.resetAttr();
 		ba.clearWaza();
 		Body wepon = searchItem(ba.getGoalX() + 2, ba.getGoalY());
 		Body armor = searchItem(ba.getGoalX() + 3, ba.getGoalY());

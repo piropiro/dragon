@@ -1,0 +1,62 @@
+[
+	{
+		"armorType": "LITE",
+		"attrList": [
+			"NONE",
+			"NONE",
+			"NONE",
+			"NONE",
+			"NONE"
+		],
+		"def": 2,
+		"hit": 0,
+		"hp": 1,
+		"id": "shield.small",
+		"image": "chara_068.png",
+		"kind": "ARMOR",
+		"mdf": 0,
+		"mis": 3,
+		"moveStep": 0,
+		"moveType": "NONE",
+		"mst": 0,
+		"name": "スモールシールド",
+		"soulType": "RED",
+		"str": 0,
+		"wazaList": [
+			"none",
+			"none",
+			"none"
+		],
+		"weponType": "NONE"
+	},
+	{
+		"armorType": "LITE",
+		"attrList": [
+			"NONE",
+			"NONE",
+			"NONE",
+			"NONE",
+			"NONE"
+		],
+		"def": 0,
+		"hit": 1,
+		"hp": 1,
+		"id": "dragon.robe",
+		"image": "chara_093.png",
+		"kind": "ARMOR",
+		"mdf": 0,
+		"mis": 0,
+		"moveStep": 0,
+		"moveType": "NONE",
+		"mst": 4,
+		"name": "ドラゴンローブ",
+		"soulType": "NONE",
+		"str": 0,
+		"wazaList": [
+			"none",
+			"none",
+			"none"
+		],
+		"weponType": "NONE"
+	}
+]

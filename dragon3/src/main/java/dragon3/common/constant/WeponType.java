@@ -6,30 +6,31 @@ package dragon3.common.constant;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+import lombok.Getter;
+
 /**
  * @author k-saito
  */
 public enum WeponType {
 	
-	NONE("無"),
-	SWORD("剣"),
-	AX("斧"),
-	SPEAR("槍"),
-	BOW("弓"),
-	KNIFE("短剣"),
-	MAGIC("魔法"),
-	BODY("体術"),
-	
+	NONE("無", "none.png"),
+	SWORD("剣", "waza_sword.png"),
+	AX("斧", "waza_ax.png"),
+	SPEAR("槍", "waza_spear.png"),
+	BOW("弓", "waza_bow.png"),
+	KNIFE("小刀", "waza_knife.png"),
+	MAGIC("魔法", "waza_magic.png"),
+	BODY("体術", "waza_body.png"),
+	BREATH("ブレス", "waza_breath.png"),
+	HAMMER("ハンマー", "waza_hammer.png"),
 	;
 	
-	private String text;
+	@Getter private String text;
+	@Getter private String image;
 	
-	WeponType(String text) {
+	WeponType(String text, String image) {
 		this.text = text;
-	}
-	
-	public String getText() {
-		return text;
+		this.image = image;
 	}
 	
 	public static Map<String, String> createMap() {

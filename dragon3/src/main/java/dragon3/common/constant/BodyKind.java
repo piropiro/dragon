@@ -3,8 +3,11 @@ package dragon3.common.constant;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+import lombok.Getter;
+
 public enum BodyKind {
 
+	NONE("無"),
 	CHARA("キャラ"),
 	CLASS("職業"), // 1
 	SOUL("魂玉"),
@@ -15,14 +18,10 @@ public enum BodyKind {
 	WAZA("技"), // 52
 	;
 	
-	private String text;
+	@Getter private String text;
 	
 	BodyKind(String text) {
 		this.text = text;
-	}
-	
-	public String getText() {
-		return text;
 	}
 	
 	public static Map<String, String> createMap() {

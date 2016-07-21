@@ -3,7 +3,10 @@ package dragon3.common.constant;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+import lombok.Getter;
+
 public enum TargetType {
+	NONE("無", 0, 0, 0, 0, 0, 0),
 	SINGLE_1("単体１", 0, 1, 0, 0, 0, 0), // 0
 	SINGLE_2("単体２", 0, 2, 0, 0, 0, 0), // 1
 	SINGLE_3("単体３", 0, 3, 0, 0, 0, 0), // 2
@@ -25,13 +28,13 @@ public enum TargetType {
 	SPREAD("拡散", 1, 2, 1, 3, 1, 0), // 18
 	;
 	
-	private String text;
-	private int rangeType; 
-	private int rangeN1; 
-	private int rangeN2;
-	private int targetType; 
-	private int targetN1; 
-	private int targetN2;
+	@Getter private String text;
+	@Getter private int rangeType; 
+	@Getter private int rangeN1; 
+	@Getter private int rangeN2;
+	@Getter private int targetType; 
+	@Getter private int targetN1; 
+	@Getter private int targetN2;
 
 		
 	TargetType(String text, int rangeType, int rangeN1, int rangeN2, int targetType, int targetN1, int targetN2) {
@@ -42,34 +45,6 @@ public enum TargetType {
 		this.targetType = targetType;
 		this.targetN1 = targetN1;
 		this.targetN2 = targetN2;
-	}
-	
-	public String getText() {
-		return text;
-	}
-
-	public int getRangeType() {
-		return rangeType;
-	}
-
-	public int getRangeN1() {
-		return rangeN1;
-	}
-
-	public int getRangeN2() {
-		return rangeN2;
-	}
-
-	public int getTargetType() {
-		return targetType;
-	}
-
-	public int getTargetN1() {
-		return targetN1;
-	}
-
-	public int getTargetN2() {
-		return targetN2;
 	}
 	
 	public static TargetType convert(int n) {

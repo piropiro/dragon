@@ -39,6 +39,15 @@ public class Camp {
 	public static final int T_PASTE = 2;
 	public static final int T_ERASE = 3;
 	public static final int T_STORE = 4;
+	
+	public static final int COL_CHARA1 = 1;
+	public static final int COL_CHARA2 = 8;
+	
+	public static final int OFFSET_CLASS = 1;
+	public static final int OFFSET_WEPON = 2;
+	public static final int OFFSET_ARMOR = 3;
+	public static final int OFFSET_ITEM = 4;
+	public static final int OFFSET_SOUL = 5;
 
 	/*** Constructer **********************************/
 
@@ -55,7 +64,6 @@ public class Camp {
 		if (treasure != null) {
 			setSource(treasure.getSources(), false);
 		}
-		setColor();
 
 	}
 
@@ -76,18 +84,23 @@ public class Camp {
 			map.setData(Page.P20, b.getX(), b.getY(), b.getImageNum());
 		}
 	}
-
-	/*** Color ******************************************/
-
-	private void setColor() {
-		for (Body b : equips) {
-			if (GameColors.isPlayer(b)) {
-				b.setColor(GameColors.BLUE);
-			} else if (GameColors.isEnemy(b)) {
-				b.setColor(GameColors.RED);
-			}
-		}
-	}
+	
+	/*** Deploy Main Soul ************************************/
+	
+//	public void createMainSoul(Body b) {
+//		Body mainSoul = equip.search(b.getX() + 1, b.getY());
+//		if (mainSoul == null) {
+//			mainSoul = BodyDataLoader.loadBodyData(b.getId());
+//			mainSoul.setImage(b.getSoulType().getImage());
+//			mainSoul.setImageNum(im.getBodyList().getNum(mainSoul.getImage()));
+//			mainSoul.setX(b.getX() + 1);
+//			mainSoul.setY(b.getY());
+//			mainSoul.setGoalX(b.getGoalX() + 1);
+//			mainSoul.setGoalY(b.getGoalY());
+//			mainSoul.setColor(GameColors.GREEN);
+//			equip.addBody(mainSoul);
+//		}
+//	}
 
 	/*** Deploy Equip ****************************************/
 
@@ -95,7 +108,7 @@ public class Camp {
 		for (int i = equips.size() - 1; i >= 0; i--) {
 			Body b = (Body) equips.get(i);
 			b.setMax();
-			b.clearAttr();
+			b.resetAttr();
 			if (GameColors.isPlayer(b)) {
 				b.setX(b.getGoalX());
 				b.setY(b.getGoalY());
@@ -225,16 +238,19 @@ public class Camp {
 		Body bb;
 
 		switch (ba.getKind()) {
-		case SOUL:
-			if (x == 2 || x == 9) {
-				bb = charaCheck(x - 1, y);
+		case CLASS:
+			if (x == COL_CHARA1 + OFFSET_CLASS || x == COL_CHARA2 + OFFSET_CLASS) {
+				bb = charaCheck(x - OFFSET_CLASS, y);
 				if (bb == null)
 					return;
-				if (!equipCheck(bb, ba, BodyKind.SOUL))
+				if (!equipCheck(bb, ba)) {
+					pm.displayLarge(Texts.warning3, GameColors.RED, 1000);
 					return;
+				}
+
 				if (!levelCheck(bb, ba))
 					return;
-				if (equip.search(x + 1, y) != null) {
+				if (equip.search(bb.getX() + OFFSET_WEPON, y) != null) {
 					pm.displayLarge(Texts.warning1, GameColors.RED, 1000);
 					return;
 				}
@@ -245,12 +261,14 @@ public class Camp {
 			}
 			break;
 		case WEPON:
-			if (x == 3 || x == 10) {
-				bb = charaCheck(x - 2, y);
+			if (x == COL_CHARA1 + OFFSET_WEPON || x == COL_CHARA2 + OFFSET_WEPON) {
+				bb = charaCheck(x - OFFSET_WEPON, y);
 				if (bb == null)
 					return;
-				if (!equipCheck(bb, ba, BodyKind.WEPON))
+				if (!equipCheck(bb, ba)) {
+					pm.displayLarge(Texts.warning4, GameColors.RED, 1000);
 					return;
+				}
 				if (!levelCheck(bb, ba))
 					return;
 				putChara(x, y, ba);
@@ -258,8 +276,8 @@ public class Camp {
 			}
 			break;
 		case ARMOR:
-			if (x == 4 || x == 11) {
-				bb = charaCheck(x - 3, y);
+			if (x == COL_CHARA1 + OFFSET_ARMOR || x == COL_CHARA2 + OFFSET_ARMOR) {
+				bb = charaCheck(x - OFFSET_ARMOR, y);
 				if (bb == null)
 					return;
 				if (!levelCheck(bb, ba))
@@ -269,8 +287,19 @@ public class Camp {
 			}
 			break;
 		case ITEM:
-			if (x == 5 || x == 12) {
+			if (x == COL_CHARA1 + OFFSET_ITEM || x == COL_CHARA2 + OFFSET_ITEM) {
 				bb = charaCheck(x - 4, y);
+				if (bb == null)
+					return;
+				if (!levelCheck(bb, ba))
+					return;
+				putChara(x, y, ba);
+				return;
+			}
+			break;
+		case SOUL:
+			if (x == COL_CHARA1 + OFFSET_SOUL || x == COL_CHARA2 + OFFSET_SOUL) {
+				bb = charaCheck(x - OFFSET_SOUL, y);
 				if (bb == null)
 					return;
 				if (!levelCheck(bb, ba))
@@ -282,7 +311,7 @@ public class Camp {
 		case WAZA:
 			break;
 		default:
-			if (x == 1 || x == 8) {
+			if (x == COL_CHARA1 || x == COL_CHARA2) {
 				if (sortf) {
 					putSortItems(x, y, items);
 				} else {
@@ -302,28 +331,7 @@ public class Camp {
 	/*** Alarm ***********************************/
 
 	private void alarm(Body ba) {
-		String s = null;
-		switch (ba.getKind()) {
-		case SOUL:
-			s = Texts.shokugyo;
-			break;
-		case WEPON:
-			s = Texts.buki;
-			break;
-		case ARMOR:
-			s = Texts.bougu;
-			break;
-		case ITEM:
-			s = Texts.komono;
-			break;
-		case WAZA:
-			s = Texts.wazasetumei;
-			break;
-		default:
-			s = Texts.nakama;
-			break;
-		}
-		pm.displayLarge(Texts.sokoni + s + Texts.haokemasen, GameColors.RED, 1000);
+		pm.displayLarge(Texts.sokoni + ba.getKind().getText() + Texts.haokemasen, GameColors.RED, 1000);
 	}
 
 	private Body charaCheck(int x, int y) {
@@ -334,22 +342,18 @@ public class Camp {
 		return null;
 	}
 
-	private boolean equipCheck(Body ba, Body bb, BodyKind kind) {
+	private boolean equipCheck(Body ba, Body bb) {
 		if (ba == null)
 			return false;
 		if (bb == null)
 			return false;
 
-		if (kind.equals(BodyKind.WEPON)) {
-			if (ba.getWeponType().equals(bb.getWeponType())) {
-				return true;
-			}
-		}
-
-		if (kind.equals(BodyKind.ARMOR)) {
-			if (ba.getArmorType().equals(bb.getArmorType())) {
-				return true;
-			}
+		switch (bb.getKind()) {
+		case WEPON:
+			return ba.getWeponType().equals(bb.getWeponType());
+		case ARMOR:
+			return ba.getArmorType().equals(bb.getArmorType());
+		default:
 		}
 
 		return false;
@@ -437,7 +441,7 @@ public class Camp {
 
 		end = null;
 		switch (bb.getKind()) {
-		case SOUL:
+		case CLASS:
 			map.setData(Page.P10, x, y, T_FREE);
 			List<Body> list = new ArrayList<>();
 			bb.setExp(0);

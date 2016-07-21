@@ -26,7 +26,7 @@ public class EditEnumComboList<T> extends EditTextCombo implements EditComponent
 		@SuppressWarnings("unchecked")
 		List<T> strs = (List<T>)MineUtils.getField(obj, fieldName);
 		
-		while (index > strs.size()) {
+		while (index >= strs.size()) {
 			strs.add((T)EnumUtils.callValueOf(enu, "NONE"));
 		}
 		
