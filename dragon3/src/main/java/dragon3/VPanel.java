@@ -382,7 +382,7 @@ public class VPanel extends JLayeredPane implements UnitWorks, ActionListener, K
 			b.setHpMax(b.getHpMax() * rate / 256);
 			Equip.restrict(b);
 			b.setMax();
-			b.clearAttr();
+			b.resetAttr();
 			if (b.getColor() == GameColors.RED) {
 				if (!b.hasAttr(BodyAttribute.TALKABLE)) {
 					b.setStr(Math.max(0, b.getStr() - 2));
@@ -659,7 +659,7 @@ public class VPanel extends JLayeredPane implements UnitWorks, ActionListener, K
 				Body b = equip.search(x, y);
 				if (b == null)
 					continue;
-				b.clearAttr();
+				b.resetAttr();
 				if (b.hasAttr(BodyAttribute.HERO))
 					hero = b;
 				if (b.hasAttr(BodyAttribute.SISTER))
@@ -884,7 +884,12 @@ public class VPanel extends JLayeredPane implements UnitWorks, ActionListener, K
 	}
 
 	public List<Body> loadEnemyData(String file) {
-		return BodyDataLoader.loadBodyData(file, imageManager);
+		List<Body> bodyList = BodyDataLoader.loadBodyDataList(file);
+		
+		for (Body body : bodyList) {
+			body.setImageNum(imageManager.getBodyList().getNum(body.getImage()));
+		}
+		return bodyList;
 	}
 	
 	public SaveManager getSaveManager() {
@@ -941,6 +946,7 @@ public class VPanel extends JLayeredPane implements UnitWorks, ActionListener, K
 		return Charas;
 	}
 
+	@Override
 	public ImageManager getImageManager() {
 		return imageManager;
 	}

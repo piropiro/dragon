@@ -5,12 +5,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import dragon3.UnitWorks;
+import dragon3.bean.load.BodyDataLoader;
 import dragon3.common.Body;
 import dragon3.common.constant.BodyKind;
 import dragon3.common.constant.GameColors;
 import dragon3.common.constant.Page;
 import dragon3.common.constant.Texts;
 import dragon3.common.util.Equip;
+import dragon3.image.ImageManager;
 import dragon3.manage.TreasureManager;
 import dragon3.map.MapWorks;
 import dragon3.panel.PanelManager;
@@ -24,6 +26,7 @@ public class Camp {
 	private MapWorks mw;
 	private UnitMap map;
 	private PanelManager pm;
+	private ImageManager im;
 	
 	@Getter Equip equip;
 	List<Body> equips;
@@ -47,6 +50,7 @@ public class Camp {
 		this.mw = uw.getMapWorks();
 		this.map = uw.getUnitMap();
 		this.pm = uw.getPanelManager();
+		this.im = uw.getImageManager();
 		
 		this.equip = equip;
 		this.mw = uw.getMapWorks();
@@ -88,6 +92,23 @@ public class Camp {
 			}
 		}
 	}
+	
+	/*** Deploy Main Soul ************************************/
+	
+	public void createMainSoul(Body b) {
+		Body mainSoul = equip.search(b.getX() + 1, b.getY());
+		if (mainSoul == null) {
+			mainSoul = BodyDataLoader.loadBodyData(b.getId());
+			mainSoul.setImage(b.getSoulType().getImage());
+			mainSoul.setImageNum(im.getBodyList().getNum(mainSoul.getImage()));
+			mainSoul.setX(b.getX() + 1);
+			mainSoul.setY(b.getY());
+			mainSoul.setGoalX(b.getGoalX() + 1);
+			mainSoul.setGoalY(b.getGoalY());
+			mainSoul.setColor(GameColors.GREEN);
+			equip.addBody(mainSoul);
+		}
+	}
 
 	/*** Deploy Equip ****************************************/
 
@@ -95,7 +116,7 @@ public class Camp {
 		for (int i = equips.size() - 1; i >= 0; i--) {
 			Body b = (Body) equips.get(i);
 			b.setMax();
-			b.clearAttr();
+			b.resetAttr();
 			if (GameColors.isPlayer(b)) {
 				b.setX(b.getGoalX());
 				b.setY(b.getGoalY());

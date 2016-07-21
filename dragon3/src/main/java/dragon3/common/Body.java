@@ -44,6 +44,7 @@ public class Body implements Serializable, Cloneable {
 	private ArmorType armorType = ArmorType.NONE;
 
 	private List<String> wazaList = new ArrayList<>();
+	private List<BodyAttribute> attrList = new ArrayList<>();
 	private Set<BodyAttribute> attrSet = new LinkedHashSet<BodyAttribute>();
 
 	private int x;
@@ -78,8 +79,9 @@ public class Body implements Serializable, Cloneable {
 		return (hp > 0);
 	}
 
-	public void clearAttr() {
+	public void resetAttr() {
 		attrSet.clear();
+		attrSet.addAll(attrList);
 	}
 	public void addAttr(BodyAttribute attr){
 		attrSet.add(attr);
