@@ -7,6 +7,7 @@ import java.util.List;
 
 import dragon3.FightManager;
 import dragon3.UnitWorks;
+import dragon3.camp.Camp;
 import dragon3.card.CardPaint;
 import dragon3.common.Body;
 import dragon3.map.MapWorks;
@@ -75,6 +76,11 @@ public class PaintUtils {
 		System.out.println("CardPaint");
 		MapWorks mw = uw.getMapWorks();
 		mw.setPaintListener(new CardPaint(uw, ba, bb));
+	}
+	public static void setCampPaint(UnitWorks uw, Camp camp) {
+		System.out.println("CampPaint");
+		MapWorks mw = uw.getMapWorks();
+		mw.setPaintListener(new CampPaint(uw, camp));
 	}
 
 }

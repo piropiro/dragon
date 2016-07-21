@@ -5,13 +5,21 @@ import java.awt.Point;
 import dragon3.Rewalk;
 import dragon3.UnitWorks;
 import dragon3.common.Body;
+import dragon3.common.constant.BodyAttribute;
 import dragon3.common.constant.GameColors;
 import dragon3.common.constant.Page;
 import dragon3.common.constant.Texts;
-import dragon3.common.constant.BodyAttribute;
+import dragon3.map.MapWorks;
+import dragon3.panel.PanelManager;
+import mine.paint.UnitMap;
 
-public class TalkPaint extends PaintAdapter {
+public class TalkPaint implements PaintListener {
 
+	private UnitWorks uw;
+	private MapWorks mw;
+	private UnitMap map;
+	private PanelManager pm;
+	
 	private Body ba, bb;
 	private Body[] target;
 
@@ -21,7 +29,12 @@ public class TalkPaint extends PaintAdapter {
 	 * @param ba
 	 */
 	public TalkPaint(UnitWorks uw, Body ba) {
-		super(uw);
+		this.uw = uw;
+		this.mw = uw.getMapWorks();
+		this.map = uw.getUnitMap();
+		this.pm = uw.getPanelManager();
+		this.pm = uw.getPanelManager();
+		
 		this.ba = ba;
 		target = new Body[4];
 		target[0] = getTarget(ba.getX() - 1, ba.getY());
@@ -102,9 +115,7 @@ public class TalkPaint extends PaintAdapter {
 		PaintUtils.setCardPaint(uw, ba, bb);
 	}
 
-	/* (非 Javadoc)
-	 * @see dragon3.paint.PaintListener#leftPressed()
-	 */
+	@Override
 	public void leftPressed() {
 		Point p = mw.getWaku();
 		if (p.x == ba.getX() && p.y == ba.getY()) {
@@ -122,18 +133,47 @@ public class TalkPaint extends PaintAdapter {
 		}
 	}
 
-	/* (非 Javadoc)
-	 * @see dragon3.paint.PaintListener#rightPressed()
-	 */
+	@Override
 	public void rightPressed() {
 		Rewalk.rewalk(ba);
 	}
 
-	/* (非 Javadoc)
-	 * @see dragon3.paint.PaintListener#isNextPoint(int, int)
-	 */
+	@Override
 	public boolean isNextPoint(int x, int y) {
 		return (map.getData(Page.P10, x, y) == 3);
 	}
+
+	/*** Place *****************************************/
+
+	@Override
+	public void setSelectPlace(int x, int y) {
+		uw.getPanelManager().displayPlace(x, y);
+	}
+
+	/*** Select Body *****************************************/
+
+	@Override
+	public void setSelectBody(Body b) {
+		pm.displayStatus(b);
+	}
+
+
+	/*** Mouse Moved ***********************************/
+
+	@Override
+	public void mouseMoved(int x, int y) {
+		mw.wakuMove(x, y);
+		mw.wakuPaint(true);
+	}
+
+	/*** Event ************************************/
+
+	@Override
+	public void leftReleased() {
+	};
+	
+	@Override
+	public void rightReleased() {
+	};
 
 }

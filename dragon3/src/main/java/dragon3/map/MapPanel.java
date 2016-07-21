@@ -40,6 +40,7 @@ public class MapPanel extends JComponent implements MapWorks, MouseAllListener {
 	/*** Listener ************************************************/
 
 	public synchronized void setPaintListener(PaintListener pl) {
+		System.out.println(pl.getClass());
 		this.pl = pl;
 	}
 

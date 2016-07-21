@@ -1,14 +1,24 @@
 package dragon3.paint;
 
 import dragon3.UnitWorks;
+import dragon3.anime.AnimeManager;
 import dragon3.common.Body;
 import dragon3.common.constant.Page;
+import dragon3.map.MapWorks;
+import dragon3.panel.PanelManager;
+import mine.paint.UnitMap;
 
 /**
  * @author k-saito
  */
-public class ChangePaint extends PaintAdapter {
+public class ChangePaint implements PaintListener {
 
+	private UnitWorks uw;
+	private MapWorks mw;
+	private UnitMap map;
+	private AnimeManager anime;
+	private PanelManager pm;
+	
 	private Body ba;
 	private Body bb;
 
@@ -18,7 +28,13 @@ public class ChangePaint extends PaintAdapter {
 	 * @param bb
 	 */
 	public ChangePaint(UnitWorks uw, Body ba, Body bb) {
-		super(uw);
+		this.uw = uw;
+		this.mw = uw.getMapWorks();
+		this.map = uw.getUnitMap();
+		this.pm = uw.getPanelManager();
+		this.anime = uw.getAnimeManager();
+		this.pm = uw.getPanelManager();
+		
 		this.ba = ba;
 		this.bb = bb;
 		map.clear(Page.P10, 0);
@@ -39,16 +55,12 @@ public class ChangePaint extends PaintAdapter {
 		PaintUtils.setBasicPaint(uw);
 	}
 
-	/* (非 Javadoc)
-	 * @see dragon3.paint.PaintListener#mouseMoved(int, int)
-	 */
+	@Override
 	public void mouseMoved(int x, int y) {
 		rightPressed();
 	}
 
-	/* (非 Javadoc)
-	 * @see dragon3.paint.PaintListener#leftPressed()
-	 */
+	@Override
 	public void leftPressed() {
 		bb.setX(ba.getX());
 		bb.setY(ba.getY());
@@ -56,14 +68,44 @@ public class ChangePaint extends PaintAdapter {
 		action();
 	}
 
-	/* (非 Javadoc)
-	 * @see dragon3.paint.PaintListener#rightPressed()
-	 */
+	@Override
 	public void rightPressed() {
 		map.setData(Page.P10, ba.getX(), ba.getY(), 0);
 		map.setData(Page.P30, ba.getX(), ba.getY(), 1);
 		mw.repaint();
 		PaintUtils.setBasicPaint(uw);
 	}
+
+	/*** Place *****************************************/
+
+	@Override
+	public void setSelectPlace(int x, int y) {
+		uw.getPanelManager().displayPlace(x, y);
+	}
+
+	/*** Select Body *****************************************/
+
+	@Override
+	public void setSelectBody(Body b) {
+		pm.displayStatus(b);
+	}
+
+	@Override
+	public boolean isNextPoint(int x, int y) {
+		return false;
+	}
+
+	/*** Mouse Moved ***********************************/
+
+	/*** Event ************************************/
+
+	
+	@Override
+	public void leftReleased() {
+	};
+	
+	@Override
+	public void rightReleased() {
+	};
 
 }

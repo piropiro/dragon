@@ -28,5 +28,20 @@
 		"scope": 0,
 		"x": 1,
 		"y": 4
+	},
+	{
+		"bodyId": "short.sword",
+		"color": "GREEN",
+		"deployType": "CHARA",
+		"goalX": 3,
+		"goalY": 1,
+		"id": null,
+		"level": 1,
+		"limitTurn": 0,
+		"name": null,
+		"range": 0,
+		"scope": 0,
+		"x": 3,
+		"y": 1
 	}
 ]

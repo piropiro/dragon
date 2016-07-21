@@ -7,15 +7,24 @@ import mine.paint.UnitMap;
 import dragon3.FightManager;
 import dragon3.Rewalk;
 import dragon3.UnitWorks;
+import dragon3.anime.AnimeManager;
 import dragon3.common.Body;
 import dragon3.common.constant.GameColors;
 import dragon3.common.constant.Page;
 import dragon3.common.constant.Texts;
 import dragon3.common.constant.BodyAttribute;
 import dragon3.common.util.MoveUtils;
+import dragon3.map.MapWorks;
+import dragon3.panel.PanelManager;
 
-public class WalkPaint extends PaintAdapter {
+public class WalkPaint implements PaintListener {
 
+	private UnitWorks uw;
+	private MapWorks mw;
+	private UnitMap map;
+	private AnimeManager anime;
+	private PanelManager pm;
+	
 	private Body ba;
 	private int step;
 
@@ -25,7 +34,12 @@ public class WalkPaint extends PaintAdapter {
 	 * @param ba
 	 */
 	public WalkPaint(UnitWorks uw, Body ba) {
-		super(uw);
+		this.uw = uw;
+		this.mw = uw.getMapWorks();
+		this.map = uw.getUnitMap();
+		this.anime = uw.getAnimeManager();
+		this.pm = uw.getPanelManager();
+		
 		this.ba = ba;
 		List<Body> charaList = uw.getCharaList();
 
@@ -77,6 +91,7 @@ public class WalkPaint extends PaintAdapter {
 		map.clear(Page.P10, 0);
 		FightManager fm = new FightManager(uw, ba);
 		PaintUtils.setAttackPaint(uw, fm, ba);
+		fm.nextSelect();
 	}
 
 	/**
@@ -100,9 +115,7 @@ public class WalkPaint extends PaintAdapter {
 		map.clear(Page.P10, 0);
 	}
 
-	/* (非 Javadoc)
-	 * @see dragon3.paint.PaintListener#leftPressed()
-	 */
+	@Override
 	public void leftPressed() {
 		Point waku = mw.getWaku();
 		if (map.getData(Page.P10, waku.x, waku.y) == 0) {
@@ -122,13 +135,48 @@ public class WalkPaint extends PaintAdapter {
 		action();
 	}
 
-	/* (非 Javadoc)
-	 * @see dragon3.paint.PaintListener#rightPressed()
-	 */
+	@Override
 	public void rightPressed() {
 		map.clear(Page.P10, 0);
 		PaintUtils.setBasicPaint(uw);
 		mw.repaint();
 	}
+
+	/*** Place *****************************************/
+
+	@Override
+	public void setSelectPlace(int x, int y) {
+		uw.getPanelManager().displayPlace(x, y);
+	}
+
+	/*** Select Body *****************************************/
+
+	@Override
+	public void setSelectBody(Body b) {
+		pm.displayStatus(b);
+	}
+
+	@Override
+	public boolean isNextPoint(int x, int y) {
+		return false;
+	}
+
+	/*** Mouse Moved ***********************************/
+
+	@Override
+	public void mouseMoved(int x, int y) {
+		mw.wakuMove(x, y);
+		mw.wakuPaint(true);
+	}
+
+	/*** Event ************************************/
+
+	@Override
+	public void leftReleased() {
+	};
+	
+	@Override
+	public void rightReleased() {
+	};
 
 }

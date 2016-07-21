@@ -3,13 +3,22 @@ package dragon3.paint;
 import java.awt.Point;
 
 import dragon3.UnitWorks;
+import dragon3.common.Body;
 import dragon3.common.constant.Page;
+import dragon3.map.MapWorks;
+import dragon3.panel.PanelManager;
+import mine.paint.UnitMap;
 
 /**
  * @author k-saito
  */
-public class ButtonPaint extends PaintAdapter {
+public class ButtonPaint implements PaintListener {
 
+	private UnitWorks uw;
+	private MapWorks mw;
+	private UnitMap map;
+	private PanelManager pm;
+	
 	private int x;
 	private int y;
 	private PaintListener pl;
@@ -23,7 +32,11 @@ public class ButtonPaint extends PaintAdapter {
 	 * @param type
 	 */
 	public ButtonPaint(UnitWorks uw, int x, int y, PaintListener pl, int type) {
-		super(uw);
+		this.uw = uw;
+		this.mw = uw.getMapWorks();
+		this.map = uw.getUnitMap();
+		this.pm = uw.getPanelManager();
+		this.pm = uw.getPanelManager();
 
 		this.x = x;
 		this.y = y;
@@ -40,16 +53,12 @@ public class ButtonPaint extends PaintAdapter {
 		mw.repaint();
 	}
 
-	/* (非 Javadoc)
-	 * @see dragon3.paint.PaintListener#mouseMoved(int, int)
-	 */
+	@Override
 	public void mouseMoved(int x, int y) {
 		rightPressed();
 	}
 
-	/* (非 Javadoc)
-	 * @see dragon3.paint.PaintListener#leftPressed()
-	 */
+	@Override
 	public void leftPressed() {
 		Point ps = mw.getWaku();
 		if (ps.x == x && ps.y == y) {
@@ -69,9 +78,7 @@ public class ButtonPaint extends PaintAdapter {
 		}
 	}
 
-	/* (非 Javadoc)
-	 * @see dragon3.paint.PaintListener#rightPressed()
-	 */
+	@Override
 	public void rightPressed() {
 		map.setData(Page.P40, x, y - 1, 0);
 		map.setData(Page.P40, x, y + 1, 0);
@@ -80,4 +87,36 @@ public class ButtonPaint extends PaintAdapter {
 		mw.setPaintListener(pl);
 		mw.repaint();
 	}
+	/*** Place *****************************************/
+
+	@Override
+	public void setSelectPlace(int x, int y) {
+		uw.getPanelManager().displayPlace(x, y);
+	}
+
+	/*** Select Body *****************************************/
+
+	@Override
+	public void setSelectBody(Body b) {
+		pm.displayStatus(b);
+	}
+
+	@Override
+	public boolean isNextPoint(int x, int y) {
+		return false;
+	}
+
+	/*** Mouse Moved ***********************************/
+
+	/*** Event ************************************/
+	
+	@Override
+	public void leftReleased() {
+	};
+	
+	@Override
+	public void rightReleased() {
+	};
+
+	
 }

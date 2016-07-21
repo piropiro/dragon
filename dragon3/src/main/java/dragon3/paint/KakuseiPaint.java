@@ -6,9 +6,18 @@ import dragon3.UnitWorks;
 import dragon3.anime.AnimeManager;
 import dragon3.common.Body;
 import dragon3.common.constant.Page;
+import dragon3.map.MapWorks;
+import dragon3.panel.PanelManager;
+import mine.paint.UnitMap;
 
-public class KakuseiPaint extends PaintAdapter {
+public class KakuseiPaint implements PaintListener {
 
+	private UnitWorks uw;
+	private MapWorks mw;
+	private UnitMap map;
+	private AnimeManager anime;
+	private PanelManager pm;
+	
 	private Body sister;
 	private Body kakusei;
 
@@ -17,7 +26,13 @@ public class KakuseiPaint extends PaintAdapter {
 	 * @param sister
 	 */
 	public KakuseiPaint(UnitWorks uw, Body sister) {
-		super(uw);
+		this.uw = uw;
+		this.mw = uw.getMapWorks();
+		this.map = uw.getUnitMap();
+		this.pm = uw.getPanelManager();
+		this.anime = uw.getAnimeManager();
+		this.pm = uw.getPanelManager();
+		
 		this.sister = sister;
 		map.clear(Page.P10, 0);
 		map.setData(Page.P10, sister.getX(), sister.getY(), 4);
@@ -61,16 +76,12 @@ public class KakuseiPaint extends PaintAdapter {
 		kakusei.setGoalY(sister.getGoalY());
 	}
 
-	/* (非 Javadoc)
-	 * @see dragon3.paint.PaintListener#mouseMoved(int, int)
-	 */
+	@Override
 	public void mouseMoved(int x, int y) {
 		rightPressed();
 	}
 
-	/* (非 Javadoc)
-	 * @see dragon3.paint.PaintListener#leftPressed()
-	 */
+	@Override
 	public void leftPressed() {
 		kakusei = getKakuseiData();
 		setStatus();
@@ -78,13 +89,44 @@ public class KakuseiPaint extends PaintAdapter {
 		action();
 	}
 
-	/* (非 Javadoc)
-	 * @see dragon3.paint.PaintListener#rightPressed()
-	 */
+	@Override
 	public void rightPressed() {
 		map.setData(Page.P10, sister.getX(), sister.getY(), 0);
 		map.setData(Page.P30, sister.getX(), sister.getY(), 1);
 		mw.repaint();
 		PaintUtils.setBasicPaint(uw);
 	}
+
+	/*** Place *****************************************/
+
+	@Override
+	public void setSelectPlace(int x, int y) {
+		uw.getPanelManager().displayPlace(x, y);
+	}
+
+	/*** Select Body *****************************************/
+
+	@Override
+	public void setSelectBody(Body b) {
+		pm.displayStatus(b);
+	}
+
+	@Override
+	public boolean isNextPoint(int x, int y) {
+		return false;
+	}
+
+	/*** Mouse Moved ***********************************/
+
+
+	/*** Event ************************************/
+
+	@Override
+	public void leftReleased() {
+	};
+	
+	@Override
+	public void rightReleased() {
+	};
+
 }

@@ -1,11 +1,9 @@
 package dragon3.common.util;
 
-import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Vector;
 
 import dragon3.common.Body;
-import dragon3.common.constant.BodyAttribute;
 import dragon3.common.constant.GameColors;
 
 public class Equip {
@@ -127,7 +125,8 @@ public class Equip {
 
 	public void equip(Body ba) {
 		ba.setMax();
-		ba.setAttrSet(new LinkedHashSet<BodyAttribute>());
+		ba.clearAttr();
+		ba.clearWaza();
 		Body wepon = searchItem(ba.getGoalX() + 2, ba.getGoalY());
 		Body armor = searchItem(ba.getGoalX() + 3, ba.getGoalY());
 		Body item = searchItem(ba.getGoalX() + 4, ba.getGoalY());
@@ -135,6 +134,8 @@ public class Equip {
 		equip(ba, wepon);
 		equip(ba, armor);
 		equip(ba, item);
+		
+		
 		getAttack(ba);
 		restrict(ba);
 	}
@@ -144,11 +145,11 @@ public class Equip {
 		if (bb == null)
 			return;
 		ba.setStr(ba.getStr() + bb.getStr());
-		ba.setDef(ba.getStr() + bb.getDef());
-		ba.setMst(ba.getStr() + bb.getMst());
-		ba.setMdf(ba.getStr() + bb.getMdf());
-		ba.setHit(ba.getStr() + bb.getHit());
-		ba.setMis(ba.getStr() + bb.getMis());
+		ba.setDef(ba.getDef() + bb.getDef());
+		ba.setMst(ba.getMst() + bb.getMst());
+		ba.setMdf(ba.getMdf() + bb.getMdf());
+		ba.setHit(ba.getHit() + bb.getHit());
+		ba.setMis(ba.getMis() + bb.getMis());
 	}
 
 	/***  *****************************************/

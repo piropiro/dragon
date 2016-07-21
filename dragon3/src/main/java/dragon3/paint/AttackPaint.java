@@ -7,9 +7,14 @@ import dragon3.Rewalk;
 import dragon3.UnitWorks;
 import dragon3.common.Body;
 import dragon3.common.constant.Page;
+import dragon3.map.MapWorks;
+import mine.paint.UnitMap;
 
-public class AttackPaint extends PaintAdapter {
+public class AttackPaint implements PaintListener {
 
+	private UnitWorks uw;
+	private MapWorks mw;
+	private UnitMap map;
 	private FightManager fm;
 	private Body ba;
 	
@@ -17,15 +22,22 @@ public class AttackPaint extends PaintAdapter {
 	 * @param uw
 	 */
 	public AttackPaint(UnitWorks uw, FightManager fm, Body ba) {
-		super(uw);
+		this.uw = uw;
+		this.mw = uw.getMapWorks();
+		this.map = uw.getUnitMap();
 		this.fm = fm;
 		this.ba = ba;
 	}
 
-
+	@Override
+	public void setSelectPlace(int x, int y) {
+		uw.getPanelManager().displayPlace(x, y);
+	}
+	
 	/**
 	 * Left Pressed
 	 */
+	@Override
 	public void leftPressed() {
 		Point waku = mw.getWaku();
 		if (waku.x == ba.getX() && waku.y == ba.getY()) {
@@ -43,6 +55,7 @@ public class AttackPaint extends PaintAdapter {
 	/**
 	 * Right Pressed
 	 */
+	@Override
 	public void rightPressed() {
 		Rewalk.rewalk(ba);
 	}
@@ -50,15 +63,17 @@ public class AttackPaint extends PaintAdapter {
 	/**
 	 * Select Body
 	 */
+	@Override
 	public void setSelectBody(Body b) {
 	}
 
 	/**
 	 * Next Select
 	 */
-	public boolean isNextPoint(Point p) {
-		if (map.getData(Page.P10, p.x, p.y) == 3) {
-			Body b = uw.search(p.x, p.y);
+	@Override
+	public boolean isNextPoint(int x, int y) {
+		if (map.getData(Page.P10, x, y) == 3) {
+			Body b = uw.search(x, y);
 			return (b != null);
 		}
 		return false;
@@ -66,9 +81,18 @@ public class AttackPaint extends PaintAdapter {
 
 
 	/**
-	 * Mouse MOved
+	 * Mouse Moved
 	 */
-	public void mouseMoved(Point p) {
-		fm.setTarget(p);
+	@Override
+	public void mouseMoved(int x, int y) {
+		fm.setTarget(new Point(x, y));
 	}
+	
+	@Override
+	public void leftReleased() {
+	};
+	
+	@Override
+	public void rightReleased() {
+	};
 }

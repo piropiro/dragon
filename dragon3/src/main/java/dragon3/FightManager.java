@@ -201,7 +201,11 @@ public class FightManager {
 			if (!attack.isTarget(bb))
 				return;
 			setCounter(bb);
-			pm.displayAttack(attack.getAttack(), counter.getAttack());
+			if (counter == null) {
+				pm.displayAttack(attack.getAttack(), null);
+			} else {
+				pm.displayAttack(attack.getAttack(), counter.getAttack());
+			}
 		} else {
 			pm.closeData();
 			attack.selectTarget(null);

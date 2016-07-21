@@ -144,7 +144,7 @@ public class DataPanel extends PanelBase {
 	}
 	
 	public void displayNext(Body ba) {
-		if (ba != null && ba.isKind(BodyKind.WAZA)) {
+		if (ba != null && ba.getKind() == BodyKind.WAZA) {
 			displayWaza(ba, 0);
 		} else if (pp == null) {
 			displayAnalyze(ba);
@@ -163,21 +163,23 @@ public class DataPanel extends PanelBase {
 		Body ba = null;
 		Body bb = null;
 
-		if (attack == null && counter == null) {
-			setVisible(false);
-			return;
-		}
-		if (attack != null) {
+		if (attack == null) {
+			if (counter == null) {
+				setVisible(false);
+				return;
+			} else {
+				ba = counter.getReceiver();
+				bb = counter.getAttacker();
+				bgcolor = ba.getColor();
+				pp = new CounterPaint(ba);
+			}
+		} else {
 			ba = attack.getAttacker();
 			bb = attack.getReceiver();
 			bgcolor = ba.getColor();
 			pp = new AttackPaint(bb, attack);
-		} else {
-			ba = counter.getReceiver();
-			bb = counter.getAttacker();
-			bgcolor = ba.getColor();
-			pp = new CounterPaint(ba);
 		}
+
 		setLocate(ba, bb, 2);
 		setHPBar(ba, counter);
 
