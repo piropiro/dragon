@@ -3,6 +3,8 @@ package dragon3.common.constant;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+import lombok.Getter;
+
 public enum MoveType {
 
 	NONE("移動",  new int[]{ 1, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9 }), // 0
@@ -15,22 +17,13 @@ public enum MoveType {
 	
 	;
 	
-	private String text;
+	@Getter private String text;
 	
-	private int[] steps;
+	@Getter private int[] steps;
 	
 	MoveType(String text, int[] steps) {
 		this.text = text;
 		this.steps = steps;
-	}
-	
-	public String getText() {
-		return text;
-	}
-	
-	
-	public int[] getSteps() {
-		return steps;
 	}
 
 	public static MoveType convert(int n) {

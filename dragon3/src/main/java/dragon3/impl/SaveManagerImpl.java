@@ -79,7 +79,7 @@ public class SaveManagerImpl implements SaveManager {
      */
     @Override
     public int[][] getCampMap() {
-        return Statics.getMapData("camp");
+        return Statics.getMapData("init");
     }
 
     @Override

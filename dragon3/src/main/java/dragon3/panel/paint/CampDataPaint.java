@@ -20,7 +20,7 @@ public class CampDataPaint implements DataPanelPainter {
 	public static final int C_WEPON = 3;
 	public static final int C_ARMOR = 4;
 	public static final int C_ITEM = 5;
-	public static final int C_DOLL = 6;
+	public static final int C_SOUL = 6;
 	public static final int C_DUST = 7;
 	public static final int C_DITEM1 = 8;
 	public static final int C_DITEM2 = 9;
@@ -69,7 +69,7 @@ public class CampDataPaint implements DataPanelPainter {
 				g.drawImage(waku[1][3], 10, 10);
 				pw.drawText(Texts.sp[6], g);
 				break;
-			case C_DOLL :
+			case C_SOUL :
 				g.drawImage(waku[1][4], 10, 10);
 				pw.drawText(Texts.sp[7], g);
 				break;

@@ -26,5 +26,12 @@
 		"name": "回転",
 		"sleep": 30,
 		"type": "ROTATE"
+	},
+	{
+		"id": "slash_upper",
+		"image": "slash_upper.png",
+		"name": "スラッシュアッパー",
+		"sleep": 30,
+		"type": "ALL"
 	}
 ]

@@ -1,8 +1,7 @@
 [
 	{
 		"bodyId": "gobrin",
-		"color": "RED",
-		"deployType": "CHARA",
+		"deployType": "ENEMY_CHARA",
 		"goalX": 0,
 		"goalY": 0,
 		"id": null,
@@ -16,8 +15,7 @@
 	},
 	{
 		"bodyId": "gobrin",
-		"color": "RED",
-		"deployType": "CHARA",
+		"deployType": "ENEMY_CHARA",
 		"goalX": 0,
 		"goalY": 0,
 		"id": null,
@@ -31,8 +29,7 @@
 	},
 	{
 		"bodyId": "gobrin",
-		"color": "RED",
-		"deployType": "CHARA",
+		"deployType": "ENEMY_CHARA",
 		"goalX": 0,
 		"goalY": 0,
 		"id": null,

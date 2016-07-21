@@ -1,10 +1,15 @@
 package dragon3.common.constant;
 
+import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.stream.Collectors;
+
+import lombok.Getter;
 
 public enum AnimeType {
 
+	NONE("無"),
 	SINGLE("単体"),
 	ALL("全体"),
 	SINGLE_ARROW("一人矢"),
@@ -14,21 +19,17 @@ public enum AnimeType {
 	ROTATE("回転"),
 	;
 	
-	private String text;
+	@Getter private String text;
 	
 	AnimeType(String text) {
 		this.text = text;
 	}
 	
-	public String getText() {
-		return text;
-	}
-	
 	public static Map<String, String> createMap() {
-		Map<String, String> idAndText = new LinkedHashMap<>();
-		for (AnimeType a : values()) {	
-			idAndText.put(a.name(), a.getText());
-		}
-		return idAndText;
+		return Arrays.asList(values()).stream()
+				.collect(Collectors.toMap(AnimeType::name, 
+						d -> d.text, 
+						(u, v) -> v, 
+						LinkedHashMap::new));
 	}
 }

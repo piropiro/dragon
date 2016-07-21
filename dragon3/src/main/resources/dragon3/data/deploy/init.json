@@ -1,8 +1,7 @@
 [
 	{
 		"bodyId": "hero",
-		"color": "BLUE",
-		"deployType": "CHARA",
+		"deployType": "PLAYER_CHARA",
 		"goalX": 1,
 		"goalY": 1,
 		"id": null,
@@ -16,10 +15,9 @@
 	},
 	{
 		"bodyId": "sister",
-		"color": "BLUE",
-		"deployType": "CHARA",
+		"deployType": "PLAYER_CHARA",
 		"goalX": 1,
-		"goalY": 4,
+		"goalY": 3,
 		"id": null,
 		"level": 1,
 		"limitTurn": 0,
@@ -27,12 +25,11 @@
 		"range": 0,
 		"scope": 0,
 		"x": 1,
-		"y": 4
+		"y": 3
 	},
 	{
 		"bodyId": "short.sword",
-		"color": "GREEN",
-		"deployType": "CHARA",
+		"deployType": "NONE",
 		"goalX": 3,
 		"goalY": 1,
 		"id": null,
@@ -43,5 +40,47 @@
 		"scope": 0,
 		"x": 3,
 		"y": 1
+	},
+	{
+		"bodyId": "class.fighter",
+		"deployType": "NONE",
+		"goalX": 0,
+		"goalY": 0,
+		"id": null,
+		"level": 1,
+		"limitTurn": 0,
+		"name": null,
+		"range": 0,
+		"scope": 0,
+		"x": 2,
+		"y": 1
+	},
+	{
+		"bodyId": "shield.small",
+		"deployType": "NONE",
+		"goalX": 0,
+		"goalY": 0,
+		"id": null,
+		"level": 1,
+		"limitTurn": 0,
+		"name": null,
+		"range": 0,
+		"scope": 0,
+		"x": 4,
+		"y": 3
+	},
+	{
+		"bodyId": "dragon.robe",
+		"deployType": "NONE",
+		"goalX": 0,
+		"goalY": 0,
+		"id": null,
+		"level": 1,
+		"limitTurn": 0,
+		"name": null,
+		"range": 0,
+		"scope": 0,
+		"x": 4,
+		"y": 4
 	}
 ]

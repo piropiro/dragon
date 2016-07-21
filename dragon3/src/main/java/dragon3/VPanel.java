@@ -143,10 +143,8 @@ public class VPanel extends JLayeredPane implements UnitWorks, ActionListener, K
 	public void startup() {
 		if (saveManager.isFirst()) {
 			panelManager.setHelpVisible(true);
-			campStart();
-		} else {
-			campStart();
 		}
+		campStart();
 	}
 
 	/*** Panel Init ****************************************/
@@ -644,57 +642,6 @@ public class VPanel extends JLayeredPane implements UnitWorks, ActionListener, K
 
 	public Body getChangeChara(Body before) {
 		return equip.getChangeChara(before);
-	}
-
-	/*** Name Change **************************************/
-
-	@Deprecated
-	public void nameChange() {
-		if (saveManager.getSaveData().getPlayerName() != null)
-			return;
-		Body hero = null;
-		Body sister = null;
-		for (int x = 1; x <= 8; x += 7) {
-			for (int y = 1; y <= 10; y += 3) {
-				Body b = equip.search(x, y);
-				if (b == null)
-					continue;
-				b.resetAttr();
-				if (b.hasAttr(BodyAttribute.HERO))
-					hero = b;
-				if (b.hasAttr(BodyAttribute.SISTER))
-					sister = b;
-			}
-		}
-
-		TextDialog rd = new TextDialog(mw.getFrame(), 20);
-		if (hero != null) {
-			rd.setup(Texts.heroname, hero.getName());
-			rd.show();
-			if (rd.isOK() && !rd.getText().equals("")) {
-				hero.setName(rd.getText());
-			}
-		}
-		if (sister != null) {
-			rd.setup(Texts.sistername, sister.getName());
-			rd.show();
-			if (rd.isOK() && !rd.getText().equals("")) {
-				sister.setName(rd.getText());
-			}
-		}
-
-		rd.setup(Texts.rankname, "");
-		String name = null;
-
-		while (name == null || name.equals("")) {
-			rd.show();
-			if (rd.isOK()) {
-				name = rd.getText();
-			}
-		}
-		saveManager.getSaveData().setPlayerName(name);
-
-		saveManager.saveData("slgs.dat", equip);
 	}
 
 	/*** Score ****************************************/

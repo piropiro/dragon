@@ -23,7 +23,7 @@ public class BodyDataLoader {
 			Body body = loadBodyData(deploy.getBodyId());
 				
 			body.setDeployType(deploy.getDeployType());
-			body.setColor(deploy.getColor());
+			body.setColor(deploy.getDeployType().getColor());
 			body.setLevel(deploy.getLevel());
 			body.setScope(deploy.getScope());
 			body.setRange(deploy.getRange());

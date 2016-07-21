@@ -24,7 +24,7 @@ public class Body implements Serializable, Cloneable {
 	private String name = "none";
 	private String image = "none.png";
 	private BodyKind kind = BodyKind.CHARA;
-	private GameColors color = GameColors.BLACK;
+	private GameColors color = GameColors.NONE;
 
 	private DeployType deployType;
 	

@@ -4,7 +4,6 @@
 package dragon3.bean;
 
 import dragon3.common.constant.DeployType;
-import dragon3.common.constant.GameColors;
 
 /**
  * @author k-saito
@@ -16,8 +15,7 @@ public class DeployData implements Data {
 	private String name;
 
 	private String bodyId = "none";
-	private DeployType deployType = DeployType.CHARA;
-	private GameColors color = GameColors.BLACK;
+	private DeployType deployType = DeployType.NONE;
 	private int level;
 	private int scope;
 	private int range;

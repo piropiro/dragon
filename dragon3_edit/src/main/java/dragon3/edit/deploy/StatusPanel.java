@@ -6,7 +6,6 @@ import dragon3.Statics;
 import dragon3.bean.BodyData;
 import dragon3.bean.DeployData;
 import dragon3.common.constant.DeployType;
-import dragon3.common.constant.GameColors;
 import dragon3.image.BodyImageList;
 import dragon3.image.ImageManager;
 import mine.MineException;
@@ -26,9 +25,7 @@ public class StatusPanel extends EditPanel<DeployData> implements EditListener<D
 		setImageCombo(CENTER, "bodyId", "BODY");
 		setEnumCombo(CENTER, "deployType", "配置種別", DeployType.class);
 		initCombo("deployType", DeployType.createMap());
-		setSlider(CENTER, "level", "Level", 99);
-		setEnumCombo(LEFT, "color", "色", GameColors.class);
-		initCombo("color", GameColors.createMap());
+		setSlider(CENTER, "level", "Level", 15);
 		
 		setIntCombo(RIGHT, "limitTurn", "制限時間", 20);
 		setIntCombo(LEFT, "scope", "射程", 5);

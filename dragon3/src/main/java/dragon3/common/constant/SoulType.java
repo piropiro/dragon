@@ -6,6 +6,8 @@ package dragon3.common.constant;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+import lombok.Getter;
+
 /**
  * @author k-saito
  */
@@ -18,24 +20,16 @@ public enum SoulType {
 	GREEN("緑", "soul_green.png"),
 	PINK("桃", "soul_pink.png"),
 	ORANGE("橙", "soul_orange.png"),
-	
+	SKY("空", "soul_sky.png")
 	;
 	
-	private String text;
+	@Getter private String text;
 	
-	private String image;
+	@Getter private String image;
 	
 	SoulType(String text, String image) {
 		this.text = text;
 		this.image = image;
-	}
-	
-	public String getText() {
-		return text;
-	}
-	
-	public String getImage() {
-		return image;
 	}
 	
 	public static Map<String, String> createMap() {

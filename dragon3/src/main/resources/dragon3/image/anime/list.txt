@@ -24,7 +24,7 @@ slash_blue.png
 slash_red.png
 slash_upper.png
 slash_yellow.png
-spire_blue.png
+spear_blue.png
 summon.png
 thunder.png
 turu.png

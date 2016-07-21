@@ -3,6 +3,8 @@ package dragon3.common.constant;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+import lombok.Getter;
+
 public enum AttackEffect {
 
 	NONE("NONE"), // 0
@@ -45,15 +47,12 @@ public enum AttackEffect {
 	HIT_12("命中＋12"), // 37
 	;
 	
-	private String text;
+	@Getter private String text;
 	
 	AttackEffect(String text) {
 		this.text = text;
 	}
-	
-	public String getText() {
-		return text;
-	}
+
 	public static AttackEffect convert(int n) {
 		switch (n) {
 		case 1: return DAMAGE_200;
