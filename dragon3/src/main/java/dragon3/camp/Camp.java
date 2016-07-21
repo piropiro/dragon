@@ -2,12 +2,10 @@ package dragon3.camp;
 
 import java.awt.Point;
 import java.util.ArrayList;
-import java.util.LinkedHashSet;
 import java.util.List;
 
 import dragon3.UnitWorks;
 import dragon3.common.Body;
-import dragon3.common.constant.BodyAttribute;
 import dragon3.common.constant.BodyKind;
 import dragon3.common.constant.GameColors;
 import dragon3.common.constant.Page;
@@ -97,7 +95,7 @@ public class Camp {
 		for (int i = equips.size() - 1; i >= 0; i--) {
 			Body b = (Body) equips.get(i);
 			b.setMax();
-			b.setAttrSet(new LinkedHashSet<BodyAttribute>());
+			b.clearAttr();
 			if (GameColors.isPlayer(b)) {
 				b.setX(b.getGoalX());
 				b.setY(b.getGoalY());

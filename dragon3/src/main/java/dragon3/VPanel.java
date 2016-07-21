@@ -7,41 +7,26 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.io.File;
-import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
-import java.util.LinkedHashSet;
 import java.util.List;
 
 import javax.swing.AbstractButton;
 import javax.swing.JLayeredPane;
 
-import org.apache.commons.beanutils.BeanUtils;
-
-import mine.MineException;
-import mine.MineUtils;
-import mine.awt.ImageLoaderAWT;
-import mine.awt.MineAwtUtils;
-import mine.awt.MouseManagerAWT;
-import mine.awt.SleepManagerAWT;
-import mine.awt.TextDialog;
-import mine.event.SleepManager;
-import mine.paint.MineImageLoader;
-import mine.paint.UnitMap;
 import dragon3.anime.AnimeManager;
 import dragon3.anime.AnimePanel;
 import dragon3.bean.AnimeData;
-import dragon3.bean.BodyData;
-import dragon3.bean.DeployData;
 import dragon3.bean.StageData;
 import dragon3.bean.load.AnimeDataLoader;
+import dragon3.bean.load.BodyDataLoader;
 import dragon3.camp.Camp;
 import dragon3.card.CardPanel;
 import dragon3.common.Body;
 import dragon3.common.DataList;
+import dragon3.common.constant.BodyAttribute;
 import dragon3.common.constant.GameColors;
 import dragon3.common.constant.Page;
 import dragon3.common.constant.Texts;
-import dragon3.common.constant.BodyAttribute;
 import dragon3.common.util.Equip;
 import dragon3.common.util.MoveUtils;
 import dragon3.common.util.Rank;
@@ -67,6 +52,16 @@ import dragon3.panel.MessagePanel;
 import dragon3.panel.PanelManager;
 import dragon3.panel.PanelManagerImpl;
 import dragon3.panel.SmallPanel;
+import mine.MineException;
+import mine.MineUtils;
+import mine.awt.ImageLoaderAWT;
+import mine.awt.MineAwtUtils;
+import mine.awt.MouseManagerAWT;
+import mine.awt.SleepManagerAWT;
+import mine.awt.TextDialog;
+import mine.event.SleepManager;
+import mine.paint.MineImageLoader;
+import mine.paint.UnitMap;
 
 public class VPanel extends JLayeredPane implements UnitWorks, ActionListener, KeyListener {
 
@@ -387,7 +382,7 @@ public class VPanel extends JLayeredPane implements UnitWorks, ActionListener, K
 			b.setHpMax(b.getHpMax() * rate / 256);
 			Equip.restrict(b);
 			b.setMax();
-			b.setAttrSet(new LinkedHashSet<BodyAttribute>());
+			b.clearAttr();
 			if (b.getColor() == GameColors.RED) {
 				if (!b.hasAttr(BodyAttribute.TALKABLE)) {
 					b.setStr(Math.max(0, b.getStr() - 2));
@@ -664,7 +659,7 @@ public class VPanel extends JLayeredPane implements UnitWorks, ActionListener, K
 				Body b = equip.search(x, y);
 				if (b == null)
 					continue;
-				b.setAttrSet(new LinkedHashSet<BodyAttribute>());
+				b.clearAttr();
 				if (b.hasAttr(BodyAttribute.HERO))
 					hero = b;
 				if (b.hasAttr(BodyAttribute.SISTER))
@@ -889,50 +884,7 @@ public class VPanel extends JLayeredPane implements UnitWorks, ActionListener, K
 	}
 
 	public List<Body> loadEnemyData(String file) {
-		
-		List<Body> enemyList = new ArrayList<>();
-		
-		List<DeployData> deployList = Statics.getDeployData(file);
-		for (DeployData deploy : deployList) {
-			
-			Body body = new Body();
-			
-			BodyData bodyData = Statics.bodyList.getData(deploy.getBodyId());
-			
-			try {
-				BeanUtils.copyProperties(body, bodyData);
-				body.setHpMax(bodyData.getHp());
-				body.setImageNum(imageManager.getBodyList().getNum(body.getImage()));
-				for (BodyAttribute type : bodyData.getAttrList()) {
-					body.addAttr(type);
-				}
-				body.removeAttr(BodyAttribute.NONE);
-				body.getWazaList().removeIf(a -> a.equals("none") );
-				
-				body.setDeployType(deploy.getDeployType());
-				body.setColor(deploy.getColor());
-				body.setLevel(deploy.getLevel());
-				body.setScope(deploy.getScope());
-				body.setRange(deploy.getRange());
-				body.setLimitTurn(deploy.getLimitTurn());
-				body.setX(deploy.getX());
-				body.setY(deploy.getY());
-				body.setGoalX(deploy.getGoalX());
-				body.setGoalY(deploy.getGoalY());
-				
-				System.out.println(body);
-
-			} catch (IllegalAccessException | InvocationTargetException e) {
-				throw new RuntimeException(e);
-			}
-			
-
-			
-			
-			enemyList.add(body);
-		}
-
-		return enemyList;
+		return BodyDataLoader.loadBodyData(file, imageManager);
 	}
 	
 	public SaveManager getSaveManager() {
