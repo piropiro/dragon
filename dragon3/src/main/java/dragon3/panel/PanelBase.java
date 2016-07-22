@@ -12,7 +12,7 @@ import mine.event.SleepManager;
 import mine.paint.Colors;
 import mine.paint.MineGraphics;
 import dragon3.common.Body;
-import dragon3.common.constant.GameColors;
+import dragon3.common.constant.GameColor;
 import dragon3.common.constant.Texts;
 import dragon3.image.ImageManager;
 import dragon3.manage.Attack;
@@ -131,7 +131,7 @@ public abstract class PanelBase extends JComponent implements PanelWorks {
 
 	/*** Clear *********************************************/
 
-	public boolean clear(GameColors color, MineGraphics g) {
+	public boolean clear(GameColor color, MineGraphics g) {
 		g.setColor(color.getAlphaBg());
 
 		Dimension d = getSize();

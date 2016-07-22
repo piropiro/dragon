@@ -6,7 +6,7 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 
-import dragon3.common.constant.GameColors;
+import dragon3.common.constant.GameColor;
 import dragon3.common.constant.ArmorType;
 import dragon3.common.constant.BodyAttribute;
 import dragon3.common.constant.BodyKind;
@@ -24,7 +24,7 @@ public class Body implements Serializable, Cloneable {
 	private String name = "none";
 	private String image = "none.png";
 	private BodyKind kind = BodyKind.CHARA;
-	private GameColors color = GameColors.NONE;
+	private GameColor color = GameColor.NONE;
 
 	private DeployType deployType;
 	

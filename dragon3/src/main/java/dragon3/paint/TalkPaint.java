@@ -6,7 +6,7 @@ import dragon3.Rewalk;
 import dragon3.UnitWorks;
 import dragon3.common.Body;
 import dragon3.common.constant.BodyAttribute;
-import dragon3.common.constant.GameColors;
+import dragon3.common.constant.GameColor;
 import dragon3.common.constant.Page;
 import dragon3.common.constant.Texts;
 import dragon3.map.MapWorks;
@@ -65,7 +65,7 @@ public class TalkPaint implements PaintListener {
 	 * 
 	 */
 	private void setHelp() {
-		pm.displayHelp(mw.getWaku(), Texts.help[Texts.H_TALK], GameColors.BLUE);
+		pm.displayHelp(mw.getWaku(), Texts.help[Texts.H_TALK], GameColor.BLUE);
 	}
 
 	/**

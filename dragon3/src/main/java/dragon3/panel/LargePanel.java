@@ -10,7 +10,7 @@ import javax.swing.JComponent;
 import javax.swing.Timer;
 
 import mine.awt.MineAwtUtils;
-import dragon3.common.constant.GameColors;
+import dragon3.common.constant.GameColor;
 
 public class LargePanel extends JComponent implements ActionListener {
 
@@ -41,7 +41,7 @@ public class LargePanel extends JComponent implements ActionListener {
 
 	/*** Display ******************************************************************/
 
-	public void display(String text_, GameColors bgcolor, int sleep) {
+	public void display(String text_, GameColor bgcolor, int sleep) {
 		this.text = text_;
 		int[] rgba = bgcolor.getAlphaBg();
 		setBackground(new Color(rgba[0], rgba[1], rgba[2], rgba[3]));

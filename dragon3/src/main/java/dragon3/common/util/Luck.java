@@ -3,7 +3,7 @@ package dragon3.common.util;
 import java.util.Random;
 
 import dragon3.common.Body;
-import dragon3.common.constant.GameColors;
+import dragon3.common.constant.GameColor;
 
 
 
@@ -33,12 +33,12 @@ public class Luck {
 			case FairLuck :
 				return random.nextInt(width);
 			case GoodLuck :
-				if (GameColors.isPlayer(b))
+				if (GameColor.isPlayer(b))
 					return width;
 				else
 					return -width;
 			case HardLuck :
-				if (GameColors.isPlayer(b))
+				if (GameColor.isPlayer(b))
 					return -width;
 				else
 					return width;

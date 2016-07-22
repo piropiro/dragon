@@ -5,7 +5,7 @@ import java.awt.Point;
 import dragon3.UnitWorks;
 import dragon3.common.Body;
 import dragon3.common.constant.BodyAttribute;
-import dragon3.common.constant.GameColors;
+import dragon3.common.constant.GameColor;
 import dragon3.common.constant.Page;
 import dragon3.common.constant.Texts;
 import dragon3.map.MapWorks;
@@ -34,7 +34,7 @@ public class BasicPaint implements PaintListener {
 	 * 
 	 */
 	private void setHelp() {
-		pm.displayHelp(mw.getWaku(), Texts.help[Texts.H_BASIC], GameColors.BLUE);
+		pm.displayHelp(mw.getWaku(), Texts.help[Texts.H_BASIC], GameColor.BLUE);
 	}
 
 	/**
@@ -95,7 +95,7 @@ public class BasicPaint implements PaintListener {
 			return false;
 		if (map.getData(Page.P30, x, y) != 0)
 			return false;
-		if (GameColors.isPlayer(b)) {
+		if (GameColor.isPlayer(b)) {
 			if (b.hasAttr(BodyAttribute.CHARM))
 				return false;
 		} else {

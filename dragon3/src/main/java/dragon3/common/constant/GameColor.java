@@ -8,7 +8,7 @@ import lombok.Getter;
 
 
 
-public enum GameColors {
+public enum GameColor {
 	
 
 	NONE("無", new int[]{0, 0, 0}, new int[]{0, 0, 0, 200}, new int[]{255, 255, 255}),
@@ -28,7 +28,7 @@ public enum GameColors {
 	
 	@Getter private int[] alphaBg;
 	
-	private GameColors(String text, int[] bg, int[] alphaBg, int[] fg) {
+	private GameColor(String text, int[] bg, int[] alphaBg, int[] fg) {
 		this.text = text;
 		this.bg = bg;
 		this.fg = fg;
@@ -44,7 +44,7 @@ public enum GameColors {
 
 	public static Map<String, String> createMap() {
 		Map<String, String> idAndText = new LinkedHashMap<>();
-		for (GameColors a : values()) {	
+		for (GameColor a : values()) {	
 			idAndText.put(a.name(), a.getText());
 		}
 		return idAndText;

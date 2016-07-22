@@ -2,7 +2,7 @@ package dragon3.paint;
 
 import dragon3.UnitWorks;
 import dragon3.common.Body;
-import dragon3.common.constant.GameColors;
+import dragon3.common.constant.GameColor;
 import dragon3.common.constant.Page;
 import dragon3.common.constant.Texts;
 import dragon3.map.MapWorks;
@@ -34,7 +34,7 @@ public class ScorePaint implements PaintListener {
 	 * 
 	 */
 	private void setHelp() {
-		pm.displayHelp(mw.getWaku(), Texts.help[Texts.H_SCORE], GameColors.BLUE);
+		pm.displayHelp(mw.getWaku(), Texts.help[Texts.H_SCORE], GameColor.BLUE);
 	}
 
 	@Override

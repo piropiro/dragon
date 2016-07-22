@@ -9,7 +9,7 @@ import javax.swing.JLayeredPane;
 
 import dragon3.Statics;
 import dragon3.common.Body;
-import dragon3.common.constant.GameColors;
+import dragon3.common.constant.GameColor;
 import dragon3.common.constant.Page;
 import dragon3.common.util.MoveUtils;
 import dragon3.image.ImageManager;
@@ -132,42 +132,42 @@ public class PanelManagerTest extends TestCase {
 
 	public void testHelp1() {
 		pm.setHelpVisible(true);
-		pm.displayHelp(new Point(10, 10), new String[]{"Hello, World!", "こんにちわ世界！"}, GameColors.BLUE);
+		pm.displayHelp(new Point(10, 10), new String[]{"Hello, World!", "こんにちわ世界！"}, GameColor.BLUE);
 	}
 
 	public void testHelp2() {
 		pm.setHelpVisible(true);
-		pm.displayHelp(new Point(1, 1), new String[]{"Hello, World!", "こんにちわ世界！"}, GameColors.RED);
+		pm.displayHelp(new Point(1, 1), new String[]{"Hello, World!", "こんにちわ世界！"}, GameColor.RED);
 	}
 
 	public void testLarge() {
-		pm.displayLarge("Largeでかい", GameColors.BLUE, 1500);
+		pm.displayLarge("Largeでかい", GameColor.BLUE, 1500);
 	}
 
 	public void testSmall1() {
 		Body body = new Body();
 		body.setX(5);
 		body.setY(5);
-		pm.displaySmall("攻撃", GameColors.WHITE, body);
+		pm.displaySmall("攻撃", GameColor.WHITE, body);
 	}
 
 	public void testSmall2() {
 		Body body = new Body();
 		body.setX(10);
 		body.setY(10);
-		pm.displaySmall("火炎輪", GameColors.RED, body);
+		pm.displaySmall("火炎輪", GameColor.RED, body);
 	}
 
 	public void testHp1() {
 		Body ba = new Body();
-		ba.setColor(GameColors.BLUE);
+		ba.setColor(GameColor.BLUE);
 		ba.setX(10);
 		ba.setY(10);
 		ba.setHp(10);
 		ba.setHpMax(20);
 
 		Body bb = new Body();
-		bb.setColor(GameColors.RED);
+		bb.setColor(GameColor.RED);
 		bb.setX(11);
 		bb.setY(11);
 		bb.setHp(20);
@@ -184,7 +184,7 @@ public class PanelManagerTest extends TestCase {
 
 	public void testMessage() {
 		Body ba = new Body();
-		ba.setColor(GameColors.BLUE);
+		ba.setColor(GameColor.BLUE);
 		ba.setX(10);
 		ba.setY(10);
 		ba.setHp(10);
@@ -209,7 +209,7 @@ public class PanelManagerTest extends TestCase {
 
 	public void testDataWazaList() {
 		Body ba = new Body();
-		ba.setColor(GameColors.BLUE);
+		ba.setColor(GameColor.BLUE);
 		ba.setX(10);
 		ba.setY(10);
 		ba.setHp(10);
@@ -225,7 +225,7 @@ public class PanelManagerTest extends TestCase {
 
 	public void testDataAnalyze() {
 		Body ba = new Body();
-		ba.setColor(GameColors.BLUE);
+		ba.setColor(GameColor.BLUE);
 		ba.setX(10);
 		ba.setY(10);
 		ba.setHp(10);
@@ -237,7 +237,7 @@ public class PanelManagerTest extends TestCase {
 
 	public void testDataStatus() {
 		Body ba = new Body();
-		ba.setColor(GameColors.BLUE);
+		ba.setColor(GameColor.BLUE);
 		ba.setX(10);
 		ba.setY(10);
 		ba.setHp(10);
@@ -255,12 +255,12 @@ public class PanelManagerTest extends TestCase {
 	}
 
 	public void testDataCamp() {
-		pm.displayCampData(5, 5, CampDataPaint.C_CHARA1, GameColors.BLUE);
+		pm.displayCampData(5, 5, CampDataPaint.C_CHARA1, GameColor.BLUE);
 	}
 
 	public void testDataWaza() {
 		Body ba = new Body();
-		ba.setColor(GameColors.BLUE);
+		ba.setColor(GameColor.BLUE);
 		ba.setX(10);
 		ba.setY(10);
 		ba.setHp(10);

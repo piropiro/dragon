@@ -11,7 +11,7 @@ import mine.awt.GraphicsAWT;
 import mine.awt.MineAwtUtils;
 import mine.paint.Colors;
 import mine.paint.MineGraphics;
-import dragon3.common.constant.GameColors;
+import dragon3.common.constant.GameColor;
 
 public class HelpPanel extends JComponent {
 
@@ -20,7 +20,7 @@ public class HelpPanel extends JComponent {
 	private String[] line;
 	private boolean leftf;
 	private boolean upf;
-	private GameColors bgcolor = GameColors.BLUE;
+	private GameColor bgcolor = GameColor.BLUE;
 
 	public HelpPanel() {
 		super();
@@ -30,7 +30,7 @@ public class HelpPanel extends JComponent {
 		setBackground(new Color(0, 0, 150, 200));
 	}
 
-	public void setLine(String[] line, GameColors bgcolor) {
+	public void setLine(String[] line, GameColor bgcolor) {
 		this.line = line;
 		this.bgcolor = bgcolor;
 	}
@@ -99,7 +99,7 @@ public class HelpPanel extends JComponent {
 
 	/*** Clear *********************************************/
 
-	public boolean clear(GameColors color, MineGraphics g) {
+	public boolean clear(GameColor color, MineGraphics g) {
 		Dimension d = getSize();
 		g.setColor(color.getAlphaBg());
 		g.fillRect(0, 0, d.width, d.height);

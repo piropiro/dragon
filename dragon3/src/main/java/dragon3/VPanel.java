@@ -24,7 +24,7 @@ import dragon3.card.CardPanel;
 import dragon3.common.Body;
 import dragon3.common.DataList;
 import dragon3.common.constant.BodyAttribute;
-import dragon3.common.constant.GameColors;
+import dragon3.common.constant.GameColor;
 import dragon3.common.constant.Page;
 import dragon3.common.constant.Texts;
 import dragon3.common.util.Equip;
@@ -314,7 +314,7 @@ public class VPanel extends JLayeredPane implements UnitWorks, ActionListener, K
 		map.change(Page.P00, MoveUtils.S_RED, Page.P00, 0);
 		putUnit(Charas);
 		turnManager.playerTurnStart();
-		panelManager.displayLarge("Turn " + turnManager.getTurn(), GameColors.BLUE, 1500);
+		panelManager.displayLarge("Turn " + turnManager.getTurn(), GameColor.BLUE, 1500);
 	}
 
 
@@ -324,12 +324,12 @@ public class VPanel extends JLayeredPane implements UnitWorks, ActionListener, K
 		mw.setMenu(DragonBuster.T_SETMENS);
 		mapLoad();
 		if (saveManager.isFirst()) {
-			panelManager.displayLarge("Tutorial", GameColors.BLUE, 1500);
+			panelManager.displayLarge("Tutorial", GameColor.BLUE, 1500);
 		} else if (saveManager.isFinalStage()) {
-			panelManager.displayLarge("Final Stage", GameColors.BLUE, 1500);
+			panelManager.displayLarge("Final Stage", GameColor.BLUE, 1500);
 		} else {
 			char n = (char) ('A' + saveManager.getMapNum() - 1);
-			panelManager.displayLarge("Stage " + n, GameColors.BLUE, 1500);
+			panelManager.displayLarge("Stage " + n, GameColor.BLUE, 1500);
 		}
 		PaintUtils.setPutPlayersPaint(this, Charas, Players);
 		up.repaint();
@@ -381,7 +381,7 @@ public class VPanel extends JLayeredPane implements UnitWorks, ActionListener, K
 			Equip.restrict(b);
 			b.setMax();
 			b.resetAttr();
-			if (b.getColor() == GameColors.RED) {
+			if (b.getColor() == GameColor.RED) {
 				if (!b.hasAttr(BodyAttribute.TALKABLE)) {
 					b.setStr(Math.max(0, b.getStr() - 2));
 					b.setDef(Math.max(0, b.getDef() - 2));
@@ -427,10 +427,10 @@ public class VPanel extends JLayeredPane implements UnitWorks, ActionListener, K
 		}
 	}
 
-	public Point getCrystal(GameColors color) {
-		if (color.equals(GameColors.BLUE)) {
+	public Point getCrystal(GameColor color) {
+		if (color.equals(GameColor.BLUE)) {
 			return blueCrystal;
-		} else if (color.equals(GameColors.RED)) {
+		} else if (color.equals(GameColor.RED)) {
 			return redCrystal;
 		} else {
 			return null;
@@ -446,18 +446,18 @@ public class VPanel extends JLayeredPane implements UnitWorks, ActionListener, K
 
 		if (ba == null)
 			return;
-		if (GameColors.isPlayer(ba)) {
+		if (GameColor.isPlayer(ba)) {
 			saveManager.getSaveData().countKill();
 			equip.getEXP(ba, bb);
 			treasure.getTreasure(bb, false);
 		}
-		if (GameColors.isPlayer(bb)) {
+		if (GameColor.isPlayer(bb)) {
 			saveManager.getSaveData().countDead();
 		}
 	}
 
 	public void levelup(Body ba) {
-		if (ba != null && GameColors.isPlayer(ba)) {
+		if (ba != null && GameColor.isPlayer(ba)) {
 			new Level(equip, panelManager).levelup(ba);
 		}
 	}
@@ -468,10 +468,10 @@ public class VPanel extends JLayeredPane implements UnitWorks, ActionListener, K
 		if (escape) {
 			saveManager.getSaveData().countEscape();
 			PaintUtils.setWaitPaint(this);
-			panelManager.displayLarge("ESCAPE", GameColors.RED, 3000);
+			panelManager.displayLarge("ESCAPE", GameColor.RED, 3000);
 			mw.setMenu(DragonBuster.T_CLEAR);
 		} else {
-			panelManager.displayLarge("FAILED", GameColors.RED, 500);
+			panelManager.displayLarge("FAILED", GameColor.RED, 500);
 		}
 	}
 
@@ -505,7 +505,7 @@ public class VPanel extends JLayeredPane implements UnitWorks, ActionListener, K
 		for (Body b : Charas) {
 			if (!b.isAlive())
 				continue;
-			if (!GameColors.isPlayer(b))
+			if (!GameColor.isPlayer(b))
 				continue;
 			if (b.hasAttr(BodyAttribute.SLEEP))
 				continue;
@@ -537,7 +537,7 @@ public class VPanel extends JLayeredPane implements UnitWorks, ActionListener, K
 
 	private boolean blueJudge1() {
 		for (Body b : Charas) {
-			if (!GameColors.isPlayer(b)) {
+			if (!GameColor.isPlayer(b)) {
 				if (b.isAlive())
 					return false;
 			}
@@ -548,13 +548,13 @@ public class VPanel extends JLayeredPane implements UnitWorks, ActionListener, K
 	private boolean blueJudge2(Body ba) {
 		if (!ba.isAlive())
 			return false;
-		if (ba.getColor() != GameColors.BLUE)
+		if (ba.getColor() != GameColor.BLUE)
 			return false;
 		if (map.getData(Page.P00, ba.getX(), ba.getY()) != MoveUtils.C_RED)
 			return false;
 
 		map.fillDia(Page.P00, ba.getX(), ba.getY(), 1, MoveUtils.C_REDC);
-		if (GameColors.isPlayer(ba))
+		if (GameColor.isPlayer(ba))
 			gameClear();
 		else
 			gameOver();
@@ -567,20 +567,20 @@ public class VPanel extends JLayeredPane implements UnitWorks, ActionListener, K
 		panelManager.closeData();
 
 		if (saveManager.isFinalStage()) {
-			panelManager.displayLarge("ALL CLEAR!!", GameColors.BLUE, 5000);
+			panelManager.displayLarge("ALL CLEAR!!", GameColor.BLUE, 5000);
 		} else {
-			panelManager.displayLarge("STAGE CLEAR", GameColors.BLUE, 5000);
+			panelManager.displayLarge("STAGE CLEAR", GameColor.BLUE, 5000);
 		}
 		saveManager.stageClear();
 		mw.setMenu(DragonBuster.T_CLEAR);
-		panelManager.displayHelp(up.getWaku(), Texts.help[Texts.H_CLEAR], GameColors.BLUE);
+		panelManager.displayHelp(up.getWaku(), Texts.help[Texts.H_CLEAR], GameColor.BLUE);
 	}
 
 	/*** Game Over ****************************/
 
 	private boolean redJudge1() {
 		for (Body b : Charas) {
-			if (GameColors.isPlayer(b)) {
+			if (GameColor.isPlayer(b)) {
 				if (b.isAlive())
 					return false;
 			}
@@ -591,13 +591,13 @@ public class VPanel extends JLayeredPane implements UnitWorks, ActionListener, K
 	private boolean redJudge2(Body ba) {
 		if (!ba.isAlive())
 			return false;
-		if (ba.getColor() == GameColors.BLUE)
+		if (ba.getColor() == GameColor.BLUE)
 			return false;
 		if (map.getData(Page.P00, ba.getX(), ba.getY()) != MoveUtils.C_BLUE)
 			return false;
 
 		map.fillDia(Page.P00, ba.getX(), ba.getY(), 1, MoveUtils.C_BLUEC);
-		if (GameColors.isPlayer(ba))
+		if (GameColor.isPlayer(ba))
 			gameClear();
 		else
 			gameOver();
@@ -606,9 +606,9 @@ public class VPanel extends JLayeredPane implements UnitWorks, ActionListener, K
 
 	private void gameOver() {
 		PaintUtils.setWaitPaint(this);
-		panelManager.displayLarge("GAME OVER", GameColors.RED, 5000);
+		panelManager.displayLarge("GAME OVER", GameColor.RED, 5000);
 		mw.setMenu(DragonBuster.T_GAMEOVER);
-		panelManager.displayHelp(up.getWaku(), Texts.help[Texts.H_OVER], GameColors.BLUE);
+		panelManager.displayHelp(up.getWaku(), Texts.help[Texts.H_OVER], GameColor.BLUE);
 	}
 
 	/***************************************************/
@@ -663,7 +663,7 @@ public class VPanel extends JLayeredPane implements UnitWorks, ActionListener, K
 		if (rd.isOK()) {
 			comment = rd.getText();
 		} else {
-			panelManager.displayLarge(Texts.rankcancel, GameColors.RED, 2000);
+			panelManager.displayLarge(Texts.rankcancel, GameColor.RED, 2000);
 			return;
 		}
 		Rank rank = new Rank(equip, saveManager);
@@ -678,16 +678,16 @@ public class VPanel extends JLayeredPane implements UnitWorks, ActionListener, K
 			if (hayasaf) {
 				panelManager.displayLarge(
 					Texts.speed_rank + rankNum + Texts.idesu,
-					GameColors.BLUE,
+					GameColor.BLUE,
 					4000);
 			} else {
 				panelManager.displayLarge(
 					Texts.power_rank + rankNum + Texts.idesu,
-					GameColors.BLUE,
+					GameColor.BLUE,
 					4000);
 			}
 		} else {
-			panelManager.displayLarge(Texts.conn_fail, GameColors.RED, 2000);
+			panelManager.displayLarge(Texts.conn_fail, GameColor.RED, 2000);
 		}
 	}
 	public void backToCamp() {
@@ -742,18 +742,18 @@ public class VPanel extends JLayeredPane implements UnitWorks, ActionListener, K
 		String filename = "slgs" + n + ".dat";
 		if (e.isShiftDown()) {
 			saveManager.saveData(filename, equip);
-			panelManager.displayLarge("Save " + n, GameColors.BLUE, 1500);
+			panelManager.displayLarge("Save " + n, GameColor.BLUE, 1500);
 		} else {
 			File f = new File(filename);
 			if (!f.exists()) {
-				panelManager.displayLarge("Not Found " + n, GameColors.RED, 1500);
+				panelManager.displayLarge("Not Found " + n, GameColor.RED, 1500);
 				return;
 			}
 			equip = saveManager.loadData(filename);
 			treasure = null;
 			animeManager.setVisible(false);
 			campStart();
-			panelManager.displayLarge("Load " + n, GameColors.BLUE, 1500);
+			panelManager.displayLarge("Load " + n, GameColor.BLUE, 1500);
 		}
 	}
 
@@ -767,10 +767,10 @@ public class VPanel extends JLayeredPane implements UnitWorks, ActionListener, K
 		String command = b.getActionCommand();
 		if (command.equals("help")) {
 			if (panelManager.isHelpVisible()) {
-				panelManager.displayLarge(Texts.help_off, GameColors.BLUE, 1000);
+				panelManager.displayLarge(Texts.help_off, GameColor.BLUE, 1000);
 				panelManager.setHelpVisible(false);
 			} else {
-				panelManager.displayLarge(Texts.help_on, GameColors.BLUE, 1000);
+				panelManager.displayLarge(Texts.help_on, GameColor.BLUE, 1000);
 				panelManager.setHelpVisible(true);
 			}
 		} else if (command.equals("remove")) {
@@ -819,7 +819,7 @@ public class VPanel extends JLayeredPane implements UnitWorks, ActionListener, K
 			}
 		} else if (command.equals("save")) {
 			saveManager.saveData("slgs.dat", equip);
-			panelManager.displayLarge("SAVE", GameColors.BLUE, 1500);
+			panelManager.displayLarge("SAVE", GameColor.BLUE, 1500);
 		} else {
 			for (int i = 0; i < 16; i++) {
 				if (command.equals("Stage " + (char) ('A' + i))) {

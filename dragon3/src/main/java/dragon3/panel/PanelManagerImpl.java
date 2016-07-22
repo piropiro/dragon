@@ -7,7 +7,7 @@ import java.awt.Point;
 
 import mine.paint.UnitMap;
 import dragon3.common.Body;
-import dragon3.common.constant.GameColors;
+import dragon3.common.constant.GameColor;
 import dragon3.common.constant.Page;
 import dragon3.common.util.Equip;
 import dragon3.common.util.MoveUtils;
@@ -82,7 +82,7 @@ public class PanelManagerImpl implements PanelManager {
 				return false;
 		}
 	}
-	public void displayCampData(int x, int y, int tikei, GameColors bgcolor) {
+	public void displayCampData(int x, int y, int tikei, GameColor bgcolor) {
 		dataP1.displayCamp(new Point(x, y), tikei, bgcolor);
 	}
 
@@ -166,7 +166,7 @@ public class PanelManagerImpl implements PanelManager {
 	
 	// SmallPanel
 	@Override
-	public void displaySmall(String label, GameColors color, Body b) {
+	public void displaySmall(String label, GameColor color, Body b) {
 		smallP.display(label, color, b.getX(), b.getY());
 	}
 	
@@ -176,7 +176,7 @@ public class PanelManagerImpl implements PanelManager {
 	
 	// HelpPanel
 	@Override
-	public void displayHelp(Point p, String[] line, GameColors color) {
+	public void displayHelp(Point p, String[] line, GameColor color) {
 		helpP.setLocate(p.x, p.y, true);
 		helpP.setLine(line, color);
 		helpP.setVisible(helpVisible);
@@ -202,7 +202,7 @@ public class PanelManagerImpl implements PanelManager {
 
 	// LargePanel
 	@Override
-	public void displayLarge(String text, GameColors color, int sleep) {
+	public void displayLarge(String text, GameColor color, int sleep) {
 		largeP.display(text, color, sleep);
 	}
 

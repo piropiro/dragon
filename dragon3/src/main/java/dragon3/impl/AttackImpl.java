@@ -11,7 +11,7 @@ import dragon3.attack.special.SpecialEffectManager;
 import dragon3.bean.WazaData;
 import dragon3.common.Body;
 import dragon3.common.constant.AttackEffect;
-import dragon3.common.constant.GameColors;
+import dragon3.common.constant.GameColor;
 import dragon3.common.constant.BodyAttribute;
 import dragon3.manage.Attack;
 import mine.paint.UnitMap;
@@ -67,7 +67,7 @@ public class AttackImpl implements Attack {
 	public String getLabel() {
 		return waza.getLabel();
 	}
-	public GameColors getLabelColor() {
+	public GameColor getLabelColor() {
 		return waza.getLabelColor();
 	}
 

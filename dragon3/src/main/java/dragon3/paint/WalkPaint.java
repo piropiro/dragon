@@ -9,7 +9,7 @@ import dragon3.Rewalk;
 import dragon3.UnitWorks;
 import dragon3.anime.AnimeManager;
 import dragon3.common.Body;
-import dragon3.common.constant.GameColors;
+import dragon3.common.constant.GameColor;
 import dragon3.common.constant.Page;
 import dragon3.common.constant.Texts;
 import dragon3.common.constant.BodyAttribute;
@@ -76,9 +76,9 @@ public class WalkPaint implements PaintListener {
 	 *
 	 */
 	private void setHelp() {
-		if (!GameColors.isPlayer(ba))
+		if (!GameColor.isPlayer(ba))
 			return;
-		uw.getPanelManager().displayHelp(mw.getWaku(), Texts.help[Texts.H_WALK], GameColors.BLUE);
+		uw.getPanelManager().displayHelp(mw.getWaku(), Texts.help[Texts.H_WALK], GameColor.BLUE);
 	}
 
 	/**
@@ -125,7 +125,7 @@ public class WalkPaint implements PaintListener {
 
 		if (ba.hasAttr(BodyAttribute.SLEEP))
 			return;
-		if (GameColors.isPlayer(ba)) {
+		if (GameColor.isPlayer(ba)) {
 			if (ba.hasAttr(BodyAttribute.CHARM))
 				return;
 		} else {

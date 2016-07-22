@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Vector;
 
 import dragon3.common.Body;
-import dragon3.common.constant.GameColors;
+import dragon3.common.constant.GameColor;
 
 public class Equip {
 
@@ -28,7 +28,7 @@ public class Equip {
 	}
 	public Body searchItem(int x, int y) {
 		for (Body b : equipList) {
-			if (b.getColor() == GameColors.GREEN && b.getX() == x && b.getY() == y) {
+			if (b.getColor() == GameColor.GREEN && b.getX() == x && b.getY() == y) {
 				return b;
 			}
 		}
@@ -96,7 +96,7 @@ public class Equip {
 			Body b = search(1, 1 + i * 3);
 			if (b == null)
 				continue;
-			b.setColor(GameColors.BLUE);
+			b.setColor(GameColor.BLUE);
 			b.setMax();
 			equip(b);
 			playerList.add(b);
@@ -107,7 +107,7 @@ public class Equip {
 	public Body getChangeChara(Body ba) {
 		Body bb = null;
 		for (Body b : equipList) {
-			if (!GameColors.isPlayer(b))
+			if (!GameColor.isPlayer(b))
 				continue;
 			if (b.getGoalX() == ba.getGoalX() + 7 && b.getGoalY() == ba.getGoalY()) {
 				bb = b;
