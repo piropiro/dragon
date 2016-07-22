@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-import dragon2.common.constant.Effects;
+import dragon2.common.constant.AttackEffect;
 
 public class OldAttackData2 implements Serializable {
 
@@ -19,7 +19,7 @@ public class OldAttackData2 implements Serializable {
 	public String name;
 	public String sname;
 	public int color;
-	public List<Effects> effect;
+	public List<AttackEffect> effect;
 	public int attackType;
 	public int attackN1;
 	public int trType;
@@ -58,11 +58,11 @@ public class OldAttackData2 implements Serializable {
         this.color = color;
     }
 
-    public List<Effects> getEffect() {
+    public List<AttackEffect> getEffect() {
         return effect;
     }
 
-    public void setEffect(List<Effects> effect) {
+    public void setEffect(List<AttackEffect> effect) {
         this.effect = effect;
     }
 

@@ -1,7 +1,7 @@
 package dragon2.common.constant;
 
 
-public enum Types {
+public enum BodyAttribute {
 
 	//CLASS("職業"), // 1
 	//WEPON("武器"), // 2
@@ -66,14 +66,14 @@ public enum Types {
 	
 	private String text;
 	
-	Types(String text) {
+	BodyAttribute(String text) {
 		this.text = text;
 	}
 	
 	public String getText() {
 		return text;
 	}
-	public static Types convert(int n) {
+	public static BodyAttribute convert(int n) {
 		switch (n) {
 		//case 1: return CLASS;
 		//case 2: return WEPON;

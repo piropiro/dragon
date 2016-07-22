@@ -10,7 +10,7 @@ import java.util.List;
 
 import dragon2.common.Body;
 import dragon2.common.constant.Texts;
-import dragon2.common.constant.Types;
+import dragon2.common.constant.BodyAttribute;
 import mine.UnitMap;
 
 public class Treasure {
@@ -28,7 +28,7 @@ public class Treasure {
 		int i = 0;
 		for (Body body : vector) {
 			if (unitworks.have(body)) {
-				body.setTypeState(Types.S_LOCK, true);
+				body.setTypeState(BodyAttribute.S_LOCK, true);
 				body.hp = 0;
 			} else if (body.x == point.x && body.y == point.y) {
 				item = body;
@@ -268,8 +268,8 @@ public class Treasure {
 		body.mdfMax = Math.max(0, body.mdfMax - 6);
 		body.hitMax = Math.max(0, body.hitMax - 6);
 		body.misMax = Math.max(0, body.misMax - 6);
-		body.type.add(Types.BADITEM);
-		body.setTypeState(Types.BADITEM, true);
+		body.type.add(BodyAttribute.BADITEM);
+		body.setTypeState(BodyAttribute.BADITEM, true);
 	}
 
 	private Body item;

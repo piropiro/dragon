@@ -4,10 +4,10 @@ import java.awt.Point;
 
 import dragon2.common.Body;
 import dragon2.common.constant.Colors;
-import dragon2.common.constant.Kinds;
+import dragon2.common.constant.BodyKind;
 import dragon2.common.constant.MoveType;
 import dragon2.common.constant.Texts;
-import dragon2.common.constant.Types;
+import dragon2.common.constant.BodyAttribute;
 import dragon2.paint.PaintBase;
 
 public class Walk extends ActionBase {
@@ -16,27 +16,27 @@ public class Walk extends ActionBase {
 		ba = body;
 		MoveType i = body.moveType;
 		ido = body.moveStep;
-		if (body.isType(Types.MOVE_UP_2))
+		if (body.isType(BodyAttribute.MOVE_UP_2))
 			ido = ido + 2;
-		if (body.isType(Types.MOVE_UP_1))
+		if (body.isType(BodyAttribute.MOVE_UP_1))
 			ido = ido + 1;
-		if (body.isType(Types.MOVE_DOWN_1))
+		if (body.isType(BodyAttribute.MOVE_DOWN_1))
 			ido = ido - 1;
-		if (body.isType(Types.OIL))
+		if (body.isType(BodyAttribute.OIL))
 			ido = (ido + 1) / 2;
-		if (body.isType(Types.SORA))
+		if (body.isType(BodyAttribute.SORA))
 			i = MoveType.FLY;
-		if (body.isType(Types.RIKU))
+		if (body.isType(BodyAttribute.RIKU))
 			i = MoveType.HEAVY;
-		if (body.isType(Types.FLY_ABLE))
+		if (body.isType(BodyAttribute.FLY_ABLE))
 			i = MoveType.FLY;
 		int ai[] = i.getSteps().clone();
 		
-		if (body.isType(Types.LITE_WALK)) {
+		if (body.isType(BodyAttribute.LITE_WALK)) {
 			ai[0] = 1;
 			ai[1] = 1;
 		}
-		if (body.isType(Types.SWIM_ABLE)) {
+		if (body.isType(BodyAttribute.SWIM_ABLE)) {
 			ai[3] = 1;
 			ai[4] = 1;
 		}
@@ -105,14 +105,14 @@ public class Walk extends ActionBase {
 			return;
 		}
 		if (!Statics.isDebug()) {
-			if (ba.isType(Types.ANTI_SLEEP))
+			if (ba.isType(BodyAttribute.ANTI_SLEEP))
 				return;
-			if (ba.kind == Kinds.DOLL && ba.isType(Types.BERSERK))
+			if (ba.kind == BodyKind.DOLL && ba.isType(BodyAttribute.BERSERK))
 				return;
 			if (Colors.isPlayer(ba)) {
-				if (ba.isType(Types.CHARM))
+				if (ba.isType(BodyAttribute.CHARM))
 					return;
-			} else if (!ba.isType(Types.CHARM))
+			} else if (!ba.isType(BodyAttribute.CHARM))
 				return;
 		}
 
@@ -126,9 +126,9 @@ public class Walk extends ActionBase {
 	}
 
 	public static int getTikei(Body body) {
-		if (body.isType(Types.SORA))
+		if (body.isType(BodyAttribute.SORA))
 			return T_SKY;
-		if (!body.isType(Types.RIKU) && !body.isType(Types.SLEEP)) {
+		if (!body.isType(BodyAttribute.RIKU) && !body.isType(BodyAttribute.SLEEP)) {
 			if (body.getMoveType() == MoveType.FLY)
 				return T_SKY;
 			if (body.getMoveType() == MoveType.HOVER)

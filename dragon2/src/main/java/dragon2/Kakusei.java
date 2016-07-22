@@ -9,7 +9,7 @@ import java.util.Iterator;
 import java.util.Vector;
 
 import dragon2.common.Body;
-import dragon2.common.constant.Types;
+import dragon2.common.constant.BodyAttribute;
 import dragon2.paint.PaintBase;
 import mine.DataStream;
 import mine.UnitMap;
@@ -36,7 +36,7 @@ public class Kakusei extends ActionBase {
 	private Body getSister(Vector vector) {
 		for (Iterator iterator = vector.iterator(); iterator.hasNext();) {
 			Body body = (Body) iterator.next();
-			if (body.isType(Types.SISTER))
+			if (body.isType(BodyAttribute.SISTER))
 				return body;
 		}
 

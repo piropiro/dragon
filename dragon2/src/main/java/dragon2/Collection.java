@@ -7,8 +7,8 @@ import java.util.Vector;
 import dragon2.attack.AttackData;
 import dragon2.common.Body;
 import dragon2.common.constant.Colors;
-import dragon2.common.constant.Kinds;
-import dragon2.common.constant.Types;
+import dragon2.common.constant.BodyKind;
+import dragon2.common.constant.BodyAttribute;
 import mine.DataStream;
 import mine.UnitMap;
 import mine.io.JsonIO;
@@ -68,7 +68,7 @@ public class Collection {
 	public void setList(List<Body> vector) {
 		for (Body body : vector) {
 		
-			if (body.kind != Kinds.WAZA) {
+			if (body.kind != BodyKind.WAZA) {
 				switch (body.img) {
 				case 59: // ';'
 					setChara(body, 0);
@@ -97,7 +97,7 @@ public class Collection {
 				for (int i = 0; i < body.atk.length; i++)
 					waza[body.atk[i]] = true;
 
-			} else if (body.kind == Kinds.WAZA)
+			} else if (body.kind == BodyKind.WAZA)
 				waza[body.level] = true;
 		}
 
@@ -211,16 +211,16 @@ public class Collection {
 	public void setMaterial(Body body) {
 		int i = getCharaNum(body);
 		if (i != -1) {
-			body.setTypeState(Types.M_RED, chara[i][0]);
-			body.setTypeState(Types.M_GREEN, chara[i][1]);
-			body.setTypeState(Types.M_BLUE, chara[i][2]);
+			body.setTypeState(BodyAttribute.M_RED, chara[i][0]);
+			body.setTypeState(BodyAttribute.M_GREEN, chara[i][1]);
+			body.setTypeState(BodyAttribute.M_BLUE, chara[i][2]);
 		}
 	}
 
 	private int getCharaNum(Body body) {
-		if (body.isType(Types.HERO))
+		if (body.isType(BodyAttribute.HERO))
 			return 0;
-		if (body.isType(Types.SISTER))
+		if (body.isType(BodyAttribute.SISTER))
 			return 1;
 		int i = -1;
 		for (Body body1 : Charas) {

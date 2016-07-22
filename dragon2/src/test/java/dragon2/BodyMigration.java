@@ -21,9 +21,9 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import dragon2.common.Body;
-import dragon2.common.constant.Kinds;
+import dragon2.common.constant.BodyKind;
 import dragon2.common.constant.MoveType;
-import dragon2.common.constant.Types;
+import dragon2.common.constant.BodyAttribute;
 import mine.DataStream;
 import mine.io.BeanIO;
 import mine.io.JsonIO;
@@ -228,29 +228,29 @@ public class BodyMigration {
     			  switch (i) {
     			  case 0:
     				  if (newBody.kind == null) {
-    					  newBody.kind = Kinds.CHARA;
+    					  newBody.kind = BodyKind.CHARA;
     				  }
     				  break;
     			  case 1:
-    				  newBody.kind = Kinds.CLASS;
+    				  newBody.kind = BodyKind.CLASS;
     				  break;
     			  case 2:
-    				  newBody.kind = Kinds.WEPON;
+    				  newBody.kind = BodyKind.WEPON;
     				  break;
     			  case 3:
-    				  newBody.kind = Kinds.ARMOR;
+    				  newBody.kind = BodyKind.ARMOR;
     				  break;
     			  case 4:
-    				  newBody.kind = Kinds.ITEM;
+    				  newBody.kind = BodyKind.ITEM;
     				  break;
     			  case 39:
-    				  newBody.kind = Kinds.DOLL;
+    				  newBody.kind = BodyKind.DOLL;
     				  break;
     			  case 52:
-    				  newBody.kind = Kinds.WAZA;
+    				  newBody.kind = BodyKind.WAZA;
     				  break;
     			  default:
-    				  newBody.type.add(Types.convert(i));
+    				  newBody.type.add(BodyAttribute.convert(i));
     			  }
     		  }
     		  

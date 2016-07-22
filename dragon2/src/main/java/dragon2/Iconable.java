@@ -5,7 +5,7 @@ package dragon2;
 
 
 import dragon2.common.Body;
-import dragon2.common.constant.Effects;
+import dragon2.common.constant.AttackEffect;
 
 public interface Iconable {
 
@@ -27,7 +27,7 @@ public interface Iconable {
 
 	public abstract boolean isHit();
 
-	public abstract boolean isPossible(Effects i);
+	public abstract boolean isPossible(AttackEffect i);
 
-	public abstract boolean isEffect(Effects effect);
+	public abstract boolean isEffect(AttackEffect effect);
 }

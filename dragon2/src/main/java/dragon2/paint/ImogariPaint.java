@@ -10,7 +10,7 @@ import javax.swing.JFrame;
 import dragon2.ActionBase;
 import dragon2.common.Body;
 import dragon2.common.constant.Texts;
-import dragon2.common.constant.Types;
+import dragon2.common.constant.BodyAttribute;
 import dragon2.common.util.Equip;
 
 public class ImogariPaint extends ActionBase {
@@ -34,7 +34,7 @@ public class ImogariPaint extends ActionBase {
 				if (body1 == null)
 					continue;
 				body1.newType();
-				if (!body1.isType(Types.HERO))
+				if (!body1.isType(BodyAttribute.HERO))
 					continue;
 				body = body1;
 				break;

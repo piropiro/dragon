@@ -7,9 +7,9 @@ import dragon2.Rewalk;
 import dragon2.Tutorial;
 import dragon2.common.Body;
 import dragon2.common.constant.Colors;
-import dragon2.common.constant.Effects;
+import dragon2.common.constant.AttackEffect;
 import dragon2.common.constant.Texts;
-import dragon2.common.constant.Types;
+import dragon2.common.constant.BodyAttribute;
 import dragon2.paint.PaintBase;
 import dragon2.paint.TalkPaint;
 
@@ -52,7 +52,7 @@ public class FightManager extends ActionBase {
 	public boolean select(int i, boolean flag) {
 		if (ba.atk[i] == 0)
 			return false;
-		if (i > 0 && ba.isType(Types.CLOSE))
+		if (i > 0 && ba.isType(BodyAttribute.CLOSE))
 			return false;
 		attack = new AttackBase(ba, ba.atk[i]);
 		if (attack.isAlive(flag)) {
@@ -70,7 +70,7 @@ public class FightManager extends ActionBase {
 		int i = -1;
 		int j = -1;
 		for (int k = 0; k < ba.atk.length; k++) {
-			if (k > 0 && ba.isType(Types.CLOSE))
+			if (k > 0 && ba.isType(BodyAttribute.CLOSE))
 				break;
 			AttackBase attackbase = new AttackBase(ba, ba.atk[k]);
 			if (attackbase.isAlive(true) && j < attackbase.getBestDamage()) {
@@ -88,7 +88,7 @@ public class FightManager extends ActionBase {
 	private void setCounter(Body body) {
 		bb = body;
 		counter = null;
-		if (!attack.isEffect(Effects.COUNTER_ABLE))
+		if (!attack.isEffect(AttackEffect.COUNTER_ABLE))
 			return;
 		for (int i = body.atk.length - 1; i >= 0; i--) {
 			if (body.atk[i] == 0)
@@ -224,7 +224,7 @@ public class FightManager extends ActionBase {
 			return;
 		if (!bb.isAlive())
 			return;
-		if (bb.isType(Types.ANTI_SLEEP)) {
+		if (bb.isType(BodyAttribute.ANTI_SLEEP)) {
 			return;
 		} else {
 			PaintBase.uw.setTPanel(counter, bb);

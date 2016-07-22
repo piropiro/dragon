@@ -32,9 +32,9 @@ import dragon2.card.CardPaint;
 import dragon2.card.CardPanel;
 import dragon2.common.Body;
 import dragon2.common.constant.Colors;
-import dragon2.common.constant.Kinds;
+import dragon2.common.constant.BodyKind;
 import dragon2.common.constant.Texts;
-import dragon2.common.constant.Types;
+import dragon2.common.constant.BodyAttribute;
 import dragon2.common.util.Equip;
 import dragon2.common.util.Luck;
 import dragon2.common.util.Rank;
@@ -353,7 +353,7 @@ public class VPanel extends JPanelBase implements UnitWorks, ActionListener,
 			body.setMax();
 			body.newType();
 			col.setMaterial(body);
-			if (body.color == 3 && !body.isType(Types.ASK) && body.isType(Types.TALKABLE)) {
+			if (body.color == 3 && !body.isType(BodyAttribute.ASK) && body.isType(BodyAttribute.TALKABLE)) {
 				body.str = Math.max(0, body.str - 2);
 				body.def = Math.max(0, body.def - 2);
 				body.mst = Math.max(0, body.mst - 2);
@@ -361,7 +361,7 @@ public class VPanel extends JPanelBase implements UnitWorks, ActionListener,
 				body.hit = Math.max(0, body.hit - 2);
 				body.mis = Math.max(0, body.mis - 2);
 			}
-			if (body.isType(Types.POWERUP)) {
+			if (body.isType(BodyAttribute.POWERUP)) {
 				body.str = Math.min(999, (body.str * 3) / 2);
 				body.def = Math.min(999, (body.def * 3) / 2);
 				body.mst = Math.min(999, (body.mst * 3) / 2);
@@ -619,9 +619,9 @@ public class VPanel extends JPanelBase implements UnitWorks, ActionListener,
 	private boolean isTurnEnd() {
 		for (Iterator iterator = Charas.iterator(); iterator.hasNext();) {
 			Body body = (Body) iterator.next();
-			if (body.isAlive() && Colors.isPlayer(body) && !body.isType(Types.ANTI_SLEEP)
-					&& !body.isType(Types.CHARM)
-					&& (body.kind != Kinds.DOLL || !body.isType(Types.BERSERK))) {
+			if (body.isAlive() && Colors.isPlayer(body) && !body.isType(BodyAttribute.ANTI_SLEEP)
+					&& !body.isType(BodyAttribute.CHARM)
+					&& (body.kind != BodyKind.DOLL || !body.isType(BodyAttribute.BERSERK))) {
 				if (getChangeChara(body) != null)
 					return false;
 				if (V.G(3, 0, body.x, body.y) == 0)
@@ -877,9 +877,9 @@ public class VPanel extends JPanelBase implements UnitWorks, ActionListener,
 				Body body2 = equip.search(i, j);
 				if (body2 != null) {
 					body2.newType();
-					if (body2.isType(Types.HERO))
+					if (body2.isType(BodyAttribute.HERO))
 						body = body2;
-					if (body2.isType(Types.SISTER))
+					if (body2.isType(BodyAttribute.SISTER))
 						body1 = body2;
 				}
 			}

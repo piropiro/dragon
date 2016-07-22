@@ -6,7 +6,7 @@ import java.util.List;
 
 import dragon2.common.constant.AnimeType;
 import dragon2.common.constant.DamageType;
-import dragon2.common.constant.Effects;
+import dragon2.common.constant.AttackEffect;
 import dragon2.common.constant.EnergyType;
 import dragon2.common.constant.TargetType;
 import lombok.Data;
@@ -25,7 +25,7 @@ public class AttackData implements Serializable {
 	public String name = "none";
 	public String label = "none";
 	public int color;
-	public List<Effects> effect = new ArrayList<>();
+	public List<AttackEffect> effect = new ArrayList<>();
 	public DamageType damageType;
 	public int attackN1;
 	public TargetType targetType;

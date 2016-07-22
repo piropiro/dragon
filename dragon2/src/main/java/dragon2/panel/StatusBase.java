@@ -6,7 +6,7 @@ import dragon2.Statics;
 import dragon2.UnitWorks;
 import dragon2.common.Body;
 import dragon2.common.constant.Texts;
-import dragon2.common.constant.Types;
+import dragon2.common.constant.BodyAttribute;
 import mine.JCanvas;
 import mine.Mine;
 
@@ -62,9 +62,9 @@ public abstract class StatusBase extends JCanvas {
 		drawImage(Statics.chara, body.img, 10, 10, g);
 		g.drawString(body.name, 50, 22);
 		g.drawString("Lv." + body.level, 52, 41);
-		String s = body.isType(Types.M_RED) ? "R" : "";
-		String s1 = body.isType(Types.M_GREEN) ? "G" : "";
-		String s2 = body.isType(Types.M_BLUE) ? "B" : "";
+		String s = body.isType(BodyAttribute.M_RED) ? "R" : "";
+		String s1 = body.isType(BodyAttribute.M_GREEN) ? "G" : "";
+		String s2 = body.isType(BodyAttribute.M_BLUE) ? "B" : "";
 		g.drawString(s + s1 + s2, 112, 41);
 		if (flag) {
 			drawLine(Texts.hp, 0, 0, g);

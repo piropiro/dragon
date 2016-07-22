@@ -15,9 +15,9 @@ import dragon2.Treasure;
 import dragon2.attack.AttackData;
 import dragon2.common.Body;
 import dragon2.common.constant.Colors;
-import dragon2.common.constant.Kinds;
+import dragon2.common.constant.BodyKind;
 import dragon2.common.constant.Texts;
-import dragon2.common.constant.Types;
+import dragon2.common.constant.BodyAttribute;
 import dragon2.common.util.Equip;
 import dragon2.paint.PaintBase;
 
@@ -135,7 +135,7 @@ public class Camp extends PaintBase {
 	public void removeDust() {
 		for (int i = equips.size() - 1; i >= 0; i--) {
 			Body body = equips.get(i);
-			if (body.kind == Kinds.WAZA || PaintBase.V.G(1, 0, body.x, body.y) == 3) {
+			if (body.kind == BodyKind.WAZA || PaintBase.V.G(1, 0, body.x, body.y) == 3) {
 				equips.remove(body);
 				PaintBase.V.S(2, 0, body.x, body.y, 0);
 				PaintBase.map.ppaint(body.x, body.y);
@@ -150,7 +150,7 @@ public class Camp extends PaintBase {
 		for (int i = equips.size() - 1; i >= 0; i--) {
 			Body body = equips.get(i);
 			if (body.y != 0 && body.y != 14 && body.x >= 14) {
-				if (body.kind == Kinds.WAZA)
+				if (body.kind == BodyKind.WAZA)
 					vector1.add(body);
 				else
 					vector.add(body);
@@ -191,7 +191,7 @@ public class Camp extends PaintBase {
 
 	private void backChara() {
 		for (int i = 1; i < 15; i++) {
-			int j = ba.kind == Kinds.WAZA ? 14 - i : i;
+			int j = ba.kind == BodyKind.WAZA ? 14 - i : i;
 			for (int k = 14; k < 20; k++)
 				if (PaintBase.V.G(2, 0, k, j) == 0) {
 					moveChara(k, j);
@@ -680,7 +680,7 @@ public class Camp extends PaintBase {
 			}
 			if (body == null)
 				break;
-			if (body.kind == Kinds.WAZA)
+			if (body.kind == BodyKind.WAZA)
 				removeChara1(point.x, point.y);
 			else
 				ba = pickChara(point.x, point.y);
@@ -740,7 +740,7 @@ public class Camp extends PaintBase {
 			}
 			Body body = equip.search(point.x, point.y);
 			if (body != null) {
-				if (body.kind == Kinds.WAZA)
+				if (body.kind == BodyKind.WAZA)
 					removeChara1(point.x, point.y);
 				else
 					PaintBase.uw.setAnalyze(body);

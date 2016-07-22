@@ -23,7 +23,7 @@ import dragon2.OldAttackData2;
 import dragon2.attack.AttackData;
 import dragon2.common.constant.AnimeType;
 import dragon2.common.constant.DamageType;
-import dragon2.common.constant.Effects;
+import dragon2.common.constant.AttackEffect;
 import dragon2.common.constant.EnergyType;
 import dragon2.common.constant.TargetType;
 import mine.io.BeanIO;
@@ -95,7 +95,7 @@ public class AttackDataMigration {
 				case 0:
 					break;
 				default:
-					newData.effect.add(Effects.convert(i));
+					newData.effect.add(AttackEffect.convert(i));
 				}
 			}
 			

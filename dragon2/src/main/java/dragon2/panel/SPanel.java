@@ -13,10 +13,10 @@ import dragon2.UnitWorks;
 import dragon2.attack.AttackData;
 import dragon2.common.Body;
 import dragon2.common.constant.DamageType;
-import dragon2.common.constant.Effects;
-import dragon2.common.constant.Kinds;
+import dragon2.common.constant.AttackEffect;
+import dragon2.common.constant.BodyKind;
 import dragon2.common.constant.Texts;
-import dragon2.common.constant.Types;
+import dragon2.common.constant.BodyAttribute;
 import dragon2.common.util.Rank;
 
 @SuppressWarnings("serial")
@@ -72,7 +72,7 @@ public class SPanel extends StatusBase {
 			setVisible(false);
 			return;
 		}
-		if (body.kind == Kinds.WAZA )
+		if (body.kind == BodyKind.WAZA )
 			i = 12;
 		else if (i == 3)
 			switch (type) {
@@ -326,16 +326,16 @@ public class SPanel extends StatusBase {
 		else
 			drawLine(Texts.sp[33], 0, 0, g);
 		drawLine(attackdata.getTargetType().getText(), 1, 0, g);
-		Set<Effects> aflag = new HashSet<>(attackdata.getEffect());
+		Set<AttackEffect> aflag = new HashSet<>(attackdata.getEffect());
 		
 		int j = 0;
-		if (aflag.contains(Effects.MISS_4))
+		if (aflag.contains(AttackEffect.MISS_4))
 			j -= 4;
-		if (aflag.contains(Effects.HIT_4))
+		if (aflag.contains(AttackEffect.HIT_4))
 			j += 4;
-		if (aflag.contains(Effects.HIT_12))
+		if (aflag.contains(AttackEffect.HIT_12))
 			j += 12;
-		if (aflag.contains(Effects.HICHU))
+		if (aflag.contains(AttackEffect.HICHU))
 			j = 32;
 		switch (j) {
 		case -4:
@@ -385,41 +385,41 @@ public class SPanel extends StatusBase {
 		default:
 		}
 		n = 4;
-		drawWazaEffect(g, aflag, Effects.DAMAGE_150);
-		drawWazaEffect(g, aflag, Effects.DAMAGE_200);
-		drawWazaEffect(g, aflag, Effects.DAMAGE_300);
-		drawWazaEffect(g, aflag, Effects.TAME);
-		drawWazaEffect(g, aflag, Effects.COUNTER_ONLY);
+		drawWazaEffect(g, aflag, AttackEffect.DAMAGE_150);
+		drawWazaEffect(g, aflag, AttackEffect.DAMAGE_200);
+		drawWazaEffect(g, aflag, AttackEffect.DAMAGE_300);
+		drawWazaEffect(g, aflag, AttackEffect.TAME);
+		drawWazaEffect(g, aflag, AttackEffect.COUNTER_ONLY);
 
-		drawWazaEffect(g, aflag, Effects.RIKU_0);
-		drawWazaEffect(g, aflag, Effects.RIKU_150);
-		drawWazaEffect(g, aflag, Effects.MIZU_0);
-		drawWazaEffect(g, aflag, Effects.MIZU_100);
-		drawWazaEffect(g, aflag, Effects.MIZU_200);
+		drawWazaEffect(g, aflag, AttackEffect.RIKU_0);
+		drawWazaEffect(g, aflag, AttackEffect.RIKU_150);
+		drawWazaEffect(g, aflag, AttackEffect.MIZU_0);
+		drawWazaEffect(g, aflag, AttackEffect.MIZU_100);
+		drawWazaEffect(g, aflag, AttackEffect.MIZU_200);
 
-		drawWazaEffect(g, aflag, Effects.FIRE);
-		drawWazaEffect(g, aflag, Effects.ICE);
-		drawWazaEffect(g, aflag, Effects.THUNDER);
-		drawWazaEffect(g, aflag, Effects.SORA_200);
-		drawWazaEffect(g, aflag, Effects.DRAGON_200);
-		drawWazaEffect(g, aflag, Effects.UNDEAD_200);
+		drawWazaEffect(g, aflag, AttackEffect.FIRE);
+		drawWazaEffect(g, aflag, AttackEffect.ICE);
+		drawWazaEffect(g, aflag, AttackEffect.THUNDER);
+		drawWazaEffect(g, aflag, AttackEffect.SORA_200);
+		drawWazaEffect(g, aflag, AttackEffect.DRAGON_200);
+		drawWazaEffect(g, aflag, AttackEffect.UNDEAD_200);
 
-		drawWazaEffect(g, aflag, Effects.UPPER);
-		drawWazaEffect(g, aflag, Effects.CHOP);
-		drawWazaEffect(g, aflag, Effects.CRITICAL);
-		drawWazaEffect(g, aflag, Effects.DEATH);
-		drawWazaEffect(g, aflag, Effects.SLEEP);
-		drawWazaEffect(g, aflag, Effects.POISON);
-		drawWazaEffect(g, aflag, Effects.WET);
-		drawWazaEffect(g, aflag, Effects.CHARM);
-		drawWazaEffect(g, aflag, Effects.ATTACK_UP);
-		drawWazaEffect(g, aflag, Effects.GUARD_UP);
-		drawWazaEffect(g, aflag, Effects.REFRESH);
-		drawWazaEffect(g, aflag, Effects.HEAL);
-		drawWazaEffect(g, aflag, Effects.OIL);
+		drawWazaEffect(g, aflag, AttackEffect.UPPER);
+		drawWazaEffect(g, aflag, AttackEffect.CHOP);
+		drawWazaEffect(g, aflag, AttackEffect.CRITICAL);
+		drawWazaEffect(g, aflag, AttackEffect.DEATH);
+		drawWazaEffect(g, aflag, AttackEffect.SLEEP);
+		drawWazaEffect(g, aflag, AttackEffect.POISON);
+		drawWazaEffect(g, aflag, AttackEffect.WET);
+		drawWazaEffect(g, aflag, AttackEffect.CHARM);
+		drawWazaEffect(g, aflag, AttackEffect.ATTACK_UP);
+		drawWazaEffect(g, aflag, AttackEffect.GUARD_UP);
+		drawWazaEffect(g, aflag, AttackEffect.REFRESH);
+		drawWazaEffect(g, aflag, AttackEffect.HEAL);
+		drawWazaEffect(g, aflag, AttackEffect.OIL);
 	}
 
-	private boolean drawWazaEffect(Graphics g, Set<Effects> aflag, Effects i) {
+	private boolean drawWazaEffect(Graphics g, Set<AttackEffect> aflag, AttackEffect i) {
 		if (n == 8)
 			return false;
 		if (!aflag.contains(i)) {
@@ -433,11 +433,11 @@ public class SPanel extends StatusBase {
 
 	private void drawAnalyze(Graphics g) {
 		int i = ba.moveStep;
-		if (ba.isType(Types.MOVE_UP_1))
+		if (ba.isType(BodyAttribute.MOVE_UP_1))
 			i++;
-		if (ba.isType(Types.MOVE_UP_2))
+		if (ba.isType(BodyAttribute.MOVE_UP_2))
 			i += 2;
-		if (ba.isType(Types.MOVE_DOWN_1))
+		if (ba.isType(BodyAttribute.MOVE_DOWN_1))
 			i--;
 		drawLine(ba.moveType.getText(), i, 0, 1, g);
 		drawLine(Texts.sp[45], ba.store, 1, 1, g);
@@ -464,55 +464,55 @@ public class SPanel extends StatusBase {
 	private void drawTypeList(Graphics g) {
 		drawMain(uw, ba, g, false);
 		n = 0;
-		drawType(g, Types.BADITEM);
-		drawType(g, Types.MASTER);
-		drawType(g, Types.DRAGON);
-		drawType(g, Types.UNDEAD);
-		drawType(g, Types.DRAGON_KILLER);
-		drawType(g, Types.UNDEAD_KILLER);
-		drawType(g, Types.SWORD_50);
-		drawType(g, Types.MAGIC_50);
-		drawType(g, Types.FIRE_200, Types.FIRE_50, Types.FIRE_0);
-		drawType(g, Types.ICE_200, Types.ICE_50, Types.ICE_0);
-		drawType(g, Types.THUNDER_200, Types.THUNDER_50, Types.THUNDER_0);
-		if (drawType(g, Types.ANTI_ALL))
+		drawType(g, BodyAttribute.BADITEM);
+		drawType(g, BodyAttribute.MASTER);
+		drawType(g, BodyAttribute.DRAGON);
+		drawType(g, BodyAttribute.UNDEAD);
+		drawType(g, BodyAttribute.DRAGON_KILLER);
+		drawType(g, BodyAttribute.UNDEAD_KILLER);
+		drawType(g, BodyAttribute.SWORD_50);
+		drawType(g, BodyAttribute.MAGIC_50);
+		drawType(g, BodyAttribute.FIRE_200, BodyAttribute.FIRE_50, BodyAttribute.FIRE_0);
+		drawType(g, BodyAttribute.ICE_200, BodyAttribute.ICE_50, BodyAttribute.ICE_0);
+		drawType(g, BodyAttribute.THUNDER_200, BodyAttribute.THUNDER_50, BodyAttribute.THUNDER_0);
+		if (drawType(g, BodyAttribute.ANTI_ALL))
 			return;
-		if (!drawType(g, Types.NKILL)) {
-			drawType(g, Types.ANTI_CRITICAL);
-			drawType(g, Types.ANTI_DEATH);
+		if (!drawType(g, BodyAttribute.NKILL)) {
+			drawType(g, BodyAttribute.ANTI_CRITICAL);
+			drawType(g, BodyAttribute.ANTI_DEATH);
 		}
-		drawType(g, Types.ANTI_SLEEP);
-		drawType(g, Types.ANTI_POISON);
-		drawType(g, Types.ANTI_CHARM);
-		drawType(g, Types.POISON);
-		drawType(g, Types.HEAL);
-		drawType(g, Types.FLY_ABLE);
-		drawType(g, Types.SWIM_ABLE);
-		drawType(g, Types.LITE_WALK);
+		drawType(g, BodyAttribute.ANTI_SLEEP);
+		drawType(g, BodyAttribute.ANTI_POISON);
+		drawType(g, BodyAttribute.ANTI_CHARM);
+		drawType(g, BodyAttribute.POISON);
+		drawType(g, BodyAttribute.HEAL);
+		drawType(g, BodyAttribute.FLY_ABLE);
+		drawType(g, BodyAttribute.SWIM_ABLE);
+		drawType(g, BodyAttribute.LITE_WALK);
 		int i = 0;
-		if (ba.isType(Types.MOVE_UP_1))
+		if (ba.isType(BodyAttribute.MOVE_UP_1))
 			i++;
-		if (ba.isType(Types.MOVE_UP_2))
+		if (ba.isType(BodyAttribute.MOVE_UP_2))
 			i += 2;
-		if (ba.isType(Types.MOVE_DOWN_1))
+		if (ba.isType(BodyAttribute.MOVE_DOWN_1))
 			i--;
 		switch (i) {
 		case -1:
-			drawType(g, Types.MOVE_DOWN_1);
+			drawType(g, BodyAttribute.MOVE_DOWN_1);
 			break;
 
 		case 1: // '\001'
-			drawType(g, Types.MOVE_UP_1);
+			drawType(g, BodyAttribute.MOVE_UP_1);
 			break;
 
 		case 2: // '\002'
-			drawType(g, Types.MOVE_UP_2);
+			drawType(g, BodyAttribute.MOVE_UP_2);
 			break;
 		}
-		drawType(g, Types.S_LOCK);
+		drawType(g, BodyAttribute.S_LOCK);
 	}
 
-	private boolean drawType(Graphics g, Types i, Types j, Types k) {
+	private boolean drawType(Graphics g, BodyAttribute i, BodyAttribute j, BodyAttribute k) {
 		if (drawType(g, k))
 			return true;
 		if (ba.isType(i) && ba.isType(j)) {
@@ -524,7 +524,7 @@ public class SPanel extends StatusBase {
 		}
 	}
 
-	private boolean drawType(Graphics g, Types type) {
+	private boolean drawType(Graphics g, BodyAttribute type) {
 		if (n == 8)
 			return false;
 		if (!ba.isType(type)) {
@@ -549,7 +549,7 @@ public class SPanel extends StatusBase {
 		if (atkb == null)
 			return;
 		drawLine(atkb.getName(), 0, 1, g);
-		if (atkb.isEffect(Effects.NO_ATTACK)) {
+		if (atkb.isEffect(AttackEffect.NO_ATTACK)) {
 			drawEffect(g);
 		} else {
 			drawLine(Texts.sp[55], Math.abs(atkb.getDamage()), 0, 2, g);
@@ -564,37 +564,37 @@ public class SPanel extends StatusBase {
 
 	private void drawEffect(Graphics g) {
 		String s = "NO EFFECT";
-		if (atkb.isPossible(Effects.REFRESH))
+		if (atkb.isPossible(AttackEffect.REFRESH))
 			s = "REFRESH";
-		if (atkb.isPossible(Effects.OIL))
+		if (atkb.isPossible(AttackEffect.OIL))
 			s = "OIL";
-		if (atkb.isPossible(Effects.ATTACK_UP))
+		if (atkb.isPossible(AttackEffect.ATTACK_UP))
 			s = "ATTACK";
-		if (atkb.isPossible(Effects.ATTACK_UP))
+		if (atkb.isPossible(AttackEffect.ATTACK_UP))
 			s = "GUARD";
-		if (atkb.isPossible(Effects.UPPER))
+		if (atkb.isPossible(AttackEffect.UPPER))
 			s = "UP";
-		if (atkb.isPossible(Effects.CHOP))
+		if (atkb.isPossible(AttackEffect.CHOP))
 			s = "DOWN";
-		if (atkb.isPossible(Effects.WET))
+		if (atkb.isPossible(AttackEffect.WET))
 			s = "CLOSE";
-		if (atkb.isPossible(Effects.POISON))
+		if (atkb.isPossible(AttackEffect.POISON))
 			s = "POISON";
-		if (atkb.isPossible(Effects.SLEEP))
+		if (atkb.isPossible(AttackEffect.SLEEP))
 			s = "SLEEP";
-		if (atkb.isPossible(Effects.CHARM))
+		if (atkb.isPossible(AttackEffect.CHARM))
 			s = "CHARM";
-		if (atkb.isPossible(Effects.CRITICAL))
+		if (atkb.isPossible(AttackEffect.CRITICAL))
 			s = "FINISH";
-		if (atkb.isPossible(Effects.DEATH))
+		if (atkb.isPossible(AttackEffect.DEATH))
 			s = "DEATH";
-		if ((s.equals("SLEEP") || s.equals("CHARM")) && bb.isType(Types.S_LOCK))
+		if ((s.equals("SLEEP") || s.equals("CHARM")) && bb.isType(BodyAttribute.S_LOCK))
 			s = "LOCK";
 		drawLine(Texts.sp[59] + s, 0, 2, g);
 	}
 
 	private void drawCounter(Graphics g) {
-		if (ba.isType(Types.ANTI_SLEEP))
+		if (ba.isType(BodyAttribute.ANTI_SLEEP))
 			drawLine("  SLEEPING...", 0, 2, g);
 	}
 

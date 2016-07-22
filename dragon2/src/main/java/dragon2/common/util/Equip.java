@@ -9,7 +9,7 @@ import dragon2.UnitWorks;
 import dragon2.attack.AttackData;
 import dragon2.common.Body;
 import dragon2.common.constant.Colors;
-import dragon2.common.constant.Kinds;
+import dragon2.common.constant.BodyKind;
 import dragon2.common.constant.Texts;
 
 public class Equip {
@@ -62,7 +62,7 @@ public class Equip {
 				i += (i * (body1.level - body.level)) / 2;
 		body.exp += i;
 		body1.exp = 0;
-		if (body.kind == Kinds.DOLL) {
+		if (body.kind == BodyKind.DOLL) {
 			for (int j = 2; j <= 11; j++) {
 				Body body2 = searchItem(body.gx + j, body.gy);
 				if (body2 != null)
@@ -268,7 +268,7 @@ public class Equip {
 	public void equip(Body body) {
 		body.setMax();
 		body.newType();
-		if (body.kind == Kinds.DOLL) {
+		if (body.kind == BodyKind.DOLL) {
 			equipDoll(body);
 			return;
 		}
