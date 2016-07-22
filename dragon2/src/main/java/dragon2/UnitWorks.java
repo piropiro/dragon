@@ -1,5 +1,5 @@
 package dragon2;
-// Decompiled by Jad v1.5.8g. Copyright 2001 Pavel Kouznetsov.
+
 // Jad home page: http://www.kpdus.com/jad.html
 // Decompiler options: packimports(3) 
 // Source File Name:   UnitWorks.java
@@ -9,6 +9,7 @@ import java.util.Vector;
 
 import dragon2.attack.AttackBase;
 import dragon2.common.Body;
+import dragon2.common.constant.AnimeType;
 
 public interface UnitWorks {
 

@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import dragon2.common.constant.AnimeType;
 import dragon2.common.constant.Effects;
 import dragon2.common.constant.EnergyType;
 import dragon2.common.constant.TargetType;
@@ -25,7 +26,7 @@ public class AttackData implements Serializable {
 	public int attackType;
 	public int attackN1;
 	public TargetType targetType;
-	public int animeType;
+	public AnimeType animeType;
 	public int animeN1;
 	public EnergyType energyType;
 	public int energyCost;
@@ -87,12 +88,12 @@ public class AttackData implements Serializable {
     }
 
 
-    public int getAnimeType() {
+    public AnimeType getAnimeType() {
         return animeType;
     }
 
-    public void setAnimeType(int AnimeType) {
-        this.animeType = AnimeType;
+    public void setAnimeType(AnimeType animeType) {
+        this.animeType = animeType;
     }
 
     public int getAnimeN1() {

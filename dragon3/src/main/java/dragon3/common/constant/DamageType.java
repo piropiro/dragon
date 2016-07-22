@@ -35,4 +35,15 @@ public enum DamageType {
 		return idAndText;
 	}
 
+	public static DamageType convert(int n) {
+		switch (n) {
+		case 1: return SWORD;
+		case 2: return MAGIC;
+		case 5: return SWORD_ALL;
+		case 6: return MAGIC_ALL;
+		
+		default:
+			throw new IllegalArgumentException("DamageType unmatch: " + n);
+		}
+	}
 }

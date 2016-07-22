@@ -21,6 +21,7 @@ import org.junit.Test;
 import dragon2.OldAttackData;
 import dragon2.OldAttackData2;
 import dragon2.attack.AttackData;
+import dragon2.common.constant.AnimeType;
 import dragon2.common.constant.Effects;
 import dragon2.common.constant.EnergyType;
 import dragon2.common.constant.TargetType;
@@ -83,7 +84,7 @@ public class AttackDataMigration {
 //			newData.rangeType = oldData.RangeType;
 //			newData.rangeN1 = oldData.RangeN1;
 //			newData.rangeN2 = oldData.RangeN2;
-			newData.animeType = oldData.AnimeType;
+//			newData.animeType = oldData.AnimeType;
 			newData.animeN1 = oldData.AnimeN1;
 			newData.energyType = EnergyType.convert(oldData.FuelType);
 			newData.energyCost = oldData.FuelN1;
@@ -127,7 +128,7 @@ public class AttackDataMigration {
 //			newData.rangeType = oldData.RangeType;
 //			newData.rangeN1 = oldData.RangeN1;
 //			newData.rangeN2 = oldData.RangeN2;
-			newData.animeType = oldData.animeType;
+//			newData.animeType = oldData.animeType;
 			newData.animeN1 = oldData.animeN1;
 			newData.energyType = EnergyType.convert(oldData.fuelType);
 			newData.energyCost = oldData.fuelN1;

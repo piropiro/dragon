@@ -1,11 +1,9 @@
-package dragon3.common.constant;
+package dragon2.common.constant;
 
 import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.stream.Collectors;
-
-import lombok.Getter;
 
 public enum AnimeType {
 
@@ -19,12 +17,20 @@ public enum AnimeType {
 	ROTATE("回転"), // 6
 	;
 	
-	@Getter private String text;
+	private String text;
 	
 	AnimeType(String text) {
 		this.text = text;
 	}
 	
+	
+	
+	public String getText() {
+		return text;
+	}
+
+
+
 	public static Map<String, String> createMap() {
 		return Arrays.asList(values()).stream()
 				.collect(Collectors.toMap(AnimeType::name, 

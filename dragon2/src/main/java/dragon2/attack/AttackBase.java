@@ -600,20 +600,30 @@ public class AttackBase implements Iconable {
 		default:
 			break;
 
-		case 2: // '\002'
-		case 5: // '\005'
-		case 6: // '\006'
+		case ALL: // '\002'
 			if (!flag)
-				uw.setAnime(ad.animeType, ad.animeN1, point, point1);
+				uw.setAnime(2, ad.animeN1, point, point1);
+			break;
+		case SOME_ARROW: // '\005'
+			if (!flag)
+				uw.setAnime(5, ad.animeN1, point, point1);
+			break;
+		case ROTATE: // '\006'
+			if (!flag)
+				uw.setAnime(6, ad.animeN1, point, point1);
 			break;
 
-		case 1: // '\001'
-		case 3: // '\003'
+		case SINGLE: // '\001'
 			if (flag)
-				uw.setAnime(ad.animeType, ad.animeN1, point, point1);
+				uw.setAnime(1, ad.animeN1, point, point1);
+			break;
+		case SINGLE_ARROW: // '\003'
+			if (flag)
+				uw.setAnime(3, ad.animeN1, point, point1);
 			break;
 
-		case 4: // '\004'
+		case LASER_ARROW_2: // '\004'
+		case LASER_ARROW_3:
 			if (flag)
 				break;
 			if (ad.targetType.getTargetType() == 2)
@@ -634,7 +644,7 @@ public class AttackBase implements Iconable {
 					point1.y = Math.min(14, point.y + ad.targetType.getTargetN1());
 					break;
 				}
-			uw.setAnime(ad.animeType, ad.animeN1, point, point1);
+			uw.setAnime(4, ad.animeN1, point, point1);
 			break;
 		}
 	}
