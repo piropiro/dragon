@@ -1,8 +1,8 @@
 package dragon2;
 
-// Jad home page: http://www.kpdus.com/jad.html
-// Decompiler options: packimports(3) 
-// Source File Name:   UnitWorks.java
+
+
+
 
 import java.awt.Point;
 import java.util.Vector;
