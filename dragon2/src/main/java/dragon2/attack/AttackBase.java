@@ -559,7 +559,7 @@ public class AttackBase implements Iconable {
 	}
 
 	public String getSubName() {
-		return ad.sname;
+		return ad.label;
 	}
 
 	public int getColor() {

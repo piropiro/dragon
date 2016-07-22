@@ -9,7 +9,7 @@
 		"energyCost": 0,
 		"energyType": "NONE",
 		"name": "none",
-		"sname": "none",
+		"label": "none",
 		"targetType": "TARGET_SINGLE_1"
 	},
 	{
@@ -25,7 +25,7 @@
 		"energyCost": 0,
 		"energyType": "NONE",
 		"name": "剣",
-		"sname": "攻撃",
+		"label": "攻撃",
 		"targetType": "TARGET_SINGLE_1"
 	},
 	{
@@ -41,7 +41,7 @@
 		"energyCost": 0,
 		"energyType": "NONE",
 		"name": "斧",
-		"sname": "攻撃",
+		"label": "攻撃",
 		"targetType": "TARGET_SINGLE_1"
 	},
 	{
@@ -57,7 +57,7 @@
 		"energyCost": 0,
 		"energyType": "NONE",
 		"name": "突進",
-		"sname": "突進",
+		"label": "突進",
 		"targetType": "TARGET_SINGLE_1"
 	},
 	{
@@ -74,7 +74,7 @@
 		"energyCost": 0,
 		"energyType": "NONE",
 		"name": "短剣",
-		"sname": "攻撃",
+		"label": "攻撃",
 		"targetType": "TARGET_SINGLE_1"
 	},
 	{
@@ -91,7 +91,7 @@
 		"energyCost": 0,
 		"energyType": "NONE",
 		"name": "槍",
-		"sname": "攻撃",
+		"label": "攻撃",
 		"targetType": "TARGET_SINGLE_2"
 	},
 	{
@@ -108,7 +108,7 @@
 		"energyCost": 0,
 		"energyType": "NONE",
 		"name": "弓",
-		"sname": "攻撃",
+		"label": "攻撃",
 		"targetType": "TARGET_LONG_2"
 	},
 	{
@@ -121,7 +121,7 @@
 		"energyCost": 0,
 		"energyType": "NONE",
 		"name": "魔法",
-		"sname": "魔法",
+		"label": "魔法",
 		"targetType": "TARGET_LONG_2"
 	},
 	{
@@ -136,7 +136,7 @@
 		"energyCost": 0,
 		"energyType": "NONE",
 		"name": "ブレス",
-		"sname": "ブレス",
+		"label": "ブレス",
 		"targetType": "TARGET_BREATH"
 	},
 	{
@@ -154,7 +154,7 @@
 		"energyCost": 0,
 		"energyType": "NONE",
 		"name": "つばめ返し",
-		"sname": "反撃",
+		"label": "反撃",
 		"targetType": "TARGET_SINGLE_1"
 	},
 	{
@@ -169,7 +169,7 @@
 		"energyCost": 1,
 		"energyType": "MST",
 		"name": "大魔法",
-		"sname": "大魔法",
+		"label": "大魔法",
 		"targetType": "TARGET_SPREAD"
 	},
 	{
@@ -185,7 +185,7 @@
 		"energyCost": 1,
 		"energyType": "STR",
 		"name": "直斬り",
-		"sname": "直斬り",
+		"label": "直斬り",
 		"targetType": "TARGET_LASER_3"
 	},
 	{
@@ -203,7 +203,7 @@
 		"energyCost": 1,
 		"energyType": "STR",
 		"name": "強弓",
-		"sname": "強弓",
+		"label": "強弓",
 		"targetType": "TARGET_LONG_2"
 	},
 	{
@@ -218,7 +218,7 @@
 		"energyCost": 0,
 		"energyType": "NONE",
 		"name": "アイスボール",
-		"sname": "氷玉",
+		"label": "氷玉",
 		"targetType": "TARGET_LONG_2"
 	},
 	{
@@ -236,7 +236,7 @@
 		"energyCost": 2,
 		"energyType": "MST",
 		"name": "ゼロキャノン",
-		"sname": "零砲",
+		"label": "零砲",
 		"targetType": "TARGET_LASER_2"
 	},
 	{
@@ -253,7 +253,7 @@
 		"energyCost": 0,
 		"energyType": "NONE",
 		"name": "ファイアソード",
-		"sname": "火剣",
+		"label": "火剣",
 		"targetType": "TARGET_SINGLE_1"
 	},
 	{
@@ -269,7 +269,7 @@
 		"energyCost": 3,
 		"energyType": "MST",
 		"name": "ヒーリング",
-		"sname": "回復",
+		"label": "回復",
 		"targetType": "TARGET_SINGLE_1"
 	},
 	{
@@ -285,7 +285,7 @@
 		"energyCost": 1,
 		"energyType": "MST",
 		"name": "ファイヤーブレス",
-		"sname": "火炎",
+		"label": "火炎",
 		"targetType": "TARGET_BREATH"
 	},
 	{
@@ -301,7 +301,7 @@
 		"energyCost": 0,
 		"energyType": "NONE",
 		"name": "鋼の牙",
-		"sname": "鋼牙",
+		"label": "鋼牙",
 		"targetType": "TARGET_SINGLE_1"
 	},
 	{
@@ -318,7 +318,7 @@
 		"energyCost": 0,
 		"energyType": "NONE",
 		"name": "アイスソード",
-		"sname": "氷剣",
+		"label": "氷剣",
 		"targetType": "TARGET_SINGLE_1"
 	},
 	{
@@ -336,7 +336,7 @@
 		"energyCost": 0,
 		"energyType": "NONE",
 		"name": "雷神の弓",
-		"sname": "雷弓",
+		"label": "雷弓",
 		"targetType": "TARGET_LONG_2"
 	},
 	{
@@ -353,7 +353,7 @@
 		"energyCost": 0,
 		"energyType": "NONE",
 		"name": "ムラマサ",
-		"sname": "攻撃",
+		"label": "攻撃",
 		"targetType": "TARGET_SINGLE_1"
 	},
 	{
@@ -371,7 +371,7 @@
 		"energyCost": 3,
 		"energyType": "MST",
 		"name": "プリティキッス",
-		"sname": "KISS",
+		"label": "KISS",
 		"targetType": "TARGET_SINGLE_1"
 	},
 	{
@@ -388,7 +388,7 @@
 		"energyCost": 1,
 		"energyType": "MST",
 		"name": "チャーム",
-		"sname": "魅了",
+		"label": "魅了",
 		"targetType": "TARGET_SINGLE_1"
 	},
 	{
@@ -405,7 +405,7 @@
 		"energyCost": 1,
 		"energyType": "STR",
 		"name": "スマッシュ",
-		"sname": "昇斬",
+		"label": "昇斬",
 		"targetType": "TARGET_SINGLE_1"
 	},
 	{
@@ -422,7 +422,7 @@
 		"energyCost": 2,
 		"energyType": "MST",
 		"name": "子守唄",
-		"sname": "子守唄",
+		"label": "子守唄",
 		"targetType": "TARGET_ALL_2"
 	},
 	{
@@ -440,7 +440,7 @@
 		"energyCost": 1,
 		"energyType": "MST",
 		"name": "人魚の槍",
-		"sname": "魚槍",
+		"label": "魚槍",
 		"targetType": "TARGET_SINGLE_2"
 	},
 	{
@@ -457,7 +457,7 @@
 		"energyCost": 1,
 		"energyType": "STR",
 		"name": "串刺し",
-		"sname": "串刺",
+		"label": "串刺",
 		"targetType": "TARGET_LASER_2"
 	},
 	{
@@ -472,7 +472,7 @@
 		"energyCost": 0,
 		"energyType": "NONE",
 		"name": "ファイヤーボール",
-		"sname": "火玉",
+		"label": "火玉",
 		"targetType": "TARGET_LONG_2"
 	},
 	{
@@ -488,7 +488,7 @@
 		"energyCost": 2,
 		"energyType": "STR",
 		"name": "倍斬り",
-		"sname": "倍斬り",
+		"label": "倍斬り",
 		"targetType": "TARGET_SINGLE_1"
 	},
 	{
@@ -504,7 +504,7 @@
 		"energyCost": 1,
 		"energyType": "MST",
 		"name": "ファイヤーリング",
-		"sname": "火輪",
+		"label": "火輪",
 		"targetType": "TARGET_RING_2"
 	},
 	{
@@ -519,7 +519,7 @@
 		"energyCost": 1,
 		"energyType": "MST",
 		"name": "スプラッシュ",
-		"sname": "水鉄砲",
+		"label": "水鉄砲",
 		"targetType": "TARGET_LONG_2"
 	},
 	{
@@ -537,7 +537,7 @@
 		"energyCost": 0,
 		"energyType": "NONE",
 		"name": "凍土の弓",
-		"sname": "氷弓",
+		"label": "氷弓",
 		"targetType": "TARGET_LONG_2"
 	},
 	{
@@ -553,7 +553,7 @@
 		"energyCost": 1,
 		"energyType": "STR",
 		"name": "貫通矢",
-		"sname": "貫通矢",
+		"label": "貫通矢",
 		"targetType": "TARGET_LASER_3"
 	},
 	{
@@ -570,7 +570,7 @@
 		"energyCost": 2,
 		"energyType": "MST",
 		"name": "デス",
-		"sname": "デス",
+		"label": "デス",
 		"targetType": "TARGET_LONG_2"
 	},
 	{
@@ -587,7 +587,7 @@
 		"energyCost": 2,
 		"energyType": "STR",
 		"name": "回転斬り",
-		"sname": "回転",
+		"label": "回転",
 		"targetType": "TARGET_SQUARE_1"
 	},
 	{
@@ -603,7 +603,7 @@
 		"energyCost": 2,
 		"energyType": "STR",
 		"name": "大地斬",
-		"sname": "大地斬",
+		"label": "大地斬",
 		"targetType": "TARGET_BREATH"
 	},
 	{
@@ -619,7 +619,7 @@
 		"energyCost": 2,
 		"energyType": "STR",
 		"name": "乱れ射ち",
-		"sname": "乱射",
+		"label": "乱射",
 		"targetType": "TARGET_BREATH"
 	},
 	{
@@ -634,7 +634,7 @@
 		"energyCost": 0,
 		"energyType": "NONE",
 		"name": "サンダーボルト",
-		"sname": "雷撃",
+		"label": "雷撃",
 		"targetType": "TARGET_LONG_2"
 	},
 	{
@@ -651,7 +651,7 @@
 		"energyCost": 0,
 		"energyType": "NONE",
 		"name": "毒の牙",
-		"sname": "毒牙",
+		"label": "毒牙",
 		"targetType": "TARGET_SINGLE_1"
 	},
 	{
@@ -669,7 +669,7 @@
 		"energyCost": 0,
 		"energyType": "NONE",
 		"name": "毒針",
-		"sname": "毒針",
+		"label": "毒針",
 		"targetType": "TARGET_SINGLE_1"
 	},
 	{
@@ -687,7 +687,7 @@
 		"energyCost": 0,
 		"energyType": "NONE",
 		"name": "手裏剣",
-		"sname": "手裏剣",
+		"label": "手裏剣",
 		"targetType": "TARGET_LONG_2"
 	},
 	{
@@ -704,7 +704,7 @@
 		"energyCost": 0,
 		"energyType": "NONE",
 		"name": "ウインドカッター",
-		"sname": "風刃",
+		"label": "風刃",
 		"targetType": "TARGET_LONG_2"
 	},
 	{
@@ -721,7 +721,7 @@
 		"energyCost": 0,
 		"energyType": "NONE",
 		"name": "神獣の斧",
-		"sname": "獣斧",
+		"label": "獣斧",
 		"targetType": "TARGET_SINGLE_1"
 	},
 	{
@@ -739,7 +739,7 @@
 		"energyCost": 2,
 		"energyType": "STR",
 		"name": "飛竜殺し",
-		"sname": "飛竜殺",
+		"label": "飛竜殺",
 		"targetType": "TARGET_SINGLE_1"
 	},
 	{
@@ -757,7 +757,7 @@
 		"energyCost": 0,
 		"energyType": "NONE",
 		"name": "ミストルテイン",
-		"sname": "魔槍",
+		"label": "魔槍",
 		"targetType": "TARGET_SINGLE_2"
 	},
 	{
@@ -774,7 +774,7 @@
 		"energyCost": 2,
 		"energyType": "MST",
 		"name": "シャイニング",
-		"sname": "聖光",
+		"label": "聖光",
 		"targetType": "TARGET_ALL_2"
 	},
 	{
@@ -792,7 +792,7 @@
 		"energyCost": 2,
 		"energyType": "MST",
 		"name": "ブリザード",
-		"sname": "吹雪",
+		"label": "吹雪",
 		"targetType": "TARGET_RING_3"
 	},
 	{
@@ -809,7 +809,7 @@
 		"energyCost": 0,
 		"energyType": "NONE",
 		"name": "猛毒の牙",
-		"sname": "猛毒",
+		"label": "猛毒",
 		"targetType": "TARGET_SINGLE_1"
 	},
 	{
@@ -826,7 +826,7 @@
 		"energyCost": 4,
 		"energyType": "MST",
 		"name": "デスウインド",
-		"sname": "死風",
+		"label": "死風",
 		"targetType": "TARGET_RING_3"
 	},
 	{
@@ -845,7 +845,7 @@
 		"energyCost": 2,
 		"energyType": "STR",
 		"name": "地竜殺し",
-		"sname": "地竜殺",
+		"label": "地竜殺",
 		"targetType": "TARGET_SINGLE_2"
 	},
 	{
@@ -861,7 +861,7 @@
 		"energyCost": 1,
 		"energyType": "STR",
 		"name": "電光石火",
-		"sname": "光速斬",
+		"label": "光速斬",
 		"targetType": "TARGET_SINGLE_1"
 	},
 	{
@@ -878,7 +878,7 @@
 		"energyCost": 2,
 		"energyType": "MST",
 		"name": "アイスブレード",
-		"sname": "氷刃",
+		"label": "氷刃",
 		"targetType": "TARGET_HLINE"
 	},
 	{
@@ -895,7 +895,7 @@
 		"energyCost": 1,
 		"energyType": "MST",
 		"name": "誘惑の鞭",
-		"sname": "誘惑",
+		"label": "誘惑",
 		"targetType": "TARGET_SINGLE_2"
 	},
 	{
@@ -912,7 +912,7 @@
 		"energyCost": 4,
 		"energyType": "MST",
 		"name": "スパーク",
-		"sname": "電撃",
+		"label": "電撃",
 		"targetType": "TARGET_SINGLE_1"
 	},
 	{
@@ -929,7 +929,7 @@
 		"energyCost": 1,
 		"energyType": "STR",
 		"name": "切り落とし",
-		"sname": "落斬",
+		"label": "落斬",
 		"targetType": "TARGET_SINGLE_1"
 	},
 	{
@@ -946,7 +946,7 @@
 		"energyCost": 0,
 		"energyType": "NONE",
 		"name": "魔神の斧",
-		"sname": "魔斧",
+		"label": "魔斧",
 		"targetType": "TARGET_SINGLE_1"
 	},
 	{
@@ -963,7 +963,7 @@
 		"energyCost": 2,
 		"energyType": "STR",
 		"name": "グランドクロス",
-		"sname": "十字斬",
+		"label": "十字斬",
 		"targetType": "TARGET_CROSS_2"
 	},
 	{
@@ -980,7 +980,7 @@
 		"energyCost": 1,
 		"energyType": "MST",
 		"name": "カウンター",
-		"sname": "反撃",
+		"label": "反撃",
 		"targetType": "TARGET_SINGLE_1"
 	},
 	{
@@ -996,7 +996,7 @@
 		"energyCost": 1,
 		"energyType": "MST",
 		"name": "油玉",
-		"sname": "油玉",
+		"label": "油玉",
 		"targetType": "TARGET_LONG_2"
 	},
 	{
@@ -1013,7 +1013,7 @@
 		"energyCost": 1,
 		"energyType": "STR",
 		"name": "ドラゴンキラー",
-		"sname": "竜殺剣",
+		"label": "竜殺剣",
 		"targetType": "TARGET_SINGLE_1"
 	},
 	{
@@ -1029,7 +1029,7 @@
 		"energyCost": 1,
 		"energyType": "MST",
 		"name": "ファイヤーストーム",
-		"sname": "火炎",
+		"label": "火炎",
 		"targetType": "TARGET_SINGLE_1"
 	},
 	{
@@ -1045,7 +1045,7 @@
 		"energyCost": 1,
 		"energyType": "MST",
 		"name": "アイスストーム",
-		"sname": "氷結",
+		"label": "氷結",
 		"targetType": "TARGET_SINGLE_1"
 	},
 	{
@@ -1061,7 +1061,7 @@
 		"energyCost": 2,
 		"energyType": "MST",
 		"name": "ギガスラッシュ",
-		"sname": "雷切",
+		"label": "雷切",
 		"targetType": "TARGET_LASER_2"
 	},
 	{
@@ -1078,7 +1078,7 @@
 		"energyCost": 1,
 		"energyType": "MST",
 		"name": "フレイムレーザー",
-		"sname": "火炎",
+		"label": "火炎",
 		"targetType": "TARGET_LASER_3"
 	},
 	{
@@ -1095,7 +1095,7 @@
 		"energyCost": 1,
 		"energyType": "STR",
 		"name": "サンダーアロー",
-		"sname": "雷矢",
+		"label": "雷矢",
 		"targetType": "TARGET_LASER_3"
 	},
 	{
@@ -1112,7 +1112,7 @@
 		"energyCost": 1,
 		"energyType": "STR",
 		"name": "アイスアロー",
-		"sname": "氷矢",
+		"label": "氷矢",
 		"targetType": "TARGET_LASER_3"
 	},
 	{
@@ -1130,7 +1130,7 @@
 		"energyCost": 2,
 		"energyType": "MST",
 		"name": "ヒートアップ",
-		"sname": "加熱",
+		"label": "加熱",
 		"targetType": "TARGET_SINGLE_1"
 	},
 	{
@@ -1148,7 +1148,7 @@
 		"energyCost": 2,
 		"energyType": "MST",
 		"name": "ガードアップ",
-		"sname": "防御",
+		"label": "防御",
 		"targetType": "TARGET_SINGLE_1"
 	},
 	{
@@ -1166,7 +1166,7 @@
 		"energyCost": 1,
 		"energyType": "MST",
 		"name": "デスブリンガー",
-		"sname": "暗黒剣",
+		"label": "暗黒剣",
 		"targetType": "TARGET_SINGLE_1"
 	},
 	{
@@ -1184,7 +1184,7 @@
 		"energyCost": 1,
 		"energyType": "STR",
 		"name": "メガトンプレス",
-		"sname": "プレス",
+		"label": "プレス",
 		"targetType": "TARGET_SINGLE_1"
 	},
 	{
@@ -1202,7 +1202,7 @@
 		"energyCost": 2,
 		"energyType": "STR",
 		"name": "金の斧",
-		"sname": "金斧",
+		"label": "金斧",
 		"targetType": "TARGET_SINGLE_1"
 	},
 	{
@@ -1218,7 +1218,7 @@
 		"energyCost": 2,
 		"energyType": "MST",
 		"name": "ラブバイン",
-		"sname": "蔓草",
+		"label": "蔓草",
 		"targetType": "TARGET_LONG_2"
 	},
 	{
@@ -1235,7 +1235,7 @@
 		"energyCost": 1,
 		"energyType": "MST",
 		"name": "アイスレーザー",
-		"sname": "氷結",
+		"label": "氷結",
 		"targetType": "TARGET_LASER_3"
 	},
 	{
@@ -1252,7 +1252,7 @@
 		"energyCost": 2,
 		"energyType": "STR",
 		"name": "ナッツシュート",
-		"sname": "木の実",
+		"label": "木の実",
 		"targetType": "TARGET_LONG_3"
 	},
 	{
@@ -1270,7 +1270,7 @@
 		"energyCost": 1,
 		"energyType": "MST",
 		"name": "火炎斬り",
-		"sname": "火炎斬",
+		"label": "火炎斬",
 		"targetType": "TARGET_SINGLE_1"
 	},
 	{
@@ -1288,7 +1288,7 @@
 		"energyCost": 1,
 		"energyType": "MST",
 		"name": "氷結斬り",
-		"sname": "氷結斬",
+		"label": "氷結斬",
 		"targetType": "TARGET_SINGLE_1"
 	},
 	{
@@ -1305,7 +1305,7 @@
 		"energyCost": 0,
 		"energyType": "NONE",
 		"name": "クナイ",
-		"sname": "クナイ",
+		"label": "クナイ",
 		"targetType": "TARGET_SINGLE_1"
 	},
 	{
@@ -1324,7 +1324,7 @@
 		"energyCost": 0,
 		"energyType": "NONE",
 		"name": "アイシングダガー",
-		"sname": "氷刃",
+		"label": "氷刃",
 		"targetType": "TARGET_SINGLE_1"
 	},
 	{
@@ -1341,7 +1341,7 @@
 		"energyCost": 1,
 		"energyType": "MST",
 		"name": "デスサイズ",
-		"sname": "死鎌",
+		"label": "死鎌",
 		"targetType": "TARGET_SINGLE_2"
 	},
 	{
@@ -1357,7 +1357,7 @@
 		"energyCost": 2,
 		"energyType": "MST",
 		"name": "ラブアイス",
-		"sname": "氷玉",
+		"label": "氷玉",
 		"targetType": "TARGET_LONG_2"
 	},
 	{
@@ -1373,7 +1373,7 @@
 		"energyCost": 2,
 		"energyType": "MST",
 		"name": "ラブファイア",
-		"sname": "火玉",
+		"label": "火玉",
 		"targetType": "TARGET_LONG_2"
 	},
 	{
@@ -1389,7 +1389,7 @@
 		"energyCost": 1,
 		"energyType": "MST",
 		"name": "ナイトメア",
-		"sname": "悪夢",
+		"label": "悪夢",
 		"targetType": "TARGET_LONG_2"
 	},
 	{
@@ -1405,7 +1405,7 @@
 		"energyCost": 1,
 		"energyType": "MST",
 		"name": "アイスリング",
-		"sname": "氷輪",
+		"label": "氷輪",
 		"targetType": "TARGET_RING_2"
 	},
 	{
@@ -1421,7 +1421,7 @@
 		"energyCost": 1,
 		"energyType": "MST",
 		"name": "グラビティブラスト",
-		"sname": "重力波",
+		"label": "重力波",
 		"targetType": "TARGET_LONG_2"
 	},
 	{
@@ -1437,7 +1437,7 @@
 		"energyCost": 2,
 		"energyType": "MST",
 		"name": "チャームライト",
-		"sname": "淫夢",
+		"label": "淫夢",
 		"targetType": "TARGET_ALL_3"
 	},
 	{
@@ -1455,7 +1455,7 @@
 		"energyCost": 2,
 		"energyType": "MST",
 		"name": "マジックシュート",
-		"sname": "魔矢",
+		"label": "魔矢",
 		"targetType": "TARGET_LONG_3"
 	},
 	{
@@ -1472,7 +1472,7 @@
 		"energyCost": 0,
 		"energyType": "NONE",
 		"name": "サンダーバード",
-		"sname": "雷鳥",
+		"label": "雷鳥",
 		"targetType": "TARGET_LONG_2"
 	},
 	{
@@ -1490,7 +1490,7 @@
 		"energyCost": 2,
 		"energyType": "MST",
 		"name": "マジカルソード",
-		"sname": "氷雷火",
+		"label": "氷雷火",
 		"targetType": "TARGET_SINGLE_1"
 	},
 	{
@@ -1507,7 +1507,7 @@
 		"energyCost": 2,
 		"energyType": "MST",
 		"name": "タイダルウエイブ",
-		"sname": "津波",
+		"label": "津波",
 		"targetType": "TARGET_ALL_3"
 	},
 	{
@@ -1525,7 +1525,7 @@
 		"energyCost": 0,
 		"energyType": "MST",
 		"name": "海神の槍",
-		"sname": "海槍",
+		"label": "海槍",
 		"targetType": "TARGET_SINGLE_2"
 	},
 	{
@@ -1542,7 +1542,7 @@
 		"energyCost": 2,
 		"energyType": "MST",
 		"name": "ソウルスティール",
-		"sname": "魂狩",
+		"label": "魂狩",
 		"targetType": "TARGET_SINGLE_1"
 	},
 	{
@@ -1559,7 +1559,7 @@
 		"energyCost": 8,
 		"energyType": "STR",
 		"name": "ゴッドフィンガー",
-		"sname": "爆熱拳",
+		"label": "爆熱拳",
 		"targetType": "TARGET_SINGLE_1"
 	},
 	{
@@ -1575,7 +1575,7 @@
 		"energyCost": 0,
 		"energyType": "NONE",
 		"name": "エレキアタック",
-		"sname": "感電",
+		"label": "感電",
 		"targetType": "TARGET_SINGLE_1"
 	},
 	{
@@ -1592,7 +1592,7 @@
 		"energyCost": 0,
 		"energyType": "NONE",
 		"name": "森人の弓",
-		"sname": "森弓",
+		"label": "森弓",
 		"targetType": "TARGET_LONG_3"
 	},
 	{
@@ -1610,7 +1610,7 @@
 		"energyCost": 2,
 		"energyType": "STR",
 		"name": "ツインショット",
-		"sname": "連弾",
+		"label": "連弾",
 		"targetType": "TARGET_LONG_2"
 	},
 	{
@@ -1628,7 +1628,7 @@
 		"energyCost": 2,
 		"energyType": "STR",
 		"name": "マッドバイン",
-		"sname": "毒蔓",
+		"label": "毒蔓",
 		"targetType": "TARGET_ALL_2"
 	},
 	{
@@ -1647,7 +1647,7 @@
 		"energyCost": 0,
 		"energyType": "NONE",
 		"name": "芋づる",
-		"sname": "芋づる",
+		"label": "芋づる",
 		"targetType": "TARGET_LONG_2"
 	},
 	{
@@ -1666,7 +1666,7 @@
 		"energyCost": 3,
 		"energyType": "STR",
 		"name": "三連殺",
-		"sname": "三連殺",
+		"label": "三連殺",
 		"targetType": "TARGET_SINGLE_1"
 	},
 	{
@@ -1683,7 +1683,7 @@
 		"energyCost": 4,
 		"energyType": "MST",
 		"name": "炎殺剣",
-		"sname": "炎殺剣",
+		"label": "炎殺剣",
 		"targetType": "TARGET_SINGLE_1"
 	},
 	{
@@ -1699,7 +1699,7 @@
 		"energyCost": 4,
 		"energyType": "MST",
 		"name": "クリムゾンフレア",
-		"sname": "灼熱",
+		"label": "灼熱",
 		"targetType": "TARGET_RING_3"
 	},
 	{
@@ -1716,7 +1716,7 @@
 		"energyCost": 4,
 		"energyType": "MST",
 		"name": "ダイアモンドダスト",
-		"sname": "氷塵",
+		"label": "氷塵",
 		"targetType": "TARGET_ALL_3"
 	},
 	{
@@ -1732,7 +1732,7 @@
 		"energyCost": 1,
 		"energyType": "MST",
 		"name": "リフレクト",
-		"sname": "反射",
+		"label": "反射",
 		"targetType": "TARGET_SINGLE_1"
 	},
 	{
@@ -1750,7 +1750,7 @@
 		"energyCost": 2,
 		"energyType": "MST",
 		"name": "レビテーション",
-		"sname": "浮遊",
+		"label": "浮遊",
 		"targetType": "TARGET_SINGLE_1"
 	},
 	{
@@ -1767,7 +1767,7 @@
 		"energyCost": 2,
 		"energyType": "STR",
 		"name": "ライトブリンガー",
-		"sname": "聖光斬",
+		"label": "聖光斬",
 		"targetType": "TARGET_SINGLE_1"
 	},
 	{
@@ -1780,7 +1780,7 @@
 		"energyCost": 8,
 		"energyType": "STR",
 		"name": "真竜斬り",
-		"sname": "真竜斬",
+		"label": "真竜斬",
 		"targetType": "TARGET_SINGLE_1"
 	},
 	{
@@ -1798,7 +1798,7 @@
 		"energyCost": 4,
 		"energyType": "MST",
 		"name": "チャームフラッシュ",
-		"sname": "淫夢",
+		"label": "淫夢",
 		"targetType": "TARGET_RING_3"
 	},
 	{
@@ -1816,7 +1816,7 @@
 		"energyCost": 1,
 		"energyType": "MST",
 		"name": "マジックミサイル",
-		"sname": "魔法弾",
+		"label": "魔法弾",
 		"targetType": "TARGET_LONG_2"
 	},
 	{
@@ -1833,7 +1833,7 @@
 		"energyCost": 2,
 		"energyType": "MST",
 		"name": "ケイオスウエイブ",
-		"sname": "波動",
+		"label": "波動",
 		"targetType": "TARGET_ALL_4"
 	},
 	{
@@ -1850,7 +1850,7 @@
 		"energyCost": 1,
 		"energyType": "MST",
 		"name": "リジェネレーション",
-		"sname": "再生",
+		"label": "再生",
 		"targetType": "TARGET_ALL_4"
 	},
 	{
@@ -1866,7 +1866,7 @@
 		"energyCost": 0,
 		"energyType": "NONE",
 		"name": "フレイムタックル",
-		"sname": "炎撃",
+		"label": "炎撃",
 		"targetType": "TARGET_SINGLE_1"
 	},
 	{
@@ -1882,7 +1882,7 @@
 		"energyCost": 0,
 		"energyType": "NONE",
 		"name": "アイスタックル",
-		"sname": "氷撃",
+		"label": "氷撃",
 		"targetType": "TARGET_SINGLE_1"
 	},
 	{
@@ -1900,7 +1900,7 @@
 		"energyCost": 3,
 		"energyType": "MST",
 		"name": "アクアプリズン",
-		"sname": "水壁",
+		"label": "水壁",
 		"targetType": "TARGET_ALL_2"
 	},
 	{
@@ -1918,7 +1918,7 @@
 		"energyCost": 2,
 		"energyType": "STR",
 		"name": "海波斬",
-		"sname": "海波斬",
+		"label": "海波斬",
 		"targetType": "TARGET_LASER_3"
 	},
 	{
@@ -1936,7 +1936,7 @@
 		"energyCost": 0,
 		"energyType": "NONE",
 		"name": "音速弾",
-		"sname": "音速弾",
+		"label": "音速弾",
 		"targetType": "TARGET_SINGLE_2"
 	},
 	{
@@ -1953,7 +1953,7 @@
 		"energyCost": 4,
 		"energyType": "MST",
 		"name": "サンダーストーム",
-		"sname": "雷嵐",
+		"label": "雷嵐",
 		"targetType": "TARGET_ALL_2"
 	},
 	{
@@ -1971,7 +1971,7 @@
 		"energyCost": 0,
 		"energyType": "NONE",
 		"name": "ホーリーランス",
-		"sname": "聖槍",
+		"label": "聖槍",
 		"targetType": "TARGET_SINGLE_2"
 	},
 	{
@@ -1988,7 +1988,7 @@
 		"energyCost": 0,
 		"energyType": "NONE",
 		"name": "必殺針",
-		"sname": "猛毒",
+		"label": "猛毒",
 		"targetType": "TARGET_SINGLE_1"
 	},
 	{
@@ -2004,7 +2004,7 @@
 		"energyCost": 4,
 		"energyType": "MST",
 		"name": "ポイズンストーム",
-		"sname": "毒嵐",
+		"label": "毒嵐",
 		"targetType": "TARGET_ALL_2"
 	},
 	{
@@ -2022,7 +2022,7 @@
 		"energyCost": 2,
 		"energyType": "MST",
 		"name": "デッドエンド",
-		"sname": "終焉",
+		"label": "終焉",
 		"targetType": "TARGET_SQUARE_1"
 	},
 	{
@@ -2039,7 +2039,7 @@
 		"energyCost": 1,
 		"energyType": "STR",
 		"name": "誘惑の剣",
-		"sname": "誘惑",
+		"label": "誘惑",
 		"targetType": "TARGET_SINGLE_1"
 	},
 	{
@@ -2056,7 +2056,7 @@
 		"energyCost": 1,
 		"energyType": "STR",
 		"name": "空裂斬",
-		"sname": "空裂斬",
+		"label": "空裂斬",
 		"targetType": "TARGET_HLINE"
 	},
 	{
@@ -2072,7 +2072,7 @@
 		"energyCost": 1,
 		"energyType": "MST",
 		"name": "アイスブレス",
-		"sname": "氷息",
+		"label": "氷息",
 		"targetType": "TARGET_BREATH"
 	},
 	{
@@ -2090,7 +2090,7 @@
 		"energyCost": 1,
 		"energyType": "STR",
 		"name": "竜斬り",
-		"sname": "竜斬り",
+		"label": "竜斬り",
 		"targetType": "TARGET_SINGLE_1"
 	},
 	{
@@ -2108,7 +2108,7 @@
 		"energyCost": 2,
 		"energyType": "MST",
 		"name": "スターティアラ",
-		"sname": "星屑",
+		"label": "星屑",
 		"targetType": "TARGET_RING_2"
 	},
 	{
@@ -2126,7 +2126,7 @@
 		"energyCost": 0,
 		"energyType": "NONE",
 		"name": "ファイヤーアロー",
-		"sname": "炎矢",
+		"label": "炎矢",
 		"targetType": "TARGET_LONG_2"
 	},
 	{
@@ -2142,7 +2142,7 @@
 		"energyCost": 1,
 		"energyType": "MST",
 		"name": "サンダーフレア",
-		"sname": "雷電",
+		"label": "雷電",
 		"targetType": "TARGET_ALL_1"
 	},
 	{
@@ -2159,7 +2159,7 @@
 		"energyCost": 2,
 		"energyType": "HIT",
 		"name": "ダブルヒット",
-		"sname": "連撃",
+		"label": "連撃",
 		"targetType": "TARGET_SINGLE_1"
 	},
 	{
@@ -2177,7 +2177,7 @@
 		"energyCost": 0,
 		"energyType": "NONE",
 		"name": "飛苦無",
-		"sname": "飛苦無",
+		"label": "飛苦無",
 		"targetType": "TARGET_LONG_2"
 	},
 	{
@@ -2196,7 +2196,7 @@
 		"energyCost": 2,
 		"energyType": "STR",
 		"name": "エクスカリバー",
-		"sname": "聖剣",
+		"label": "聖剣",
 		"targetType": "TARGET_SINGLE_1"
 	},
 	{
@@ -2214,7 +2214,7 @@
 		"energyCost": 4,
 		"energyType": "MST",
 		"name": "カラミティエンド",
-		"sname": "終焉",
+		"label": "終焉",
 		"targetType": "TARGET_ALL_3"
 	},
 	{
@@ -2232,7 +2232,7 @@
 		"energyCost": 3,
 		"energyType": "MST",
 		"name": "バーニング",
-		"sname": "熱血",
+		"label": "熱血",
 		"targetType": "TARGET_ALL_1"
 	},
 	{
@@ -2247,7 +2247,7 @@
 		"energyCost": 2,
 		"energyType": "MST",
 		"name": "みだれ油",
-		"sname": "乱油",
+		"label": "乱油",
 		"targetType": "TARGET_RING_2"
 	},
 	{
@@ -2264,7 +2264,7 @@
 		"energyCost": 1,
 		"energyType": "HIT",
 		"name": "芋切り",
-		"sname": "芋切",
+		"label": "芋切",
 		"targetType": "TARGET_SINGLE_1"
 	},
 	{
@@ -2279,7 +2279,7 @@
 		"energyCost": 1,
 		"energyType": "MST",
 		"name": "誘導弾",
-		"sname": "誘導弾",
+		"label": "誘導弾",
 		"targetType": "TARGET_LONG_2"
 	}
 ]

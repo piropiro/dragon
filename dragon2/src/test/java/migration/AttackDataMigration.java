@@ -73,7 +73,7 @@ public class AttackDataMigration {
 			AttackData newData = new AttackData();
 
 			newData.name = oldData.name;
-			newData.sname = oldData.sname;
+			newData.label = oldData.sname;
 			newData.color = oldData.color;
 			newData.attackType = oldData.AttackType;
 			newData.attackN1 = oldData.AttackN1;
@@ -116,7 +116,7 @@ public class AttackDataMigration {
 			AttackData newData = new AttackData();
 
 			newData.name = oldData.name;
-			newData.sname = oldData.sname;
+			newData.label = oldData.sname;
 			newData.color = oldData.color;
 			newData.attackType = oldData.attackType;
 			newData.attackN1 = oldData.attackN1;
