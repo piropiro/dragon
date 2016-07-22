@@ -56,17 +56,22 @@ public class AttackBase implements Iconable {
 	}
 
 	private boolean countFuel() {
-		if (ad.fuelType == 1 && ad.fuelN1 > ba.str)
-			return false;
-		if (ad.fuelType == 2 && ad.fuelN1 > ba.def)
-			return false;
-		if (ad.fuelType == 3 && ad.fuelN1 > ba.mst)
-			return false;
-		if (ad.fuelType == 4 && ad.fuelN1 > ba.mdf)
-			return false;
-		if (ad.fuelType == 5 && ad.fuelN1 > ba.hit)
-			return false;
-		return ad.fuelType != 6 || ad.fuelN1 <= ba.mis;
+		switch (ad.energyType) {
+		case STR:
+			return ad.energyCost <= ba.str;
+		case DEF:
+			return ad.energyCost <= ba.def;
+		case MST:
+			return ad.energyCost <= ba.mst;
+		case MDF:
+			return ad.energyCost <= ba.mdf;
+		case HIT:
+			return ad.energyCost <= ba.hit;
+		case MIS:
+			return ad.energyCost <= ba.mis;
+		default:
+			return true;
+		}
 	}
 
 	public boolean isEffect(Effects effect) {
@@ -156,18 +161,27 @@ public class AttackBase implements Iconable {
 	}
 
 	private void decrease() {
-		if (ad.fuelType == 1)
-			ba.str -= ad.fuelN1;
-		if (ad.fuelType == 2)
-			ba.def -= ad.fuelN1;
-		if (ad.fuelType == 3)
-			ba.mst -= ad.fuelN1;
-		if (ad.fuelType == 4)
-			ba.mdf -= ad.fuelN1;
-		if (ad.fuelType == 5)
-			ba.hit -= ad.fuelN1;
-		if (ad.fuelType == 6)
-			ba.mis -= ad.fuelN1;
+		switch (ad.energyType) {
+		case STR:
+			ba.str -= ad.energyCost;
+			break;
+		case DEF:
+			ba.def -= ad.energyCost;
+			break;
+		case MST:
+			ba.mst -= ad.energyCost;
+			break;
+		case MDF:
+			ba.mdf -= ad.energyCost;
+			break;
+		case HIT:
+			ba.hit -= ad.energyCost;
+			break;
+		case MIS:
+			ba.mis -= ad.energyCost;
+			break;
+		default:
+		}
 	}
 
 	private int getFace(int i, int j) {
@@ -321,7 +335,7 @@ public class AttackBase implements Iconable {
 			break;
 
 		case 4: // '\004'
-			k = ad.fuelN1 / 2;
+			k = ad.energyCost / 2;
 			break;
 
 		case 5: // '\005'

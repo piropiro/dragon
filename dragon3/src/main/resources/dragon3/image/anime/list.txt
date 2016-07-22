@@ -1,4 +1,4 @@
-0.png
+none.png
 arrow.png
 arrow_blue.png
 arrow_fire.png

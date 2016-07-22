@@ -22,6 +22,7 @@ import dragon2.OldAttackData;
 import dragon2.OldAttackData2;
 import dragon2.attack.AttackData;
 import dragon2.common.constant.Effects;
+import dragon2.common.constant.EnergyType;
 import dragon2.common.constant.TargetType;
 import mine.io.BeanIO;
 import mine.io.JsonIO;
@@ -84,8 +85,8 @@ public class AttackDataMigration {
 //			newData.rangeN2 = oldData.RangeN2;
 			newData.animeType = oldData.AnimeType;
 			newData.animeN1 = oldData.AnimeN1;
-			newData.fuelType = oldData.FuelType;
-			newData.fuelN1 = oldData.FuelN1;
+			newData.energyType = EnergyType.convert(oldData.FuelType);
+			newData.energyCost = oldData.FuelN1;
 
 			for (int i : oldData.effect) {
 				switch (i) {
@@ -128,8 +129,8 @@ public class AttackDataMigration {
 //			newData.rangeN2 = oldData.RangeN2;
 			newData.animeType = oldData.animeType;
 			newData.animeN1 = oldData.animeN1;
-			newData.fuelType = oldData.fuelType;
-			newData.fuelN1 = oldData.fuelN1;
+			newData.energyType = EnergyType.convert(oldData.fuelType);
+			newData.energyCost = oldData.fuelN1;
 			newData.effect = oldData.effect;
 			
 			

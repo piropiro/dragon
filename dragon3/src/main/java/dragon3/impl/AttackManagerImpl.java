@@ -216,7 +216,9 @@ public class AttackManagerImpl implements AttackManager {
 			return false;
 		if (attack.hasEffect(AttackEffect.TAME) && Rewalk.isWalked(ba))
 			return false;
-
+		if (!attack.checkEnergy())
+			return false;
+		
 		if (!enemyFlag) {
 			int width = map.getMapWidth();
 			int height = map.getMapHeight();
@@ -582,6 +584,7 @@ public class AttackManagerImpl implements AttackManager {
 			se.execute(ba, bb, anime, attack.getEffectSet(), AttackEffect.REFRESH);
 			sm.sleep(300);
 		}
+		attack.consumeEnergy();
 	}
 
 	/*** Hit *********************************/
@@ -651,4 +654,5 @@ public class AttackManagerImpl implements AttackManager {
 	public AttackImpl getAttack() {
 		return attack;
 	}
+	
 }

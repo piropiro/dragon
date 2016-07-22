@@ -113,4 +113,49 @@ public class AttackImpl implements Attack {
 			return true;
 		return false;
 	}
+	
+	/*** Energy *****************************/
+	
+	public boolean checkEnergy() {
+		switch (waza.getEnergyType()) {
+		case STR:
+			return waza.getEnergyCost() <= ba.getStr();
+		case DEF:
+			return waza.getEnergyCost() <= ba.getDef();
+		case MST:
+			return waza.getEnergyCost() <= ba.getMst();
+		case MDF:
+			return waza.getEnergyCost() <= ba.getMdf();
+		case HIT:
+			return waza.getEnergyCost() <= ba.getHit();
+		case MIS:
+			return waza.getEnergyCost() <= ba.getMis();
+		default:
+			return true;
+		}
+	}
+	
+	public void consumeEnergy() {
+		switch (waza.getEnergyType()) {
+		case STR:
+			ba.setStr(ba.getStr() - waza.getEnergyCost());
+			break;
+		case DEF:
+			ba.setDef(ba.getDef() - waza.getEnergyCost());
+			break;
+		case MST:
+			ba.setMst(ba.getMst() - waza.getEnergyCost());
+			break;
+		case MDF:
+			ba.setMdf(ba.getMdf() - waza.getEnergyCost());
+			break;
+		case HIT:
+			ba.setHit(ba.getHit() - waza.getEnergyCost());
+			break;
+		case MIS:
+			ba.setMis(ba.getMis() - waza.getEnergyCost());
+			break;
+		default:
+		}
+	}
 }

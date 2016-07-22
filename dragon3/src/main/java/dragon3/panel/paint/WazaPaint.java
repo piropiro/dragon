@@ -37,7 +37,6 @@ public class WazaPaint implements DataPanelPainter {
 			waza.getName().substring(0, Math.min(7, waza.getName().length())),
 			50,
 			22);
-		g.drawString("No." + waza.getStar(), 52, 41);
 
 
 		if (waza.getDamageType() != null) {
@@ -76,6 +75,8 @@ public class WazaPaint implements DataPanelPainter {
 				pw.drawLine(Texts.sp[38], 0, 1, g);
 				break;
 		}
+		
+		pw.drawLine(waza.getEnergyType().getText(), 1, 1, g);
 
 		n = 4;
 		drawWazaEffect(pw, g, ect, AttackEffect.DAMAGE_150);
