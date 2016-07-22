@@ -22,6 +22,7 @@ import dragon2.OldAttackData;
 import dragon2.OldAttackData2;
 import dragon2.attack.AttackData;
 import dragon2.common.constant.AnimeType;
+import dragon2.common.constant.DamageType;
 import dragon2.common.constant.Effects;
 import dragon2.common.constant.EnergyType;
 import dragon2.common.constant.TargetType;
@@ -75,7 +76,7 @@ public class AttackDataMigration {
 			newData.name = oldData.name;
 			newData.label = oldData.sname;
 			newData.color = oldData.color;
-			newData.attackType = oldData.AttackType;
+			newData.damageType = DamageType.convert(oldData.AttackType);
 			newData.attackN1 = oldData.AttackN1;
 //			newData.trType = oldData.TRType;
 //			newData.targetType = oldData.TargetType;
@@ -118,7 +119,7 @@ public class AttackDataMigration {
 			newData.name = oldData.name;
 			newData.label = oldData.sname;
 			newData.color = oldData.color;
-			newData.attackType = oldData.attackType;
+			newData.damageType = DamageType.convert(oldData.attackType);
 			newData.attackN1 = oldData.attackN1;
 			newData.targetType = TargetType.convert(oldData.trType);
 //			newData.trType = oldData.TRType;

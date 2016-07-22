@@ -319,32 +319,33 @@ public class AttackBase implements Iconable {
 		int j = 0;
 		int k = 0;
 		int l = 0;
-		switch (ad.attackType) {
-		case 1: // '\001'
+		switch (ad.damageType) {
+		case SWORD: // '\001'
 			k = ba.str;
 			l = body.def;
 			break;
 
-		case 2: // '\002'
+		case MAGIC: // '\002'
 			k = ba.mst;
 			l = body.mdf;
 			break;
 
-		case 3: // '\003'
-			k = ba.hp / 2;
-			break;
+//		case 3: // '\003'
+//			k = ba.hp / 2;
+//			break;
+//
+//		case 4: // '\004'
+//			k = ad.energyCost / 2;
+//			break;
 
-		case 4: // '\004'
-			k = ad.energyCost / 2;
-			break;
-
-		case 5: // '\005'
+		case SWORD_ALL: // '\005'
 			k = ba.str;
 			break;
 
-		case 6: // '\006'
+		case MAGIC_ALL: // '\006'
 			k = ba.mst;
 			break;
+		default:
 		}
 		if (ba.isType(Types.ATTACK_UP))
 			k += (ba.str + ba.mst) / 4;

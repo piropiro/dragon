@@ -12,6 +12,7 @@ import dragon2.Statics;
 import dragon2.UnitWorks;
 import dragon2.attack.AttackData;
 import dragon2.common.Body;
+import dragon2.common.constant.DamageType;
 import dragon2.common.constant.Effects;
 import dragon2.common.constant.Kinds;
 import dragon2.common.constant.Texts;
@@ -320,8 +321,8 @@ public class SPanel extends StatusBase {
 				22);
 		g.drawString("No." + ba.level, 52, 41);
 		AttackData attackdata = Statics.getAttackData(ba.atk[0]);
-		if (attackdata.attackType != 0)
-			drawLine(Statics.atype[attackdata.attackType], 0, 0, g);
+		if (attackdata.damageType != DamageType.NONE)
+			drawLine(attackdata.damageType.getText(), 0, 0, g);
 		else
 			drawLine(Texts.sp[33], 0, 0, g);
 		drawLine(attackdata.getTargetType().getText(), 1, 0, g);

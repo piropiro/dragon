@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import dragon2.common.constant.AnimeType;
+import dragon2.common.constant.DamageType;
 import dragon2.common.constant.Effects;
 import dragon2.common.constant.EnergyType;
 import dragon2.common.constant.TargetType;
@@ -16,14 +17,16 @@ public class AttackData implements Serializable {
     public static final long serialVersionUID = -7934201877652688018L;
 
     // dragon3
+	private String id = "none";
     private String animeId = "none";
-    
+	private String image = "none.png";
+	
     // dragon2
 	public String name = "none";
 	public String label = "none";
 	public int color;
 	public List<Effects> effect = new ArrayList<>();
-	public int attackType;
+	public DamageType damageType;
 	public int attackN1;
 	public TargetType targetType;
 	public AnimeType animeType;
