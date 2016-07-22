@@ -119,17 +119,17 @@ public class AttackImpl implements Attack {
 	public boolean checkEnergy() {
 		switch (waza.getEnergyType()) {
 		case STR:
-			return waza.getEnergyN1() <= ba.getStr();
+			return waza.getEnergyCost() <= ba.getStr();
 		case DEF:
-			return waza.getEnergyN1() <= ba.getDef();
+			return waza.getEnergyCost() <= ba.getDef();
 		case MST:
-			return waza.getEnergyN1() <= ba.getMst();
+			return waza.getEnergyCost() <= ba.getMst();
 		case MDF:
-			return waza.getEnergyN1() <= ba.getMdf();
+			return waza.getEnergyCost() <= ba.getMdf();
 		case HIT:
-			return waza.getEnergyN1() <= ba.getHit();
+			return waza.getEnergyCost() <= ba.getHit();
 		case MIS:
-			return waza.getEnergyN1() <= ba.getMis();
+			return waza.getEnergyCost() <= ba.getMis();
 		default:
 			return true;
 		}
@@ -138,22 +138,22 @@ public class AttackImpl implements Attack {
 	public void consumeEnergy() {
 		switch (waza.getEnergyType()) {
 		case STR:
-			ba.setStr(ba.getStr() - waza.getEnergyN1());
+			ba.setStr(ba.getStr() - waza.getEnergyCost());
 			break;
 		case DEF:
-			ba.setDef(ba.getDef() - waza.getEnergyN1());
+			ba.setDef(ba.getDef() - waza.getEnergyCost());
 			break;
 		case MST:
-			ba.setMst(ba.getMst() - waza.getEnergyN1());
+			ba.setMst(ba.getMst() - waza.getEnergyCost());
 			break;
 		case MDF:
-			ba.setMdf(ba.getMdf() - waza.getEnergyN1());
+			ba.setMdf(ba.getMdf() - waza.getEnergyCost());
 			break;
 		case HIT:
-			ba.setHit(ba.getHit() - waza.getEnergyN1());
+			ba.setHit(ba.getHit() - waza.getEnergyCost());
 			break;
 		case MIS:
-			ba.setMis(ba.getMis() - waza.getEnergyN1());
+			ba.setMis(ba.getMis() - waza.getEnergyCost());
 			break;
 		default:
 		}

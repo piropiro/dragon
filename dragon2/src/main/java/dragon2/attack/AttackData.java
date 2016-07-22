@@ -28,7 +28,7 @@ public class AttackData implements Serializable {
 	public int animeType;
 	public int animeN1;
 	public EnergyType energyType;
-	public int energyN1;
+	public int energyCost;
 
     public String getName() {
         return name;
@@ -111,11 +111,11 @@ public class AttackData implements Serializable {
         this.energyType = energyType;
     }
 
-    public int getEnergyN1() {
-        return energyN1;
+    public int getEnergyCost() {
+        return energyCost;
     }
 
-    public void setEnergyN1(int energyN1) {
-        this.energyN1 = energyN1;
+    public void setEnergyCost(int energyCost) {
+        this.energyCost = energyCost;
     }
 }

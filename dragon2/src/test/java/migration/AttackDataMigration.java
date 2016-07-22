@@ -86,7 +86,7 @@ public class AttackDataMigration {
 			newData.animeType = oldData.AnimeType;
 			newData.animeN1 = oldData.AnimeN1;
 			newData.energyType = EnergyType.convert(oldData.FuelType);
-			newData.energyN1 = oldData.FuelN1;
+			newData.energyCost = oldData.FuelN1;
 
 			for (int i : oldData.effect) {
 				switch (i) {
@@ -130,7 +130,7 @@ public class AttackDataMigration {
 			newData.animeType = oldData.animeType;
 			newData.animeN1 = oldData.animeN1;
 			newData.energyType = EnergyType.convert(oldData.fuelType);
-			newData.energyN1 = oldData.fuelN1;
+			newData.energyCost = oldData.fuelN1;
 			newData.effect = oldData.effect;
 			
 			

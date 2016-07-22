@@ -58,17 +58,17 @@ public class AttackBase implements Iconable {
 	private boolean countFuel() {
 		switch (ad.energyType) {
 		case STR:
-			return ad.energyN1 <= ba.str;
+			return ad.energyCost <= ba.str;
 		case DEF:
-			return ad.energyN1 <= ba.def;
+			return ad.energyCost <= ba.def;
 		case MST:
-			return ad.energyN1 <= ba.mst;
+			return ad.energyCost <= ba.mst;
 		case MDF:
-			return ad.energyN1 <= ba.mdf;
+			return ad.energyCost <= ba.mdf;
 		case HIT:
-			return ad.energyN1 <= ba.hit;
+			return ad.energyCost <= ba.hit;
 		case MIS:
-			return ad.energyN1 <= ba.mis;
+			return ad.energyCost <= ba.mis;
 		default:
 			return true;
 		}
@@ -163,22 +163,22 @@ public class AttackBase implements Iconable {
 	private void decrease() {
 		switch (ad.energyType) {
 		case STR:
-			ba.str -= ad.energyN1;
+			ba.str -= ad.energyCost;
 			break;
 		case DEF:
-			ba.def -= ad.energyN1;
+			ba.def -= ad.energyCost;
 			break;
 		case MST:
-			ba.mst -= ad.energyN1;
+			ba.mst -= ad.energyCost;
 			break;
 		case MDF:
-			ba.mdf -= ad.energyN1;
+			ba.mdf -= ad.energyCost;
 			break;
 		case HIT:
-			ba.hit -= ad.energyN1;
+			ba.hit -= ad.energyCost;
 			break;
 		case MIS:
-			ba.mis -= ad.energyN1;
+			ba.mis -= ad.energyCost;
 			break;
 		default:
 		}
@@ -335,7 +335,7 @@ public class AttackBase implements Iconable {
 			break;
 
 		case 4: // '\004'
-			k = ad.energyN1 / 2;
+			k = ad.energyCost / 2;
 			break;
 
 		case 5: // '\005'

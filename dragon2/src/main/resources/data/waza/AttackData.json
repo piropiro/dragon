@@ -6,7 +6,7 @@
 		"attackType": 0,
 		"color": 0,
 		"effect": [],
-		"energyN1": 0,
+		"energyCost": 0,
 		"energyType": "NONE",
 		"name": "none",
 		"sname": "none",
@@ -22,7 +22,7 @@
 			"COUNTER_ABLE",
 			"COMBO"
 		],
-		"energyN1": 0,
+		"energyCost": 0,
 		"energyType": "NONE",
 		"name": "剣",
 		"sname": "攻撃",
@@ -38,7 +38,7 @@
 			"RIKU_150",
 			"COUNTER_ABLE"
 		],
-		"energyN1": 0,
+		"energyCost": 0,
 		"energyType": "NONE",
 		"name": "斧",
 		"sname": "攻撃",
@@ -54,7 +54,7 @@
 			"COUNTER_ABLE",
 			"COMBO"
 		],
-		"energyN1": 0,
+		"energyCost": 0,
 		"energyType": "NONE",
 		"name": "突進",
 		"sname": "突進",
@@ -71,7 +71,7 @@
 			"COUNTER_ABLE",
 			"COMBO"
 		],
-		"energyN1": 0,
+		"energyCost": 0,
 		"energyType": "NONE",
 		"name": "短剣",
 		"sname": "攻撃",
@@ -88,7 +88,7 @@
 			"COMBO",
 			"MIZU_100"
 		],
-		"energyN1": 0,
+		"energyCost": 0,
 		"energyType": "NONE",
 		"name": "槍",
 		"sname": "攻撃",
@@ -105,7 +105,7 @@
 			"COMBO",
 			"SORA_200"
 		],
-		"energyN1": 0,
+		"energyCost": 0,
 		"energyType": "NONE",
 		"name": "弓",
 		"sname": "攻撃",
@@ -118,7 +118,7 @@
 		"attackType": 2,
 		"color": 0,
 		"effect": [],
-		"energyN1": 0,
+		"energyCost": 0,
 		"energyType": "NONE",
 		"name": "魔法",
 		"sname": "魔法",
@@ -133,7 +133,7 @@
 		"effect": [
 			"HICHU"
 		],
-		"energyN1": 0,
+		"energyCost": 0,
 		"energyType": "NONE",
 		"name": "ブレス",
 		"sname": "ブレス",
@@ -151,7 +151,7 @@
 			"HICHU",
 			"SORA_200"
 		],
-		"energyN1": 0,
+		"energyCost": 0,
 		"energyType": "NONE",
 		"name": "つばめ返し",
 		"sname": "反撃",
@@ -166,7 +166,7 @@
 		"effect": [
 			"HICHU"
 		],
-		"energyN1": 1,
+		"energyCost": 1,
 		"energyType": "MST",
 		"name": "大魔法",
 		"sname": "大魔法",
@@ -182,7 +182,7 @@
 			"TAME",
 			"HIT_4"
 		],
-		"energyN1": 1,
+		"energyCost": 1,
 		"energyType": "STR",
 		"name": "直斬り",
 		"sname": "直斬り",
@@ -200,7 +200,7 @@
 			"CHOP",
 			"COUNTER_ABLE"
 		],
-		"energyN1": 1,
+		"energyCost": 1,
 		"energyType": "STR",
 		"name": "強弓",
 		"sname": "強弓",
@@ -215,7 +215,7 @@
 		"effect": [
 			"ICE"
 		],
-		"energyN1": 0,
+		"energyCost": 0,
 		"energyType": "NONE",
 		"name": "アイスボール",
 		"sname": "氷玉",
@@ -233,7 +233,7 @@
 			"TAME",
 			"ICE"
 		],
-		"energyN1": 2,
+		"energyCost": 2,
 		"energyType": "MST",
 		"name": "ゼロキャノン",
 		"sname": "零砲",
@@ -250,7 +250,7 @@
 			"COUNTER_ABLE",
 			"FIRE"
 		],
-		"energyN1": 0,
+		"energyCost": 0,
 		"energyType": "NONE",
 		"name": "ファイアソード",
 		"sname": "火剣",
@@ -266,7 +266,7 @@
 			"REGENE",
 			"HICHU"
 		],
-		"energyN1": 3,
+		"energyCost": 3,
 		"energyType": "MST",
 		"name": "ヒーリング",
 		"sname": "回復",
@@ -282,7 +282,7 @@
 			"HICHU",
 			"FIRE"
 		],
-		"energyN1": 1,
+		"energyCost": 1,
 		"energyType": "MST",
 		"name": "ファイヤーブレス",
 		"sname": "火炎",
@@ -298,7 +298,7 @@
 			"COUNTER_ABLE",
 			"COMBO"
 		],
-		"energyN1": 0,
+		"energyCost": 0,
 		"energyType": "NONE",
 		"name": "鋼の牙",
 		"sname": "鋼牙",
@@ -315,7 +315,7 @@
 			"COUNTER_ABLE",
 			"ICE"
 		],
-		"energyN1": 0,
+		"energyCost": 0,
 		"energyType": "NONE",
 		"name": "アイスソード",
 		"sname": "氷剣",
@@ -333,7 +333,7 @@
 			"COUNTER_ABLE",
 			"COMBO"
 		],
-		"energyN1": 0,
+		"energyCost": 0,
 		"energyType": "NONE",
 		"name": "雷神の弓",
 		"sname": "雷弓",
@@ -350,7 +350,7 @@
 			"COMBO",
 			"CRITICAL"
 		],
-		"energyN1": 0,
+		"energyCost": 0,
 		"energyType": "NONE",
 		"name": "ムラマサ",
 		"sname": "攻撃",
@@ -368,7 +368,7 @@
 			"REGENE",
 			"HICHU"
 		],
-		"energyN1": 3,
+		"energyCost": 3,
 		"energyType": "MST",
 		"name": "プリティキッス",
 		"sname": "KISS",
@@ -385,7 +385,7 @@
 			"NO_ATTACK",
 			"HICHU"
 		],
-		"energyN1": 1,
+		"energyCost": 1,
 		"energyType": "MST",
 		"name": "チャーム",
 		"sname": "魅了",
@@ -402,7 +402,7 @@
 			"DAMAGE_150",
 			"COUNTER_ABLE"
 		],
-		"energyN1": 1,
+		"energyCost": 1,
 		"energyType": "STR",
 		"name": "スマッシュ",
 		"sname": "昇斬",
@@ -419,7 +419,7 @@
 			"HICHU",
 			"NO_ATTACK"
 		],
-		"energyN1": 2,
+		"energyCost": 2,
 		"energyType": "MST",
 		"name": "子守唄",
 		"sname": "子守唄",
@@ -437,7 +437,7 @@
 			"SLEEP",
 			"MIZU_100"
 		],
-		"energyN1": 1,
+		"energyCost": 1,
 		"energyType": "MST",
 		"name": "人魚の槍",
 		"sname": "魚槍",
@@ -454,7 +454,7 @@
 			"DAMAGE_150",
 			"MIZU_100"
 		],
-		"energyN1": 1,
+		"energyCost": 1,
 		"energyType": "STR",
 		"name": "串刺し",
 		"sname": "串刺",
@@ -469,7 +469,7 @@
 		"effect": [
 			"FIRE"
 		],
-		"energyN1": 0,
+		"energyCost": 0,
 		"energyType": "NONE",
 		"name": "ファイヤーボール",
 		"sname": "火玉",
@@ -485,7 +485,7 @@
 			"COUNTER_ABLE",
 			"DAMAGE_200"
 		],
-		"energyN1": 2,
+		"energyCost": 2,
 		"energyType": "STR",
 		"name": "倍斬り",
 		"sname": "倍斬り",
@@ -501,7 +501,7 @@
 			"FIRE",
 			"HICHU"
 		],
-		"energyN1": 1,
+		"energyCost": 1,
 		"energyType": "MST",
 		"name": "ファイヤーリング",
 		"sname": "火輪",
@@ -516,7 +516,7 @@
 		"effect": [
 			"WET"
 		],
-		"energyN1": 1,
+		"energyCost": 1,
 		"energyType": "MST",
 		"name": "スプラッシュ",
 		"sname": "水鉄砲",
@@ -534,7 +534,7 @@
 			"COMBO",
 			"COUNTER_ABLE"
 		],
-		"energyN1": 0,
+		"energyCost": 0,
 		"energyType": "NONE",
 		"name": "凍土の弓",
 		"sname": "氷弓",
@@ -550,7 +550,7 @@
 			"HIT_4",
 			"SORA_200"
 		],
-		"energyN1": 1,
+		"energyCost": 1,
 		"energyType": "STR",
 		"name": "貫通矢",
 		"sname": "貫通矢",
@@ -567,7 +567,7 @@
 			"NO_ATTACK",
 			"HICHU"
 		],
-		"energyN1": 2,
+		"energyCost": 2,
 		"energyType": "MST",
 		"name": "デス",
 		"sname": "デス",
@@ -584,7 +584,7 @@
 			"HIT_4",
 			"RIKU_150"
 		],
-		"energyN1": 2,
+		"energyCost": 2,
 		"energyType": "STR",
 		"name": "回転斬り",
 		"sname": "回転",
@@ -600,7 +600,7 @@
 			"DAMAGE_150",
 			"RIKU_0"
 		],
-		"energyN1": 2,
+		"energyCost": 2,
 		"energyType": "STR",
 		"name": "大地斬",
 		"sname": "大地斬",
@@ -616,7 +616,7 @@
 			"SORA_200",
 			"HIT_12"
 		],
-		"energyN1": 2,
+		"energyCost": 2,
 		"energyType": "STR",
 		"name": "乱れ射ち",
 		"sname": "乱射",
@@ -631,7 +631,7 @@
 		"effect": [
 			"THUNDER"
 		],
-		"energyN1": 0,
+		"energyCost": 0,
 		"energyType": "NONE",
 		"name": "サンダーボルト",
 		"sname": "雷撃",
@@ -648,7 +648,7 @@
 			"COMBO",
 			"POISON"
 		],
-		"energyN1": 0,
+		"energyCost": 0,
 		"energyType": "NONE",
 		"name": "毒の牙",
 		"sname": "毒牙",
@@ -666,7 +666,7 @@
 			"COMBO",
 			"COUNTER_ABLE"
 		],
-		"energyN1": 0,
+		"energyCost": 0,
 		"energyType": "NONE",
 		"name": "毒針",
 		"sname": "毒針",
@@ -684,7 +684,7 @@
 			"COUNTER_ABLE",
 			"CRITICAL"
 		],
-		"energyN1": 0,
+		"energyCost": 0,
 		"energyType": "NONE",
 		"name": "手裏剣",
 		"sname": "手裏剣",
@@ -701,7 +701,7 @@
 			"COMBO",
 			"SORA_200"
 		],
-		"energyN1": 0,
+		"energyCost": 0,
 		"energyType": "NONE",
 		"name": "ウインドカッター",
 		"sname": "風刃",
@@ -718,7 +718,7 @@
 			"COUNTER_ABLE",
 			"SORA_200"
 		],
-		"energyN1": 0,
+		"energyCost": 0,
 		"energyType": "NONE",
 		"name": "神獣の斧",
 		"sname": "獣斧",
@@ -736,7 +736,7 @@
 			"COUNTER_ABLE",
 			"DRAGON_200"
 		],
-		"energyN1": 2,
+		"energyCost": 2,
 		"energyType": "STR",
 		"name": "飛竜殺し",
 		"sname": "飛竜殺",
@@ -754,7 +754,7 @@
 			"MIZU_100",
 			"UNDEAD_200"
 		],
-		"energyN1": 0,
+		"energyCost": 0,
 		"energyType": "NONE",
 		"name": "ミストルテイン",
 		"sname": "魔槍",
@@ -771,7 +771,7 @@
 			"MIZU_100",
 			"UNDEAD_200"
 		],
-		"energyN1": 2,
+		"energyCost": 2,
 		"energyType": "MST",
 		"name": "シャイニング",
 		"sname": "聖光",
@@ -789,7 +789,7 @@
 			"TAME",
 			"SLEEP"
 		],
-		"energyN1": 2,
+		"energyCost": 2,
 		"energyType": "MST",
 		"name": "ブリザード",
 		"sname": "吹雪",
@@ -806,7 +806,7 @@
 			"POISON",
 			"DEATH"
 		],
-		"energyN1": 0,
+		"energyCost": 0,
 		"energyType": "NONE",
 		"name": "猛毒の牙",
 		"sname": "猛毒",
@@ -823,7 +823,7 @@
 			"SORA_200",
 			"TAME"
 		],
-		"energyN1": 4,
+		"energyCost": 4,
 		"energyType": "MST",
 		"name": "デスウインド",
 		"sname": "死風",
@@ -842,7 +842,7 @@
 			"UPPER",
 			"DAMAGE_200"
 		],
-		"energyN1": 2,
+		"energyCost": 2,
 		"energyType": "STR",
 		"name": "地竜殺し",
 		"sname": "地竜殺",
@@ -858,7 +858,7 @@
 			"COMBO",
 			"HIT_12"
 		],
-		"energyN1": 1,
+		"energyCost": 1,
 		"energyType": "STR",
 		"name": "電光石火",
 		"sname": "光速斬",
@@ -875,7 +875,7 @@
 			"DAMAGE_150",
 			"ICE"
 		],
-		"energyN1": 2,
+		"energyCost": 2,
 		"energyType": "MST",
 		"name": "アイスブレード",
 		"sname": "氷刃",
@@ -892,7 +892,7 @@
 			"COUNTER_ONLY",
 			"COMBO"
 		],
-		"energyN1": 1,
+		"energyCost": 1,
 		"energyType": "MST",
 		"name": "誘惑の鞭",
 		"sname": "誘惑",
@@ -909,7 +909,7 @@
 			"DAMAGE_200",
 			"THUNDER"
 		],
-		"energyN1": 4,
+		"energyCost": 4,
 		"energyType": "MST",
 		"name": "スパーク",
 		"sname": "電撃",
@@ -926,7 +926,7 @@
 			"DAMAGE_150",
 			"CHOP"
 		],
-		"energyN1": 1,
+		"energyCost": 1,
 		"energyType": "STR",
 		"name": "切り落とし",
 		"sname": "落斬",
@@ -943,7 +943,7 @@
 			"COUNTER_ABLE",
 			"UNDEAD_200"
 		],
-		"energyN1": 0,
+		"energyCost": 0,
 		"energyType": "NONE",
 		"name": "魔神の斧",
 		"sname": "魔斧",
@@ -960,7 +960,7 @@
 			"RIKU_0",
 			"HIT_4"
 		],
-		"energyN1": 2,
+		"energyCost": 2,
 		"energyType": "STR",
 		"name": "グランドクロス",
 		"sname": "十字斬",
@@ -977,7 +977,7 @@
 			"COUNTER_ONLY",
 			"HIT_4"
 		],
-		"energyN1": 1,
+		"energyCost": 1,
 		"energyType": "MST",
 		"name": "カウンター",
 		"sname": "反撃",
@@ -993,7 +993,7 @@
 			"OIL",
 			"MISS_4"
 		],
-		"energyN1": 1,
+		"energyCost": 1,
 		"energyType": "MST",
 		"name": "油玉",
 		"sname": "油玉",
@@ -1010,7 +1010,7 @@
 			"COMBO",
 			"DRAGON_200"
 		],
-		"energyN1": 1,
+		"energyCost": 1,
 		"energyType": "STR",
 		"name": "ドラゴンキラー",
 		"sname": "竜殺剣",
@@ -1026,7 +1026,7 @@
 			"HICHU",
 			"FIRE"
 		],
-		"energyN1": 1,
+		"energyCost": 1,
 		"energyType": "MST",
 		"name": "ファイヤーストーム",
 		"sname": "火炎",
@@ -1042,7 +1042,7 @@
 			"HICHU",
 			"ICE"
 		],
-		"energyN1": 1,
+		"energyCost": 1,
 		"energyType": "MST",
 		"name": "アイスストーム",
 		"sname": "氷結",
@@ -1058,7 +1058,7 @@
 			"MISS_4",
 			"THUNDER"
 		],
-		"energyN1": 2,
+		"energyCost": 2,
 		"energyType": "MST",
 		"name": "ギガスラッシュ",
 		"sname": "雷切",
@@ -1075,7 +1075,7 @@
 			"HIT_4",
 			"SORA_200"
 		],
-		"energyN1": 1,
+		"energyCost": 1,
 		"energyType": "MST",
 		"name": "フレイムレーザー",
 		"sname": "火炎",
@@ -1092,7 +1092,7 @@
 			"HIT_4",
 			"SORA_200"
 		],
-		"energyN1": 1,
+		"energyCost": 1,
 		"energyType": "STR",
 		"name": "サンダーアロー",
 		"sname": "雷矢",
@@ -1109,7 +1109,7 @@
 			"HIT_4",
 			"SORA_200"
 		],
-		"energyN1": 1,
+		"energyCost": 1,
 		"energyType": "STR",
 		"name": "アイスアロー",
 		"sname": "氷矢",
@@ -1127,7 +1127,7 @@
 			"REGENE",
 			"HICHU"
 		],
-		"energyN1": 2,
+		"energyCost": 2,
 		"energyType": "MST",
 		"name": "ヒートアップ",
 		"sname": "加熱",
@@ -1145,7 +1145,7 @@
 			"REGENE",
 			"HICHU"
 		],
-		"energyN1": 2,
+		"energyCost": 2,
 		"energyType": "MST",
 		"name": "ガードアップ",
 		"sname": "防御",
@@ -1163,7 +1163,7 @@
 			"CRITICAL",
 			"DEATH"
 		],
-		"energyN1": 1,
+		"energyCost": 1,
 		"energyType": "MST",
 		"name": "デスブリンガー",
 		"sname": "暗黒剣",
@@ -1181,7 +1181,7 @@
 			"TAME",
 			"RIKU_0"
 		],
-		"energyN1": 1,
+		"energyCost": 1,
 		"energyType": "STR",
 		"name": "メガトンプレス",
 		"sname": "プレス",
@@ -1199,7 +1199,7 @@
 			"MISS_4",
 			"COUNTER_ABLE"
 		],
-		"energyN1": 2,
+		"energyCost": 2,
 		"energyType": "STR",
 		"name": "金の斧",
 		"sname": "金斧",
@@ -1215,7 +1215,7 @@
 			"OIL",
 			"CHARM"
 		],
-		"energyN1": 2,
+		"energyCost": 2,
 		"energyType": "MST",
 		"name": "ラブバイン",
 		"sname": "蔓草",
@@ -1232,7 +1232,7 @@
 			"HIT_4",
 			"SORA_200"
 		],
-		"energyN1": 1,
+		"energyCost": 1,
 		"energyType": "MST",
 		"name": "アイスレーザー",
 		"sname": "氷結",
@@ -1249,7 +1249,7 @@
 			"WET",
 			"COUNTER_ABLE"
 		],
-		"energyN1": 2,
+		"energyCost": 2,
 		"energyType": "STR",
 		"name": "ナッツシュート",
 		"sname": "木の実",
@@ -1267,7 +1267,7 @@
 			"FIRE",
 			"DAMAGE_150"
 		],
-		"energyN1": 1,
+		"energyCost": 1,
 		"energyType": "MST",
 		"name": "火炎斬り",
 		"sname": "火炎斬",
@@ -1285,7 +1285,7 @@
 			"ICE",
 			"DAMAGE_150"
 		],
-		"energyN1": 1,
+		"energyCost": 1,
 		"energyType": "MST",
 		"name": "氷結斬り",
 		"sname": "氷結斬",
@@ -1302,7 +1302,7 @@
 			"HIT_4",
 			"COUNTER_ABLE"
 		],
-		"energyN1": 0,
+		"energyCost": 0,
 		"energyType": "NONE",
 		"name": "クナイ",
 		"sname": "クナイ",
@@ -1321,7 +1321,7 @@
 			"ICE",
 			"SLEEP"
 		],
-		"energyN1": 0,
+		"energyCost": 0,
 		"energyType": "NONE",
 		"name": "アイシングダガー",
 		"sname": "氷刃",
@@ -1338,7 +1338,7 @@
 			"HIT_4",
 			"DEATH"
 		],
-		"energyN1": 1,
+		"energyCost": 1,
 		"energyType": "MST",
 		"name": "デスサイズ",
 		"sname": "死鎌",
@@ -1354,7 +1354,7 @@
 			"ICE",
 			"CHARM"
 		],
-		"energyN1": 2,
+		"energyCost": 2,
 		"energyType": "MST",
 		"name": "ラブアイス",
 		"sname": "氷玉",
@@ -1370,7 +1370,7 @@
 			"FIRE",
 			"CHARM"
 		],
-		"energyN1": 2,
+		"energyCost": 2,
 		"energyType": "MST",
 		"name": "ラブファイア",
 		"sname": "火玉",
@@ -1386,7 +1386,7 @@
 			"HICHU",
 			"SLEEP"
 		],
-		"energyN1": 1,
+		"energyCost": 1,
 		"energyType": "MST",
 		"name": "ナイトメア",
 		"sname": "悪夢",
@@ -1402,7 +1402,7 @@
 			"ICE",
 			"HICHU"
 		],
-		"energyN1": 1,
+		"energyCost": 1,
 		"energyType": "MST",
 		"name": "アイスリング",
 		"sname": "氷輪",
@@ -1418,7 +1418,7 @@
 			"HIT_4",
 			"CHOP"
 		],
-		"energyN1": 1,
+		"energyCost": 1,
 		"energyType": "MST",
 		"name": "グラビティブラスト",
 		"sname": "重力波",
@@ -1434,7 +1434,7 @@
 			"NO_ATTACK",
 			"CHARM"
 		],
-		"energyN1": 2,
+		"energyCost": 2,
 		"energyType": "MST",
 		"name": "チャームライト",
 		"sname": "淫夢",
@@ -1452,7 +1452,7 @@
 			"SORA_200",
 			"COMBO"
 		],
-		"energyN1": 2,
+		"energyCost": 2,
 		"energyType": "MST",
 		"name": "マジックシュート",
 		"sname": "魔矢",
@@ -1469,7 +1469,7 @@
 			"UPPER",
 			"HIT_4"
 		],
-		"energyN1": 0,
+		"energyCost": 0,
 		"energyType": "NONE",
 		"name": "サンダーバード",
 		"sname": "雷鳥",
@@ -1487,7 +1487,7 @@
 			"THUNDER",
 			"COUNTER_ABLE"
 		],
-		"energyN1": 2,
+		"energyCost": 2,
 		"energyType": "MST",
 		"name": "マジカルソード",
 		"sname": "氷雷火",
@@ -1504,7 +1504,7 @@
 			"HICHU",
 			"TAME"
 		],
-		"energyN1": 2,
+		"energyCost": 2,
 		"energyType": "MST",
 		"name": "タイダルウエイブ",
 		"sname": "津波",
@@ -1522,7 +1522,7 @@
 			"WET",
 			"MIZU_100"
 		],
-		"energyN1": 0,
+		"energyCost": 0,
 		"energyType": "MST",
 		"name": "海神の槍",
 		"sname": "海槍",
@@ -1539,7 +1539,7 @@
 			"DEATH",
 			"RIKU_150"
 		],
-		"energyN1": 2,
+		"energyCost": 2,
 		"energyType": "MST",
 		"name": "ソウルスティール",
 		"sname": "魂狩",
@@ -1556,7 +1556,7 @@
 			"DAMAGE_300",
 			"MISS_4"
 		],
-		"energyN1": 8,
+		"energyCost": 8,
 		"energyType": "STR",
 		"name": "ゴッドフィンガー",
 		"sname": "爆熱拳",
@@ -1572,7 +1572,7 @@
 			"COUNTER_ABLE",
 			"THUNDER"
 		],
-		"energyN1": 0,
+		"energyCost": 0,
 		"energyType": "NONE",
 		"name": "エレキアタック",
 		"sname": "感電",
@@ -1589,7 +1589,7 @@
 			"COMBO",
 			"SORA_200"
 		],
-		"energyN1": 0,
+		"energyCost": 0,
 		"energyType": "NONE",
 		"name": "森人の弓",
 		"sname": "森弓",
@@ -1607,7 +1607,7 @@
 			"SORA_200",
 			"HIT_12"
 		],
-		"energyN1": 2,
+		"energyCost": 2,
 		"energyType": "STR",
 		"name": "ツインショット",
 		"sname": "連弾",
@@ -1625,7 +1625,7 @@
 			"RIKU_0",
 			"TAME"
 		],
-		"energyN1": 2,
+		"energyCost": 2,
 		"energyType": "STR",
 		"name": "マッドバイン",
 		"sname": "毒蔓",
@@ -1644,7 +1644,7 @@
 			"CHARM",
 			"POISON"
 		],
-		"energyN1": 0,
+		"energyCost": 0,
 		"energyType": "NONE",
 		"name": "芋づる",
 		"sname": "芋づる",
@@ -1663,7 +1663,7 @@
 			"THUNDER",
 			"COUNTER_ABLE"
 		],
-		"energyN1": 3,
+		"energyCost": 3,
 		"energyType": "STR",
 		"name": "三連殺",
 		"sname": "三連殺",
@@ -1680,7 +1680,7 @@
 			"HICHU",
 			"COUNTER_ABLE"
 		],
-		"energyN1": 4,
+		"energyCost": 4,
 		"energyType": "MST",
 		"name": "炎殺剣",
 		"sname": "炎殺剣",
@@ -1696,7 +1696,7 @@
 			"FIRE",
 			"HICHU"
 		],
-		"energyN1": 4,
+		"energyCost": 4,
 		"energyType": "MST",
 		"name": "クリムゾンフレア",
 		"sname": "灼熱",
@@ -1713,7 +1713,7 @@
 			"HICHU",
 			"ICE"
 		],
-		"energyN1": 4,
+		"energyCost": 4,
 		"energyType": "MST",
 		"name": "ダイアモンドダスト",
 		"sname": "氷塵",
@@ -1729,7 +1729,7 @@
 			"COUNTER_ONLY",
 			"HICHU"
 		],
-		"energyN1": 1,
+		"energyCost": 1,
 		"energyType": "MST",
 		"name": "リフレクト",
 		"sname": "反射",
@@ -1747,7 +1747,7 @@
 			"REGENE",
 			"HICHU"
 		],
-		"energyN1": 2,
+		"energyCost": 2,
 		"energyType": "MST",
 		"name": "レビテーション",
 		"sname": "浮遊",
@@ -1764,7 +1764,7 @@
 			"UNDEAD_200",
 			"DAMAGE_200"
 		],
-		"energyN1": 2,
+		"energyCost": 2,
 		"energyType": "STR",
 		"name": "ライトブリンガー",
 		"sname": "聖光斬",
@@ -1777,7 +1777,7 @@
 		"attackType": 5,
 		"color": 4,
 		"effect": [],
-		"energyN1": 8,
+		"energyCost": 8,
 		"energyType": "STR",
 		"name": "真竜斬り",
 		"sname": "真竜斬",
@@ -1795,7 +1795,7 @@
 			"SLEEP",
 			"NO_ATTACK"
 		],
-		"energyN1": 4,
+		"energyCost": 4,
 		"energyType": "MST",
 		"name": "チャームフラッシュ",
 		"sname": "淫夢",
@@ -1813,7 +1813,7 @@
 			"HIT_4",
 			"UPPER"
 		],
-		"energyN1": 1,
+		"energyCost": 1,
 		"energyType": "MST",
 		"name": "マジックミサイル",
 		"sname": "魔法弾",
@@ -1830,7 +1830,7 @@
 			"HICHU",
 			"TAME"
 		],
-		"energyN1": 2,
+		"energyCost": 2,
 		"energyType": "MST",
 		"name": "ケイオスウエイブ",
 		"sname": "波動",
@@ -1847,7 +1847,7 @@
 			"HICHU",
 			"TAME"
 		],
-		"energyN1": 1,
+		"energyCost": 1,
 		"energyType": "MST",
 		"name": "リジェネレーション",
 		"sname": "再生",
@@ -1863,7 +1863,7 @@
 			"COUNTER_ABLE",
 			"FIRE"
 		],
-		"energyN1": 0,
+		"energyCost": 0,
 		"energyType": "NONE",
 		"name": "フレイムタックル",
 		"sname": "炎撃",
@@ -1879,7 +1879,7 @@
 			"COUNTER_ABLE",
 			"ICE"
 		],
-		"energyN1": 0,
+		"energyCost": 0,
 		"energyType": "NONE",
 		"name": "アイスタックル",
 		"sname": "氷撃",
@@ -1897,7 +1897,7 @@
 			"REGENE",
 			"HICHU"
 		],
-		"energyN1": 3,
+		"energyCost": 3,
 		"energyType": "MST",
 		"name": "アクアプリズン",
 		"sname": "水壁",
@@ -1915,7 +1915,7 @@
 			"MIZU_0",
 			"MIZU_100"
 		],
-		"energyN1": 2,
+		"energyCost": 2,
 		"energyType": "STR",
 		"name": "海波斬",
 		"sname": "海波斬",
@@ -1933,7 +1933,7 @@
 			"UPPER",
 			"SORA_200"
 		],
-		"energyN1": 0,
+		"energyCost": 0,
 		"energyType": "NONE",
 		"name": "音速弾",
 		"sname": "音速弾",
@@ -1950,7 +1950,7 @@
 			"TAME",
 			"DAMAGE_200"
 		],
-		"energyN1": 4,
+		"energyCost": 4,
 		"energyType": "MST",
 		"name": "サンダーストーム",
 		"sname": "雷嵐",
@@ -1968,7 +1968,7 @@
 			"MIZU_100",
 			"UNDEAD_200"
 		],
-		"energyN1": 0,
+		"energyCost": 0,
 		"energyType": "NONE",
 		"name": "ホーリーランス",
 		"sname": "聖槍",
@@ -1985,7 +1985,7 @@
 			"POISON",
 			"CRITICAL"
 		],
-		"energyN1": 0,
+		"energyCost": 0,
 		"energyType": "NONE",
 		"name": "必殺針",
 		"sname": "猛毒",
@@ -2001,7 +2001,7 @@
 			"POISON",
 			"HICHU"
 		],
-		"energyN1": 4,
+		"energyCost": 4,
 		"energyType": "MST",
 		"name": "ポイズンストーム",
 		"sname": "毒嵐",
@@ -2019,7 +2019,7 @@
 			"DEATH",
 			"TAME"
 		],
-		"energyN1": 2,
+		"energyCost": 2,
 		"energyType": "MST",
 		"name": "デッドエンド",
 		"sname": "終焉",
@@ -2036,7 +2036,7 @@
 			"COMBO",
 			"CHARM"
 		],
-		"energyN1": 1,
+		"energyCost": 1,
 		"energyType": "STR",
 		"name": "誘惑の剣",
 		"sname": "誘惑",
@@ -2053,7 +2053,7 @@
 			"CHOP",
 			"HIT_4"
 		],
-		"energyN1": 1,
+		"energyCost": 1,
 		"energyType": "STR",
 		"name": "空裂斬",
 		"sname": "空裂斬",
@@ -2069,7 +2069,7 @@
 			"HICHU",
 			"ICE"
 		],
-		"energyN1": 1,
+		"energyCost": 1,
 		"energyType": "MST",
 		"name": "アイスブレス",
 		"sname": "氷息",
@@ -2087,7 +2087,7 @@
 			"DRAGON_200",
 			"DAMAGE_150"
 		],
-		"energyN1": 1,
+		"energyCost": 1,
 		"energyType": "STR",
 		"name": "竜斬り",
 		"sname": "竜斬り",
@@ -2105,7 +2105,7 @@
 			"DAMAGE_200",
 			"UNDEAD_200"
 		],
-		"energyN1": 2,
+		"energyCost": 2,
 		"energyType": "MST",
 		"name": "スターティアラ",
 		"sname": "星屑",
@@ -2123,7 +2123,7 @@
 			"COUNTER_ABLE",
 			"COMBO"
 		],
-		"energyN1": 0,
+		"energyCost": 0,
 		"energyType": "NONE",
 		"name": "ファイヤーアロー",
 		"sname": "炎矢",
@@ -2139,7 +2139,7 @@
 			"THUNDER",
 			"DAMAGE_150"
 		],
-		"energyN1": 1,
+		"energyCost": 1,
 		"energyType": "MST",
 		"name": "サンダーフレア",
 		"sname": "雷電",
@@ -2156,7 +2156,7 @@
 			"COMBO",
 			"HIT_12"
 		],
-		"energyN1": 2,
+		"energyCost": 2,
 		"energyType": "HIT",
 		"name": "ダブルヒット",
 		"sname": "連撃",
@@ -2174,7 +2174,7 @@
 			"COUNTER_ABLE",
 			"SORA_200"
 		],
-		"energyN1": 0,
+		"energyCost": 0,
 		"energyType": "NONE",
 		"name": "飛苦無",
 		"sname": "飛苦無",
@@ -2193,7 +2193,7 @@
 			"CHARM",
 			"UNDEAD_200"
 		],
-		"energyN1": 2,
+		"energyCost": 2,
 		"energyType": "STR",
 		"name": "エクスカリバー",
 		"sname": "聖剣",
@@ -2211,7 +2211,7 @@
 			"DEATH",
 			"SLEEP"
 		],
-		"energyN1": 4,
+		"energyCost": 4,
 		"energyType": "MST",
 		"name": "カラミティエンド",
 		"sname": "終焉",
@@ -2229,7 +2229,7 @@
 			"REGENE",
 			"HICHU"
 		],
-		"energyN1": 3,
+		"energyCost": 3,
 		"energyType": "MST",
 		"name": "バーニング",
 		"sname": "熱血",
@@ -2244,7 +2244,7 @@
 		"effect": [
 			"OIL"
 		],
-		"energyN1": 2,
+		"energyCost": 2,
 		"energyType": "MST",
 		"name": "みだれ油",
 		"sname": "乱油",
@@ -2261,7 +2261,7 @@
 			"MISS_4",
 			"COUNTER_ABLE"
 		],
-		"energyN1": 1,
+		"energyCost": 1,
 		"energyType": "HIT",
 		"name": "芋切り",
 		"sname": "芋切",
@@ -2276,7 +2276,7 @@
 		"effect": [
 			"HIT_4"
 		],
-		"energyN1": 1,
+		"energyCost": 1,
 		"energyType": "MST",
 		"name": "誘導弾",
 		"sname": "誘導弾",

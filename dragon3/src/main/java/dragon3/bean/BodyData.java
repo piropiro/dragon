@@ -21,7 +21,7 @@ public class BodyData implements Data {
 
 	private String id = "none";
 	private String name = "none";
-	private String image = "0.png";
+	private String image = "none.png";
 	private BodyKind kind = BodyKind.CHARA;
 
 	private int hp;

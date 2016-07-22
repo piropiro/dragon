@@ -12,10 +12,14 @@ import dragon3.common.constant.DamageType;
 import dragon3.common.constant.EnergyType;
 import dragon3.common.constant.GameColors;
 import dragon3.common.constant.TargetType;
+import dragon3.image.BodyImageList;
+import dragon3.image.ImageManager;
 import mine.MineException;
+import mine.awt.ImageLoaderAWT;
 import mine.edit.BeanEditor;
 import mine.edit.EditListener;
 import mine.edit.EditPanel;
+import mine.paint.MineImageLoader;
 
 public class WazaEditor extends EditPanel<WazaData> implements EditListener<WazaData> {
 
@@ -28,11 +32,17 @@ public class WazaEditor extends EditPanel<WazaData> implements EditListener<Waza
 	WazaEditor() throws MineException {
 		super(WazaData.class);
 
+		MineImageLoader mil = new ImageLoaderAWT();
+		ImageManager im = new ImageManager(mil);
+		BodyImageList bil = im.getBodyList();
+
 		setField(CENTER, "id", "ID");
 		setField(CENTER, "name", "名前");
 		setField(LEFT, "label", "ラベル");
 		setEnumCombo(RIGHT, "labelColor", "カラー", GameColors.class);
-		
+		setImageCombo(CENTER, "image", "画像");
+		initCombo("image", bil.getPathList(), bil.getImageList());
+
 		Map<String, String> idAndText = new LinkedHashMap<>();
 		for (GameColors gc : GameColors.values()) {	
 			idAndText.put(gc.name(), gc.getText());
@@ -49,7 +59,7 @@ public class WazaEditor extends EditPanel<WazaData> implements EditListener<Waza
 		
 		setEnumCombo(LEFT, "energyType", "消費タイプ", EnergyType.class);
 		initCombo("energyType", EnergyType.createMap());
-		setIntCombo(RIGHT, "energyN1", "消費量", 8);
+		setIntCombo(RIGHT, "energyCost", "消費量", 8);
 
 		for (int i=0; i<5; i++) {
 			setEnumCombo(CENTER, "effect", i, "効果" + i, AttackEffect.class);

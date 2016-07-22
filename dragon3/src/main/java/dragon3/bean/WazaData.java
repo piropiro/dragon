@@ -15,13 +15,14 @@ public class WazaData implements Data {
 	private String id = "none";
 	private String name = "none";
 	private String label = "none";
+	private String image = "none.png";
 	private GameColors labelColor = GameColors.NONE;
 
 	private DamageType damageType = DamageType.NONE;
 	private TargetType targetType = TargetType.SINGLE_1;
 	private String animeId = "none";
 	private EnergyType energyType = EnergyType.NONE;
-	private int energyN1;
+	private int energyCost;
 
 	private List<AttackEffect> effect = new ArrayList<>();
 
