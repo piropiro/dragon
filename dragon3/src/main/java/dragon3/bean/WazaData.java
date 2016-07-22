@@ -5,6 +5,7 @@ import java.util.List;
 
 import dragon3.common.constant.AttackEffect;
 import dragon3.common.constant.DamageType;
+import dragon3.common.constant.EnergyType;
 import dragon3.common.constant.GameColors;
 import dragon3.common.constant.TargetType;
 
@@ -19,7 +20,8 @@ public class WazaData implements Data {
 	private DamageType damageType = DamageType.NONE;
 	private TargetType targetType = TargetType.SINGLE_1;
 	private String animeId = "none";
-	private int star;
+	private EnergyType energyType = EnergyType.NONE;
+	private int energyN1;
 
 	private List<AttackEffect> effect = new ArrayList<>();
 

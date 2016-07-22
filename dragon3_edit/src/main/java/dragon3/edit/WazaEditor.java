@@ -9,6 +9,7 @@ import dragon3.bean.load.AnimeDataLoader;
 import dragon3.common.DataList;
 import dragon3.common.constant.AttackEffect;
 import dragon3.common.constant.DamageType;
+import dragon3.common.constant.EnergyType;
 import dragon3.common.constant.GameColors;
 import dragon3.common.constant.TargetType;
 import mine.MineException;
@@ -37,7 +38,6 @@ public class WazaEditor extends EditPanel<WazaData> implements EditListener<Waza
 			idAndText.put(gc.name(), gc.getText());
 		}
 		initCombo("labelColor", idAndText);
-		setSlider(CENTER, "star", "Star", 5);
 		setEnumCombo(CENTER, "targetType", "範囲タイプ", TargetType.class);
 		initCombo("targetType", TargetType.createMap());
 		setEnumCombo(CENTER, "damageType", "攻撃タイプ", DamageType.class);
@@ -46,6 +46,10 @@ public class WazaEditor extends EditPanel<WazaData> implements EditListener<Waza
 		DataList<AnimeData> animeList = AnimeDataLoader.loadAnimeList();
 		setTextCombo(CENTER, "animeId", "動画タイプ");
 		initCombo("animeId", animeList.getIdAndName());
+		
+		setEnumCombo(LEFT, "energyType", "消費タイプ", EnergyType.class);
+		initCombo("energyType", EnergyType.createMap());
+		setIntCombo(RIGHT, "energyN1", "消費量", 8);
 
 		for (int i=0; i<5; i++) {
 			setEnumCombo(CENTER, "effect", i, "効果" + i, AttackEffect.class);
