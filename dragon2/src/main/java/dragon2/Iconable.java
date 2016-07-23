@@ -6,6 +6,7 @@ package dragon2;
 
 import dragon2.common.Body;
 import dragon2.common.constant.AttackEffect;
+import dragon2.common.constant.GameColor;
 
 public interface Iconable {
 
@@ -13,7 +14,7 @@ public interface Iconable {
 
 	public abstract String getName();
 
-	public abstract int getColor();
+	public abstract GameColor getColor();
 
 	public abstract Body getBody(boolean flag);
 

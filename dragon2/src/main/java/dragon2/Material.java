@@ -6,11 +6,10 @@ package dragon2;
 
 import dragon2.attack.AttackBase;
 import dragon2.common.Body;
-import dragon2.common.constant.Colors;
-import dragon2.common.constant.GameColor;
-import dragon2.common.constant.BodyKind;
-import dragon2.common.constant.Texts;
 import dragon2.common.constant.BodyAttribute;
+import dragon2.common.constant.BodyKind;
+import dragon2.common.constant.GameColor;
+import dragon2.common.constant.Texts;
 
 public class Material {
 

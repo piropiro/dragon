@@ -9,10 +9,8 @@ import java.awt.Point;
 import java.util.Vector;
 
 import dragon2.common.Body;
-import dragon2.common.constant.Colors;
 import dragon2.common.constant.GameColor;
 import dragon2.common.constant.Texts;
-import mine.UnitMap;
 
 public class SetMensPaint extends PaintBase {
 
@@ -31,13 +29,8 @@ public class SetMensPaint extends PaintBase {
 	}
 
 	private void setColor() {
-		if (Colors.getPC() == 1) {
-			BC = 15;
-			PaintBase.V.change(0, 0, 16, 0, 0, 0);
-		} else {
-			BC = 16;
-			PaintBase.V.change(0, 0, 15, 0, 0, 0);
-		}
+		BC = 15;
+		PaintBase.V.change(0, 0, 16, 0, 0, 0);
 	}
 
 	private void autoPut() {

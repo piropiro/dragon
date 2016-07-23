@@ -7,7 +7,6 @@ package dragon2.common.util;
 import java.util.Random;
 
 import dragon2.common.Body;
-import dragon2.common.constant.Colors;
 import dragon2.common.constant.GameColor;
 
 public class Luck {

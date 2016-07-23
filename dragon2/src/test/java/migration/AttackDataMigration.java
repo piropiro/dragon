@@ -20,11 +20,13 @@ import org.junit.Test;
 
 import dragon2.OldAttackData;
 import dragon2.OldAttackData2;
+import dragon2.OldAttackData3;
 import dragon2.attack.AttackData;
 import dragon2.common.constant.AnimeType;
 import dragon2.common.constant.DamageType;
 import dragon2.common.constant.AttackEffect;
 import dragon2.common.constant.EnergyType;
+import dragon2.common.constant.GameColor;
 import dragon2.common.constant.TargetType;
 import mine.io.BeanIO;
 import mine.io.JsonIO;
@@ -75,7 +77,7 @@ public class AttackDataMigration {
 
 			newData.name = oldData.name;
 			newData.label = oldData.sname;
-			newData.color = oldData.color;
+//			newData.color = oldData.color;
 			newData.damageType = DamageType.convert(oldData.AttackType);
 			newData.attackN1 = oldData.AttackN1;
 //			newData.trType = oldData.TRType;
@@ -118,7 +120,7 @@ public class AttackDataMigration {
 
 			newData.name = oldData.name;
 			newData.label = oldData.sname;
-			newData.color = oldData.color;
+//			newData.color = oldData.color;
 			newData.damageType = DamageType.convert(oldData.attackType);
 			newData.attackN1 = oldData.attackN1;
 			newData.targetType = TargetType.convert(oldData.trType);
@@ -133,6 +135,43 @@ public class AttackDataMigration {
 			newData.animeN1 = oldData.animeN1;
 			newData.energyType = EnergyType.convert(oldData.fuelType);
 			newData.energyCost = oldData.fuelN1;
+			newData.effect = oldData.effect;
+			
+			
+			newDatas.add(newData);
+		}
+
+		String json = JSON.encode(newDatas, true);
+
+		FileUtils.write(new File("target/AttackData.json"), json, "UTF-8");
+
+	}
+	
+	@Test
+	public void migrate_004() throws Exception {
+		OldAttackData3[] oldDatas = JsonIO.read("data/waza/AttackData.json", OldAttackData3[].class);
+
+		List<AttackData> newDatas = new ArrayList<>();
+		for (OldAttackData3 oldData : oldDatas) {
+			AttackData newData = new AttackData();
+
+			newData.name = oldData.name;
+			newData.label = oldData.label;
+			newData.color = GameColor.convert(oldData.color);
+			newData.damageType = oldData.damageType;
+			newData.attackN1 = oldData.attackN1;
+			newData.targetType = oldData.targetType;
+//			newData.trType = oldData.TRType;
+//			newData.targetType = oldData.TargetType;
+//			newData.targetN1 = oldData.TargetN1;
+//			newData.targetN2 = oldData.TargetN2;
+//			newData.rangeType = oldData.RangeType;
+//			newData.rangeN1 = oldData.RangeN1;
+//			newData.rangeN2 = oldData.RangeN2;
+			newData.animeType = oldData.animeType;
+			newData.animeN1 = oldData.animeN1;
+			newData.energyType = oldData.energyType;
+			newData.energyCost = oldData.energyCost;
 			newData.effect = oldData.effect;
 			
 			

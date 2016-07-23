@@ -8,9 +8,8 @@ import dragon2.Statics;
 import dragon2.UnitWorks;
 import dragon2.attack.AttackData;
 import dragon2.common.Body;
-import dragon2.common.constant.Colors;
-import dragon2.common.constant.GameColor;
 import dragon2.common.constant.BodyKind;
+import dragon2.common.constant.GameColor;
 import dragon2.common.constant.Texts;
 
 public class Equip {

@@ -44,10 +44,12 @@ public enum GameColor {
 
 	public static GameColor convert(int n) {
 		switch (n) {
-		case 0: return NONE;
+		case 0: return WHITE;
 		case 1: return BLUE;
-		case 2: return GREEN;
-		case 3: return RED;
+		case 2: return RED;
+		case 3: return GREEN;
+		case 4: return YELLOW;
+		case 5: return SKY;
 		default:
 			throw new IllegalArgumentException("GameColor unmatch: " + n);
 		}

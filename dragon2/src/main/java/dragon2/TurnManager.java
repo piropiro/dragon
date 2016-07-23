@@ -5,11 +5,10 @@ import java.util.Iterator;
 import java.util.Vector;
 
 import dragon2.common.Body;
-import dragon2.common.constant.Colors;
-import dragon2.common.constant.GameColor;
-import dragon2.common.constant.BodyKind;
-import dragon2.common.constant.MoveType;
 import dragon2.common.constant.BodyAttribute;
+import dragon2.common.constant.BodyKind;
+import dragon2.common.constant.GameColor;
+import dragon2.common.constant.MoveType;
 import dragon2.cpu.EnemyTurn;
 import dragon2.paint.PaintBase;
 

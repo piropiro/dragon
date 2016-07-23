@@ -1,19 +1,18 @@
-package dragon2.attack;
+package dragon2;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 import dragon2.common.constant.AnimeType;
-import dragon2.common.constant.DamageType;
 import dragon2.common.constant.AttackEffect;
+import dragon2.common.constant.DamageType;
 import dragon2.common.constant.EnergyType;
-import dragon2.common.constant.GameColor;
 import dragon2.common.constant.TargetType;
 import lombok.Data;
 
 @Data
-public class AttackData implements Serializable {
+public class OldAttackData3 implements Serializable {
 
     public static final long serialVersionUID = -7934201877652688018L;
 
@@ -25,7 +24,7 @@ public class AttackData implements Serializable {
     // dragon2
 	public String name = "none";
 	public String label = "none";
-	public GameColor color;
+	public int color;
 	public List<AttackEffect> effect = new ArrayList<>();
 	public DamageType damageType;
 	public int attackN1;

@@ -9,10 +9,9 @@ import java.awt.Point;
 import dragon2.ActionBase;
 import dragon2.Rewalk;
 import dragon2.common.Body;
-import dragon2.common.constant.Colors;
+import dragon2.common.constant.BodyAttribute;
 import dragon2.common.constant.GameColor;
 import dragon2.common.constant.Texts;
-import dragon2.common.constant.BodyAttribute;
 
 public class EndPaint extends ActionBase {
 

@@ -16,6 +16,7 @@ import dragon2.common.Body;
 import dragon2.common.constant.AttackEffect;
 import dragon2.common.constant.MoveType;
 import dragon2.common.constant.BodyAttribute;
+import dragon2.common.constant.GameColor;
 import dragon2.common.util.Luck;
 import dragon2.map.Map;
 import mine.Mine;
@@ -563,7 +564,7 @@ public class AttackBase implements Iconable {
 		return ad.label;
 	}
 
-	public int getColor() {
+	public GameColor getColor() {
 		return ad.color;
 	}
 

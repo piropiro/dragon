@@ -8,10 +8,9 @@ import java.awt.Point;
 
 import dragon2.Statics;
 import dragon2.common.Body;
-import dragon2.common.constant.Colors;
+import dragon2.common.constant.BodyAttribute;
 import dragon2.common.constant.GameColor;
 import dragon2.common.constant.Texts;
-import dragon2.common.constant.BodyAttribute;
 
 public class BasicPaint extends PaintBase {
 

@@ -6,16 +6,15 @@ import java.util.Vector;
 
 import dragon2.attack.AttackData;
 import dragon2.common.Body;
-import dragon2.common.constant.Colors;
-import dragon2.common.constant.GameColor;
-import dragon2.common.constant.BodyKind;
 import dragon2.common.constant.BodyAttribute;
+import dragon2.common.constant.BodyKind;
+import dragon2.common.constant.GameColor;
 import mine.DataStream;
 import mine.UnitMap;
 import mine.io.JsonIO;
 
 public class Collection {
-
+ 
 	public Collection(UnitWorks unitworks) {
 //            Items = (Vector) BeanIO.read("data/body/E90.xml");
 //            Charas = (Vector) BeanIO.read("data/body/E91.xml");
