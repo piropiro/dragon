@@ -13,7 +13,7 @@
 		"label": "none",
 		"labelColor": "WHITE",
 		"name": "none",
-		"targetType": "TARGET_SINGLE_1"
+		"targetType": "SINGLE_1"
 	},
 	{
 		"animeId": "none",
@@ -32,7 +32,7 @@
 		"label": "攻撃",
 		"labelColor": "WHITE",
 		"name": "剣",
-		"targetType": "TARGET_SINGLE_1"
+		"targetType": "SINGLE_1"
 	},
 	{
 		"animeId": "none",
@@ -51,7 +51,7 @@
 		"label": "攻撃",
 		"labelColor": "YELLOW",
 		"name": "斧",
-		"targetType": "TARGET_SINGLE_1"
+		"targetType": "SINGLE_1"
 	},
 	{
 		"animeId": "none",
@@ -70,7 +70,7 @@
 		"label": "突進",
 		"labelColor": "WHITE",
 		"name": "突進",
-		"targetType": "TARGET_SINGLE_1"
+		"targetType": "SINGLE_1"
 	},
 	{
 		"animeId": "none",
@@ -90,7 +90,7 @@
 		"label": "攻撃",
 		"labelColor": "WHITE",
 		"name": "短剣",
-		"targetType": "TARGET_SINGLE_1"
+		"targetType": "SINGLE_1"
 	},
 	{
 		"animeId": "none",
@@ -110,7 +110,7 @@
 		"label": "攻撃",
 		"labelColor": "WHITE",
 		"name": "槍",
-		"targetType": "TARGET_SINGLE_2"
+		"targetType": "SINGLE_2"
 	},
 	{
 		"animeId": "none",
@@ -130,7 +130,7 @@
 		"label": "攻撃",
 		"labelColor": "WHITE",
 		"name": "弓",
-		"targetType": "TARGET_LONG_2"
+		"targetType": "LONG_2"
 	},
 	{
 		"animeId": "none",
@@ -146,7 +146,7 @@
 		"label": "魔法",
 		"labelColor": "WHITE",
 		"name": "魔法",
-		"targetType": "TARGET_LONG_2"
+		"targetType": "LONG_2"
 	},
 	{
 		"animeId": "none",
@@ -164,7 +164,7 @@
 		"label": "ブレス",
 		"labelColor": "GREEN",
 		"name": "ブレス",
-		"targetType": "TARGET_BREATH"
+		"targetType": "BREATH"
 	},
 	{
 		"animeId": "none",
@@ -185,7 +185,7 @@
 		"label": "反撃",
 		"labelColor": "SKY",
 		"name": "つばめ返し",
-		"targetType": "TARGET_SINGLE_1"
+		"targetType": "SINGLE_1"
 	},
 	{
 		"animeId": "none",
@@ -203,7 +203,7 @@
 		"label": "大魔法",
 		"labelColor": "YELLOW",
 		"name": "大魔法",
-		"targetType": "TARGET_SPREAD"
+		"targetType": "SPREAD"
 	},
 	{
 		"animeId": "none",
@@ -222,7 +222,7 @@
 		"label": "直斬り",
 		"labelColor": "SKY",
 		"name": "直斬り",
-		"targetType": "TARGET_LASER_3"
+		"targetType": "LASER_3"
 	},
 	{
 		"animeId": "none",
@@ -243,7 +243,7 @@
 		"label": "強弓",
 		"labelColor": "WHITE",
 		"name": "強弓",
-		"targetType": "TARGET_LONG_2"
+		"targetType": "LONG_2"
 	},
 	{
 		"animeId": "none",
@@ -261,7 +261,7 @@
 		"label": "氷玉",
 		"labelColor": "BLUE",
 		"name": "アイスボール",
-		"targetType": "TARGET_LONG_2"
+		"targetType": "LONG_2"
 	},
 	{
 		"animeId": "none",
@@ -282,7 +282,7 @@
 		"label": "零砲",
 		"labelColor": "BLUE",
 		"name": "ゼロキャノン",
-		"targetType": "TARGET_LASER_2"
+		"targetType": "LASER_2"
 	},
 	{
 		"animeId": "none",
@@ -302,7 +302,7 @@
 		"label": "火剣",
 		"labelColor": "RED",
 		"name": "ファイアソード",
-		"targetType": "TARGET_SINGLE_1"
+		"targetType": "SINGLE_1"
 	},
 	{
 		"animeId": "none",
@@ -321,7 +321,7 @@
 		"label": "回復",
 		"labelColor": "SKY",
 		"name": "ヒーリング",
-		"targetType": "TARGET_SINGLE_1"
+		"targetType": "SINGLE_1"
 	},
 	{
 		"animeId": "none",
@@ -340,7 +340,7 @@
 		"label": "火炎",
 		"labelColor": "RED",
 		"name": "ファイヤーブレス",
-		"targetType": "TARGET_BREATH"
+		"targetType": "BREATH"
 	},
 	{
 		"animeId": "none",
@@ -359,7 +359,7 @@
 		"label": "鋼牙",
 		"labelColor": "YELLOW",
 		"name": "鋼の牙",
-		"targetType": "TARGET_SINGLE_1"
+		"targetType": "SINGLE_1"
 	},
 	{
 		"animeId": "none",
@@ -379,7 +379,7 @@
 		"label": "氷剣",
 		"labelColor": "BLUE",
 		"name": "アイスソード",
-		"targetType": "TARGET_SINGLE_1"
+		"targetType": "SINGLE_1"
 	},
 	{
 		"animeId": "none",
@@ -400,7 +400,7 @@
 		"label": "雷弓",
 		"labelColor": "YELLOW",
 		"name": "雷神の弓",
-		"targetType": "TARGET_LONG_2"
+		"targetType": "LONG_2"
 	},
 	{
 		"animeId": "none",
@@ -420,7 +420,7 @@
 		"label": "攻撃",
 		"labelColor": "RED",
 		"name": "ムラマサ",
-		"targetType": "TARGET_SINGLE_1"
+		"targetType": "SINGLE_1"
 	},
 	{
 		"animeId": "none",
@@ -441,7 +441,7 @@
 		"label": "KISS",
 		"labelColor": "RED",
 		"name": "プリティキッス",
-		"targetType": "TARGET_SINGLE_1"
+		"targetType": "SINGLE_1"
 	},
 	{
 		"animeId": "none",
@@ -461,7 +461,7 @@
 		"label": "魅了",
 		"labelColor": "RED",
 		"name": "チャーム",
-		"targetType": "TARGET_SINGLE_1"
+		"targetType": "SINGLE_1"
 	},
 	{
 		"animeId": "none",
@@ -481,7 +481,7 @@
 		"label": "昇斬",
 		"labelColor": "SKY",
 		"name": "スマッシュ",
-		"targetType": "TARGET_SINGLE_1"
+		"targetType": "SINGLE_1"
 	},
 	{
 		"animeId": "none",
@@ -501,7 +501,7 @@
 		"label": "子守唄",
 		"labelColor": "YELLOW",
 		"name": "子守唄",
-		"targetType": "TARGET_ALL_2"
+		"targetType": "ALL_2"
 	},
 	{
 		"animeId": "none",
@@ -522,7 +522,7 @@
 		"label": "魚槍",
 		"labelColor": "BLUE",
 		"name": "人魚の槍",
-		"targetType": "TARGET_SINGLE_2"
+		"targetType": "SINGLE_2"
 	},
 	{
 		"animeId": "none",
@@ -542,7 +542,7 @@
 		"label": "串刺",
 		"labelColor": "YELLOW",
 		"name": "串刺し",
-		"targetType": "TARGET_LASER_2"
+		"targetType": "LASER_2"
 	},
 	{
 		"animeId": "none",
@@ -560,7 +560,7 @@
 		"label": "火玉",
 		"labelColor": "RED",
 		"name": "ファイヤーボール",
-		"targetType": "TARGET_LONG_2"
+		"targetType": "LONG_2"
 	},
 	{
 		"animeId": "none",
@@ -579,7 +579,7 @@
 		"label": "倍斬り",
 		"labelColor": "YELLOW",
 		"name": "倍斬り",
-		"targetType": "TARGET_SINGLE_1"
+		"targetType": "SINGLE_1"
 	},
 	{
 		"animeId": "none",
@@ -598,7 +598,7 @@
 		"label": "火輪",
 		"labelColor": "RED",
 		"name": "ファイヤーリング",
-		"targetType": "TARGET_RING_2"
+		"targetType": "RING_2"
 	},
 	{
 		"animeId": "none",
@@ -616,7 +616,7 @@
 		"label": "水鉄砲",
 		"labelColor": "SKY",
 		"name": "スプラッシュ",
-		"targetType": "TARGET_LONG_2"
+		"targetType": "LONG_2"
 	},
 	{
 		"animeId": "none",
@@ -637,7 +637,7 @@
 		"label": "氷弓",
 		"labelColor": "BLUE",
 		"name": "凍土の弓",
-		"targetType": "TARGET_LONG_2"
+		"targetType": "LONG_2"
 	},
 	{
 		"animeId": "none",
@@ -656,7 +656,7 @@
 		"label": "貫通矢",
 		"labelColor": "YELLOW",
 		"name": "貫通矢",
-		"targetType": "TARGET_LASER_3"
+		"targetType": "LASER_3"
 	},
 	{
 		"animeId": "none",
@@ -676,7 +676,7 @@
 		"label": "デス",
 		"labelColor": "RED",
 		"name": "デス",
-		"targetType": "TARGET_LONG_2"
+		"targetType": "LONG_2"
 	},
 	{
 		"animeId": "none",
@@ -696,7 +696,7 @@
 		"label": "回転",
 		"labelColor": "YELLOW",
 		"name": "回転斬り",
-		"targetType": "TARGET_SQUARE_1"
+		"targetType": "SQUARE_1"
 	},
 	{
 		"animeId": "none",
@@ -715,7 +715,7 @@
 		"label": "大地斬",
 		"labelColor": "YELLOW",
 		"name": "大地斬",
-		"targetType": "TARGET_BREATH"
+		"targetType": "BREATH"
 	},
 	{
 		"animeId": "none",
@@ -734,7 +734,7 @@
 		"label": "乱射",
 		"labelColor": "SKY",
 		"name": "乱れ射ち",
-		"targetType": "TARGET_BREATH"
+		"targetType": "BREATH"
 	},
 	{
 		"animeId": "none",
@@ -752,7 +752,7 @@
 		"label": "雷撃",
 		"labelColor": "YELLOW",
 		"name": "サンダーボルト",
-		"targetType": "TARGET_LONG_2"
+		"targetType": "LONG_2"
 	},
 	{
 		"animeId": "none",
@@ -772,7 +772,7 @@
 		"label": "毒牙",
 		"labelColor": "GREEN",
 		"name": "毒の牙",
-		"targetType": "TARGET_SINGLE_1"
+		"targetType": "SINGLE_1"
 	},
 	{
 		"animeId": "none",
@@ -793,7 +793,7 @@
 		"label": "毒針",
 		"labelColor": "GREEN",
 		"name": "毒針",
-		"targetType": "TARGET_SINGLE_1"
+		"targetType": "SINGLE_1"
 	},
 	{
 		"animeId": "none",
@@ -814,7 +814,7 @@
 		"label": "手裏剣",
 		"labelColor": "YELLOW",
 		"name": "手裏剣",
-		"targetType": "TARGET_LONG_2"
+		"targetType": "LONG_2"
 	},
 	{
 		"animeId": "none",
@@ -834,7 +834,7 @@
 		"label": "風刃",
 		"labelColor": "GREEN",
 		"name": "ウインドカッター",
-		"targetType": "TARGET_LONG_2"
+		"targetType": "LONG_2"
 	},
 	{
 		"animeId": "none",
@@ -854,7 +854,7 @@
 		"label": "獣斧",
 		"labelColor": "SKY",
 		"name": "神獣の斧",
-		"targetType": "TARGET_SINGLE_1"
+		"targetType": "SINGLE_1"
 	},
 	{
 		"animeId": "none",
@@ -875,7 +875,7 @@
 		"label": "飛竜殺",
 		"labelColor": "SKY",
 		"name": "飛竜殺し",
-		"targetType": "TARGET_SINGLE_1"
+		"targetType": "SINGLE_1"
 	},
 	{
 		"animeId": "none",
@@ -896,7 +896,7 @@
 		"label": "魔槍",
 		"labelColor": "SKY",
 		"name": "ミストルテイン",
-		"targetType": "TARGET_SINGLE_2"
+		"targetType": "SINGLE_2"
 	},
 	{
 		"animeId": "none",
@@ -916,7 +916,7 @@
 		"label": "聖光",
 		"labelColor": "SKY",
 		"name": "シャイニング",
-		"targetType": "TARGET_ALL_2"
+		"targetType": "ALL_2"
 	},
 	{
 		"animeId": "none",
@@ -937,7 +937,7 @@
 		"label": "吹雪",
 		"labelColor": "BLUE",
 		"name": "ブリザード",
-		"targetType": "TARGET_RING_3"
+		"targetType": "RING_3"
 	},
 	{
 		"animeId": "none",
@@ -957,7 +957,7 @@
 		"label": "猛毒",
 		"labelColor": "GREEN",
 		"name": "猛毒の牙",
-		"targetType": "TARGET_SINGLE_1"
+		"targetType": "SINGLE_1"
 	},
 	{
 		"animeId": "none",
@@ -977,7 +977,7 @@
 		"label": "死風",
 		"labelColor": "WHITE",
 		"name": "デスウインド",
-		"targetType": "TARGET_RING_3"
+		"targetType": "RING_3"
 	},
 	{
 		"animeId": "none",
@@ -999,7 +999,7 @@
 		"label": "地竜殺",
 		"labelColor": "YELLOW",
 		"name": "地竜殺し",
-		"targetType": "TARGET_SINGLE_2"
+		"targetType": "SINGLE_2"
 	},
 	{
 		"animeId": "none",
@@ -1018,7 +1018,7 @@
 		"label": "光速斬",
 		"labelColor": "YELLOW",
 		"name": "電光石火",
-		"targetType": "TARGET_SINGLE_1"
+		"targetType": "SINGLE_1"
 	},
 	{
 		"animeId": "none",
@@ -1038,7 +1038,7 @@
 		"label": "氷刃",
 		"labelColor": "BLUE",
 		"name": "アイスブレード",
-		"targetType": "TARGET_HLINE"
+		"targetType": "HLINE"
 	},
 	{
 		"animeId": "none",
@@ -1058,7 +1058,7 @@
 		"label": "誘惑",
 		"labelColor": "RED",
 		"name": "誘惑の鞭",
-		"targetType": "TARGET_SINGLE_2"
+		"targetType": "SINGLE_2"
 	},
 	{
 		"animeId": "none",
@@ -1078,7 +1078,7 @@
 		"label": "電撃",
 		"labelColor": "SKY",
 		"name": "スパーク",
-		"targetType": "TARGET_SINGLE_1"
+		"targetType": "SINGLE_1"
 	},
 	{
 		"animeId": "none",
@@ -1098,7 +1098,7 @@
 		"label": "落斬",
 		"labelColor": "YELLOW",
 		"name": "切り落とし",
-		"targetType": "TARGET_SINGLE_1"
+		"targetType": "SINGLE_1"
 	},
 	{
 		"animeId": "none",
@@ -1118,7 +1118,7 @@
 		"label": "魔斧",
 		"labelColor": "BLUE",
 		"name": "魔神の斧",
-		"targetType": "TARGET_SINGLE_1"
+		"targetType": "SINGLE_1"
 	},
 	{
 		"animeId": "none",
@@ -1138,7 +1138,7 @@
 		"label": "十字斬",
 		"labelColor": "GREEN",
 		"name": "グランドクロス",
-		"targetType": "TARGET_CROSS_2"
+		"targetType": "CROSS_2"
 	},
 	{
 		"animeId": "none",
@@ -1158,7 +1158,7 @@
 		"label": "反撃",
 		"labelColor": "YELLOW",
 		"name": "カウンター",
-		"targetType": "TARGET_SINGLE_1"
+		"targetType": "SINGLE_1"
 	},
 	{
 		"animeId": "none",
@@ -1177,7 +1177,7 @@
 		"label": "油玉",
 		"labelColor": "GREEN",
 		"name": "油玉",
-		"targetType": "TARGET_LONG_2"
+		"targetType": "LONG_2"
 	},
 	{
 		"animeId": "none",
@@ -1197,7 +1197,7 @@
 		"label": "竜殺剣",
 		"labelColor": "YELLOW",
 		"name": "ドラゴンキラー",
-		"targetType": "TARGET_SINGLE_1"
+		"targetType": "SINGLE_1"
 	},
 	{
 		"animeId": "none",
@@ -1216,7 +1216,7 @@
 		"label": "火炎",
 		"labelColor": "RED",
 		"name": "ファイヤーストーム",
-		"targetType": "TARGET_SINGLE_1"
+		"targetType": "SINGLE_1"
 	},
 	{
 		"animeId": "none",
@@ -1235,7 +1235,7 @@
 		"label": "氷結",
 		"labelColor": "BLUE",
 		"name": "アイスストーム",
-		"targetType": "TARGET_SINGLE_1"
+		"targetType": "SINGLE_1"
 	},
 	{
 		"animeId": "none",
@@ -1254,7 +1254,7 @@
 		"label": "雷切",
 		"labelColor": "YELLOW",
 		"name": "ギガスラッシュ",
-		"targetType": "TARGET_LASER_2"
+		"targetType": "LASER_2"
 	},
 	{
 		"animeId": "none",
@@ -1274,7 +1274,7 @@
 		"label": "火炎",
 		"labelColor": "RED",
 		"name": "フレイムレーザー",
-		"targetType": "TARGET_LASER_3"
+		"targetType": "LASER_3"
 	},
 	{
 		"animeId": "none",
@@ -1294,7 +1294,7 @@
 		"label": "雷矢",
 		"labelColor": "YELLOW",
 		"name": "サンダーアロー",
-		"targetType": "TARGET_LASER_3"
+		"targetType": "LASER_3"
 	},
 	{
 		"animeId": "none",
@@ -1314,7 +1314,7 @@
 		"label": "氷矢",
 		"labelColor": "BLUE",
 		"name": "アイスアロー",
-		"targetType": "TARGET_LASER_3"
+		"targetType": "LASER_3"
 	},
 	{
 		"animeId": "none",
@@ -1335,7 +1335,7 @@
 		"label": "加熱",
 		"labelColor": "RED",
 		"name": "ヒートアップ",
-		"targetType": "TARGET_SINGLE_1"
+		"targetType": "SINGLE_1"
 	},
 	{
 		"animeId": "none",
@@ -1356,7 +1356,7 @@
 		"label": "防御",
 		"labelColor": "BLUE",
 		"name": "ガードアップ",
-		"targetType": "TARGET_SINGLE_1"
+		"targetType": "SINGLE_1"
 	},
 	{
 		"animeId": "none",
@@ -1377,7 +1377,7 @@
 		"label": "暗黒剣",
 		"labelColor": "YELLOW",
 		"name": "デスブリンガー",
-		"targetType": "TARGET_SINGLE_1"
+		"targetType": "SINGLE_1"
 	},
 	{
 		"animeId": "none",
@@ -1398,7 +1398,7 @@
 		"label": "プレス",
 		"labelColor": "RED",
 		"name": "メガトンプレス",
-		"targetType": "TARGET_SINGLE_1"
+		"targetType": "SINGLE_1"
 	},
 	{
 		"animeId": "none",
@@ -1419,7 +1419,7 @@
 		"label": "金斧",
 		"labelColor": "YELLOW",
 		"name": "金の斧",
-		"targetType": "TARGET_SINGLE_1"
+		"targetType": "SINGLE_1"
 	},
 	{
 		"animeId": "none",
@@ -1438,7 +1438,7 @@
 		"label": "蔓草",
 		"labelColor": "GREEN",
 		"name": "ラブバイン",
-		"targetType": "TARGET_LONG_2"
+		"targetType": "LONG_2"
 	},
 	{
 		"animeId": "none",
@@ -1458,7 +1458,7 @@
 		"label": "氷結",
 		"labelColor": "BLUE",
 		"name": "アイスレーザー",
-		"targetType": "TARGET_LASER_3"
+		"targetType": "LASER_3"
 	},
 	{
 		"animeId": "none",
@@ -1478,7 +1478,7 @@
 		"label": "木の実",
 		"labelColor": "GREEN",
 		"name": "ナッツシュート",
-		"targetType": "TARGET_LONG_3"
+		"targetType": "LONG_3"
 	},
 	{
 		"animeId": "none",
@@ -1499,7 +1499,7 @@
 		"label": "火炎斬",
 		"labelColor": "RED",
 		"name": "火炎斬り",
-		"targetType": "TARGET_SINGLE_1"
+		"targetType": "SINGLE_1"
 	},
 	{
 		"animeId": "none",
@@ -1520,7 +1520,7 @@
 		"label": "氷結斬",
 		"labelColor": "BLUE",
 		"name": "氷結斬り",
-		"targetType": "TARGET_SINGLE_1"
+		"targetType": "SINGLE_1"
 	},
 	{
 		"animeId": "none",
@@ -1540,7 +1540,7 @@
 		"label": "クナイ",
 		"labelColor": "YELLOW",
 		"name": "クナイ",
-		"targetType": "TARGET_SINGLE_1"
+		"targetType": "SINGLE_1"
 	},
 	{
 		"animeId": "none",
@@ -1562,7 +1562,7 @@
 		"label": "氷刃",
 		"labelColor": "SKY",
 		"name": "アイシングダガー",
-		"targetType": "TARGET_SINGLE_1"
+		"targetType": "SINGLE_1"
 	},
 	{
 		"animeId": "none",
@@ -1582,7 +1582,7 @@
 		"label": "死鎌",
 		"labelColor": "RED",
 		"name": "デスサイズ",
-		"targetType": "TARGET_SINGLE_2"
+		"targetType": "SINGLE_2"
 	},
 	{
 		"animeId": "none",
@@ -1601,7 +1601,7 @@
 		"label": "氷玉",
 		"labelColor": "BLUE",
 		"name": "ラブアイス",
-		"targetType": "TARGET_LONG_2"
+		"targetType": "LONG_2"
 	},
 	{
 		"animeId": "none",
@@ -1620,7 +1620,7 @@
 		"label": "火玉",
 		"labelColor": "RED",
 		"name": "ラブファイア",
-		"targetType": "TARGET_LONG_2"
+		"targetType": "LONG_2"
 	},
 	{
 		"animeId": "none",
@@ -1639,7 +1639,7 @@
 		"label": "悪夢",
 		"labelColor": "GREEN",
 		"name": "ナイトメア",
-		"targetType": "TARGET_LONG_2"
+		"targetType": "LONG_2"
 	},
 	{
 		"animeId": "none",
@@ -1658,7 +1658,7 @@
 		"label": "氷輪",
 		"labelColor": "BLUE",
 		"name": "アイスリング",
-		"targetType": "TARGET_RING_2"
+		"targetType": "RING_2"
 	},
 	{
 		"animeId": "none",
@@ -1677,7 +1677,7 @@
 		"label": "重力波",
 		"labelColor": "GREEN",
 		"name": "グラビティブラスト",
-		"targetType": "TARGET_LONG_2"
+		"targetType": "LONG_2"
 	},
 	{
 		"animeId": "none",
@@ -1696,7 +1696,7 @@
 		"label": "淫夢",
 		"labelColor": "RED",
 		"name": "チャームライト",
-		"targetType": "TARGET_ALL_3"
+		"targetType": "ALL_3"
 	},
 	{
 		"animeId": "none",
@@ -1717,7 +1717,7 @@
 		"label": "魔矢",
 		"labelColor": "SKY",
 		"name": "マジックシュート",
-		"targetType": "TARGET_LONG_3"
+		"targetType": "LONG_3"
 	},
 	{
 		"animeId": "none",
@@ -1737,7 +1737,7 @@
 		"label": "雷鳥",
 		"labelColor": "YELLOW",
 		"name": "サンダーバード",
-		"targetType": "TARGET_LONG_2"
+		"targetType": "LONG_2"
 	},
 	{
 		"animeId": "none",
@@ -1758,7 +1758,7 @@
 		"label": "氷雷火",
 		"labelColor": "SKY",
 		"name": "マジカルソード",
-		"targetType": "TARGET_SINGLE_1"
+		"targetType": "SINGLE_1"
 	},
 	{
 		"animeId": "none",
@@ -1778,7 +1778,7 @@
 		"label": "津波",
 		"labelColor": "BLUE",
 		"name": "タイダルウエイブ",
-		"targetType": "TARGET_ALL_3"
+		"targetType": "ALL_3"
 	},
 	{
 		"animeId": "none",
@@ -1799,7 +1799,7 @@
 		"label": "海槍",
 		"labelColor": "BLUE",
 		"name": "海神の槍",
-		"targetType": "TARGET_SINGLE_2"
+		"targetType": "SINGLE_2"
 	},
 	{
 		"animeId": "none",
@@ -1819,7 +1819,7 @@
 		"label": "魂狩",
 		"labelColor": "YELLOW",
 		"name": "ソウルスティール",
-		"targetType": "TARGET_SINGLE_1"
+		"targetType": "SINGLE_1"
 	},
 	{
 		"animeId": "none",
@@ -1839,7 +1839,7 @@
 		"label": "爆熱拳",
 		"labelColor": "YELLOW",
 		"name": "ゴッドフィンガー",
-		"targetType": "TARGET_SINGLE_1"
+		"targetType": "SINGLE_1"
 	},
 	{
 		"animeId": "none",
@@ -1858,7 +1858,7 @@
 		"label": "感電",
 		"labelColor": "YELLOW",
 		"name": "エレキアタック",
-		"targetType": "TARGET_SINGLE_1"
+		"targetType": "SINGLE_1"
 	},
 	{
 		"animeId": "none",
@@ -1878,7 +1878,7 @@
 		"label": "森弓",
 		"labelColor": "GREEN",
 		"name": "森人の弓",
-		"targetType": "TARGET_LONG_3"
+		"targetType": "LONG_3"
 	},
 	{
 		"animeId": "none",
@@ -1899,7 +1899,7 @@
 		"label": "連弾",
 		"labelColor": "GREEN",
 		"name": "ツインショット",
-		"targetType": "TARGET_LONG_2"
+		"targetType": "LONG_2"
 	},
 	{
 		"animeId": "none",
@@ -1920,7 +1920,7 @@
 		"label": "毒蔓",
 		"labelColor": "GREEN",
 		"name": "マッドバイン",
-		"targetType": "TARGET_ALL_2"
+		"targetType": "ALL_2"
 	},
 	{
 		"animeId": "none",
@@ -1942,7 +1942,7 @@
 		"label": "芋づる",
 		"labelColor": "GREEN",
 		"name": "芋づる",
-		"targetType": "TARGET_LONG_2"
+		"targetType": "LONG_2"
 	},
 	{
 		"animeId": "none",
@@ -1964,7 +1964,7 @@
 		"label": "三連殺",
 		"labelColor": "YELLOW",
 		"name": "三連殺",
-		"targetType": "TARGET_SINGLE_1"
+		"targetType": "SINGLE_1"
 	},
 	{
 		"animeId": "none",
@@ -1984,7 +1984,7 @@
 		"label": "炎殺剣",
 		"labelColor": "RED",
 		"name": "炎殺剣",
-		"targetType": "TARGET_SINGLE_1"
+		"targetType": "SINGLE_1"
 	},
 	{
 		"animeId": "none",
@@ -2003,7 +2003,7 @@
 		"label": "灼熱",
 		"labelColor": "RED",
 		"name": "クリムゾンフレア",
-		"targetType": "TARGET_RING_3"
+		"targetType": "RING_3"
 	},
 	{
 		"animeId": "none",
@@ -2023,7 +2023,7 @@
 		"label": "氷塵",
 		"labelColor": "BLUE",
 		"name": "ダイアモンドダスト",
-		"targetType": "TARGET_ALL_3"
+		"targetType": "ALL_3"
 	},
 	{
 		"animeId": "none",
@@ -2042,7 +2042,7 @@
 		"label": "反射",
 		"labelColor": "YELLOW",
 		"name": "リフレクト",
-		"targetType": "TARGET_SINGLE_1"
+		"targetType": "SINGLE_1"
 	},
 	{
 		"animeId": "none",
@@ -2063,7 +2063,7 @@
 		"label": "浮遊",
 		"labelColor": "SKY",
 		"name": "レビテーション",
-		"targetType": "TARGET_SINGLE_1"
+		"targetType": "SINGLE_1"
 	},
 	{
 		"animeId": "none",
@@ -2083,7 +2083,7 @@
 		"label": "聖光斬",
 		"labelColor": "SKY",
 		"name": "ライトブリンガー",
-		"targetType": "TARGET_SINGLE_1"
+		"targetType": "SINGLE_1"
 	},
 	{
 		"animeId": "none",
@@ -2099,7 +2099,7 @@
 		"label": "真竜斬",
 		"labelColor": "YELLOW",
 		"name": "真竜斬り",
-		"targetType": "TARGET_SINGLE_1"
+		"targetType": "SINGLE_1"
 	},
 	{
 		"animeId": "none",
@@ -2120,7 +2120,7 @@
 		"label": "淫夢",
 		"labelColor": "RED",
 		"name": "チャームフラッシュ",
-		"targetType": "TARGET_RING_3"
+		"targetType": "RING_3"
 	},
 	{
 		"animeId": "none",
@@ -2141,7 +2141,7 @@
 		"label": "魔法弾",
 		"labelColor": "SKY",
 		"name": "マジックミサイル",
-		"targetType": "TARGET_LONG_2"
+		"targetType": "LONG_2"
 	},
 	{
 		"animeId": "none",
@@ -2161,7 +2161,7 @@
 		"label": "波動",
 		"labelColor": "YELLOW",
 		"name": "ケイオスウエイブ",
-		"targetType": "TARGET_ALL_4"
+		"targetType": "ALL_4"
 	},
 	{
 		"animeId": "none",
@@ -2181,7 +2181,7 @@
 		"label": "再生",
 		"labelColor": "SKY",
 		"name": "リジェネレーション",
-		"targetType": "TARGET_ALL_4"
+		"targetType": "ALL_4"
 	},
 	{
 		"animeId": "none",
@@ -2200,7 +2200,7 @@
 		"label": "炎撃",
 		"labelColor": "RED",
 		"name": "フレイムタックル",
-		"targetType": "TARGET_SINGLE_1"
+		"targetType": "SINGLE_1"
 	},
 	{
 		"animeId": "none",
@@ -2219,7 +2219,7 @@
 		"label": "氷撃",
 		"labelColor": "BLUE",
 		"name": "アイスタックル",
-		"targetType": "TARGET_SINGLE_1"
+		"targetType": "SINGLE_1"
 	},
 	{
 		"animeId": "none",
@@ -2240,7 +2240,7 @@
 		"label": "水壁",
 		"labelColor": "BLUE",
 		"name": "アクアプリズン",
-		"targetType": "TARGET_ALL_2"
+		"targetType": "ALL_2"
 	},
 	{
 		"animeId": "none",
@@ -2261,7 +2261,7 @@
 		"label": "海波斬",
 		"labelColor": "BLUE",
 		"name": "海波斬",
-		"targetType": "TARGET_LASER_3"
+		"targetType": "LASER_3"
 	},
 	{
 		"animeId": "none",
@@ -2282,7 +2282,7 @@
 		"label": "音速弾",
 		"labelColor": "SKY",
 		"name": "音速弾",
-		"targetType": "TARGET_SINGLE_2"
+		"targetType": "SINGLE_2"
 	},
 	{
 		"animeId": "none",
@@ -2302,7 +2302,7 @@
 		"label": "雷嵐",
 		"labelColor": "YELLOW",
 		"name": "サンダーストーム",
-		"targetType": "TARGET_ALL_2"
+		"targetType": "ALL_2"
 	},
 	{
 		"animeId": "none",
@@ -2323,7 +2323,7 @@
 		"label": "聖槍",
 		"labelColor": "SKY",
 		"name": "ホーリーランス",
-		"targetType": "TARGET_SINGLE_2"
+		"targetType": "SINGLE_2"
 	},
 	{
 		"animeId": "none",
@@ -2343,7 +2343,7 @@
 		"label": "猛毒",
 		"labelColor": "GREEN",
 		"name": "必殺針",
-		"targetType": "TARGET_SINGLE_1"
+		"targetType": "SINGLE_1"
 	},
 	{
 		"animeId": "none",
@@ -2362,7 +2362,7 @@
 		"label": "毒嵐",
 		"labelColor": "GREEN",
 		"name": "ポイズンストーム",
-		"targetType": "TARGET_ALL_2"
+		"targetType": "ALL_2"
 	},
 	{
 		"animeId": "none",
@@ -2383,7 +2383,7 @@
 		"label": "終焉",
 		"labelColor": "RED",
 		"name": "デッドエンド",
-		"targetType": "TARGET_SQUARE_1"
+		"targetType": "SQUARE_1"
 	},
 	{
 		"animeId": "none",
@@ -2403,7 +2403,7 @@
 		"label": "誘惑",
 		"labelColor": "RED",
 		"name": "誘惑の剣",
-		"targetType": "TARGET_SINGLE_1"
+		"targetType": "SINGLE_1"
 	},
 	{
 		"animeId": "none",
@@ -2423,7 +2423,7 @@
 		"label": "空裂斬",
 		"labelColor": "SKY",
 		"name": "空裂斬",
-		"targetType": "TARGET_HLINE"
+		"targetType": "HLINE"
 	},
 	{
 		"animeId": "none",
@@ -2442,7 +2442,7 @@
 		"label": "氷息",
 		"labelColor": "BLUE",
 		"name": "アイスブレス",
-		"targetType": "TARGET_BREATH"
+		"targetType": "BREATH"
 	},
 	{
 		"animeId": "none",
@@ -2463,7 +2463,7 @@
 		"label": "竜斬り",
 		"labelColor": "YELLOW",
 		"name": "竜斬り",
-		"targetType": "TARGET_SINGLE_1"
+		"targetType": "SINGLE_1"
 	},
 	{
 		"animeId": "none",
@@ -2484,7 +2484,7 @@
 		"label": "星屑",
 		"labelColor": "YELLOW",
 		"name": "スターティアラ",
-		"targetType": "TARGET_RING_2"
+		"targetType": "RING_2"
 	},
 	{
 		"animeId": "none",
@@ -2505,7 +2505,7 @@
 		"label": "炎矢",
 		"labelColor": "RED",
 		"name": "ファイヤーアロー",
-		"targetType": "TARGET_LONG_2"
+		"targetType": "LONG_2"
 	},
 	{
 		"animeId": "none",
@@ -2524,7 +2524,7 @@
 		"label": "雷電",
 		"labelColor": "YELLOW",
 		"name": "サンダーフレア",
-		"targetType": "TARGET_ALL_1"
+		"targetType": "ALL_1"
 	},
 	{
 		"animeId": "none",
@@ -2544,7 +2544,7 @@
 		"label": "連撃",
 		"labelColor": "SKY",
 		"name": "ダブルヒット",
-		"targetType": "TARGET_SINGLE_1"
+		"targetType": "SINGLE_1"
 	},
 	{
 		"animeId": "none",
@@ -2565,7 +2565,7 @@
 		"label": "飛苦無",
 		"labelColor": "YELLOW",
 		"name": "飛苦無",
-		"targetType": "TARGET_LONG_2"
+		"targetType": "LONG_2"
 	},
 	{
 		"animeId": "none",
@@ -2587,7 +2587,7 @@
 		"label": "聖剣",
 		"labelColor": "SKY",
 		"name": "エクスカリバー",
-		"targetType": "TARGET_SINGLE_1"
+		"targetType": "SINGLE_1"
 	},
 	{
 		"animeId": "none",
@@ -2608,7 +2608,7 @@
 		"label": "終焉",
 		"labelColor": "RED",
 		"name": "カラミティエンド",
-		"targetType": "TARGET_ALL_3"
+		"targetType": "ALL_3"
 	},
 	{
 		"animeId": "none",
@@ -2629,7 +2629,7 @@
 		"label": "熱血",
 		"labelColor": "RED",
 		"name": "バーニング",
-		"targetType": "TARGET_ALL_1"
+		"targetType": "ALL_1"
 	},
 	{
 		"animeId": "none",
@@ -2647,7 +2647,7 @@
 		"label": "乱油",
 		"labelColor": "GREEN",
 		"name": "みだれ油",
-		"targetType": "TARGET_RING_2"
+		"targetType": "RING_2"
 	},
 	{
 		"animeId": "none",
@@ -2667,7 +2667,7 @@
 		"label": "芋切",
 		"labelColor": "GREEN",
 		"name": "芋切り",
-		"targetType": "TARGET_SINGLE_1"
+		"targetType": "SINGLE_1"
 	},
 	{
 		"animeId": "none",
@@ -2685,6 +2685,6 @@
 		"label": "誘導弾",
 		"labelColor": "SKY",
 		"name": "誘導弾",
-		"targetType": "TARGET_LONG_2"
+		"targetType": "LONG_2"
 	}
 ]
