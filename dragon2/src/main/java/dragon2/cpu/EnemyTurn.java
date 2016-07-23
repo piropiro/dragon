@@ -180,7 +180,7 @@ public class EnemyTurn extends ActionBase {
 			return true;
 		if (i + ba.scope <= ba.range + 1)
 			return true;
-		return PaintBase.uw.getTurn() >= ba.moveturn;
+		return PaintBase.uw.getTurn() >= ba.limitTurn;
 	}
 
 	public void setWalkData() {

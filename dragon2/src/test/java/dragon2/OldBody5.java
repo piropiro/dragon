@@ -1,4 +1,4 @@
-package dragon2.common;
+package dragon2;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -14,7 +14,7 @@ import dragon2.common.constant.BodyAttribute;
 import mine.MineException;
 
 @Data
-public class Body implements Serializable, Cloneable {
+public class OldBody5 implements Serializable, Cloneable {
 
     public static final long serialVersionUID = -2486607915340385590L;
     
@@ -48,21 +48,21 @@ public class Body implements Serializable, Cloneable {
 	public List<BodyAttribute> attrList;
 	public int range;
 	public int scope;
-	public int limitTurn;
+	public int moveturn;
 	public int goalX;
 	public int goalY;
 	public int store;
 	private Set<BodyAttribute> attrSet;
         
-	public Body() {
+	public OldBody5() {
 		atk = new int[6];
 		attrList = new ArrayList<>();
 		name = "none";
 	}
 
-	public Body copy() {
+	public OldBody5 copy() {
 		try {
-			return (Body) clone();
+			return (OldBody5) clone();
 		} catch (CloneNotSupportedException clonenotsupportedexception) {
                     throw new MineException(clonenotsupportedexception);
 		}
@@ -81,7 +81,7 @@ public class Body implements Serializable, Cloneable {
 
 	public void newType() {
 		attrSet = new HashSet<>();
-		Body.this.mergeTypeState(attrList);
+		OldBody5.this.mergeTypeState(attrList);
 	}
 
 	public void mergeTypeState(List<BodyAttribute> ai) {

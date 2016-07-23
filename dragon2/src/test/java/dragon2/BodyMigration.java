@@ -9,7 +9,10 @@ import static org.junit.Assert.assertThat;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Vector;
 
 import org.apache.commons.beanutils.BeanUtils;
@@ -22,12 +25,12 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import dragon2.common.Body;
+import dragon2.common.constant.BodyAttribute;
 import dragon2.common.constant.BodyKind;
 import dragon2.common.constant.GameColor;
 import dragon2.common.constant.MoveType;
 import dragon3.bean.BodyData;
 import dragon3.bean.DeployData;
-import dragon2.common.constant.BodyAttribute;
 import mine.DataStream;
 import mine.io.BeanIO;
 import mine.io.JsonIO;
@@ -145,7 +148,7 @@ public class BodyMigration {
     		  newBody.img = old.img;
     		  newBody.range = old.maai;
     		  newBody.scope = old.scope;
-    		  newBody.moveturn = old.moveturn;
+    		  newBody.limitTurn = old.moveturn;
     		  newBody.goalX = old.gx;
     		  newBody.goalY = old.gy;
     		  newBody.store = old.store;
@@ -203,7 +206,7 @@ public class BodyMigration {
     		  newBody.img = old.img;
     		  newBody.range = old.maai;
     		  newBody.scope = old.scope;
-    		  newBody.moveturn = old.moveturn;
+    		  newBody.limitTurn = old.moveturn;
     		  newBody.goalX = old.gx;
     		  newBody.goalY = old.gy;
     		  newBody.store = old.store;
@@ -286,7 +289,7 @@ public class BodyMigration {
     		  newBody.img = old.img;
     		  newBody.range = old.maai;
     		  newBody.scope = old.scope;
-    		  newBody.moveturn = old.moveturn;
+    		  newBody.limitTurn = old.moveturn;
     		  newBody.goalX = old.gx;
     		  newBody.goalY = old.gy;
     		  newBody.store = old.store;
@@ -341,31 +344,91 @@ public class BodyMigration {
 
       for (String body : bodys) {
     	  
-    	  Body[] oldBodys = JsonIO.read("data/body/" + body + ".json", Body[].class);
+    	  OldBody5[] oldBodys = JsonIO.read("data/body/" + body + ".json", OldBody5[].class);
           
-          List<BodyData> newBodys = new ArrayList<>();
-          List<DeployData> newDeploys = new ArrayList<>();
-    	  for (Body oldBody : oldBodys) {
-    		  BodyData newBody = new BodyData();
-    		  BeanUtils.copyProperties(newBody, oldBody);
-    		  
-    		  DeployData deploy = new DeployData();
-    		  BeanUtils.copyProperties(deploy, oldBody);
+          List<Body> newBodys = new ArrayList<>();
+    	  for (OldBody5 old : oldBodys) {
+    		  Body newBody = new Body();
+    		  BeanUtils.copyProperties(newBody, old);
+    		  newBody.limitTurn = old.moveturn;
     		  
     		  newBodys.add(newBody);
-    		  newDeploys.add(deploy);
     	  }
  
           
           String json = JSON.encode(newBodys, true);
           
           FileUtils.write(new File("target/body/" + body + ".json"), json, "UTF-8");
-          
-          String deployJson = JSON.encode(newDeploys, true);
-          FileUtils.write(new File("target/deploy/" + body.replace("E", "D") + ".json"), deployJson, "UTF-8");
 
       }
     }
+    
+	@Test
+	public void migrate_009() throws Exception {
+		List<String> bodys = getFileNames();
+        bodys.remove("E90");
+        bodys.remove("E91");
+        
+		Map<String, BodyData> bodyMap = new HashMap<>();
+		Map<BodyKind, List<BodyData>> newBodyMap = new HashMap<>();
+		for (BodyKind kind : BodyKind.values()) {
+			newBodyMap.put(kind,  new ArrayList<>());
+		}
+		
+		for (String body : bodys) {
+
+			Body[] oldBodys = JsonIO.read("data/body/" + body + ".json", Body[].class);
+
+			List<DeployData> newDeploys = new ArrayList<>();
+			for (Body oldBody : oldBodys) {
+
+				DeployData deploy = new DeployData();
+				BeanUtils.copyProperties(deploy, oldBody);
+
+				String oldKey = oldBody.getKind().name() + oldBody.getName();
+				BodyData newBody = bodyMap.get(oldKey);
+
+				if (newBody == null) {
+					newBody = new BodyData();
+					BeanUtils.copyProperties(newBody, oldBody);
+					
+					newBody.setImage(String.format("chara_%03d", oldBody.img));
+					List<String> wazaList = new ArrayList<>();
+					for (int i = 0; i < oldBody.atk.length; i++) {
+						if (oldBody.atk[i] == 0) {
+							wazaList.add("none");
+						} else {
+							wazaList.add(String.format("waza_%03d", oldBody.atk[i]));
+						}
+					}
+					newBody.setWazaList(wazaList);
+					
+					List<BodyData> newBodys = newBodyMap.get(newBody.getKind());
+					
+					newBody.setId(String.format("%s_%03d", newBody.getKind().name().toLowerCase(), newBodys.size() + 1));
+					newBodys.add(newBody);
+					bodyMap.put(oldKey, newBody);
+				}
+				deploy.setBodyId(newBody.getId());
+				newDeploys.add(deploy);
+			}
+
+			String deployJson = JSON.encode(newDeploys, true);
+			FileUtils.write(new File("target/deploy/" + body.replace("E", "D") + ".json"), deployJson, "UTF-8");
+
+		}
+
+		for (BodyKind kind : BodyKind.values()) {
+			List<BodyData> newBodys = newBodyMap.get(kind);
+			
+			String json = JSON.encode(newBodys, true);
+
+			String capKind = kind.name().substring(0, 1).toUpperCase() + kind.name().substring(1).toLowerCase(); 
+			FileUtils.write(new File("target/body/" + capKind + "Data.json"), json, "UTF-8");
+		}
+		
+
+	}
     
     private List<String> getFileNames() {
         List<String> bodys = new ArrayList<>();

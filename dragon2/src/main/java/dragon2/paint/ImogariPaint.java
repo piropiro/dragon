@@ -43,12 +43,12 @@ public class ImogariPaint extends ActionBase {
 		}
 
 		if (body != null) {
-			ImoDialog imodialog = new ImoDialog(frame, body.name, body.moveturn);
+			ImoDialog imodialog = new ImoDialog(frame, body.name, body.limitTurn);
 			imodialog.show();
 			int k = imodialog.getEXP();
 			if (k != 0) {
 				k += 10;
-				body.moveturn++;
+				body.limitTurn++;
 				PaintBase.uw.setMPanel(Texts.imogari1);
 				PaintBase.uw.setMPanel(Texts.expwo + k + Texts.teniireta);
 				PaintBase.uw.startMPanel(body);

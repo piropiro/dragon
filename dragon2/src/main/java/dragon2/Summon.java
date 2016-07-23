@@ -39,8 +39,8 @@ public class Summon {
 		for (int j = 0; j < devils.length; j++) {
 			Body body = devils[j];
 			if (body != null && point.x == body.x && point.y == body.y
-					&& i > body.moveturn)
-				i = body.moveturn;
+					&& i > body.limitTurn)
+				i = body.limitTurn;
 		}
 
 		return i;
@@ -50,7 +50,7 @@ public class Summon {
 		int i = uw.getTurn();
 		for (int j = 0; j < devils.length; j++) {
 			Body body = devils[j];
-			if (body != null && body.moveturn <= i
+			if (body != null && body.limitTurn <= i
 					&& V.G(2, 0, body.x, body.y) == 0) {
 				Point point = new Point(body.x, body.y);
 				V.S(0, 0, body.x, body.y, 24);

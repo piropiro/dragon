@@ -69,7 +69,7 @@ public class Treasure {
 		for (int k = 0; k < i; k++)
 			if (holder[k] == null) {
 				Body body2 = treasure[k];
-				if (body2 != null && body2.moveturn != 0) {
+				if (body2 != null && body2.limitTurn != 0) {
 					unitmap.S(0, 0, body2.x, body2.y, 21);
 					status[k] = 3;
 				}
@@ -82,7 +82,7 @@ public class Treasure {
 			Body body = treasure[i];
 			if (body != null && holder[i] == null && point.x == body.x
 					&& point.y == body.y)
-				return body.moveturn;
+				return body.limitTurn;
 		}
 
 		return 0;
@@ -92,7 +92,7 @@ public class Treasure {
 		if (item == null)
 			return 0;
 		else
-			return item.moveturn;
+			return item.limitTurn;
 	}
 
 	public String getCount() {
@@ -151,7 +151,7 @@ public class Treasure {
 	public void limitOver() {
 		for (int i = 0; i < treasure.length; i++) {
 			Body body = treasure[i];
-			if (body != null && body.moveturn == uw.getTurn()
+			if (body != null && body.limitTurn == uw.getTurn()
 					&& V.G(0, 0, body.x, body.y) == 21) {
 				V.S(0, 0, body.x, body.y, 23);
 				Point point = new Point(body.x, body.y);
@@ -173,7 +173,7 @@ public class Treasure {
 		for (int i = 0; i < holder.length; i++)
 			if (body == holder[i]) {
 				Body body1 = treasure[i];
-				if (isAlive(body1) && (body1.moveturn != 0 || flag)) {
+				if (isAlive(body1) && (body1.limitTurn != 0 || flag)) {
 					add(body1);
 					Comment.add(new Integer(i));
 					status[i] = 5;
@@ -211,9 +211,9 @@ public class Treasure {
 	private boolean isAlive(Body body) {
 		if (body == null)
 			return false;
-		if (body.moveturn == 0)
+		if (body.limitTurn == 0)
 			return true;
-		return body.moveturn >= uw.getTurn();
+		return body.limitTurn >= uw.getTurn();
 	}
 
 	public void message() {
