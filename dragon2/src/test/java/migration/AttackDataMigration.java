@@ -183,4 +183,34 @@ public class AttackDataMigration {
 		FileUtils.write(new File("target/AttackData.json"), json, "UTF-8");
 
 	}
+	
+	@Test
+	public void migrate_005() throws Exception {
+		AttackData[] datas = JsonIO.read("data/waza/AttackData.json", AttackData[].class);
+
+		for (AttackData data : datas) {
+			data.setImage(convertAttackN1(data.attackN1));
+		}
+
+		String json = JSON.encode(datas, true);
+
+		FileUtils.write(new File("target/AttackData.json"), json, "UTF-8");
+
+	}
+	
+	private String convertAttackN1(int n) {
+		switch (n) {
+		case 0: return "none.png";
+		case 1: return "waza_sword.png";
+		case 2: return "waza_ax.png";
+		case 3: return "waza_body.png";
+		case 4: return "waza_knife.png";
+		case 5: return "waza_spear.png";
+		case 6: return "waza_bow.png";
+		case 7: return "waza_magic.png";
+		case 8: return "waza_breath.png";
+		default:
+			throw new IllegalArgumentException("AttackN1 unmatch:" + n);
+		}
+	}
 }
