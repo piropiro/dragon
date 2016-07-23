@@ -565,7 +565,7 @@ public class AttackBase implements Iconable {
 	}
 
 	public GameColor getColor() {
-		return ad.color;
+		return ad.labelColor;
 	}
 
 	public int getStore() {

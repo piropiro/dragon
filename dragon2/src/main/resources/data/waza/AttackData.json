@@ -4,7 +4,7 @@
 		"animeN1": 0,
 		"animeType": "NONE",
 		"attackN1": 0,
-		"color": "WHITE",
+		"labelColor": "WHITE",
 		"damageType": "NONE",
 		"effect": [],
 		"energyCost": 0,
@@ -20,7 +20,7 @@
 		"animeN1": 1,
 		"animeType": "SINGLE",
 		"attackN1": 1,
-		"color": "WHITE",
+		"labelColor": "WHITE",
 		"damageType": "SWORD",
 		"effect": [
 			"COUNTER_ABLE",
@@ -39,7 +39,7 @@
 		"animeN1": 19,
 		"animeType": "SINGLE",
 		"attackN1": 2,
-		"color": "YELLOW",
+		"labelColor": "YELLOW",
 		"damageType": "SWORD",
 		"effect": [
 			"RIKU_150",
@@ -58,7 +58,7 @@
 		"animeN1": 3,
 		"animeType": "SINGLE",
 		"attackN1": 3,
-		"color": "WHITE",
+		"labelColor": "WHITE",
 		"damageType": "SWORD",
 		"effect": [
 			"COUNTER_ABLE",
@@ -77,7 +77,7 @@
 		"animeN1": 1,
 		"animeType": "SINGLE",
 		"attackN1": 4,
-		"color": "WHITE",
+		"labelColor": "WHITE",
 		"damageType": "SWORD",
 		"effect": [
 			"HIT_4",
@@ -97,7 +97,7 @@
 		"animeN1": 18,
 		"animeType": "SINGLE_ARROW",
 		"attackN1": 5,
-		"color": "WHITE",
+		"labelColor": "WHITE",
 		"damageType": "SWORD",
 		"effect": [
 			"COUNTER_ABLE",
@@ -117,7 +117,7 @@
 		"animeN1": 13,
 		"animeType": "SINGLE_ARROW",
 		"attackN1": 6,
-		"color": "WHITE",
+		"labelColor": "WHITE",
 		"damageType": "SWORD",
 		"effect": [
 			"COUNTER_ABLE",
@@ -137,7 +137,7 @@
 		"animeN1": 4,
 		"animeType": "SINGLE",
 		"attackN1": 7,
-		"color": "WHITE",
+		"labelColor": "WHITE",
 		"damageType": "MAGIC",
 		"effect": [],
 		"energyCost": 0,
@@ -153,7 +153,7 @@
 		"animeN1": 20,
 		"animeType": "SOME_ARROW",
 		"attackN1": 8,
-		"color": "GREEN",
+		"labelColor": "GREEN",
 		"damageType": "MAGIC",
 		"effect": [
 			"HICHU"
@@ -171,7 +171,7 @@
 		"animeN1": 17,
 		"animeType": "SINGLE",
 		"attackN1": 1,
-		"color": "SKY",
+		"labelColor": "SKY",
 		"damageType": "SWORD",
 		"effect": [
 			"DAMAGE_150",
@@ -192,7 +192,7 @@
 		"animeN1": 4,
 		"animeType": "ALL",
 		"attackN1": 7,
-		"color": "YELLOW",
+		"labelColor": "YELLOW",
 		"damageType": "MAGIC",
 		"effect": [
 			"HICHU"
@@ -210,7 +210,7 @@
 		"animeN1": 22,
 		"animeType": "LASER_ARROW_3",
 		"attackN1": 1,
-		"color": "SKY",
+		"labelColor": "SKY",
 		"damageType": "SWORD",
 		"effect": [
 			"TAME",
@@ -229,7 +229,7 @@
 		"animeN1": 13,
 		"animeType": "SINGLE_ARROW",
 		"attackN1": 6,
-		"color": "WHITE",
+		"labelColor": "WHITE",
 		"damageType": "SWORD",
 		"effect": [
 			"DAMAGE_150",
@@ -250,7 +250,7 @@
 		"animeN1": 3,
 		"animeType": "SINGLE",
 		"attackN1": 7,
-		"color": "BLUE",
+		"labelColor": "BLUE",
 		"damageType": "MAGIC",
 		"effect": [
 			"ICE"
@@ -268,7 +268,7 @@
 		"animeN1": 3,
 		"animeType": "ALL",
 		"attackN1": 7,
-		"color": "BLUE",
+		"labelColor": "BLUE",
 		"damageType": "MAGIC",
 		"effect": [
 			"DAMAGE_300",
@@ -289,7 +289,7 @@
 		"animeN1": 6,
 		"animeType": "SINGLE",
 		"attackN1": 1,
-		"color": "RED",
+		"labelColor": "RED",
 		"damageType": "SWORD",
 		"effect": [
 			"COMBO",
@@ -309,7 +309,7 @@
 		"animeN1": 4,
 		"animeType": "SINGLE",
 		"attackN1": 7,
-		"color": "SKY",
+		"labelColor": "SKY",
 		"damageType": "MAGIC_ALL",
 		"effect": [
 			"REGENE",
@@ -328,7 +328,7 @@
 		"animeN1": 14,
 		"animeType": "SOME_ARROW",
 		"attackN1": 8,
-		"color": "RED",
+		"labelColor": "RED",
 		"damageType": "MAGIC",
 		"effect": [
 			"HICHU",
@@ -347,7 +347,7 @@
 		"animeN1": 7,
 		"animeType": "SINGLE",
 		"attackN1": 3,
-		"color": "YELLOW",
+		"labelColor": "YELLOW",
 		"damageType": "SWORD",
 		"effect": [
 			"COUNTER_ABLE",
@@ -366,7 +366,7 @@
 		"animeN1": 15,
 		"animeType": "SINGLE",
 		"attackN1": 1,
-		"color": "BLUE",
+		"labelColor": "BLUE",
 		"damageType": "SWORD",
 		"effect": [
 			"COMBO",
@@ -386,7 +386,7 @@
 		"animeN1": 24,
 		"animeType": "SINGLE_ARROW",
 		"attackN1": 6,
-		"color": "YELLOW",
+		"labelColor": "YELLOW",
 		"damageType": "SWORD",
 		"effect": [
 			"THUNDER",
@@ -407,7 +407,7 @@
 		"animeN1": 1,
 		"animeType": "SINGLE",
 		"attackN1": 1,
-		"color": "RED",
+		"labelColor": "RED",
 		"damageType": "SWORD",
 		"effect": [
 			"COUNTER_ABLE",
@@ -427,7 +427,7 @@
 		"animeN1": 4,
 		"animeType": "SINGLE",
 		"attackN1": 7,
-		"color": "RED",
+		"labelColor": "RED",
 		"damageType": "NONE",
 		"effect": [
 			"REFRESH",
@@ -448,7 +448,7 @@
 		"animeN1": 4,
 		"animeType": "SINGLE",
 		"attackN1": 7,
-		"color": "RED",
+		"labelColor": "RED",
 		"damageType": "NONE",
 		"effect": [
 			"CHARM",
@@ -468,7 +468,7 @@
 		"animeN1": 17,
 		"animeType": "SINGLE",
 		"attackN1": 1,
-		"color": "SKY",
+		"labelColor": "SKY",
 		"damageType": "SWORD",
 		"effect": [
 			"UPPER",
@@ -488,7 +488,7 @@
 		"animeN1": 4,
 		"animeType": "ALL",
 		"attackN1": 7,
-		"color": "YELLOW",
+		"labelColor": "YELLOW",
 		"damageType": "NONE",
 		"effect": [
 			"SLEEP",
@@ -508,7 +508,7 @@
 		"animeN1": 18,
 		"animeType": "SINGLE_ARROW",
 		"attackN1": 5,
-		"color": "BLUE",
+		"labelColor": "BLUE",
 		"damageType": "SWORD",
 		"effect": [
 			"COUNTER_ABLE",
@@ -529,7 +529,7 @@
 		"animeN1": 18,
 		"animeType": "LASER_ARROW_2",
 		"attackN1": 5,
-		"color": "YELLOW",
+		"labelColor": "YELLOW",
 		"damageType": "SWORD",
 		"effect": [
 			"HIT_4",
@@ -549,7 +549,7 @@
 		"animeN1": 2,
 		"animeType": "SINGLE",
 		"attackN1": 7,
-		"color": "RED",
+		"labelColor": "RED",
 		"damageType": "MAGIC",
 		"effect": [
 			"FIRE"
@@ -567,7 +567,7 @@
 		"animeN1": 5,
 		"animeType": "SINGLE",
 		"attackN1": 1,
-		"color": "YELLOW",
+		"labelColor": "YELLOW",
 		"damageType": "SWORD",
 		"effect": [
 			"COUNTER_ABLE",
@@ -586,7 +586,7 @@
 		"animeN1": 2,
 		"animeType": "ALL",
 		"attackN1": 7,
-		"color": "RED",
+		"labelColor": "RED",
 		"damageType": "MAGIC",
 		"effect": [
 			"FIRE",
@@ -605,7 +605,7 @@
 		"animeN1": 16,
 		"animeType": "SINGLE_ARROW",
 		"attackN1": 7,
-		"color": "SKY",
+		"labelColor": "SKY",
 		"damageType": "MAGIC",
 		"effect": [
 			"WET"
@@ -623,7 +623,7 @@
 		"animeN1": 16,
 		"animeType": "SINGLE_ARROW",
 		"attackN1": 6,
-		"color": "BLUE",
+		"labelColor": "BLUE",
 		"damageType": "SWORD",
 		"effect": [
 			"ICE",
@@ -644,7 +644,7 @@
 		"animeN1": 13,
 		"animeType": "LASER_ARROW_3",
 		"attackN1": 6,
-		"color": "YELLOW",
+		"labelColor": "YELLOW",
 		"damageType": "SWORD",
 		"effect": [
 			"HIT_4",
@@ -663,7 +663,7 @@
 		"animeN1": 21,
 		"animeType": "SINGLE",
 		"attackN1": 7,
-		"color": "RED",
+		"labelColor": "RED",
 		"damageType": "NONE",
 		"effect": [
 			"DEATH",
@@ -683,7 +683,7 @@
 		"animeN1": 11,
 		"animeType": "ROTATE",
 		"attackN1": 2,
-		"color": "YELLOW",
+		"labelColor": "YELLOW",
 		"damageType": "SWORD",
 		"effect": [
 			"RIKU_0",
@@ -703,7 +703,7 @@
 		"animeN1": 7,
 		"animeType": "ALL",
 		"attackN1": 2,
-		"color": "YELLOW",
+		"labelColor": "YELLOW",
 		"damageType": "SWORD",
 		"effect": [
 			"DAMAGE_150",
@@ -722,7 +722,7 @@
 		"animeN1": 13,
 		"animeType": "SINGLE_ARROW",
 		"attackN1": 6,
-		"color": "SKY",
+		"labelColor": "SKY",
 		"damageType": "SWORD",
 		"effect": [
 			"SORA_200",
@@ -741,7 +741,7 @@
 		"animeN1": 25,
 		"animeType": "SINGLE",
 		"attackN1": 7,
-		"color": "YELLOW",
+		"labelColor": "YELLOW",
 		"damageType": "MAGIC",
 		"effect": [
 			"THUNDER"
@@ -759,7 +759,7 @@
 		"animeN1": 7,
 		"animeType": "SINGLE",
 		"attackN1": 3,
-		"color": "GREEN",
+		"labelColor": "GREEN",
 		"damageType": "SWORD",
 		"effect": [
 			"COUNTER_ABLE",
@@ -779,7 +779,7 @@
 		"animeN1": 1,
 		"animeType": "SINGLE",
 		"attackN1": 4,
-		"color": "GREEN",
+		"labelColor": "GREEN",
 		"damageType": "SWORD",
 		"effect": [
 			"HIT_4",
@@ -800,7 +800,7 @@
 		"animeN1": 18,
 		"animeType": "SINGLE_ARROW",
 		"attackN1": 4,
-		"color": "YELLOW",
+		"labelColor": "YELLOW",
 		"damageType": "SWORD",
 		"effect": [
 			"COMBO",
@@ -821,7 +821,7 @@
 		"animeN1": 7,
 		"animeType": "SINGLE_ARROW",
 		"attackN1": 7,
-		"color": "GREEN",
+		"labelColor": "GREEN",
 		"damageType": "MAGIC",
 		"effect": [
 			"COUNTER_ABLE",
@@ -841,7 +841,7 @@
 		"animeN1": 23,
 		"animeType": "SINGLE",
 		"attackN1": 2,
-		"color": "SKY",
+		"labelColor": "SKY",
 		"damageType": "SWORD",
 		"effect": [
 			"RIKU_150",
@@ -861,7 +861,7 @@
 		"animeN1": 23,
 		"animeType": "SINGLE",
 		"attackN1": 5,
-		"color": "SKY",
+		"labelColor": "SKY",
 		"damageType": "SWORD",
 		"effect": [
 			"SORA_200",
@@ -882,7 +882,7 @@
 		"animeN1": 18,
 		"animeType": "SINGLE_ARROW",
 		"attackN1": 5,
-		"color": "SKY",
+		"labelColor": "SKY",
 		"damageType": "SWORD",
 		"effect": [
 			"COUNTER_ABLE",
@@ -903,7 +903,7 @@
 		"animeN1": 4,
 		"animeType": "ALL",
 		"attackN1": 7,
-		"color": "SKY",
+		"labelColor": "SKY",
 		"damageType": "MAGIC",
 		"effect": [
 			"HICHU",
@@ -923,7 +923,7 @@
 		"animeN1": 10,
 		"animeType": "ALL",
 		"attackN1": 7,
-		"color": "BLUE",
+		"labelColor": "BLUE",
 		"damageType": "MAGIC",
 		"effect": [
 			"ICE",
@@ -944,7 +944,7 @@
 		"animeN1": 7,
 		"animeType": "SINGLE",
 		"attackN1": 3,
-		"color": "GREEN",
+		"labelColor": "GREEN",
 		"damageType": "SWORD",
 		"effect": [
 			"COUNTER_ABLE",
@@ -964,7 +964,7 @@
 		"animeN1": 21,
 		"animeType": "ALL",
 		"attackN1": 7,
-		"color": "WHITE",
+		"labelColor": "WHITE",
 		"damageType": "MAGIC",
 		"effect": [
 			"DEATH",
@@ -984,7 +984,7 @@
 		"animeN1": 7,
 		"animeType": "SINGLE",
 		"attackN1": 5,
-		"color": "YELLOW",
+		"labelColor": "YELLOW",
 		"damageType": "SWORD",
 		"effect": [
 			"DRAGON_200",
@@ -1006,7 +1006,7 @@
 		"animeN1": 5,
 		"animeType": "SINGLE",
 		"attackN1": 1,
-		"color": "YELLOW",
+		"labelColor": "YELLOW",
 		"damageType": "SWORD",
 		"effect": [
 			"COMBO",
@@ -1025,7 +1025,7 @@
 		"animeN1": 3,
 		"animeType": "ALL",
 		"attackN1": 7,
-		"color": "BLUE",
+		"labelColor": "BLUE",
 		"damageType": "MAGIC",
 		"effect": [
 			"HICHU",
@@ -1045,7 +1045,7 @@
 		"animeN1": 6,
 		"animeType": "SINGLE",
 		"attackN1": 5,
-		"color": "RED",
+		"labelColor": "RED",
 		"damageType": "SWORD",
 		"effect": [
 			"CHARM",
@@ -1065,7 +1065,7 @@
 		"animeN1": 25,
 		"animeType": "SINGLE",
 		"attackN1": 7,
-		"color": "SKY",
+		"labelColor": "SKY",
 		"damageType": "MAGIC",
 		"effect": [
 			"HICHU",
@@ -1085,7 +1085,7 @@
 		"animeN1": 5,
 		"animeType": "SINGLE",
 		"attackN1": 1,
-		"color": "YELLOW",
+		"labelColor": "YELLOW",
 		"damageType": "SWORD",
 		"effect": [
 			"COUNTER_ABLE",
@@ -1105,7 +1105,7 @@
 		"animeN1": 23,
 		"animeType": "SINGLE",
 		"attackN1": 2,
-		"color": "BLUE",
+		"labelColor": "BLUE",
 		"damageType": "SWORD",
 		"effect": [
 			"RIKU_150",
@@ -1125,7 +1125,7 @@
 		"animeN1": 7,
 		"animeType": "SOME_ARROW",
 		"attackN1": 2,
-		"color": "GREEN",
+		"labelColor": "GREEN",
 		"damageType": "SWORD",
 		"effect": [
 			"DAMAGE_150",
@@ -1145,7 +1145,7 @@
 		"animeN1": 7,
 		"animeType": "SINGLE",
 		"attackN1": 1,
-		"color": "YELLOW",
+		"labelColor": "YELLOW",
 		"damageType": "SWORD",
 		"effect": [
 			"DAMAGE_200",
@@ -1165,7 +1165,7 @@
 		"animeN1": 20,
 		"animeType": "SINGLE_ARROW",
 		"attackN1": 6,
-		"color": "GREEN",
+		"labelColor": "GREEN",
 		"damageType": "MAGIC",
 		"effect": [
 			"OIL",
@@ -1184,7 +1184,7 @@
 		"animeN1": 5,
 		"animeType": "SINGLE",
 		"attackN1": 1,
-		"color": "YELLOW",
+		"labelColor": "YELLOW",
 		"damageType": "SWORD",
 		"effect": [
 			"COUNTER_ABLE",
@@ -1204,7 +1204,7 @@
 		"animeN1": 9,
 		"animeType": "SINGLE",
 		"attackN1": 8,
-		"color": "RED",
+		"labelColor": "RED",
 		"damageType": "MAGIC",
 		"effect": [
 			"HICHU",
@@ -1223,7 +1223,7 @@
 		"animeN1": 10,
 		"animeType": "SINGLE",
 		"attackN1": 8,
-		"color": "BLUE",
+		"labelColor": "BLUE",
 		"damageType": "MAGIC",
 		"effect": [
 			"HICHU",
@@ -1242,7 +1242,7 @@
 		"animeN1": 25,
 		"animeType": "SOME_ARROW",
 		"attackN1": 1,
-		"color": "YELLOW",
+		"labelColor": "YELLOW",
 		"damageType": "SWORD",
 		"effect": [
 			"MISS_4",
@@ -1261,7 +1261,7 @@
 		"animeN1": 14,
 		"animeType": "LASER_ARROW_3",
 		"attackN1": 7,
-		"color": "RED",
+		"labelColor": "RED",
 		"damageType": "MAGIC",
 		"effect": [
 			"FIRE",
@@ -1281,7 +1281,7 @@
 		"animeN1": 24,
 		"animeType": "LASER_ARROW_3",
 		"attackN1": 6,
-		"color": "YELLOW",
+		"labelColor": "YELLOW",
 		"damageType": "SWORD",
 		"effect": [
 			"THUNDER",
@@ -1301,7 +1301,7 @@
 		"animeN1": 16,
 		"animeType": "LASER_ARROW_3",
 		"attackN1": 6,
-		"color": "BLUE",
+		"labelColor": "BLUE",
 		"damageType": "SWORD",
 		"effect": [
 			"ICE",
@@ -1321,7 +1321,7 @@
 		"animeN1": 4,
 		"animeType": "SINGLE",
 		"attackN1": 3,
-		"color": "RED",
+		"labelColor": "RED",
 		"damageType": "NONE",
 		"effect": [
 			"ATTACK_UP",
@@ -1342,7 +1342,7 @@
 		"animeN1": 4,
 		"animeType": "SINGLE",
 		"attackN1": 3,
-		"color": "BLUE",
+		"labelColor": "BLUE",
 		"damageType": "NONE",
 		"effect": [
 			"GUARD_UP",
@@ -1363,7 +1363,7 @@
 		"animeN1": 1,
 		"animeType": "SINGLE",
 		"attackN1": 1,
-		"color": "YELLOW",
+		"labelColor": "YELLOW",
 		"damageType": "SWORD",
 		"effect": [
 			"COUNTER_ABLE",
@@ -1384,7 +1384,7 @@
 		"animeN1": 23,
 		"animeType": "SINGLE",
 		"attackN1": 3,
-		"color": "RED",
+		"labelColor": "RED",
 		"damageType": "SWORD",
 		"effect": [
 			"DAMAGE_300",
@@ -1405,7 +1405,7 @@
 		"animeN1": 5,
 		"animeType": "SINGLE",
 		"attackN1": 2,
-		"color": "YELLOW",
+		"labelColor": "YELLOW",
 		"damageType": "SWORD",
 		"effect": [
 			"DAMAGE_200",
@@ -1426,7 +1426,7 @@
 		"animeN1": 8,
 		"animeType": "SINGLE",
 		"attackN1": 7,
-		"color": "GREEN",
+		"labelColor": "GREEN",
 		"damageType": "MAGIC",
 		"effect": [
 			"OIL",
@@ -1445,7 +1445,7 @@
 		"animeN1": 16,
 		"animeType": "LASER_ARROW_3",
 		"attackN1": 7,
-		"color": "BLUE",
+		"labelColor": "BLUE",
 		"damageType": "MAGIC",
 		"effect": [
 			"ICE",
@@ -1465,7 +1465,7 @@
 		"animeN1": 16,
 		"animeType": "SINGLE_ARROW",
 		"attackN1": 6,
-		"color": "GREEN",
+		"labelColor": "GREEN",
 		"damageType": "SWORD",
 		"effect": [
 			"SLEEP",
@@ -1485,7 +1485,7 @@
 		"animeN1": 6,
 		"animeType": "SINGLE",
 		"attackN1": 1,
-		"color": "RED",
+		"labelColor": "RED",
 		"damageType": "SWORD",
 		"effect": [
 			"COMBO",
@@ -1506,7 +1506,7 @@
 		"animeN1": 15,
 		"animeType": "SINGLE",
 		"attackN1": 1,
-		"color": "BLUE",
+		"labelColor": "BLUE",
 		"damageType": "SWORD",
 		"effect": [
 			"COMBO",
@@ -1527,7 +1527,7 @@
 		"animeN1": 1,
 		"animeType": "SINGLE",
 		"attackN1": 4,
-		"color": "YELLOW",
+		"labelColor": "YELLOW",
 		"damageType": "SWORD",
 		"effect": [
 			"COMBO",
@@ -1547,7 +1547,7 @@
 		"animeN1": 1,
 		"animeType": "SINGLE",
 		"attackN1": 4,
-		"color": "SKY",
+		"labelColor": "SKY",
 		"damageType": "SWORD",
 		"effect": [
 			"COMBO",
@@ -1569,7 +1569,7 @@
 		"animeN1": 21,
 		"animeType": "SINGLE",
 		"attackN1": 5,
-		"color": "RED",
+		"labelColor": "RED",
 		"damageType": "SWORD",
 		"effect": [
 			"COUNTER_ABLE",
@@ -1589,7 +1589,7 @@
 		"animeN1": 3,
 		"animeType": "SINGLE",
 		"attackN1": 7,
-		"color": "BLUE",
+		"labelColor": "BLUE",
 		"damageType": "MAGIC",
 		"effect": [
 			"ICE",
@@ -1608,7 +1608,7 @@
 		"animeN1": 2,
 		"animeType": "SINGLE",
 		"attackN1": 7,
-		"color": "RED",
+		"labelColor": "RED",
 		"damageType": "MAGIC",
 		"effect": [
 			"FIRE",
@@ -1627,7 +1627,7 @@
 		"animeN1": 4,
 		"animeType": "SINGLE",
 		"attackN1": 7,
-		"color": "GREEN",
+		"labelColor": "GREEN",
 		"damageType": "MAGIC",
 		"effect": [
 			"HICHU",
@@ -1646,7 +1646,7 @@
 		"animeN1": 3,
 		"animeType": "ALL",
 		"attackN1": 7,
-		"color": "BLUE",
+		"labelColor": "BLUE",
 		"damageType": "MAGIC",
 		"effect": [
 			"ICE",
@@ -1665,7 +1665,7 @@
 		"animeN1": 19,
 		"animeType": "SINGLE",
 		"attackN1": 7,
-		"color": "GREEN",
+		"labelColor": "GREEN",
 		"damageType": "MAGIC",
 		"effect": [
 			"HIT_4",
@@ -1684,7 +1684,7 @@
 		"animeN1": 4,
 		"animeType": "ALL",
 		"attackN1": 7,
-		"color": "RED",
+		"labelColor": "RED",
 		"damageType": "NONE",
 		"effect": [
 			"NO_ATTACK",
@@ -1703,7 +1703,7 @@
 		"animeN1": 22,
 		"animeType": "SINGLE_ARROW",
 		"attackN1": 6,
-		"color": "SKY",
+		"labelColor": "SKY",
 		"damageType": "MAGIC",
 		"effect": [
 			"DAMAGE_150",
@@ -1724,7 +1724,7 @@
 		"animeN1": 25,
 		"animeType": "SINGLE_ARROW",
 		"attackN1": 7,
-		"color": "YELLOW",
+		"labelColor": "YELLOW",
 		"damageType": "MAGIC",
 		"effect": [
 			"THUNDER",
@@ -1744,7 +1744,7 @@
 		"animeN1": 5,
 		"animeType": "SINGLE",
 		"attackN1": 1,
-		"color": "SKY",
+		"labelColor": "SKY",
 		"damageType": "SWORD",
 		"effect": [
 			"FIRE",
@@ -1765,7 +1765,7 @@
 		"animeN1": 22,
 		"animeType": "SOME_ARROW",
 		"attackN1": 7,
-		"color": "BLUE",
+		"labelColor": "BLUE",
 		"damageType": "MAGIC",
 		"effect": [
 			"WET",
@@ -1785,7 +1785,7 @@
 		"animeN1": 18,
 		"animeType": "SINGLE_ARROW",
 		"attackN1": 5,
-		"color": "BLUE",
+		"labelColor": "BLUE",
 		"damageType": "SWORD",
 		"effect": [
 			"COUNTER_ABLE",
@@ -1806,7 +1806,7 @@
 		"animeN1": 1,
 		"animeType": "SINGLE",
 		"attackN1": 1,
-		"color": "YELLOW",
+		"labelColor": "YELLOW",
 		"damageType": "SWORD",
 		"effect": [
 			"HICHU",
@@ -1826,7 +1826,7 @@
 		"animeN1": 26,
 		"animeType": "SINGLE",
 		"attackN1": 3,
-		"color": "YELLOW",
+		"labelColor": "YELLOW",
 		"damageType": "SWORD",
 		"effect": [
 			"COUNTER_ABLE",
@@ -1846,7 +1846,7 @@
 		"animeN1": 25,
 		"animeType": "SINGLE_ARROW",
 		"attackN1": 3,
-		"color": "YELLOW",
+		"labelColor": "YELLOW",
 		"damageType": "SWORD",
 		"effect": [
 			"COUNTER_ABLE",
@@ -1865,7 +1865,7 @@
 		"animeN1": 13,
 		"animeType": "SINGLE_ARROW",
 		"attackN1": 6,
-		"color": "GREEN",
+		"labelColor": "GREEN",
 		"damageType": "SWORD",
 		"effect": [
 			"COUNTER_ABLE",
@@ -1885,7 +1885,7 @@
 		"animeN1": 13,
 		"animeType": "SINGLE_ARROW",
 		"attackN1": 6,
-		"color": "GREEN",
+		"labelColor": "GREEN",
 		"damageType": "SWORD",
 		"effect": [
 			"COUNTER_ABLE",
@@ -1906,7 +1906,7 @@
 		"animeN1": 8,
 		"animeType": "ALL",
 		"attackN1": 3,
-		"color": "GREEN",
+		"labelColor": "GREEN",
 		"damageType": "SWORD",
 		"effect": [
 			"POISON",
@@ -1927,7 +1927,7 @@
 		"animeN1": 8,
 		"animeType": "SINGLE",
 		"attackN1": 3,
-		"color": "GREEN",
+		"labelColor": "GREEN",
 		"damageType": "MAGIC",
 		"effect": [
 			"COMBO",
@@ -1949,7 +1949,7 @@
 		"animeN1": 5,
 		"animeType": "SINGLE",
 		"attackN1": 4,
-		"color": "YELLOW",
+		"labelColor": "YELLOW",
 		"damageType": "SWORD",
 		"effect": [
 			"COMBO",
@@ -1971,7 +1971,7 @@
 		"animeN1": 6,
 		"animeType": "SINGLE",
 		"attackN1": 1,
-		"color": "RED",
+		"labelColor": "RED",
 		"damageType": "MAGIC_ALL",
 		"effect": [
 			"FIRE",
@@ -1991,7 +1991,7 @@
 		"animeN1": 9,
 		"animeType": "ALL",
 		"attackN1": 7,
-		"color": "RED",
+		"labelColor": "RED",
 		"damageType": "MAGIC",
 		"effect": [
 			"FIRE",
@@ -2010,7 +2010,7 @@
 		"animeN1": 10,
 		"animeType": "ALL",
 		"attackN1": 7,
-		"color": "BLUE",
+		"labelColor": "BLUE",
 		"damageType": "MAGIC",
 		"effect": [
 			"MIZU_100",
@@ -2030,7 +2030,7 @@
 		"animeN1": 5,
 		"animeType": "SINGLE",
 		"attackN1": 7,
-		"color": "YELLOW",
+		"labelColor": "YELLOW",
 		"damageType": "MAGIC",
 		"effect": [
 			"COUNTER_ONLY",
@@ -2049,7 +2049,7 @@
 		"animeN1": 4,
 		"animeType": "SINGLE",
 		"attackN1": 7,
-		"color": "SKY",
+		"labelColor": "SKY",
 		"damageType": "NONE",
 		"effect": [
 			"UPPER",
@@ -2070,7 +2070,7 @@
 		"animeN1": 1,
 		"animeType": "SINGLE",
 		"attackN1": 2,
-		"color": "SKY",
+		"labelColor": "SKY",
 		"damageType": "SWORD",
 		"effect": [
 			"COUNTER_ABLE",
@@ -2090,7 +2090,7 @@
 		"animeN1": 5,
 		"animeType": "SINGLE",
 		"attackN1": 1,
-		"color": "YELLOW",
+		"labelColor": "YELLOW",
 		"damageType": "SWORD_ALL",
 		"effect": [],
 		"energyCost": 8,
@@ -2106,7 +2106,7 @@
 		"animeN1": 4,
 		"animeType": "ALL",
 		"attackN1": 7,
-		"color": "RED",
+		"labelColor": "RED",
 		"damageType": "NONE",
 		"effect": [
 			"HICHU",
@@ -2127,7 +2127,7 @@
 		"animeN1": 16,
 		"animeType": "SINGLE_ARROW",
 		"attackN1": 7,
-		"color": "SKY",
+		"labelColor": "SKY",
 		"damageType": "MAGIC",
 		"effect": [
 			"DAMAGE_150",
@@ -2148,7 +2148,7 @@
 		"animeN1": 25,
 		"animeType": "SOME_ARROW",
 		"attackN1": 7,
-		"color": "YELLOW",
+		"labelColor": "YELLOW",
 		"damageType": "MAGIC",
 		"effect": [
 			"THUNDER",
@@ -2168,7 +2168,7 @@
 		"animeN1": 8,
 		"animeType": "SINGLE",
 		"attackN1": 7,
-		"color": "SKY",
+		"labelColor": "SKY",
 		"damageType": "MAGIC_ALL",
 		"effect": [
 			"REGENE",
@@ -2188,7 +2188,7 @@
 		"animeN1": 6,
 		"animeType": "SINGLE",
 		"attackN1": 3,
-		"color": "RED",
+		"labelColor": "RED",
 		"damageType": "SWORD",
 		"effect": [
 			"COUNTER_ABLE",
@@ -2207,7 +2207,7 @@
 		"animeN1": 3,
 		"animeType": "SINGLE",
 		"attackN1": 3,
-		"color": "BLUE",
+		"labelColor": "BLUE",
 		"damageType": "SWORD",
 		"effect": [
 			"COUNTER_ABLE",
@@ -2226,7 +2226,7 @@
 		"animeN1": 4,
 		"animeType": "ALL",
 		"attackN1": 7,
-		"color": "BLUE",
+		"labelColor": "BLUE",
 		"damageType": "NONE",
 		"effect": [
 			"GUARD_UP",
@@ -2247,7 +2247,7 @@
 		"animeN1": 22,
 		"animeType": "LASER_ARROW_3",
 		"attackN1": 5,
-		"color": "BLUE",
+		"labelColor": "BLUE",
 		"damageType": "SWORD",
 		"effect": [
 			"WET",
@@ -2268,7 +2268,7 @@
 		"animeN1": 3,
 		"animeType": "SINGLE",
 		"attackN1": 3,
-		"color": "SKY",
+		"labelColor": "SKY",
 		"damageType": "SWORD",
 		"effect": [
 			"COUNTER_ABLE",
@@ -2289,7 +2289,7 @@
 		"animeN1": 25,
 		"animeType": "SOME_ARROW",
 		"attackN1": 7,
-		"color": "YELLOW",
+		"labelColor": "YELLOW",
 		"damageType": "MAGIC",
 		"effect": [
 			"THUNDER",
@@ -2309,7 +2309,7 @@
 		"animeN1": 18,
 		"animeType": "SINGLE_ARROW",
 		"attackN1": 5,
-		"color": "SKY",
+		"labelColor": "SKY",
 		"damageType": "MAGIC",
 		"effect": [
 			"COUNTER_ABLE",
@@ -2330,7 +2330,7 @@
 		"animeN1": 3,
 		"animeType": "SINGLE",
 		"attackN1": 4,
-		"color": "GREEN",
+		"labelColor": "GREEN",
 		"damageType": "SWORD",
 		"effect": [
 			"COUNTER_ABLE",
@@ -2350,7 +2350,7 @@
 		"animeN1": 7,
 		"animeType": "SOME_ARROW",
 		"attackN1": 7,
-		"color": "GREEN",
+		"labelColor": "GREEN",
 		"damageType": "MAGIC",
 		"effect": [
 			"POISON",
@@ -2369,7 +2369,7 @@
 		"animeN1": 21,
 		"animeType": "ALL",
 		"attackN1": 5,
-		"color": "RED",
+		"labelColor": "RED",
 		"damageType": "SWORD",
 		"effect": [
 			"DAMAGE_150",
@@ -2390,7 +2390,7 @@
 		"animeN1": 1,
 		"animeType": "SINGLE",
 		"attackN1": 1,
-		"color": "RED",
+		"labelColor": "RED",
 		"damageType": "SWORD",
 		"effect": [
 			"COUNTER_ABLE",
@@ -2410,7 +2410,7 @@
 		"animeN1": 1,
 		"animeType": "ALL",
 		"attackN1": 1,
-		"color": "SKY",
+		"labelColor": "SKY",
 		"damageType": "SWORD",
 		"effect": [
 			"SORA_200",
@@ -2430,7 +2430,7 @@
 		"animeN1": 16,
 		"animeType": "SOME_ARROW",
 		"attackN1": 8,
-		"color": "BLUE",
+		"labelColor": "BLUE",
 		"damageType": "MAGIC",
 		"effect": [
 			"HICHU",
@@ -2449,7 +2449,7 @@
 		"animeN1": 5,
 		"animeType": "SINGLE",
 		"attackN1": 1,
-		"color": "YELLOW",
+		"labelColor": "YELLOW",
 		"damageType": "SWORD",
 		"effect": [
 			"COUNTER_ABLE",
@@ -2470,7 +2470,7 @@
 		"animeN1": 5,
 		"animeType": "ALL",
 		"attackN1": 7,
-		"color": "YELLOW",
+		"labelColor": "YELLOW",
 		"damageType": "MAGIC",
 		"effect": [
 			"TAME",
@@ -2491,7 +2491,7 @@
 		"animeN1": 14,
 		"animeType": "SINGLE_ARROW",
 		"attackN1": 6,
-		"color": "RED",
+		"labelColor": "RED",
 		"damageType": "SWORD",
 		"effect": [
 			"FIRE",
@@ -2512,7 +2512,7 @@
 		"animeN1": 25,
 		"animeType": "ALL",
 		"attackN1": 7,
-		"color": "YELLOW",
+		"labelColor": "YELLOW",
 		"damageType": "MAGIC",
 		"effect": [
 			"THUNDER",
@@ -2531,7 +2531,7 @@
 		"animeN1": 12,
 		"animeType": "SINGLE",
 		"attackN1": 4,
-		"color": "SKY",
+		"labelColor": "SKY",
 		"damageType": "SWORD",
 		"effect": [
 			"COUNTER_ABLE",
@@ -2551,7 +2551,7 @@
 		"animeN1": 18,
 		"animeType": "SINGLE_ARROW",
 		"attackN1": 4,
-		"color": "YELLOW",
+		"labelColor": "YELLOW",
 		"damageType": "SWORD",
 		"effect": [
 			"COMBO",
@@ -2572,7 +2572,7 @@
 		"animeN1": 1,
 		"animeType": "SINGLE",
 		"attackN1": 1,
-		"color": "SKY",
+		"labelColor": "SKY",
 		"damageType": "SWORD",
 		"effect": [
 			"COUNTER_ABLE",
@@ -2594,7 +2594,7 @@
 		"animeN1": 21,
 		"animeType": "ALL",
 		"attackN1": 7,
-		"color": "RED",
+		"labelColor": "RED",
 		"damageType": "MAGIC",
 		"effect": [
 			"TAME",
@@ -2615,7 +2615,7 @@
 		"animeN1": 2,
 		"animeType": "ALL",
 		"attackN1": 3,
-		"color": "RED",
+		"labelColor": "RED",
 		"damageType": "NONE",
 		"effect": [
 			"ATTACK_UP",
@@ -2636,7 +2636,7 @@
 		"animeN1": 20,
 		"animeType": "SOME_ARROW",
 		"attackN1": 6,
-		"color": "GREEN",
+		"labelColor": "GREEN",
 		"damageType": "MAGIC",
 		"effect": [
 			"OIL"
@@ -2654,7 +2654,7 @@
 		"animeN1": 1,
 		"animeType": "SINGLE",
 		"attackN1": 1,
-		"color": "GREEN",
+		"labelColor": "GREEN",
 		"damageType": "SWORD",
 		"effect": [
 			"DAMAGE_150",
@@ -2674,7 +2674,7 @@
 		"animeN1": 18,
 		"animeType": "SINGLE_ARROW",
 		"attackN1": 7,
-		"color": "SKY",
+		"labelColor": "SKY",
 		"damageType": "MAGIC",
 		"effect": [
 			"HIT_4"

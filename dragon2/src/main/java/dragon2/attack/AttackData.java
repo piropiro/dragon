@@ -25,7 +25,7 @@ public class AttackData implements Serializable {
     // dragon2
 	public String name = "none";
 	public String label = "none";
-	public GameColor color;
+	public GameColor labelColor;
 	public List<AttackEffect> effect = new ArrayList<>();
 	public DamageType damageType;
 	public int attackN1;

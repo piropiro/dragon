@@ -157,7 +157,7 @@ public class AttackDataMigration {
 
 			newData.name = oldData.name;
 			newData.label = oldData.label;
-			newData.color = GameColor.convert(oldData.color);
+			newData.labelColor = GameColor.convert(oldData.color);
 			newData.damageType = oldData.damageType;
 			newData.attackN1 = oldData.attackN1;
 			newData.targetType = oldData.targetType;
