@@ -6,10 +6,10 @@ import dragon2.ActionBase;
 import dragon2.Rewalk;
 import dragon2.Tutorial;
 import dragon2.common.Body;
-import dragon2.common.constant.Colors;
 import dragon2.common.constant.AttackEffect;
-import dragon2.common.constant.Texts;
 import dragon2.common.constant.BodyAttribute;
+import dragon2.common.constant.GameColor;
+import dragon2.common.constant.Texts;
 import dragon2.paint.PaintBase;
 import dragon2.paint.TalkPaint;
 
@@ -22,7 +22,7 @@ public class FightManager extends ActionBase {
 	}
 
 	private void setHelp(boolean flag) {
-		if (!Colors.isPlayer(ba))
+		if (!GameColor.isPlayer(ba))
 			return;
 		
 		if (flag)

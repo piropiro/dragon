@@ -2,7 +2,7 @@
 	{
 		"alive": true,
 		"atk": [3, 0, 0, 31, 0, 0],
-		"color": 3,
+		"color": "RED",
 		"def": 9,
 		"defMax": 90,
 		"exp": 20,
@@ -40,7 +40,7 @@
 	{
 		"alive": true,
 		"atk": [1, 0, 0, 0, 0, 0],
-		"color": 3,
+		"color": "RED",
 		"def": 12,
 		"defMax": 120,
 		"exp": 20,
@@ -78,7 +78,7 @@
 	{
 		"alive": true,
 		"atk": [1, 0, 0, 0, 0, 0],
-		"color": 3,
+		"color": "RED",
 		"def": 12,
 		"defMax": 120,
 		"exp": 20,
@@ -116,7 +116,7 @@
 	{
 		"alive": true,
 		"atk": [1, 0, 0, 0, 0, 0],
-		"color": 3,
+		"color": "RED",
 		"def": 12,
 		"defMax": 120,
 		"exp": 20,
@@ -154,7 +154,7 @@
 	{
 		"alive": true,
 		"atk": [1, 0, 0, 0, 0, 0],
-		"color": 3,
+		"color": "RED",
 		"def": 12,
 		"defMax": 120,
 		"exp": 20,
@@ -192,7 +192,7 @@
 	{
 		"alive": true,
 		"atk": [23, 0, 0, 72, 0, 0],
-		"color": 3,
+		"color": "RED",
 		"def": 9,
 		"defMax": 90,
 		"exp": 20,
@@ -231,7 +231,7 @@
 	{
 		"alive": true,
 		"atk": [23, 0, 0, 72, 0, 0],
-		"color": 3,
+		"color": "RED",
 		"def": 9,
 		"defMax": 90,
 		"exp": 20,
@@ -270,7 +270,7 @@
 	{
 		"alive": true,
 		"atk": [23, 0, 0, 72, 0, 0],
-		"color": 3,
+		"color": "RED",
 		"def": 9,
 		"defMax": 90,
 		"exp": 20,
@@ -309,7 +309,7 @@
 	{
 		"alive": true,
 		"atk": [88, 86, 102, 0, 0, 0],
-		"color": 3,
+		"color": "RED",
 		"def": 15,
 		"defMax": 150,
 		"exp": 20,
@@ -347,7 +347,7 @@
 	{
 		"alive": true,
 		"atk": [74, 0, 0, 96, 0, 0],
-		"color": 3,
+		"color": "RED",
 		"def": 12,
 		"defMax": 120,
 		"exp": 20,
@@ -385,7 +385,7 @@
 	{
 		"alive": true,
 		"atk": [96, 0, 0, 0, 0, 0],
-		"color": 2,
+		"color": "GREEN",
 		"def": 2,
 		"defMax": 20,
 		"exp": 0,
@@ -423,7 +423,7 @@
 	{
 		"alive": true,
 		"atk": [71, 0, 0, 0, 0, 0],
-		"color": 2,
+		"color": "GREEN",
 		"def": 0,
 		"defMax": 0,
 		"exp": 0,
@@ -459,7 +459,7 @@
 	{
 		"alive": true,
 		"atk": [102, 0, 0, 0, 0, 0],
-		"color": 2,
+		"color": "GREEN",
 		"def": 0,
 		"defMax": 0,
 		"exp": 0,
@@ -497,7 +497,7 @@
 	{
 		"alive": false,
 		"atk": [94, 125, 0, 0, 0, 0],
-		"color": 2,
+		"color": "GREEN",
 		"def": 0,
 		"defMax": 0,
 		"exp": 0,

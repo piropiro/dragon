@@ -9,6 +9,7 @@ import java.awt.Point;
 import dragon2.Statics;
 import dragon2.common.Body;
 import dragon2.common.constant.Colors;
+import dragon2.common.constant.GameColor;
 import dragon2.common.constant.Texts;
 import dragon2.common.constant.BodyAttribute;
 
@@ -73,7 +74,7 @@ public class BasicPaint extends PaintBase {
 			return false;
 		if (PaintBase.V.G(3, 0, point.x, point.y) != 0)
 			return false;
-		if (Colors.isPlayer(body)) {
+		if (GameColor.isPlayer(body)) {
 			if (body.isType(BodyAttribute.CHARM))
 				return false;
 		} else if (!body.isType(BodyAttribute.CHARM))

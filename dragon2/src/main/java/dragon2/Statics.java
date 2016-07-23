@@ -12,6 +12,7 @@ import dragon2.anime.AnimeData;
 import dragon2.attack.AttackData;
 import dragon2.common.Body;
 import dragon2.common.constant.BodyKind;
+import dragon2.common.constant.GameColor;
 import mine.ImageLoader;
 import mine.Mine;
 import mine.io.JsonIO;
@@ -65,7 +66,7 @@ public class Statics {
 		body.name = attackdata.name;
 		body.level = i;
 		body.hpMax = 1;
-		body.color = 2;
+		body.color = GameColor.GREEN;
 		body.atk[0] = i;
 		body.kind = BodyKind.WAZA;
 		body.setMax();

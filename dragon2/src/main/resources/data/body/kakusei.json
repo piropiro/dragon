@@ -2,7 +2,7 @@
 	{
 		"alive": false,
 		"atk": [98, 99, 101, 0, 0, 0],
-		"color": 1,
+		"color": "BLUE",
 		"def": 0,
 		"defMax": 0,
 		"exp": 0,

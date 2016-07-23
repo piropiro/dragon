@@ -7,6 +7,7 @@ import dragon2.UnitWorks;
 import dragon2.common.Body;
 import dragon2.common.constant.Texts;
 import dragon2.common.constant.BodyAttribute;
+import dragon2.common.constant.GameColor;
 import mine.JCanvas;
 import mine.Mine;
 
@@ -93,17 +94,17 @@ public abstract class StatusBase extends JCanvas {
 		g.drawString(s, 10 + 70 * i, 60 + 19 * j);
 	}
 
-	public boolean clear(int i, Graphics g) {
+	public boolean clear(GameColor i, Graphics g) {
 		switch (i) {
-		case 1: // '\001'
+		case BLUE: // '\001'
 			g.setColor(new Color(0, 0, 150, 200));
 			break;
 
-		case 3: // '\003'
+		case RED: // '\003'
 			g.setColor(new Color(150, 0, 0, 200));
 			break;
 
-		case 2: // '\002'
+		case GREEN: // '\002'
 			g.setColor(new Color(0, 100, 0, 220));
 			break;
 		}

@@ -9,7 +9,6 @@ import java.awt.Color;
 import javax.swing.JApplet;
 import javax.swing.JFrame;
 
-import dragon2.common.constant.Colors;
 import dragon2.common.util.Luck;
 import dragon2.panel.VPanel;
 import mine.BMenuBar;
@@ -23,7 +22,6 @@ public class MainFrame implements MainWorks {
 		DataStream.setup(this);
 		ImageLoader.setup(this);
 		Statics.setup();
-		Colors.setup(1, 3);
 		Luck.setup(0);
 		mb = new BMenuBar();
 		vp = new VPanel(this);

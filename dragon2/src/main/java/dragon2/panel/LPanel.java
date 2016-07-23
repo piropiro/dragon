@@ -10,6 +10,7 @@ import java.awt.event.ActionListener;
 import javax.swing.Timer;
 
 import dragon2.UnitWorks;
+import dragon2.common.constant.GameColor;
 import mine.JCanvas;
 import mine.Mine;
 
@@ -30,18 +31,18 @@ public class LPanel extends JCanvas implements ActionListener {
 		setLocation(i, j);
 	}
 
-	public void display(String s, int i) {
+	public void display(String s, GameColor i) {
 		text = s;
 		switch (i) {
-		case 1: // '\001'
+		case BLUE: // '\001'
 			setBackground(new Color(0, 0, 150, 200));
 			break;
 
-		case 3: // '\003'
+		case RED: // '\003'
 			setBackground(new Color(150, 0, 0, 200));
 			break;
 
-		case 2: // '\002'
+		case GREEN: // '\002'
 			setBackground(new Color(0, 100, 0, 200));
 			break;
 		}
@@ -51,13 +52,13 @@ public class LPanel extends JCanvas implements ActionListener {
 		repaint();
 	}
 
-	public void displayT(String s, int i, int j) {
+	public void displayT(String s, GameColor i, int j) {
 		display(s, i);
 		time.setInitialDelay(j);
 		time.restart();
 	}
 
-	public void displayR(String s, int i, int j) {
+	public void displayR(String s, GameColor i, int j) {
 		display(s, i);
 		uw.sleep(j);
 		setVisible(false);

@@ -3,11 +3,11 @@ package dragon2;
 import java.awt.Point;
 
 import dragon2.common.Body;
-import dragon2.common.constant.Colors;
+import dragon2.common.constant.BodyAttribute;
 import dragon2.common.constant.BodyKind;
+import dragon2.common.constant.GameColor;
 import dragon2.common.constant.MoveType;
 import dragon2.common.constant.Texts;
-import dragon2.common.constant.BodyAttribute;
 import dragon2.paint.PaintBase;
 
 public class Walk extends ActionBase {
@@ -68,7 +68,7 @@ public class Walk extends ActionBase {
 	}
 
 	private void setHelp() {
-		if (!Colors.isPlayer(ba)) {
+		if (!GameColor.isPlayer(ba)) {
 			return;
 		} else {
 			PaintBase.uw.setHelp(Texts.help[19], 1);
@@ -109,7 +109,7 @@ public class Walk extends ActionBase {
 				return;
 			if (ba.kind == BodyKind.DOLL && ba.isType(BodyAttribute.BERSERK))
 				return;
-			if (Colors.isPlayer(ba)) {
+			if (GameColor.isPlayer(ba)) {
 				if (ba.isType(BodyAttribute.CHARM))
 					return;
 			} else if (!ba.isType(BodyAttribute.CHARM))

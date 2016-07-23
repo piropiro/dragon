@@ -13,6 +13,7 @@ import dragon2.UnitWorks;
 import dragon2.attack.AttackData;
 import dragon2.common.Body;
 import dragon2.common.constant.DamageType;
+import dragon2.common.constant.GameColor;
 import dragon2.common.constant.AttackEffect;
 import dragon2.common.constant.BodyKind;
 import dragon2.common.constant.Texts;
@@ -29,7 +30,7 @@ public class SPanel extends StatusBase {
 	}
 
 	public void displayScore(Point point, int i) {
-		bgcolor = 1;
+		bgcolor = GameColor.BLUE;
 		setLocate(point, point, 1);
 		type = i;
 		pa = point;
@@ -37,7 +38,7 @@ public class SPanel extends StatusBase {
 		setVisible(true);
 	}
 
-	public void displayC(Point point, int i, int j) {
+	public void displayC(Point point, int i, GameColor j) {
 		setLocate(point, point, 1);
 		type = 16;
 		pa = point;
@@ -52,7 +53,7 @@ public class SPanel extends StatusBase {
 		type = 15;
 		pa = point;
 		tikei = i;
-		bgcolor = 2;
+		bgcolor = GameColor.GREEN;
 		repaint();
 		setVisible(true);
 	}
@@ -62,7 +63,7 @@ public class SPanel extends StatusBase {
 		type = j;
 		pa = point;
 		tikei = i;
-		bgcolor = 2;
+		bgcolor = GameColor.GREEN;
 		repaint();
 		setVisible(true);
 	}
@@ -764,7 +765,7 @@ public class SPanel extends StatusBase {
 	static final int C_DITEM2 = 9;
 	static final int C_DWEPON = 10;
 	static final int C_DARMOR = 11;
-	private int bgcolor;
+	private GameColor bgcolor;
 	private int n;
 	private Point pa;
 	private int tikei;

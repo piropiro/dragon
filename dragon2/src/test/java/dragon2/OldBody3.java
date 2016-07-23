@@ -1,4 +1,4 @@
-package dragon2.common;
+package dragon2;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -6,14 +6,13 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import dragon2.common.constant.BodyKind;
-import dragon2.common.constant.GameColor;
-import dragon2.common.constant.MoveType;
 import dragon2.common.constant.BodyAttribute;
+import dragon2.common.constant.BodyKind;
+import dragon2.common.constant.MoveType;
 import mine.MineException;
 
 
-public class Body implements Serializable, Cloneable {
+public class OldBody3 implements Serializable, Cloneable {
 
     public static final long serialVersionUID = -2486607915340385590L;
     
@@ -38,7 +37,7 @@ public class Body implements Serializable, Cloneable {
 	public int misMax;
 	public int moveStep;
 	public MoveType moveType;
-	public GameColor color;
+	public int color;
 	public int img;
 	public int atk[];
 	public BodyKind kind;
@@ -53,15 +52,15 @@ public class Body implements Serializable, Cloneable {
 	public int store;
 	private Set<BodyAttribute> typeState;
         
-	public Body() {
+	public OldBody3() {
 		atk = new int[6];
 		type = new ArrayList<>();
 		name = "none";
 	}
 
-	public Body copy() {
+	public OldBody3 copy() {
 		try {
-			return (Body) clone();
+			return (OldBody3) clone();
 		} catch (CloneNotSupportedException clonenotsupportedexception) {
                     throw new MineException(clonenotsupportedexception);
 		}
@@ -80,7 +79,7 @@ public class Body implements Serializable, Cloneable {
 
 	public void newType() {
 		typeState = new HashSet<>();
-		Body.this.mergeTypeState(type);
+		OldBody3.this.mergeTypeState(type);
 	}
 
 	public void mergeTypeState(List<BodyAttribute> ai) {
@@ -273,11 +272,11 @@ public class Body implements Serializable, Cloneable {
 		this.moveType = moveType;
 	}
 
-	public GameColor getColor() {
+	public int getColor() {
 		return color;
 	}
 
-	public void setColor(GameColor color) {
+	public void setColor(int color) {
 		this.color = color;
 	}
 

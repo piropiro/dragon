@@ -9,6 +9,7 @@ import dragon2.UnitWorks;
 import dragon2.attack.AttackData;
 import dragon2.common.Body;
 import dragon2.common.constant.Colors;
+import dragon2.common.constant.GameColor;
 import dragon2.common.constant.BodyKind;
 import dragon2.common.constant.Texts;
 
@@ -32,7 +33,7 @@ public class Equip {
 	private Body searchItem(int i, int j) {
 		for (Iterator iterator = Equips.iterator(); iterator.hasNext();) {
 			Body body = (Body) iterator.next();
-			if (body.color == 2 && body.x == i && body.y == j)
+			if (body.color == GameColor.GREEN && body.x == i && body.y == j)
 				return body;
 		}
 
@@ -235,7 +236,7 @@ public class Equip {
 		for (int i = 4; i >= 0; i--) {
 			Body body = search(1, 1 + i * 3);
 			if (body != null) {
-				body.color = Colors.getPC();
+				body.color = GameColor.BLUE;
 				body.setMax();
 				equip(body);
 				vector.add(body);
@@ -249,7 +250,7 @@ public class Equip {
 		Body body1 = null;
 		for (Iterator iterator = Equips.iterator(); iterator.hasNext();) {
 			Body body2 = (Body) iterator.next();
-			if (Colors.isPlayer(body2) && body2.gx == body.gx + 7
+			if (GameColor.isPlayer(body2) && body2.gx == body.gx + 7
 					&& body2.gy == body.gy) {
 				body1 = body2;
 				break;

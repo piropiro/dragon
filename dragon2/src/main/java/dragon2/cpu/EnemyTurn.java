@@ -7,18 +7,16 @@ package dragon2.cpu;
 import java.awt.Dimension;
 import java.awt.Point;
 import java.util.Iterator;
-import java.util.Vector;
 
 import dragon2.ActionBase;
 import dragon2.Rewalk;
 import dragon2.Walk;
 import dragon2.attack.FightManager;
 import dragon2.common.Body;
-import dragon2.common.constant.Colors;
-import dragon2.common.constant.BodyKind;
 import dragon2.common.constant.BodyAttribute;
+import dragon2.common.constant.BodyKind;
+import dragon2.common.constant.GameColor;
 import dragon2.paint.PaintBase;
-import mine.UnitMap;
 
 public class EnemyTurn extends ActionBase {
 
@@ -49,7 +47,7 @@ public class EnemyTurn extends ActionBase {
 			ba = (Body) iterator.next();
 			if (ba.isAlive()
 					&& !ba.isType(BodyAttribute.ANTI_SLEEP)
-					&& (ba.kind == BodyKind.DOLL && ba.isType(BodyAttribute.BERSERK) || (Colors.isPlayer(ba) ? ba
+					&& (ba.kind == BodyKind.DOLL && ba.isType(BodyAttribute.BERSERK) || (GameColor.isPlayer(ba) ? ba
 							.isType(BodyAttribute.CHARM) : !ba.isType(BodyAttribute.CHARM)))) {
 				move();
 				if (PaintBase.uw.endJudge(ba))
@@ -111,11 +109,11 @@ public class EnemyTurn extends ActionBase {
 		PaintBase.V.J(1, ba.x, ba.y, 100);
 		Point point;
 		switch (ba.color) {
-		case 1: // '\001'
+		case BLUE: // '\001'
 			point = PaintBase.uw.getCrystal(3);
 			break;
 
-		case 3: // '\003'
+		case RED: // '\003'
 			point = PaintBase.uw.getCrystal(1);
 			break;
 
@@ -123,12 +121,12 @@ public class EnemyTurn extends ActionBase {
 			point = null;
 			break;
 		}
-		if (!Colors.isPlayer(ba) && point != null
+		if (!GameColor.isPlayer(ba) && point != null
 				&& PaintBase.V.G(1, 0, point.x, point.y) != 0) {
 			PaintBase.V.S(1, 1, point.x, point.y, 3);
 			return;
 		}
-		if (!Colors.isPlayer(ba) && (ba.gx != 0 || ba.gy != 0)) {
+		if (!GameColor.isPlayer(ba) && (ba.gx != 0 || ba.gy != 0)) {
 			PaintBase.V.fillDia(1, 1, ba.gx, ba.gy, 1, 2);
 			PaintBase.V.S(1, 1, ba.gx, ba.gy, 3);
 			return;
@@ -176,7 +174,7 @@ public class EnemyTurn extends ActionBase {
 
 		}
 
-		if (Colors.isPlayer(ba))
+		if (GameColor.isPlayer(ba))
 			return true;
 		if (ba.maai == 0)
 			return true;

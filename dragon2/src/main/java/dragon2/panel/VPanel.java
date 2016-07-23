@@ -31,7 +31,8 @@ import dragon2.camp.Camp;
 import dragon2.card.CardPaint;
 import dragon2.card.CardPanel;
 import dragon2.common.Body;
-import dragon2.common.constant.Colors;
+import dragon2.common.constant.GameColor;
+import dragon2.common.constant.GameColor;
 import dragon2.common.constant.BodyKind;
 import dragon2.common.constant.Texts;
 import dragon2.common.constant.BodyAttribute;
@@ -236,7 +237,7 @@ public class VPanel extends JPanelBase implements UnitWorks, ActionListener,
 		insertCharas(vector);
 		putUnit(Charas);
 		tm.reset();
-		if (Colors.getPC() == 1)
+		if (GameColor.BLUE == GameColor.BLUE)
 			mensTurnStart();
 		else
 			remoteTurnStart();
@@ -246,12 +247,12 @@ public class VPanel extends JPanelBase implements UnitWorks, ActionListener,
 		mw.setMenu(3);
 		mapLoad();
 		if (sm.isFirst())
-			lp.displayT("Tutorial", Colors.getPC(), 1500);
+			lp.displayT("Tutorial", GameColor.BLUE, 1500);
 		else if (sm.isFinalStage()) {
-			lp.displayT("Final Stage", Colors.getPC(), 1500);
+			lp.displayT("Final Stage", GameColor.BLUE, 1500);
 		} else {
 			char c = (char) ((65 + sm.getMapNum()) - 1);
-			lp.displayT("Stage " + c, Colors.getPC(), 1500);
+			lp.displayT("Stage " + c, GameColor.BLUE, 1500);
 		}
 		SetMensPaint setmenspaint = new SetMensPaint(Players, Charas);
 		up.setPaintListener(setmenspaint);
@@ -275,7 +276,7 @@ public class VPanel extends JPanelBase implements UnitWorks, ActionListener,
 		V.clear(4, 0, 0);
 		V.clear(5, 0, 0);
 		up.setPaintListener(new CollectionPaint(col));
-		lp.displayT("Collection Room", Colors.getPC(), 1500);
+		lp.displayT("Collection Room", GameColor.BLUE, 1500);
 		up.repaint();
 	}
 
@@ -290,7 +291,7 @@ public class VPanel extends JPanelBase implements UnitWorks, ActionListener,
 		V.clear(5, 0, 0);
 		col.setWazaList(equip.getEquips());
 		up.setPaintListener(new WazalistPaint(col));
-		lp.displayT("Waza Room", Colors.getPC(), 1500);
+		lp.displayT("Waza Room", GameColor.BLUE, 1500);
 		up.repaint();
 	}
 
@@ -353,7 +354,7 @@ public class VPanel extends JPanelBase implements UnitWorks, ActionListener,
 			body.setMax();
 			body.newType();
 			col.setMaterial(body);
-			if (body.color == 3 && !body.isType(BodyAttribute.ASK) && body.isType(BodyAttribute.TALKABLE)) {
+			if (body.color == GameColor.RED && !body.isType(BodyAttribute.ASK) && body.isType(BodyAttribute.TALKABLE)) {
 				body.str = Math.max(0, body.str - 2);
 				body.def = Math.max(0, body.def - 2);
 				body.mst = Math.max(0, body.mst - 2);
@@ -387,7 +388,7 @@ public class VPanel extends JPanelBase implements UnitWorks, ActionListener,
 		return tm.getTurn();
 	}
 
-	public void setLPanel(String s, int i, int j) {
+	public void setLPanel(String s, GameColor i, int j) {
 		lp.displayT(s, i, j);
 	}
 
@@ -404,7 +405,7 @@ public class VPanel extends JPanelBase implements UnitWorks, ActionListener,
 		tp.display(iconable, body);
 	}
 
-	public void setCampPanel(Point point, int i, int j) {
+	public void setCampPanel(Point point, int i, GameColor j) {
 		sp.displayC(point, i, j);
 	}
 
@@ -536,7 +537,7 @@ public class VPanel extends JPanelBase implements UnitWorks, ActionListener,
 		setAnime(-2, 0, point, point);
 		if (body == null)
 			return;
-		if (Colors.isPlayer(body)) {
+		if (GameColor.isPlayer(body)) {
 			sm.countKill();
 			equip.getEXP(body, body1);
 			treasure.getTreasure(body1, false);
@@ -544,12 +545,12 @@ public class VPanel extends JPanelBase implements UnitWorks, ActionListener,
 			if (body2 != null)
 				treasure.add(body2);
 		}
-		if (Colors.isPlayer(body1))
+		if (GameColor.isPlayer(body1))
 			sm.countDead();
 	}
 
 	public void levelup(Body body) {
-		if (body != null && Colors.isPlayer(body))
+		if (body != null && GameColor.isPlayer(body))
 			equip.levelup(body);
 	}
 
@@ -559,13 +560,13 @@ public class VPanel extends JPanelBase implements UnitWorks, ActionListener,
 
 	private void enemyTurnStart() {
 		tm.change(1);
-		lp.displayT("Enemy Turn " + tm.getTurn(), Colors.getEC(), 1000);
+		lp.displayT("Enemy Turn " + tm.getTurn(), GameColor.RED, 1000);
 		mw.setMenu(4);
 	}
 
 	private void remoteTurnStart() {
 		tm.change(2);
-		lp.displayT("Enemy Turn " + tm.getTurn(), Colors.getEC(), 1000);
+		lp.displayT("Enemy Turn " + tm.getTurn(), GameColor.RED, 1000);
 		mw.setMenu(4);
 	}
 
@@ -573,7 +574,7 @@ public class VPanel extends JPanelBase implements UnitWorks, ActionListener,
 		escape = true;
 		sm.countTurn();
 		tm.change(0);
-		lp.displayT("Turn " + tm.getTurn(), Colors.getPC(), 1500);
+		lp.displayT("Turn " + tm.getTurn(), GameColor.BLUE, 1500);
 		mw.setMenu(2);
 	}
 
@@ -581,17 +582,17 @@ public class VPanel extends JPanelBase implements UnitWorks, ActionListener,
 		if (escape) {
 			sm.countEscape();
 			up.setWaitPaint();
-			lp.displayT("ESCAPE", Colors.getEC(), 3000);
+			lp.displayT("ESCAPE", GameColor.RED, 3000);
 			mw.setMenu(5);
 		} else {
-			lp.displayT("FAILED", Colors.getEC(), 500);
+			lp.displayT("FAILED", GameColor.RED, 500);
 		}
 	}
 
 	private void expDown() {
 		for (Iterator iterator = Charas.iterator(); iterator.hasNext();) {
 			Body body = (Body) iterator.next();
-			if (Colors.isPlayer(body) && body.isAlive())
+			if (GameColor.isPlayer(body) && body.isAlive())
 				body.exp /= 2;
 		}
 
@@ -619,7 +620,7 @@ public class VPanel extends JPanelBase implements UnitWorks, ActionListener,
 	private boolean isTurnEnd() {
 		for (Iterator iterator = Charas.iterator(); iterator.hasNext();) {
 			Body body = (Body) iterator.next();
-			if (body.isAlive() && Colors.isPlayer(body) && !body.isType(BodyAttribute.ANTI_SLEEP)
+			if (body.isAlive() && GameColor.isPlayer(body) && !body.isType(BodyAttribute.ANTI_SLEEP)
 					&& !body.isType(BodyAttribute.CHARM)
 					&& (body.kind != BodyKind.DOLL || !body.isType(BodyAttribute.BERSERK))) {
 				if (getChangeChara(body) != null)
@@ -645,7 +646,7 @@ public class VPanel extends JPanelBase implements UnitWorks, ActionListener,
 	private boolean blueJudge1() {
 		for (Iterator iterator = Charas.iterator(); iterator.hasNext();) {
 			Body body = (Body) iterator.next();
-			if (!Colors.isPlayer(body) && body.isAlive())
+			if (!GameColor.isPlayer(body) && body.isAlive())
 				return false;
 		}
 
@@ -656,12 +657,12 @@ public class VPanel extends JPanelBase implements UnitWorks, ActionListener,
 	private boolean blueJudge2(Body body) {
 		if (!body.isAlive())
 			return false;
-		if (body.color != 1)
+		if (body.color != GameColor.BLUE)
 			return false;
 		if (V.G(0, 0, body.x, body.y) != 18)
 			return false;
 		V.fillDia(0, 0, body.x, body.y, 1, 20);
-		if (Colors.isPlayer(body))
+		if (GameColor.isPlayer(body))
 			gameClear();
 		else
 			gameOver();
@@ -673,9 +674,9 @@ public class VPanel extends JPanelBase implements UnitWorks, ActionListener,
 		up.setWaitPaint();
 		closeAPanel();
 		if (sm.isFinalStage())
-			lp.displayT("ALL CLEAR!!", Colors.getPC(), 5000);
+			lp.displayT("ALL CLEAR!!", GameColor.BLUE, 5000);
 		else
-			lp.displayT("STAGE CLEAR", Colors.getPC(), 5000);
+			lp.displayT("STAGE CLEAR", GameColor.BLUE, 5000);
 
 		sm.stageClear();
 		mw.setMenu(5);
@@ -685,7 +686,7 @@ public class VPanel extends JPanelBase implements UnitWorks, ActionListener,
 	private boolean redJudge1() {
 		for (Iterator iterator = Charas.iterator(); iterator.hasNext();) {
 			Body body = (Body) iterator.next();
-			if (Colors.isPlayer(body) && body.isAlive())
+			if (GameColor.isPlayer(body) && body.isAlive())
 				return false;
 		}
 
@@ -696,12 +697,12 @@ public class VPanel extends JPanelBase implements UnitWorks, ActionListener,
 	private boolean redJudge2(Body body) {
 		if (!body.isAlive())
 			return false;
-		if (body.color == 1)
+		if (body.color == GameColor.BLUE)
 			return false;
 		if (V.G(0, 0, body.x, body.y) != 17)
 			return false;
 		V.fillDia(0, 0, body.x, body.y, 1, 19);
-		if (Colors.isPlayer(body))
+		if (GameColor.isPlayer(body))
 			gameClear();
 		else
 			gameOver();
@@ -710,7 +711,7 @@ public class VPanel extends JPanelBase implements UnitWorks, ActionListener,
 
 	private void gameOver() {
 		up.setWaitPaint();
-		lp.displayT("GAME OVER", Colors.getEC(), 5000);
+		lp.displayT("GAME OVER", GameColor.RED, 5000);
 
 		mw.setMenu(6);
 		setHelp(Texts.help[21], 1);
@@ -929,7 +930,7 @@ public class VPanel extends JPanelBase implements UnitWorks, ActionListener,
 		if (textdialog.getText() != null) {
 			s = textdialog.getText();
 		} else {
-			lp.displayT(Texts.rankcancel, Colors.getEC(), 2000);
+			lp.displayT(Texts.rankcancel, GameColor.RED, 2000);
 			return;
 		}
 		int i;
@@ -939,13 +940,13 @@ public class VPanel extends JPanelBase implements UnitWorks, ActionListener,
 			i = Rank.sendTuyosaScore(s);
 		if (i != 0) {
 			if (flag)
-				lp.displayT(Texts.speed_rank + i + Texts.idesu, Colors.getPC(),
+				lp.displayT(Texts.speed_rank + i + Texts.idesu, GameColor.BLUE,
 						4000);
 			else
-				lp.displayT(Texts.power_rank + i + Texts.idesu, Colors.getPC(),
+				lp.displayT(Texts.power_rank + i + Texts.idesu, GameColor.BLUE,
 						4000);
 		} else {
-			lp.displayT(Texts.conn_fail, Colors.getEC(), 2000);
+			lp.displayT(Texts.conn_fail, GameColor.RED, 2000);
 		}
 	}
 
@@ -1012,18 +1013,18 @@ public class VPanel extends JPanelBase implements UnitWorks, ActionListener,
 		String s = "slgs" + byte0 + ".dat";
 		if (keyevent.isShiftDown()) {
 			sm.saveData(s, equip);
-			setLPanel("Save " + byte0, 1, 1500);
+			setLPanel("Save " + byte0, GameColor.BLUE, 1500);
 		} else {
 			File file = new File(s);
 			if (!file.exists()) {
-				setLPanel("Not Found " + byte0, 3, 1500);
+				setLPanel("Not Found " + byte0, GameColor.RED, 1500);
 				return;
 			}
 			equip = sm.loadData(s);
 			treasure = null;
 			ap.setVisible(false);
 			campStart();
-			setLPanel("Load " + byte0, 1, 1500);
+			setLPanel("Load " + byte0, GameColor.BLUE, 1500);
 		}
 	}
 
@@ -1037,11 +1038,11 @@ public class VPanel extends JPanelBase implements UnitWorks, ActionListener,
 		ImogariPaint imogaripaint;
 		if (s.equals("help")) {
 			if (Statics.isHelp()) {
-				setLPanel(Texts.help_off, 1, 1000);
+				setLPanel(Texts.help_off, GameColor.BLUE, 1000);
 				Statics.setHelp(false);
 				closeHelp();
 			} else {
-				setLPanel(Texts.help_on, 1, 1000);
+				setLPanel(Texts.help_on, GameColor.BLUE, 1000);
 				Statics.setHelp(true);
 				help.setVisible(true);
 			}
@@ -1102,7 +1103,7 @@ public class VPanel extends JPanelBase implements UnitWorks, ActionListener,
 				col.saveData();
 				sm.saveData("slgs.dat", equip);
 			}
-			setLPanel("SAVE", 1, 1500);
+			setLPanel("SAVE", GameColor.BLUE, 1500);
 		} else if (s.equals("cancel")) {
 			campStart();
 		} else if (s.equals("select")) {

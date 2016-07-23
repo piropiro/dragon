@@ -8,6 +8,7 @@ import java.util.Random;
 
 import dragon2.common.Body;
 import dragon2.common.constant.Colors;
+import dragon2.common.constant.GameColor;
 
 public class Luck {
 
@@ -29,13 +30,13 @@ public class Luck {
 			return random.nextInt() % (i + 1);
 
 		case 1: // '\001'
-			if (Colors.isPlayer(body))
+			if (GameColor.isPlayer(body))
 				return i;
 			else
 				return -i;
 
 		case 2: // '\002'
-			if (Colors.isPlayer(body))
+			if (GameColor.isPlayer(body))
 				return -i;
 			else
 				return i;

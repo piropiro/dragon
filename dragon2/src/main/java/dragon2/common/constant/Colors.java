@@ -24,13 +24,6 @@ public class Colors {
 		return EC;
 	}
 
-	public static boolean isPlayer(Body body) {
-		return PC == body.color;
-	}
-
-	public static boolean isEnemy(Body body) {
-		return EC == body.color;
-	}
 
 	private static int PC;
 	private static int EC;

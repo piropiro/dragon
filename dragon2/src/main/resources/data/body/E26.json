@@ -2,7 +2,7 @@
 	{
 		"alive": true,
 		"atk": [19, 0, 0, 0, 0, 0],
-		"color": 3,
+		"color": "RED",
 		"def": 20,
 		"defMax": 200,
 		"exp": 20,
@@ -40,7 +40,7 @@
 	{
 		"alive": true,
 		"atk": [13, 0, 0, 0, 0, 0],
-		"color": 2,
+		"color": "GREEN",
 		"def": 5,
 		"defMax": 50,
 		"exp": 20,
@@ -78,7 +78,7 @@
 	{
 		"alive": true,
 		"atk": [60, 0, 0, 105, 0, 0],
-		"color": 3,
+		"color": "RED",
 		"def": 5,
 		"defMax": 50,
 		"exp": 20,
@@ -116,7 +116,7 @@
 	{
 		"alive": true,
 		"atk": [18, 0, 0, 62, 0, 0],
-		"color": 2,
+		"color": "GREEN",
 		"def": 35,
 		"defMax": 350,
 		"exp": 30,
@@ -157,7 +157,7 @@
 	{
 		"alive": true,
 		"atk": [60, 0, 0, 105, 0, 0],
-		"color": 2,
+		"color": "GREEN",
 		"def": 5,
 		"defMax": 50,
 		"exp": 20,
@@ -195,7 +195,7 @@
 	{
 		"alive": true,
 		"atk": [18, 0, 0, 61, 0, 0],
-		"color": 3,
+		"color": "RED",
 		"def": 25,
 		"defMax": 250,
 		"exp": 30,
@@ -236,7 +236,7 @@
 	{
 		"alive": true,
 		"atk": [3, 0, 0, 0, 0, 0],
-		"color": 3,
+		"color": "RED",
 		"def": 5,
 		"defMax": 50,
 		"exp": 20,
@@ -272,7 +272,7 @@
 	{
 		"alive": true,
 		"atk": [3, 0, 0, 0, 0, 0],
-		"color": 3,
+		"color": "RED",
 		"def": 5,
 		"defMax": 50,
 		"exp": 20,
@@ -308,7 +308,7 @@
 	{
 		"alive": true,
 		"atk": [82, 0, 0, 34, 0, 0],
-		"color": 3,
+		"color": "RED",
 		"def": 10,
 		"defMax": 100,
 		"exp": 20,
@@ -347,7 +347,7 @@
 	{
 		"alive": true,
 		"atk": [82, 0, 0, 34, 0, 0],
-		"color": 2,
+		"color": "GREEN",
 		"def": 10,
 		"defMax": 100,
 		"exp": 20,
@@ -386,7 +386,7 @@
 	{
 		"alive": true,
 		"atk": [6, 0, 0, 0, 0, 0],
-		"color": 2,
+		"color": "GREEN",
 		"def": 25,
 		"defMax": 250,
 		"exp": 20,
@@ -424,7 +424,7 @@
 	{
 		"alive": true,
 		"atk": [0, 0, 0, 97, 0, 0],
-		"color": 3,
+		"color": "RED",
 		"def": 20,
 		"defMax": 200,
 		"exp": 20,
@@ -462,7 +462,7 @@
 	{
 		"alive": false,
 		"atk": [0, 0, 0, 0, 0, 0],
-		"color": 2,
+		"color": "GREEN",
 		"def": 1,
 		"defMax": 10,
 		"exp": 0,

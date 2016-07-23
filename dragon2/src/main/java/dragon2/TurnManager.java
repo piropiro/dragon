@@ -6,6 +6,7 @@ import java.util.Vector;
 
 import dragon2.common.Body;
 import dragon2.common.constant.Colors;
+import dragon2.common.constant.GameColor;
 import dragon2.common.constant.BodyKind;
 import dragon2.common.constant.MoveType;
 import dragon2.common.constant.BodyAttribute;
@@ -105,7 +106,7 @@ public class TurnManager extends ActionBase {
 		Point point = new Point(body.x, body.y);
 		switch (PaintBase.V.G(0, 0, body.x, body.y)) {
 		case 17: // '\021'
-			if (Colors.isPlayer(body) != flag)
+			if (GameColor.isPlayer(body) != flag)
 				return;
 			if (body.hp == body.hpMax && !body.isType(BodyAttribute.POISON)) {
 				return;
@@ -161,7 +162,7 @@ public class TurnManager extends ActionBase {
 			}
 
 		case 9: // '\t'
-			if (Colors.isPlayer(body) != flag)
+			if (GameColor.isPlayer(body) != flag)
 				return;
 			if (body.isType(BodyAttribute.FIRE_0))
 				return;
@@ -194,7 +195,7 @@ public class TurnManager extends ActionBase {
 	private void setPoison(Body body, boolean flag) {
 		if (!body.isType(BodyAttribute.POISON))
 			return;
-		if (Colors.isPlayer(body) != flag || body.hp == 1) {
+		if (GameColor.isPlayer(body) != flag || body.hp == 1) {
 			PaintBase.V.S(5, 0, body.x, body.y, 2);
 		} else {
 			Point point = new Point(body.x, body.y);
@@ -211,7 +212,7 @@ public class TurnManager extends ActionBase {
 			return;
 		if (!body.isType(BodyAttribute.BERSERK))
 			return;
-		if (Colors.isPlayer(body) != flag) {
+		if (GameColor.isPlayer(body) != flag) {
 			PaintBase.V.S(5, 0, body.x, body.y, 12);
 		} else {
 			body.str = Math.max(0, body.str - 1);
@@ -228,7 +229,7 @@ public class TurnManager extends ActionBase {
 	private void setHeal(Body body, boolean flag) {
 		if (!body.isType(BodyAttribute.HEAL))
 			return;
-		if (Colors.isPlayer(body) != flag || body.hp == body.hpMax)
+		if (GameColor.isPlayer(body) != flag || body.hp == body.hpMax)
 			PaintBase.V.S(5, 0, body.x, body.y, 7);
 		else if (body.mst > 0) {
 			Point point = new Point(body.x, body.y);

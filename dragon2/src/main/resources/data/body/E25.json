@@ -2,7 +2,7 @@
 	{
 		"alive": true,
 		"atk": [3, 0, 0, 28, 0, 0],
-		"color": 3,
+		"color": "RED",
 		"def": 12,
 		"defMax": 120,
 		"exp": 20,
@@ -43,7 +43,7 @@
 	{
 		"alive": true,
 		"atk": [3, 0, 0, 28, 0, 0],
-		"color": 3,
+		"color": "RED",
 		"def": 12,
 		"defMax": 120,
 		"exp": 20,
@@ -84,7 +84,7 @@
 	{
 		"alive": true,
 		"atk": [3, 0, 0, 17, 0, 0],
-		"color": 3,
+		"color": "RED",
 		"def": 8,
 		"defMax": 80,
 		"exp": 20,
@@ -125,7 +125,7 @@
 	{
 		"alive": true,
 		"atk": [3, 0, 0, 17, 0, 0],
-		"color": 3,
+		"color": "RED",
 		"def": 8,
 		"defMax": 80,
 		"exp": 20,
@@ -166,7 +166,7 @@
 	{
 		"alive": true,
 		"atk": [3, 0, 0, 17, 0, 0],
-		"color": 3,
+		"color": "RED",
 		"def": 8,
 		"defMax": 80,
 		"exp": 20,
@@ -207,7 +207,7 @@
 	{
 		"alive": true,
 		"atk": [3, 0, 0, 17, 0, 0],
-		"color": 3,
+		"color": "RED",
 		"def": 8,
 		"defMax": 80,
 		"exp": 20,
@@ -248,7 +248,7 @@
 	{
 		"alive": true,
 		"atk": [69, 0, 0, 0, 0, 0],
-		"color": 3,
+		"color": "RED",
 		"def": 12,
 		"defMax": 120,
 		"exp": 20,
@@ -288,7 +288,7 @@
 	{
 		"alive": true,
 		"atk": [69, 0, 0, 0, 0, 0],
-		"color": 3,
+		"color": "RED",
 		"def": 12,
 		"defMax": 120,
 		"exp": 20,
@@ -328,7 +328,7 @@
 	{
 		"alive": true,
 		"atk": [69, 0, 0, 0, 0, 0],
-		"color": 3,
+		"color": "RED",
 		"def": 12,
 		"defMax": 120,
 		"exp": 20,
@@ -368,7 +368,7 @@
 	{
 		"alive": true,
 		"atk": [69, 0, 0, 0, 0, 0],
-		"color": 3,
+		"color": "RED",
 		"def": 12,
 		"defMax": 120,
 		"exp": 20,
@@ -408,7 +408,7 @@
 	{
 		"alive": true,
 		"atk": [82, 0, 0, 34, 0, 0],
-		"color": 3,
+		"color": "RED",
 		"def": 5,
 		"defMax": 50,
 		"exp": 20,
@@ -448,7 +448,7 @@
 	{
 		"alive": true,
 		"atk": [82, 0, 0, 34, 0, 0],
-		"color": 3,
+		"color": "RED",
 		"def": 5,
 		"defMax": 50,
 		"exp": 20,
@@ -488,7 +488,7 @@
 	{
 		"alive": true,
 		"atk": [56, 0, 0, 0, 0, 0],
-		"color": 3,
+		"color": "RED",
 		"def": 12,
 		"defMax": 120,
 		"exp": 20,
@@ -527,7 +527,7 @@
 	{
 		"alive": true,
 		"atk": [54, 0, 0, 108, 0, 0],
-		"color": 2,
+		"color": "GREEN",
 		"def": 34,
 		"defMax": 340,
 		"exp": 50,
@@ -568,7 +568,7 @@
 	{
 		"alive": true,
 		"atk": [30, 0, 0, 0, 0, 0],
-		"color": 3,
+		"color": "RED",
 		"def": 5,
 		"defMax": 50,
 		"exp": 20,
@@ -604,7 +604,7 @@
 	{
 		"alive": false,
 		"atk": [56, 57, 0, 0, 0, 0],
-		"color": 2,
+		"color": "GREEN",
 		"def": 0,
 		"defMax": 0,
 		"exp": 0,
@@ -640,7 +640,7 @@
 	{
 		"alive": true,
 		"atk": [108, 0, 0, 0, 0, 0],
-		"color": 2,
+		"color": "GREEN",
 		"def": 1,
 		"defMax": 10,
 		"exp": 0,

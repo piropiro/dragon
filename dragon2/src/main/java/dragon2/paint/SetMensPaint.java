@@ -10,6 +10,7 @@ import java.util.Vector;
 
 import dragon2.common.Body;
 import dragon2.common.constant.Colors;
+import dragon2.common.constant.GameColor;
 import dragon2.common.constant.Texts;
 import mine.UnitMap;
 
@@ -185,7 +186,7 @@ public class SetMensPaint extends PaintBase {
 	public boolean isNextPoint(Point point) {
 		Body body = PaintBase.uw.search(point.x, point.y);
 		if (body != null)
-			return Colors.isPlayer(body);
+			return GameColor.isPlayer(body);
 		else
 			return false;
 	}

@@ -7,6 +7,7 @@ import java.util.Vector;
 import dragon2.attack.AttackData;
 import dragon2.common.Body;
 import dragon2.common.constant.Colors;
+import dragon2.common.constant.GameColor;
 import dragon2.common.constant.BodyKind;
 import dragon2.common.constant.BodyAttribute;
 import mine.DataStream;
@@ -93,7 +94,7 @@ public class Collection {
 
 	public void setWazaList(List<Body> vector) {
 		for (Body body : vector) {
-			if (Colors.isPlayer(body)) {
+			if (GameColor.isPlayer(body)) {
 				for (int i = 0; i < body.atk.length; i++)
 					waza[body.atk[i]] = true;
 

@@ -2,7 +2,7 @@
 	{
 		"alive": true,
 		"atk": [39, 0, 0, 0, 0, 0],
-		"color": 3,
+		"color": "RED",
 		"def": 6,
 		"defMax": 60,
 		"exp": 20,
@@ -41,7 +41,7 @@
 	{
 		"alive": true,
 		"atk": [39, 0, 0, 0, 0, 0],
-		"color": 3,
+		"color": "RED",
 		"def": 6,
 		"defMax": 60,
 		"exp": 20,
@@ -80,7 +80,7 @@
 	{
 		"alive": true,
 		"atk": [39, 0, 0, 0, 0, 0],
-		"color": 3,
+		"color": "RED",
 		"def": 6,
 		"defMax": 60,
 		"exp": 20,
@@ -119,7 +119,7 @@
 	{
 		"alive": true,
 		"atk": [39, 0, 0, 0, 0, 0],
-		"color": 3,
+		"color": "RED",
 		"def": 6,
 		"defMax": 60,
 		"exp": 20,
@@ -158,7 +158,7 @@
 	{
 		"alive": true,
 		"atk": [39, 0, 0, 0, 0, 0],
-		"color": 3,
+		"color": "RED",
 		"def": 6,
 		"defMax": 60,
 		"exp": 20,
@@ -197,7 +197,7 @@
 	{
 		"alive": true,
 		"atk": [3, 0, 0, 0, 0, 0],
-		"color": 3,
+		"color": "RED",
 		"def": 8,
 		"defMax": 80,
 		"exp": 20,
@@ -236,7 +236,7 @@
 	{
 		"alive": true,
 		"atk": [3, 0, 0, 0, 0, 0],
-		"color": 3,
+		"color": "RED",
 		"def": 8,
 		"defMax": 80,
 		"exp": 20,
@@ -275,7 +275,7 @@
 	{
 		"alive": true,
 		"atk": [3, 0, 0, 0, 0, 0],
-		"color": 3,
+		"color": "RED",
 		"def": 8,
 		"defMax": 80,
 		"exp": 20,
@@ -314,7 +314,7 @@
 	{
 		"alive": true,
 		"atk": [3, 0, 0, 0, 0, 0],
-		"color": 3,
+		"color": "RED",
 		"def": 8,
 		"defMax": 80,
 		"exp": 20,
@@ -353,7 +353,7 @@
 	{
 		"alive": true,
 		"atk": [5, 0, 0, 0, 0, 0],
-		"color": 3,
+		"color": "RED",
 		"def": 16,
 		"defMax": 160,
 		"exp": 20,
@@ -393,7 +393,7 @@
 	{
 		"alive": true,
 		"atk": [21, 0, 0, 9, 0, 0],
-		"color": 3,
+		"color": "RED",
 		"def": 6,
 		"defMax": 60,
 		"exp": 20,
@@ -432,7 +432,7 @@
 	{
 		"alive": true,
 		"atk": [0, 0, 0, 0, 0, 0],
-		"color": 2,
+		"color": "GREEN",
 		"def": 2,
 		"defMax": 20,
 		"exp": 0,
@@ -471,7 +471,7 @@
 	{
 		"alive": true,
 		"atk": [40, 0, 0, 0, 0, 0],
-		"color": 2,
+		"color": "GREEN",
 		"def": 0,
 		"defMax": 0,
 		"exp": 0,
@@ -507,7 +507,7 @@
 	{
 		"alive": true,
 		"atk": [1, 51, 0, 0, 0, 0],
-		"color": 2,
+		"color": "GREEN",
 		"def": 3,
 		"defMax": 30,
 		"exp": 0,

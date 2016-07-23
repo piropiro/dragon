@@ -10,6 +10,7 @@ import java.util.Vector;
 import dragon2.attack.AttackBase;
 import dragon2.common.Body;
 import dragon2.common.constant.AnimeType;
+import dragon2.common.constant.GameColor;
 
 public interface UnitWorks {
 
@@ -63,7 +64,7 @@ public interface UnitWorks {
 
 	public abstract void putUnit(Vector vector);
 
-	public abstract void setCampPanel(Point point, int i, int j);
+	public abstract void setCampPanel(Point point, int i, GameColor j);
 
 	public abstract void setMPanel(String s);
 
@@ -85,7 +86,7 @@ public interface UnitWorks {
 
 	public abstract void setNPanel(Body body, int i);
 
-	public abstract void setLPanel(String s, int i, int j);
+	public abstract void setLPanel(String s, GameColor i, int j);
 
 	public abstract void setHelp(String as[], int i);
 

@@ -7,6 +7,7 @@ package dragon2;
 import dragon2.attack.AttackBase;
 import dragon2.common.Body;
 import dragon2.common.constant.Colors;
+import dragon2.common.constant.GameColor;
 import dragon2.common.constant.BodyKind;
 import dragon2.common.constant.Texts;
 import dragon2.common.constant.BodyAttribute;
@@ -28,7 +29,7 @@ public class Material {
 		if (count % 6 != 0)
 			return null;
 		Body body = attackbase.getBb();
-		if (Colors.isPlayer(body))
+		if (GameColor.isPlayer(body))
 			return null;
 		material = body.copy();
 		material.atk[0] = body.atk[3];
