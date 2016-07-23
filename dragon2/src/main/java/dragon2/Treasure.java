@@ -53,11 +53,11 @@ public class Treasure {
 
 		for (int j = 0; j < i; j++) {
 			Body body1 = treasure[j];
-			if (body1 != null && (body1.gx != 0 || body1.gy != 0)) {
+			if (body1 != null && (body1.goalX != 0 || body1.goalY != 0)) {
 				status[j] = 2;
 				for (Body body3 : vector) {
 					if (body3 != body1 && body3.isAlive()
-							&& body3.x == body1.gx && body3.y == body1.gy) {
+							&& body3.x == body1.goalX && body3.y == body1.goalY) {
 						holder[j] = body3;
 						status[j] = 1;
 					}
@@ -268,7 +268,7 @@ public class Treasure {
 		body.mdfMax = Math.max(0, body.mdfMax - 6);
 		body.hitMax = Math.max(0, body.hitMax - 6);
 		body.misMax = Math.max(0, body.misMax - 6);
-		body.type.add(BodyAttribute.BADITEM);
+		body.attrList.add(BodyAttribute.BADITEM);
 		body.setTypeState(BodyAttribute.BADITEM, true);
 	}
 

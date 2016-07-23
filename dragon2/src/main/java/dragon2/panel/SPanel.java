@@ -442,7 +442,7 @@ public class SPanel extends StatusBase {
 			i--;
 		drawLine(ba.moveType.getText(), i, 0, 1, g);
 		drawLine(Texts.sp[45], ba.store, 1, 1, g);
-		drawLine(Texts.sp[46], ba.maai, 0, 2, g);
+		drawLine(Texts.sp[46], ba.range, 0, 2, g);
 		drawLine(Texts.sp[47], ba.scope, 1, 2, g);
 		drawLine(Texts.sp[48], ba.moveturn, 0, 3, g);
 		drawLine("EXP ", ba.exp, 1, 3, g);

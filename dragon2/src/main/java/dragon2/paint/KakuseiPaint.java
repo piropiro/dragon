@@ -41,8 +41,8 @@ public class KakuseiPaint extends ActionBase {
 		kakusei.newType();
 		kakusei.x = sister.x;
 		kakusei.y = sister.y;
-		kakusei.gx = sister.gx;
-		kakusei.gy = sister.gy;
+		kakusei.goalX = sister.goalX;
+		kakusei.goalY = sister.goalY;
 	}
 
 	public void mouseMoved(Point point) {

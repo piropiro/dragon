@@ -126,9 +126,9 @@ public class EnemyTurn extends ActionBase {
 			PaintBase.V.S(1, 1, point.x, point.y, 3);
 			return;
 		}
-		if (!GameColor.isPlayer(ba) && (ba.gx != 0 || ba.gy != 0)) {
-			PaintBase.V.fillDia(1, 1, ba.gx, ba.gy, 1, 2);
-			PaintBase.V.S(1, 1, ba.gx, ba.gy, 3);
+		if (!GameColor.isPlayer(ba) && (ba.goalX != 0 || ba.goalY != 0)) {
+			PaintBase.V.fillDia(1, 1, ba.goalX, ba.goalY, 1, 2);
+			PaintBase.V.S(1, 1, ba.goalX, ba.goalY, 3);
 			return;
 		}
 		for (Iterator iterator = PaintBase.Charas.iterator(); iterator
@@ -176,9 +176,9 @@ public class EnemyTurn extends ActionBase {
 
 		if (GameColor.isPlayer(ba))
 			return true;
-		if (ba.maai == 0)
+		if (ba.range == 0)
 			return true;
-		if (i + ba.scope <= ba.maai + 1)
+		if (i + ba.scope <= ba.range + 1)
 			return true;
 		return PaintBase.uw.getTurn() >= ba.moveturn;
 	}

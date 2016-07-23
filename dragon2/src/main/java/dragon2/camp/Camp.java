@@ -95,8 +95,8 @@ public class Camp extends PaintBase {
 			body.setMax();
 			body.newType();
 			if (GameColor.isPlayer(body)) {
-				body.x = body.gx;
-				body.y = body.gy;
+				body.x = body.goalX;
+				body.y = body.goalY;
 			}
 			//if (body.x > 13 && body.y == 14)
 			//	iterator.remove();
@@ -308,8 +308,8 @@ public class Camp extends PaintBase {
 			if (sortf) {
 				putSortItems(i, j, items);
 			} else {
-				ba.gx = i;
-				ba.gy = j;
+				ba.goalX = i;
+				ba.goalY = j;
 				ba.color = GameColor.BLUE;
 				PaintBase.V.S(1, 0, i, j, 2);
 				putChara(i, j, ba);
@@ -582,8 +582,8 @@ public class Camp extends PaintBase {
 				PaintBase.V.S(2, 0, i + k, j, abody[k].img);
 			}
 
-		abody[0].gx = i;
-		abody[0].gy = j;
+		abody[0].goalX = i;
+		abody[0].goalY = j;
 		abody[0].color = GameColor.BLUE;
 		PaintBase.V.S(1, 0, i, j, 2);
 		putChara(i, j, abody[0]);
@@ -640,8 +640,8 @@ public class Camp extends PaintBase {
 
 		case DOLL: // '\''
 			if (i == 1) {
-				ba.gx = i;
-				ba.gy = j;
+				ba.goalX = i;
+				ba.goalY = j;
 				ba.color = GameColor.BLUE;
 				changeChara(i, j);
 				return;
@@ -718,8 +718,8 @@ public class Camp extends PaintBase {
 	public void rightPressed() {
 		Point point = PaintBase.map.getWaku();
 		if (sortf) {
-			moveChara(ba.gx, ba.gy);
-			putChara2(ba.gx, ba.gy);
+			moveChara(ba.goalX, ba.goalY);
+			putChara2(ba.goalX, ba.goalY);
 			setHelp();
 			return;
 		}

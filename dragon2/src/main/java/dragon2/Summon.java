@@ -22,11 +22,11 @@ public class Summon {
 		for (Iterator iterator = vector.iterator(); iterator.hasNext();) {
 			Body body = (Body) iterator.next();
 			if (body.isType(BodyAttribute.SUMMON)) {
-				unitmap.S(0, 0, body.gx, body.gy, 25);
-				body.x = body.gx;
-				body.y = body.gy;
-				body.gx = 0;
-				body.gy = 0;
+				unitmap.S(0, 0, body.goalX, body.goalY, 25);
+				body.x = body.goalX;
+				body.y = body.goalY;
+				body.goalX = 0;
+				body.goalY = 0;
 				body.hp = 0;
 				devils[i++] = body;
 			}

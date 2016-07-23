@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
 
+import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.io.FileUtils;
 import org.hamcrest.CoreMatchers;
 import org.junit.After;
@@ -24,6 +25,8 @@ import dragon2.common.Body;
 import dragon2.common.constant.BodyKind;
 import dragon2.common.constant.GameColor;
 import dragon2.common.constant.MoveType;
+import dragon3.bean.BodyData;
+import dragon3.bean.DeployData;
 import dragon2.common.constant.BodyAttribute;
 import mine.DataStream;
 import mine.io.BeanIO;
@@ -140,14 +143,14 @@ public class BodyMigration {
     		  newBody.moveStep = old.ido;
 //    		  newBody.color = old.color;
     		  newBody.img = old.img;
-    		  newBody.maai = old.maai;
+    		  newBody.range = old.maai;
     		  newBody.scope = old.scope;
     		  newBody.moveturn = old.moveturn;
-    		  newBody.gx = old.gx;
-    		  newBody.gy = old.gy;
+    		  newBody.goalX = old.gx;
+    		  newBody.goalY = old.gy;
     		  newBody.store = old.store;
     		  newBody.atk = old.atk;
-    		  newBody.type = old.type;
+    		  newBody.attrList = old.type;
     		  newBody.kind = old.kind;
     		  newBody.moveType = MoveType.convert(old.itype);
 
@@ -198,11 +201,11 @@ public class BodyMigration {
 //    		  newBody.moveType = old.itype;
 //    		  newBody.color = old.color;
     		  newBody.img = old.img;
-    		  newBody.maai = old.maai;
+    		  newBody.range = old.maai;
     		  newBody.scope = old.scope;
     		  newBody.moveturn = old.moveturn;
-    		  newBody.gx = old.gx;
-    		  newBody.gy = old.gy;
+    		  newBody.goalX = old.gx;
+    		  newBody.goalY = old.gy;
     		  newBody.store = old.store;
     		  newBody.atk = old.atk;
 
@@ -232,7 +235,7 @@ public class BodyMigration {
     				  newBody.kind = BodyKind.WAZA;
     				  break;
     			  default:
-    				  newBody.type.add(BodyAttribute.convert(i));
+    				  newBody.attrList.add(BodyAttribute.convert(i));
     			  }
     		  }
     		  
@@ -281,14 +284,14 @@ public class BodyMigration {
     		  newBody.moveType = old.moveType;
 //    		  newBody.color = old.color;
     		  newBody.img = old.img;
-    		  newBody.maai = old.maai;
+    		  newBody.range = old.maai;
     		  newBody.scope = old.scope;
     		  newBody.moveturn = old.moveturn;
-    		  newBody.gx = old.gx;
-    		  newBody.gy = old.gy;
+    		  newBody.goalX = old.gx;
+    		  newBody.goalY = old.gy;
     		  newBody.store = old.store;
     		  newBody.atk = old.atk;
-    		  newBody.type = old.type;
+    		  newBody.attrList = old.type;
     		  newBody.kind = old.kind;
     		  
     		  newBody.color = GameColor.convert(old.color);
@@ -300,6 +303,66 @@ public class BodyMigration {
           String json = JSON.encode(newBodys, true);
           
           FileUtils.write(new File("target/body/" + body + ".json"), json, "UTF-8");
+
+      }
+    }
+    
+    @Test
+    public void migrate_007() throws Exception {
+        List<String> bodys = getFileNames();
+
+      for (String body : bodys) {
+    	  
+    	  OldBody4[] oldBodys = JsonIO.read("data/body/" + body + ".json", OldBody4[].class);
+          
+          List<Body> newBodys = new ArrayList<>();
+    	  for (OldBody4 old : oldBodys) {
+    		  Body newBody = new Body();
+    		  BeanUtils.copyProperties(newBody, old);
+    		  newBody.attrList = old.type;
+    		  newBody.range = old.maai;
+    		  newBody.goalX = old.gx;
+    		  newBody.goalY = old.gy;
+    		  
+    		  newBodys.add(newBody);
+    	  }
+ 
+          
+          String json = JSON.encode(newBodys, true);
+          
+          FileUtils.write(new File("target/body/" + body + ".json"), json, "UTF-8");
+
+      }
+    }
+    
+    @Test
+    public void migrate_008() throws Exception {
+        List<String> bodys = getFileNames();
+
+      for (String body : bodys) {
+    	  
+    	  Body[] oldBodys = JsonIO.read("data/body/" + body + ".json", Body[].class);
+          
+          List<BodyData> newBodys = new ArrayList<>();
+          List<DeployData> newDeploys = new ArrayList<>();
+    	  for (Body oldBody : oldBodys) {
+    		  BodyData newBody = new BodyData();
+    		  BeanUtils.copyProperties(newBody, oldBody);
+    		  
+    		  DeployData deploy = new DeployData();
+    		  BeanUtils.copyProperties(deploy, oldBody);
+    		  
+    		  newBodys.add(newBody);
+    		  newDeploys.add(deploy);
+    	  }
+ 
+          
+          String json = JSON.encode(newBodys, true);
+          
+          FileUtils.write(new File("target/body/" + body + ".json"), json, "UTF-8");
+          
+          String deployJson = JSON.encode(newDeploys, true);
+          FileUtils.write(new File("target/deploy/" + body.replace("E", "D") + ".json"), deployJson, "UTF-8");
 
       }
     }

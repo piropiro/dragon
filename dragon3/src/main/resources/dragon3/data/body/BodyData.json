@@ -53,7 +53,7 @@
 		"soulType": "RED",
 		"str": 20,
 		"wazaList": [
-			"slash",
+			"waza_001",
 			"none",
 			"none"
 		],
@@ -83,7 +83,7 @@
 		"soulType": "BLUE",
 		"str": 0,
 		"wazaList": [
-			"fire",
+			"waza_007",
 			"none",
 			"none"
 		],
@@ -113,7 +113,7 @@
 		"soulType": "RED",
 		"str": 12,
 		"wazaList": [
-			"slash",
+			"waza_004",
 			"none",
 			"none"
 		],

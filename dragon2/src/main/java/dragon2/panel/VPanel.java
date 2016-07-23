@@ -313,9 +313,9 @@ public class VPanel extends JPanelBase implements UnitWorks, ActionListener,
 			Body body = (Body) iterator.next();
 			body.x = 19 - body.x;
 			body.y = 14 - body.y;
-			if (body.gx != 0 || body.gy != 0) {
-				body.gx = 19 - body.gx;
-				body.gy = 14 - body.gy;
+			if (body.goalX != 0 || body.goalY != 0) {
+				body.goalX = 19 - body.goalX;
+				body.goalY = 14 - body.goalY;
 			}
 		}
 

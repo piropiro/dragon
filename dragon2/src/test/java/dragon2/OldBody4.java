@@ -1,4 +1,4 @@
-package dragon2.common;
+package dragon2;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -14,7 +14,7 @@ import dragon2.common.constant.BodyAttribute;
 import mine.MineException;
 
 @Data
-public class Body implements Serializable, Cloneable {
+public class OldBody4 implements Serializable, Cloneable {
 
     public static final long serialVersionUID = -2486607915340385590L;
     
@@ -45,24 +45,24 @@ public class Body implements Serializable, Cloneable {
 	public BodyKind kind;
 
 
-	public List<BodyAttribute> attrList;
-	public int range;
+	public List<BodyAttribute> type;
+	public int maai;
 	public int scope;
 	public int moveturn;
-	public int goalX;
-	public int goalY;
+	public int gx;
+	public int gy;
 	public int store;
-	private Set<BodyAttribute> attrSet;
+	private Set<BodyAttribute> typeState;
         
-	public Body() {
+	public OldBody4() {
 		atk = new int[6];
-		attrList = new ArrayList<>();
+		type = new ArrayList<>();
 		name = "none";
 	}
 
-	public Body copy() {
+	public OldBody4 copy() {
 		try {
-			return (Body) clone();
+			return (OldBody4) clone();
 		} catch (CloneNotSupportedException clonenotsupportedexception) {
                     throw new MineException(clonenotsupportedexception);
 		}
@@ -80,26 +80,26 @@ public class Body implements Serializable, Cloneable {
 	}
 
 	public void newType() {
-		attrSet = new HashSet<>();
-		Body.this.mergeTypeState(attrList);
+		typeState = new HashSet<>();
+		OldBody4.this.mergeTypeState(type);
 	}
 
 	public void mergeTypeState(List<BodyAttribute> ai) {
 		for (BodyAttribute type : ai) {
-			attrSet.add(type);
+			typeState.add(type);
 		}
 	}
 
 	public void setTypeState(BodyAttribute type, boolean flag) {
 		if (flag) {
-			attrSet.add(type);
+			typeState.add(type);
 		} else {
-			attrSet.remove(type);
+			typeState.remove(type);
 		}
 	}
 
 	public boolean isType(BodyAttribute type) {
-		return attrSet.contains(type);
+		return typeState.contains(type);
 	}
 
 	public boolean isAlive() {

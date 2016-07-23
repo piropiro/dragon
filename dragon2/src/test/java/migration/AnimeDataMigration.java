@@ -86,6 +86,7 @@ public class AnimeDataMigration {
         
      	List<AnimeData> newList = new ArrayList<>();
      	
+     	int i = 0;
      	Set<String> animeIdSet = new HashSet<>();
      	for (AttackData attack : attacks) {
      		AnimeData anime = (AnimeData)BeanUtils.cloneBean(animes[attack.getAnimeN1()]);
@@ -102,9 +103,10 @@ public class AnimeDataMigration {
      			anime.setType(attack.getAnimeType());
      			anime.setName(attack.getAnimeType().getText() + "." + anime.getName());
      			newList.add(anime);
-     			
-     			attack.setAnimeId(animeId);
      		}
+     		
+ 			attack.setId(String.format("waza_%03d",i++));
+ 			attack.setAnimeId(animeId);
      	}
 
         String animeJson = JSON.encode(newList, true);

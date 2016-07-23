@@ -29,7 +29,7 @@
 	},
 	{
 		"bodyId": "short.sword",
-		"deployType": "NONE",
+		"deployType": "NEUTRAL_CHARA",
 		"goalX": 3,
 		"goalY": 1,
 		"id": null,
@@ -43,7 +43,7 @@
 	},
 	{
 		"bodyId": "class.fighter",
-		"deployType": "NONE",
+		"deployType": "NEUTRAL_CHARA",
 		"goalX": 0,
 		"goalY": 0,
 		"id": null,
@@ -57,7 +57,7 @@
 	},
 	{
 		"bodyId": "shield.small",
-		"deployType": "NONE",
+		"deployType": "NEUTRAL_CHARA",
 		"goalX": 0,
 		"goalY": 0,
 		"id": null,
@@ -71,7 +71,7 @@
 	},
 	{
 		"bodyId": "dragon.robe",
-		"deployType": "NONE",
+		"deployType": "NEUTRAL_CHARA",
 		"goalX": 0,
 		"goalY": 0,
 		"id": null,
