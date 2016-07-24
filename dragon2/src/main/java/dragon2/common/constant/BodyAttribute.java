@@ -62,6 +62,7 @@ public enum BodyAttribute {
 	LITE_WALK("軽歩可能"), // 57
 	BERSERK("暴走"), // 58
 
+	REGENE("自然治癒"), // doragon3
 	;
 	
 	private String text;

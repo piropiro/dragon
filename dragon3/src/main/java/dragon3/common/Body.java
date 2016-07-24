@@ -97,6 +97,15 @@ public class Body implements Serializable, Cloneable {
 		wazaList.clear();
 	}
 	
+	public void restrict() {
+		hpMax = Math.min(999, hpMax);
+		str = Math.min(999, str);
+		def = Math.min(999, def);
+		mst = Math.min(999, mst);
+		mdf = Math.min(999, mdf);
+		hit = Math.min(999, hit);
+		mis = Math.min(999, mis);
+	}
 
 	@Override
 	public String toString() {

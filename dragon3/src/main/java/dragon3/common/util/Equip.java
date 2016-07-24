@@ -78,15 +78,7 @@ public class Equip {
 
 
 
-	public static void restrict(Body b) {
-		b.setHpMax(Math.min(999, b.getHpMax()));
-		b.setStr(Math.min(999, b.getStr()));
-		b.setDef(Math.min(999, b.getDef()));
-		b.setMst(Math.min(999, b.getMst()));
-		b.setMdf(Math.min(999, b.getMdf()));
-		b.setHit(Math.min(999, b.getHit()));
-		b.setMis(Math.min(999, b.getMis()));
-	}
+
 
 	/*** Player ************************************/
 
@@ -137,7 +129,7 @@ public class Equip {
 		
 		
 		getAttack(ba);
-		restrict(ba);
+		ba.restrict();
 	}
 
 

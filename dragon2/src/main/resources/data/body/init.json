@@ -54,7 +54,7 @@
 		"goalY": 4,
 		"hit": 18,
 		"hitMax": 180,
-		"hp": 0,
+		"hp": 24,
 		"hpMax": 24,
 		"img": 1,
 		"kind": "CHARA",

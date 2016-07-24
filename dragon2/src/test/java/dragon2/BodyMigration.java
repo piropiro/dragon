@@ -10,7 +10,6 @@ import static org.junit.Assert.assertThat;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Vector;
@@ -24,6 +23,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import dragon2.attack.AttackData;
 import dragon2.common.Body;
 import dragon2.common.constant.BodyAttribute;
 import dragon2.common.constant.BodyKind;
@@ -31,6 +31,9 @@ import dragon2.common.constant.GameColor;
 import dragon2.common.constant.MoveType;
 import dragon3.bean.BodyData;
 import dragon3.bean.DeployData;
+import dragon3.bean.DeployType;
+import dragon3.common.constant.ArmorType;
+import dragon3.common.constant.WeponType;
 import mine.DataStream;
 import mine.io.BeanIO;
 import mine.io.JsonIO;
@@ -363,8 +366,25 @@ public class BodyMigration {
       }
     }
     
+    @Test
+    public void calc_test() throws Exception {
+    	int n = 17;
+    	int level = 2;
+    	
+    	double rate = Math.pow(1.1, 10 - level);
+    	int m = (int)(n * rate + 0.5);
+    	
+    	double rate2 = Math.pow(1.1, level - 10);
+    	int m2 = (int)(m * rate2 + 0.5);
+    	
+    	System.out.println("m=" + m);
+    	System.out.println("m2=" + m2);
+    }
 	@Test
 	public void migrate_009() throws Exception {
+		AttackData[] attacks = JsonIO.read("data/waza/AttackData.json", AttackData[].class);
+
+
 		List<String> bodys = getFileNames();
         bodys.remove("E90");
         bodys.remove("E91");
@@ -387,12 +407,71 @@ public class BodyMigration {
 
 				String oldKey = oldBody.getKind().name() + oldBody.getName();
 				BodyData newBody = bodyMap.get(oldKey);
+				
 
 				if (newBody == null) {
 					newBody = new BodyData();
 					BeanUtils.copyProperties(newBody, oldBody);
 					
-					newBody.setImage(String.format("chara_%03d", oldBody.img));
+					double rate = Math.pow(1.1, 10 - oldBody.getLevel());
+					newBody.setHp((int)(oldBody.getHpMax() * rate + 0.5));
+					newBody.setStr((int)(oldBody.getStr() * rate + 0.5));
+					newBody.setDef((int)(oldBody.getDef() * rate + 0.5));
+					newBody.setMst((int)(oldBody.getMst() * rate + 0.5));
+					newBody.setMdf((int)(oldBody.getMdf() * rate + 0.5));
+					newBody.setHit((int)(oldBody.getHit() * rate + 0.5));
+					newBody.setMis((int)(oldBody.getMis() * rate + 0.5));
+
+					// WeponType
+					switch (newBody.getKind()) {
+					case CLASS:
+						switch (oldBody.img) {
+						case 154:
+							newBody.setWeponType(WeponType.SWORD);
+							newBody.setImage("class_sword.png");
+							break;
+						case 155:
+							newBody.setWeponType(WeponType.AX);
+							newBody.setImage("class_ax.png");
+							break;
+						case 156:
+							newBody.setWeponType(WeponType.BODY);
+							newBody.setImage("class_body.png");
+							break;
+						case 157:
+							newBody.setWeponType(WeponType.MAGIC);
+							newBody.setImage("class_magic.png");
+							break;
+						case 158:
+							newBody.setWeponType(WeponType.SPEAR);
+							newBody.setImage("class_spear.png");
+							break;
+						case 159:
+							newBody.setWeponType(WeponType.BOW);
+							newBody.setImage("class_bow.png");
+							break;
+						case 160:
+							newBody.setWeponType(WeponType.KNIFE);
+							newBody.setImage("class_knife.png");
+							break;
+						default:
+						}
+						break;
+					case WEPON:
+					case ARMOR:
+					case CHARA:
+						newBody.setImage(String.format("chara_%03d.png", oldBody.img));
+						for (int n : oldBody.atk) {
+							if (n == 0) continue;
+							newBody.setWeponType(convertAttackN1(attacks[n].attackN1));
+							break;
+						}
+						break;
+					default:
+						newBody.setImage(String.format("chara_%03d.png", oldBody.img));
+					}
+					
+					// WazaList
 					List<String> wazaList = new ArrayList<>();
 					for (int i = 0; i < oldBody.atk.length; i++) {
 						if (oldBody.atk[i] == 0) {
@@ -403,6 +482,32 @@ public class BodyMigration {
 					}
 					newBody.setWazaList(wazaList);
 					
+					// AttrList
+					List<BodyAttribute> attrList = newBody.getAttrList();
+					for (int i = 0; i < attrList.size(); i++) {
+						switch(attrList.get(i)) {
+						case ASK: 
+							attrList.set(i, BodyAttribute.TALKABLE); 
+							break;
+						case HEAL: 
+							attrList.set(i, BodyAttribute.REGENE);
+							break;
+						case NKILL: 
+							attrList.set(i, BodyAttribute.ANTI_DEATH);
+							break;
+						default:
+						}
+					}
+					attrList.remove(BodyAttribute.SUMMON);
+					
+					// ArmorType
+					switch (newBody.getKind()) {
+					case ARMOR:
+					case CHARA:
+						newBody.setArmorType(getArmorType(oldBody));
+					default:
+					}
+					
 					List<BodyData> newBodys = newBodyMap.get(newBody.getKind());
 					
 					newBody.setId(String.format("%s_%03d", newBody.getKind().name().toLowerCase(), newBodys.size() + 1));
@@ -410,6 +515,8 @@ public class BodyMigration {
 					bodyMap.put(oldKey, newBody);
 				}
 				deploy.setBodyId(newBody.getId());
+				deploy.setDeployType(getDeployType(oldBody));
+				
 				newDeploys.add(deploy);
 			}
 
@@ -429,7 +536,61 @@ public class BodyMigration {
 		
 
 	}
+	
+		private WeponType convertAttackN1(int n) {
+			switch (n) {
+			case 0: return WeponType.NONE;
+			case 1: return WeponType.SWORD;
+			case 2: return WeponType.AX;
+			case 3: return WeponType.BODY;
+			case 4: return WeponType.KNIFE;
+			case 5: return WeponType.SPEAR;
+			case 6: return WeponType.BOW;
+			case 7: return WeponType.MAGIC;
+			case 8: return WeponType.BREATH;
+			default:
+				throw new IllegalArgumentException("AttackN1 unmatch:" + n);
+			}
+		}
+			
+	private ArmorType getArmorType(Body b) {
+		switch (b.moveType) {
+		case HEAVY: return ArmorType.HEAVY;
+		default: return ArmorType.LITE;
+		}
+	}
     
+	private DeployType getDeployType(Body b) {
+		switch (b.kind) {
+		case ARMOR:
+		case CLASS:
+		case DOLL:
+		case ITEM:
+		case WEPON:
+			if (b.getGoalX() == 0 && b.getGoalY() == 0) {
+				return DeployType.BOX_ITEM;
+			} else {
+				return DeployType.ENEMY_ITEM;
+			}
+		case CHARA:
+			switch (b.color) {
+			case BLUE: return DeployType.PLAYER_CHARA;
+			case RED: 
+				if (b.attrList.contains(BodyAttribute.SUMMON)) {
+					return DeployType.SUMMON;
+				} else {
+					return DeployType.ENEMY_CHARA;
+				}
+			case GREEN: return DeployType.NEUTRAL_CHARA;
+			default:
+				throw new IllegalArgumentException("DeployType undecided:" + b);
+			}
+		
+		default:
+			throw new IllegalArgumentException("DeployType undecided:" + b);
+		}
+	}
+	
     private List<String> getFileNames() {
         List<String> bodys = new ArrayList<>();
         bodys.add("E90");

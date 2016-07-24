@@ -28,6 +28,6 @@ public class DeployData implements Data {
 
 	@Override
 	public String toString(){
-		return bodyId;
+		return bodyId + " - " + name;
 	}
 }

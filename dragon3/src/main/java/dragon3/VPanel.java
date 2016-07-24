@@ -291,7 +291,7 @@ public class VPanel extends JLayeredPane implements UnitWorks, ActionListener, K
 		Charas.clear();
 		Players = equip.getPlayers();
 		Enemys = this.loadEnemyData(stageData.getId());
-		randomize(Enemys);
+		//randomize(Enemys);
 		reverse(Enemys);
 		treasure = new TreasureManagerImpl(this, Enemys);
 		summon = new SummonManagerImpl(this, Enemys);
@@ -368,31 +368,31 @@ public class VPanel extends JLayeredPane implements UnitWorks, ActionListener, K
 
 	/*** Randomize **************************************************/
 
-	private void randomize(List<Body> v) {
-		int lv = saveManager.getEnemyLevel();
-		int rate = 256;
-		for (int i = lv; i > 0; i--)
-			rate *= 1.5;
-
-		for (Body b : v) {
-			if (b.getLevel() != 0)
-				b.setLevel(b.getLevel() + (lv * 10));
-			b.setHpMax(b.getHpMax() * rate / 256);
-			Equip.restrict(b);
-			b.setMax();
-			b.resetAttr();
-			if (b.getColor() == GameColor.RED) {
-				if (!b.hasAttr(BodyAttribute.TALKABLE)) {
-					b.setStr(Math.max(0, b.getStr() - 2));
-					b.setDef(Math.max(0, b.getDef() - 2));
-					b.setMst(Math.max(0, b.getMst() - 2));
-					b.setMdf(Math.max(0, b.getMdf() - 2));
-					b.setHit(Math.max(0, b.getHit() - 2));
-					b.setMis(Math.max(0, b.getMis() - 2));
-				}
-			}
-		}
-	}
+//	private void randomize(List<Body> v) {
+//		int lv = saveManager.getEnemyLevel();
+//		int rate = 256;
+//		for (int i = lv; i > 0; i--)
+//			rate *= 1.5;
+//
+//		for (Body b : v) {
+//			if (b.getLevel() != 0)
+//				b.setLevel(b.getLevel() + (lv * 10));
+//			b.setHpMax(b.getHpMax() * rate / 256);
+//			b.restrict();
+//			b.setMax();
+//			b.resetAttr();
+//			if (b.getColor() == GameColor.RED) {
+//				if (!b.hasAttr(BodyAttribute.TALKABLE)) {
+//					b.setStr(Math.max(0, b.getStr() - 2));
+//					b.setDef(Math.max(0, b.getDef() - 2));
+//					b.setMst(Math.max(0, b.getMst() - 2));
+//					b.setMdf(Math.max(0, b.getMdf() - 2));
+//					b.setHit(Math.max(0, b.getHit() - 2));
+//					b.setMis(Math.max(0, b.getMis() - 2));
+//				}
+//			}
+//		}
+//	}
 
 	/*** UnitWorks *************************************/
 

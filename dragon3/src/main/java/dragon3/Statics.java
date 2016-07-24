@@ -16,7 +16,7 @@ public class Statics {
 
 	public static final String[] STAGE_FILES = { "StageData.json" };
 	public static final String[] WAZA_FILES =  { "WazaData.json" };
-	public static final String[] BODY_FILES =  { "BodyData.json", "ClassData.json", "WeponData.json", "ArmorData.json", "ItemData.json" };
+	public static final String[] BODY_FILES =  { "CharaData.json", "ClassData.json", "WeponData.json", "ArmorData.json", "ItemData.json" };
 
 	public static final String WAZA_DIR = "dragon3/data/waza/";
 
