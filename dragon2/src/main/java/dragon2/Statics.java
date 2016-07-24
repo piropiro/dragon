@@ -1,8 +1,8 @@
 package dragon2;
-// Decompiled by Jad v1.5.8g. Copyright 2001 Pavel Kouznetsov.
-// Jad home page: http://www.kpdus.com/jad.html
+
+
 // Decompiler options: packimports(3)
-// Source File Name:   Statics.java
+
 
 import java.awt.Image;
 import java.util.Arrays;
@@ -11,7 +11,8 @@ import java.util.List;
 import dragon2.anime.AnimeData;
 import dragon2.attack.AttackData;
 import dragon2.common.Body;
-import dragon2.common.constant.Kinds;
+import dragon2.common.constant.BodyKind;
+import dragon2.common.constant.GameColor;
 import mine.ImageLoader;
 import mine.Mine;
 import mine.io.JsonIO;
@@ -65,9 +66,9 @@ public class Statics {
 		body.name = attackdata.name;
 		body.level = i;
 		body.hpMax = 1;
-		body.color = 2;
+		body.color = GameColor.GREEN;
 		body.atk[0] = i;
-		body.kind = Kinds.WAZA;
+		body.kind = BodyKind.WAZA;
 		body.setMax();
 		body.newType();
 		return body;

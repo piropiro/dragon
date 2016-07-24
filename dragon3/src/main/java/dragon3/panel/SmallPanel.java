@@ -8,7 +8,7 @@ import javax.swing.JComponent;
 
 import mine.MineUtils;
 import mine.awt.MineAwtUtils;
-import dragon3.common.constant.GameColors;
+import dragon3.common.constant.GameColor;
 
 public class SmallPanel extends JComponent {
 
@@ -36,7 +36,7 @@ public class SmallPanel extends JComponent {
 
 	/*** Display ******************************************************/
 
-	public void display(String label_, GameColors color, int x, int y) {
+	public void display(String label_, GameColor color, int x, int y) {
 
 		this.label = label_;
 		

@@ -6,7 +6,7 @@ import dragon3.UnitWorks;
 import dragon3.camp.Camp;
 import dragon3.common.Body;
 import dragon3.common.constant.BodyKind;
-import dragon3.common.constant.GameColors;
+import dragon3.common.constant.GameColor;
 import dragon3.common.constant.Page;
 import dragon3.common.constant.Texts;
 import dragon3.map.MapWorks;
@@ -66,7 +66,7 @@ public class CampPaint implements PaintListener {
 				line = Texts.help[Texts.H_CAMP6];
 			}
 		}
-		pm.displayHelp(uw.getMapWorks().getWaku(), line, GameColors.BLUE);
+		pm.displayHelp(uw.getMapWorks().getWaku(), line, GameColor.BLUE);
 	}
 
 
@@ -171,7 +171,7 @@ public class CampPaint implements PaintListener {
 	public void mouseMoved(int x, int y) {
 		mw.wakuMove(x, y);
 		Body b = camp.getEquip().search(x, y);
-		if (b != null && b.getColor() == GameColors.BLUE) {
+		if (b != null && b.getColor() == GameColor.BLUE) {
 			camp.getEquip().equip(b);
 		}
 		pm.displayStatus(b);

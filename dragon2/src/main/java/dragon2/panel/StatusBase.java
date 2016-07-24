@@ -6,7 +6,8 @@ import dragon2.Statics;
 import dragon2.UnitWorks;
 import dragon2.common.Body;
 import dragon2.common.constant.Texts;
-import dragon2.common.constant.Types;
+import dragon2.common.constant.BodyAttribute;
+import dragon2.common.constant.GameColor;
 import mine.JCanvas;
 import mine.Mine;
 
@@ -62,9 +63,9 @@ public abstract class StatusBase extends JCanvas {
 		drawImage(Statics.chara, body.img, 10, 10, g);
 		g.drawString(body.name, 50, 22);
 		g.drawString("Lv." + body.level, 52, 41);
-		String s = body.isType(Types.M_RED) ? "R" : "";
-		String s1 = body.isType(Types.M_GREEN) ? "G" : "";
-		String s2 = body.isType(Types.M_BLUE) ? "B" : "";
+		String s = body.isType(BodyAttribute.M_RED) ? "R" : "";
+		String s1 = body.isType(BodyAttribute.M_GREEN) ? "G" : "";
+		String s2 = body.isType(BodyAttribute.M_BLUE) ? "B" : "";
 		g.drawString(s + s1 + s2, 112, 41);
 		if (flag) {
 			drawLine(Texts.hp, 0, 0, g);
@@ -93,17 +94,17 @@ public abstract class StatusBase extends JCanvas {
 		g.drawString(s, 10 + 70 * i, 60 + 19 * j);
 	}
 
-	public boolean clear(int i, Graphics g) {
+	public boolean clear(GameColor i, Graphics g) {
 		switch (i) {
-		case 1: // '\001'
+		case BLUE: // '\001'
 			g.setColor(new Color(0, 0, 150, 200));
 			break;
 
-		case 3: // '\003'
+		case RED: // '\003'
 			g.setColor(new Color(150, 0, 0, 200));
 			break;
 
-		case 2: // '\002'
+		case GREEN: // '\002'
 			g.setColor(new Color(0, 100, 0, 220));
 			break;
 		}

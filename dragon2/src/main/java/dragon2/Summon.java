@@ -1,15 +1,15 @@
 package dragon2;
-// Decompiled by Jad v1.5.8g. Copyright 2001 Pavel Kouznetsov.
-// Jad home page: http://www.kpdus.com/jad.html
-// Decompiler options: packimports(3) 
-// Source File Name:   Summon.java
+
+
+
+
 
 import java.awt.Point;
 import java.util.Iterator;
 import java.util.Vector;
 
 import dragon2.common.Body;
-import dragon2.common.constant.Types;
+import dragon2.common.constant.BodyAttribute;
 import mine.UnitMap;
 
 public class Summon {
@@ -21,12 +21,12 @@ public class Summon {
 		int i = 0;
 		for (Iterator iterator = vector.iterator(); iterator.hasNext();) {
 			Body body = (Body) iterator.next();
-			if (body.isType(Types.SUMMON)) {
-				unitmap.S(0, 0, body.gx, body.gy, 25);
-				body.x = body.gx;
-				body.y = body.gy;
-				body.gx = 0;
-				body.gy = 0;
+			if (body.isType(BodyAttribute.SUMMON)) {
+				unitmap.S(0, 0, body.goalX, body.goalY, 25);
+				body.x = body.goalX;
+				body.y = body.goalY;
+				body.goalX = 0;
+				body.goalY = 0;
 				body.hp = 0;
 				devils[i++] = body;
 			}
@@ -39,8 +39,8 @@ public class Summon {
 		for (int j = 0; j < devils.length; j++) {
 			Body body = devils[j];
 			if (body != null && point.x == body.x && point.y == body.y
-					&& i > body.moveturn)
-				i = body.moveturn;
+					&& i > body.limitTurn)
+				i = body.limitTurn;
 		}
 
 		return i;
@@ -50,7 +50,7 @@ public class Summon {
 		int i = uw.getTurn();
 		for (int j = 0; j < devils.length; j++) {
 			Body body = devils[j];
-			if (body != null && body.moveturn <= i
+			if (body != null && body.limitTurn <= i
 					&& V.G(2, 0, body.x, body.y) == 0) {
 				Point point = new Point(body.x, body.y);
 				V.S(0, 0, body.x, body.y, 24);

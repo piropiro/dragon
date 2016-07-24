@@ -1,8 +1,8 @@
 package dragon2.paint;
-// Decompiled by Jad v1.5.8g. Copyright 2001 Pavel Kouznetsov.
-// Jad home page: http://www.kpdus.com/jad.html
-// Decompiler options: packimports(3) 
-// Source File Name:   TalkPaint.java
+
+
+
+
 
 import java.awt.Point;
 
@@ -11,7 +11,7 @@ import dragon2.Rewalk;
 import dragon2.card.CardPaint;
 import dragon2.common.Body;
 import dragon2.common.constant.Texts;
-import dragon2.common.constant.Types;
+import dragon2.common.constant.BodyAttribute;
 
 public class TalkPaint extends ActionBase {
 
@@ -56,16 +56,16 @@ public class TalkPaint extends ActionBase {
 			return null;
 		if (body.color == ba.color)
 			return null;
-		if (body.isType(Types.ANTI_SLEEP))
+		if (body.isType(BodyAttribute.ANTI_SLEEP))
 			return null;
 		if (ba.level != 0 && body.level > ba.level)
 			return null;
 		if (PaintBase.uw.have(body))
 			return null;
-		if (ba.isType(Types.MASTER))
+		if (ba.isType(BodyAttribute.MASTER))
 			return body;
-		if ((ba.isType(Types.ASK) || ba.isType(Types.TALKABLE))
-				&& (body.isType(Types.ASK) || body.isType(Types.TALKABLE)))
+		if ((ba.isType(BodyAttribute.ASK) || ba.isType(BodyAttribute.TALKABLE))
+				&& (body.isType(BodyAttribute.ASK) || body.isType(BodyAttribute.TALKABLE)))
 			return body;
 		else
 			return null;

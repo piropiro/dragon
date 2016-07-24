@@ -2,12 +2,16 @@
 	{
 		"alive": false,
 		"atk": [98, 99, 101, 0, 0, 0],
-		"color": 1,
+		"attrList": [
+			"DRAGON"
+		],
+		"attrSet": null,
+		"color": "BLUE",
 		"def": 0,
 		"defMax": 0,
 		"exp": 0,
-		"gx": 0,
-		"gy": 0,
+		"goalX": 0,
+		"goalY": 0,
 		"hit": 0,
 		"hitMax": 0,
 		"hp": 0,
@@ -15,25 +19,21 @@
 		"img": 28,
 		"kind": "CHARA",
 		"level": 0,
-		"maai": 10,
+		"limitTurn": 0,
 		"mdf": 0,
 		"mdfMax": 0,
 		"mis": 0,
 		"misMax": 0,
 		"moveStep": 10,
 		"moveType": "HOVER",
-		"moveturn": 0,
 		"mst": 0,
 		"mstMax": 0,
 		"name": "竜妹",
+		"range": 10,
 		"scope": 1,
 		"store": 0,
 		"str": 0,
 		"strMax": 0,
-		"type": [
-			"DRAGON"
-		],
-		"typeState": null,
 		"x": 9,
 		"y": 6
 	}

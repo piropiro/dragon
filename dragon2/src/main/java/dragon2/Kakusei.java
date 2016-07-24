@@ -1,15 +1,15 @@
 package dragon2;
-// Decompiled by Jad v1.5.8g. Copyright 2001 Pavel Kouznetsov.
-// Jad home page: http://www.kpdus.com/jad.html
-// Decompiler options: packimports(3) 
-// Source File Name:   Kakusei.java
+
+
+
+
 
 import java.awt.Point;
 import java.util.Iterator;
 import java.util.Vector;
 
 import dragon2.common.Body;
-import dragon2.common.constant.Types;
+import dragon2.common.constant.BodyAttribute;
 import dragon2.paint.PaintBase;
 import mine.DataStream;
 import mine.UnitMap;
@@ -36,7 +36,7 @@ public class Kakusei extends ActionBase {
 	private Body getSister(Vector vector) {
 		for (Iterator iterator = vector.iterator(); iterator.hasNext();) {
 			Body body = (Body) iterator.next();
-			if (body.isType(Types.SISTER))
+			if (body.isType(BodyAttribute.SISTER))
 				return body;
 		}
 

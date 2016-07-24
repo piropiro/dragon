@@ -9,7 +9,7 @@ import mine.paint.MineGraphics;
 import dragon3.Statics;
 import dragon3.bean.WazaData;
 import dragon3.common.Body;
-import dragon3.common.constant.GameColors;
+import dragon3.common.constant.GameColor;
 import dragon3.common.constant.BodyKind;
 import dragon3.common.util.Equip;
 import dragon3.image.ImageManager;
@@ -39,7 +39,7 @@ public class DataPanel extends PanelBase {
 
 	private DataPanelPainter pp;
 
-	private GameColors bgcolor = GameColors.BLUE;
+	private GameColor bgcolor = GameColor.BLUE;
 
 
 	/*** Constructer *******************************************/
@@ -52,7 +52,7 @@ public class DataPanel extends PanelBase {
 	/*** Score *******************************************/
 
 	public void displayScore1(SaveManager save) {
-		bgcolor = GameColors.BLUE;
+		bgcolor = GameColor.BLUE;
 		setLocate(new Point(2, 1), 1);
 		pp = new Score1Paint(save, im.getBack());
 		repaint();
@@ -60,7 +60,7 @@ public class DataPanel extends PanelBase {
 	}
 
 	public void displayScore2(Equip equip, SaveManager save) {
-		bgcolor = GameColors.BLUE;
+		bgcolor = GameColor.BLUE;
 		setLocate(new Point(3, 1), 1);
 		pp = new Score2Paint(equip, save);
 		repaint();
@@ -69,7 +69,7 @@ public class DataPanel extends PanelBase {
 
 	/*** Status *******************************************/
 
-	public void displayCamp(Point pa, int tikei, GameColors bgcolor_) {
+	public void displayCamp(Point pa, int tikei, GameColor bgcolor_) {
 		this.bgcolor = bgcolor_;
 		setLocate(pa, 1);
 		pp = new CampDataPaint(tikei, im.getBack(), im.getWaku());
@@ -78,7 +78,7 @@ public class DataPanel extends PanelBase {
 	}
 
 	public void displayPlace(Point pa, int tikei) {
-		bgcolor = GameColors.GREEN;
+		bgcolor = GameColor.GREEN;
 		setLocate(pa, 1);
 		pp = new PlacePaint(tikei, im.getBack());
 		repaint();
@@ -86,7 +86,7 @@ public class DataPanel extends PanelBase {
 	}
 
 	public void displayItem(Point pa, int turn, int limit, int tikei) {
-		bgcolor = GameColors.GREEN;
+		bgcolor = GameColor.GREEN;
 		setLocate(pa, 1);
 		pp = new ItemPaint(turn, limit, tikei, im.getBack());
 		repaint();
@@ -94,7 +94,7 @@ public class DataPanel extends PanelBase {
 	}
 	
 	public void displaySummon(Point pa, int turn, int limit, int tikei) {
-		bgcolor = GameColors.GREEN;
+		bgcolor = GameColor.GREEN;
 		setLocate(pa, 1);
 		pp = new SummonPaint(turn, limit, tikei, im.getBack());
 		repaint();
@@ -102,7 +102,7 @@ public class DataPanel extends PanelBase {
 	}
 
 	public void displayData(Point pa, int turn, int treasureLimit, String treasureCount) {
-		bgcolor = GameColors.GREEN;
+		bgcolor = GameColor.GREEN;
 		setLocate(pa, 1);
 		pp = new DataPaint(turn, treasureLimit, treasureCount, im.getBack());
 		repaint();

@@ -8,8 +8,8 @@ import dragon2.Statics;
 import dragon2.UnitWorks;
 import dragon2.attack.AttackData;
 import dragon2.common.Body;
-import dragon2.common.constant.Colors;
-import dragon2.common.constant.Kinds;
+import dragon2.common.constant.BodyKind;
+import dragon2.common.constant.GameColor;
 import dragon2.common.constant.Texts;
 
 public class Equip {
@@ -32,7 +32,7 @@ public class Equip {
 	private Body searchItem(int i, int j) {
 		for (Iterator iterator = Equips.iterator(); iterator.hasNext();) {
 			Body body = (Body) iterator.next();
-			if (body.color == 2 && body.x == i && body.y == j)
+			if (body.color == GameColor.GREEN && body.x == i && body.y == j)
 				return body;
 		}
 
@@ -62,16 +62,16 @@ public class Equip {
 				i += (i * (body1.level - body.level)) / 2;
 		body.exp += i;
 		body1.exp = 0;
-		if (body.kind == Kinds.DOLL) {
+		if (body.kind == BodyKind.DOLL) {
 			for (int j = 2; j <= 11; j++) {
-				Body body2 = searchItem(body.gx + j, body.gy);
+				Body body2 = searchItem(body.goalX + j, body.goalY);
 				if (body2 != null)
 					body2.exp += (double) i * 1.5D;
 			}
 
 		} else {
 			for (int k = 1; k <= 4; k++) {
-				Body body3 = searchItem(body.gx + k, body.gy);
+				Body body3 = searchItem(body.goalX + k, body.goalY);
 				if (body3 != null)
 					body3.exp += i;
 			}
@@ -89,16 +89,16 @@ public class Equip {
 				uw.startMPanel(body);
 			}
 			for (int i = 2; i <= 11; i++) {
-				Body body2 = searchItem(body.gx + i, body.gy);
+				Body body2 = searchItem(body.goalX + i, body.goalY);
 				itemup(body2);
 			}
 
 			return;
 		}
-		Body body1 = searchItem(body.gx + 1, body.gy);
-		Body body3 = searchItem(body.gx + 2, body.gy);
-		Body body4 = searchItem(body.gx + 3, body.gy);
-		Body body5 = searchItem(body.gx + 4, body.gy);
+		Body body1 = searchItem(body.goalX + 1, body.goalY);
+		Body body3 = searchItem(body.goalX + 2, body.goalY);
+		Body body4 = searchItem(body.goalX + 3, body.goalY);
+		Body body5 = searchItem(body.goalX + 4, body.goalY);
 		itemup(body1);
 		itemup(body3);
 		itemup(body4);
@@ -168,8 +168,8 @@ public class Equip {
 		int i1 = body.mdfMax / 10;
 		int j1 = body.hitMax / 10;
 		int k1 = body.misMax / 10;
-		Body body1 = searchItem(body.gx + 1, body.gy);
-		Body body2 = searchItem(body.gx + 4, body.gy);
+		Body body1 = searchItem(body.goalX + 1, body.goalY);
+		Body body2 = searchItem(body.goalX + 4, body.goalY);
 		if (body.level == 0) {
 			body.hpMax += 10;
 			body.strMax *= 2;
@@ -235,7 +235,7 @@ public class Equip {
 		for (int i = 4; i >= 0; i--) {
 			Body body = search(1, 1 + i * 3);
 			if (body != null) {
-				body.color = Colors.getPC();
+				body.color = GameColor.BLUE;
 				body.setMax();
 				equip(body);
 				vector.add(body);
@@ -249,8 +249,8 @@ public class Equip {
 		Body body1 = null;
 		for (Iterator iterator = Equips.iterator(); iterator.hasNext();) {
 			Body body2 = (Body) iterator.next();
-			if (Colors.isPlayer(body2) && body2.gx == body.gx + 7
-					&& body2.gy == body.gy) {
+			if (GameColor.isPlayer(body2) && body2.goalX == body.goalX + 7
+					&& body2.goalY == body.goalY) {
 				body1 = body2;
 				break;
 			}
@@ -268,22 +268,22 @@ public class Equip {
 	public void equip(Body body) {
 		body.setMax();
 		body.newType();
-		if (body.kind == Kinds.DOLL) {
+		if (body.kind == BodyKind.DOLL) {
 			equipDoll(body);
 			return;
 		}
-		Body body1 = searchItem(body.gx + 1, body.gy);
-		Body body2 = searchItem(body.gx + 2, body.gy);
-		Body body3 = searchItem(body.gx + 3, body.gy);
-		Body body4 = searchItem(body.gx + 4, body.gy);
+		Body body1 = searchItem(body.goalX + 1, body.goalY);
+		Body body2 = searchItem(body.goalX + 2, body.goalY);
+		Body body3 = searchItem(body.goalX + 3, body.goalY);
+		Body body4 = searchItem(body.goalX + 4, body.goalY);
 		if (body1 != null)
-			body.mergeTypeState(body1.type);
+			body.mergeTypeState(body1.attrList);
 		if (body2 != null)
-			body.mergeTypeState(body2.type);
+			body.mergeTypeState(body2.attrList);
 		if (body3 != null)
-			body.mergeTypeState(body3.type);
+			body.mergeTypeState(body3.attrList);
 		if (body4 != null)
-			body.mergeTypeState(body4.type);
+			body.mergeTypeState(body4.attrList);
 		equip(body, body2);
 		equip(body, body3);
 		equip(body, body4);
@@ -293,20 +293,20 @@ public class Equip {
 
 	public void equipDoll(Body body) {
 		for (int i = 2; i < 12; i++) {
-			Body body1 = searchItem(body.gx + i, body.gy);
+			Body body1 = searchItem(body.goalX + i, body.goalY);
 			if (body1 != null) {
 				equip(body, body1);
-				body.mergeTypeState(body1.type);
+				body.mergeTypeState(body1.attrList);
 			}
 		}
 
-		Body body2 = searchItem(body.gx + 2, body.gy);
-		Body body3 = searchItem(body.gx + 5, body.gy);
-		Body body4 = searchItem(body.gx + 6, body.gy);
-		Body body5 = searchItem(body.gx + 8, body.gy);
-		Body body6 = searchItem(body.gx + 9, body.gy);
-		Body body7 = searchItem(body.gx + 10, body.gy);
-		Body body8 = searchItem(body.gx + 11, body.gy);
+		Body body2 = searchItem(body.goalX + 2, body.goalY);
+		Body body3 = searchItem(body.goalX + 5, body.goalY);
+		Body body4 = searchItem(body.goalX + 6, body.goalY);
+		Body body5 = searchItem(body.goalX + 8, body.goalY);
+		Body body6 = searchItem(body.goalX + 9, body.goalY);
+		Body body7 = searchItem(body.goalX + 10, body.goalY);
+		Body body8 = searchItem(body.goalX + 11, body.goalY);
 		body.atk[0] = body2 == null ? 0 : body2.atk[0];
 		body.atk[2] = body3 == null ? 0 : body3.atk[0];
 		body.atk[5] = body4 == null ? 0 : body4.atk[0];
@@ -346,10 +346,10 @@ public class Equip {
 
 	public boolean[] getAttack(Body body) {
 		boolean aflag[] = new boolean[6];
-		Body body1 = searchItem(body.gx + 1, body.gy);
-		Body body2 = searchItem(body.gx + 2, body.gy);
-		Body body3 = searchItem(body.gx + 3, body.gy);
-		Body body4 = searchItem(body.gx + 4, body.gy);
+		Body body1 = searchItem(body.goalX + 1, body.goalY);
+		Body body2 = searchItem(body.goalX + 2, body.goalY);
+		Body body3 = searchItem(body.goalX + 3, body.goalY);
+		Body body4 = searchItem(body.goalX + 4, body.goalY);
 		if (body1 != null)
 			body.atk[0] = body1.atk[0];
 		if (body2 != null) {

@@ -20,9 +20,12 @@ import org.junit.Test;
 
 import dragon2.OldAttackData;
 import dragon2.OldAttackData2;
+import dragon2.OldAttackData3;
 import dragon2.attack.AttackData;
-import dragon2.common.constant.Effects;
+import dragon2.common.constant.AttackEffect;
+import dragon2.common.constant.DamageType;
 import dragon2.common.constant.EnergyType;
+import dragon2.common.constant.GameColor;
 import dragon2.common.constant.TargetType;
 import mine.io.BeanIO;
 import mine.io.JsonIO;
@@ -72,9 +75,9 @@ public class AttackDataMigration {
 			AttackData newData = new AttackData();
 
 			newData.name = oldData.name;
-			newData.sname = oldData.sname;
-			newData.color = oldData.color;
-			newData.attackType = oldData.AttackType;
+			newData.label = oldData.sname;
+//			newData.color = oldData.color;
+			newData.damageType = DamageType.convert(oldData.AttackType);
 			newData.attackN1 = oldData.AttackN1;
 //			newData.trType = oldData.TRType;
 //			newData.targetType = oldData.TargetType;
@@ -83,7 +86,7 @@ public class AttackDataMigration {
 //			newData.rangeType = oldData.RangeType;
 //			newData.rangeN1 = oldData.RangeN1;
 //			newData.rangeN2 = oldData.RangeN2;
-			newData.animeType = oldData.AnimeType;
+//			newData.animeType = oldData.AnimeType;
 			newData.animeN1 = oldData.AnimeN1;
 			newData.energyType = EnergyType.convert(oldData.FuelType);
 			newData.energyCost = oldData.FuelN1;
@@ -93,7 +96,7 @@ public class AttackDataMigration {
 				case 0:
 					break;
 				default:
-					newData.effect.add(Effects.convert(i));
+					newData.effect.add(AttackEffect.convert(i));
 				}
 			}
 			
@@ -115,9 +118,9 @@ public class AttackDataMigration {
 			AttackData newData = new AttackData();
 
 			newData.name = oldData.name;
-			newData.sname = oldData.sname;
-			newData.color = oldData.color;
-			newData.attackType = oldData.attackType;
+			newData.label = oldData.sname;
+//			newData.color = oldData.color;
+			newData.damageType = DamageType.convert(oldData.attackType);
 			newData.attackN1 = oldData.attackN1;
 			newData.targetType = TargetType.convert(oldData.trType);
 //			newData.trType = oldData.TRType;
@@ -127,7 +130,7 @@ public class AttackDataMigration {
 //			newData.rangeType = oldData.RangeType;
 //			newData.rangeN1 = oldData.RangeN1;
 //			newData.rangeN2 = oldData.RangeN2;
-			newData.animeType = oldData.animeType;
+//			newData.animeType = oldData.animeType;
 			newData.animeN1 = oldData.animeN1;
 			newData.energyType = EnergyType.convert(oldData.fuelType);
 			newData.energyCost = oldData.fuelN1;
@@ -141,5 +144,72 @@ public class AttackDataMigration {
 
 		FileUtils.write(new File("target/AttackData.json"), json, "UTF-8");
 
+	}
+	
+	@Test
+	public void migrate_004() throws Exception {
+		OldAttackData3[] oldDatas = JsonIO.read("data/waza/AttackData.json", OldAttackData3[].class);
+
+		List<AttackData> newDatas = new ArrayList<>();
+		for (OldAttackData3 oldData : oldDatas) {
+			AttackData newData = new AttackData();
+
+			newData.name = oldData.name;
+			newData.label = oldData.label;
+			newData.labelColor = GameColor.convert(oldData.color);
+			newData.damageType = oldData.damageType;
+			newData.attackN1 = oldData.attackN1;
+			newData.targetType = oldData.targetType;
+//			newData.trType = oldData.TRType;
+//			newData.targetType = oldData.TargetType;
+//			newData.targetN1 = oldData.TargetN1;
+//			newData.targetN2 = oldData.TargetN2;
+//			newData.rangeType = oldData.RangeType;
+//			newData.rangeN1 = oldData.RangeN1;
+//			newData.rangeN2 = oldData.RangeN2;
+			newData.animeType = oldData.animeType;
+			newData.animeN1 = oldData.animeN1;
+			newData.energyType = oldData.energyType;
+			newData.energyCost = oldData.energyCost;
+			newData.effect = oldData.effect;
+			
+			
+			newDatas.add(newData);
+		}
+
+		String json = JSON.encode(newDatas, true);
+
+		FileUtils.write(new File("target/AttackData.json"), json, "UTF-8");
+
+	}
+	
+	@Test
+	public void migrate_005() throws Exception {
+		AttackData[] datas = JsonIO.read("data/waza/AttackData.json", AttackData[].class);
+
+		for (AttackData data : datas) {
+			data.setImage(convertAttackN1(data.attackN1));
+		}
+
+		String json = JSON.encode(datas, true);
+
+		FileUtils.write(new File("target/AttackData.json"), json, "UTF-8");
+
+	}
+	
+	private String convertAttackN1(int n) {
+		switch (n) {
+		case 0: return "none.png";
+		case 1: return "waza_sword.png";
+		case 2: return "waza_ax.png";
+		case 3: return "waza_body.png";
+		case 4: return "waza_knife.png";
+		case 5: return "waza_spear.png";
+		case 6: return "waza_bow.png";
+		case 7: return "waza_magic.png";
+		case 8: return "waza_breath.png";
+		default:
+			throw new IllegalArgumentException("AttackN1 unmatch:" + n);
+		}
 	}
 }

@@ -1,17 +1,17 @@
 package dragon2.paint;
-// Decompiled by Jad v1.5.8g. Copyright 2001 Pavel Kouznetsov.
-// Jad home page: http://www.kpdus.com/jad.html
-// Decompiler options: packimports(3) 
-// Source File Name:   EndPaint.java
+
+
+
+
 
 import java.awt.Point;
 
 import dragon2.ActionBase;
 import dragon2.Rewalk;
 import dragon2.common.Body;
-import dragon2.common.constant.Colors;
+import dragon2.common.constant.BodyAttribute;
+import dragon2.common.constant.GameColor;
 import dragon2.common.constant.Texts;
-import dragon2.common.constant.Types;
 
 public class EndPaint extends ActionBase {
 
@@ -24,7 +24,7 @@ public class EndPaint extends ActionBase {
 	}
 
 	private void setHelp() {
-		if (!Colors.isPlayer(ba)) {
+		if (!GameColor.isPlayer(ba)) {
 			return;
 		} else {
 			PaintBase.uw.setHelp(Texts.help[11], 1);
@@ -53,14 +53,14 @@ public class EndPaint extends ActionBase {
 		Body body = PaintBase.uw.search(point.x, point.y);
 		if (body == null)
 			return false;
-		if (body.isType(Types.ANTI_SLEEP))
+		if (body.isType(BodyAttribute.ANTI_SLEEP))
 			return false;
 		if (PaintBase.V.G(3, 0, point.x, point.y) != 0)
 			return false;
-		if (Colors.isPlayer(body)) {
-			if (body.isType(Types.CHARM))
+		if (GameColor.isPlayer(body)) {
+			if (body.isType(BodyAttribute.CHARM))
 				return false;
-		} else if (!body.isType(Types.CHARM))
+		} else if (!body.isType(BodyAttribute.CHARM))
 			return false;
 		return true;
 	}

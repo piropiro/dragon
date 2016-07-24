@@ -10,7 +10,7 @@ import dragon3.common.DataList;
 import dragon3.common.constant.AttackEffect;
 import dragon3.common.constant.DamageType;
 import dragon3.common.constant.EnergyType;
-import dragon3.common.constant.GameColors;
+import dragon3.common.constant.GameColor;
 import dragon3.common.constant.TargetType;
 import dragon3.image.BodyImageList;
 import dragon3.image.ImageManager;
@@ -39,12 +39,12 @@ public class WazaEditor extends EditPanel<WazaData> implements EditListener<Waza
 		setField(CENTER, "id", "ID");
 		setField(CENTER, "name", "名前");
 		setField(LEFT, "label", "ラベル");
-		setEnumCombo(RIGHT, "labelColor", "カラー", GameColors.class);
+		setEnumCombo(RIGHT, "labelColor", "カラー", GameColor.class);
 		setImageCombo(CENTER, "image", "画像");
 		initCombo("image", bil.getPathList(), bil.getImageList());
 
 		Map<String, String> idAndText = new LinkedHashMap<>();
-		for (GameColors gc : GameColors.values()) {	
+		for (GameColor gc : GameColor.values()) {	
 			idAndText.put(gc.name(), gc.getText());
 		}
 		initCombo("labelColor", idAndText);

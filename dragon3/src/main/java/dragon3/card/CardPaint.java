@@ -2,7 +2,7 @@ package dragon3.card;
 
 import dragon3.UnitWorks;
 import dragon3.common.Body;
-import dragon3.common.constant.GameColors;
+import dragon3.common.constant.GameColor;
 import dragon3.common.constant.Texts;
 import dragon3.paint.PaintAdapter;
 
@@ -34,7 +34,7 @@ public class CardPaint extends PaintAdapter {
 	 * 
 	 */
 	private void setHelp() {
-		pm.displayHelp(mw.getWaku(), Texts.help[Texts.H_CARD], GameColors.BLUE);
+		pm.displayHelp(mw.getWaku(), Texts.help[Texts.H_CARD], GameColor.BLUE);
 	}
 
 

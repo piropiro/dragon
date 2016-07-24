@@ -73,6 +73,7 @@ public class TreasureManagerImpl implements TreasureManager {
 				continue;
 			case ENEMY_ITEM:
 			case SECRET_ITEM:
+			case BOX_ITEM:
 				treasure[n] = b;
 				b.setHp(0);
 				n++;

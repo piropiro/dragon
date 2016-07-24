@@ -8,7 +8,7 @@ import mine.paint.UnitMap;
 import dragon3.anime.AnimeManager;
 import dragon3.common.Body;
 import dragon3.common.constant.AttackEffect;
-import dragon3.common.constant.GameColors;
+import dragon3.common.constant.GameColor;
 import dragon3.common.constant.Page;
 import dragon3.common.constant.Texts;
 import dragon3.common.constant.BodyAttribute;
@@ -52,12 +52,12 @@ public class FightManager {
 	}
 
 	private void setHelp(boolean flag) {
-		if (!GameColors.isPlayer(ba))
+		if (!GameColor.isPlayer(ba))
 			return;
 		if (flag) {
-			pm.displayHelp(mw.getWaku(), Texts.help[Texts.H_FIGHT1], GameColors.GREEN);
+			pm.displayHelp(mw.getWaku(), Texts.help[Texts.H_FIGHT1], GameColor.GREEN);
 		} else {
-			pm.displayHelp(mw.getWaku(), Texts.help[Texts.H_FIGHT2], GameColors.BLUE);
+			pm.displayHelp(mw.getWaku(), Texts.help[Texts.H_FIGHT2], GameColor.BLUE);
 		}
 	}
 

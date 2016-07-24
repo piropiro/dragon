@@ -9,14 +9,14 @@ import lombok.Getter;
 
 public enum AnimeType {
 
-	NONE("無"),
-	SINGLE("単体"),
-	ALL("全体"),
-	SINGLE_ARROW("一人矢"),
-	LASER_ARROW_2("貫通矢２"),
-	LASER_ARROW_3("貫通矢３"),
-	SOME_ARROW("複数矢"),
-	ROTATE("回転"),
+	NONE("無"), // 0
+	SINGLE("単体"), // 1
+	ALL("全体"), // 2
+	SINGLE_ARROW("一人矢"), // 3
+	LASER_ARROW_2("貫通矢２"), // 4
+	LASER_ARROW_3("貫通矢３"), // 4
+	SOME_ARROW("複数矢"), // 5
+	ROTATE("回転"), // 6
 	;
 	
 	@Getter private String text;

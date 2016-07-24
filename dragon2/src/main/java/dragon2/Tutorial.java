@@ -1,12 +1,12 @@
 package dragon2;
-// Decompiled by Jad v1.5.8g. Copyright 2001 Pavel Kouznetsov.
-// Jad home page: http://www.kpdus.com/jad.html
-// Decompiler options: packimports(3) 
-// Source File Name:   Tutorial.java
+
+
+
+
 
 import dragon2.common.Body;
 import dragon2.common.constant.Texts;
-import dragon2.common.constant.Types;
+import dragon2.common.constant.BodyAttribute;
 
 public class Tutorial {
 
@@ -17,7 +17,7 @@ public class Tutorial {
 		String as[] = Texts.tuto[0];
 		byte byte0 = 1;
 		if (body1 != null)
-			if (body.isType(Types.HERO)) {
+			if (body.isType(BodyAttribute.HERO)) {
 				if (i == 0) {
 					if (body1.name.equals(Texts.goburin)) {
 						as = Texts.tuto[1];
@@ -44,7 +44,7 @@ public class Tutorial {
 						as = Texts.tuto[8];
 						byte0 = 3;
 					}
-			} else if (body.isType(Types.HERO))
+			} else if (body.isType(BodyAttribute.HERO))
 				if (i == 0) {
 					if (body1.name.equals(Texts.goburin))
 						as = Texts.tuto[9];

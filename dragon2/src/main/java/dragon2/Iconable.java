@@ -1,11 +1,12 @@
 package dragon2;
-// Decompiled by Jad v1.5.8g. Copyright 2001 Pavel Kouznetsov.
-// Jad home page: http://www.kpdus.com/jad.html
-// Decompiler options: packimports(3) 
-// Source File Name:   Iconable.java
+
+
+
+
 
 import dragon2.common.Body;
-import dragon2.common.constant.Effects;
+import dragon2.common.constant.AttackEffect;
+import dragon2.common.constant.GameColor;
 
 public interface Iconable {
 
@@ -13,7 +14,7 @@ public interface Iconable {
 
 	public abstract String getName();
 
-	public abstract int getColor();
+	public abstract GameColor getColor();
 
 	public abstract Body getBody(boolean flag);
 
@@ -27,7 +28,7 @@ public interface Iconable {
 
 	public abstract boolean isHit();
 
-	public abstract boolean isPossible(Effects i);
+	public abstract boolean isPossible(AttackEffect i);
 
-	public abstract boolean isEffect(Effects effect);
+	public abstract boolean isEffect(AttackEffect effect);
 }

@@ -44,12 +44,12 @@ public class BodyEditor extends EditPanel<BodyData> implements EditListener<Body
 		initCombo("soulType", SoulType.createMap());
 		
 		setSlider(CENTER, "hp", "HP", 99);
-		setIntCombo(LEFT, "str", "攻撃", 30);
-		setIntCombo(RIGHT, "def", "防御", 30);
-		setIntCombo(LEFT, "mst", "魔法", 30);
-		setIntCombo(RIGHT, "mdf", "抵抗", 30);
-		setIntCombo(LEFT, "hit", "命中", 30);
-		setIntCombo(RIGHT, "mis", "回避", 30);
+		setIntCombo(LEFT, "str", "攻撃", 99);
+		setIntCombo(RIGHT, "def", "防御", 99);
+		setIntCombo(LEFT, "mst", "魔法", 99);
+		setIntCombo(RIGHT, "mdf", "抵抗", 99);
+		setIntCombo(LEFT, "hit", "命中", 99);
+		setIntCombo(RIGHT, "mis", "回避", 99);
 //		setSlider(CENTER, "str", "攻撃", 30);
 //		setSlider(CENTER, "def", "防御", 30);
 //		setSlider(CENTER, "mst", "魔法", 30);
@@ -58,7 +58,7 @@ public class BodyEditor extends EditPanel<BodyData> implements EditListener<Body
 //		setSlider(CENTER, "mis", "回避", 30);
 		setEnumCombo(LEFT, "moveType", "移動", MoveType.class);
 		initCombo("moveType", MoveType.createMap());
-		setIntCombo(RIGHT, "moveStep", "歩数", 20);
+		setIntCombo(RIGHT, "moveStep", "歩数", 30);
 		setEnumCombo(LEFT, "weponType", "武器", WeponType.class);
 		initCombo("weponType", WeponType.createMap());
 		setEnumCombo(RIGHT, "armorType", "防具", ArmorType.class);

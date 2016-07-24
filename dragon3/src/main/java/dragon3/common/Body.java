@@ -6,7 +6,7 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 
-import dragon3.common.constant.GameColors;
+import dragon3.common.constant.GameColor;
 import dragon3.common.constant.ArmorType;
 import dragon3.common.constant.BodyAttribute;
 import dragon3.common.constant.BodyKind;
@@ -24,7 +24,7 @@ public class Body implements Serializable, Cloneable {
 	private String name = "none";
 	private String image = "none.png";
 	private BodyKind kind = BodyKind.CHARA;
-	private GameColors color = GameColors.NONE;
+	private GameColor color = GameColor.NONE;
 
 	private DeployType deployType;
 	
@@ -97,6 +97,15 @@ public class Body implements Serializable, Cloneable {
 		wazaList.clear();
 	}
 	
+	public void restrict() {
+		hpMax = Math.min(999, hpMax);
+		str = Math.min(999, str);
+		def = Math.min(999, def);
+		mst = Math.min(999, mst);
+		mdf = Math.min(999, mdf);
+		hit = Math.min(999, hit);
+		mis = Math.min(999, mis);
+	}
 
 	@Override
 	public String toString() {

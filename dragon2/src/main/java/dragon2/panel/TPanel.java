@@ -1,8 +1,8 @@
 package dragon2.panel;
-// Decompiled by Jad v1.5.8g. Copyright 2001 Pavel Kouznetsov.
-// Jad home page: http://www.kpdus.com/jad.html
-// Decompiler options: packimports(3) 
-// Source File Name:   TPanel.java
+
+
+
+
 
 import java.awt.*;
 
@@ -33,37 +33,13 @@ public class TPanel extends JCanvas {
 	public void display(Iconable iconable, Body body) {
 		name = iconable.getSubName();
 		b = body;
-		switch (iconable.getColor()) {
-		case 0: // '\0'
-			setBackground(Color.white);
-			setForeground(Color.black);
-			break;
-
-		case 1: // '\001'
-			setBackground(Color.blue);
-			setForeground(Color.white);
-			break;
-
-		case 2: // '\002'
-			setBackground(Color.red);
-			setForeground(Color.white);
-			break;
-
-		case 3: // '\003'
-			setBackground(Color.green);
-			setForeground(Color.black);
-			break;
-
-		case 4: // '\004'
-			setBackground(Color.yellow);
-			setForeground(Color.black);
-			break;
-
-		case 5: // '\005'
-			setBackground(new Color(50, 100, 255));
-			setForeground(Color.white);
-			break;
-		}
+		
+		int[] bg = iconable.getColor().getBg();
+		int[] fg = iconable.getColor().getFg();
+		
+		setBackground(new Color(bg[0], bg[1], bg[2]));
+		setForeground(new Color(fg[0], fg[1], fg[2]));
+		
 		setSize(getFontMetrics(getFont()).stringWidth(name) + 3, 15);
 		setLocate();
 		setVisible(true);

@@ -1,8 +1,8 @@
 package dragon2;
-// Decompiled by Jad v1.5.8g. Copyright 2001 Pavel Kouznetsov.
-// Jad home page: http://www.kpdus.com/jad.html
-// Decompiler options: packimports(3) 
-// Source File Name:   Treasure.java
+
+
+
+
 
 import java.awt.Point;
 import java.util.ArrayList;
@@ -10,7 +10,7 @@ import java.util.List;
 
 import dragon2.common.Body;
 import dragon2.common.constant.Texts;
-import dragon2.common.constant.Types;
+import dragon2.common.constant.BodyAttribute;
 import mine.UnitMap;
 
 public class Treasure {
@@ -28,7 +28,7 @@ public class Treasure {
 		int i = 0;
 		for (Body body : vector) {
 			if (unitworks.have(body)) {
-				body.setTypeState(Types.S_LOCK, true);
+				body.setTypeState(BodyAttribute.S_LOCK, true);
 				body.hp = 0;
 			} else if (body.x == point.x && body.y == point.y) {
 				item = body;
@@ -53,11 +53,11 @@ public class Treasure {
 
 		for (int j = 0; j < i; j++) {
 			Body body1 = treasure[j];
-			if (body1 != null && (body1.gx != 0 || body1.gy != 0)) {
+			if (body1 != null && (body1.goalX != 0 || body1.goalY != 0)) {
 				status[j] = 2;
 				for (Body body3 : vector) {
 					if (body3 != body1 && body3.isAlive()
-							&& body3.x == body1.gx && body3.y == body1.gy) {
+							&& body3.x == body1.goalX && body3.y == body1.goalY) {
 						holder[j] = body3;
 						status[j] = 1;
 					}
@@ -69,7 +69,7 @@ public class Treasure {
 		for (int k = 0; k < i; k++)
 			if (holder[k] == null) {
 				Body body2 = treasure[k];
-				if (body2 != null && body2.moveturn != 0) {
+				if (body2 != null && body2.limitTurn != 0) {
 					unitmap.S(0, 0, body2.x, body2.y, 21);
 					status[k] = 3;
 				}
@@ -82,7 +82,7 @@ public class Treasure {
 			Body body = treasure[i];
 			if (body != null && holder[i] == null && point.x == body.x
 					&& point.y == body.y)
-				return body.moveturn;
+				return body.limitTurn;
 		}
 
 		return 0;
@@ -92,7 +92,7 @@ public class Treasure {
 		if (item == null)
 			return 0;
 		else
-			return item.moveturn;
+			return item.limitTurn;
 	}
 
 	public String getCount() {
@@ -151,7 +151,7 @@ public class Treasure {
 	public void limitOver() {
 		for (int i = 0; i < treasure.length; i++) {
 			Body body = treasure[i];
-			if (body != null && body.moveturn == uw.getTurn()
+			if (body != null && body.limitTurn == uw.getTurn()
 					&& V.G(0, 0, body.x, body.y) == 21) {
 				V.S(0, 0, body.x, body.y, 23);
 				Point point = new Point(body.x, body.y);
@@ -173,7 +173,7 @@ public class Treasure {
 		for (int i = 0; i < holder.length; i++)
 			if (body == holder[i]) {
 				Body body1 = treasure[i];
-				if (isAlive(body1) && (body1.moveturn != 0 || flag)) {
+				if (isAlive(body1) && (body1.limitTurn != 0 || flag)) {
 					add(body1);
 					Comment.add(new Integer(i));
 					status[i] = 5;
@@ -211,9 +211,9 @@ public class Treasure {
 	private boolean isAlive(Body body) {
 		if (body == null)
 			return false;
-		if (body.moveturn == 0)
+		if (body.limitTurn == 0)
 			return true;
-		return body.moveturn >= uw.getTurn();
+		return body.limitTurn >= uw.getTurn();
 	}
 
 	public void message() {
@@ -268,8 +268,8 @@ public class Treasure {
 		body.mdfMax = Math.max(0, body.mdfMax - 6);
 		body.hitMax = Math.max(0, body.hitMax - 6);
 		body.misMax = Math.max(0, body.misMax - 6);
-		body.type.add(Types.BADITEM);
-		body.setTypeState(Types.BADITEM, true);
+		body.attrList.add(BodyAttribute.BADITEM);
+		body.setTypeState(BodyAttribute.BADITEM, true);
 	}
 
 	private Body item;

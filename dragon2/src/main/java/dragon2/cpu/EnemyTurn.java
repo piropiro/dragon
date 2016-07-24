@@ -1,24 +1,22 @@
 package dragon2.cpu;
-// Decompiled by Jad v1.5.8g. Copyright 2001 Pavel Kouznetsov.
-// Jad home page: http://www.kpdus.com/jad.html
-// Decompiler options: packimports(3) 
-// Source File Name:   EnemyTurn.java
+
+
+
+
 
 import java.awt.Dimension;
 import java.awt.Point;
 import java.util.Iterator;
-import java.util.Vector;
 
 import dragon2.ActionBase;
 import dragon2.Rewalk;
 import dragon2.Walk;
 import dragon2.attack.FightManager;
 import dragon2.common.Body;
-import dragon2.common.constant.Colors;
-import dragon2.common.constant.Kinds;
-import dragon2.common.constant.Types;
+import dragon2.common.constant.BodyAttribute;
+import dragon2.common.constant.BodyKind;
+import dragon2.common.constant.GameColor;
 import dragon2.paint.PaintBase;
-import mine.UnitMap;
 
 public class EnemyTurn extends ActionBase {
 
@@ -48,9 +46,9 @@ public class EnemyTurn extends ActionBase {
 				.hasNext();) {
 			ba = (Body) iterator.next();
 			if (ba.isAlive()
-					&& !ba.isType(Types.ANTI_SLEEP)
-					&& (ba.kind == Kinds.DOLL && ba.isType(Types.BERSERK) || (Colors.isPlayer(ba) ? ba
-							.isType(Types.CHARM) : !ba.isType(Types.CHARM)))) {
+					&& !ba.isType(BodyAttribute.ANTI_SLEEP)
+					&& (ba.kind == BodyKind.DOLL && ba.isType(BodyAttribute.BERSERK) || (GameColor.isPlayer(ba) ? ba
+							.isType(BodyAttribute.CHARM) : !ba.isType(BodyAttribute.CHARM)))) {
 				move();
 				if (PaintBase.uw.endJudge(ba))
 					return;
@@ -111,11 +109,11 @@ public class EnemyTurn extends ActionBase {
 		PaintBase.V.J(1, ba.x, ba.y, 100);
 		Point point;
 		switch (ba.color) {
-		case 1: // '\001'
+		case BLUE: // '\001'
 			point = PaintBase.uw.getCrystal(3);
 			break;
 
-		case 3: // '\003'
+		case RED: // '\003'
 			point = PaintBase.uw.getCrystal(1);
 			break;
 
@@ -123,14 +121,14 @@ public class EnemyTurn extends ActionBase {
 			point = null;
 			break;
 		}
-		if (!Colors.isPlayer(ba) && point != null
+		if (!GameColor.isPlayer(ba) && point != null
 				&& PaintBase.V.G(1, 0, point.x, point.y) != 0) {
 			PaintBase.V.S(1, 1, point.x, point.y, 3);
 			return;
 		}
-		if (!Colors.isPlayer(ba) && (ba.gx != 0 || ba.gy != 0)) {
-			PaintBase.V.fillDia(1, 1, ba.gx, ba.gy, 1, 2);
-			PaintBase.V.S(1, 1, ba.gx, ba.gy, 3);
+		if (!GameColor.isPlayer(ba) && (ba.goalX != 0 || ba.goalY != 0)) {
+			PaintBase.V.fillDia(1, 1, ba.goalX, ba.goalY, 1, 2);
+			PaintBase.V.S(1, 1, ba.goalX, ba.goalY, 3);
 			return;
 		}
 		for (Iterator iterator = PaintBase.Charas.iterator(); iterator
@@ -138,7 +136,7 @@ public class EnemyTurn extends ActionBase {
 			Body body = (Body) iterator.next();
 			if (body.isAlive()
 					&& body != ba
-					&& (ba.isType(Types.CHARM) ? body.color == ba.color
+					&& (ba.isType(BodyAttribute.CHARM) ? body.color == ba.color
 							: body.color != ba.color))
 				PaintBase.V.fillDia(1, 1, body.x, body.y, ba.scope - 1, 2);
 		}
@@ -148,7 +146,7 @@ public class EnemyTurn extends ActionBase {
 			Body body1 = (Body) iterator1.next();
 			if (body1.isAlive()
 					&& body1 != ba
-					&& (ba.isType(Types.CHARM) ? body1.color == ba.color
+					&& (ba.isType(BodyAttribute.CHARM) ? body1.color == ba.color
 							: body1.color != ba.color))
 				PaintBase.V.drawDia(1, 1, body1.x, body1.y, ba.scope, 3);
 		}
@@ -158,7 +156,7 @@ public class EnemyTurn extends ActionBase {
 			Body body2 = (Body) iterator2.next();
 			if (body2.isAlive()
 					&& body2 != ba
-					&& (ba.isType(Types.CHARM) ? body2.color != ba.color
+					&& (ba.isType(BodyAttribute.CHARM) ? body2.color != ba.color
 							: body2.color == ba.color)
 					&& PaintBase.V.G(1, 1, body2.x, body2.y) != 0)
 				PaintBase.V.S(1, 1, body2.x, body2.y, 1);
@@ -176,13 +174,13 @@ public class EnemyTurn extends ActionBase {
 
 		}
 
-		if (Colors.isPlayer(ba))
+		if (GameColor.isPlayer(ba))
 			return true;
-		if (ba.maai == 0)
+		if (ba.range == 0)
 			return true;
-		if (i + ba.scope <= ba.maai + 1)
+		if (i + ba.scope <= ba.range + 1)
 			return true;
-		return PaintBase.uw.getTurn() >= ba.moveturn;
+		return PaintBase.uw.getTurn() >= ba.limitTurn;
 	}
 
 	public void setWalkData() {
@@ -226,7 +224,7 @@ public class EnemyTurn extends ActionBase {
 		}
 
 		int j3 = ba.moveStep;
-		if (ba.isType(Types.OIL))
+		if (ba.isType(BodyAttribute.OIL))
 			j3 /= 2;
 		if (i2 <= j3 + 1)
 			PaintBase.V.J(0, k1, l1, 100);

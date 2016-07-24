@@ -34,6 +34,7 @@ public enum BodyAttribute {
 	REGENE("自然治癒"), // 29
 	ATTACK_UP("攻撃UP"), // 30
 	GUARD_UP("防御UP"), // 31
+	POWERUP("強化"), // 33
 	BERSERK("暴走"), // 58
 	SORA("飛行"), // 36
 	RIKU("歩行"), // 37
@@ -55,7 +56,7 @@ public enum BodyAttribute {
 	OIL_LOCK("オイルロック"),
 	ATTACK_UP_LOCK("攻撃UPロック"),
 	GUARD_UP_LOCK("防御UPロック"),
-	
+	MASTER("魔物使い"), // 42
 
 	//CLASS("職業"), // 1
 	//WEPON("武器"), // 2

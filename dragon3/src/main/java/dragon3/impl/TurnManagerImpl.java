@@ -7,7 +7,7 @@ import dragon3.FrameWorks;
 import dragon3.UnitWorks;
 import dragon3.anime.AnimeManager;
 import dragon3.common.Body;
-import dragon3.common.constant.GameColors;
+import dragon3.common.constant.GameColor;
 import dragon3.common.constant.MoveType;
 import dragon3.common.constant.Page;
 import dragon3.common.constant.BodyAttribute;
@@ -164,7 +164,7 @@ public class TurnManagerImpl implements TurnManager {
 	}
 
 	private void blueCrystal(Body b, boolean flag) {
-		if (GameColors.isPlayer(b) != flag)
+		if (GameColor.isPlayer(b) != flag)
 			return;
 		if (b.getHp() == b.getHpMax() && !b.hasAttr(BodyAttribute.POISON))
 			return;
@@ -230,7 +230,7 @@ public class TurnManagerImpl implements TurnManager {
 	 * @param flag
 	 */
 	private void firePanel(Body b, boolean flag) {
-		if (GameColors.isPlayer(b) != flag)
+		if (GameColor.isPlayer(b) != flag)
 			return;
 		if (b.hasAttr(BodyAttribute.FIRE_0))
 			return;
@@ -252,7 +252,7 @@ public class TurnManagerImpl implements TurnManager {
 	private void setPoison(Body b, boolean flag) {
 		if (!b.hasAttr(BodyAttribute.POISON))
 			return;
-		if (GameColors.isPlayer(b) != flag || b.getHp() == 1) {
+		if (GameColor.isPlayer(b) != flag || b.getHp() == 1) {
 			map.setData(Page.P50, b.getX(), b.getY(), AnimeManager.STATUS_POISON);
 		} else {
 			anime.statusAnime(AnimeManager.STATUS_POISON, b.getX(), b.getY());
@@ -268,7 +268,7 @@ public class TurnManagerImpl implements TurnManager {
 	private void setBersek(Body b, boolean flag) {
 		if (!b.hasAttr(BodyAttribute.BERSERK))
 			return;
-		if (GameColors.isPlayer(b) != flag) {
+		if (GameColor.isPlayer(b) != flag) {
 			map.setData(Page.P50, b.getX(), b.getY(), AnimeManager.STATUS_BERSERK);
 		} else {
 			b.setStr(Math.max(0, b.getStr() - 1));
@@ -286,7 +286,7 @@ public class TurnManagerImpl implements TurnManager {
 	private void setRegene(Body b, boolean flag) {
 		if (!b.hasAttr(BodyAttribute.REGENE))
 			return;
-		if (GameColors.isPlayer(b) != flag || b.getHp() == b.getHpMax()) {
+		if (GameColor.isPlayer(b) != flag || b.getHp() == b.getHpMax()) {
 			map.setData(Page.P50, b.getX(), b.getY(), AnimeManager.STATUS_REGENE);
 		} else if (b.getMst() > 0) {
 			anime.statusAnime(AnimeManager.STATUS_REGENE, b.getX(), b.getY());

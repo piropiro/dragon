@@ -9,7 +9,7 @@ import dragon3.FightManager;
 import dragon3.Rewalk;
 import dragon3.UnitWorks;
 import dragon3.common.Body;
-import dragon3.common.constant.GameColors;
+import dragon3.common.constant.GameColor;
 import dragon3.common.constant.Page;
 import dragon3.common.constant.BodyAttribute;
 import dragon3.map.MapWorks;
@@ -40,7 +40,7 @@ public class EnemyTurn {
 	/*** Main *********************************************/
 
 	public void start(int turn) {
-		pm.displayLarge("Enemy Turn " + turn, GameColors.RED, 1000);
+		pm.displayLarge("Enemy Turn " + turn, GameColor.RED, 1000);
 		pm.closeHelp();
 		pm.closeData();
 		sm.sleep(300);
@@ -51,7 +51,7 @@ public class EnemyTurn {
 			if (ba.hasAttr(BodyAttribute.SLEEP))
 				continue;
 			if (ba.hasAttr(BodyAttribute.BERSERK)) {
-			} else if (GameColors.isPlayer(ba)) {
+			} else if (GameColor.isPlayer(ba)) {
 				if (!ba.hasAttr(BodyAttribute.CHARM))
 					continue;
 			} else {
@@ -138,15 +138,15 @@ public class EnemyTurn {
 
 		// Go to Crystal
 		Point p;
-		if (ba.getColor().equals(GameColors.BLUE)) {
-			p = uw.getCrystal(GameColors.RED);
-		} else if (ba.getColor().equals(GameColors.RED)) {
-			p = uw.getCrystal(GameColors.BLUE);
+		if (ba.getColor().equals(GameColor.BLUE)) {
+			p = uw.getCrystal(GameColor.RED);
+		} else if (ba.getColor().equals(GameColor.RED)) {
+			p = uw.getCrystal(GameColor.BLUE);
 		} else {
 			p = null;
 		}
 
-		if (!GameColors.isPlayer(ba) && p != null) {
+		if (!GameColor.isPlayer(ba) && p != null) {
 			if (map.getData(Page.P10, p.x, p.y) != 0) {
 				map.setData(Page.P11, p.x, p.y, 3);
 				return;
@@ -154,7 +154,7 @@ public class EnemyTurn {
 		}
 
 		// Go to Goal
-		if (!GameColors.isPlayer(ba) && (ba.getGoalX() != 0 || ba.getGoalY() != 0)) {
+		if (!GameColor.isPlayer(ba) && (ba.getGoalX() != 0 || ba.getGoalY() != 0)) {
 			map.fillDia(Page.P11, ba.getGoalX(), ba.getGoalY(), 1, 2);
 			map.setData(Page.P11, ba.getGoalX(), ba.getGoalY(), 3);
 			return;
@@ -225,7 +225,7 @@ public class EnemyTurn {
 				}
 			}
 		}
-		if (GameColors.isPlayer(ba))
+		if (GameColor.isPlayer(ba))
 			return true;
 		if (ba.getRange() == 0)
 			return true;

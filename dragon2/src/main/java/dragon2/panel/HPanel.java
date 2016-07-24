@@ -1,8 +1,8 @@
 package dragon2.panel;
-// Decompiled by Jad v1.5.8g. Copyright 2001 Pavel Kouznetsov.
-// Jad home page: http://www.kpdus.com/jad.html
-// Decompiler options: packimports(3) 
-// Source File Name:   HPanel.java
+
+
+
+
 
 import java.awt.*;
 
@@ -57,15 +57,15 @@ public class HPanel extends JCanvas {
 		hpb.setup(flag, body.hp, body.hpMax);
 		hpb.setMin(body.hp - i, false);
 		switch (body.color) {
-		case 1: // '\001'
+		case BLUE: // '\001'
 			setBackground(new Color(0, 0, 150));
 			break;
 
-		case 3: // '\003'
+		case RED: // '\003'
 			setBackground(new Color(150, 0, 0));
 			break;
 
-		case 2: // '\002'
+		case GREEN: // '\002'
 			setBackground(new Color(0, 100, 0));
 			break;
 		}

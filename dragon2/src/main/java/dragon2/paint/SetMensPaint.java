@@ -1,17 +1,16 @@
 package dragon2.paint;
-// Decompiled by Jad v1.5.8g. Copyright 2001 Pavel Kouznetsov.
-// Jad home page: http://www.kpdus.com/jad.html
-// Decompiler options: packimports(3) 
-// Source File Name:   SetMensPaint.java
+
+
+
+
 
 import java.awt.Dimension;
 import java.awt.Point;
 import java.util.Vector;
 
 import dragon2.common.Body;
-import dragon2.common.constant.Colors;
+import dragon2.common.constant.GameColor;
 import dragon2.common.constant.Texts;
-import mine.UnitMap;
 
 public class SetMensPaint extends PaintBase {
 
@@ -30,13 +29,8 @@ public class SetMensPaint extends PaintBase {
 	}
 
 	private void setColor() {
-		if (Colors.getPC() == 1) {
-			BC = 15;
-			PaintBase.V.change(0, 0, 16, 0, 0, 0);
-		} else {
-			BC = 16;
-			PaintBase.V.change(0, 0, 15, 0, 0, 0);
-		}
+		BC = 15;
+		PaintBase.V.change(0, 0, 16, 0, 0, 0);
 	}
 
 	private void autoPut() {
@@ -185,7 +179,7 @@ public class SetMensPaint extends PaintBase {
 	public boolean isNextPoint(Point point) {
 		Body body = PaintBase.uw.search(point.x, point.y);
 		if (body != null)
-			return Colors.isPlayer(body);
+			return GameColor.isPlayer(body);
 		else
 			return false;
 	}

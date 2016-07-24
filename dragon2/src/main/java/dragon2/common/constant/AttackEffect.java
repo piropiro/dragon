@@ -1,6 +1,6 @@
 package dragon2.common.constant;
 
-public enum Effects {
+public enum AttackEffect {
 
 	DAMAGE_200("威力２倍"), // 1
 	DAMAGE_300("威力３倍"), // 2
@@ -43,14 +43,14 @@ public enum Effects {
 	
 	private String text;
 	
-	Effects(String text) {
+	AttackEffect(String text) {
 		this.text = text;
 	}
 	
 	public String getText() {
 		return text;
 	}
-	public static Effects convert(int n) {
+	public static AttackEffect convert(int n) {
 		switch (n) {
 		case 1: return DAMAGE_200;
 		case 2: return DAMAGE_300;

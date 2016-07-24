@@ -1,14 +1,16 @@
 package dragon2;
-// Decompiled by Jad v1.5.8g. Copyright 2001 Pavel Kouznetsov.
-// Jad home page: http://www.kpdus.com/jad.html
-// Decompiler options: packimports(3) 
-// Source File Name:   UnitWorks.java
+
+
+
+
 
 import java.awt.Point;
 import java.util.Vector;
 
 import dragon2.attack.AttackBase;
 import dragon2.common.Body;
+import dragon2.common.constant.AnimeType;
+import dragon2.common.constant.GameColor;
 
 public interface UnitWorks {
 
@@ -62,7 +64,7 @@ public interface UnitWorks {
 
 	public abstract void putUnit(Vector vector);
 
-	public abstract void setCampPanel(Point point, int i, int j);
+	public abstract void setCampPanel(Point point, int i, GameColor j);
 
 	public abstract void setMPanel(String s);
 
@@ -84,7 +86,7 @@ public interface UnitWorks {
 
 	public abstract void setNPanel(Body body, int i);
 
-	public abstract void setLPanel(String s, int i, int j);
+	public abstract void setLPanel(String s, GameColor i, int j);
 
 	public abstract void setHelp(String as[], int i);
 

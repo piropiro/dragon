@@ -1,7 +1,7 @@
 package dragon2.common.constant;
 
 
-public enum Kinds {
+public enum BodyKind {
 
 	CHARA("キャラ"),
 	CLASS("職業"), // 1
@@ -14,7 +14,7 @@ public enum Kinds {
 	
 	private String text;
 	
-	Kinds(String text) {
+	BodyKind(String text) {
 		this.text = text;
 	}
 	
@@ -22,7 +22,7 @@ public enum Kinds {
 		return text;
 	}
 	
-	public Kinds convert(int n) {
+	public BodyKind convert(int n) {
 		switch (n) {
 		case 0: return CHARA;
 		case 1: return CLASS;

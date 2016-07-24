@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Vector;
 
 import dragon3.common.Body;
-import dragon3.common.constant.GameColors;
+import dragon3.common.constant.GameColor;
 
 public class Equip {
 
@@ -28,7 +28,7 @@ public class Equip {
 	}
 	public Body searchItem(int x, int y) {
 		for (Body b : equipList) {
-			if (b.getColor() == GameColors.GREEN && b.getX() == x && b.getY() == y) {
+			if (b.getColor() == GameColor.GREEN && b.getX() == x && b.getY() == y) {
 				return b;
 			}
 		}
@@ -78,15 +78,7 @@ public class Equip {
 
 
 
-	public static void restrict(Body b) {
-		b.setHpMax(Math.min(999, b.getHpMax()));
-		b.setStr(Math.min(999, b.getStr()));
-		b.setDef(Math.min(999, b.getDef()));
-		b.setMst(Math.min(999, b.getMst()));
-		b.setMdf(Math.min(999, b.getMdf()));
-		b.setHit(Math.min(999, b.getHit()));
-		b.setMis(Math.min(999, b.getMis()));
-	}
+
 
 	/*** Player ************************************/
 
@@ -96,7 +88,7 @@ public class Equip {
 			Body b = search(1, 1 + i * 3);
 			if (b == null)
 				continue;
-			b.setColor(GameColors.BLUE);
+			b.setColor(GameColor.BLUE);
 			b.setMax();
 			equip(b);
 			playerList.add(b);
@@ -107,7 +99,7 @@ public class Equip {
 	public Body getChangeChara(Body ba) {
 		Body bb = null;
 		for (Body b : equipList) {
-			if (!GameColors.isPlayer(b))
+			if (!GameColor.isPlayer(b))
 				continue;
 			if (b.getGoalX() == ba.getGoalX() + 7 && b.getGoalY() == ba.getGoalY()) {
 				bb = b;
@@ -137,7 +129,7 @@ public class Equip {
 		
 		
 		getAttack(ba);
-		restrict(ba);
+		ba.restrict();
 	}
 
 

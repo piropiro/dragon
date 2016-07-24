@@ -1,11 +1,10 @@
 package dragon2.camp;
-// Decompiled by Jad v1.5.8g. Copyright 2001 Pavel Kouznetsov.
-// Jad home page: http://www.kpdus.com/jad.html
-// Decompiler options: packimports(3) 
-// Source File Name:   Camp.java
+
+
+
+
 
 import java.awt.Point;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Vector;
 
@@ -14,10 +13,9 @@ import dragon2.Statics;
 import dragon2.Treasure;
 import dragon2.attack.AttackData;
 import dragon2.common.Body;
-import dragon2.common.constant.Colors;
-import dragon2.common.constant.Kinds;
+import dragon2.common.constant.BodyKind;
+import dragon2.common.constant.GameColor;
 import dragon2.common.constant.Texts;
-import dragon2.common.constant.Types;
 import dragon2.common.util.Equip;
 import dragon2.paint.PaintBase;
 
@@ -84,22 +82,21 @@ public class Camp extends PaintBase {
 
 	private void setColor() {
 		for (Body body : equips) {
-			if (Colors.isPlayer(body))
-				body.color = 1;
-			else if (Colors.isEnemy(body))
-				body.color = 3;
+			if (GameColor.isPlayer(body))
+				body.color = GameColor.BLUE;
+			else if (GameColor.isEnemy(body))
+				body.color = GameColor.RED;
 		}
 
-		Colors.setup(1, 3);
 	}
 
 	private void setEquip() {
 		for (Body body : equips) {
 			body.setMax();
 			body.newType();
-			if (Colors.isPlayer(body)) {
-				body.x = body.gx;
-				body.y = body.gy;
+			if (GameColor.isPlayer(body)) {
+				body.x = body.goalX;
+				body.y = body.goalY;
 			}
 			//if (body.x > 13 && body.y == 14)
 			//	iterator.remove();
@@ -135,7 +132,7 @@ public class Camp extends PaintBase {
 	public void removeDust() {
 		for (int i = equips.size() - 1; i >= 0; i--) {
 			Body body = equips.get(i);
-			if (body.kind == Kinds.WAZA || PaintBase.V.G(1, 0, body.x, body.y) == 3) {
+			if (body.kind == BodyKind.WAZA || PaintBase.V.G(1, 0, body.x, body.y) == 3) {
 				equips.remove(body);
 				PaintBase.V.S(2, 0, body.x, body.y, 0);
 				PaintBase.map.ppaint(body.x, body.y);
@@ -150,7 +147,7 @@ public class Camp extends PaintBase {
 		for (int i = equips.size() - 1; i >= 0; i--) {
 			Body body = equips.get(i);
 			if (body.y != 0 && body.y != 14 && body.x >= 14) {
-				if (body.kind == Kinds.WAZA)
+				if (body.kind == BodyKind.WAZA)
 					vector1.add(body);
 				else
 					vector.add(body);
@@ -191,7 +188,7 @@ public class Camp extends PaintBase {
 
 	private void backChara() {
 		for (int i = 1; i < 15; i++) {
-			int j = ba.kind == Kinds.WAZA ? 14 - i : i;
+			int j = ba.kind == BodyKind.WAZA ? 14 - i : i;
 			for (int k = 14; k < 20; k++)
 				if (PaintBase.V.G(2, 0, k, j) == 0) {
 					moveChara(k, j);
@@ -249,7 +246,7 @@ public class Camp extends PaintBase {
 				if (!levelCheck(body, ba))
 					return;
 				if (equip.search(i + 1, j) != null) {
-					PaintBase.uw.setLPanel(Texts.warning1, 3, 1000);
+					PaintBase.uw.setLPanel(Texts.warning1, GameColor.RED, 1000);
 					return;
 				} else {
 					PaintBase.V.S(1, 0, i, j, 2);
@@ -311,9 +308,9 @@ public class Camp extends PaintBase {
 			if (sortf) {
 				putSortItems(i, j, items);
 			} else {
-				ba.gx = i;
-				ba.gy = j;
-				ba.color = 1;
+				ba.goalX = i;
+				ba.goalY = j;
+				ba.color = GameColor.BLUE;
 				PaintBase.V.S(1, 0, i, j, 2);
 				putChara(i, j, ba);
 			}
@@ -353,7 +350,7 @@ public class Camp extends PaintBase {
 			s = Texts.nakama;
 			break;
 		}
-		PaintBase.uw.setLPanel(Texts.sokoni + s + Texts.haokemasen, 3, 1000);
+		PaintBase.uw.setLPanel(Texts.sokoni + s + Texts.haokemasen, GameColor.RED, 1000);
 	}
 
 	private Body charaCheck(int i, int j) {
@@ -361,7 +358,7 @@ public class Camp extends PaintBase {
 		if (body != null) {
 			return body;
 		} else {
-			PaintBase.uw.setLPanel(Texts.warning2, 3, 1000);
+			PaintBase.uw.setLPanel(Texts.warning2, GameColor.RED, 1000);
 			return null;
 		}
 	}
@@ -384,7 +381,7 @@ public class Camp extends PaintBase {
 			if (j == k) {
 				return true;
 			} else {
-				PaintBase.uw.setLPanel(Texts.warning3, 3, 1000);
+				PaintBase.uw.setLPanel(Texts.warning3, GameColor.RED, 1000);
 				return false;
 			}
 
@@ -392,7 +389,7 @@ public class Camp extends PaintBase {
 			if (attackdata.attackN1 == attackdata1.attackN1) {
 				return true;
 			} else {
-				PaintBase.uw.setLPanel(Texts.warning4, 3, 1000);
+				PaintBase.uw.setLPanel(Texts.warning4, GameColor.RED, 1000);
 				return false;
 			}
 		}
@@ -403,7 +400,7 @@ public class Camp extends PaintBase {
 		if (body.level >= body1.level) {
 			return true;
 		} else {
-			PaintBase.uw.setLPanel(Texts.warning5, 3, 1000);
+			PaintBase.uw.setLPanel(Texts.warning5, GameColor.RED, 1000);
 			return false;
 		}
 	}
@@ -412,27 +409,27 @@ public class Camp extends PaintBase {
 		if (j == 13)
 			switch (i) {
 			case 1: // '\001'
-				PaintBase.uw.setCampPanel(new Point(i, j), 6, 1);
+				PaintBase.uw.setCampPanel(new Point(i, j), 6, GameColor.BLUE);
 				return;
 
 			case 3: // '\003'
-				PaintBase.uw.setCampPanel(new Point(i, j), 10, 1);
+				PaintBase.uw.setCampPanel(new Point(i, j), 10, GameColor.BLUE);
 				return;
 
 			case 4: // '\004'
-				PaintBase.uw.setCampPanel(new Point(i, j), 11, 1);
+				PaintBase.uw.setCampPanel(new Point(i, j), 11, GameColor.BLUE);
 				return;
 
 			case 6: // '\006'
 			case 7: // '\007'
-				PaintBase.uw.setCampPanel(new Point(i, j), 8, 1);
+				PaintBase.uw.setCampPanel(new Point(i, j), 8, GameColor.BLUE);
 				return;
 
 			case 9: // '\t'
 			case 10: // '\n'
 			case 11: // '\013'
 			case 12: // '\f'
-				PaintBase.uw.setCampPanel(new Point(i, j), 9, 1);
+				PaintBase.uw.setCampPanel(new Point(i, j), 9, GameColor.BLUE);
 				return;
 			}
 		switch (PaintBase.V.G(1, 0, i, j)) {
@@ -443,31 +440,31 @@ public class Camp extends PaintBase {
 		case 1: // '\001'
 		case 4: // '\004'
 			if (i == 1) {
-				PaintBase.uw.setCampPanel(new Point(i, j), 0, 1);
+				PaintBase.uw.setCampPanel(new Point(i, j), 0, GameColor.BLUE);
 				break;
 			}
 			if (i == 8) {
-				PaintBase.uw.setCampPanel(new Point(i, j), 1, 1);
+				PaintBase.uw.setCampPanel(new Point(i, j), 1, GameColor.BLUE);
 				break;
 			}
 			if (i == 2 || i == 9) {
-				PaintBase.uw.setCampPanel(new Point(i, j), 2, 1);
+				PaintBase.uw.setCampPanel(new Point(i, j), 2, GameColor.BLUE);
 				break;
 			}
 			if (i == 3 || i == 10) {
-				PaintBase.uw.setCampPanel(new Point(i, j), 3, 1);
+				PaintBase.uw.setCampPanel(new Point(i, j), 3, GameColor.BLUE);
 				break;
 			}
 			if (i == 4 || i == 11) {
-				PaintBase.uw.setCampPanel(new Point(i, j), 4, 1);
+				PaintBase.uw.setCampPanel(new Point(i, j), 4, GameColor.BLUE);
 				break;
 			}
 			if (i == 5 || i == 12)
-				PaintBase.uw.setCampPanel(new Point(i, j), 5, 1);
+				PaintBase.uw.setCampPanel(new Point(i, j), 5, GameColor.BLUE);
 			break;
 
 		case 3: // '\003'
-			PaintBase.uw.setCampPanel(new Point(i, j), 7, 3);
+			PaintBase.uw.setCampPanel(new Point(i, j), 7, GameColor.RED);
 			break;
 		}
 	}
@@ -478,7 +475,7 @@ public class Camp extends PaintBase {
 			help(i, j);
 			return null;
 		} else {
-			body.color = 2;
+			body.color = GameColor.GREEN;
 			equips.remove(body);
 			ps = new Point(i, j);
 			return body;
@@ -501,7 +498,7 @@ public class Camp extends PaintBase {
 		Body body = equip.search(i, j);
 		if (body == null)
 			return;
-		if (body.color == 1) {
+		if (body.color == GameColor.BLUE) {
 			items = pickSortItems(i, j);
 			return;
 		} else {
@@ -562,7 +559,7 @@ public class Camp extends PaintBase {
 			abody[k] = equip.search(i + k, j);
 			if (abody[k] != null) {
 				PaintBase.V.S(2, 0, i + k, j, 0);
-				abody[k].color = 2;
+				abody[k].color = GameColor.GREEN;
 				equips.remove(abody[k]);
 				sortf = true;
 			}
@@ -585,9 +582,9 @@ public class Camp extends PaintBase {
 				PaintBase.V.S(2, 0, i + k, j, abody[k].img);
 			}
 
-		abody[0].gx = i;
-		abody[0].gy = j;
-		abody[0].color = 1;
+		abody[0].goalX = i;
+		abody[0].goalY = j;
+		abody[0].color = GameColor.BLUE;
 		PaintBase.V.S(1, 0, i, j, 2);
 		putChara(i, j, abody[0]);
 		if (abody[1] != null)
@@ -643,9 +640,9 @@ public class Camp extends PaintBase {
 
 		case DOLL: // '\''
 			if (i == 1) {
-				ba.gx = i;
-				ba.gy = j;
-				ba.color = 1;
+				ba.goalX = i;
+				ba.goalY = j;
+				ba.color = GameColor.BLUE;
 				changeChara(i, j);
 				return;
 			}
@@ -680,7 +677,7 @@ public class Camp extends PaintBase {
 			}
 			if (body == null)
 				break;
-			if (body.kind == Kinds.WAZA)
+			if (body.kind == BodyKind.WAZA)
 				removeChara1(point.x, point.y);
 			else
 				ba = pickChara(point.x, point.y);
@@ -721,8 +718,8 @@ public class Camp extends PaintBase {
 	public void rightPressed() {
 		Point point = PaintBase.map.getWaku();
 		if (sortf) {
-			moveChara(ba.gx, ba.gy);
-			putChara2(ba.gx, ba.gy);
+			moveChara(ba.goalX, ba.goalY);
+			putChara2(ba.goalX, ba.goalY);
 			setHelp();
 			return;
 		}
@@ -740,7 +737,7 @@ public class Camp extends PaintBase {
 			}
 			Body body = equip.search(point.x, point.y);
 			if (body != null) {
-				if (body.kind == Kinds.WAZA)
+				if (body.kind == BodyKind.WAZA)
 					removeChara1(point.x, point.y);
 				else
 					PaintBase.uw.setAnalyze(body);
@@ -759,7 +756,7 @@ public class Camp extends PaintBase {
 	public void mouseMoved(Point point) {
 		PaintBase.map.wakuMove(point);
 		Body body = equip.search(point.x, point.y);
-		if (body != null && body.color == 1)
+		if (body != null && body.color == GameColor.BLUE)
 			equip.equip(body);
 		PaintBase.uw.setSPanel(body);
 		moveChara(point.x, point.y);

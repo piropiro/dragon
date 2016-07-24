@@ -1,15 +1,15 @@
 package dragon2;
-// Decompiled by Jad v1.5.8g. Copyright 2001 Pavel Kouznetsov.
-// Jad home page: http://www.kpdus.com/jad.html
-// Decompiler options: packimports(3) 
-// Source File Name:   Material.java
+
+
+
+
 
 import dragon2.attack.AttackBase;
 import dragon2.common.Body;
-import dragon2.common.constant.Colors;
-import dragon2.common.constant.Kinds;
+import dragon2.common.constant.BodyAttribute;
+import dragon2.common.constant.BodyKind;
+import dragon2.common.constant.GameColor;
 import dragon2.common.constant.Texts;
-import dragon2.common.constant.Types;
 
 public class Material {
 
@@ -28,14 +28,14 @@ public class Material {
 		if (count % 6 != 0)
 			return null;
 		Body body = attackbase.getBb();
-		if (Colors.isPlayer(body))
+		if (GameColor.isPlayer(body))
 			return null;
 		material = body.copy();
 		material.atk[0] = body.atk[3];
-		material.setKind(Kinds.ITEM);
-		material.setTypeState(Types.M_RED, false);
-		material.setTypeState(Types.M_GREEN, false);
-		material.setTypeState(Types.M_BLUE, false);
+		material.setKind(BodyKind.ITEM);
+		material.setTypeState(BodyAttribute.M_RED, false);
+		material.setTypeState(BodyAttribute.M_GREEN, false);
+		material.setTypeState(BodyAttribute.M_BLUE, false);
 		for (int i = 1; i < material.atk.length; i++)
 			material.atk[i] = 0;
 

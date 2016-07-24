@@ -7,7 +7,7 @@ import java.util.List;
 import dragon3.UnitWorks;
 import dragon3.common.Body;
 import dragon3.common.constant.BodyKind;
-import dragon3.common.constant.GameColors;
+import dragon3.common.constant.GameColor;
 import dragon3.common.constant.Page;
 import dragon3.common.constant.Texts;
 import dragon3.common.util.Equip;
@@ -109,7 +109,7 @@ public class Camp {
 			Body b = (Body) equips.get(i);
 			b.setMax();
 			b.resetAttr();
-			if (GameColors.isPlayer(b)) {
+			if (GameColor.isPlayer(b)) {
 				b.setX(b.getGoalX());
 				b.setY(b.getGoalY());
 			}
@@ -244,14 +244,14 @@ public class Camp {
 				if (bb == null)
 					return;
 				if (!equipCheck(bb, ba)) {
-					pm.displayLarge(Texts.warning3, GameColors.RED, 1000);
+					pm.displayLarge(Texts.warning3, GameColor.RED, 1000);
 					return;
 				}
 
 				if (!levelCheck(bb, ba))
 					return;
 				if (equip.search(bb.getX() + OFFSET_WEPON, y) != null) {
-					pm.displayLarge(Texts.warning1, GameColors.RED, 1000);
+					pm.displayLarge(Texts.warning1, GameColor.RED, 1000);
 					return;
 				}
 				map.setData(Page.P10, x, y, T_PASTE);
@@ -266,7 +266,7 @@ public class Camp {
 				if (bb == null)
 					return;
 				if (!equipCheck(bb, ba)) {
-					pm.displayLarge(Texts.warning4, GameColors.RED, 1000);
+					pm.displayLarge(Texts.warning4, GameColor.RED, 1000);
 					return;
 				}
 				if (!levelCheck(bb, ba))
@@ -317,7 +317,7 @@ public class Camp {
 				} else {
 					ba.setGoalX(x);
 					ba.setGoalY(y);
-					ba.setColor(GameColors.BLUE);
+					ba.setColor(GameColor.BLUE);
 					map.setData(Page.P10, x, y, T_PASTE);
 					putChara(x, y, ba);
 				}
@@ -331,14 +331,14 @@ public class Camp {
 	/*** Alarm ***********************************/
 
 	private void alarm(Body ba) {
-		pm.displayLarge(Texts.sokoni + ba.getKind().getText() + Texts.haokemasen, GameColors.RED, 1000);
+		pm.displayLarge(Texts.sokoni + ba.getKind().getText() + Texts.haokemasen, GameColor.RED, 1000);
 	}
 
 	private Body charaCheck(int x, int y) {
 		Body bb = equip.search(x, y);
 		if (bb != null)
 			return bb;
-		pm.displayLarge(Texts.warning2, GameColors.RED, 1000);
+		pm.displayLarge(Texts.warning2, GameColor.RED, 1000);
 		return null;
 	}
 
@@ -362,7 +362,7 @@ public class Camp {
 	private boolean levelCheck(Body ba, Body bb) {
 		if (ba.getLevel() >= bb.getLevel())
 			return true;
-		pm.displayLarge(Texts.warning5, GameColors.RED, 1000);
+		pm.displayLarge(Texts.warning5, GameColor.RED, 1000);
 		return false;
 	}
 
@@ -371,21 +371,21 @@ public class Camp {
 			case T_FREE :
 			case T_STORE :
 				if (x == 1) {
-					pm.displayCampData(x, y, CampDataPaint.C_CHARA1, GameColors.BLUE);
+					pm.displayCampData(x, y, CampDataPaint.C_CHARA1, GameColor.BLUE);
 				} else if (x == 8) {
-					pm.displayCampData(x, y, CampDataPaint.C_CHARA2, GameColors.BLUE);
+					pm.displayCampData(x, y, CampDataPaint.C_CHARA2, GameColor.BLUE);
 				} else if (x == 2 || x == 9) {
-					pm.displayCampData(x, y, CampDataPaint.C_CLASS, GameColors.BLUE);
+					pm.displayCampData(x, y, CampDataPaint.C_CLASS, GameColor.BLUE);
 				} else if (x == 3 || x == 10) {
-					pm.displayCampData(x, y, CampDataPaint.C_WEPON, GameColors.BLUE);
+					pm.displayCampData(x, y, CampDataPaint.C_WEPON, GameColor.BLUE);
 				} else if (x == 4 || x == 11) {
-					pm.displayCampData(x, y, CampDataPaint.C_ARMOR, GameColors.BLUE);
+					pm.displayCampData(x, y, CampDataPaint.C_ARMOR, GameColor.BLUE);
 				} else if (x == 5 || x == 12) {
-					pm.displayCampData(x, y, CampDataPaint.C_ITEM, GameColors.BLUE);
+					pm.displayCampData(x, y, CampDataPaint.C_ITEM, GameColor.BLUE);
 				}
 				break;
 			case T_ERASE :
-				pm.displayCampData(x, y, CampDataPaint.C_DUST, GameColors.RED);
+				pm.displayCampData(x, y, CampDataPaint.C_DUST, GameColor.RED);
 				break;
 		}
 	}
@@ -397,7 +397,7 @@ public class Camp {
 		if (b == null) {
 			help(x, y);
 		} else {
-			b.setColor(GameColors.GREEN);
+			b.setColor(GameColor.GREEN);
 			equips.remove(b);
 			ps = new Point(x, y);
 			ba = b;
@@ -424,7 +424,7 @@ public class Camp {
 		Body bb = equip.search(x, y);
 		if (bb == null)
 			return;
-		if (bb.getColor() == GameColors.BLUE) {
+		if (bb.getColor() == GameColor.BLUE) {
 			items = pickSortItems(x, y);
 			return;
 		}
@@ -487,7 +487,7 @@ public class Camp {
 			if (tmp[i] == null)
 				continue;
 			map.setData(Page.P20, x + i, y, 0);
-			tmp[i].setColor(GameColors.GREEN);
+			tmp[i].setColor(GameColor.GREEN);
 			equips.remove(tmp[i]);
 			sortf = true;
 		}
@@ -510,7 +510,7 @@ public class Camp {
 		}
 		tmp[0].setGoalX(x);
 		tmp[0].setGoalY(y);
-		tmp[0].setColor(GameColors.BLUE);
+		tmp[0].setColor(GameColor.BLUE);
 		map.setData(Page.P10, x, y, T_PASTE);
 		putChara(x, y, tmp[0]);
 		if (tmp[1] != null)

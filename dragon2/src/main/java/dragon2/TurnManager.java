@@ -5,10 +5,10 @@ import java.util.Iterator;
 import java.util.Vector;
 
 import dragon2.common.Body;
-import dragon2.common.constant.Colors;
-import dragon2.common.constant.Kinds;
+import dragon2.common.constant.BodyAttribute;
+import dragon2.common.constant.BodyKind;
+import dragon2.common.constant.GameColor;
 import dragon2.common.constant.MoveType;
-import dragon2.common.constant.Types;
 import dragon2.cpu.EnemyTurn;
 import dragon2.paint.PaintBase;
 
@@ -68,32 +68,32 @@ public class TurnManager extends ActionBase {
 		for (Iterator iterator = Charas.iterator(); iterator.hasNext();) {
 			Body body = (Body) iterator.next();
 			if (body.isAlive()) {
-				if (!body.isType(Types.S_WAIT))
+				if (!body.isType(BodyAttribute.S_WAIT))
 					PaintBase.V.S(5, 0, body.x, body.y, 0);
-				body.setTypeState(Types.SORA, false);
-				body.setTypeState(Types.RIKU, false);
+				body.setTypeState(BodyAttribute.SORA, false);
+				body.setTypeState(BodyAttribute.RIKU, false);
 				setTikei(body, flag);
 				setPoison(body, flag);
 				setHeal(body, flag);
 				setBersek(body, flag);
-				setStatus(body, Types.ATTACK_UP, 4);
-				setStatus(body, Types.GUARD_UP, 5);
-				setStatus(body, Types.CLOSE, 3);
-				setStatus(body, Types.OIL, 10);
-				setStatus(body, Types.CHARM, 6);
-				setStatus(body, Types.ANTI_SLEEP, 1);
-				if (body.isType(Types.S_WAIT)) {
-					body.setTypeState(Types.S_WAIT, false);
-					if (body.isType(Types.CHARM) || body.isType(Types.ANTI_SLEEP))
-						body.setTypeState(Types.S_LOCK, true);
+				setStatus(body, BodyAttribute.ATTACK_UP, 4);
+				setStatus(body, BodyAttribute.GUARD_UP, 5);
+				setStatus(body, BodyAttribute.CLOSE, 3);
+				setStatus(body, BodyAttribute.OIL, 10);
+				setStatus(body, BodyAttribute.CHARM, 6);
+				setStatus(body, BodyAttribute.ANTI_SLEEP, 1);
+				if (body.isType(BodyAttribute.S_WAIT)) {
+					body.setTypeState(BodyAttribute.S_WAIT, false);
+					if (body.isType(BodyAttribute.CHARM) || body.isType(BodyAttribute.ANTI_SLEEP))
+						body.setTypeState(BodyAttribute.S_LOCK, true);
 				}
 			}
 		}
 
 	}
 
-	private void setStatus(Body body, Types i, int j) {
-		if (!body.isType(Types.S_WAIT))
+	private void setStatus(Body body, BodyAttribute i, int j) {
+		if (!body.isType(BodyAttribute.S_WAIT))
 			body.setTypeState(i, false);
 		else if (body.isType(i))
 			PaintBase.V.S(5, 0, body.x, body.y, j);
@@ -105,12 +105,12 @@ public class TurnManager extends ActionBase {
 		Point point = new Point(body.x, body.y);
 		switch (PaintBase.V.G(0, 0, body.x, body.y)) {
 		case 17: // '\021'
-			if (Colors.isPlayer(body) != flag)
+			if (GameColor.isPlayer(body) != flag)
 				return;
-			if (body.hp == body.hpMax && !body.isType(Types.POISON)) {
+			if (body.hp == body.hpMax && !body.isType(BodyAttribute.POISON)) {
 				return;
 			} else {
-				body.setTypeState(Types.POISON, false);
+				body.setTypeState(BodyAttribute.POISON, false);
 				uw.setAnime(1, -1, point, point);
 				body.hp += Math.max(2, body.hpMax / 4);
 				body.hp = Math.min(body.hp, body.hpMax);
@@ -119,58 +119,58 @@ public class TurnManager extends ActionBase {
 
 		case 3: // '\003'
 		case 4: // '\004'
-			if (body.isType(Types.ANTI_ALL))
+			if (body.isType(BodyAttribute.ANTI_ALL))
 				return;
-			if (body.isType(Types.SWIM_ABLE))
+			if (body.isType(BodyAttribute.SWIM_ABLE))
 				return;
 			if (body.getMoveType() == MoveType.SWIM)
 				return;
 			if (body.getMoveType() == MoveType.TWIN)
 				return;
-			body.setTypeState(Types.CLOSE, true);
-			if (body.isType(Types.ANTI_SLEEP))
+			body.setTypeState(BodyAttribute.CLOSE, true);
+			if (body.isType(BodyAttribute.ANTI_SLEEP))
 				return;
-			if (body.isType(Types.CHARM)) {
+			if (body.isType(BodyAttribute.CHARM)) {
 				return;
 			} else {
-				body.setTypeState(Types.S_WAIT, true);
+				body.setTypeState(BodyAttribute.S_WAIT, true);
 				return;
 			}
 
 		case 7: // '\007'
-			if (body.isType(Types.ANTI_ALL))
+			if (body.isType(BodyAttribute.ANTI_ALL))
 				return;
-			if (body.isType(Types.ANTI_POISON)) {
+			if (body.isType(BodyAttribute.ANTI_POISON)) {
 				return;
 			} else {
-				body.setTypeState(Types.POISON, true);
+				body.setTypeState(BodyAttribute.POISON, true);
 				return;
 			}
 
 		case 8: // '\b'
-			if (body.isType(Types.ANTI_ALL))
+			if (body.isType(BodyAttribute.ANTI_ALL))
 				return;
-			body.setTypeState(Types.OIL, true);
-			if (body.isType(Types.ANTI_SLEEP))
+			body.setTypeState(BodyAttribute.OIL, true);
+			if (body.isType(BodyAttribute.ANTI_SLEEP))
 				return;
-			if (body.isType(Types.CHARM)) {
+			if (body.isType(BodyAttribute.CHARM)) {
 				return;
 			} else {
-				body.setTypeState(Types.S_WAIT, true);
+				body.setTypeState(BodyAttribute.S_WAIT, true);
 				return;
 			}
 
 		case 9: // '\t'
-			if (Colors.isPlayer(body) != flag)
+			if (GameColor.isPlayer(body) != flag)
 				return;
-			if (body.isType(Types.FIRE_0))
+			if (body.isType(BodyAttribute.FIRE_0))
 				return;
 			int i = 4;
-			if (body.isType(Types.FIRE_200))
+			if (body.isType(BodyAttribute.FIRE_200))
 				i *= 2;
-			if (body.isType(Types.OIL))
+			if (body.isType(BodyAttribute.OIL))
 				i *= 2;
-			if (body.isType(Types.FIRE_50))
+			if (body.isType(BodyAttribute.FIRE_50))
 				i /= 2;
 			uw.setAnime(1, -10, point, point);
 			body.hp -= Math.max(2, (body.hpMax * i) / 16);
@@ -192,9 +192,9 @@ public class TurnManager extends ActionBase {
 	}
 
 	private void setPoison(Body body, boolean flag) {
-		if (!body.isType(Types.POISON))
+		if (!body.isType(BodyAttribute.POISON))
 			return;
-		if (Colors.isPlayer(body) != flag || body.hp == 1) {
+		if (GameColor.isPlayer(body) != flag || body.hp == 1) {
 			PaintBase.V.S(5, 0, body.x, body.y, 2);
 		} else {
 			Point point = new Point(body.x, body.y);
@@ -203,15 +203,15 @@ public class TurnManager extends ActionBase {
 			body.hp = Math.max(1, body.hp);
 		}
 		if (body.hp == 1)
-			body.setTypeState(Types.POISON, false);
+			body.setTypeState(BodyAttribute.POISON, false);
 	}
 
 	private void setBersek(Body body, boolean flag) {
-		if (body.kind != Kinds.DOLL)
+		if (body.kind != BodyKind.DOLL)
 			return;
-		if (!body.isType(Types.BERSERK))
+		if (!body.isType(BodyAttribute.BERSERK))
 			return;
-		if (Colors.isPlayer(body) != flag) {
+		if (GameColor.isPlayer(body) != flag) {
 			PaintBase.V.S(5, 0, body.x, body.y, 12);
 		} else {
 			body.str = Math.max(0, body.str - 1);
@@ -226,9 +226,9 @@ public class TurnManager extends ActionBase {
 	}
 
 	private void setHeal(Body body, boolean flag) {
-		if (!body.isType(Types.HEAL))
+		if (!body.isType(BodyAttribute.HEAL))
 			return;
-		if (Colors.isPlayer(body) != flag || body.hp == body.hpMax)
+		if (GameColor.isPlayer(body) != flag || body.hp == body.hpMax)
 			PaintBase.V.S(5, 0, body.x, body.y, 7);
 		else if (body.mst > 0) {
 			Point point = new Point(body.x, body.y);
@@ -236,7 +236,7 @@ public class TurnManager extends ActionBase {
 			body.mst = Math.max(0, body.mst - 2);
 			body.hp = Math.min(body.hpMax, body.hp + body.hpMax / 2);
 		} else {
-			body.setTypeState(Types.HEAL, false);
+			body.setTypeState(BodyAttribute.HEAL, false);
 		}
 	}
 

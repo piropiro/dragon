@@ -1,13 +1,13 @@
 package dragon2.common.util;
-// Decompiled by Jad v1.5.8g. Copyright 2001 Pavel Kouznetsov.
-// Jad home page: http://www.kpdus.com/jad.html
-// Decompiler options: packimports(3) 
-// Source File Name:   Luck.java
+
+
+
+
 
 import java.util.Random;
 
 import dragon2.common.Body;
-import dragon2.common.constant.Colors;
+import dragon2.common.constant.GameColor;
 
 public class Luck {
 
@@ -29,13 +29,13 @@ public class Luck {
 			return random.nextInt() % (i + 1);
 
 		case 1: // '\001'
-			if (Colors.isPlayer(body))
+			if (GameColor.isPlayer(body))
 				return i;
 			else
 				return -i;
 
 		case 2: // '\002'
-			if (Colors.isPlayer(body))
+			if (GameColor.isPlayer(body))
 				return -i;
 			else
 				return i;

@@ -76,7 +76,7 @@ public class Level {
 		item.setMdf(item.getMdf()*3/2 + 1);
 		item.setHit(item.getHit()*3/2 + 1);
 		item.setMis(item.getMis()*3/2 + 1);
-		Equip.restrict(item);
+		item.restrict();
 	}
 
 	private void attackup(Body ba) {

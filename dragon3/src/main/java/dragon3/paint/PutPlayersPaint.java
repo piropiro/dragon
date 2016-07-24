@@ -5,7 +5,7 @@ import java.util.List;
 
 import dragon3.UnitWorks;
 import dragon3.common.Body;
-import dragon3.common.constant.GameColors;
+import dragon3.common.constant.GameColor;
 import dragon3.common.constant.Page;
 import dragon3.common.constant.Texts;
 import dragon3.common.util.MoveUtils;
@@ -58,7 +58,7 @@ public class PutPlayersPaint implements PaintListener {
 	 *
 	 */
 	private void setHelp() {
-		pm.displayHelp(mw.getWaku(), Texts.help[Texts.H_SETMENS], GameColors.BLUE);
+		pm.displayHelp(mw.getWaku(), Texts.help[Texts.H_SETMENS], GameColor.BLUE);
 	}
 
 
@@ -260,7 +260,7 @@ public class PutPlayersPaint implements PaintListener {
 	public boolean isNextPoint(int x, int y) {
 		Body b = uw.search(x, y);
 		if (b != null)
-			return (GameColors.isPlayer(b));
+			return (GameColor.isPlayer(b));
 		return false;
 	}
 	

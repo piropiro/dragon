@@ -13,22 +13,22 @@ import lombok.Getter;
  */
 public enum DeployType {
 
-	NONE("無", GameColors.NONE),
-	ENEMY_CHARA("敵キャラ", GameColors.RED),
-	PLAYER_CHARA("味方キャラ", GameColors.BLUE),
-	NEUTRAL_CHARA("中立キャラ", GameColors.GREEN),
-	SUMMON("召喚キャラ", GameColors.RED),
-	BOX_ITEM("宝箱アイテム", GameColors.GREEN),
-	CLEAR_ITEM("クリアアイテム", GameColors.GREEN),
-	ENEMY_ITEM("敵持ちアイテム", GameColors.GREEN),
-	SECRET_ITEM("隠しアイテム", GameColors.GREEN),
+	NONE("無", GameColor.NONE),
+	ENEMY_CHARA("敵キャラ", GameColor.RED),
+	PLAYER_CHARA("味方キャラ", GameColor.BLUE),
+	NEUTRAL_CHARA("中立キャラ", GameColor.GREEN),
+	SUMMON("召喚キャラ", GameColor.RED),
+	BOX_ITEM("宝箱アイテム", GameColor.GREEN),
+	CLEAR_ITEM("クリアアイテム", GameColor.GREEN),
+	ENEMY_ITEM("敵持ちアイテム", GameColor.GREEN),
+	SECRET_ITEM("隠しアイテム", GameColor.GREEN),
 	
 	;
 	
 	@Getter private String text;
-	@Getter private GameColors color;
+	@Getter private GameColor color;
 	
-	DeployType(String text, GameColors color) {
+	DeployType(String text, GameColor color) {
 		this.text = text;
 		this.color = color;
 	}

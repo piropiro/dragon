@@ -6,8 +6,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import dragon2.common.constant.Kinds;
-import dragon2.common.constant.Types;
+import dragon2.common.constant.BodyKind;
+import dragon2.common.constant.BodyAttribute;
 import mine.MineException;
 
 
@@ -39,17 +39,17 @@ public class OldBody2 implements Serializable, Cloneable {
 	public int color;
 	public int img;
 	public int atk[];
-	public Kinds kind;
+	public BodyKind kind;
 
 
-	public List<Types> type;
+	public List<BodyAttribute> type;
 	public int maai;
 	public int scope;
 	public int moveturn;
 	public int gx;
 	public int gy;
 	public int store;
-	private Set<Types> typeState;
+	private Set<BodyAttribute> typeState;
         
 	public OldBody2() {
 		atk = new int[6];
@@ -81,13 +81,13 @@ public class OldBody2 implements Serializable, Cloneable {
 		OldBody2.this.mergeTypeState(type);
 	}
 
-	public void mergeTypeState(List<Types> ai) {
-		for (Types type : ai) {
+	public void mergeTypeState(List<BodyAttribute> ai) {
+		for (BodyAttribute type : ai) {
 			typeState.add(type);
 		}
 	}
 
-	public void setTypeState(Types type, boolean flag) {
+	public void setTypeState(BodyAttribute type, boolean flag) {
 		if (flag) {
 			typeState.add(type);
 		} else {
@@ -95,7 +95,7 @@ public class OldBody2 implements Serializable, Cloneable {
 		}
 	}
 
-	public boolean isType(Types type) {
+	public boolean isType(BodyAttribute type) {
 		return typeState.contains(type);
 	}
 
@@ -295,11 +295,11 @@ public class OldBody2 implements Serializable, Cloneable {
 		this.atk = atk;
 	}
 
-	public List<Types> getType() {
+	public List<BodyAttribute> getType() {
 		return type;
 	}
 
-	public void setType(List<Types> type) {
+	public void setType(List<BodyAttribute> type) {
 		this.type = type;
 	}
 
@@ -351,19 +351,19 @@ public class OldBody2 implements Serializable, Cloneable {
 		this.store = store;
 	}
 
-	public Set<Types> getTypeState() {
+	public Set<BodyAttribute> getTypeState() {
 		return typeState;
 	}
 
-	public void setTypeState(Set<Types> typeState) {
+	public void setTypeState(Set<BodyAttribute> typeState) {
 		this.typeState = typeState;
 	}  
 	
-	public Kinds getKind() {
+	public BodyKind getKind() {
 		return kind;
 	}
 
-	public void setKind(Kinds kind) {
+	public void setKind(BodyKind kind) {
 		this.kind = kind;
 	}
 	
