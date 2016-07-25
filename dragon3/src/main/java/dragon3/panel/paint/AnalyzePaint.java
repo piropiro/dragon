@@ -22,7 +22,8 @@ public class AnalyzePaint implements DataPanelPainter {
 	}
 
 	public void paint(PanelWorks pw, MineGraphics g) {
-		pw.drawMain(ba, g, false);
+		pw.drawMain(ba, g);
+		pw.drawExp(ba, g);
 		int step = ba.getMoveStep();
 		if (ba.hasAttr(BodyAttribute.MOVE_UP_1))
 			step++;
@@ -35,7 +36,7 @@ public class AnalyzePaint implements DataPanelPainter {
 		pw.drawLine(Texts.sp[46], ba.getRange(), 0, 2, g);
 		pw.drawLine(Texts.sp[47], ba.getScope(), 1, 2, g);
 		pw.drawLine(Texts.sp[48], ba.getLimitTurn(), 0, 3, g);
-		pw.drawLine("EXP ", ba.getExp(), 1, 3, g);
+		//pw.drawLine("EXP ", ba.getExp(), 1, 3, g);
 
 	}
 }

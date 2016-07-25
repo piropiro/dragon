@@ -73,7 +73,8 @@ public class MessagePanel extends PanelBase {
 		g.setFont(getFont());
 		MineGraphics mg = new GraphicsAWT(g);
 		clear(ba.getColor(), mg);
-		drawMain(ba, mg, true);
+		drawMain(ba, mg);
+		drawHp(ba, mg);
 
 		int s = Math.max(0, n - MAX + 1);
 

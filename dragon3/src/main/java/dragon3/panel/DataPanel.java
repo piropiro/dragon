@@ -118,6 +118,7 @@ public class DataPanel extends PanelBase {
 		bgcolor = ba.getColor();
 		setLocate(ba, 1);
 		setHPBar(false, ba);
+		setEXPBar(ba);
 		repaint();
 		setVisible(true);		
 	}
