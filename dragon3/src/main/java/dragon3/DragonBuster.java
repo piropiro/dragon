@@ -54,8 +54,6 @@ public class DragonBuster implements FrameWorks {
 		switch (type) {
 			case T_SCORE :
 				mb.add("BACK", "back", KeyEvent.VK_B);
-				mb.add("S_RANK", "hayasa", KeyEvent.VK_S);
-				mb.add("P_RANK", "tuyosa", KeyEvent.VK_P);
 				mb.add("HELP", "help", KeyEvent.VK_H);
 				break;
 			case T_TITLE :

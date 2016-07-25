@@ -1,9 +1,12 @@
 package dragon3.common.util;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
-import java.util.Vector;
+import java.util.Map;
 
 import dragon3.common.Body;
+import dragon3.common.constant.BodyKind;
 import dragon3.common.constant.GameColor;
 
 public class Equip {
@@ -50,42 +53,35 @@ public class Equip {
 	public void getEXP(Body ba, Body bb) {
 
 		int exp = bb.getExp();
-		if (ba.getLevel() == 0) {
-		} else if (bb.getLevel() == 0) {
-			exp *= 1.5;
-		} else if (ba.getLevel() > bb.getLevel()) {
-			exp = exp / Math.min(ba.getLevel() - bb.getLevel() + 1, 4);
-		} else {
-			exp = exp + exp * (bb.getLevel() - ba.getLevel()) / 2;
-		}
+		exp = (int)(exp * Math.pow(1.5, bb.getLevel() - ba.getLevel()));
 		ba.setExp(ba.getExp() + exp);
 		bb.setExp(0);
 
 		// Item Exp
-
-		for (int i = 1; i <= 4; i++) {
-			Body item = searchItem(ba.getGoalX() + i, ba.getGoalY());
-			if (item != null)
-			item.setExp(item.getExp());
+		for (Body item : getEquipOf(ba).values()) {
+			item.setExp(item.getExp() + exp);
 		}
 	}
-
-
-
-
-
-
-
-
-
-
+	
+	public Map<BodyKind, Body> getEquipOf(Body ba) {
+		Map<BodyKind, Body> list = new HashMap<>();
+		
+		for (int offset = 1; offset < 5; offset++) {
+			Body item = searchItem(ba.getGoalX() + offset, ba.getGoalY());
+			if (item != null) {
+				list.put(item.getKind(), item);
+			}
+		}
+		return list;
+	}
+	
 
 	/*** Player ************************************/
 
-	public Vector<Body> getPlayers() {
-		Vector<Body> playerList = new Vector<Body>();
-		for (int i = 4; i >= 0; i--) {
-			Body b = search(1, 1 + i * 3);
+	public List<Body> getPlayers() {
+		List<Body> playerList = new ArrayList<>();
+		for (int i = 6; i >= 0; i--) {
+			Body b = search(1, 1 + i * 2);
 			if (b == null)
 				continue;
 			b.setColor(GameColor.BLUE);
@@ -118,17 +114,16 @@ public class Equip {
 	public void equip(Body ba) {
 		ba.setMax();
 		ba.resetAttr();
-		ba.clearWaza();
-		Body wepon = searchItem(ba.getGoalX() + 2, ba.getGoalY());
-		Body armor = searchItem(ba.getGoalX() + 3, ba.getGoalY());
-		Body item = searchItem(ba.getGoalX() + 4, ba.getGoalY());
-
-		equip(ba, wepon);
-		equip(ba, armor);
-		equip(ba, item);
 		
+		Map<BodyKind, Body> list = getEquipOf(ba);
+		equip(ba, list.get(BodyKind.WEPON));
+		equip(ba, list.get(BodyKind.ARMOR));
+		equip(ba, list.get(BodyKind.ITEM));
+		equip(ba, list.get(BodyKind.SOUL));
 		
-		getAttack(ba);
+		List<String> wazaList = equipWaza(ba);
+		
+		ba.setWazaList(wazaList);
 		ba.restrict();
 	}
 
@@ -153,10 +148,56 @@ public class Equip {
 	// 4 - Class Attack 2
 	// 5 - Item Attack 1
 
-	public boolean[] getAttack(Body ba) {
-		boolean flag[] = new boolean[6];
+	public List<String> equipWaza(Body ba) {
+		List<String> wazaList = new ArrayList<>();
+		
+		Map<BodyKind, Body> list = getEquipOf(ba);
+		
+		
+		// 技0 = 武器0 > 職業0 > キャラ0
+		if (checkAddWaza(ba, list.get(BodyKind.WEPON), 0, false, false, wazaList)) {
+		} else if (checkAddWaza(ba, list.get(BodyKind.CLASS), 0, false, false, wazaList)) {
+		} else if (checkAddWaza(ba, ba, 0, false, false, wazaList)) {
+		}
 
-		return flag;
+		// 武器1
+		checkAddWaza(ba, list.get(BodyKind.WEPON), 1, true, true, wazaList);
+		// 防具0
+		checkAddWaza(ba, list.get(BodyKind.ARMOR), 0, true, true, wazaList);
+		// 小物0
+		checkAddWaza(ba, list.get(BodyKind.ITEM), 0, true, true, wazaList);
+		// 魂玉0
+		checkAddWaza(ba, list.get(BodyKind.SOUL), 0, true, true, wazaList);
+		
+		// キャラ1〜
+		for (int i = 1; i < ba.getBaseWazaList().size(); i++) {
+			checkAddWaza(ba, ba, 1, false, false, wazaList);
+		}
+		
+		return wazaList;
+	}
+	
+	private boolean checkAddWaza(Body body, Body item, int i, boolean levelLimit, boolean masterLimit, List<String> wazaList) {
+		if (item == null)
+			return false;
+		
+		String waza = item.getBaseWazaList().get(i);
+		
+		if (waza.equals("none")) 
+			return false;
+		
+		if (wazaList.contains(waza))
+			return false;
+	
+		if (levelLimit && body.getLevel() < item.getLevel())
+			return false;
+		
+		if (masterLimit && !item.isMaster()) {
+			return false;
+		}
+		
+		wazaList.add(waza);
+		return true;
 	}
 
 

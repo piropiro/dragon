@@ -29,7 +29,6 @@ import dragon3.common.constant.Page;
 import dragon3.common.constant.Texts;
 import dragon3.common.util.Equip;
 import dragon3.common.util.MoveUtils;
-import dragon3.common.util.Rank;
 import dragon3.image.ImageManager;
 import dragon3.impl.SaveManagerImpl;
 import dragon3.impl.SummonManagerImpl;
@@ -58,7 +57,6 @@ import mine.awt.ImageLoaderAWT;
 import mine.awt.MineAwtUtils;
 import mine.awt.MouseManagerAWT;
 import mine.awt.SleepManagerAWT;
-import mine.awt.TextDialog;
 import mine.event.SleepManager;
 import mine.paint.MineImageLoader;
 import mine.paint.UnitMap;
@@ -653,43 +651,7 @@ public class VPanel extends JLayeredPane implements UnitWorks, ActionListener, K
 		mw.setMenu(DragonBuster.T_SCORE);
 	}
 
-	private void sendScore(boolean hayasaf) {
 
-		TextDialog rd = new TextDialog(mw.getFrame(), 20);
-
-		String comment = "";
-		rd.setup(Texts.comment, comment);
-		rd.show();
-		if (rd.isOK()) {
-			comment = rd.getText();
-		} else {
-			panelManager.displayLarge(Texts.rankcancel, GameColor.RED, 2000);
-			return;
-		}
-		Rank rank = new Rank(equip, saveManager);
-
-		int rankNum;
-		if (hayasaf) {
-			rankNum = rank.sendHayasaScore(comment);
-		} else {
-			rankNum = rank.sendTuyosaScore(comment);
-		}
-		if (rankNum != 0) {
-			if (hayasaf) {
-				panelManager.displayLarge(
-					Texts.speed_rank + rankNum + Texts.idesu,
-					GameColor.BLUE,
-					4000);
-			} else {
-				panelManager.displayLarge(
-					Texts.power_rank + rankNum + Texts.idesu,
-					GameColor.BLUE,
-					4000);
-			}
-		} else {
-			panelManager.displayLarge(Texts.conn_fail, GameColor.RED, 2000);
-		}
-	}
 	public void backToCamp() {
 		panelManager.closeData();
 		mw.setMenu(DragonBuster.T_CAMP);
@@ -777,10 +739,6 @@ public class VPanel extends JLayeredPane implements UnitWorks, ActionListener, K
 			camp.removeDust();
 		} else if (command.equals("sort")) {
 			camp.sortItem();
-		} else if (command.equals("hayasa")) {
-			sendScore(true);
-		} else if (command.equals("tuyosa")) {
-			sendScore(false);
 		} else if (command.equals("back")) {
 			backToCamp();
 		} else if (command.equals("score")) {

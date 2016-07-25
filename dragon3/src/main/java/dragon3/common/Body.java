@@ -28,7 +28,7 @@ public class Body implements Serializable, Cloneable {
 
 	private DeployType deployType;
 	
-	private int hp, hpMax;
+	private int hp, hpMax, baseHp;
 	private int str, baseStr;
 	private int def, baseDef;
 	private int mst, baseMst;
@@ -44,8 +44,11 @@ public class Body implements Serializable, Cloneable {
 	private ArmorType armorType = ArmorType.NONE;
 
 	private List<String> wazaList = new ArrayList<>();
+	private List<String> baseWazaList = new ArrayList<>();
+	
 	private List<BodyAttribute> attrList = new ArrayList<>();
-	private Set<BodyAttribute> attrSet = new LinkedHashSet<BodyAttribute>();
+	
+	private Set<BodyAttribute> attrSet = new LinkedHashSet<>();
 
 	private int x;
 	private int y;
@@ -60,6 +63,8 @@ public class Body implements Serializable, Cloneable {
 
 	private int store;
 	private int imageNum;
+	
+	private boolean master;
 
 	public Body() {
 	}

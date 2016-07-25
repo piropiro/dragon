@@ -84,6 +84,10 @@ public class BodyDataLoader {
 			BeanUtils.copyProperties(body, bodyData);
 			
 			body.resetAttr();			
+			
+			List<String> baseWazaList = new ArrayList<>(body.getWazaList());
+			body.setBaseWazaList(baseWazaList);
+
 			body.getWazaList().removeIf(a -> a.equals("none") );
 
 		} catch (IllegalAccessException | InvocationTargetException e) {
