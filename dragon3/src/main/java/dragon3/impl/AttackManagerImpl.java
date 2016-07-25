@@ -59,9 +59,6 @@ public class AttackManagerImpl implements AttackManager {
 	private Range range;
 
 
-
-	private int meichu;
-
 	private WazaData waza;
 
 	/*** Constructer *********************************************************/
@@ -264,7 +261,9 @@ public class AttackManagerImpl implements AttackManager {
 				enemy = new Vector<Body>();
 				enemy.add(bb);
 			}
-			meichu = HitRate.calcPredict(ba, bb, attack.getEffectSet());
+			
+			
+			attack.setMeichu(HitRate.calcPredict(ba, bb, attack.getEffectSet()));
 			pm.displayHp(
 				bb,
 				ba,
@@ -522,7 +521,7 @@ public class AttackManagerImpl implements AttackManager {
 		for (Body b : enemy) {
 			bb = b;
 			attack.setReceiver(bb);
-			meichu = HitRate.calcReal(ba, bb, attack.getEffectSet());
+			attack.setMeichu(HitRate.calcReal(ba, bb, attack.getEffectSet()));
 			pm.displayHp(
 				bb,
 				ba,
@@ -593,18 +592,18 @@ public class AttackManagerImpl implements AttackManager {
 		Body ba = attack.getAttacker();
 		Body bb = attack.getReceiver();
 		if (attack.hasEffect(AttackEffect.NO_ATTACK)) {
-			bb.setStore(bb.getStore() + meichu);
+			bb.setStore(bb.getStore() + attack.getMeichu());
 			bb.setStore(bb.getStore() % HitRate.SINGLE_HIT);
-			meichu = 0;
+			attack.setMeichu(0);
 			pm.repaintData();
 			singleAnime();
 			return false;
 		}
 
 		int damages = 0;
-		while (meichu > 0) {
+		while (attack.getMeichu() > 0) {
 			bb.setStore(bb.getStore() + 1);
-			meichu--;
+			attack.setMeichu(attack.getMeichu() - 1);
 			if (bb.getStore() >= HitRate.SINGLE_HIT) {
 				pm.repaintData();
 				singleAnime();
@@ -638,11 +637,11 @@ public class AttackManagerImpl implements AttackManager {
 
 	private boolean attackMiss() {
 		Body bb = attack.getReceiver();
-		if (meichu + bb.getStore() >= HitRate.SINGLE_HIT)
+		if (attack.getMeichu() + bb.getStore() >= HitRate.SINGLE_HIT)
 			return false;
 
-		bb.setStore(bb.getStore() + meichu);
-		meichu = 0;
+		bb.setStore(bb.getStore() + attack.getMeichu());
+		attack.setMeichu(0);
 		pm.repaintData();
 		singleAnime();
 		pm.damageHp(bb, 0);

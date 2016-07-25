@@ -14,6 +14,8 @@ import dragon3.common.constant.AttackEffect;
 import dragon3.common.constant.GameColor;
 import dragon3.common.constant.BodyAttribute;
 import dragon3.manage.Attack;
+import lombok.Getter;
+import lombok.Setter;
 import mine.paint.UnitMap;
 
 public class AttackImpl implements Attack {
@@ -28,7 +30,7 @@ public class AttackImpl implements Attack {
 
 	private Set<AttackEffect> effectSet;
 
-	private int meichu;
+	@Setter @Getter private int meichu;
 
 	/*** Constructer *********************************************************/
 
@@ -79,9 +81,6 @@ public class AttackImpl implements Attack {
 		return Damage.calc(waza.getDamageType(), map, ba, bb, effectSet);
 	}
 
-	public int getMeichu() {
-		return meichu;
-	}
 	public int getRate() {
 		return DamageRate.calc(map, ba, bb, effectSet);
 	}

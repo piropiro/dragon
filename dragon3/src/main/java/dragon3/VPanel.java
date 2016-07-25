@@ -446,7 +446,7 @@ public class VPanel extends JLayeredPane implements UnitWorks, ActionListener, K
 			return;
 		if (GameColor.isPlayer(ba)) {
 			saveManager.getSaveData().countKill();
-			equip.getEXP(ba, bb);
+			equip.getExp(ba, bb);
 			treasure.getTreasure(bb, false);
 		}
 		if (GameColor.isPlayer(bb)) {

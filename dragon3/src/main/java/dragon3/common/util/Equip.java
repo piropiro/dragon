@@ -11,6 +11,8 @@ import dragon3.common.constant.GameColor;
 
 public class Equip {
 
+	public static final int BASE_EXP = 20;
+	
 	private List<Body> equipList;
 
 	/*** Constructer **************************************/
@@ -50,10 +52,9 @@ public class Equip {
 
 	/*** EXP ****************************************/
 
-	public void getEXP(Body ba, Body bb) {
+	public void getExp(Body ba, Body bb) {
 
-		int exp = bb.getExp();
-		exp = (int)(exp * Math.pow(1.5, bb.getLevel() - ba.getLevel()));
+		int exp = (int)(BASE_EXP * Math.pow(1.5, bb.getLevel() - ba.getLevel()));
 		ba.setExp(ba.getExp() + exp);
 		bb.setExp(0);
 

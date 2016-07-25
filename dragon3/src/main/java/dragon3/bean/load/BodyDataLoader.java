@@ -7,6 +7,7 @@ import java.util.List;
 import org.apache.commons.beanutils.BeanUtils;
 
 import dragon3.Statics;
+import dragon3.attack.calc.HitRate;
 import dragon3.bean.BodyData;
 import dragon3.bean.DeployData;
 import dragon3.common.Body;
@@ -54,7 +55,7 @@ public class BodyDataLoader {
 		System.out.print(" str=" + body.getStr());
 		
 		double rate = Math.pow(1.1, level - 10);
-		body.setHpMax((int)(body.getHp() * rate + 0.5));
+		body.setBaseHp((int)(body.getHp()   * 10 * rate + 5));
 		body.setBaseStr((int)(body.getStr() * 10 * rate + 5));
 		body.setBaseDef((int)(body.getDef() * 10 * rate + 5));
 		body.setBaseMst((int)(body.getMst() * 10 * rate + 5));
@@ -64,6 +65,7 @@ public class BodyDataLoader {
 		
 		System.out.print(" baseStr=" + body.getBaseStr());
 		
+		body.setHpMax(body.getBaseHp() / 10);
 		body.setHp(body.getHpMax());
 		body.setStr(body.getBaseStr() / 10);
 		body.setDef(body.getBaseDef() / 10);
@@ -71,6 +73,8 @@ public class BodyDataLoader {
 		body.setMdf(body.getBaseMdf() / 10);
 		body.setHit(body.getBaseHit() / 10);
 		body.setMis(body.getBaseMis() / 10);
+		
+		body.setStore(HitRate.SINGLE_HIT / 2);
 		
 		System.out.println(" str=" + body.getStr());
 	}

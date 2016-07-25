@@ -16,8 +16,8 @@ import dragon3.common.util.Luck;
  */
 public class HitRate {
 
-	public static final int SINGLE_HIT = 16;
-	public static final int DOUBLE_HIT = 32;
+	public static final int SINGLE_HIT = 10;
+	public static final int DOUBLE_HIT = SINGLE_HIT * 2;
 
 	public static int calcPredict(Body ba, Body bb, Set<AttackEffect> effect) {
 		return calc(ba, bb, effect, 0);
