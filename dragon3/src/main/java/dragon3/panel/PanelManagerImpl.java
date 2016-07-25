@@ -36,8 +36,6 @@ public class PanelManagerImpl implements PanelManager {
 	
 	private TurnManager turnManager;
 	private UnitMap map;
-
-	private boolean hpFlag;
 	
 	private boolean helpVisible;
 
@@ -119,10 +117,7 @@ public class PanelManagerImpl implements PanelManager {
 
 	/*** HPanel ************************************************/
 
-	public void selectHp(boolean hpFlag_) {
-		this.hpFlag = hpFlag_;
-	}
-	public void displayHp(Body ba, Body bb, int damage, boolean hit) {
+	public void displayHp(boolean hpFlag, Body ba, Body bb, int damage, boolean hit) {
 		if (hpFlag) {
 			hpP1.display(ba, bb, damage, hit);
 		} else {
@@ -130,7 +125,7 @@ public class PanelManagerImpl implements PanelManager {
 		}
 	}
 
-	public void damageHp(Body b, int damage) {
+	public void damageHp(boolean hpFlag, Body b, int damage) {
 		if (hpFlag) {
 			dataP2.damage(b, damage);
 			hpP1.damage(damage);
@@ -140,7 +135,7 @@ public class PanelManagerImpl implements PanelManager {
 		}
 	}
 
-	public void animeHp() {
+	public void animeHp(boolean hpFlag) {
 		if (hpFlag) {
 			hpP1.henka();
 			dataP2.henka();
@@ -224,12 +219,7 @@ public class PanelManagerImpl implements PanelManager {
 	public void setHelpP(HelpPanel helpP) {
 		this.helpP = helpP;
 	}
-	/**
-	 * @param hpFlag The hpFlag to set.
-	 */
-	public void setHpFlag(boolean hpFlag) {
-		this.hpFlag = hpFlag;
-	}
+
 	/**
 	 * @param hpP1 The hpP1 to set.
 	 */

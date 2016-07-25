@@ -84,6 +84,7 @@ public class Level {
 				}
 			}
 		}
+		ba.setWazaList(wazaList);
 	}
 
 	private void statusup(String name, Supplier<Integer> baseGet, Consumer<Integer> baseSet, int up,

@@ -30,10 +30,9 @@ public interface PanelManager {
 	public void closeData();
 
 	// HPPanel
-	public void selectHp(boolean flag);
-	public void displayHp(Body ba, Body bb, int damage, boolean hit);
-	public void damageHp(Body b, int damage);
-	public void animeHp();
+	public void displayHp(boolean hpFlag, Body ba, Body bb, int damage, boolean hit);
+	public void damageHp(boolean hpFlag, Body b, int damage);
+	public void animeHp(boolean hpFlag);
 	public void closeHp();
 	
 	// MessagePanel

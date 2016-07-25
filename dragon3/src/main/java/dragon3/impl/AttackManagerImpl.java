@@ -60,10 +60,12 @@ public class AttackManagerImpl implements AttackManager {
 
 
 	private WazaData waza;
+	
+	private boolean hpFlag;
 
 	/*** Constructer *********************************************************/
 
-	public AttackManagerImpl(UnitWorks uw, UnitMap map, Body ba, String wazaId) {
+	public AttackManagerImpl(UnitWorks uw, UnitMap map, Body ba, String wazaId, boolean hpFlag) {
 
 		this.uw = uw;
 		this.map = map;
@@ -71,6 +73,7 @@ public class AttackManagerImpl implements AttackManager {
 		this.sm = uw.getSleepManager();
 		this.pm = uw.getPanelManager();
 		this.waza = (WazaData)Statics.wazaList.getData(wazaId);
+		this.hpFlag = hpFlag;
 
 		se = SpecialEffectManager.getInstance(map);
 		this.attack = new AttackImpl(uw.getAnimeManager(), map, ba, waza);
@@ -265,6 +268,7 @@ public class AttackManagerImpl implements AttackManager {
 			
 			attack.setMeichu(HitRate.calcPredict(ba, bb, attack.getEffectSet()));
 			pm.displayHp(
+				hpFlag,
 				bb,
 				ba,
 				Damage.calc(waza.getDamageType(), map, ba, bb, attack.getEffectSet())
@@ -523,6 +527,7 @@ public class AttackManagerImpl implements AttackManager {
 			attack.setReceiver(bb);
 			attack.setMeichu(HitRate.calcReal(ba, bb, attack.getEffectSet()));
 			pm.displayHp(
+				hpFlag,
 				bb,
 				ba,
 				Damage.calc(waza.getDamageType(), map, ba, bb, attack.getEffectSet())
@@ -542,11 +547,11 @@ public class AttackManagerImpl implements AttackManager {
 
 			if (se.isEffective(ba, bb, attack.getEffectSet(), AttackEffect.CRITICAL) && Luck.rnd(1, ba) != 1) {
 				pm.repaintData();
-				pm.damageHp(bb, bb.getHpMax());
+				pm.damageHp(hpFlag, bb, bb.getHpMax());
 				se.execute(ba, bb, anime, attack.getEffectSet(), AttackEffect.CRITICAL);
 				pm.repaintData();
 				sm.sleep(200);
-				pm.animeHp();
+				pm.animeHp(hpFlag);
 				bb.setHp(0);
 				uw.dead(ba, bb);
 				anime.dispose();
@@ -555,11 +560,11 @@ public class AttackManagerImpl implements AttackManager {
 
 			if (se.isEffective(ba, bb, attack.getEffectSet(), AttackEffect.DEATH)) {
 				pm.repaintData();
-				pm.damageHp(bb, bb.getHpMax());
+				pm.damageHp(hpFlag, bb, bb.getHpMax());
 				se.execute(ba, bb, anime, attack.getEffectSet(), AttackEffect.DEATH);
 				pm.repaintData();
 				sm.sleep(200);
-				pm.animeHp();
+				pm.animeHp(hpFlag);
 				bb.setHp(0);
 				uw.dead(ba, bb);
 				anime.dispose();
@@ -615,14 +620,14 @@ public class AttackManagerImpl implements AttackManager {
 					damages += Math.max(1, damage + Luck.rnd(1, ba));
 				else
 					damages += Math.min(-1, damage - Luck.rnd(1, ba));
-				pm.damageHp(bb, damages);
+				pm.damageHp(hpFlag, bb, damages);
 				anime.numberAnime(damage, bb.getX(), bb.getY());
 				bb.setStore(bb.getStore() - HitRate.SINGLE_HIT);
 			}
 		}
 		pm.repaintData();
 		sm.sleep(200);
-		pm.animeHp();
+		pm.animeHp(hpFlag);
 		bb.setHp(MineUtils.mid(0, bb.getHp() - damages, bb.getHpMax()));
 		if (bb.getHp() <= 0) {
 			uw.dead(ba, bb);
@@ -644,7 +649,7 @@ public class AttackManagerImpl implements AttackManager {
 		attack.setMeichu(0);
 		pm.repaintData();
 		singleAnime();
-		pm.damageHp(bb, 0);
+		pm.damageHp(hpFlag, bb, 0);
 		anime.dropText(AnimeManager.TEXT_MISS, bb.getX(), bb.getY());
 		sm.sleep(500);
 		return true;

@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Set;
 
 import dragon3.common.constant.GameColor;
+import dragon3.attack.calc.HitRate;
 import dragon3.common.constant.ArmorType;
 import dragon3.common.constant.BodyAttribute;
 import dragon3.common.constant.BodyKind;
@@ -77,7 +78,7 @@ public class Body implements Serializable, Cloneable {
 		mdf = baseMdf / 10;
 		hit = baseHit / 10;
 		mis = baseMis / 10;
-		store = 8;
+		store = HitRate.SINGLE_HIT / 2;
 	}
 
 	public boolean isAlive(){

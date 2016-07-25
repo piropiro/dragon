@@ -46,6 +46,7 @@ public class AttackPaint implements PaintListener {
 		}
 		if (map.getData(Page.P10, waku.x, waku.y) != 0) {
 			if (fm.searchTargets()) {
+				PaintUtils.setWaitPaint(uw);
 				fm.attack();
 				uw.setEnd(ba, false);
 			}
