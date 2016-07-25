@@ -108,7 +108,7 @@ public class AttackImpl implements Attack {
 		if (bb.hasAttr(BodyAttribute.RIKU))
 			return true;
 		int hit = HitRate.calcPredict(ba, bb, effectSet);
-		if (hit + bb.getStore() > HitRate.SINGLE_HIT)
+		if (hit + bb.getStore() >= HitRate.SINGLE_HIT)
 			return true;
 		return false;
 	}

@@ -616,10 +616,12 @@ public class AttackManagerImpl implements AttackManager {
 					Damage.calc(waza.getDamageType(), map, ba, bb, attack.getEffectSet())
 						* DamageRate.calc(map, ba, bb, attack.getEffectSet())
 						/ 100;
-				if (damage >= 0)
-					damages += Math.max(1, damage + Luck.rnd(1, ba));
-				else
-					damages += Math.min(-1, damage - Luck.rnd(1, ba));
+				
+				damages += damage;
+//				if (damage >= 0)
+//					damages += Math.max(1, damage + Luck.rnd(1, ba));
+//				else
+//					damages += Math.min(-1, damage - Luck.rnd(1, ba));
 				pm.damageHp(hpFlag, bb, damages);
 				anime.numberAnime(damage, bb.getX(), bb.getY());
 				bb.setStore(bb.getStore() - HitRate.SINGLE_HIT);

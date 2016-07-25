@@ -5,11 +5,10 @@ package dragon3.attack.calc;
 
 import java.util.Set;
 
-import mine.MineUtils;
 import dragon3.common.Body;
 import dragon3.common.constant.AttackEffect;
 import dragon3.common.constant.BodyAttribute;
-import dragon3.common.util.Luck;
+import mine.MineUtils;
 
 /**
  * @author k-saito
@@ -24,7 +23,8 @@ public class HitRate {
 	}
 
 	public static int calcReal(Body ba, Body bb, Set<AttackEffect> effect) {
-		return calc(ba, bb, effect, Luck.rnd(1, ba));
+//		return calc(ba, bb, effect, Luck.rnd(1, ba));
+		return calc(ba, bb, effect, 0);
 	}
 
 	private static int calc(Body ba, Body bb, Set<AttackEffect> effect, int rnd) {
