@@ -55,7 +55,7 @@ public class CampPaint implements PaintListener {
 				line = Texts.help[Texts.H_CAMP3];
 			}
 		} else {
-			switch (ba.getKind()) {
+			switch (ba.base.getKind()) {
 			case SOUL:
 			case WEPON:
 			case ARMOR:
@@ -88,7 +88,7 @@ public class CampPaint implements PaintListener {
 					camp.changeChara(p.x, p.y);
 				} else {
 					if (b != null) {
-						if (b.getKind() == BodyKind.WAZA) {
+						if (b.base.getKind() == BodyKind.WAZA) {
 							camp.removeChara1(p.x, p.y);
 						} else {
 							camp.pickChara(p.x, p.y);
@@ -148,7 +148,7 @@ public class CampPaint implements PaintListener {
 				} else {
 					Body b = camp.getEquip().search(p.x, p.y);
 					if (b != null) {
-						if (b.getKind() == BodyKind.WAZA) {
+						if (b.base.getKind() == BodyKind.WAZA) {
 							camp.removeChara1(p.x, p.y);
 						} else {
 							pm.displayAnalyze(b);

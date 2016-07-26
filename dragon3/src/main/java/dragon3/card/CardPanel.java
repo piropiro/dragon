@@ -42,8 +42,8 @@ public class CardPanel extends CardCanvas implements CardListener {
 	public void setup(Body ba, Body bb) {
 		this.ba = ba;
 		this.bb = bb;
-		MineImage blueImage = im.getBodyList().getImage(ba.getId());
-		MineImage redImage = im.getBodyList().getImage(bb.getId());
+		MineImage blueImage = im.getBodyList().getImage(ba.base.getId());
+		MineImage redImage = im.getBodyList().getImage(bb.base.getId());
 		int[] blueNum = getNumber(ba);
 		int[] redNum = getNumber(bb);
 		setRedChara(redImage, redNum);
@@ -96,7 +96,7 @@ public class CardPanel extends CardCanvas implements CardListener {
 		pm.closeData();
 		sm.sleep(500);
 		pm.addMessage(Texts.card_success);
-		pm.addMessage(bb.getName() + Texts.ga);
+		pm.addMessage(bb.base.getName() + Texts.ga);
 		pm.addMessage(Texts.card_success2);
 		pm.startMessage(bb);
 		map.setData(Page.P20, bb.getX(), bb.getY(), 0);
@@ -114,7 +114,7 @@ public class CardPanel extends CardCanvas implements CardListener {
 		pm.closeData();
 		sm.sleep(500);
 		pm.addMessage(Texts.card_fail);
-		pm.addMessage(bb.getName() + Texts.no);
+		pm.addMessage(bb.base.getName() + Texts.no);
 		pm.addMessage(Texts.card_fail2);
 		pm.startMessage(bb);
 		uw.setEnd(ba, false);

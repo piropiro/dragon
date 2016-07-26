@@ -282,8 +282,6 @@ public class EnemyTurn {
 			}
 		}
 		int ido = ba.getMoveStep();
-		if (ba.hasAttr(BodyAttribute.OIL))
-			ido /= 2;
 
 		if (h3 <= ido + 1) {
 			map.paintStep(Page.P02, Page.P03, x3, y3, 100);

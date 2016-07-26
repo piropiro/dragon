@@ -118,6 +118,7 @@ public class DataPanel extends PanelBase {
 		bgcolor = ba.getColor();
 		setLocate(ba, 1);
 		setHPBar(false, ba);
+		setEXPBar(ba);
 		repaint();
 		setVisible(true);		
 	}
@@ -144,7 +145,7 @@ public class DataPanel extends PanelBase {
 	}
 	
 	public void displayNext(Body ba) {
-		if (ba != null && ba.getKind() == BodyKind.WAZA) {
+		if (ba != null && ba.base.getKind() == BodyKind.WAZA) {
 			displayWaza(ba, 0);
 		} else if (pp == null) {
 			displayAnalyze(ba);

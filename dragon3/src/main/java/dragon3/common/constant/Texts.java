@@ -1,5 +1,7 @@
 package dragon3.common.constant;
 
+import dragon3.attack.calc.HitRate;
+
 public class Texts {
 	public static final String[][] help;
 	public static final String[][] tuto;
@@ -27,15 +29,6 @@ public class Texts {
 	public static final int H_CLEAR = 20;
 	public static final int H_OVER = 21;
 
-	public static final String heroname = "主人公の名前を入れて下さい。";
-	public static final String sistername = "妹の名前を入れて下さい。";
-	public static final String rankname = "ランキングに表示する名前を入れて下さい。";
-	public static final String comment = "ランキングに表示するコメントを入れて下さい。";
-	public static final String rankcancel = "送信を中止しました。";
-	public static final String speed_rank = "あなたのスピードランクは";
-	public static final String power_rank = "あなたのパワーランクは";
-	public static final String idesu = "位です。";
-	public static final String conn_fail = "接続に失敗しました。";
 	public static final String help_off = "簡易ヘルプ表示 OFF";
 	public static final String help_on = "簡易ヘルプ表示 ON";
 
@@ -124,7 +117,7 @@ public class Texts {
 		help[H_COLLECTION][0] = "今までに集めたアイテムのリストです。";
 		help[H_END][0] = "左クリック：行動終了";
 		help[H_END][1] = "右クリック：キャンセル";
-		help[H_FIGHT1][0] = "命中＋蓄積が１６以上なら命中します。";
+		help[H_FIGHT1][0] = "命中＋蓄積が" + HitRate.SINGLE_HIT + "以上なら命中します。";
 		help[H_FIGHT1][1] = "ＨＰバーが青ければ確実に倒せます。";
 		help[H_FIGHT2][0] = "攻撃目標を指定してください。";
 		help[H_FIGHT2][1] = "自分をクリックすると技を選択できます。";

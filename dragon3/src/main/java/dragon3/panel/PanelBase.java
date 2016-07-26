@@ -11,11 +11,13 @@ import mine.awt.MineAwtUtils;
 import mine.event.SleepManager;
 import mine.paint.Colors;
 import mine.paint.MineGraphics;
+import dragon3.Level;
 import dragon3.common.Body;
 import dragon3.common.constant.GameColor;
 import dragon3.common.constant.Texts;
 import dragon3.image.ImageManager;
 import dragon3.manage.Attack;
+import dragon3.panel.item.EXPBar;
 import dragon3.panel.item.HPBar;
 
 public abstract class PanelBase extends JComponent implements PanelWorks {
@@ -23,6 +25,7 @@ public abstract class PanelBase extends JComponent implements PanelWorks {
 
 	private static final long serialVersionUID = 1L;
 	private HPBar hpb;
+	private EXPBar expb;
 	private boolean left;
 	private SleepManager sm;
 	private ImageManager im;
@@ -38,10 +41,15 @@ public abstract class PanelBase extends JComponent implements PanelWorks {
 		setBackground(new Color(0, 0, 150, 200));
 
 		hpb = new HPBar();
+		expb = new EXPBar();
 	}
 
 	public void setHPBar(boolean hit, Body b) {
 		hpb.setup(hit, b.getHp(), b.getHpMax());
+	}
+	
+	public void setEXPBar(Body b) {
+		expb.setup(b.getExp(), Level.MAX_EXP);
 	}
 
 	public void setHPBar(Body b, Attack attack) {
@@ -97,16 +105,24 @@ public abstract class PanelBase extends JComponent implements PanelWorks {
 
 	/*** Main **********************************************/
 
-	public void drawMain(Body ba, MineGraphics g, boolean hpDrawFlag) {
+	@Override
+	public void drawMain(Body ba, MineGraphics g) {
 		g.drawImage(im.getBack()[0], 10, 10);
 		g.drawImage(im.getBodyList().getImage(ba.getImageNum()), 10, 10);
-		g.drawString(ba.getName(), 50, 22);
+		g.drawString(ba.base.getName(), 50, 22);
 		g.drawString("Lv." + ba.getLevel(), 52, 41);
-
-		if (hpDrawFlag) {
-			drawLine(Texts.hp, 0, 0, g);
-			hpb.paint(52, 60, g);
-		}
+	}
+	
+	@Override
+	public void drawHp(Body ba, MineGraphics g) {
+		drawLine(Texts.hp, 0, 0, g);
+		hpb.paint(52, 60, g);
+	}
+	
+	@Override
+	public void drawExp(Body ba, MineGraphics g) {
+		drawLine("EXP", 0, 0, g);
+		expb.paint(52, 60, g);
 	}
 
 	/*** Line ***************************************/

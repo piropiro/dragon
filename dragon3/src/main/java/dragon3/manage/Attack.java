@@ -12,6 +12,7 @@ public interface Attack {
     public int getStore();
     public int getDamage();
     public int getMeichu();
+    public void setMeichu(int meichu);
     public int getRate();
     public boolean isHit();
     public boolean isEffective(AttackEffect effect);

@@ -22,7 +22,7 @@ public class WazaListPaint implements DataPanelPainter {
 	}
 
 	public void paint(PanelWorks pw, MineGraphics g) {
-		pw.drawMain(ba, g, false);
+		pw.drawMain(ba, g);
 		int n = 0;
 
 		for (String wazaId : ba.getWazaList()) {

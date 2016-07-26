@@ -14,12 +14,12 @@ public class Tutorial {
 		if (bb != null) {
 			if (ba.hasAttr(BodyAttribute.HERO)) {
 				if (n == 0) {
-					if (bb.getName().equals(Texts.goburin)) {
+					if (bb.base.getName().equals(Texts.goburin)) {
 						line = Texts.tuto[1];
 						color = GameColor.RED;
-					} else if (bb.getName().equals(Texts.pikusi)) {
+					} else if (bb.base.getName().equals(Texts.pikusi)) {
 						line = Texts.tuto[2];
-					} else if (bb.getName().equals(Texts.gaikotu)) {
+					} else if (bb.base.getName().equals(Texts.gaikotu)) {
 						if (bb.getHp() == bb.getHpMax()) {
 							line = Texts.tuto[3];
 							color = GameColor.GREEN;
@@ -28,13 +28,13 @@ public class Tutorial {
 						}
 					}
 				} else {
-					if (bb.getName().equals(Texts.goburin)) {
+					if (bb.base.getName().equals(Texts.goburin)) {
 						line = Texts.tuto[5];
 						color = GameColor.RED;
-					} else if (bb.getName().equals(Texts.pikusi)) {
+					} else if (bb.base.getName().equals(Texts.pikusi)) {
 						line = Texts.tuto[6];
 						color = GameColor.RED;
-					} else if (bb.getName().equals(Texts.gaikotu)) {
+					} else if (bb.base.getName().equals(Texts.gaikotu)) {
 						if (bb.getHpMax() == bb.getHpMax()) {
 							line = Texts.tuto[7];
 						} else {
@@ -45,12 +45,12 @@ public class Tutorial {
 				}
 			} else if (ba.hasAttr(BodyAttribute.SISTER)) {
 				if (n == 0) {
-					if (bb.getName().equals(Texts.goburin)) {
+					if (bb.base.getName().equals(Texts.goburin)) {
 						line = Texts.tuto[9];
-					} else if (bb.getName().equals(Texts.pikusi)) {
+					} else if (bb.base.getName().equals(Texts.pikusi)) {
 						line = Texts.tuto[10];
 						color = GameColor.RED;
-					} else if (bb.getName().equals(Texts.gaikotu)) {
+					} else if (bb.base.getName().equals(Texts.gaikotu)) {
 						if (bb.getHpMax() == bb.getHpMax()) {
 							line = Texts.tuto[11];
 						} else {
@@ -59,13 +59,13 @@ public class Tutorial {
 						}
 					}
 				} else {
-					if (bb.getName().equals(Texts.goburin)) {
+					if (bb.base.getName().equals(Texts.goburin)) {
 						line = Texts.tuto[13];
 
-					} else if (bb.getName().equals(Texts.pikusi)) {
+					} else if (bb.base.getName().equals(Texts.pikusi)) {
 						line = Texts.tuto[14];
 						color = GameColor.RED;
-					} else if (bb.getName().equals(Texts.gaikotu)) {
+					} else if (bb.base.getName().equals(Texts.gaikotu)) {
 						if (bb.getHp() == bb.getHpMax()) {
 							line = Texts.tuto[15];
 							color = GameColor.GREEN;

@@ -21,6 +21,9 @@ public class CounterPaint implements DataPanelPainter {
 	}
 
 	public void paint(PanelWorks pw, MineGraphics g) {
+		pw.drawMain(ba, g);
+		pw.drawHp(ba, g);
+		
 		if (ba.hasAttr(BodyAttribute.SLEEP)) {
 			pw.drawLine("  SLEEPING...", 0, 2, g);
 		}

@@ -42,28 +42,6 @@ public class MoveUtils {
 	public static final int T_SEA = 3;
 	public static final int T_POOL = 4;
 	public static final int T_ICE = 5;
-	
-	/**
-	 * キャラの歩数を返す。<p>
-	 * 
-	 * @param b
-	 * @return
-	 */
-	public static int getStep(Body b) {
-
-		int step = b.getMoveStep();
-
-		if (b.hasAttr(BodyAttribute.MOVE_UP_2))
-			step = step + 2;
-		if (b.hasAttr(BodyAttribute.MOVE_UP_1))
-			step = step + 1;
-		if (b.hasAttr(BodyAttribute.MOVE_DOWN_1))
-			step = step - 1;
-		if (b.hasAttr(BodyAttribute.OIL))
-			step = 1;
-		
-		return step;
-	}
 
 	/**
 	 * 必要歩数のリストを返す。<p>
@@ -73,7 +51,7 @@ public class MoveUtils {
 	 */
 	public static int[] getStepList(Body b) {
 
-		MoveType moveType = b.getMoveType();
+		MoveType moveType = b.base.getMoveType();
 
 		if (b.hasAttr(BodyAttribute.SORA))
 			moveType = MoveType.FLY;
@@ -110,9 +88,9 @@ public class MoveUtils {
 		if (b.hasAttr(BodyAttribute.SORA))
 			return T_SKY;
 		if (!b.hasAttr(BodyAttribute.RIKU) && !b.hasAttr(BodyAttribute.SLEEP)) {
-			if (b.getMoveType().equals(MoveType.FLY))
+			if (b.base.getMoveType().equals(MoveType.FLY))
 				return T_SKY;
-			if (b.getMoveType().equals(MoveType.HOVER))
+			if (b.base.getMoveType().equals(MoveType.HOVER))
 				return T_SKY;
 		}
 		switch (map.getData(Page.P00, b.getX(), b.getY())) {

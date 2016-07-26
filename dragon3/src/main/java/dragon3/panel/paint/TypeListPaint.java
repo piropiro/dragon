@@ -22,7 +22,7 @@ public class TypeListPaint implements DataPanelPainter {
 	}
 
 	public void paint(PanelWorks pw, MineGraphics g) {
-		pw.drawMain(ba, g, false);
+		pw.drawMain(ba, g);
 		n = 0;
 		drawType(pw, g, BodyAttribute.DRAGON);
 		drawType(pw, g, BodyAttribute.UNDEAD);

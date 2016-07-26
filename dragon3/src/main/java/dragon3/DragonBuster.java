@@ -5,7 +5,6 @@ import java.awt.event.KeyEvent;
 
 import javax.swing.JFrame;
 
-import dragon3.common.util.Luck;
 import mine.awt.BMenuBar;
 
 public class DragonBuster implements FrameWorks {
@@ -17,7 +16,7 @@ public class DragonBuster implements FrameWorks {
 	/*** Constructer *****************************************************/
 
 	public DragonBuster() {
-		Luck.setup(Luck.FairLuck);
+		//Luck.setup(Luck.FairLuck);
 		mb = new BMenuBar();
 		vp = new VPanel(this);
 	}
@@ -54,8 +53,6 @@ public class DragonBuster implements FrameWorks {
 		switch (type) {
 			case T_SCORE :
 				mb.add("BACK", "back", KeyEvent.VK_B);
-				mb.add("S_RANK", "hayasa", KeyEvent.VK_S);
-				mb.add("P_RANK", "tuyosa", KeyEvent.VK_P);
 				mb.add("HELP", "help", KeyEvent.VK_H);
 				break;
 			case T_TITLE :

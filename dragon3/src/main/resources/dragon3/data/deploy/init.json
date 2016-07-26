@@ -17,7 +17,7 @@
 		"bodyId": "chara_002",
 		"deployType": "PLAYER_CHARA",
 		"goalX": 1,
-		"goalY": 4,
+		"goalY": 3,
 		"id": null,
 		"level": 1,
 		"limitTurn": 0,
@@ -25,7 +25,7 @@
 		"range": 6,
 		"scope": 1,
 		"x": 1,
-		"y": 4
+		"y": 3
 	},
 	{
 		"bodyId": "class_001",
@@ -53,7 +53,7 @@
 		"range": 0,
 		"scope": 0,
 		"x": 2,
-		"y": 4
+		"y": 3
 	},
 	{
 		"bodyId": "wepon_001",
@@ -81,6 +81,6 @@
 		"range": 0,
 		"scope": 0,
 		"x": 3,
-		"y": 4
+		"y": 3
 	}
 ]

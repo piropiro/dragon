@@ -6,46 +6,34 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 
-import dragon3.common.constant.GameColor;
-import dragon3.common.constant.ArmorType;
+import dragon3.attack.calc.HitRate;
+import dragon3.bean.BodyData;
 import dragon3.common.constant.BodyAttribute;
-import dragon3.common.constant.BodyKind;
 import dragon3.common.constant.DeployType;
-import dragon3.common.constant.MoveType;
-import dragon3.common.constant.SoulType;
-import dragon3.common.constant.WeponType;
+import dragon3.common.constant.GameColor;
 import lombok.Data;
 
 @SuppressWarnings("serial")
 @Data
 public class Body implements Serializable, Cloneable {
 
-	private String id = "none";
-	private String name = "none";
-	private String image = "none.png";
-	private BodyKind kind = BodyKind.CHARA;
+	public BodyData base = new BodyData();
+	
 	private GameColor color = GameColor.NONE;
 
 	private DeployType deployType;
 	
 	private int hp, hpMax;
-	private int str, baseStr;
-	private int def, baseDef;
-	private int mst, baseMst;
-	private int mdf, baseMdf;
-	private int hit, baseHit;
-	private int mis, baseMis;
-
-	private int moveStep;
-	private MoveType moveType = MoveType.NONE;
-	private SoulType soulType = SoulType.NONE;
-
-	private WeponType weponType = WeponType.NONE;
-	private ArmorType armorType = ArmorType.NONE;
+	private int str;
+	private int def;
+	private int mst;
+	private int mdf;
+	private int hit;
+	private int mis;
 
 	private List<String> wazaList = new ArrayList<>();
-	private List<BodyAttribute> attrList = new ArrayList<>();
-	private Set<BodyAttribute> attrSet = new LinkedHashSet<BodyAttribute>();
+	
+	private Set<BodyAttribute> attrSet = new LinkedHashSet<>();
 
 	private int x;
 	private int y;
@@ -60,19 +48,21 @@ public class Body implements Serializable, Cloneable {
 
 	private int store;
 	private int imageNum;
+	
+	private boolean master;
 
 	public Body() {
 	}
 
 	public void setMax() {
 		hp = hpMax;
-		str = baseStr / 10;
-		def = baseDef / 10;
-		mst = baseMst / 10;
-		mdf = baseMdf / 10;
-		hit = baseHit / 10;
-		mis = baseMis / 10;
-		store = 8;
+		str = base.getStr() / 10;
+		def = base.getDef() / 10;
+		mst = base.getMst() / 10;
+		mdf = base.getMdf() / 10;
+		hit = base.getHit() / 10;
+		mis = base.getMis() / 10;
+		store = HitRate.SINGLE_HIT / 2;
 	}
 
 	public boolean isAlive(){
@@ -81,7 +71,7 @@ public class Body implements Serializable, Cloneable {
 
 	public void resetAttr() {
 		attrSet.clear();
-		attrSet.addAll(attrList);
+		attrSet.addAll(base.getAttrList());
 	}
 	public void addAttr(BodyAttribute attr){
 		attrSet.add(attr);
@@ -91,6 +81,12 @@ public class Body implements Serializable, Cloneable {
 	}
 	public boolean hasAttr(BodyAttribute attr){
 		return attrSet.contains(attr);
+	}
+	
+	public void resetWaza() {
+		List<String> wazaList = new ArrayList<>(base.getWazaList());
+		wazaList.removeIf(a -> a.equals("none") );
+		this.wazaList = wazaList;
 	}
 	
 	public void clearWaza() {
@@ -106,17 +102,19 @@ public class Body implements Serializable, Cloneable {
 		hit = Math.min(999, hit);
 		mis = Math.min(999, mis);
 	}
-
-	@Override
-	public String toString() {
-		return "Body [id=" + id + ", name=" + name + ", image=" + image + ", kind=" + kind + ", color=" + color
-				+ ", deployType=" + deployType + ", hp=" + hp + ", hpMax=" + hpMax + ", str=" + str + ", def=" + def
-				+ ", mst=" + mst + ", mdf=" + mdf + ", hit=" + hit + ", mis=" + mis + ", moveStep=" + moveStep
-				+ ", moveType=" + moveType + ", soulType=" + soulType + ", weponType=" + weponType + ", armorType="
-				+ armorType + ", wazaList=" + wazaList + ", attrSet=" + attrSet + ", x=" + x + ", y=" + y + ", scope="
-				+ scope + ", range=" + range + ", limitTurn=" + limitTurn + ", goalX=" + goalX + ", goalY=" + goalY
-				+ ", level=" + level + ", exp=" + exp + ", store=" + store + ", imageNum=" + imageNum + "]";
+	
+	public int getMoveStep() {
+		int step = base.getMoveStep();
+		if (hasAttr(BodyAttribute.MOVE_UP_1))
+			step++;
+		if (hasAttr(BodyAttribute.MOVE_UP_2))
+			step += 2;
+		if (hasAttr(BodyAttribute.MOVE_DOWN_1))
+			step -= 1;
+//		if (hasAttr(BodyAttribute.OIL))
+//			step = 1;
+		if (hasAttr(BodyAttribute.OIL))
+			step /= 2;
+		return step;
 	}
-	
-	
 }

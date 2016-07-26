@@ -88,10 +88,10 @@ public class FightManager {
 		if (i > 0 && ba.hasAttr(BodyAttribute.WET))
 			return false;
 		
-		attack = new AttackManagerImpl(uw, map, ba, baWazaList.get(i));
+		attack = new AttackManagerImpl(uw, map, ba, baWazaList.get(i), true);
 		if (attack.isAlive(enemyFlag)) {
 			attack.show();
-			pm.selectHp(true);
+			//pm.selectHp(true);
 			pm.displaySmall(attack.getAttack().getLabel(), attack.getAttack().getLabelColor(), ba);
 			mw.repaint();
 			return true;
@@ -105,7 +105,7 @@ public class FightManager {
 		for (int i = 0; i < baWazaList.size(); i++) {
 			if (i > 0 && ba.hasAttr(BodyAttribute.WET))
 				break;
-			AttackManager ab = new AttackManagerImpl(uw, map, ba, baWazaList.get(i));
+			AttackManager ab = new AttackManagerImpl(uw, map, ba, baWazaList.get(i), true);
 			if (ab.isAlive(true)) {
 				if (dmax < ab.getBestDamage()) {
 					dmax = ab.getBestDamage();
@@ -132,7 +132,7 @@ public class FightManager {
 		for (int i = bbWazaList.size() - 1; i >= 0; i--) {
 			if (bbWazaList.get(i).equals("none"))
 				continue;
-			AttackManager ab = new AttackManagerImpl(uw, map, bb, bbWazaList.get(i));
+			AttackManager ab = new AttackManagerImpl(uw, map, bb, bbWazaList.get(i), false);
 			if (ab.isCounterable(ba, true)) {
 				counter = ab;
 				counter.selectTarget(ba);
@@ -144,7 +144,7 @@ public class FightManager {
 				break;
 			if (bbWazaList.get(i).equals("none"))
 				continue;
-			AttackManager ab = new AttackManagerImpl(uw, map, bb, bbWazaList.get(i));
+			AttackManager ab = new AttackManagerImpl(uw, map, bb, bbWazaList.get(i), false);
 			if (ab.isCounterable(ba, false)) {
 				counter = ab;
 				counter.selectTarget(ba);
@@ -152,9 +152,9 @@ public class FightManager {
 			}
 		}
 		if (counter != null) {
-			pm.selectHp(false);
+			//pm.selectHp(false);
 			counter.selectTarget(ba);
-			pm.selectHp(true);
+			//pm.selectHp(true);
 		}
 	}
 
@@ -252,9 +252,9 @@ public class FightManager {
 		if (bb.hasAttr(BodyAttribute.SLEEP))
 			return;
 		pm.displaySmall(counter.getAttack().getLabel(), counter.getAttack().getLabelColor(), bb);
-		pm.selectHp(false);
+		//pm.selectHp(false);
 		counter.attack();
-		pm.selectHp(true);
+		//pm.selectHp(true);
 	}
 
 	/*** Attack **************************************************************/

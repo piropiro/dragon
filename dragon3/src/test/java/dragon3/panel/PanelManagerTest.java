@@ -174,11 +174,9 @@ public class PanelManagerTest extends TestCase {
 		bb.setHpMax(30);
 
 
-		pm.selectHp(true);
-		pm.displayHp(ba, bb, 5, true);
+		pm.displayHp(true, ba, bb, 5, true);
 
-		pm.selectHp(false);
-		pm.displayHp(bb, ba, 5, false);
+		pm.displayHp(false, bb, ba, 5, false);
 
 	}
 

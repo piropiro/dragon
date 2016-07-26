@@ -10,7 +10,11 @@ import dragon3.common.Body;
  * @author saito
  */
 public interface PanelWorks {
-	public void drawMain(Body ba, MineGraphics g, boolean hpDrawFlag);
+	public void drawMain(Body ba, MineGraphics g);
+
+	public void drawHp(Body ba, MineGraphics g);
+	
+	public void drawExp(Body ba, MineGraphics g);
 
 	public void drawLine(String name, int st, int x, int y, MineGraphics g);
 	

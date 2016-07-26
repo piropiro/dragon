@@ -20,7 +20,7 @@ public class SaveData implements Serializable, Cloneable {
 	private int save;
 	private int stage;
 	private long playTime;
-	private String playerName;
+	private String playerName = "Player";
 
 
 	public SaveData copy() {
