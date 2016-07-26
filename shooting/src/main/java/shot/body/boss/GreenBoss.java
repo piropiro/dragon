@@ -1,9 +1,13 @@
 package shot.body.boss;
 
+import java.util.Arrays;
+import java.util.List;
+
 import mine.paint.MineColor;
 import shot.ShotCanvas;
 import shot.body.Body;
 import shot.body.enemy.Enemy;
+import shot.body.wepon.Wepon;
 import shot.body.wepon.WiderWeponV;
 
 public class GreenBoss extends Enemy {
@@ -28,10 +32,10 @@ public class GreenBoss extends Enemy {
 			setY(getY() - getYv());
 	}
 
-	protected Body[] shoots() {
-		Body[] newtama = new Body[2];
-		newtama[0] = new WiderWeponV(getX(), getY(), -2, getH());
-		newtama[1] = new WiderWeponV(getX() + getW(), getY(), 2, getW());
-		return newtama;
+	protected List<Wepon> shoots() {
+		return Arrays.asList(
+			new WiderWeponV(getX(), getY(), -2, getH()),
+			new WiderWeponV(getX() + getW(), getY(), 2, getW())
+			);
 	}
 }

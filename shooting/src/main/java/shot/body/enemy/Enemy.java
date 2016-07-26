@@ -1,10 +1,18 @@
 package shot.body.enemy;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 import mine.paint.MineColor;
 import mine.paint.MineGraphics;
 import mine.util.Randomer;
 import shot.body.Body;
+import shot.body.wepon.Wepon;
 
+@Data
+@EqualsAndHashCode(callSuper=false)
 public abstract class Enemy extends Body {
 
 	private int xv;
@@ -71,53 +79,14 @@ public abstract class Enemy extends Body {
 			-count * 16);
 	}
 
-	public void shoot(Body[] tama) {
+	public List<Wepon> shoot() {
 		if (getLife() > 0 && shootTime != 0 && time % shootTime == 0) {
-			Body[] newtama = shoots();
-			if (newtama != null) {
-				int j = 0;
-				for (int i = 0; i < tama.length; i++) {
-					if (tama[i] != null)
-						continue;
-					tama[i] = newtama[j++];
-					if (j >= newtama.length)
-						break;
-				}
-			}
+			return shoots();
+		} else {
+			return new ArrayList<>();
 		}
 	}
-	protected abstract Body[] shoots();
-
-	public void setXv(int xv) {
-		this.xv = xv;
-	}
-
-	public int getXv() {
-		return xv;
-	}
-
-	public void setYv(int yv) {
-		this.yv = yv;
-	}
-
-	public int getYv() {
-		return yv;
-	}
-
-	public MineColor getColor() {
-		return color;
-	}
-
-	public void setColor(MineColor i) {
-		color = i;
-	}
-
-	public int getTime() {
-		return time;
-	}
-
-	public void setTime(int i) {
-		time = i;
-	}
+	
+	protected abstract List<Wepon> shoots();
 
 }

@@ -1,9 +1,13 @@
 package shot.body.enemy;
 
+import java.util.Arrays;
+import java.util.List;
+
 import mine.paint.MineColor;
 import mine.util.Randomer;
 import shot.ShotCanvas;
 import shot.body.Body;
+import shot.body.wepon.Wepon;
 
 public class WhiteEnemy extends Enemy {
 
@@ -31,7 +35,7 @@ public class WhiteEnemy extends Enemy {
 			setY(getY() - getYv());
 	}
 
-	protected Body[] shoots() {
-		return new Body[0];
+	protected List<Wepon> shoots() {
+		return Arrays.asList();
 	}
 }

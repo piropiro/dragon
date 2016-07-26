@@ -1,10 +1,14 @@
 package shot.body.enemy;
 
+import java.util.Arrays;
+import java.util.List;
+
 import mine.paint.MineColor;
 import mine.util.Randomer;
 import shot.ShotCanvas;
 import shot.body.Body;
 import shot.body.wepon.NormalWepon;
+import shot.body.wepon.Wepon;
 
 public class GreenEnemyH extends Enemy {
 
@@ -23,10 +27,10 @@ public class GreenEnemyH extends Enemy {
 	protected void moves(Body ore) {
 	}
 
-	protected Body[] shoots() {
-		Body[] newtama = new Body[2];
-		newtama[0] = new NormalWepon(getX() + 1, getY(), 0, -2);
-		newtama[1] = new NormalWepon(getX() + 1, getY(), 0, 2);
-		return newtama;
+	protected List<Wepon> shoots() {
+		return Arrays.asList(
+			new NormalWepon(getX() + 1, getY(), 0, -2),
+			new NormalWepon(getX() + 1, getY(), 0, 2)
+		);
 	}
 }

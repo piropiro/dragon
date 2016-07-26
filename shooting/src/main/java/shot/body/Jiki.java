@@ -1,14 +1,22 @@
 package shot.body;
 
 
+import java.util.ArrayList;
+import java.util.List;
+
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 import mine.paint.MineColor;
 import mine.paint.MineGraphics;
 import shot.ShotCanvas;
 import shot.body.wepon.BeamWepon;
 import shot.body.wepon.BlueWepon;
 import shot.body.wepon.RedWepon;
+import shot.body.wepon.Wepon;
 import shot.body.wepon.YellowWepon;
 
+@Data
+@EqualsAndHashCode(callSuper=false)
 public class Jiki extends Body {
 
 	public static final int ENERGY_MAX = 80; // エネルギー最大値
@@ -64,52 +72,32 @@ public class Jiki extends Body {
 	 * @param time
 	 * @param beam
 	 */
-	public void shoot(int time, Body[] beam) {
-		int i = 0;
+	public List<Wepon> shoot(int time) {
 		int x = getX();
 		int y = getY();
 
+		List<Wepon> beams = new ArrayList<>();
 		if (time % 4 == 0) {
-			for (; i < beam.length; i++) {
-				if (beam[i] == null) {
-					beam[i] = new BeamWepon(x - 2, y);
-					break;
-				}
-			}
+			beams.add(new BeamWepon(x - 2, y));
 		}
 
 		if (blue && (time % 8 == 0)) {
-			for (; i < beam.length - 1; i++) {
-				if (beam[i] == null && beam[i + 1] == null) {
-					beam[i] = new BlueWepon(x - 7, y);
-					beam[i + 1] = new BlueWepon(x + 3, y);
-					break;
-				}
-			}
+			beams.add(new BlueWepon(x - 7, y));
+			beams.add(new BlueWepon(x + 3, y));
 		}
 
 		if (red && (time % 8 == 0)) {
 			int t = time / 8 % 2;
-			for (; i < beam.length - 1; i++) {
-				if (beam[i] == null && beam[i + 1] == null) {
-					beam[i] =
-						new RedWepon(x - 7, y + 5, -2 + t, -1 - t);
-					beam[i + 1] =
-						new RedWepon(x + 5, y + 5, 2 - t, -1 - t);
-					break;
-				}
-			}
+			beams.add(new RedWepon(x - 7, y + 5, -2 + t, -1 - t));
+			beams.add(new RedWepon(x + 5, y + 5, 2 - t, -1 - t));
 		}
 
 		if (yellow && (time % 16 == 0)) {
-			for (; i < beam.length - 1; i++) {
-				if (beam[i] == null && beam[i + 1] == null) {
-					beam[i] = new YellowWepon(x - 4, y, -4, 3);
-					beam[i + 1] = new YellowWepon(x, y, 4, 3);
-					break;
-				}
-			}
+			beams.add(new YellowWepon(x - 4, y, -4, 3));
+			beams.add(new YellowWepon(x, y, 4, 3));
 		}
+		
+		return beams;
 	}
 
 	/**
@@ -194,14 +182,6 @@ public class Jiki extends Body {
 		return energy >= ENERGY_MAX;
 	}
 
-	public int getEnergy() {
-		return energy;
-	}
-
-	public void setEnergy(int i) {
-		energy = i;
-	}
-
 	public boolean flash() {
 		if (blue || red || yellow) {
 			blue = false;
@@ -228,33 +208,6 @@ public class Jiki extends Body {
 		} else {
 			return true;
 		}
-	}
-	public int getBomb(){
-		return bomb;
-	}
-
-	public boolean isBlue() {
-		return blue;
-	}
-
-	public boolean isRed() {
-		return red;
-	}
-
-	public boolean isYellow() {
-		return yellow;
-	}
-
-	public void setBlue(boolean b) {
-		blue = b;
-	}
-
-	public void setRed(boolean b) {
-		red = b;
-	}
-
-	public void setYellow(boolean b) {
-		yellow = b;
 	}
 
 }

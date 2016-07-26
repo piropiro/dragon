@@ -1,8 +1,12 @@
 package shot.body.enemy;
 
+import java.util.Arrays;
+import java.util.List;
+
 import mine.paint.MineColor;
 import shot.body.Body;
 import shot.body.wepon.NormalWepon;
+import shot.body.wepon.Wepon;
 
 public class PinkEnemy extends Enemy {
 
@@ -21,12 +25,12 @@ public class PinkEnemy extends Enemy {
 		}
 	}
 
-	protected Body[] shoots() {
-		Body[] newtama = new Body[4];
-		newtama[0] = new NormalWepon(getX() + 1, getY(), -1, -1);
-		newtama[1] = new NormalWepon(getX() + 1, getY(), 1, -1);
-		newtama[2] = new NormalWepon(getX() + 1, getY(), -1, 1);
-		newtama[3] = new NormalWepon(getX() + 1, getY(), 1, 1);
-		return newtama;
+	protected List<Wepon> shoots() {
+		return Arrays.asList(
+			new NormalWepon(getX() + 1, getY(), -1, -1),
+			new NormalWepon(getX() + 1, getY(), 1, -1),
+			new NormalWepon(getX() + 1, getY(), -1, 1),
+			new NormalWepon(getX() + 1, getY(), 1, 1)
+			);
 	}
 }

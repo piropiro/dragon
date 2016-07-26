@@ -1,10 +1,14 @@
 package shot.body.boss;
 
+import java.util.Arrays;
+import java.util.List;
+
 import mine.paint.MineColor;
 import shot.ShotCanvas;
 import shot.body.Body;
 import shot.body.enemy.Enemy;
 import shot.body.wepon.BlueEnemyWepon;
+import shot.body.wepon.Wepon;
 
 public class BlueBoss extends Enemy {
 
@@ -34,16 +38,16 @@ public class BlueBoss extends Enemy {
 		}
 	}
 
-	protected Body[] shoots() {
-		Body[] newtama = new Body[8];
-		newtama[0] = new BlueEnemyWepon(getX(), getY(), -2, 0);
-		newtama[1] = new BlueEnemyWepon(getX(), getY(), 0, -2);
-		newtama[2] = new BlueEnemyWepon(getX() + getW(), getY(), 0, -2);
-		newtama[3] = new BlueEnemyWepon(getX() + getW(), getY(), 2, 0);
-		newtama[4] = new BlueEnemyWepon(getX(), getY() + getH(), 0, 2);
-		newtama[5] = new BlueEnemyWepon(getX(), getY() + getH(), -2, 0);
-		newtama[6] = new BlueEnemyWepon(getX() + getW(), getY() + getH(), 2, 0);
-		newtama[7] = new BlueEnemyWepon(getX() + getW(), getY() + getH(), 0, 2);
-		return newtama;
+	protected List<Wepon> shoots() {
+		return Arrays.asList(
+			new BlueEnemyWepon(getX(), getY(), -2, 0),
+			new BlueEnemyWepon(getX(), getY(), 0, -2),
+			new BlueEnemyWepon(getX() + getW(), getY(), 0, -2),
+			new BlueEnemyWepon(getX() + getW(), getY(), 2, 0),
+			new BlueEnemyWepon(getX(), getY() + getH(), 0, 2),
+			new BlueEnemyWepon(getX(), getY() + getH(), -2, 0),
+			new BlueEnemyWepon(getX() + getW(), getY() + getH(), 2, 0),
+			new BlueEnemyWepon(getX() + getW(), getY() + getH(), 0, 2)
+		);
 	}
 }

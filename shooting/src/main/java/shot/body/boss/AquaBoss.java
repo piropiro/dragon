@@ -1,10 +1,14 @@
 package shot.body.boss;
 
+import java.util.Arrays;
+import java.util.List;
+
 import mine.paint.MineColor;
 import shot.ShotCanvas;
 import shot.body.Body;
 import shot.body.enemy.Enemy;
 import shot.body.wepon.LineWepon;
+import shot.body.wepon.Wepon;
 
 public class AquaBoss extends Enemy {
 
@@ -22,9 +26,8 @@ public class AquaBoss extends Enemy {
 			setXv(-getXv());
 	}
 
-	protected Body[] shoots() {
-		Body[] newtama = new Body[1];
-		newtama[0] = new LineWepon(getX() + getW() / 2, getY());
-		return newtama;
+	protected List<Wepon> shoots() {
+		return Arrays.asList(
+				new LineWepon(getX() + getW() / 2, getY()));
 	}
 }
