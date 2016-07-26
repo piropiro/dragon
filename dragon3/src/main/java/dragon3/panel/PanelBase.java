@@ -109,7 +109,7 @@ public abstract class PanelBase extends JComponent implements PanelWorks {
 	public void drawMain(Body ba, MineGraphics g) {
 		g.drawImage(im.getBack()[0], 10, 10);
 		g.drawImage(im.getBodyList().getImage(ba.getImageNum()), 10, 10);
-		g.drawString(ba.getName(), 50, 22);
+		g.drawString(ba.base.getName(), 50, 22);
 		g.drawString("Lv." + ba.getLevel(), 52, 41);
 	}
 	

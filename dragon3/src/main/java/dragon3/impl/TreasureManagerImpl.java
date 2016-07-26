@@ -315,9 +315,9 @@ public class TreasureManagerImpl implements TreasureManager {
 		for (Integer n : comments) {
 			Body ba = holder[n.intValue()];
 			Body tre = treasure[n.intValue()];
-			pm.addMessage(ba.getName() + Texts.ha);
+			pm.addMessage(ba.base.getName() + Texts.ha);
 			pm.addMessage(Texts.treasure1);
-			pm.addMessage(tre.getName() + Texts.wo);
+			pm.addMessage(tre.base.getName() + Texts.wo);
 			pm.addMessage(Texts.treasure2);
 			pm.closeData();
 			pm.startMessage(tre);
@@ -330,16 +330,16 @@ public class TreasureManagerImpl implements TreasureManager {
 	 */
 	public void message(Body ba, Body tre) {
 		if (ba != null) {
-			if (ba.getName().length() <= 2) {
-				pm.addMessage(ba.getName() + Texts.ha + Texts.treasure3);
+			if (ba.base.getName().length() <= 2) {
+				pm.addMessage(ba.base.getName() + Texts.ha + Texts.treasure3);
 			} else {
-				pm.addMessage(ba.getName() + Texts.ha);
+				pm.addMessage(ba.base.getName() + Texts.ha);
 				pm.addMessage(Texts.treasure3);
 			}
 		} else {
 			pm.addMessage(Texts.treasure3);
 		}
-		pm.addMessage(tre.getName() + Texts.wo);
+		pm.addMessage(tre.base.getName() + Texts.wo);
 		pm.addMessage(Texts.treasure2);
 		pm.closeData();
 		pm.startMessage(tre);

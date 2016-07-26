@@ -43,7 +43,7 @@ public class WalkPaint implements PaintListener {
 		this.ba = ba;
 		List<Body> charaList = uw.getCharaList();
 
-		step = MoveUtils.getStep(ba);
+		step = ba.getMoveStep();
 		int[] stepList = MoveUtils.getStepList(ba);
 
 		for (int i = 0; i < stepList.length; i++) {

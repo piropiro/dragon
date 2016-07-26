@@ -70,7 +70,7 @@ public class Equip {
 		for (int offset = 1; offset < 5; offset++) {
 			Body item = searchItem(ba.getGoalX() + offset, ba.getGoalY());
 			if (item != null) {
-				list.put(item.getKind(), item);
+				list.put(item.base.getKind(), item);
 			}
 		}
 		return list;
@@ -171,7 +171,7 @@ public class Equip {
 		checkAddWaza(ba, list.get(BodyKind.SOUL), 0, true, true, wazaList);
 		
 		// キャラ1〜
-		for (int i = 1; i < ba.getBaseWazaList().size(); i++) {
+		for (int i = 1; i < ba.base.getWazaList().size(); i++) {
 			checkAddWaza(ba, ba, 1, false, false, wazaList);
 		}
 		
@@ -182,7 +182,7 @@ public class Equip {
 		if (item == null)
 			return false;
 		
-		String waza = item.getBaseWazaList().get(i);
+		String waza = item.base.getWazaList().get(i);
 		
 		if (waza.equals("none")) 
 			return false;
@@ -207,7 +207,7 @@ public class Equip {
 
 	public boolean have(Body ba) {
 		for (Body b : equipList) {
-			if (!ba.getId().equals(b.getId())) {
+			if (!ba.base.getId().equals(b.base.getId())) {
 				continue;
 			} else if (isDust(b)) {
 				continue;

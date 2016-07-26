@@ -185,9 +185,9 @@ public class TurnManagerImpl implements TurnManager {
 			return;
 		if (b.hasAttr(BodyAttribute.SWIM_ABLE))
 			return;
-		if (b.getMoveType().equals(MoveType.SWIM))
+		if (b.base.getMoveType().equals(MoveType.SWIM))
 			return;
-		if (b.getMoveType().equals(MoveType.TWIN))
+		if (b.base.getMoveType().equals(MoveType.TWIN))
 			return;
 		b.addAttr(BodyAttribute.WET);
 		b.addAttr(BodyAttribute.WET_LOCK);

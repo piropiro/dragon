@@ -52,27 +52,27 @@ public class BodyDataLoader {
 	 */
 	private static void calcLevel(Body body, int level) {
 		System.out.print("level=" + level);
-		System.out.print(" str=" + body.getStr());
+		System.out.print(" str=" + body.base.getStr());
 		
 		double rate = Math.pow(1.1, level - 10);
-		body.setBaseHp((int)(body.getHp()   * 10 * rate + 5));
-		body.setBaseStr((int)(body.getStr() * 10 * rate + 5));
-		body.setBaseDef((int)(body.getDef() * 10 * rate + 5));
-		body.setBaseMst((int)(body.getMst() * 10 * rate + 5));
-		body.setBaseMdf((int)(body.getMdf() * 10 * rate + 5));
-		body.setBaseHit((int)(body.getHit() * 10 * rate + 5));
-		body.setBaseMis((int)(body.getMis() * 10 * rate + 5));
+		body.base.setHp((int)(body.base.getHp()   * 10 * rate + 5));
+		body.base.setStr((int)(body.base.getStr() * 10 * rate + 5));
+		body.base.setDef((int)(body.base.getDef() * 10 * rate + 5));
+		body.base.setMst((int)(body.base.getMst() * 10 * rate + 5));
+		body.base.setMdf((int)(body.base.getMdf() * 10 * rate + 5));
+		body.base.setHit((int)(body.base.getHit() * 10 * rate + 5));
+		body.base.setMis((int)(body.base.getMis() * 10 * rate + 5));
 		
-		System.out.print(" baseStr=" + body.getBaseStr());
+		System.out.print(" baseStr=" + body.base.getStr());
 		
-		body.setHpMax(body.getBaseHp() / 10);
+		body.setHpMax(body.base.getHp() / 10);
 		body.setHp(body.getHpMax());
-		body.setStr(body.getBaseStr() / 10);
-		body.setDef(body.getBaseDef() / 10);
-		body.setMst(body.getBaseMst() / 10);
-		body.setMdf(body.getBaseMdf() / 10);
-		body.setHit(body.getBaseHit() / 10);
-		body.setMis(body.getBaseMis() / 10);
+		body.setStr(body.base.getStr() / 10);
+		body.setDef(body.base.getDef() / 10);
+		body.setMst(body.base.getMst() / 10);
+		body.setMdf(body.base.getMdf() / 10);
+		body.setHit(body.base.getHit() / 10);
+		body.setMis(body.base.getMis() / 10);
 		
 		body.setStore(HitRate.SINGLE_HIT / 2);
 		
@@ -85,14 +85,10 @@ public class BodyDataLoader {
 		BodyData bodyData = Statics.bodyList.getData(bodyId);
 		
 		try {
-			BeanUtils.copyProperties(body, bodyData);
+			BeanUtils.copyProperties(body.base, bodyData);
 			
 			body.resetAttr();			
-			
-			List<String> baseWazaList = new ArrayList<>(body.getWazaList());
-			body.setBaseWazaList(baseWazaList);
-
-			body.getWazaList().removeIf(a -> a.equals("none") );
+			body.resetWaza();
 
 		} catch (IllegalAccessException | InvocationTargetException e) {
 			throw new RuntimeException(e);

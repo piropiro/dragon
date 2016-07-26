@@ -792,7 +792,7 @@ public class VPanel extends JLayeredPane implements UnitWorks, ActionListener, K
 		List<Body> bodyList = BodyDataLoader.loadBodyDataList(file);
 		
 		for (Body body : bodyList) {
-			body.setImageNum(imageManager.getBodyList().getNum(body.getImage()));
+			body.setImageNum(imageManager.getBodyList().getNum(body.base.getImage()));
 		}
 		return bodyList;
 	}

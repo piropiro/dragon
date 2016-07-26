@@ -150,7 +150,7 @@ public class Camp {
 	public void removeDust() {
 		for (int i = equips.size() - 1; i >= 0; i--) {
 			Body b = (Body) equips.get(i);
-			if (b.getKind() == BodyKind.WAZA
+			if (b.base.getKind() == BodyKind.WAZA
 				|| map.getData(Page.P10, b.getX(), b.getY()) == T_ERASE) {
 				equips.remove(i);
 				map.setData(Page.P20, b.getX(), b.getY(), 0);
@@ -171,7 +171,7 @@ public class Camp {
 				continue;
 			if (b.getX() < 14)
 				continue;
-			if (b.getKind() == BodyKind.WAZA) {
+			if (b.base.getKind() == BodyKind.WAZA) {
 				wazaList.add(b);
 			} else {
 				itemList.add(b);
@@ -237,7 +237,7 @@ public class Camp {
 			return;
 		Body bb;
 
-		switch (ba.getKind()) {
+		switch (ba.base.getKind()) {
 		case CLASS:
 			if (x == COL_CHARA1 + OFFSET_CLASS || x == COL_CHARA2 + OFFSET_CLASS) {
 				bb = charaCheck(x - OFFSET_CLASS, y);
@@ -331,7 +331,7 @@ public class Camp {
 	/*** Alarm ***********************************/
 
 	private void alarm(Body ba) {
-		pm.displayLarge(Texts.sokoni + ba.getKind().getText() + Texts.haokemasen, GameColor.RED, 1000);
+		pm.displayLarge(Texts.sokoni + ba.base.getKind().getText() + Texts.haokemasen, GameColor.RED, 1000);
 	}
 
 	private Body charaCheck(int x, int y) {
@@ -348,11 +348,11 @@ public class Camp {
 		if (bb == null)
 			return false;
 
-		switch (bb.getKind()) {
+		switch (bb.base.getKind()) {
 		case WEPON:
-			return ba.getWeponType().equals(bb.getWeponType());
+			return ba.base.getWeponType().equals(bb.base.getWeponType());
 		case ARMOR:
-			return ba.getArmorType().equals(bb.getArmorType());
+			return ba.base.getArmorType().equals(bb.base.getArmorType());
 		default:
 		}
 
@@ -440,7 +440,7 @@ public class Camp {
 		equips.remove(bb);
 
 		end = null;
-		switch (bb.getKind()) {
+		switch (bb.base.getKind()) {
 		case CLASS:
 			map.setData(Page.P10, x, y, T_FREE);
 			List<Body> list = new ArrayList<>();
@@ -465,7 +465,7 @@ public class Camp {
 		if (map.getData(Page.P30, x, y) == 0)
 			return;
 		Body bb = equip.search(x, y);
-		switch (bb.getKind()) {
+		switch (bb.base.getKind()) {
 		case SOUL:
 			map.setData(Page.P10, x, y, T_PASTE);
 			break;

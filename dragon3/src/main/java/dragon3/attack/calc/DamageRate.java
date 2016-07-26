@@ -61,7 +61,7 @@ public class DamageRate {
 			rate /= 2;
 
 		// Aquatic Guard
-		if (bb.getMoveType().equals(MoveType.SWIM) || bb.getMoveType().equals(MoveType.TWIN)) {
+		if (bb.base.getMoveType().equals(MoveType.SWIM) || bb.base.getMoveType().equals(MoveType.TWIN)) {
 			if (!effect.contains(AttackEffect.MIZU_100)) {
 				if (tikei == MoveUtils.T_SEA && !effect.contains(AttackEffect.THUNDER))
 					rate /= 2;
@@ -70,7 +70,7 @@ public class DamageRate {
 			}
 		}
 		// Aquatic Attack
-		if (bb.getMoveType().equals(MoveType.SWIM) || bb.getMoveType().equals(MoveType.TWIN)) {
+		if (bb.base.getMoveType().equals(MoveType.SWIM) || bb.base.getMoveType().equals(MoveType.TWIN)) {
 			if (MoveUtils.getTikei(map, ba) == MoveUtils.T_SKY)
 				rate /= 2;
 			if (MoveUtils.getTikei(map, ba) == MoveUtils.T_LAND)

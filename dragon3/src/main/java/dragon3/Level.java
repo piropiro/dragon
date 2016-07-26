@@ -45,10 +45,10 @@ public class Level {
 	private void charaLevelup(Body ba) {
 		while (ba.getExp() >= MAX_EXP) {
 			ba.setExp(ba.getExp() - MAX_EXP);
-			if (ba.getName().length() <= 1) {
-				pm.addMessage(ba.getName() + Texts.ha + Texts.equip1);
+			if (ba.base.getName().length() <= 1) {
+				pm.addMessage(ba.base.getName() + Texts.ha + Texts.equip1);
 			} else {
-				pm.addMessage(ba.getName() + Texts.ha);
+				pm.addMessage(ba.base.getName() + Texts.ha);
 				pm.addMessage(Texts.equip1);
 			}
 			statusup(ba);
@@ -65,7 +65,7 @@ public class Level {
 			
 			if (!item.isMaster()) {
 				item.setMaster(true);
-				pm.addMessage(item.getKind().getText() + Texts.equip1);
+				pm.addMessage(item.base.getKind().getText() + Texts.equip1);
 			}
 		}
 	}
@@ -109,19 +109,19 @@ public class Level {
 		Map<BodyKind, Body> list = equip.getEquipOf(ba);
 		Body clazz = list.get(BodyKind.CLASS);
 		
-		statusup(Texts.hp, ba::getBaseHp, ba::setBaseHp, clazz.getHp(),
+		statusup(Texts.hp, ba.base::getHp, ba.base::setHp, clazz.getHp(),
 				ba::getHpMax, ba::setHpMax);
-		statusup(Texts.kougekiryoku, ba::getBaseStr, ba::setBaseStr, clazz.getStr(),
+		statusup(Texts.kougekiryoku, ba.base::getStr, ba.base::setStr, clazz.getStr(),
 				ba::getStr, ba::setStr);
-		statusup(Texts.bougyoryoku, ba::getBaseDef, ba::setBaseDef, clazz.getDef(),
+		statusup(Texts.bougyoryoku, ba.base::getDef, ba.base::setDef, clazz.getDef(),
 				ba::getDef, ba::setDef);
-		statusup(Texts.mahouryoku, ba::getBaseMst, ba::setBaseMst, clazz.getMst(),
+		statusup(Texts.mahouryoku, ba.base::getMst, ba.base::setMst, clazz.getMst(),
 				ba::getMst, ba::setMst);
-		statusup(Texts.teikouryoku, ba::getBaseMdf, ba::setBaseMdf, clazz.getMdf(),
+		statusup(Texts.teikouryoku, ba.base::getMdf, ba.base::setMdf, clazz.getMdf(),
 				ba::getMdf, ba::setMdf);
-		statusup(Texts.meichuritu, ba::getBaseHit, ba::setBaseHit, clazz.getHit(),
+		statusup(Texts.meichuritu, ba.base::getHit, ba.base::setHit, clazz.getHit(),
 				ba::getHit, ba::setHit);
-		statusup(Texts.kaihiritu, ba::getBaseMis, ba::setBaseMis, clazz.getMis(),
+		statusup(Texts.kaihiritu, ba.base::getMis, ba.base::setMis, clazz.getMis(),
 				ba::getMis, ba::setMis);
 	}
 }
