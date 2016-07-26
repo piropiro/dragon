@@ -10,7 +10,7 @@ import dragon3.panel.item.HPBar;
 import mine.awt.GraphicsAWT;
 import mine.awt.MineAwtUtils;
 import mine.event.SleepManager;
-import mine.paint.Colors;
+import mine.paint.MineColor;
 import mine.paint.MineGraphics;
 
 public class HPanel extends JComponent {
@@ -89,7 +89,7 @@ public class HPanel extends JComponent {
 		Dimension d = getSize();
 		mg.setColor(ba.getColor().getAlphaBg());
 		mg.fillRect(0, 0, d.width, d.height);
-		mg.setColor(Colors.BLACK);
+		mg.setColor(MineColor.BLACK);
 		mg.drawRect(0, 0, d.width - 1, d.height - 1);
 
 		hpb.paint(2, 12, mg);

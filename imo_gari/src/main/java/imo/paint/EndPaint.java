@@ -5,7 +5,7 @@ import imo.common.ImageList;
 
 import java.awt.event.KeyEvent;
 
-import mine.paint.Colors;
+import mine.paint.MineColor;
 import mine.paint.MineGraphics;
 import mine.thread.Engine;
 
@@ -32,7 +32,7 @@ public class EndPaint implements PaintListener {
 		g.drawImage(imageList.getEndImage(), 0, 0, 300, size, 0, 0);
 
 		if (count / 12 % 2 == 0) {
-			g.setColor(Colors.BLACK);
+			g.setColor(MineColor.BLACK);
 			g.drawString("press  C  to close", 20, 280);
 		}
 	}

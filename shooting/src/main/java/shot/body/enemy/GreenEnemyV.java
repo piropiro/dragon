@@ -1,13 +1,13 @@
 package shot.body.enemy;
 
-import mine.paint.Colors;
+import mine.paint.MineColor;
 import shot.body.Body;
 import shot.body.wepon.NormalWepon;
 
 public class GreenEnemyV extends Enemy {
 
 	public GreenEnemyV(int x) {
-		init(x, 0, 7, 7, 0, 3, 1, Colors.GREEN);
+		init(x, 0, 7, 7, 0, 3, 1, MineColor.GREEN);
 		setShootTime(20);
 	}
 

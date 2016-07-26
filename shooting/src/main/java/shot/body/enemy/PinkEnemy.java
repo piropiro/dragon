@@ -1,13 +1,13 @@
 package shot.body.enemy;
 
-import mine.paint.Colors;
+import mine.paint.MineColor;
 import shot.body.Body;
 import shot.body.wepon.NormalWepon;
 
 public class PinkEnemy extends Enemy {
 
 	public PinkEnemy(int x) {
-		init(x, 0, 7, 7, 0, 2, 1, Colors.PINK);
+		init(x, 0, 7, 7, 0, 2, 1, MineColor.PINK);
 		setShootTime(50);
 	}
 

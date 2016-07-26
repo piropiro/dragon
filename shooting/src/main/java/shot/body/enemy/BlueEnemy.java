@@ -1,6 +1,6 @@
 package shot.body.enemy;
 
-import mine.paint.Colors;
+import mine.paint.MineColor;
 import shot.ShotCanvas;
 import shot.body.Body;
 import shot.body.wepon.NormalWepon;
@@ -8,7 +8,7 @@ import shot.body.wepon.NormalWepon;
 public class BlueEnemy extends Enemy {
 
 	public BlueEnemy(int x) {
-		init(x, 0, 7, 7, 2, 1, 1, Colors.BLUE);
+		init(x, 0, 7, 7, 2, 1, 1, MineColor.BLUE);
 		setShootTime(50);
 	}
 

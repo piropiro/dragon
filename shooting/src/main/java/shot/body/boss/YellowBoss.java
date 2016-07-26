@@ -1,6 +1,6 @@
 package shot.body.boss;
 
-import mine.paint.Colors;
+import mine.paint.MineColor;
 import shot.ShotCanvas;
 import shot.body.Body;
 import shot.body.enemy.Enemy;
@@ -12,7 +12,7 @@ public class YellowBoss extends Enemy {
 	public YellowBoss(int level) {
 		int size = 15 + level;
 		int life = 10 + level * 5;
-		init(0, ShotCanvas.SCREEN_HEIGHT / 2 - size / 2, size, size, 3, 3, life, Colors.YELLOW);
+		init(0, ShotCanvas.SCREEN_HEIGHT / 2 - size / 2, size, size, 3, 3, life, MineColor.YELLOW);
 		setShootTime(90);
 	}
 

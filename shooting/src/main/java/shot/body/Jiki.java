@@ -1,7 +1,7 @@
 package shot.body;
 
 
-import mine.paint.Colors;
+import mine.paint.MineColor;
 import mine.paint.MineGraphics;
 import shot.ShotCanvas;
 import shot.body.wepon.BeamWepon;
@@ -121,21 +121,21 @@ public class Jiki extends Body {
 	public void paint(MineGraphics g, int time) {
 
 		if (red && yellow && blue) {
-			g.setColor(Colors.GRAY);
+			g.setColor(MineColor.GRAY);
 		} else if (red && yellow) {
-			g.setColor(Colors.ORANGE);
+			g.setColor(MineColor.ORANGE);
 		} else if (red && blue) {
-			g.setColor(Colors.PINK);
+			g.setColor(MineColor.PINK);
 		} else if (yellow && blue) {
-			g.setColor(Colors.LIME);
+			g.setColor(MineColor.LIME);
 		} else if (red) {
-			g.setColor(Colors.RED);
+			g.setColor(MineColor.RED);
 		} else if (blue) {
-			g.setColor(Colors.BLUE);
+			g.setColor(MineColor.BLUE);
 		} else if (yellow) {
-			g.setColor(Colors.YELLOW);
+			g.setColor(MineColor.YELLOW);
 		} else {
-			g.setColor(Colors.WHITE);
+			g.setColor(MineColor.WHITE);
 		}
 
 		int x = getX() - 2;
@@ -171,15 +171,15 @@ public class Jiki extends Body {
 		g.fillRect(x - 2, y + 5, 9, 1);
 		g.fillRect(x - 2, y + 3, 1, 4);
 		g.fillRect(x + 6, y + 3, 1, 4);
-		g.setColor(Colors.AQUA);
+		g.setColor(MineColor.AQUA);
 		g.fillRect(x + 1, y - 1, 3, 4);
-		g.setColor(Colors.RED);
+		g.setColor(MineColor.RED);
 		g.fillRect(x, y + 8, 5, 1);
 
 		if (time % 2 == 0) {
 			g.fillRect(x + 1, y + 9, 3, 1);
 			if (isEnergyMax()) {
-				g.setColor(Colors.YELLOW);
+				g.setColor(MineColor.YELLOW);
 				g.drawRect(x - 3, y, 2, 2);
 				g.drawRect(x + 5, y, 2, 2);
 			}

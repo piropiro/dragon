@@ -2,7 +2,7 @@ package shot;
 
 import mine.game.GameListener;
 import mine.game.GameManager;
-import mine.paint.Colors;
+import mine.paint.MineColor;
 import mine.paint.MineGraphics;
 import mine.util.Randomer;
 import shot.body.Body;
@@ -116,9 +116,9 @@ public class ShotCanvas implements GameListener {
 	 * スタート画面を表示する。
 	 */
 	public void paintStart(MineGraphics g) {
-		g.setColor(Colors.BLACK);
+		g.setColor(MineColor.BLACK);
 		g.fillRect(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
-		g.setColor(Colors.WHITE);
+		g.setColor(MineColor.WHITE);
 		g.drawString("[ Z ] START", SCREEN_WIDTH / 2 - 55, SCREEN_HEIGHT / 2 - 30);
 		g.drawString("[ X ] BOMB", SCREEN_WIDTH / 2 - 55, SCREEN_HEIGHT / 2 - 10);
 		g.drawString("[ C ] LASER", SCREEN_WIDTH / 2 - 55, SCREEN_HEIGHT / 2 + 10);
@@ -129,7 +129,7 @@ public class ShotCanvas implements GameListener {
 	 * ゲームオーバー画面を表示する。
 	 */
 	public void paintEnd(MineGraphics g) {
-		g.setColor(Colors.WHITE);
+		g.setColor(MineColor.WHITE);
 		g.drawString("Game Over", SCREEN_WIDTH / 2 - 30, SCREEN_HEIGHT / 2 - 10);
 	}
 
@@ -208,7 +208,7 @@ public class ShotCanvas implements GameListener {
 
 		// スコア表示
 		high_score = Math.max(high_score, score);
-		g.setColor(Colors.WHITE);
+		g.setColor(MineColor.WHITE);
 		g.drawString("Sc " + score, 5, 11);
 		g.drawString("Hi " + high_score, 58, 11);
 		g.drawString("Bo", 5, 22);
@@ -216,16 +216,16 @@ public class ShotCanvas implements GameListener {
 
 		// エネルギーバー表示
 		if (jiki.isEnergyMax()) {
-			g.setColor(Colors.RED);
+			g.setColor(MineColor.RED);
 		} else {
-			g.setColor(Colors.YELLOW);
+			g.setColor(MineColor.YELLOW);
 		}
 		g.fillRect(75, 16, jiki.getEnergy() / 2, 3);
-		g.setColor(Colors.WHITE);
+		g.setColor(MineColor.WHITE);
 		g.drawRect(75 - 1, 16 - 1, Jiki.ENERGY_MAX / 2 + 1, 4);
 
 		// ボム個数表示
-		g.setColor(Colors.WHITE);
+		g.setColor(MineColor.WHITE);
 		for (int i = 0; i < jiki.getBomb(); i++) {
 			g.fillRect(22 + i * 3, 15, 2, 6);
 		}
@@ -239,15 +239,16 @@ public class ShotCanvas implements GameListener {
 			if (item[i] != null) {
 				if (Body.hit(item[i], jiki)) {
 					switch (item[i].getColor()) {
-						case Colors.BLUE :
+						case BLUE:
 							jiki.setBlue(true);
 							break;
-						case Colors.YELLOW :
+						case YELLOW:
 							jiki.setYellow(true);
 							break;
-						case Colors.RED :
+						case RED:
 							jiki.setRed(true);
 							break;
+						default:
 					}
 					item[i] = null;
 
@@ -355,9 +356,9 @@ public class ShotCanvas implements GameListener {
 	 * @param g
 	 */
 	private void paintBackground(MineGraphics g) {
-		g.setColor(Colors.BLACK);
+		g.setColor(MineColor.BLACK);
 		g.fillRect(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
-		g.setColor(Colors.GRAY);
+		g.setColor(MineColor.GRAY);
 		for (int i = 0; i <= SCREEN_HEIGHT / 32; i++) {
 			int y = i * 32 + turn % 16 * 2;
 			g.drawLine(0, y, SCREEN_WIDTH, y);
@@ -373,13 +374,13 @@ public class ShotCanvas implements GameListener {
 				if (item[i] == null) {
 					switch (turn % 3) {
 						case 0 :
-							item[i] = new Item(SCREEN_WIDTH / 2, Colors.BLUE);
+							item[i] = new Item(SCREEN_WIDTH / 2, MineColor.BLUE);
 							break;
 						case 1 :
-							item[i] = new Item(SCREEN_WIDTH / 2, Colors.RED);
+							item[i] = new Item(SCREEN_WIDTH / 2, MineColor.RED);
 							break;
 						case 2 :
-							item[i] = new Item(SCREEN_WIDTH / 2, Colors.YELLOW);
+							item[i] = new Item(SCREEN_WIDTH / 2, MineColor.YELLOW);
 							break;
 					}
 					break;
@@ -412,7 +413,7 @@ public class ShotCanvas implements GameListener {
 	 * @param flag ボタンによる発動ならtrue。ダメージによる発動ならfalse。
 	 */
 	private void flash(MineGraphics g, boolean flag) {
-		g.setColor(Colors.WHITE);
+		g.setColor(MineColor.WHITE);
 
 		// 敵弾を全部消す。
 		for (int i = 0; i < tama.length; i++) {

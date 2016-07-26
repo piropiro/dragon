@@ -1,6 +1,6 @@
 package dragon3.anime.listener;
 
-import mine.paint.Colors;
+import mine.paint.MineColor;
 import mine.paint.MineGraphics;
 import mine.paint.MineImage;
 import dragon3.anime.AnimeWorks;
@@ -40,7 +40,7 @@ public class CloseAnime implements AnimeListener {
 	/*** Paint ******************************************/
 
 	public void paint(MineGraphics g) {
-		g.setColor(Colors.WHITE);
+		g.setColor(MineColor.WHITE);
 		switch (type) {
 			case OUT :
 				g.drawImage(img, 0, 0);

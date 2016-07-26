@@ -1,6 +1,6 @@
 package dragon3.panel.item;
 
-import mine.paint.Colors;
+import mine.paint.MineColor;
 import mine.paint.MineGraphics;
 
 public class EXPBar {
@@ -25,7 +25,7 @@ public class EXPBar {
 	/*** Paint **************************************/
 
 	public void paint(int x, int y, MineGraphics g) {
-		g.setColor(Colors.WHITE);
+		g.setColor(MineColor.WHITE);
 		if (exp >= expMax) {
 			g.drawString("" + exp, x-4, y);
 		} else {
@@ -42,20 +42,20 @@ public class EXPBar {
 		int width = bar_width;
 		int height = 6;
 
-		g.setColor(Colors.WHITE);
+		g.setColor(MineColor.WHITE);
 		g.drawRect(x - 2, y - 2, width + 3, height + 3);
-		g.setColor(Colors.BLACK);
+		g.setColor(MineColor.BLACK);
 		g.drawRect(x - 1, y - 1, width + 1, height + 1);
 
 		if (n >= max) {
-			g.setColor(Colors.AQUA);
+			g.setColor(MineColor.AQUA);
 			g.fillRect(x, y, max, height);
 		} else {
-			g.setColor(Colors.LIME);
+			g.setColor(MineColor.LIME);
 			g.fillRect(x, y, n, height);
 		}
 
 
-		g.setColor(Colors.WHITE);
+		g.setColor(MineColor.WHITE);
 	}
 }

@@ -1,6 +1,6 @@
 package shot.body.enemy;
 
-import mine.paint.Colors;
+import mine.paint.MineColor;
 import mine.util.Randomer;
 import shot.ShotCanvas;
 import shot.body.Body;
@@ -9,7 +9,7 @@ import shot.body.wepon.NormalWepon;
 public class GreenEnemyH extends Enemy {
 
 	public GreenEnemyH(int y) {
-		init(0, y, 7, 7, 0, 0, 1, Colors.GREEN);
+		init(0, y, 7, 7, 0, 0, 1, MineColor.GREEN);
 		if (Randomer.getInstance().nextBoolean()) {
 			setX(0);
 			setXv(2);

@@ -1,6 +1,6 @@
 package shot.body.wepon;
 
-import mine.paint.Colors;
+import mine.paint.MineColor;
 import mine.paint.MineGraphics;
 import shot.ShotCanvas;
 
@@ -16,7 +16,7 @@ public class YellowWepon extends Wepon {
 	}
 
 	public void paint(MineGraphics g) {
-		g.setColor(Colors.WHITE);
+		g.setColor(MineColor.WHITE);
 		g.fillRect(getX(), getY() + 2, getW(), 1);
 		g.fillRect(getX() + 2, getY(), 1, getH());
 	}

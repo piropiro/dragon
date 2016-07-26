@@ -10,7 +10,7 @@ package mine.paint;
  */
 public interface MineGraphics {
 	
-	public void setColor(int color);
+	public void setColor(MineColor color);
 	
 	public void setColor(int r, int g, int b);
 	

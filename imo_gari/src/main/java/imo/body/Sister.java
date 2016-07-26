@@ -1,7 +1,7 @@
 package imo.body;
 
 import imo.common.ImageList;
-import mine.paint.Colors;
+import mine.paint.MineColor;
 import mine.paint.MineGraphics;
 import mine.paint.MineImage;
 
@@ -99,7 +99,7 @@ public class Sister extends Body {
 			}
 		}
 
-		g.setColor(Colors.BLACK);
+		g.setColor(MineColor.BLACK);
 		g.drawString(message, 5, 49);
 	}
 }

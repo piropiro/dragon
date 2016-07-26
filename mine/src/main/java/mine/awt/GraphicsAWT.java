@@ -13,7 +13,7 @@ import java.awt.RenderingHints;
 import java.awt.geom.AffineTransform;
 import java.awt.image.BufferedImage;
 
-import mine.paint.Colors;
+import mine.paint.MineColor;
 import mine.paint.MineGraphics;
 import mine.paint.MineImage;
 
@@ -34,48 +34,48 @@ public class GraphicsAWT implements MineGraphics {
 	 * @param i カラー番号
 	 * @return
 	 */
-	private static Color getColorOfName(int i) {
+	private static Color getColorOfName(MineColor i) {
 		switch (i) {
-			case Colors.BLACK :
+			case BLACK :
 				return new Color(0x00, 0x00, 0x00);
-			case Colors.BLUE :
+			case BLUE :
 				return new Color(0x00, 0x00, 0xff);
-			case Colors.LIME :
+			case LIME :
 				return new Color(0x00, 0xff, 0x00);
-			case Colors.AQUA :
+			case AQUA :
 				return new Color(0x00, 0xff, 0xff);
-			case Colors.RED :
+			case RED :
 				return new Color(0xff, 0x00, 0x00);
-			case Colors.PINK :
+			case PINK :
 				return new Color(0xff, 0x00, 0xff);
-			case Colors.YELLOW :
+			case YELLOW :
 				return new Color(0xff, 0xff, 0x00);
-			case Colors.WHITE :
+			case WHITE :
 				return new Color(0xff, 0xff, 0xff);
-			case Colors.GRAY :
+			case GRAY :
 				return new Color(0x80, 0x80, 0x80);
-			case Colors.NAVY :
+			case NAVY :
 				return new Color(0x00, 0x00, 0x80);
-			case Colors.GREEN :
+			case GREEN :
 				return new Color(0x00, 0x80, 0x00);
-			case Colors.TEAL :
+			case TEAL :
 				return new Color(0x00, 0x80, 0x80);
-			case Colors.MAROON :
+			case MAROON :
 				return new Color(0x80, 0x00, 0x00);
-			case Colors.PURPLE :
+			case PURPLE :
 				return new Color(0x80, 0x00, 0x80);
-			case Colors.OLIVE :
+			case OLIVE :
 				return new Color(0x80, 0x80, 0x00);
-			case Colors.SILVER :
+			case SILVER :
 				return new Color(0xc0, 0xc0, 0xc0);
-			case Colors.ORANGE :
+			case ORANGE :
 				return new Color(0xff, 0x80, 0x00);
 			default :
 				return new Color(0x00, 0x00, 0x00);
 		}
 	}
 
-	public void setColor(int color) {
+	public void setColor(MineColor color) {
 		g.setColor(getColorOfName(color));
 	}
 	
