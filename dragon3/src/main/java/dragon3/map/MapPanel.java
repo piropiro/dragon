@@ -8,6 +8,7 @@ import dragon3.common.Body;
 import dragon3.common.constant.Page;
 import dragon3.paint.EventListener;
 import mine.event.MouseAllListener;
+import mine.event.PaintComponent;
 import mine.event.PaintListener;
 import mine.paint.MineGraphics;
 import mine.paint.UnitMap;
@@ -25,7 +26,7 @@ public class MapPanel implements MapWorks, MouseAllListener, PaintListener {
 
 	/*** Constructer *****************************************************/
 
-	public MapPanel(UnitWorks uw, FrameWorks fw) {
+	public MapPanel(PaintComponent panel, UnitWorks uw, FrameWorks fw) {
 		super();
 		this.uw = uw;
 		this.fw = fw;
@@ -34,6 +35,7 @@ public class MapPanel implements MapWorks, MouseAllListener, PaintListener {
 //
 //		MapKeyManager mkm = new MapKeyManager(this);
 //		addKeyListener(mkm);
+		panel.setPaintListener(this);
 	}
 
 	/*** Listener ************************************************/

@@ -32,4 +32,7 @@ public interface FrameWorks {
     public PaintComponent getSmallPanel();
     public PaintComponent getLargePanel();
     public PaintComponent getCardPanel();
+    public PaintComponent getDataPanel1();
+    public PaintComponent getDataPanel2();
+    public PaintComponent getMessagePanel();
 }

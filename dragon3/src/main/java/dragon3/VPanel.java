@@ -153,22 +153,18 @@ public class VPanel extends JLayeredPane implements UnitWorks, ActionListener, K
 		
 		// AnimePanel
 		AnimePanel ap = new AnimePanel(fw.getAnimePanel(), sleepManager, map, animeList, imageManager);
-		fw.getAnimePanel().setPaintListener(ap);
 		animeManager = ap;
 
 		// MapPanel
-		up = new MapPanel(this, fw);
-		fw.getMapPanel().setPaintListener(up);
+		up = new MapPanel(fw.getMapPanel(), this, fw);
 		
 		// HPanel
 		HPanel hp = new HPanel(fw.getHPanel1(), sleepManager, true);
-		fw.getHPanel1().setPaintListener(hp);
 		HPanel hp2 = new HPanel(fw.getHPanel2(), sleepManager, false);
-		fw.getHPanel2().setPaintListener(hp2);
 		
 		// DataPanel
-		DataPanel sp = new DataPanel(sleepManager, imageManager, true);
-		DataPanel sp2 = new DataPanel(sleepManager, imageManager, false);
+		DataPanel sp = new DataPanel(fw.getDataPanel1(), sleepManager, imageManager, true);
+		DataPanel sp2 = new DataPanel(fw.getDataPanel2(), sleepManager, imageManager, false);
 		
 		// HelpPanel
 		HelpPanel help = new HelpPanel(fw.getHelpPanel());
@@ -179,13 +175,11 @@ public class VPanel extends JLayeredPane implements UnitWorks, ActionListener, K
 		// LargePanel
 		LargePanel lp = new LargePanel(fw.getLargePanel());
 		
-		
-		MessagePanel mp = new MessagePanel(sleepManager, imageManager);
+		// MessagePanel
+		MessagePanel mp = new MessagePanel(fw.getMessagePanel(), sleepManager, imageManager);
 		
 		// CardPanel
-		cp = new CardPanel(this, fw.getCardPanel(), mil, new MouseManagerAWT(), sleepManager);
-		fw.getCardPanel().setPaintListener(cp);
-
+		cp = new CardPanel(fw.getCardPanel(), this, mil, new MouseManagerAWT(), sleepManager);
 
 		panelManager = new PanelManagerImpl();
 		panelManager.setUnitMap(map);
@@ -206,9 +200,9 @@ public class VPanel extends JLayeredPane implements UnitWorks, ActionListener, K
 		add((JComponent)fw.getMapPanel(), new Integer(1));
 		add((JComponent)fw.getCardPanel(), new Integer(2));
 		add((JComponent)fw.getHelpPanel(), new Integer(3));
-		add(sp, new Integer(4));
-		add(sp2, new Integer(5));
-		add(mp, new Integer(6));
+		add((JComponent)fw.getDataPanel1(), new Integer(4));
+		add((JComponent)fw.getDataPanel2(), new Integer(5));
+		add((JComponent)fw.getMessagePanel(), new Integer(6));
 		add((JComponent)fw.getLargePanel(), new Integer(7));
 		add((JComponent)fw.getHPanel2(), new Integer(8));
 		add((JComponent)fw.getHPanel1(), new Integer(9));

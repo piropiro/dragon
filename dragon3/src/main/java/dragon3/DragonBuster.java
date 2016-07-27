@@ -6,9 +6,11 @@ import java.awt.event.KeyEvent;
 import javax.swing.JFrame;
 
 import card.CardCanvas;
+import dragon3.panel.DataPanel;
 import dragon3.panel.HPanel;
 import dragon3.panel.HelpPanel;
 import dragon3.panel.LargePanel;
+import dragon3.panel.MessagePanel;
 import dragon3.panel.SmallPanel;
 import lombok.Getter;
 import mine.awt.BMenuBar;
@@ -28,6 +30,9 @@ public class DragonBuster implements FrameWorks {
 	@Getter private PaintComponent smallPanel;
 	@Getter private PaintComponent largePanel;
 	@Getter private PaintComponent cardPanel;
+	@Getter private PaintComponent dataPanel1;
+	@Getter private PaintComponent dataPanel2;
+	@Getter private PaintComponent messagePanel;
 	
 	/*** Constructer *****************************************************/
 
@@ -63,6 +68,13 @@ public class DragonBuster implements FrameWorks {
 		
 		// CardPanel
 		cardPanel = new PaintComponentAWT(CardCanvas.WIDTH, CardCanvas.HEIGHT);
+		
+		// DataPanel
+		dataPanel1 = new PaintComponentAWT(DataPanel.WIDTH, DataPanel.HEIGHT);
+		dataPanel2 = new PaintComponentAWT(DataPanel.WIDTH, DataPanel.HEIGHT);
+		
+		// MessagePanel
+		messagePanel = new PaintComponentAWT(MessagePanel.WIDTH, MessagePanel.HEIGHT);
 		
 		// VPanel
 		vp = new VPanel(this);

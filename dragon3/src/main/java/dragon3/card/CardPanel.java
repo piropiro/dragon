@@ -27,7 +27,7 @@ public class CardPanel extends CardCanvas implements CardListener {
 
 	/*** Constructer ***********************************/
 
-	public CardPanel(UnitWorks uw, PaintComponent panel, MineImageLoader imageLoader, MouseManager mouseManager, SleepManager sleepManager) {
+	public CardPanel(PaintComponent panel, UnitWorks uw, MineImageLoader imageLoader, MouseManager mouseManager, SleepManager sleepManager) {
 		super(panel, imageLoader, mouseManager, sleepManager);
 		setCardListener(this);
 		panel.setLocation(32 * 4, 32 * 1);
@@ -36,6 +36,7 @@ public class CardPanel extends CardCanvas implements CardListener {
 		this.pm = uw.getPanelManager();
 		this.sm = uw.getSleepManager();
 		this.im = uw.getImageManager();
+		panel.setPaintListener(this);
 	}
 
 	/*** Setup *************************************/

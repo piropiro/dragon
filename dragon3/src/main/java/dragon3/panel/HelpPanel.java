@@ -27,6 +27,7 @@ public class HelpPanel implements PaintListener {
 		panel.setVisible(false);
 		panel.setFontSize(14);
 		//setBackground(new Color(0, 0, 150, 200));
+		panel.setPaintListener(this);
 	}
 
 	public void setLine(String[] line, GameColor bgcolor) {

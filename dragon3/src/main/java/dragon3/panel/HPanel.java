@@ -31,6 +31,7 @@ public class HPanel implements PaintListener {
 		panel.setVisible(false);
 		panel.setFontSize(14);
 		hpb = new HPBar();
+		panel.setPaintListener(this);
 	}
 
 	/*** Locate ***********************************************/

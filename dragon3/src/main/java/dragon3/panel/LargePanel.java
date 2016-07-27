@@ -35,13 +35,14 @@ public class LargePanel implements ActionListener, PaintListener {
 		time = new Timer(1000, this);
 		time.setRepeats(false);
 		panel.setFontSize(24);
+		panel.setPaintListener(this);
 	}
 
 	/*** Locate ***********************************************/
 
 	public void setLocate() {
-		int mx = 300 - WIDTH / 2;
-		int my = 200 - HEIGHT / 2;
+		int mx = 300 - width / 2;
+		int my = 200 - height / 2;
 		panel.setLocation(mx, my);
 	}
 
@@ -51,7 +52,7 @@ public class LargePanel implements ActionListener, PaintListener {
 		this.text = text;
 		this.bgcolor = bgcolor;
 		
-		width = text.getBytes().length * 12 + 20;
+		width = calcWidth(text) + 20;
 		height = 32;
 		
 		panel.setSize(width, height);
@@ -68,12 +69,12 @@ public class LargePanel implements ActionListener, PaintListener {
 	public void paint(MineGraphics g) {
 		g.setColor(bgcolor.getAlphaBg());
 		g.fillRect(0, 0, width, height);
-		g.setColor(GameColor.WHITE.getFg());
+		g.setColor(bgcolor.getFg());
 		g.drawRect(2, 2, width - 5, height - 5);
 
 		//MineAwtUtils.setAntialias(g, true);
 		//MineAwtUtils.drawString(text, 0, 24, width, g);
-		g.drawString(text, 0 + (width - (text.getBytes().length * 12)) / 2, 24);
+		g.drawString(text, 0 + (width - calcWidth(text)) / 2, 24);
 		
 	}
 
@@ -86,5 +87,9 @@ public class LargePanel implements ActionListener, PaintListener {
 	
 	public void setVisible(boolean flag) {
 		panel.setVisible(flag);
+	}
+	
+	private int calcWidth(String text) {
+		return text.getBytes().length * 12;
 	}
 }

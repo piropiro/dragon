@@ -1,16 +1,12 @@
 package dragon3.panel;
 
-import java.awt.Graphics;
 import java.awt.Point;
 
-import mine.awt.GraphicsAWT;
-import mine.event.SleepManager;
-import mine.paint.MineGraphics;
 import dragon3.Statics;
 import dragon3.bean.WazaData;
 import dragon3.common.Body;
-import dragon3.common.constant.GameColor;
 import dragon3.common.constant.BodyKind;
+import dragon3.common.constant.GameColor;
 import dragon3.common.util.Equip;
 import dragon3.image.ImageManager;
 import dragon3.manage.Attack;
@@ -30,10 +26,16 @@ import dragon3.panel.paint.SummonPaint;
 import dragon3.panel.paint.TypeListPaint;
 import dragon3.panel.paint.WazaListPaint;
 import dragon3.panel.paint.WazaPaint;
+import mine.event.PaintComponent;
+import mine.event.SleepManager;
+import mine.paint.MineGraphics;
 
 public class DataPanel extends PanelBase {
 
-	private static final long serialVersionUID = -8166726066821532035L;
+	public static final int WIDTH = 160;
+	public static final int HEIGHT = 128;
+
+	private PaintComponent panel;
 
 	private ImageManager im;
 
@@ -44,9 +46,11 @@ public class DataPanel extends PanelBase {
 
 	/*** Constructer *******************************************/
 
-	public DataPanel(SleepManager sm, ImageManager im, boolean left) {
-		super(sm, im, 160, 128, left);
+	public DataPanel(PaintComponent panel, SleepManager sm, ImageManager im, boolean left) {
+		super(panel, sm, im, WIDTH, HEIGHT, left);
+		this.panel = panel;
 		this.im = im;
+		panel.setPaintListener(this);
 	}
 
 	/*** Score *******************************************/
@@ -55,16 +59,16 @@ public class DataPanel extends PanelBase {
 		bgcolor = GameColor.BLUE;
 		setLocate(new Point(2, 1), 1);
 		pp = new Score1Paint(save, im.getBack());
-		repaint();
-		setVisible(true);
+		panel.repaint();
+		panel.setVisible(true);
 	}
 
 	public void displayScore2(Equip equip, SaveManager save) {
 		bgcolor = GameColor.BLUE;
 		setLocate(new Point(3, 1), 1);
 		pp = new Score2Paint(equip, save);
-		repaint();
-		setVisible(true);
+		panel.repaint();
+		panel.setVisible(true);
 	}
 
 	/*** Status *******************************************/
@@ -73,45 +77,45 @@ public class DataPanel extends PanelBase {
 		this.bgcolor = bgcolor_;
 		setLocate(pa, 1);
 		pp = new CampDataPaint(tikei, im.getBack(), im.getWaku());
-		repaint();
-		setVisible(true);
+		panel.repaint();
+		panel.setVisible(true);
 	}
 
 	public void displayPlace(Point pa, int tikei) {
 		bgcolor = GameColor.GREEN;
 		setLocate(pa, 1);
 		pp = new PlacePaint(tikei, im.getBack());
-		repaint();
-		setVisible(true);
+		panel.repaint();
+		panel.setVisible(true);
 	}
 
 	public void displayItem(Point pa, int turn, int limit, int tikei) {
 		bgcolor = GameColor.GREEN;
 		setLocate(pa, 1);
 		pp = new ItemPaint(turn, limit, tikei, im.getBack());
-		repaint();
-		setVisible(true);
+		panel.repaint();
+		panel.setVisible(true);
 	}
 	
 	public void displaySummon(Point pa, int turn, int limit, int tikei) {
 		bgcolor = GameColor.GREEN;
 		setLocate(pa, 1);
 		pp = new SummonPaint(turn, limit, tikei, im.getBack());
-		repaint();
-		setVisible(true);
+		panel.repaint();
+		panel.setVisible(true);
 	}
 
 	public void displayData(Point pa, int turn, int treasureLimit, String treasureCount) {
 		bgcolor = GameColor.GREEN;
 		setLocate(pa, 1);
 		pp = new DataPaint(turn, treasureLimit, treasureCount, im.getBack());
-		repaint();
-		setVisible(true);
+		panel.repaint();
+		panel.setVisible(true);
 	}
 
 	private void display(Body ba, DataPanelPainter pp_) {
 		if (ba == null) {
-			setVisible(false);
+			panel.setVisible(false);
 			return;
 		}
 		this.pp = pp_;
@@ -119,8 +123,8 @@ public class DataPanel extends PanelBase {
 		setLocate(ba, 1);
 		setHPBar(false, ba);
 		setEXPBar(ba);
-		repaint();
-		setVisible(true);		
+		panel.repaint();
+		panel.setVisible(true);		
 	}
 
 	public void displayAnalyze(Body ba) {
@@ -166,7 +170,7 @@ public class DataPanel extends PanelBase {
 
 		if (attack == null) {
 			if (counter == null) {
-				setVisible(false);
+				panel.setVisible(false);
 				return;
 			} else {
 				ba = counter.getReceiver();
@@ -184,18 +188,17 @@ public class DataPanel extends PanelBase {
 		setLocate(ba, bb, 2);
 		setHPBar(ba, counter);
 
-		repaint();
-		setVisible(true);
+		panel.repaint();
+		panel.setVisible(true);
 	}
 
 	/*** Paint *****************************************************/
 
-	public void paintComponent(Graphics g) {
-		g.setFont(getFont());
-		MineGraphics mg = new GraphicsAWT(g);
-		clear(bgcolor, mg);
+	@Override
+	public void paint(MineGraphics g) {
+		clear(bgcolor, g);
 		if (pp != null) {
-			pp.paint(this, mg);
+			pp.paint(this, g);
 		}
 	}
 

@@ -100,16 +100,19 @@ public class PanelManagerTest extends TestCase {
 			panel.add((JComponent)hpC2, 8);
 			pmi.setHpP2(hpP2);
 
-			MessagePanel messageP = new MessagePanel(sm, im);
-			panel.add(messageP, 6);
+			PaintComponent messageC = new PaintComponentAWT(MessagePanel.WIDTH, MessagePanel.HEIGHT);
+			MessagePanel messageP = new MessagePanel(messageC, sm, im);
+			panel.add((JComponent)messageC, 6);
 			pmi.setMessageP(messageP);
 
-			DataPanel dataP1 = new DataPanel(sm, im, true);
-			panel.add(dataP1, 4);
+			PaintComponent dataC1 = new PaintComponentAWT(DataPanel.WIDTH, DataPanel.HEIGHT);
+			DataPanel dataP1 = new DataPanel(dataC1, sm, im, true);
+			panel.add((JComponent)dataC1, 4);
 			pmi.setDataP1(dataP1);
 
-			DataPanel dataP2 = new DataPanel(sm, im, false);
-			panel.add(dataP2, 5);
+			PaintComponent dataC2 = new PaintComponentAWT(DataPanel.WIDTH, DataPanel.HEIGHT);
+			DataPanel dataP2 = new DataPanel(dataC2, sm, im, false);
+			panel.add((JComponent)dataC2, 5);
 			pmi.setDataP2(dataP2);
 
 

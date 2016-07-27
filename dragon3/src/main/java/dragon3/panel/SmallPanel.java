@@ -29,6 +29,7 @@ public class SmallPanel implements PaintListener {
 	public SmallPanel(PaintComponent panel) {
 		this.panel = panel;
 		panel.setVisible(false);
+		panel.setPaintListener(this);
 	}
 
 	/*** Locate ***********************************************/
@@ -48,7 +49,7 @@ public class SmallPanel implements PaintListener {
 		this.label = label;
 		this.color = color;
 		
-		this.width = label.getBytes().length * 8 + 3;
+		this.width = label.getBytes().length * 4 + 6;
 		this.height = 15;
 		
 		panel.setSize(width, height);

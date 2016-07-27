@@ -56,6 +56,7 @@ public class AnimePanel implements AnimeManager, AnimeWorks, PaintListener {
 
 		np = null;
 		al = null;
+		panel.setPaintListener(this);
 	}
 
 	@Override

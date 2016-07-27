@@ -1,40 +1,43 @@
 package dragon3.panel;
 
-import java.awt.Dimension;
-import java.awt.Graphics;
-import java.util.Vector;
+import java.util.ArrayList;
+import java.util.List;
 
-import mine.awt.GraphicsAWT;
-import mine.awt.MineAwtUtils;
-import mine.event.SleepManager;
-import mine.paint.MineGraphics;
 import dragon3.common.Body;
 import dragon3.image.ImageManager;
+import mine.event.PaintComponent;
+import mine.event.SleepManager;
+import mine.paint.MineGraphics;
 
 public class MessagePanel extends PanelBase {
 
-	private static final long serialVersionUID = 1861839566390484906L;
+	public static final int WIDTH = 160;
+	public static final int HEIGHT = 128;
 
-	private Vector<String> list;
+	private PaintComponent panel;
+	
+	private List<String> list;
 	private Body ba;
 	private int n;
 	private int line;
 
 	static final int MAX = 3;
 
-	public MessagePanel(SleepManager sm, ImageManager im) {
-		super(sm, im, 160, 128, true);
-		list = new Vector<String>();
-		setFont(MineAwtUtils.getFont(14));
+	public MessagePanel(PaintComponent panel, SleepManager sm, ImageManager im) {
+		super(panel, sm, im, WIDTH, HEIGHT, true);
+		this.panel = panel;
+		
+		list = new ArrayList<>();
+		panel.setFontSize(14);
+		panel.setPaintListener(this);
 	}
 
 	/*** Locate ***********************************************/
 
 	public void setLocate() {
-		Dimension m = getSize();
-		int mx = 300 - m.width / 2;
-		int my = 240 - m.height / 2;
-		setLocation(mx, my);
+		int mx = 300 - WIDTH / 2;
+		int my = 240 - HEIGHT / 2;
+		panel.setLocation(mx, my);
 	}
 
 	/*** Text **************************************/
@@ -51,45 +54,45 @@ public class MessagePanel extends PanelBase {
 			return;
 		setHPBar(false, ba);
 		setLocate();
-		setVisible(true);
+		panel.setVisible(true);
 
 		for (int i = 0; i < list.size(); i++) {
 			n = i;
-			String text = (String) list.elementAt(n);
+			String text = (String) list.get(n);
 			for (line = 0; line <= text.length(); line++) {
-				repaint();
+				panel.repaint();
 				sleep(80);
 			}
 			sleep(200);
 		}
 		sleep(700);
-		list.removeAllElements();
-		setVisible(false);
+		list.clear();
+		panel.setVisible(false);
 	}
 
 	/*** Paint **************************************************************/
 
-	public void paintComponent(Graphics g) {
-		g.setFont(getFont());
-		MineGraphics mg = new GraphicsAWT(g);
-		clear(ba.getColor(), mg);
-		drawMain(ba, mg);
-		drawHp(ba, mg);
+	@Override
+	public void paint(MineGraphics g) {
+		
+		clear(ba.getColor(), g);
+		drawMain(ba, g);
+		drawHp(ba, g);
 
 		int s = Math.max(0, n - MAX + 1);
 
 		for (int i = s; i <= n; i++) {
 			if (i >= list.size())
 				break;
-			String text = (String) list.elementAt(i);
+			String text = (String) list.get(i);
 			if (i == n) {
 				drawLine(
 					text.substring(0, Math.min(line, text.length())),
 					0,
 					i - s + 1,
-					mg);
+					g);
 			} else {
-				drawLine(text, 0, i - s + 1, mg);
+				drawLine(text, 0, i - s + 1, g);
 			}
 		}
 	}

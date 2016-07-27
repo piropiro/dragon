@@ -64,7 +64,6 @@ public class AnimeManagerTest {
 		PaintComponent pc = new PaintComponentAWT(32, 32);
 		DataList<AnimeData> animeList = AnimeDataLoader.loadAnimeList();
 		AnimePanel ap = new AnimePanel(pc, sm, map, animeList, imageManager);
-		pc.setPaintListener(ap);
 		am = ap;
 		panel.add((JComponent)pc);
 
