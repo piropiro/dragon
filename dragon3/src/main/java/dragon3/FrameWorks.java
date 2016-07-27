@@ -3,6 +3,8 @@ package dragon3;
 
 import javax.swing.JFrame;
 
+import mine.event.PaintComponent;
+
 public interface FrameWorks {
 
 	public static final int T_CAMP = 0;
@@ -21,4 +23,7 @@ public interface FrameWorks {
     public JFrame getFrame();
 
     public void setMenu( int n );
+    
+    public PaintComponent getMapPanel();
+    public PaintComponent getAnimePanel();
 }

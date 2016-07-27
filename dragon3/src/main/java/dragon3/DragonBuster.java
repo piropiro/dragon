@@ -3,31 +3,49 @@ package dragon3;
 import java.awt.Color;
 import java.awt.event.KeyEvent;
 
+import javax.swing.JComponent;
 import javax.swing.JFrame;
 
+import lombok.Getter;
 import mine.awt.BMenuBar;
+import mine.awt.MineAwtUtils;
+import mine.awt.PaintComponentAWT;
+import mine.event.PaintComponent;
 
 public class DragonBuster implements FrameWorks {
 	
 	private VPanel vp;
 	private volatile BMenuBar mb;
 	private JFrame frame;
+	@Getter private PaintComponent mapPanel;
+	@Getter private PaintComponent animePanel;
 
 	/*** Constructer *****************************************************/
 
 	public DragonBuster() {
-		//Luck.setup(Luck.FairLuck);
-		mb = new BMenuBar();
-		vp = new VPanel(this);
-	}
-
-	public void setup(JFrame frame) {
-		this.frame = frame;
+		this.frame = new JFrame("RyuTaiji 3");
 		frame.setResizable(false);
 		frame.setBackground(new Color(0, 0, 150));
+		
+		// Menu
+		mb = new BMenuBar();
 		frame.setJMenuBar(mb);
-		frame.setContentPane(vp);
+		
+		// MapPanel
+		mapPanel = new PaintComponentAWT();
+		MineAwtUtils.setSize((JComponent)mapPanel, 640, 480);
+		//MapKeyManager mkm = new MapKeyManager(mapPanel);
+		//addKeyListener(mkm);
+		
+		// AnimePanel
+		animePanel = new PaintComponentAWT();
+		MineAwtUtils.setSize((JComponent)animePanel, 32, 32);
+		
+		
+		// VPanel
+		vp = new VPanel(this);
 		vp.title();
+		frame.setContentPane(vp);
 		frame.pack();
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		//MineAwtUtils.setCenter(frame);
@@ -36,8 +54,7 @@ public class DragonBuster implements FrameWorks {
 	}
 
 	public static void main(String[] args) {
-		DragonBuster mf = new DragonBuster();
-		mf.setup(new JFrame("RyuTaiji 3"));
+		new DragonBuster();
 	}
 
 	/*** Data *************************************/

@@ -1,15 +1,5 @@
 package dragon3.anime;
 
-import java.awt.Graphics;
-
-import javax.swing.JComponent;
-
-import mine.awt.GraphicsAWT;
-import mine.awt.MineAwtUtils;
-import mine.event.SleepManager;
-import mine.paint.MineGraphics;
-import mine.paint.MineImage;
-import mine.paint.UnitMap;
 import dragon3.anime.listener.AllAnime;
 import dragon3.anime.listener.AnimeListener;
 import dragon3.anime.listener.ArrowAnime;
@@ -30,11 +20,17 @@ import dragon3.bean.AnimeData;
 import dragon3.common.DataList;
 import dragon3.common.constant.AnimeType;
 import dragon3.image.ImageManager;
+import mine.event.PaintComponent;
+import mine.event.PaintListener;
+import mine.event.SleepManager;
+import mine.paint.MineGraphics;
+import mine.paint.MineImage;
+import mine.paint.UnitMap;
 
-public class AnimePanel extends JComponent implements AnimeManager, AnimeWorks {
+public class AnimePanel implements AnimeManager, AnimeWorks, PaintListener {
 
-	private static final long serialVersionUID = 3067832274274205427L;
-
+	private PaintComponent panel;
+	
 	private SleepManager sm;
 
 	private UnitMap map;
@@ -50,18 +46,19 @@ public class AnimePanel extends JComponent implements AnimeManager, AnimeWorks {
 	 * @param uw
 	 * @param map
 	 */
-	public AnimePanel(SleepManager sm, UnitMap map, DataList<AnimeData> animeList, ImageManager imageManager) {
+	public AnimePanel(PaintComponent panel, SleepManager sm, UnitMap map, DataList<AnimeData> animeList, ImageManager imageManager) {
 		super();
+		this.panel = panel;
 		this.sm = sm;
 		this.map = map;
 		this.animeList = animeList;
 		this.imageManager = imageManager;
 
-		MineAwtUtils.setSize(this, 32, 32);
 		np = null;
 		al = null;
 	}
 
+	@Override
 	public AnimeData getData(String id) {
 		return animeList.getData(id);
 	}
@@ -69,6 +66,7 @@ public class AnimePanel extends JComponent implements AnimeManager, AnimeWorks {
 	/**
 	 * Dispose
 	 */
+	@Override
 	public void dispose() {
 		np = null;
 		al = null;
@@ -78,8 +76,9 @@ public class AnimePanel extends JComponent implements AnimeManager, AnimeWorks {
 	/**
 	 * タイトル表示アニメーション
 	 */
+	@Override
 	public void openTitle() {
-		setBounds(0, 0, 640, 480);
+		panel.setBounds(0, 0, 640, 480);
 		al = new PictureAnime(imageManager.getImage("title.png"));
 		al.animation(this);
 		setVisible(true);
@@ -88,6 +87,7 @@ public class AnimePanel extends JComponent implements AnimeManager, AnimeWorks {
 	/**
 	 * タイトル消去アニメーション１
 	 */
+	@Override
 	public void closeTitleOut() {
 		al = new CloseAnime(CloseAnime.OUT, imageManager.getImage("title.png"));
 		al.animation(this);
@@ -96,6 +96,7 @@ public class AnimePanel extends JComponent implements AnimeManager, AnimeWorks {
 	/**
 	 * タイトル消去アニメーション２
 	 */
+	@Override
 	public void closeTitleIn() {
 		al = new CloseAnime(CloseAnime.IN, imageManager.getImage("title.png"));
 		al.animation(this);
@@ -109,8 +110,9 @@ public class AnimePanel extends JComponent implements AnimeManager, AnimeWorks {
 	 * @param x
 	 * @param y
 	 */
+	@Override
 	public void eraseAnime(int x, int y) {
-		setBounds(x * 32, y * 32, 32, 32);
+		panel.setBounds(x * 32, y * 32, 32, 32);
 		setVisible(true);
 		al = new EraseAnime(map, x, y);
 		al.animation(this);
@@ -123,8 +125,9 @@ public class AnimePanel extends JComponent implements AnimeManager, AnimeWorks {
 	 * @param x
 	 * @param y
 	 */
+	@Override
 	public void walkAnime(int x, int y) {
-		setBounds(x * 32, y * 32, 32, 32);
+		panel.setBounds(x * 32, y * 32, 32, 32);
 		np = null;
 		al = new WalkAnime(map, x, y);
 		setVisible(true);
@@ -141,8 +144,9 @@ public class AnimePanel extends JComponent implements AnimeManager, AnimeWorks {
 	 * @param x
 	 * @param y
 	 */
+	@Override
 	public void numberAnime(int n, int x, int y) {
-		setBounds(x * 32, y * 32, 32, 32);
+		panel.setBounds(x * 32, y * 32, 32, 32);
 		setVisible(true);
 		np = new NumberAnime(n, imageManager.getNum());
 		np.animation(this);
@@ -155,10 +159,11 @@ public class AnimePanel extends JComponent implements AnimeManager, AnimeWorks {
 	 * @param x
 	 * @param y
 	 */
+	@Override
 	public void criticalAnime(int x, int y) {
 		np = null;
 		al = new CriticalAnime(map, x, y);
-		setBounds(x * 32 - 32, y * 32, 96, 32);
+		panel.setBounds(x * 32 - 32, y * 32, 96, 32);
 		setVisible(true);
 		al.animation(this);
 		al = null;
@@ -172,7 +177,7 @@ public class AnimePanel extends JComponent implements AnimeManager, AnimeWorks {
 	 * @param y
 	 */
 	public void dropText(int text, int x, int y) {
-		setBounds(x * 32, y * 32, 32, 32);
+		panel.setBounds(x * 32, y * 32, 32, 32);
 		setVisible(true);
 		al = new DropTextAnime(text, imageManager.getText());
 		al.animation(this);
@@ -186,8 +191,9 @@ public class AnimePanel extends JComponent implements AnimeManager, AnimeWorks {
 	 * @param x
 	 * @param y
 	 */
+	@Override
 	public void slideText(int text, int x, int y) {
-		setBounds(x * 32, y * 32, 32, 32);
+		panel.setBounds(x * 32, y * 32, 32, 32);
 		setVisible(true);
 		al = new SlideTextAnime(text, imageManager.getText());
 		al.animation(this);
@@ -201,8 +207,9 @@ public class AnimePanel extends JComponent implements AnimeManager, AnimeWorks {
 	 * @param x
 	 * @param y
 	 */
+	@Override
 	public void statusAnime(int status, int x, int y) {
-		setBounds(x * 32, y * 32 - 16, 32, 48);
+		panel.setBounds(x * 32, y * 32 - 16, 32, 48);
 		setVisible(true);
 		al = new StatusAnime(map, status, x, y, imageManager.getStatus());
 		al.animation(this);
@@ -217,8 +224,9 @@ public class AnimePanel extends JComponent implements AnimeManager, AnimeWorks {
 	 * @param x
 	 * @param y
 	 */
+	@Override
 	public void summonAnime(int image, int x, int y) {
-		setBounds(x * 32, y * 32 - 32, 32, 56);
+		panel.setBounds(x * 32, y * 32 - 32, 32, 56);
 		setVisible(true);
 		al = new SummonAnime(map, image, x, y);
 		al.animation(this);
@@ -233,8 +241,9 @@ public class AnimePanel extends JComponent implements AnimeManager, AnimeWorks {
 	 * @param x
 	 * @param y
 	 */
+	@Override
 	public void singleAnime(AnimeData data, int x, int y) {
-		setBounds(x * 32, y * 32, 32, 32);
+		panel.setBounds(x * 32, y * 32, 32, 32);
 		setVisible(true);
 		MineImage[] image = imageManager.getAnimeList().getImage(data.getImage());
 		al = new SingleAnime(image, data.getSleep());
@@ -264,9 +273,10 @@ public class AnimePanel extends JComponent implements AnimeManager, AnimeWorks {
 	 * @param goalX
 	 * @param goalY
 	 */
+	@Override
 	public void singleArrowAnime(AnimeData data, int startX, int startY, int goalX, int goalY) {
 		np = null;
-		setBounds(startX * 32, startY * 32, 32, 32);
+		panel.setBounds(startX * 32, startY * 32, 32, 32);
 		setVisible(true);
 		MineImage[] image = imageManager.getAnimeList().getImage(data.getImage());
 		al = new ArrowAnime(image, data.getSleep(), startX * 32, startY * 32, goalX * 32, goalY * 32);
@@ -281,6 +291,7 @@ public class AnimePanel extends JComponent implements AnimeManager, AnimeWorks {
 	 * @param x
 	 * @param y
 	 */
+	@Override
 	public void someArrowAnime(AnimeData data, int x, int y) {
 		np = null;
 		setVisible(true);
@@ -299,6 +310,7 @@ public class AnimePanel extends JComponent implements AnimeManager, AnimeWorks {
 	 * @param goalX
 	 * @param goalY
 	 */
+	@Override
 	public void rotateAnime(AnimeData data, int startX, int startY, int goalX, int goalY) {
 		np = null;
 		setVisible(true);
@@ -315,6 +327,7 @@ public class AnimePanel extends JComponent implements AnimeManager, AnimeWorks {
 	 * @param x
 	 * @param y
 	 */
+	@Override
 	public void systemAnime(String id, int x, int y) {
 		AnimeData animeData = animeList.getData(id);
 
@@ -325,20 +338,38 @@ public class AnimePanel extends JComponent implements AnimeManager, AnimeWorks {
 	}
 
 	/*** Paint *************************************************/
-
-	public void paintComponent(Graphics g) {
-		MineGraphics mg = new GraphicsAWT(g);
+	
+	@Override
+	public void paint(MineGraphics g) {
 		if (np != null)
-			np.paint(mg);
+			np.paint(g);
 		if (al != null)
-			al.paint(mg);
+			al.paint(g);
 	}
 
 
-	/* (non-Javadoc)
-	 * @see dragon3.anime.AnimeComponent#sleep(long)
-	 */
+	@Override
 	public void sleep(long t) {
 		sm.sleep(t);
+	}
+
+	@Override
+	public void repaint() {
+		panel.repaint();
+	}
+
+	@Override
+	public void setLocation(int x, int y) {
+		panel.setLocation(x, y);
+	}
+
+	@Override
+	public void setSize(int w, int h) {
+		panel.setSize(w, h);
+	}
+
+	@Override
+	public void setVisible(boolean flag) {
+		panel.setVisible(flag);
 	}
 }

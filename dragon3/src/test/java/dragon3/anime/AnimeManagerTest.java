@@ -2,13 +2,16 @@ package dragon3.anime;
 
 import java.awt.Graphics;
 
+import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JLayeredPane;
 
 import mine.awt.GraphicsAWT;
 import mine.awt.ImageLoaderAWT;
 import mine.awt.MineAwtUtils;
+import mine.awt.PaintComponentAWT;
 import mine.awt.SleepManagerAWT;
+import mine.event.PaintComponent;
 import mine.event.SleepManager;
 import mine.paint.MineGraphics;
 import mine.paint.MineImageLoader;
@@ -58,10 +61,12 @@ public class AnimeManagerTest {
 
 		SleepManager sm = new SleepManagerAWT(panel);
 
+		PaintComponent pc = new PaintComponentAWT();
+		MineAwtUtils.setSize((JComponent)pc, 32, 32);
 		DataList<AnimeData> animeList = AnimeDataLoader.loadAnimeList();
-		AnimePanel ap = new AnimePanel(sm, map, animeList, imageManager);
+		AnimePanel ap = new AnimePanel(pc, sm, map, animeList, imageManager);
 		am = ap;
-		panel.add(ap);
+		panel.add((JComponent)pc);
 
 		frame = new JFrame();
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

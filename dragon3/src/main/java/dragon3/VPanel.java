@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.AbstractButton;
+import javax.swing.JComponent;
 import javax.swing.JLayeredPane;
 
 import dragon3.anime.AnimeManager;
@@ -149,10 +150,12 @@ public class VPanel extends JLayeredPane implements UnitWorks, ActionListener, K
 
 	private void Pinit() {
 		DataList<AnimeData> animeList = AnimeDataLoader.loadAnimeList();
-		AnimePanel ap = new AnimePanel(sleepManager, map, animeList, imageManager);
+		AnimePanel ap = new AnimePanel(fw.getAnimePanel(), sleepManager, map, animeList, imageManager);
+		fw.getAnimePanel().setPaintListener(ap);
 		animeManager = ap;
 
-		up = new MapPanel(this);
+		up = new MapPanel(this, fw);
+		fw.getMapPanel().setPaintListener(up);
 		HPanel hp = new HPanel(sleepManager, true);
 		HPanel hp2 = new HPanel(sleepManager, false);
 		DataPanel sp = new DataPanel(sleepManager, imageManager, true);
@@ -180,7 +183,7 @@ public class VPanel extends JLayeredPane implements UnitWorks, ActionListener, K
 		
 		setLayout(null);
 
-		add(up, new Integer(1));
+		add((JComponent)fw.getMapPanel(), new Integer(1));
 		add(cp, new Integer(2));
 		add(help, new Integer(3));
 		add(sp, new Integer(4));
@@ -189,7 +192,7 @@ public class VPanel extends JLayeredPane implements UnitWorks, ActionListener, K
 		add(lp, new Integer(7));
 		add(hp2, new Integer(8));
 		add(hp, new Integer(9));
-		add(ap, new Integer(10));
+		add((JComponent)fw.getAnimePanel(), new Integer(10));
 		add(tp, new Integer(11));
 
 		help.setVisible(false);
