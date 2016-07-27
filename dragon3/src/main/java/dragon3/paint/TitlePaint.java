@@ -4,7 +4,7 @@ import dragon3.UnitWorks;
 import dragon3.anime.AnimeManager;
 import dragon3.common.Body;
 
-public class TitlePaint implements PaintListener {
+public class TitlePaint implements EventListener {
 
 	private UnitWorks uw;
 	private AnimeManager anime;

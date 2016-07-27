@@ -5,7 +5,7 @@ package dragon2.map;
 
 
 import java.awt.Dimension;
-import java.awt.Point;
+import mine.util.Point;
 
 import dragon2.common.Body;
 import dragon2.paint.PaintListener;

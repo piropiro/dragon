@@ -1,6 +1,6 @@
 package dragon3.common.util;
 
-import java.awt.Point;
+import mine.util.Point;
 
 import mine.paint.UnitMap;
 

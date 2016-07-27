@@ -10,7 +10,7 @@ import dragon3.map.MapWorks;
 import dragon3.panel.PanelManager;
 import mine.paint.UnitMap;
 
-public class KakuseiPaint implements PaintListener {
+public class KakuseiPaint implements EventListener {
 
 	private UnitWorks uw;
 	private MapWorks mw;

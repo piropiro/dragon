@@ -1,11 +1,18 @@
 package card;
 
+import javax.swing.JComponent;
 import javax.swing.JDialog;
 
 import mine.MineException;
 import mine.MineUtils;
 import mine.awt.ImageLoaderAWT;
 import mine.awt.MineAwtUtils;
+import mine.awt.MouseManagerAWT;
+import mine.awt.PaintComponentAWT;
+import mine.awt.SleepManagerAWT;
+import mine.event.MouseManager;
+import mine.event.PaintComponent;
+import mine.event.SleepManager;
 import mine.io.MatrixIO;
 import mine.paint.MineImage;
 import mine.paint.MineImageLoader;
@@ -27,8 +34,15 @@ public class CardDialog extends JDialog implements CardListener {
 		super();
 		MineImageLoader mil = new ImageLoaderAWT();
 		
+		PaintComponent cardPanel = new PaintComponentAWT(CardCanvas.WIDTH, CardCanvas.HEIGHT);
+		
 		setTitle("CardBattle");
-		cc = new CardCanvas();
+		
+		MouseManager mouseManager = new MouseManagerAWT((JComponent)cardPanel);
+		SleepManager sleepManager = new SleepManagerAWT((JComponent)cardPanel);
+		cc = new CardCanvas(cardPanel, mil, mouseManager, sleepManager);
+		cardPanel.setPaintListener(cc);
+		
 		cc.setCardListener(this);
 
 		chara = (MineImage[])MineUtils.linerize(
@@ -37,7 +51,7 @@ public class CardDialog extends JDialog implements CardListener {
 		status = MatrixIO.read("card/data/status.txt");
 
 
-		getContentPane().add(cc);
+		getContentPane().add((JComponent)cardPanel);
 		pack();
 		MineAwtUtils.setCenter(this);
 		setVisible(true);

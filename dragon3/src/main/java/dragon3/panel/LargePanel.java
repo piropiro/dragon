@@ -1,74 +1,95 @@
 package dragon3.panel;
 
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.JComponent;
 import javax.swing.Timer;
 
-import mine.awt.MineAwtUtils;
 import dragon3.common.constant.GameColor;
+import mine.event.PaintComponent;
+import mine.event.PaintListener;
+import mine.paint.MineGraphics;
 
-public class LargePanel extends JComponent implements ActionListener {
+public class LargePanel implements ActionListener, PaintListener {
 
-	private static final long serialVersionUID = 5743301980793715168L;
-
+	public static final int WIDTH = 200;
+	public static final int HEIGHT = 100;
+	
+	private PaintComponent panel;
+	
 	private Timer time;
 
 	private String text;
+	
+	private GameColor bgcolor;
+	
+	private int width;
+	
+	private int height;
 
-	public LargePanel() {
+	public LargePanel(PaintComponent panel) {
 		super();
+		this.panel = panel;
 
-		setVisible(false);
-		MineAwtUtils.setSize(this, 200, 100);
+		panel.setVisible(false);
 		time = new Timer(1000, this);
 		time.setRepeats(false);
-		setFont(MineAwtUtils.getFont(24));
+		panel.setFontSize(24);
+		panel.setPaintListener(this);
 	}
 
 	/*** Locate ***********************************************/
 
 	public void setLocate() {
-		Dimension m = getSize();
-		int mx = 300 - m.width / 2;
-		int my = 200 - m.height / 2;
-		setLocation(mx, my);
+		int mx = 300 - width / 2;
+		int my = 200 - height / 2;
+		panel.setLocation(mx, my);
 	}
 
 	/*** Display ******************************************************************/
 
-	public void display(String text_, GameColor bgcolor, int sleep) {
-		this.text = text_;
-		int[] rgba = bgcolor.getAlphaBg();
-		setBackground(new Color(rgba[0], rgba[1], rgba[2], rgba[3]));
-		setSize(getFontMetrics(getFont()).stringWidth(text) + 20, 32);
+	public void display(String text, GameColor bgcolor, int sleep) {
+		this.text = text;
+		this.bgcolor = bgcolor;
+		
+		width = calcWidth(text) + 20;
+		height = 32;
+		
+		panel.setSize(width, height);
+		
 		setLocate();
-		setVisible(true);
-		repaint();
+		panel.setVisible(true);
+		panel.repaint();
 		time.setInitialDelay(sleep);
 		time.restart();
 	}
 
 	/*** Paint **************************************************************/
 
-	public void paintComponent(Graphics g) {
-		Dimension d = getSize();
-		g.setColor(getBackground());
-		g.fillRect(0, 0, d.width, d.height);
-		g.setColor(Color.white);
-		g.drawRect(2, 2, d.width - 5, d.height - 5);
+	public void paint(MineGraphics g) {
+		g.setColor(bgcolor.getAlphaBg());
+		g.fillRect(0, 0, width, height);
+		g.setColor(bgcolor.getFg());
+		g.drawRect(2, 2, width - 5, height - 5);
 
-		MineAwtUtils.setAntialias(g, true);
-		MineAwtUtils.drawString(text, 0, 24, d.width, g);
+		//MineAwtUtils.setAntialias(g, true);
+		//MineAwtUtils.drawString(text, 0, 24, width, g);
+		g.drawString(text, 0 + (width - calcWidth(text)) / 2, 24);
+		
 	}
 
 	/*** Dispose ******************************************************/
 
+	@Override
 	public void actionPerformed(ActionEvent e) {
-		setVisible(false);
+		panel.setVisible(false);
+	}
+	
+	public void setVisible(boolean flag) {
+		panel.setVisible(flag);
+	}
+	
+	private int calcWidth(String text) {
+		return text.getBytes().length * 12;
 	}
 }

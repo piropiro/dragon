@@ -6,7 +6,7 @@
 package mine;
 
 import java.awt.Dimension;
-import java.awt.Point;
+import mine.util.Point;
 
 // Referenced classes of package mine:
 //            UnitMap, Mine

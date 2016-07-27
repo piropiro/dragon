@@ -3,11 +3,11 @@
  */
 package dragon3.map;
 
-import java.awt.Point;
+import mine.util.Point;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-import dragon3.paint.PaintListener;
+import dragon3.paint.EventListener;
 
 /**
  * @author k-saito
@@ -47,9 +47,9 @@ public class MapKeyManager implements KeyListener {
 					if (right)
 						return;
 					right = true;
-					mw.getPaintListener().rightPressed();
+					mw.getEventListener().rightPressed();
 				} else {
-					mw.getPaintListener().rightReleased();
+					mw.getEventListener().rightReleased();
 					right = false;
 				}
 				return;
@@ -59,9 +59,9 @@ public class MapKeyManager implements KeyListener {
 					if (left)
 						return;
 					left = true;
-					mw.getPaintListener().leftPressed();
+					mw.getEventListener().leftPressed();
 				} else {
-					mw.getPaintListener().leftReleased();
+					mw.getEventListener().leftReleased();
 					left = false;
 				}
 				return;
@@ -98,7 +98,7 @@ public class MapKeyManager implements KeyListener {
 			p.x = Math.max(0, p.x - 1);
 		if (right)
 			p.x = Math.min(19, p.x + 1);
-		mw.getPaintListener().mouseMoved(p.x, p.y);
+		mw.getEventListener().mouseMoved(p.x, p.y);
 	}
 
 	/*** Next *************************************/
@@ -110,7 +110,7 @@ public class MapKeyManager implements KeyListener {
 		int width = 20;
 		int height = 15;
 
-		PaintListener pl = mw.getPaintListener();
+		EventListener pl = mw.getEventListener();
 
 		while (true) {
 			do {

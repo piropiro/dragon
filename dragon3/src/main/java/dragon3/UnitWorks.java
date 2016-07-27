@@ -1,6 +1,6 @@
 package dragon3;
 
-import java.awt.Point;
+import mine.util.Point;
 import java.util.List;
 
 import mine.event.SleepManager;
@@ -18,7 +18,7 @@ public interface UnitWorks {
 
 	/*** Main ************************/
 
-
+	public void title();
 	public void setMensEnd();
 	public void escape();
 	public boolean endJudge(Body b);
@@ -60,4 +60,9 @@ public interface UnitWorks {
 	// CardPanel
 	public void displayCardBattle(Body ba, Body bb);
 	public boolean isCardBattleEnd();
+	
+	/*** Event *************************/
+	
+	public void executeFKeyCommand(int n, boolean shiftDown);
+	public void executeMenuCommand(String command);
 }

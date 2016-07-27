@@ -5,7 +5,7 @@ package dragon2.paint;
 
 
 import java.awt.Dimension;
-import java.awt.Point;
+import mine.util.Point;
 import java.util.Vector;
 
 import dragon2.common.Body;

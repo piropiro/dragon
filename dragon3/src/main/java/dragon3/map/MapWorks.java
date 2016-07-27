@@ -1,8 +1,8 @@
 package dragon3.map;
 
-import java.awt.Point;
+import mine.util.Point;
 
-import dragon3.paint.PaintListener;
+import dragon3.paint.EventListener;
 
 public interface MapWorks {
 
@@ -20,6 +20,6 @@ public interface MapWorks {
 
 	/*** Set Listener *******************/
 
-	public void setPaintListener(PaintListener pl);
-	public PaintListener getPaintListener();
+	public void setEventListener(EventListener el);
+	public EventListener getEventListener();
 }

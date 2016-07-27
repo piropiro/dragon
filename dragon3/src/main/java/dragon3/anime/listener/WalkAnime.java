@@ -1,6 +1,6 @@
 package dragon3.anime.listener;
 
-import java.awt.Point;
+import mine.util.Point;
 
 import mine.paint.MineGraphics;
 import mine.paint.UnitMap;

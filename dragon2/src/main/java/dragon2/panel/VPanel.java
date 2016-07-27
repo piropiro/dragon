@@ -2,14 +2,16 @@ package dragon2.panel;
 
 
 
-
-
-import java.awt.*;
-import java.awt.event.*;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.io.File;
-import java.io.PrintStream;
 import java.util.Iterator;
 import java.util.Vector;
+
 import javax.swing.AbstractButton;
 import javax.swing.JPanel;
 
@@ -31,11 +33,10 @@ import dragon2.camp.Camp;
 import dragon2.card.CardPaint;
 import dragon2.card.CardPanel;
 import dragon2.common.Body;
-import dragon2.common.constant.GameColor;
-import dragon2.common.constant.GameColor;
-import dragon2.common.constant.BodyKind;
-import dragon2.common.constant.Texts;
 import dragon2.common.constant.BodyAttribute;
+import dragon2.common.constant.BodyKind;
+import dragon2.common.constant.GameColor;
+import dragon2.common.constant.Texts;
 import dragon2.common.util.Equip;
 import dragon2.common.util.Luck;
 import dragon2.common.util.Rank;
@@ -47,7 +48,12 @@ import dragon2.paint.ScorePaint;
 import dragon2.paint.SetMensPaint;
 import dragon2.paint.TitlePaint;
 import dragon2.paint.WazalistPaint;
-import mine.*;
+import mine.ButtonDialog;
+import mine.FreeLayout;
+import mine.JPanelBase;
+import mine.TextDialog;
+import mine.UnitMap;
+import mine.util.Point;
 
 public class VPanel extends JPanelBase implements UnitWorks, ActionListener,
 		KeyListener {

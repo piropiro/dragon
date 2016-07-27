@@ -1,6 +1,6 @@
 package dragon3.paint;
 
-import java.awt.Point;
+import mine.util.Point;
 import java.util.List;
 
 import mine.paint.UnitMap;
@@ -17,7 +17,7 @@ import dragon3.common.util.MoveUtils;
 import dragon3.map.MapWorks;
 import dragon3.panel.PanelManager;
 
-public class WalkPaint implements PaintListener {
+public class WalkPaint implements EventListener {
 
 	private UnitWorks uw;
 	private MapWorks mw;

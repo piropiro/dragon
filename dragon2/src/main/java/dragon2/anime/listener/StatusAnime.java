@@ -2,15 +2,15 @@ package dragon2.anime.listener;
 
 
 
-
-
-import java.awt.*;
+import java.awt.Component;
+import java.awt.Graphics;
 
 import dragon2.Statics;
 import dragon2.UnitWorks;
 import dragon2.anime.item.Number;
 import mine.Mine;
 import mine.UnitMap;
+import mine.util.Point;
 
 public class StatusAnime implements AnimeListener {
 

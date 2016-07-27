@@ -1,16 +1,8 @@
 package dragon3.panel;
 
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Point;
+import mine.util.Point;
 import java.util.StringTokenizer;
 
-import javax.swing.JComponent;
-
-import mine.awt.MineAwtUtils;
-import mine.event.SleepManager;
-import mine.paint.MineColor;
-import mine.paint.MineGraphics;
 import dragon3.Level;
 import dragon3.common.Body;
 import dragon3.common.constant.GameColor;
@@ -19,26 +11,36 @@ import dragon3.image.ImageManager;
 import dragon3.manage.Attack;
 import dragon3.panel.item.EXPBar;
 import dragon3.panel.item.HPBar;
+import mine.event.PaintComponent;
+import mine.event.PaintListener;
+import mine.event.SleepManager;
+import mine.paint.MineColor;
+import mine.paint.MineGraphics;
 
-public abstract class PanelBase extends JComponent implements PanelWorks {
+public abstract class PanelBase implements PanelWorks, PaintListener {
 
-
-	private static final long serialVersionUID = 1L;
+	private PaintComponent panel;
+	
 	private HPBar hpb;
 	private EXPBar expb;
 	private boolean left;
 	private SleepManager sm;
 	private ImageManager im;
+	
+	private int width;
+	private int height;
 
-	public PanelBase(SleepManager sm, ImageManager im, int width, int height, boolean left) {
+	public PanelBase(PaintComponent panel, SleepManager sm, ImageManager im, int width, int height, boolean left) {
 		super();
+		this.panel = panel;
 		this.sm = sm;
 		this.im = im;
+		this.width = width;
+		this.height = height;
 		this.left = left;
-		MineAwtUtils.setSize(this, width, height);
-		setVisible(false);
-		setFont(MineAwtUtils.getFont(14));
-		setBackground(new Color(0, 0, 150, 200));
+		//MineAwtUtils.setSize(this, width, height);
+		panel.setVisible(false);
+		panel.setFontSize(14);
 
 		hpb = new HPBar();
 		expb = new EXPBar();
@@ -78,29 +80,28 @@ public abstract class PanelBase extends JComponent implements PanelWorks {
 		setLocate(ba, ba, size);
 	}
 	public void setLocate(Point ba, Point bb, int size) {
-		Dimension d = new Dimension(20, 15);
-		Dimension m = getSize();
+
 		int mx = 0;
 		int my = 0;
 
 		mx =
 			Math.min(
 				(ba.x + bb.x) * 16 + 64 + 16,
-				d.width * 32 - m.width * size);
+				20 * 32 - width * size);
 		if (Math.max(ba.y, bb.y) < 10) {
 			my =
 				Math.min(
 					Math.max(ba.y, bb.y) * 32 + 96 + 16,
-					d.height * 32 - m.height);
+					15 * 32 - height);
 		} else if (Math.min(ba.y, bb.y) >= 5) {
-			my = Math.max(0, Math.min(ba.y, bb.y) * 32 - m.height - 64 - 16);
+			my = Math.max(0, Math.min(ba.y, bb.y) * 32 - height - 64 - 16);
 		} else {
-			my = (ba.y + bb.y) * 16 + 16 - m.height / 2;
+			my = (ba.y + bb.y) * 16 + 16 - height / 2;
 		}
 		if (!left) {
-			mx += m.width;
+			mx += width;
 		}
-		setLocation(mx, my);
+		panel.setLocation(mx, my);
 	}
 
 	/*** Main **********************************************/
@@ -150,10 +151,9 @@ public abstract class PanelBase extends JComponent implements PanelWorks {
 	public boolean clear(GameColor color, MineGraphics g) {
 		g.setColor(color.getAlphaBg());
 
-		Dimension d = getSize();
-		g.fillRect(0, 0, d.width, d.height);
+		g.fillRect(0, 0, width, height);
 		g.setColor(MineColor.WHITE);
-		g.drawRect(2, 2, d.width - 5, d.height - 5);
+		g.drawRect(2, 2, width - 5, height - 5);
 		return true;
 	}
 
@@ -161,7 +161,7 @@ public abstract class PanelBase extends JComponent implements PanelWorks {
 
 	public void damage(Body ba, int damage) {
 		hpb.setMin(ba.getHp() - damage, true);
-		repaint(50, 50, 96, 12);
+		panel.repaint(50, 50, 96, 12);
 	}
 
 	/*** Henka **************************************************/
@@ -169,13 +169,21 @@ public abstract class PanelBase extends JComponent implements PanelWorks {
 	public void henka() {
 		int st = hpb.getSleepTime() / 2;
 		while (hpb.henka()) {
-			repaint(50, 50, 96, 12);
+			panel.repaint(50, 50, 96, 12);
 			sleep(st);
 		}
-		repaint();
+		panel.repaint();
 	}
 
 	protected void sleep(long t) {
 		sm.sleep(t);
+	}
+	
+	public void repaint() {
+		panel.repaint();
+	}
+	
+	public void setVisible(boolean flag) {
+		panel.setVisible(flag);
 	}
 }

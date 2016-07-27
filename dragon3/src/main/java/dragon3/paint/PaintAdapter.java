@@ -7,7 +7,7 @@ import dragon3.common.Body;
 import dragon3.map.MapWorks;
 import dragon3.panel.PanelManager;
 
-public abstract class PaintAdapter implements PaintListener {
+public abstract class PaintAdapter implements EventListener {
 
 	protected UnitWorks uw;
 	protected MapWorks mw;

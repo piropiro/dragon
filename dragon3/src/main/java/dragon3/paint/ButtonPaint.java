@@ -1,6 +1,6 @@
 package dragon3.paint;
 
-import java.awt.Point;
+import mine.util.Point;
 
 import dragon3.UnitWorks;
 import dragon3.common.Body;
@@ -12,7 +12,7 @@ import mine.paint.UnitMap;
 /**
  * @author k-saito
  */
-public class ButtonPaint implements PaintListener {
+public class ButtonPaint implements EventListener {
 
 	private UnitWorks uw;
 	private MapWorks mw;
@@ -21,7 +21,7 @@ public class ButtonPaint implements PaintListener {
 	
 	private int x;
 	private int y;
-	private PaintListener pl;
+	private EventListener el;
 	private int type;
 
 	/**
@@ -31,7 +31,7 @@ public class ButtonPaint implements PaintListener {
 	 * @param pl
 	 * @param type
 	 */
-	public ButtonPaint(UnitWorks uw, int x, int y, PaintListener pl, int type) {
+	public ButtonPaint(UnitWorks uw, int x, int y, EventListener pl, int type) {
 		this.uw = uw;
 		this.mw = uw.getMapWorks();
 		this.map = uw.getUnitMap();
@@ -40,7 +40,7 @@ public class ButtonPaint implements PaintListener {
 
 		this.x = x;
 		this.y = y;
-		this.pl = pl;
+		this.el = pl;
 		this.type = type;
 
 		if (y == 0) {
@@ -84,7 +84,7 @@ public class ButtonPaint implements PaintListener {
 		map.setData(Page.P40, x, y + 1, 0);
 		map.setData(Page.P10, x, y, 0);
 
-		mw.setPaintListener(pl);
+		mw.setEventListener(el);
 		mw.repaint();
 	}
 	/*** Place *****************************************/

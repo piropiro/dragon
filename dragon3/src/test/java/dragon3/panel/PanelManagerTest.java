@@ -1,9 +1,10 @@
 package dragon3.panel;
 
 import java.awt.Graphics;
-import java.awt.Point;
+import mine.util.Point;
 import java.util.Arrays;
 
+import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JLayeredPane;
 
@@ -22,7 +23,9 @@ import mine.MineException;
 import mine.awt.GraphicsAWT;
 import mine.awt.ImageLoaderAWT;
 import mine.awt.MineAwtUtils;
+import mine.awt.PaintComponentAWT;
 import mine.awt.SleepManagerAWT;
+import mine.event.PaintComponent;
 import mine.event.SleepManager;
 import mine.paint.MineGraphics;
 import mine.paint.MineImageLoader;
@@ -72,36 +75,44 @@ public class PanelManagerTest extends TestCase {
 			pmi.setSummon(new SummonManagerMock());
 			pm = pmi;
 
-			HelpPanel helpP = new HelpPanel();
-			panel.add(helpP, 3);
+			PaintComponent helpC = new PaintComponentAWT(HelpPanel.WIDTH, HelpPanel.HEIGHT);
+			HelpPanel helpP = new HelpPanel(helpC);
+			panel.add((JComponent)helpC, 3);
 			pmi.setHelpP(helpP);
 
-			LargePanel largeP = new LargePanel();
-			panel.add(largeP, 7);
+			PaintComponent largeC = new PaintComponentAWT(LargePanel.WIDTH, LargePanel.HEIGHT);
+			LargePanel largeP = new LargePanel(largeC);
+			panel.add((JComponent)largeC, 7);
 			pmi.setLargeP(largeP);
 
-			SmallPanel smallP = new SmallPanel();
-			panel.add(smallP, 11);
+			PaintComponent smallC = new PaintComponentAWT(SmallPanel.WIDTH, SmallPanel.HEIGHT);
+			SmallPanel smallP = new SmallPanel(smallC);
+			panel.add((JComponent)smallC, 11);
 			pmi.setSmallP(smallP);
 
-			HPanel hpP1 = new HPanel(sm, false);
-			panel.add(hpP1, 9);
+			PaintComponent hpC1 = new PaintComponentAWT(HPanel.WIDTH, HPanel.HEIGHT);
+			HPanel hpP1 = new HPanel(hpC1, sm, false);
+			panel.add((JComponent)hpC1, 9);
 			pmi.setHpP1(hpP1);
 
-			HPanel hpP2 = new HPanel(sm, true);
-			panel.add(hpP2, 8);
+			PaintComponent hpC2 = new PaintComponentAWT(HPanel.WIDTH, HPanel.HEIGHT);
+			HPanel hpP2 = new HPanel(hpC2, sm, true);
+			panel.add((JComponent)hpC2, 8);
 			pmi.setHpP2(hpP2);
 
-			MessagePanel messageP = new MessagePanel(sm, im);
-			panel.add(messageP, 6);
+			PaintComponent messageC = new PaintComponentAWT(MessagePanel.WIDTH, MessagePanel.HEIGHT);
+			MessagePanel messageP = new MessagePanel(messageC, sm, im);
+			panel.add((JComponent)messageC, 6);
 			pmi.setMessageP(messageP);
 
-			DataPanel dataP1 = new DataPanel(sm, im, true);
-			panel.add(dataP1, 4);
+			PaintComponent dataC1 = new PaintComponentAWT(DataPanel.WIDTH, DataPanel.HEIGHT);
+			DataPanel dataP1 = new DataPanel(dataC1, sm, im, true);
+			panel.add((JComponent)dataC1, 4);
 			pmi.setDataP1(dataP1);
 
-			DataPanel dataP2 = new DataPanel(sm, im, false);
-			panel.add(dataP2, 5);
+			PaintComponent dataC2 = new PaintComponentAWT(DataPanel.WIDTH, DataPanel.HEIGHT);
+			DataPanel dataP2 = new DataPanel(dataC2, sm, im, false);
+			panel.add((JComponent)dataC2, 5);
 			pmi.setDataP2(dataP2);
 
 

@@ -12,7 +12,7 @@ import dragon3.common.constant.BodyAttribute;
 /**
  * @author k-saito
  */
-public class BerserkPaint implements PaintListener {
+public class BerserkPaint implements EventListener {
 
 	private UnitWorks uw;
 	private MapWorks mw;

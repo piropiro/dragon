@@ -4,7 +4,7 @@ import dragon3.UnitWorks;
 import dragon3.common.Body;
 import dragon3.common.constant.Page;
 
-public class WaitPaint implements PaintListener {
+public class WaitPaint implements EventListener {
 
 	public WaitPaint(UnitWorks uw) {
 		super();

@@ -1,6 +1,6 @@
 package dragon2.attack;
 
-import java.awt.Point;
+import mine.util.Point;
 
 import dragon2.ActionBase;
 import dragon2.Rewalk;

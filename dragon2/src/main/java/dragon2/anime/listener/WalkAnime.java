@@ -2,13 +2,15 @@ package dragon2.anime.listener;
 
 
 
-
-
-import java.awt.*;
+import java.awt.Component;
+import java.awt.Graphics;
 
 import dragon2.Statics;
 import dragon2.UnitWorks;
-import mine.*;
+import mine.Mine;
+import mine.UnitMap;
+import mine.UnitSub;
+import mine.util.Point;
 
 public class WalkAnime implements AnimeListener {
 

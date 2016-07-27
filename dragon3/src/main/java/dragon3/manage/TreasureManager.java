@@ -1,6 +1,6 @@
 package dragon3.manage;
 
-import java.awt.Point;
+import mine.util.Point;
 import java.util.List;
 
 import dragon3.common.Body;

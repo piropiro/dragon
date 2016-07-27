@@ -13,6 +13,10 @@ import mine.event.SleepManager;
 public class SleepManagerAWT implements KeyListener, MouseListener, SleepManager {
 
 	private boolean quick_flag;
+	
+	public SleepManagerAWT() {
+		
+	}
 
 	public SleepManagerAWT(Component c){
 		c.addKeyListener(this);

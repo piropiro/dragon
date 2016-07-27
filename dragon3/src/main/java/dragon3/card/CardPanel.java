@@ -1,7 +1,10 @@
 package dragon3.card;
 
+import mine.event.MouseManager;
+import mine.event.PaintComponent;
 import mine.event.SleepManager;
 import mine.paint.MineImage;
+import mine.paint.MineImageLoader;
 import mine.paint.UnitMap;
 import card.CardCanvas;
 import card.CardListener;
@@ -14,8 +17,6 @@ import dragon3.panel.PanelManager;
 
 public class CardPanel extends CardCanvas implements CardListener {
 
-	private static final long serialVersionUID = 1L;
-
 	private UnitMap map;
 	private UnitWorks uw;
 	private PanelManager pm;
@@ -26,15 +27,16 @@ public class CardPanel extends CardCanvas implements CardListener {
 
 	/*** Constructer ***********************************/
 
-	public CardPanel(UnitWorks uw) {
-		super();
+	public CardPanel(PaintComponent panel, UnitWorks uw, MineImageLoader imageLoader, MouseManager mouseManager, SleepManager sleepManager) {
+		super(panel, imageLoader, mouseManager, sleepManager);
 		setCardListener(this);
-		setLocation(32 * 4, 32 * 1);
+		panel.setLocation(32 * 4, 32 * 1);
 		this.uw = uw;
 		this.map = uw.getUnitMap();
 		this.pm = uw.getPanelManager();
 		this.sm = uw.getSleepManager();
 		this.im = uw.getImageManager();
+		panel.setPaintListener(this);
 	}
 
 	/*** Setup *************************************/

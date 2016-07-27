@@ -1,6 +1,6 @@
 package dragon3;
 
-import java.awt.Point;
+import mine.util.Point;
 import java.util.List;
 
 import mine.event.SleepManager;
@@ -72,7 +72,7 @@ public class FightManager {
 		}
 		TalkPaint tp = new TalkPaint(uw, ba);
 		if (tp.isEnable()) {
-			mw.setPaintListener(tp);
+			mw.setEventListener(tp);
 			tp.show();
 			mw.repaint();
 		} else {

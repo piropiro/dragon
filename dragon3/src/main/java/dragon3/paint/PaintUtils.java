@@ -20,67 +20,67 @@ public class PaintUtils {
 	public static void setWalkPaint(UnitWorks uw, Body b) {
 		System.out.println("WalkPaint");
 		MapWorks mw = uw.getMapWorks();
-		mw.setPaintListener(new WalkPaint(uw, b));
+		mw.setEventListener(new WalkPaint(uw, b));
 	}
 	public static void setWaitPaint(UnitWorks uw) {
 		System.out.println("WaitPaint");
 		MapWorks mw = uw.getMapWorks();
-		mw.setPaintListener(new WaitPaint(uw));
+		mw.setEventListener(new WaitPaint(uw));
 	}
 	public static void setBasicPaint(UnitWorks uw) {
 		System.out.println("BasicPaint");
 		MapWorks mw = uw.getMapWorks();
-		mw.setPaintListener(new BasicPaint(uw));
+		mw.setEventListener(new BasicPaint(uw));
 	}
 	public static void setScorePaint(UnitWorks uw) {
 		System.out.println("ScorePaint");
 		MapWorks mw = uw.getMapWorks();
-		mw.setPaintListener(new ScorePaint(uw));
+		mw.setEventListener(new ScorePaint(uw));
 	}
 	public static void setPutPlayersPaint(UnitWorks uw, List<Body> charaList, List<Body> playerList) {
 		System.out.println("PutPlayersPaint");
 		MapWorks mw = uw.getMapWorks();
-		mw.setPaintListener(new PutPlayersPaint(uw, charaList, playerList));
+		mw.setEventListener(new PutPlayersPaint(uw, charaList, playerList));
 	}
 	public static void setEndPaint(UnitWorks uw, Body b) {
 		System.out.println("EndPaint");
 		MapWorks mw = uw.getMapWorks();
-		mw.setPaintListener(new EndPaint(uw, b));
+		mw.setEventListener(new EndPaint(uw, b));
 	}
 	public static void setAttackPaint(UnitWorks uw, FightManager fm, Body b) {
 		System.out.println("AttackPaint");
 		MapWorks mw = uw.getMapWorks();
-		mw.setPaintListener(new AttackPaint(uw, fm, b));
+		mw.setEventListener(new AttackPaint(uw, fm, b));
 	}
 	public static void setKakuseiPaint(UnitWorks uw, Body b) {
 		System.out.println("KakuseiPaint");
 		MapWorks mw = uw.getMapWorks();
-		mw.setPaintListener(new KakuseiPaint(uw, b));
+		mw.setEventListener(new KakuseiPaint(uw, b));
 	}
 	public static void setBerserkPaint(UnitWorks uw, Body b) {
 		System.out.println("BerserkPaint");
 		MapWorks mw = uw.getMapWorks();
-		mw.setPaintListener(new BerserkPaint(uw, b));
+		mw.setEventListener(new BerserkPaint(uw, b));
 	}
 	public static void setChangePaint(UnitWorks uw, Body ba, Body bb) {
 		System.out.println("ChangePaint");
 		MapWorks mw = uw.getMapWorks();
-		mw.setPaintListener(new ChangePaint(uw, ba, bb));
+		mw.setEventListener(new ChangePaint(uw, ba, bb));
 	}
-	public static void setButtonPaint(UnitWorks uw, int x, int y, PaintListener pl, int type) {
+	public static void setButtonPaint(UnitWorks uw, int x, int y, EventListener pl, int type) {
 		System.out.println("ButtonPaint");
 		MapWorks mw = uw.getMapWorks();
-		mw.setPaintListener(new ButtonPaint(uw, x, y, pl, type));
+		mw.setEventListener(new ButtonPaint(uw, x, y, pl, type));
 	}
 	public static void setCardPaint(UnitWorks uw, Body ba, Body bb) {
 		System.out.println("CardPaint");
 		MapWorks mw = uw.getMapWorks();
-		mw.setPaintListener(new CardPaint(uw, ba, bb));
+		mw.setEventListener(new CardPaint(uw, ba, bb));
 	}
 	public static void setCampPaint(UnitWorks uw, Camp camp) {
 		System.out.println("CampPaint");
 		MapWorks mw = uw.getMapWorks();
-		mw.setPaintListener(new CampPaint(uw, camp));
+		mw.setEventListener(new CampPaint(uw, camp));
 	}
 
 }

@@ -6,7 +6,7 @@ package dragon2.anime.listener;
 
 import java.awt.Component;
 import java.awt.Graphics;
-import java.awt.Point;
+import mine.util.Point;
 import java.util.ArrayList;
 import java.util.List;
 

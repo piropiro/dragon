@@ -1,6 +1,6 @@
 package dragon2;
 
-import java.awt.Point;
+import mine.util.Point;
 
 import dragon2.common.Body;
 import dragon2.common.constant.BodyAttribute;

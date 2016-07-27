@@ -1,6 +1,6 @@
 package dragon3.paint;
 
-import java.awt.Point;
+import mine.util.Point;
 
 import dragon3.FightManager;
 import dragon3.Rewalk;
@@ -10,7 +10,7 @@ import dragon3.common.constant.Page;
 import dragon3.map.MapWorks;
 import mine.paint.UnitMap;
 
-public class AttackPaint implements PaintListener {
+public class AttackPaint implements EventListener {
 
 	private UnitWorks uw;
 	private MapWorks mw;

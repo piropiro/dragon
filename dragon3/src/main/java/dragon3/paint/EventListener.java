@@ -2,7 +2,7 @@ package dragon3.paint;
 
 import dragon3.common.Body;
 
-public interface PaintListener {
+public interface EventListener {
 
     public void setSelectBody( Body b );
     public void setSelectPlace( int x, int y );

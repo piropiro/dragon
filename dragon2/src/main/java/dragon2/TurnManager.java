@@ -1,6 +1,6 @@
 package dragon2;
 
-import java.awt.Point;
+import mine.util.Point;
 import java.util.Iterator;
 import java.util.Vector;
 

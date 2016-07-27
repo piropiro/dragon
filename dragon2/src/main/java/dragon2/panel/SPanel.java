@@ -1,7 +1,7 @@
 package dragon2.panel;
 
 import java.awt.Graphics;
-import java.awt.Point;
+import mine.util.Point;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.StringTokenizer;

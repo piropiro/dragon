@@ -3,7 +3,7 @@
  */
 package dragon3.panel;
 
-import java.awt.Point;
+import mine.util.Point;
 
 import dragon3.common.Body;
 import dragon3.common.constant.GameColor;

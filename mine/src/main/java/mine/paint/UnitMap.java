@@ -1,7 +1,7 @@
 package mine.paint;
 
 
-import java.awt.Point;
+import mine.util.Point;
 import java.util.LinkedList;
 
 
