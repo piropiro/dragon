@@ -13,6 +13,7 @@ public class PaintComponentAWT extends JComponent implements PaintComponent {
 	PaintListener pl;
 	
 	public PaintComponentAWT(int width, int height) {
+		super();
 		MineAwtUtils.setSize(this, width, height);
 	}
 

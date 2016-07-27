@@ -166,11 +166,18 @@ public class VPanel extends JLayeredPane implements UnitWorks, ActionListener, K
 		HPanel hp2 = new HPanel(fw.getHPanel2(), sleepManager, false);
 		fw.getHPanel2().setPaintListener(hp2);
 		
+		// DataPanel
 		DataPanel sp = new DataPanel(sleepManager, imageManager, true);
 		DataPanel sp2 = new DataPanel(sleepManager, imageManager, false);
-		HelpPanel help = new HelpPanel();
-		SmallPanel tp = new SmallPanel();
-		LargePanel lp = new LargePanel();
+		
+		// HelpPanel
+		HelpPanel help = new HelpPanel(fw.getHelpPanel());
+		
+		// SmallPanel
+		SmallPanel tp = new SmallPanel(fw.getSmallPanel());
+		
+		// LargePanel
+		LargePanel lp = new LargePanel(fw.getLargePanel());
 		MessagePanel mp = new MessagePanel(sleepManager, imageManager);
 		cp = new CardPanel(this);
 
@@ -193,15 +200,15 @@ public class VPanel extends JLayeredPane implements UnitWorks, ActionListener, K
 
 		add((JComponent)fw.getMapPanel(), new Integer(1));
 		add(cp, new Integer(2));
-		add(help, new Integer(3));
+		add((JComponent)fw.getHelpPanel(), new Integer(3));
 		add(sp, new Integer(4));
 		add(sp2, new Integer(5));
 		add(mp, new Integer(6));
-		add(lp, new Integer(7));
+		add((JComponent)fw.getLargePanel(), new Integer(7));
 		add((JComponent)fw.getHPanel2(), new Integer(8));
 		add((JComponent)fw.getHPanel1(), new Integer(9));
 		add((JComponent)fw.getAnimePanel(), new Integer(10));
-		add(tp, new Integer(11));
+		add((JComponent)fw.getSmallPanel(), new Integer(11));
 
 		help.setVisible(false);
 		cp.setVisible(false);

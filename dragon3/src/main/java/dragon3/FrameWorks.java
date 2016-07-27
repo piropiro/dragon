@@ -28,4 +28,7 @@ public interface FrameWorks {
     public PaintComponent getAnimePanel();
     public PaintComponent getHPanel1();
     public PaintComponent getHPanel2();
+    public PaintComponent getHelpPanel();
+    public PaintComponent getSmallPanel();
+    public PaintComponent getLargePanel();
 }

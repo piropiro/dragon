@@ -1,33 +1,32 @@
 package dragon3.panel;
 
-import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
 
-import javax.swing.JComponent;
-
-import mine.awt.GraphicsAWT;
-import mine.awt.MineAwtUtils;
+import dragon3.common.constant.GameColor;
+import mine.event.PaintComponent;
+import mine.event.PaintListener;
 import mine.paint.MineColor;
 import mine.paint.MineGraphics;
-import dragon3.common.constant.GameColor;
 
-public class HelpPanel extends JComponent {
+public class HelpPanel implements PaintListener {
 
-	private static final long serialVersionUID = 7812782714043373429L;
+	public static final int WIDTH = 288;
+	public static final int HEIGHT = 48;
+	
+	private PaintComponent panel;
 
 	private String[] line;
 	private boolean leftf;
 	private boolean upf;
 	private GameColor bgcolor = GameColor.BLUE;
 
-	public HelpPanel() {
+	public HelpPanel(PaintComponent panel) {
 		super();
-		setVisible(false);
-		MineAwtUtils.setSize(this, 288, 48);
-		setFont(MineAwtUtils.getFont(14));
-		setBackground(new Color(0, 0, 150, 200));
+		this.panel = panel;
+		panel.setVisible(false);
+		panel.setFontSize(14);
+		//setBackground(new Color(0, 0, 150, 200));
 	}
 
 	public void setLine(String[] line, GameColor bgcolor) {
@@ -38,8 +37,6 @@ public class HelpPanel extends JComponent {
 	/*** Locate ***********************************************/
 
 	public void setLocate(int x, int y, boolean flag) {
-		Dimension d = new Dimension(20, 15);
-		Dimension m = getSize();
 
 		boolean leftfs = leftf;
 		boolean upfs = upf;
@@ -64,17 +61,18 @@ public class HelpPanel extends JComponent {
 		}
 
 		if (flag || leftf != leftfs || upf != upfs) {
-			int mx = (leftf) ? 16 : (d.width * 32 - m.width - 16);
-			int my = (upf) ? 8 : (d.height * 32 - m.height - 8);
-			setLocation(mx, my);
+			int mx = (leftf) ? 16 : (20 * 32 - WIDTH - 16);
+			int my = (upf) ? 8 : (15 * 32 - HEIGHT - 8);
+			panel.setLocation(mx, my);
 		}
 	}
 
 	/*** Paint ******************************************/
 
-	public void paintComponent(Graphics g) {
-		g.setFont(getFont());
-		clear(bgcolor, new GraphicsAWT(g));
+	@Override
+	public void paint(MineGraphics g) {
+		g.setFont("Dialog", 14);
+		clear(bgcolor, g);
 
 		if (line == null)
 			return;
@@ -100,11 +98,18 @@ public class HelpPanel extends JComponent {
 	/*** Clear *********************************************/
 
 	public boolean clear(GameColor color, MineGraphics g) {
-		Dimension d = getSize();
 		g.setColor(color.getAlphaBg());
-		g.fillRect(0, 0, d.width, d.height);
+		g.fillRect(0, 0, WIDTH, HEIGHT);
 		g.setColor(MineColor.WHITE);
-		g.drawRect(2, 2, d.width - 5, d.height - 5);
+		g.drawRect(2, 2, WIDTH - 5, HEIGHT - 5);
 		return true;
+	}
+	
+	public void setVisible(boolean flag) {
+		panel.setVisible(flag);
+	}
+	
+	public void repaint() {
+		panel.repaint();
 	}
 }
