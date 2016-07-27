@@ -4,7 +4,7 @@ package dragon2.paint;
 
 
 
-import java.awt.Point;
+import mine.util.Point;
 
 import dragon2.Statics;
 import dragon2.common.Body;

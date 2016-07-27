@@ -1,7 +1,7 @@
 package dragon2.attack;
 
 import java.awt.Dimension;
-import java.awt.Point;
+import mine.util.Point;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;

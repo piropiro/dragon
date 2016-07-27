@@ -1,6 +1,6 @@
 package dragon3;
 
-import java.awt.Point;
+import mine.util.Point;
 import java.util.List;
 
 import mine.event.SleepManager;

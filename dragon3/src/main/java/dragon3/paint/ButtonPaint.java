@@ -1,6 +1,6 @@
 package dragon3.paint;
 
-import java.awt.Point;
+import mine.util.Point;
 
 import dragon3.UnitWorks;
 import dragon3.common.Body;

@@ -1,6 +1,6 @@
 package dragon3.anime.item;
 
-import java.awt.Point;
+import mine.util.Point;
 
 import mine.paint.MineGraphics;
 import mine.paint.MineImage;

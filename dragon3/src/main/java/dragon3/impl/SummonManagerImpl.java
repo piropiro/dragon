@@ -1,6 +1,6 @@
 package dragon3.impl;
 
-import java.awt.Point;
+import mine.util.Point;
 import java.util.ArrayList;
 import java.util.List;
 

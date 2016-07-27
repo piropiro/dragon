@@ -1,15 +1,21 @@
 package dragon2.panel;
 
-import java.awt.*;
+
+
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.Image;
 
 import dragon2.Statics;
 import dragon2.UnitWorks;
 import dragon2.common.Body;
-import dragon2.common.constant.Texts;
 import dragon2.common.constant.BodyAttribute;
 import dragon2.common.constant.GameColor;
+import dragon2.common.constant.Texts;
 import mine.JCanvas;
 import mine.Mine;
+import mine.util.Point;
 
 @SuppressWarnings("serial")
 public abstract class StatusBase extends JCanvas {
@@ -107,6 +113,7 @@ public abstract class StatusBase extends JCanvas {
 		case GREEN: // '\002'
 			g.setColor(new Color(0, 100, 0, 220));
 			break;
+		default:
 		}
 		Dimension dimension = getSize();
 		g.fillRect(0, 0, dimension.width, dimension.height);

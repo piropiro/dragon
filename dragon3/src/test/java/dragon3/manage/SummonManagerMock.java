@@ -1,6 +1,6 @@
 package dragon3.manage;
 
-import java.awt.Point;
+import mine.util.Point;
 
 import dragon3.manage.SummonManager;
 

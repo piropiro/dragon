@@ -1,7 +1,7 @@
 package dragon3.panel;
 
 import java.awt.Graphics;
-import java.awt.Point;
+import mine.util.Point;
 import java.util.Arrays;
 
 import javax.swing.JComponent;

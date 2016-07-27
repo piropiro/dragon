@@ -1,6 +1,6 @@
 package dragon3.map;
 
-import java.awt.Point;
+import mine.util.Point;
 
 import dragon3.FrameWorks;
 import dragon3.UnitWorks;

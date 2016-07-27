@@ -1,6 +1,6 @@
 package dragon3.panel;
 
-import java.awt.Point;
+import mine.util.Point;
 import java.util.StringTokenizer;
 
 import dragon3.Level;

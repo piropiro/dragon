@@ -3,7 +3,7 @@
  */
 package dragon3.map;
 
-import java.awt.Point;
+import mine.util.Point;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 

@@ -4,7 +4,7 @@ package dragon2.camp;
 
 
 
-import java.awt.Point;
+import mine.util.Point;
 import java.util.List;
 import java.util.Vector;
 

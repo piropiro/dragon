@@ -4,11 +4,14 @@ package dragon2.anime.listener;
 
 
 
-import java.awt.*;
+
+import java.awt.Component;
+import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 
 import dragon2.UnitWorks;
 import mine.UnitMap;
+import mine.util.Point;
 
 public class EraseAnime implements AnimeListener {
 

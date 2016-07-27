@@ -4,8 +4,15 @@ package dragon2.panel;
 
 
 
-import java.awt.*;
-import java.awt.event.*;
+
+import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
 
 import dragon2.UnitWorks;
 import dragon2.Walk;
@@ -22,6 +29,7 @@ import dragon2.paint.PaintListener;
 import dragon2.paint.WaitPaint;
 import mine.JCanvas;
 import mine.UnitMap;
+import mine.util.Point;
 
 public class UPanel extends JCanvas implements Map, MouseListener,
 		MouseMotionListener, KeyListener {

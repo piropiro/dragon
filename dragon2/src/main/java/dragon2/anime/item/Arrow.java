@@ -5,7 +5,7 @@ package dragon2.anime.item;
 
 
 import java.awt.Graphics;
-import java.awt.Point;
+import mine.util.Point;
 
 import dragon2.Statics;
 import mine.Mine;

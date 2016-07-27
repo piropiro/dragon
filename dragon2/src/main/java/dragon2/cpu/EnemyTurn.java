@@ -5,7 +5,7 @@ package dragon2.cpu;
 
 
 import java.awt.Dimension;
-import java.awt.Point;
+import mine.util.Point;
 import java.util.Iterator;
 
 import dragon2.ActionBase;

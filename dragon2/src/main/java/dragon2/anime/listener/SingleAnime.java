@@ -4,11 +4,13 @@ package dragon2.anime.listener;
 
 
 
-import java.awt.*;
+import java.awt.Component;
+import java.awt.Graphics;
 
 import dragon2.Statics;
 import dragon2.UnitWorks;
 import mine.Mine;
+import mine.util.Point;
 
 public class SingleAnime implements AnimeListener {
 
