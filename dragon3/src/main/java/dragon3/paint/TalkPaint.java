@@ -13,7 +13,7 @@ import dragon3.map.MapWorks;
 import dragon3.panel.PanelManager;
 import mine.paint.UnitMap;
 
-public class TalkPaint implements PaintListener {
+public class TalkPaint implements EventListener {
 
 	private UnitWorks uw;
 	private MapWorks mw;

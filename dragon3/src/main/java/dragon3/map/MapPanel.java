@@ -13,13 +13,13 @@ import mine.paint.UnitMap;
 import dragon3.UnitWorks;
 import dragon3.common.Body;
 import dragon3.common.constant.Page;
-import dragon3.paint.PaintListener;
+import dragon3.paint.EventListener;
 
 public class MapPanel extends JComponent implements MapWorks, MouseAllListener {
 
 	private static final long serialVersionUID = 1L;
 	private UnitWorks uw;
-	private PaintListener pl;
+	private EventListener el;
 
 	private int wx, wy, wxs, wys;
 
@@ -39,13 +39,13 @@ public class MapPanel extends JComponent implements MapWorks, MouseAllListener {
 
 	/*** Listener ************************************************/
 
-	public synchronized void setPaintListener(PaintListener pl) {
-		System.out.println(pl.getClass());
-		this.pl = pl;
+	public synchronized void setEventListener(EventListener el) {
+		System.out.println(el.getClass());
+		this.el = el;
 	}
 
-	public PaintListener getPaintListener() {
-		return pl;
+	public EventListener getEventListener() {
+		return el;
 	}
 
 	/*** Get and Set Data ************************************************/
@@ -61,9 +61,9 @@ public class MapPanel extends JComponent implements MapWorks, MouseAllListener {
 		this.wy = y;
 		Body b = uw.search(wx, wy);
 		if (b != null) {
-			pl.setSelectBody(b);
+			el.setSelectBody(b);
 		} else {
-			pl.setSelectPlace(x, y);
+			el.setSelectPlace(x, y);
 		}
 		uw.getPanelManager().setHelpLocation(wx, wy);
 	}
@@ -104,7 +104,7 @@ public class MapPanel extends JComponent implements MapWorks, MouseAllListener {
 	 */
 	public void leftPressed(int x, int y) {
 		mouseMoved(x, y);
-		pl.leftPressed();
+		el.leftPressed();
 	}
 
 	/* (非 Javadoc)
@@ -112,22 +112,22 @@ public class MapPanel extends JComponent implements MapWorks, MouseAllListener {
 	 */
 	public void rightPressed(int x, int y) {
 		mouseMoved(x, y);
-		pl.rightPressed();
+		el.rightPressed();
 	}
 
 	public void leftReleased(int x, int y) {
-		pl.leftReleased();
+		el.leftReleased();
 	}
 
 	public void rightReleased(int x, int y) {
-		pl.rightReleased();
+		el.rightReleased();
 	}
 
 	public void mouseMoved(int x, int y) {
 		Point p = new Point(x / 32, y / 32);
 		Point ps = getWaku();
 		if (p.x != ps.x || p.y != ps.y) {
-			pl.mouseMoved(p.x, p.y);
+			el.mouseMoved(p.x, p.y);
 		}
 	}
 

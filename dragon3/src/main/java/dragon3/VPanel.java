@@ -65,7 +65,7 @@ public class VPanel extends JLayeredPane implements UnitWorks, ActionListener, K
 
 	private static final long serialVersionUID = 1L;
 	private UnitMap map;
-	private FrameWorks mw;
+	private FrameWorks fw;
 	private MapPanel up;
 	private CardPanel cp;
 
@@ -97,9 +97,9 @@ public class VPanel extends JLayeredPane implements UnitWorks, ActionListener, K
 
 	/*** Constructer *************************************/
 
-	public VPanel(FrameWorks mw) {
+	public VPanel(FrameWorks fw) {
 		super();
-		this.mw = mw;
+		this.fw = fw;
 		MineAwtUtils.setSize(this, 640, 480);
 		setBackground(new Color(0, 0, 150));
 
@@ -131,9 +131,9 @@ public class VPanel extends JLayeredPane implements UnitWorks, ActionListener, K
 	/*** Title ***********************************/
 
 	public void title() {
-		mw.setMenu(FrameWorks.T_TITLE);
+		fw.setMenu(FrameWorks.T_TITLE);
 		animeManager.openTitle();
-		up.setPaintListener(new TitlePaint(this));
+		up.setEventListener(new TitlePaint(this));
 	}
 
 	/*** Setup ***********************************/
@@ -319,7 +319,7 @@ public class VPanel extends JLayeredPane implements UnitWorks, ActionListener, K
 	/*** Start *************************************/
 
 	private void stageStart() {
-		mw.setMenu(DragonBuster.T_SETMENS);
+		fw.setMenu(DragonBuster.T_SETMENS);
 		mapLoad();
 		if (saveManager.isFirst()) {
 			panelManager.displayLarge("Tutorial", GameColor.BLUE, 1500);
@@ -334,7 +334,7 @@ public class VPanel extends JLayeredPane implements UnitWorks, ActionListener, K
 	}
 
 	private void campStart() {
-		mw.setMenu(DragonBuster.T_CAMP);
+		fw.setMenu(DragonBuster.T_CAMP);
 		panelManager.closeSmall();
 		panelManager.closeHelp();
 		Camp();
@@ -467,7 +467,7 @@ public class VPanel extends JLayeredPane implements UnitWorks, ActionListener, K
 			saveManager.getSaveData().countEscape();
 			PaintUtils.setWaitPaint(this);
 			panelManager.displayLarge("ESCAPE", GameColor.RED, 3000);
-			mw.setMenu(DragonBuster.T_CLEAR);
+			fw.setMenu(DragonBuster.T_CLEAR);
 		} else {
 			panelManager.displayLarge("FAILED", GameColor.RED, 500);
 		}
@@ -492,7 +492,7 @@ public class VPanel extends JLayeredPane implements UnitWorks, ActionListener, K
 			return;
 		}
 		BasicPaint bp = new BasicPaint(this);
-		up.setPaintListener(bp);
+		up.setEventListener(bp);
 		if (flag)
 			bp.leftPressed();
 	}
@@ -570,7 +570,7 @@ public class VPanel extends JLayeredPane implements UnitWorks, ActionListener, K
 			panelManager.displayLarge("STAGE CLEAR", GameColor.BLUE, 5000);
 		}
 		saveManager.stageClear();
-		mw.setMenu(DragonBuster.T_CLEAR);
+		fw.setMenu(DragonBuster.T_CLEAR);
 		panelManager.displayHelp(up.getWaku(), Texts.help[Texts.H_CLEAR], GameColor.BLUE);
 	}
 
@@ -605,7 +605,7 @@ public class VPanel extends JLayeredPane implements UnitWorks, ActionListener, K
 	private void gameOver() {
 		PaintUtils.setWaitPaint(this);
 		panelManager.displayLarge("GAME OVER", GameColor.RED, 5000);
-		mw.setMenu(DragonBuster.T_GAMEOVER);
+		fw.setMenu(DragonBuster.T_GAMEOVER);
 		panelManager.displayHelp(up.getWaku(), Texts.help[Texts.H_OVER], GameColor.BLUE);
 	}
 
@@ -648,13 +648,13 @@ public class VPanel extends JLayeredPane implements UnitWorks, ActionListener, K
 		panelManager.displayScore(equip, saveManager);
 
 		PaintUtils.setScorePaint(this);
-		mw.setMenu(DragonBuster.T_SCORE);
+		fw.setMenu(DragonBuster.T_SCORE);
 	}
 
 
 	public void backToCamp() {
 		panelManager.closeData();
-		mw.setMenu(DragonBuster.T_CAMP);
+		fw.setMenu(DragonBuster.T_CAMP);
 		PaintUtils.setCampPaint(this, camp);
 		camp.repaint(saveManager.getCampMap());
 		up.repaint();
@@ -834,7 +834,7 @@ public class VPanel extends JLayeredPane implements UnitWorks, ActionListener, K
 	}
 
 	public FrameWorks getFrameWorks() {
-		return mw;
+		return fw;
 	}
 
 	/* (non-Javadoc)

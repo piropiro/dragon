@@ -43,7 +43,7 @@ public class CardPaint extends PaintAdapter {
 	 */
 	public void action() {
 		if (!uw.isCardBattleEnd()) {
-			mw.setPaintListener(this);
+			mw.setEventListener(this);
 		}
 	}
 

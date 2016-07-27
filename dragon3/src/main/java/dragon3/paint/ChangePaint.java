@@ -11,7 +11,7 @@ import mine.paint.UnitMap;
 /**
  * @author k-saito
  */
-public class ChangePaint implements PaintListener {
+public class ChangePaint implements EventListener {
 
 	private UnitWorks uw;
 	private MapWorks mw;

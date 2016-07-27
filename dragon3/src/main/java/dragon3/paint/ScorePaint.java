@@ -9,7 +9,7 @@ import dragon3.map.MapWorks;
 import dragon3.panel.PanelManager;
 import mine.paint.UnitMap;
 
-public class ScorePaint implements PaintListener {
+public class ScorePaint implements EventListener {
 
 	private UnitWorks uw;
 	private MapWorks mw;
