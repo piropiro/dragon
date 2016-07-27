@@ -14,4 +14,6 @@ public interface PaintComponent {
 	public void setLocation(int x, int y);
 
 	public void setSize(int w, int h);
+	
+	public void setFontSize(int size);
 }

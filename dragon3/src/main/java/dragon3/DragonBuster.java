@@ -3,12 +3,11 @@ package dragon3;
 import java.awt.Color;
 import java.awt.event.KeyEvent;
 
-import javax.swing.JComponent;
 import javax.swing.JFrame;
 
+import dragon3.panel.HPanel;
 import lombok.Getter;
 import mine.awt.BMenuBar;
-import mine.awt.MineAwtUtils;
 import mine.awt.PaintComponentAWT;
 import mine.event.PaintComponent;
 
@@ -19,6 +18,8 @@ public class DragonBuster implements FrameWorks {
 	private JFrame frame;
 	@Getter private PaintComponent mapPanel;
 	@Getter private PaintComponent animePanel;
+	@Getter private PaintComponent hPanel1;
+	@Getter private PaintComponent hPanel2;
 
 	/*** Constructer *****************************************************/
 
@@ -32,15 +33,16 @@ public class DragonBuster implements FrameWorks {
 		frame.setJMenuBar(mb);
 		
 		// MapPanel
-		mapPanel = new PaintComponentAWT();
-		MineAwtUtils.setSize((JComponent)mapPanel, 640, 480);
+		mapPanel = new PaintComponentAWT(640, 480);
 		//MapKeyManager mkm = new MapKeyManager(mapPanel);
 		//addKeyListener(mkm);
 		
 		// AnimePanel
-		animePanel = new PaintComponentAWT();
-		MineAwtUtils.setSize((JComponent)animePanel, 32, 32);
+		animePanel = new PaintComponentAWT(32, 32);
 		
+		// HPanel
+		hPanel1 = new PaintComponentAWT(HPanel.WIDTH, HPanel.HEIGHT);
+		hPanel2 = new PaintComponentAWT(HPanel.WIDTH, HPanel.HEIGHT);
 		
 		// VPanel
 		vp = new VPanel(this);

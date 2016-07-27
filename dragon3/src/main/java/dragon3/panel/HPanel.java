@@ -1,21 +1,19 @@
 package dragon3.panel;
 
-import java.awt.Dimension;
-import java.awt.Graphics;
-
-import javax.swing.JComponent;
-
 import dragon3.common.Body;
 import dragon3.panel.item.HPBar;
-import mine.awt.GraphicsAWT;
-import mine.awt.MineAwtUtils;
+import mine.event.PaintComponent;
+import mine.event.PaintListener;
 import mine.event.SleepManager;
 import mine.paint.MineColor;
 import mine.paint.MineGraphics;
 
-public class HPanel extends JComponent {
+public class HPanel implements PaintListener {
 
-	private static final long serialVersionUID = 8838329817391026870L;
+	public static final int WIDTH = 96;
+	public static final int HEIGHT = 14;
+	
+	private PaintComponent panel;
 
 	private SleepManager sm;
 	private Body ba;
@@ -25,13 +23,13 @@ public class HPanel extends JComponent {
 
 	/*** Constructer ***********************************************/
 
-	public HPanel(SleepManager sm, boolean high) {
+	public HPanel(PaintComponent panel, SleepManager sm, boolean high) {
 		super();
-		setVisible(false);
+		this.panel = panel;
 		this.sm = sm;
 		this.high = high;
-		MineAwtUtils.setSize(this, 96, 14);
-		setFont(MineAwtUtils.getFont(14));
+		panel.setVisible(false);
+		panel.setFontSize(14);
 		hpb = new HPBar();
 	}
 
@@ -44,30 +42,30 @@ public class HPanel extends JComponent {
 		if (ba.getX() >= bb.getX())
 			mx = cx * 32 + 32;
 		else
-			mx = cx * 32 - getSize().width;
+			mx = cx * 32 - WIDTH;
 		if (cx < 3) {
 			mx = cx * 32 + 32;
 			if (ba.getY() == bb.getY() && Math.abs(ba.getX() - bb.getX()) < 5)
 				mx = Math.max(ba.getX(), bb.getX()) * 32 + 32;
 		}
 		if (cx > 16) {
-			mx = cx * 32 - getSize().width;
+			mx = cx * 32 - WIDTH;
 			if (ba.getY() == bb.getY() && Math.abs(ba.getX() - bb.getX()) < 5)
-				mx = Math.min(ba.getX(), bb.getX()) * 32 - getSize().width;
+				mx = Math.min(ba.getX(), bb.getX()) * 32 - WIDTH;
 		}
 		if (high) {
 			my = cy * 32 + 1;
 		} else {
 			my = cy * 32 + 17;
 		}
-		setLocation(mx, my);
+		panel.setLocation(mx, my);
 	}
 
 	/*** Display ******************************************************/
 
 	public void display(Body ba_, Body bb, int damage, boolean hit) {
 		if (ba_ == null) {
-			setVisible(false);
+			panel.setVisible(false);
 			return;
 		}
 		this.ba = ba_;
@@ -75,31 +73,30 @@ public class HPanel extends JComponent {
 		hpb.setMin(ba.getHp() - damage, false);
 
 		setLocate(ba, bb);
-		setVisible(true);
-		repaint();
+		panel.setVisible(true);
+		panel.repaint();
 	}
 
 	/*** Paint *********************************************************/
 
-	public void paintComponent(Graphics g) {
+	@Override
+	public void paint(MineGraphics g) {
 		if (ba == null)
 			return;
-		MineGraphics mg = new GraphicsAWT(g);
 		
-		Dimension d = getSize();
-		mg.setColor(ba.getColor().getAlphaBg());
-		mg.fillRect(0, 0, d.width, d.height);
-		mg.setColor(MineColor.BLACK);
-		mg.drawRect(0, 0, d.width - 1, d.height - 1);
+		g.setColor(ba.getColor().getAlphaBg());
+		g.fillRect(0, 0, WIDTH, HEIGHT);
+		g.setColor(MineColor.BLACK);
+		g.drawRect(0, 0, WIDTH - 1, HEIGHT - 1);
 
-		hpb.paint(2, 12, mg);
+		hpb.paint(2, 12, g);
 	}
 
 	/*** Damage **********************************************/
 
 	public void damage(int damage) {
 		hpb.setMin(ba.getHp() - damage, true);
-		repaint();
+		panel.repaint();
 	}
 
 	/*** Henka **************************************************/
@@ -107,9 +104,13 @@ public class HPanel extends JComponent {
 	public void henka() {
 		int st = hpb.getSleepTime();
 		while (hpb.henka()) {
-			repaint();
+			panel.repaint();
 			sm.sleep(st);
 		}
-		repaint();
+		panel.repaint();
+	}
+	
+	public void setVisible(boolean flag) {
+		panel.setVisible(flag);
 	}
 }

@@ -150,14 +150,22 @@ public class VPanel extends JLayeredPane implements UnitWorks, ActionListener, K
 
 	private void Pinit() {
 		DataList<AnimeData> animeList = AnimeDataLoader.loadAnimeList();
+		
+		// AnimePanel
 		AnimePanel ap = new AnimePanel(fw.getAnimePanel(), sleepManager, map, animeList, imageManager);
 		fw.getAnimePanel().setPaintListener(ap);
 		animeManager = ap;
 
+		// MapPanel
 		up = new MapPanel(this, fw);
 		fw.getMapPanel().setPaintListener(up);
-		HPanel hp = new HPanel(sleepManager, true);
-		HPanel hp2 = new HPanel(sleepManager, false);
+		
+		// HPanel
+		HPanel hp = new HPanel(fw.getHPanel1(), sleepManager, true);
+		fw.getHPanel1().setPaintListener(hp);
+		HPanel hp2 = new HPanel(fw.getHPanel2(), sleepManager, false);
+		fw.getHPanel2().setPaintListener(hp2);
+		
 		DataPanel sp = new DataPanel(sleepManager, imageManager, true);
 		DataPanel sp2 = new DataPanel(sleepManager, imageManager, false);
 		HelpPanel help = new HelpPanel();
@@ -190,8 +198,8 @@ public class VPanel extends JLayeredPane implements UnitWorks, ActionListener, K
 		add(sp2, new Integer(5));
 		add(mp, new Integer(6));
 		add(lp, new Integer(7));
-		add(hp2, new Integer(8));
-		add(hp, new Integer(9));
+		add((JComponent)fw.getHPanel2(), new Integer(8));
+		add((JComponent)fw.getHPanel1(), new Integer(9));
 		add((JComponent)fw.getAnimePanel(), new Integer(10));
 		add(tp, new Integer(11));
 

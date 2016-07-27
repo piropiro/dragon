@@ -4,6 +4,7 @@ import java.awt.Graphics;
 import java.awt.Point;
 import java.util.Arrays;
 
+import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JLayeredPane;
 
@@ -22,7 +23,9 @@ import mine.MineException;
 import mine.awt.GraphicsAWT;
 import mine.awt.ImageLoaderAWT;
 import mine.awt.MineAwtUtils;
+import mine.awt.PaintComponentAWT;
 import mine.awt.SleepManagerAWT;
+import mine.event.PaintComponent;
 import mine.event.SleepManager;
 import mine.paint.MineGraphics;
 import mine.paint.MineImageLoader;
@@ -84,12 +87,14 @@ public class PanelManagerTest extends TestCase {
 			panel.add(smallP, 11);
 			pmi.setSmallP(smallP);
 
-			HPanel hpP1 = new HPanel(sm, false);
-			panel.add(hpP1, 9);
+			PaintComponent hpP1c = new PaintComponentAWT(HPanel.WIDTH, HPanel.HEIGHT);
+			HPanel hpP1 = new HPanel(hpP1c, sm, false);
+			panel.add((JComponent)hpP1c, 9);
 			pmi.setHpP1(hpP1);
 
-			HPanel hpP2 = new HPanel(sm, true);
-			panel.add(hpP2, 8);
+			PaintComponent hpP2c = new PaintComponentAWT(HPanel.WIDTH, HPanel.HEIGHT);
+			HPanel hpP2 = new HPanel(hpP1c, sm, true);
+			panel.add((JComponent)hpP2c, 8);
 			pmi.setHpP2(hpP2);
 
 			MessagePanel messageP = new MessagePanel(sm, im);

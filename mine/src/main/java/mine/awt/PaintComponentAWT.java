@@ -12,6 +12,10 @@ public class PaintComponentAWT extends JComponent implements PaintComponent {
 
 	PaintListener pl;
 	
+	public PaintComponentAWT(int width, int height) {
+		MineAwtUtils.setSize(this, width, height);
+	}
+
 	@Override
 	public void paintComponent(Graphics g) {
 		if (pl != null) {
@@ -21,5 +25,10 @@ public class PaintComponentAWT extends JComponent implements PaintComponent {
 	
 	public void setPaintListener(PaintListener pl) {
 		this.pl = pl;
+	}
+
+	@Override
+	public void setFontSize(int size) {
+		setFont(MineAwtUtils.getFont(size));
 	}
 }

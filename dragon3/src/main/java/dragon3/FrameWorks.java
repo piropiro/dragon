@@ -26,4 +26,6 @@ public interface FrameWorks {
     
     public PaintComponent getMapPanel();
     public PaintComponent getAnimePanel();
+    public PaintComponent getHPanel1();
+    public PaintComponent getHPanel2();
 }
