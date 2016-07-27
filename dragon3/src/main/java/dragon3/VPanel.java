@@ -1,18 +1,9 @@
 package dragon3;
 
-import java.awt.Color;
 import java.awt.Point;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-
-import javax.swing.AbstractButton;
-import javax.swing.JComponent;
-import javax.swing.JLayeredPane;
 
 import dragon3.anime.AnimeManager;
 import dragon3.anime.AnimePanel;
@@ -55,16 +46,14 @@ import dragon3.panel.SmallPanel;
 import mine.MineException;
 import mine.MineUtils;
 import mine.awt.ImageLoaderAWT;
-import mine.awt.MineAwtUtils;
 import mine.awt.MouseManagerAWT;
-import mine.awt.SleepManagerAWT;
+import mine.event.MouseManager;
 import mine.event.SleepManager;
 import mine.paint.MineImageLoader;
 import mine.paint.UnitMap;
 
-public class VPanel extends JLayeredPane implements UnitWorks, ActionListener, KeyListener {
+public class VPanel implements UnitWorks {
 
-	private static final long serialVersionUID = 1L;
 	private UnitMap map;
 	private FrameWorks fw;
 	private MapPanel up;
@@ -79,8 +68,8 @@ public class VPanel extends JLayeredPane implements UnitWorks, ActionListener, K
 	private List<Body> Enemys;
 
 	private MineImageLoader mil;
-	private SleepManagerAWT sleepManager;
-	private MouseManagerAWT mouseManager;
+	private SleepManager sleepManager;
+	private MouseManager mouseManager;
 
 	private TurnManagerImpl turnManager;
 	private SaveManagerImpl saveManager;
@@ -98,11 +87,12 @@ public class VPanel extends JLayeredPane implements UnitWorks, ActionListener, K
 
 	/*** Constructer *************************************/
 
-	public VPanel(FrameWorks fw) {
+	public VPanel(FrameWorks fw, MineImageLoader mil, MouseManager mouseManager, SleepManager sleepManager) {
 		super();
 		this.fw = fw;
-		MineAwtUtils.setSize(this, 640, 480);
-		setBackground(new Color(0, 0, 150));
+		this.mil = mil;
+		this.mouseManager = mouseManager;
+		this.sleepManager = sleepManager;
 
 		mil = new ImageLoaderAWT();
 
@@ -112,8 +102,6 @@ public class VPanel extends JLayeredPane implements UnitWorks, ActionListener, K
 			throw new RuntimeException(e);
 		}
 
-		mouseManager = new MouseManagerAWT();
-		sleepManager = new SleepManagerAWT(this);
 		saveManager = new SaveManagerImpl(this);
 		Charas = new ArrayList<>();
 		map = createMap();
@@ -121,9 +109,6 @@ public class VPanel extends JLayeredPane implements UnitWorks, ActionListener, K
 		Pinit();
 
 		mouseManager.setMouseAllListener(up);
-		addMouseListener(mouseManager);
-		addMouseMotionListener(mouseManager);
-		addKeyListener(this);
 		equip = saveManager.loadData("slgs.dat");
 
 
@@ -195,20 +180,6 @@ public class VPanel extends JLayeredPane implements UnitWorks, ActionListener, K
 
 		Rewalk.setup(this);
 		
-		setLayout(null);
-
-		add((JComponent)fw.getMapPanel(), new Integer(1));
-		add((JComponent)fw.getCardPanel(), new Integer(2));
-		add((JComponent)fw.getHelpPanel(), new Integer(3));
-		add((JComponent)fw.getDataPanel1(), new Integer(4));
-		add((JComponent)fw.getDataPanel2(), new Integer(5));
-		add((JComponent)fw.getMessagePanel(), new Integer(6));
-		add((JComponent)fw.getLargePanel(), new Integer(7));
-		add((JComponent)fw.getHPanel2(), new Integer(8));
-		add((JComponent)fw.getHPanel1(), new Integer(9));
-		add((JComponent)fw.getAnimePanel(), new Integer(10));
-		add((JComponent)fw.getSmallPanel(), new Integer(11));
-
 		help.setVisible(false);
 		cp.setVisible(false);
 		tp.setVisible(false);
@@ -682,44 +653,12 @@ public class VPanel extends JLayeredPane implements UnitWorks, ActionListener, K
 
 	/*** KeyEvent **************************************/
 
-	public void keyTyped(KeyEvent e) {
-	}
-	public void keyReleased(KeyEvent e) {
-	}
-	public void keyPressed(KeyEvent e) {
-		int n = 0;
-		switch (e.getKeyCode()) {
-			case KeyEvent.VK_F1 :
-				n = 1;
-				break;
-			case KeyEvent.VK_F2 :
-				n = 2;
-				break;
-			case KeyEvent.VK_F3 :
-				n = 3;
-				break;
-			case KeyEvent.VK_F4 :
-				n = 4;
-				break;
-			case KeyEvent.VK_F5 :
-				n = 5;
-				break;
-			case KeyEvent.VK_F6 :
-				n = 6;
-				break;
-			case KeyEvent.VK_F7 :
-				n = 7;
-				break;
-			case KeyEvent.VK_F8 :
-				n = 8;
-				break;
-			default :
-				return;
-		}
+	@Override
+	public void executeFKeyCommand(int n, boolean shiftDown) {
 		if (mouseManager.isAlive())
 			return;
 		String filename = "slgs" + n + ".dat";
-		if (e.isShiftDown()) {
+		if (shiftDown) {
 			saveManager.saveData(filename, equip);
 			panelManager.displayLarge("Save " + n, GameColor.BLUE, 1500);
 		} else {
@@ -738,12 +677,8 @@ public class VPanel extends JLayeredPane implements UnitWorks, ActionListener, K
 
 	/*** MenuBar ***************************************/
 
-	public void actionPerformed(ActionEvent e) {
-		requestFocus();
-		if (mouseManager.isAlive())
-			return;
-		AbstractButton b = (AbstractButton) e.getSource();
-		String command = b.getActionCommand();
+	@Override
+	public void executeMenuCommand(String command) {
 		if (command.equals("help")) {
 			if (panelManager.isHelpVisible()) {
 				panelManager.displayLarge(Texts.help_off, GameColor.BLUE, 1000);
