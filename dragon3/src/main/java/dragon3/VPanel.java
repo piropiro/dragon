@@ -141,7 +141,7 @@ public class VPanel implements UnitWorks {
 		animeManager = ap;
 
 		// MapPanel
-		up = new MapPanel(fw.getMapPanel(), this, fw);
+		up = new MapPanel(fw.getMapPanel(), this);
 		
 		// HPanel
 		HPanel hp = new HPanel(fw.getHPanel1(), sleepManager, true);

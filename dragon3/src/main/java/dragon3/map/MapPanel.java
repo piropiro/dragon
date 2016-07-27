@@ -1,8 +1,5 @@
 package dragon3.map;
 
-import mine.util.Point;
-
-import dragon3.FrameWorks;
 import dragon3.UnitWorks;
 import dragon3.common.Body;
 import dragon3.common.constant.Page;
@@ -12,11 +9,13 @@ import mine.event.PaintComponent;
 import mine.event.PaintListener;
 import mine.paint.MineGraphics;
 import mine.paint.UnitMap;
+import mine.util.Point;
 
 public class MapPanel implements MapWorks, MouseAllListener, PaintListener {
 
+	private PaintComponent panel;
+	
 	private UnitWorks uw;
-	private FrameWorks fw;
 	
 	private EventListener el;
 
@@ -26,15 +25,11 @@ public class MapPanel implements MapWorks, MouseAllListener, PaintListener {
 
 	/*** Constructer *****************************************************/
 
-	public MapPanel(PaintComponent panel, UnitWorks uw, FrameWorks fw) {
+	public MapPanel(PaintComponent panel, UnitWorks uw) {
 		super();
+		this.panel = panel;
 		this.uw = uw;
-		this.fw = fw;
 		this.map = uw.getUnitMap();
-//		MineAwtUtils.setSize(this, 640, 480);
-//
-//		MapKeyManager mkm = new MapKeyManager(this);
-//		addKeyListener(mkm);
 		panel.setPaintListener(this);
 	}
 
@@ -77,7 +72,7 @@ public class MapPanel implements MapWorks, MouseAllListener, PaintListener {
 			int y = Math.min(wy, wys) * 32;
 			int xs = Math.abs(wx - wxs) * 32 + 32;
 			int ys = Math.abs(wy - wys) * 32 + 32;
-			fw.getMapPanel().repaint(x, y, xs, ys);
+			panel.repaint(x, y, xs, ys);
 		}
 		wxs = wx;
 		wys = wy;
@@ -87,15 +82,15 @@ public class MapPanel implements MapWorks, MouseAllListener, PaintListener {
 
 	@Override
 	public void ppaint(int px, int py) {
-		fw.getMapPanel().repaint(px * 32, py * 32, 32, 32);
+		panel.repaint(px * 32, py * 32, 32, 32);
 	}
 	@Override
 	public void ppaint(int[] box) {
-		fw.getMapPanel().repaint(box[0] * 32, box[1] * 32, box[2] * 32, box[3] * 32);
+		panel.repaint(box[0] * 32, box[1] * 32, box[2] * 32, box[3] * 32);
 	}
 	@Override
 	public void repaint() {
-		fw.getMapPanel().repaint();
+		panel.repaint();
 	}
 
 	/*** Paint *****************************************************/
