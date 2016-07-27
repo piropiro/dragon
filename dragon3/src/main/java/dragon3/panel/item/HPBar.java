@@ -1,7 +1,7 @@
 package dragon3.panel.item;
 
 import mine.MineUtils;
-import mine.paint.Colors;
+import mine.paint.MineColor;
 import mine.paint.MineGraphics;
 
 public class HPBar {
@@ -32,7 +32,7 @@ public class HPBar {
 	/*** Paint **************************************/
 
 	public void paint(int x, int y, MineGraphics g) {
-		g.setColor(Colors.WHITE);
+		g.setColor(MineColor.WHITE);
 		g.drawString("" + hp, x, y);
 		drawBar(g, we, w, bar_width, x + 30, y - 8);
 	}
@@ -44,9 +44,9 @@ public class HPBar {
 		int width = bar_width;
 		int height = 6;
 
-		g.setColor(Colors.WHITE);
+		g.setColor(MineColor.WHITE);
 		g.drawRect(x - 2, y - 2, width + 3, height + 3);
-		g.setColor(Colors.BLACK);
+		g.setColor(MineColor.BLACK);
 		g.drawRect(x - 1, y - 1, width + 1, height + 1);
 
 		if (hpMin <= hp) {
@@ -55,9 +55,9 @@ public class HPBar {
 			else if (hitFlag && deadFlag)
 				g.setColor(150, 200, 255);
 			else
-				g.setColor(Colors.ORANGE);
+				g.setColor(MineColor.ORANGE);
 			g.fillRect(x, y, width * n / max, height);
-			g.setColor(Colors.YELLOW);
+			g.setColor(MineColor.YELLOW);
 			g.fillRect(x, y, width * min / max, height);
 			if (n != 0 && !damageFlag && !hitFlag) {
 				g.fillRect(x + width * n / max - 2, y, 1, height);
@@ -68,11 +68,11 @@ public class HPBar {
 			else
 				g.setColor(100, 150, 200);
 			g.fillRect(x, y, width * min / max, height);
-			g.setColor(Colors.YELLOW);
+			g.setColor(MineColor.YELLOW);
 			g.fillRect(x, y, width * n / max, height);
 		}
 
-		g.setColor(Colors.WHITE);
+		g.setColor(MineColor.WHITE);
 	}
 
 	/*** Damage **********************************************/

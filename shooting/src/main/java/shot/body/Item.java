@@ -2,16 +2,16 @@ package shot.body;
 
 import shot.ShotCanvas;
 
-import mine.paint.Colors;
+import mine.paint.MineColor;
 import mine.paint.MineGraphics;
 
 public class Item extends Body {
 
 	private int xv;
 	private int yv;
-	private int color;
+	private MineColor color;
 
-	public Item(int x, int color) {
+	public Item(int x, MineColor color) {
 		super(x, 0, 10, 10, 1);
 		this.color = color;
 		xv = 1;
@@ -21,7 +21,7 @@ public class Item extends Body {
 	public void paint(MineGraphics g) {
 		g.setColor(color);
 		g.fillRect(getX(), getY(), getW(), getH());
-		g.setColor(Colors.WHITE);
+		g.setColor(MineColor.WHITE);
 		g.fillRect(getX() + 2, getY() + 2, getW() - 4, getH() - 4);
 	}
 
@@ -39,7 +39,7 @@ public class Item extends Body {
 		setY(getY() + yv);
 	}
 
-	public int getColor() {
+	public MineColor getColor() {
 		return color;
 	}
 }

@@ -1,6 +1,6 @@
 package shot.body.wepon;
 
-import mine.paint.Colors;
+import mine.paint.MineColor;
 import mine.paint.MineGraphics;
 
 public class BlueEnemyWepon extends Wepon {
@@ -15,11 +15,11 @@ public class BlueEnemyWepon extends Wepon {
 	}
 
 	public void paint(MineGraphics g) {
-		g.setColor(Colors.BLUE);
+		g.setColor(MineColor.BLUE);
 		g.fillRect(getX() - xv * 2, getY() - yv * 2, getW(), getH());
-		g.setColor(Colors.AQUA);
+		g.setColor(MineColor.AQUA);
 		g.fillRect(getX() - xv, getY() - yv, getW(), getH());
-		g.setColor(Colors.WHITE);
+		g.setColor(MineColor.WHITE);
 		g.fillRect(getX(), getY(), getW(), getH());
 
 	}

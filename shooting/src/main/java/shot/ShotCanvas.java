@@ -1,8 +1,11 @@
 package shot;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import mine.game.GameListener;
 import mine.game.GameManager;
-import mine.paint.Colors;
+import mine.paint.MineColor;
 import mine.paint.MineGraphics;
 import mine.util.Randomer;
 import shot.body.Body;
@@ -39,14 +42,14 @@ public class ShotCanvas implements GameListener {
 	public static final int SCREEN_HEIGHT = 240; // 画面の縦幅
 	public static final int SLEEP_TIME = 40; // スリープ時間
 	public static final int BOSS_TURN = 600; // ボスを出現させるターン
-
+	
 	private Body screen; // スクリーン
 	private Laser laser; // レーザー
 	private Jiki jiki; // 自機
-	private Item[] item; // アイテム配列
-	private Enemy[] enemy; // 敵配列
-	private Wepon[] beam; // 弾配列
-	private Wepon[] tama; // 敵弾配列
+	private List<Item> item; // アイテム配列
+	private List<Enemy> enemy; // 敵配列
+	private List<Wepon> beam; // 弾配列
+	private List<Wepon> tama; // 敵弾配列
 
 	private int turn; // 経過時間
 
@@ -75,10 +78,10 @@ public class ShotCanvas implements GameListener {
 		jiki = new Jiki(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2);
 		screen = new Body(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, 1);
 		laser = new Laser();
-		beam = new Wepon[100];
-		enemy = new Enemy[50];
-		tama = new Wepon[100];
-		item = new Item[10];
+		beam = new ArrayList<>();
+		enemy = new ArrayList<>();
+		tama = new ArrayList<>();
+		item = new ArrayList<>();
 
 		bombf = false;
 
@@ -116,9 +119,9 @@ public class ShotCanvas implements GameListener {
 	 * スタート画面を表示する。
 	 */
 	public void paintStart(MineGraphics g) {
-		g.setColor(Colors.BLACK);
+		g.setColor(MineColor.BLACK);
 		g.fillRect(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
-		g.setColor(Colors.WHITE);
+		g.setColor(MineColor.WHITE);
 		g.drawString("[ Z ] START", SCREEN_WIDTH / 2 - 55, SCREEN_HEIGHT / 2 - 30);
 		g.drawString("[ X ] BOMB", SCREEN_WIDTH / 2 - 55, SCREEN_HEIGHT / 2 - 10);
 		g.drawString("[ C ] LASER", SCREEN_WIDTH / 2 - 55, SCREEN_HEIGHT / 2 + 10);
@@ -129,7 +132,7 @@ public class ShotCanvas implements GameListener {
 	 * ゲームオーバー画面を表示する。
 	 */
 	public void paintEnd(MineGraphics g) {
-		g.setColor(Colors.WHITE);
+		g.setColor(MineColor.WHITE);
 		g.drawString("Game Over", SCREEN_WIDTH / 2 - 30, SCREEN_HEIGHT / 2 - 10);
 	}
 
@@ -140,11 +143,11 @@ public class ShotCanvas implements GameListener {
 		turn++;
 
 		// 一度に出現する敵の最大数
-		int emax = Math.min(enemy.length, 2 + turn / BOSS_TURN);
+		int emax = 2 + turn / BOSS_TURN;
 
 		// ビーム出し
 		if (!laser.isAlive()) {
-			jiki.shoot(turn, beam);
+			beam.addAll(jiki.shoot(turn));
 		}
 
 		// 敵出し
@@ -208,7 +211,7 @@ public class ShotCanvas implements GameListener {
 
 		// スコア表示
 		high_score = Math.max(high_score, score);
-		g.setColor(Colors.WHITE);
+		g.setColor(MineColor.WHITE);
 		g.drawString("Sc " + score, 5, 11);
 		g.drawString("Hi " + high_score, 58, 11);
 		g.drawString("Bo", 5, 22);
@@ -216,16 +219,16 @@ public class ShotCanvas implements GameListener {
 
 		// エネルギーバー表示
 		if (jiki.isEnergyMax()) {
-			g.setColor(Colors.RED);
+			g.setColor(MineColor.RED);
 		} else {
-			g.setColor(Colors.YELLOW);
+			g.setColor(MineColor.YELLOW);
 		}
 		g.fillRect(75, 16, jiki.getEnergy() / 2, 3);
-		g.setColor(Colors.WHITE);
+		g.setColor(MineColor.WHITE);
 		g.drawRect(75 - 1, 16 - 1, Jiki.ENERGY_MAX / 2 + 1, 4);
 
 		// ボム個数表示
-		g.setColor(Colors.WHITE);
+		g.setColor(MineColor.WHITE);
 		for (int i = 0; i < jiki.getBomb(); i++) {
 			g.fillRect(22 + i * 3, 15, 2, 6);
 		}
@@ -235,28 +238,31 @@ public class ShotCanvas implements GameListener {
 	 * アイテムの当たり判定
 	 */
 	private void hitItem() {
-		for (int i = 0; i < item.length; i++) {
-			if (item[i] != null) {
-				if (Body.hit(item[i], jiki)) {
-					switch (item[i].getColor()) {
-						case Colors.BLUE :
-							jiki.setBlue(true);
-							break;
-						case Colors.YELLOW :
-							jiki.setYellow(true);
-							break;
-						case Colors.RED :
-							jiki.setRed(true);
-							break;
-					}
-					item[i] = null;
+		
+		for (Item b : item) {
+			if (Body.hit(b, jiki)) {
+				switch (b.getColor()) {
+					case BLUE:
+						jiki.setBlue(true);
+						break;
+					case YELLOW:
+						jiki.setYellow(true);
+						break;
+					case RED:
+						jiki.setRed(true);
+						break;
+					default:
+				}
+				b.die();
 
-					if (jiki.addBomb()) {
-						bombf = true;
-					}
+				if (jiki.addBomb()) {
+					bombf = true;
 				}
 			}
 		}
+		
+		// 使用済みアイテムを除去
+		item.removeIf((b) -> !b.isAlive());
 	}
 
 	/**
@@ -265,29 +271,31 @@ public class ShotCanvas implements GameListener {
 	 * @param g
 	 */
 	private void hitTama(MineGraphics g) {
-		for (int i = 0; i < tama.length; i++) {
-			if (tama[i] != null) {
-
-				// 敵弾と自機の当たり判定
-				if (Body.hit(tama[i], jiki)) {
-					if (jiki.flash()) {
-						flash(g, false);
-					} else {
-						paintEnd(g);
-						gm.end();
-					}
-					break;
+		
+		for (Wepon b : tama) {
+			
+			// 敵弾と自機の当たり判定
+			if (Body.hit(b, jiki)) {
+				if (jiki.flash()) {
+					flash(g, false);
+				} else {
+					paintEnd(g);
+					gm.end();
 				}
+				break;
+			}
 
-				// 敵弾とレーザーの当たり判定
-				if (laser.isAlive()) {
-					if (Body.hit(tama[i], laser)) {
-						tama[i] = null;
-						score++;
-					}
+			// 敵弾とレーザーの当たり判定
+			if (laser.isAlive()) {
+				if (Body.hit(b, laser)) {
+					b.die();
+					score++;
 				}
 			}
 		}
+		
+		//使用済みの弾を除去
+		tama.removeIf((b) -> !b.isAlive());
 	}
 
 	/**
@@ -297,40 +305,42 @@ public class ShotCanvas implements GameListener {
 	 * @param emax
 	 */
 	private void hitEnemy(MineGraphics g, int emax) {
-		for (int i = 0; i < emax; i++) {
-			if (enemy[i] != null && enemy[i].isAlive()) {
+		for (Enemy e : enemy) {
+			if (!e.isAlive()) {
+				continue;
+			}
 
-				// 敵と自機弾の当たり判定
-				for (int j = 0; j < beam.length; j++) {
-					if (beam[j] == null)
-						continue;
-					if (Body.hit(enemy[i], beam[j])) {
-						enemy[i].setLife(enemy[i].getLife() - 1);
-						beam[j] = null;
-						score++;
-					}
+			// 敵と自機弾の当たり判定
+			for (Wepon b : beam) {
+				if (Body.hit(e, b)) {
+					e.decLife(1);
+					b.die();
+					score++;
 				}
+			}
 
-				// 敵とレーザーの当たり判定
-				if (laser.isAlive()) {
-					if (Body.hit(enemy[i], laser)) {
-						enemy[i].setLife(enemy[i].getLife() - 1);
-						score++;
-					}
+			// 敵とレーザーの当たり判定
+			if (laser.isAlive()) {
+				if (Body.hit(e, laser)) {
+					e.decLife(1);
+					score++;
 				}
+			}
 
-				// 敵と自機の当たり判定
-				if (Body.hit(enemy[i], jiki)) {
-					enemy[i].setLife(enemy[i].getLife() - 5);
-					if (jiki.flash()) {
-						flash(g, false);
-					} else {
-						paintEnd(g);
-						gm.end();
-					}
+			// 敵と自機の当たり判定
+			if (Body.hit(e, jiki)) {
+				e.decLife(5);
+				if (jiki.flash()) {
+					flash(g, false);
+				} else {
+					paintEnd(g);
+					gm.end();
 				}
 			}
 		}
+		
+		//使用済みの弾を除去
+		beam.removeIf((b) -> !b.isAlive());
 	}
 
 	/**
@@ -355,9 +365,9 @@ public class ShotCanvas implements GameListener {
 	 * @param g
 	 */
 	private void paintBackground(MineGraphics g) {
-		g.setColor(Colors.BLACK);
+		g.setColor(MineColor.BLACK);
 		g.fillRect(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
-		g.setColor(Colors.GRAY);
+		g.setColor(MineColor.GRAY);
 		for (int i = 0; i <= SCREEN_HEIGHT / 32; i++) {
 			int y = i * 32 + turn % 16 * 2;
 			g.drawLine(0, y, SCREEN_WIDTH, y);
@@ -369,22 +379,8 @@ public class ShotCanvas implements GameListener {
 	 */
 	private void createItem() {
 		if (score >= item_score) {
-			for (int i = 0; i < item.length; i++) {
-				if (item[i] == null) {
-					switch (turn % 3) {
-						case 0 :
-							item[i] = new Item(SCREEN_WIDTH / 2, Colors.BLUE);
-							break;
-						case 1 :
-							item[i] = new Item(SCREEN_WIDTH / 2, Colors.RED);
-							break;
-						case 2 :
-							item[i] = new Item(SCREEN_WIDTH / 2, Colors.YELLOW);
-							break;
-					}
-					break;
-				}
-			}
+			MineColor color = new MineColor[]{MineColor.BLUE, MineColor.RED, MineColor.YELLOW}[turn % 3];
+			item.add(new Item(SCREEN_WIDTH / 2, color));
 			item_score += 100 + turn / BOSS_TURN * 10;
 		}
 	}
@@ -395,13 +391,8 @@ public class ShotCanvas implements GameListener {
 	 * @param emax
 	 */
 	private void createEnemy(int emax) {
-		if (turn % 5 == 0) {
-			for (int i = 0; i < emax; i++) {
-				if (enemy[i] == null) {
-					enemy[i] = getEnemy();
-					break;
-				}
-			}
+		if (turn % 5 == 0 && enemy.size() < emax) {
+			enemy.add(getEnemy());
 		}
 	}
 
@@ -412,24 +403,21 @@ public class ShotCanvas implements GameListener {
 	 * @param flag ボタンによる発動ならtrue。ダメージによる発動ならfalse。
 	 */
 	private void flash(MineGraphics g, boolean flag) {
-		g.setColor(Colors.WHITE);
+		g.setColor(MineColor.WHITE);
 
 		// 敵弾を全部消す。
-		for (int i = 0; i < tama.length; i++) {
-			if (tama[i] != null) {
-				g.drawLine(jiki.getX() + jiki.getW() / 2, jiki.getY(), tama[i].getX(), tama[i].getY());
-				tama[i] = null;
-			}
+		for (Wepon t : tama) {
+			g.drawLine(jiki.getX() + jiki.getW() / 2, jiki.getY(), t.getX(), t.getY());
+			t.die();
 		}
+		tama.removeIf((b) -> !b.isAlive());
 
 		// すべての敵にダメージを与える。
 		if (flag) {
 			g.fillRect(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
-			for (int i = 0; i < enemy.length; i++) {
-				if (enemy[i] != null) {
-					enemy[i].setLife(enemy[i].getLife() - 5);
-					score++;
-				}
+			for (Enemy e : enemy) {
+				e.decLife(5);
+				score++;
 			}
 		}
 	}
@@ -441,18 +429,16 @@ public class ShotCanvas implements GameListener {
 	 * @param g
 	 * @param max
 	 */
-	private void displayEnemy(Enemy[] body, MineGraphics g, int max) {
-		for (int i = 0; i < max; i++) {
-			Enemy b = body[i];
-			if (b != null) {
-				if (Body.hit(b, screen)) {
-					b.shoot(tama);
-					b.move(jiki);
-					b.paint(g);
-				} else {
-					body[i] = null;
-				}
-			}
+	private void displayEnemy(List<Enemy> list, MineGraphics g, int max) {
+		
+		// 画面外に出た敵を除去
+		list.removeIf((b) -> !Body.hit(b, screen));
+		
+		// 弾撃ち、移動、表示
+		for (Enemy b : list) {
+			tama.addAll(b.shoot());
+			b.move(jiki);
+			b.paint(g);	
 		}
 	}
 
@@ -462,29 +448,25 @@ public class ShotCanvas implements GameListener {
 	 * @param body
 	 * @param g
 	 */
-	private void displayItem(Item[] body, MineGraphics g) {
-		for (Item b: body) {
-			if (b != null) {
-				b.move();
-				b.paint(g);
-			}
+	private void displayItem(List<Item> list, MineGraphics g) {
+		for (Item b: list) {
+			b.move();
+			b.paint(g);
 		}
 	}
 
 	/**
 	 * 弾移動＆表示
 	 */
-	private void displayWepon(Wepon[] body, MineGraphics g) {
-		for (int i = 0; i < body.length; i++) {
-			Wepon b = body[i];
-			if (b != null) {
-				if (Body.hit(b, screen)) {
-					b.move();
-					b.paint(g);
-				} else {
-					body[i] = null;
-				}
-			}
+	private void displayWepon(List<Wepon> list, MineGraphics g) {
+		
+		// 画面外に出た弾を除去
+		list.removeIf((b) -> !Body.hit(b, screen));
+
+		// 移動、表示
+		for (Wepon b : list) {
+			b.move();
+			b.paint(g);
 		}
 	}
 

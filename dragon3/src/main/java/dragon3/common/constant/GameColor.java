@@ -11,13 +11,13 @@ import lombok.Getter;
 public enum GameColor {
 	
 
-	NONE("無", new int[]{0, 0, 0}, new int[]{0, 0, 0, 200}, new int[]{255, 255, 255}),
-	BLUE("青", new int[]{0, 0, 255}, new int[]{0, 0, 150, 200}, new int[]{255, 255, 255}),
-	RED("赤", new int[]{255, 0, 0}, new int[]{150, 0, 0, 200}, new int[]{255, 255, 255}),
-	GREEN("緑", new int[]{0, 255, 0}, new int[]{0, 100, 0, 200}, new int[]{0, 0, 0}),
-	YELLOW("黄", new int[]{150, 150, 0}, new int[]{150, 150, 0, 200}, new int[]{0, 0, 0}),
-	WHITE("白", new int[]{255, 255,255}, new int[]{255, 255, 25, 200}, new int[]{0, 0, 0}),
-	SKY("空", new int[]{50, 100, 255}, new int[]{50, 100, 255, 200}, new int[]{255, 255, 255}),
+	NONE("無", new int[]{0, 0, 0, 255}, new int[]{0, 0, 0, 200}, new int[]{255, 255, 255, 255}),
+	BLUE("青", new int[]{0, 0, 255, 255}, new int[]{0, 0, 150, 200}, new int[]{255, 255, 255, 255}),
+	RED("赤", new int[]{255, 0, 0, 255}, new int[]{150, 0, 0, 200}, new int[]{255, 255, 255, 255}),
+	GREEN("緑", new int[]{0, 255, 0, 255}, new int[]{0, 100, 0, 200}, new int[]{0, 0, 0, 255}),
+	YELLOW("黄", new int[]{150, 150, 0, 255}, new int[]{150, 150, 0, 200}, new int[]{0, 0, 0, 255}),
+	WHITE("白", new int[]{255, 255,255, 255}, new int[]{255, 255, 25, 200}, new int[]{0, 0, 0, 255}),
+	SKY("空", new int[]{50, 100, 255, 255}, new int[]{50, 100, 255, 200}, new int[]{255, 255, 255, 255}),
 	;
 	
 	@Getter private String text;

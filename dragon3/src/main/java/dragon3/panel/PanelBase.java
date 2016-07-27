@@ -9,7 +9,7 @@ import javax.swing.JComponent;
 
 import mine.awt.MineAwtUtils;
 import mine.event.SleepManager;
-import mine.paint.Colors;
+import mine.paint.MineColor;
 import mine.paint.MineGraphics;
 import dragon3.Level;
 import dragon3.common.Body;
@@ -152,7 +152,7 @@ public abstract class PanelBase extends JComponent implements PanelWorks {
 
 		Dimension d = getSize();
 		g.fillRect(0, 0, d.width, d.height);
-		g.setColor(Colors.WHITE);
+		g.setColor(MineColor.WHITE);
 		g.drawRect(2, 2, d.width - 5, d.height - 5);
 		return true;
 	}

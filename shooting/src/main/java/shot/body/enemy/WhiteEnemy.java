@@ -1,14 +1,18 @@
 package shot.body.enemy;
 
-import mine.paint.Colors;
+import java.util.Arrays;
+import java.util.List;
+
+import mine.paint.MineColor;
 import mine.util.Randomer;
 import shot.ShotCanvas;
 import shot.body.Body;
+import shot.body.wepon.Wepon;
 
 public class WhiteEnemy extends Enemy {
 
 	public WhiteEnemy(int y) {
-		init(0, y, 7, 7, 1, 1, 1, Colors.WHITE);
+		init(0, y, 7, 7, 1, 1, 1, MineColor.WHITE);
 		if (Randomer.getInstance().nextBoolean()) {
 			setX(0);
 		} else {
@@ -31,7 +35,7 @@ public class WhiteEnemy extends Enemy {
 			setY(getY() - getYv());
 	}
 
-	protected Body[] shoots() {
-		return new Body[0];
+	protected List<Wepon> shoots() {
+		return Arrays.asList();
 	}
 }

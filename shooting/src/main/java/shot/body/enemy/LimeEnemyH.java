@@ -1,12 +1,12 @@
 package shot.body.enemy;
 
-import mine.paint.Colors;
+import mine.paint.MineColor;
 
 public class LimeEnemyH extends GreenEnemyH {
 
 	public LimeEnemyH(int y) {
 		super(y);
-		setColor(Colors.LIME);
+		setColor(MineColor.LIME);
 		setXv(getXv()*2);
 		setYv(getYv()*2);
 		setShootTime(5);

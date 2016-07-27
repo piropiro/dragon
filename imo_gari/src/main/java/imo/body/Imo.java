@@ -1,7 +1,7 @@
 package imo.body;
 
 import imo.common.ImageList;
-import mine.paint.Colors;
+import mine.paint.MineColor;
 import mine.paint.MineGraphics;
 import mine.paint.MineImage;
 
@@ -216,10 +216,10 @@ public class Imo extends Body {
 	public void displayHP(MineGraphics g) {
 		g.drawImage(hpbarImage, 191, 18);
 
-		g.setColor(Colors.LIME);
+		g.setColor(MineColor.LIME);
 		g.fillRect(194, 21, hp * 96 / hpMax, 8);
 		
-		g.setColor(Colors.BLACK);
+		g.setColor(MineColor.BLACK);
 		g.drawString(name, 190, 16);
 	}
 

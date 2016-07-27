@@ -1,6 +1,6 @@
 package shot.body.wepon;
 
-import mine.paint.Colors;
+import mine.paint.MineColor;
 import mine.paint.MineGraphics;
 
 public class LineWepon extends Wepon {
@@ -10,9 +10,9 @@ public class LineWepon extends Wepon {
 	}
 
 	public void paint(MineGraphics g) {
-		g.setColor(Colors.BLUE);
+		g.setColor(MineColor.BLUE);
 		g.fillRect(getX(), getY(), getW(), getH());
-		g.setColor(Colors.WHITE);
+		g.setColor(MineColor.WHITE);
 		g.fillRect(getX() + 1, getY() + 1, getW() - 2, getH() - 2);
 	}
 

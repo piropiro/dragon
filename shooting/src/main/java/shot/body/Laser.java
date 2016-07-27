@@ -1,6 +1,6 @@
 package shot.body;
 
-import mine.paint.Colors;
+import mine.paint.MineColor;
 import mine.paint.MineGraphics;
 
 public class Laser extends Body {
@@ -85,7 +85,7 @@ public class Laser extends Body {
 				int n = CHARGE_TIME - getLife();
 				int r = WIDTH_MAX * n * n / (CHARGE_TIME * CHARGE_TIME);
 
-				g.setColor(Colors.WHITE);
+				g.setColor(MineColor.WHITE);
 				g.drawRect(x - r, y - r, r * 2, r * 2);
 				g.drawRect(x - r * 2, y - r * 2, r * 4, r * 4);
 				g.drawRect(x - r * 4, y - r * 4, r * 8, r * 8);
@@ -94,7 +94,7 @@ public class Laser extends Body {
 				setX(ore.getX() + ore.getW() / 2 - getW() / 2);
 				setY(0);
 
-				g.setColor(Colors.YELLOW);
+				g.setColor(MineColor.YELLOW);
 				g.fillRect(getX(), getY(), getW() + 1, getH());
 			}
 		}

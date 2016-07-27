@@ -1,6 +1,8 @@
 package shot.body;
 
+import lombok.Data;
 
+@Data
 public class Body {
 
 	private int x;
@@ -40,46 +42,15 @@ public class Body {
 		return life > 0;
 	}
 
-	public void setX(int x) {
-		this.x = x;
-	}
-
-	public int getX() {
-		return x;
-	}
-
-	public void setY(int y) {
-		this.y = y;
-	}
-
-	public int getY() {
-		return y;
-	}
-
-	public void setW(int w) {
-		this.w = w;
-	}
-
-	public int getW() {
-		return w;
-	}
-
-	public void setH(int h) {
-		this.h = h;
-	}
-
-	public int getH() {
-		return h;
-	}
-
-	public void setLife(int life) {
-		this.life = life;
-	}
-
-	public int getLife() {
-		return life;
-	}
 	public int incLife(int i){
 		return life += i;
+	}
+	
+	public int decLife(int i){
+		return life -= i;
+	}
+	
+	public void die() {
+		life = 0;
 	}
 }

@@ -30,6 +30,7 @@ public class AnimeManagerTest {
 
 	private static UnitMap map;
 	private static AnimeManager am;
+	private static JFrame frame;
 
 	@BeforeClass
 	public static void setUpClass() throws Exception {
@@ -62,7 +63,7 @@ public class AnimeManagerTest {
 		am = ap;
 		panel.add(ap);
 
-		JFrame frame = new JFrame();
+		frame = new JFrame();
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setContentPane(panel);
 		frame.pack();
@@ -78,6 +79,7 @@ public class AnimeManagerTest {
 		map.fillDia(Page.P41, 10, 10, 2, 1);
 		map.clear(Page.P02, 1);
 		map.paintStep(Page.P02, Page.P03, 2, 2, 20);
+		frame.repaint();
 	}
 
 	@Test
@@ -121,15 +123,15 @@ public class AnimeManagerTest {
 	}
 	@Test
 	public void testRotateAnime(){
-		am.rotateAnime(am.getData("roll"), 10, 10, 11, 11);
+		am.rotateAnime(am.getData("ROTATE.roll_blue"), 10, 10, 11, 11);
 	}
 	@Test
 	public void testSomeArrowAnime(){
-		am.someArrowAnime(am.getData("arrow"), 0, 0);
+		am.someArrowAnime(am.getData("SINGLE_ARROW.arrow_blue"), 0, 0);
 	}
 	@Test
 	public void testSingleArrowAnime(){
-		am.singleArrowAnime(am.getData("arrow"), 10, 10, 12, 12);
+		am.singleArrowAnime(am.getData("SINGLE_ARROW.arrow"), 10, 10, 12, 12);
 	}
 	@Test
 	public void testAllSystemFire(){

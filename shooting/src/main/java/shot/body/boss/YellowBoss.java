@@ -1,9 +1,13 @@
 package shot.body.boss;
 
-import mine.paint.Colors;
+import java.util.Arrays;
+import java.util.List;
+
+import mine.paint.MineColor;
 import shot.ShotCanvas;
 import shot.body.Body;
 import shot.body.enemy.Enemy;
+import shot.body.wepon.Wepon;
 import shot.body.wepon.WiderWeponH;
 import shot.body.wepon.WiderWeponV;
 
@@ -12,7 +16,7 @@ public class YellowBoss extends Enemy {
 	public YellowBoss(int level) {
 		int size = 15 + level;
 		int life = 10 + level * 5;
-		init(0, ShotCanvas.SCREEN_HEIGHT / 2 - size / 2, size, size, 3, 3, life, Colors.YELLOW);
+		init(0, ShotCanvas.SCREEN_HEIGHT / 2 - size / 2, size, size, 3, 3, life, MineColor.YELLOW);
 		setShootTime(90);
 	}
 
@@ -27,12 +31,12 @@ public class YellowBoss extends Enemy {
 			setYv(-getYv());
 	}
 
-	protected Body[] shoots() {
-		Body[] newtama = new Body[4];
-		newtama[0] = new WiderWeponV(getX(), getY(), -2, getH());
-		newtama[1] = new WiderWeponH(getX(), getY(), -2, getW());
-		newtama[2] = new WiderWeponV(getX() + getW(), getY(), 2, getW());
-		newtama[3] = new WiderWeponH(getX(), getY() + getH(), 2, getW());
-		return newtama;
+	protected List<Wepon> shoots() {
+		return Arrays.asList(
+			new WiderWeponV(getX(), getY(), -2, getH()),
+			new WiderWeponH(getX(), getY(), -2, getW()),
+			new WiderWeponV(getX() + getW(), getY(), 2, getW()),
+			new WiderWeponH(getX(), getY() + getH(), 2, getW())
+			);
 	}
 }

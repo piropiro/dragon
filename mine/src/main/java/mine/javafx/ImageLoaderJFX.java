@@ -1,15 +1,15 @@
 /*
  * Created on 2004/10/10
  */
-package mine.awt;
+package mine.javafx;
 
-import java.awt.Graphics;
-import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.InputStream;
 
-import javax.imageio.ImageIO;
-
+import javafx.scene.image.Image;
+import javafx.scene.image.PixelReader;
+import javafx.scene.image.PixelWriter;
+import javafx.scene.image.WritableImage;
 import mine.MineException;
 import mine.io.FileIO;
 import mine.paint.MineImage;
@@ -18,7 +18,7 @@ import mine.paint.MineImageLoader;
 /**
  * @author saito
  */
-public class ImageLoaderAWT implements MineImageLoader {
+public class ImageLoaderJFX implements MineImageLoader {
     /**
      * ファイルからイメージを読み込む。
      * <p>
@@ -27,17 +27,9 @@ public class ImageLoaderAWT implements MineImageLoader {
      * @return ファイルから読み込んだイメージ
      * @throws MineException 読み込みに失敗した。
      */
-    public static BufferedImage loadNative(String path) throws MineException {
+    public static Image loadNative(String path) throws MineException {
         try (InputStream in = FileIO.getInputStream(path)) {
-            BufferedImage img = ImageIO.read(in);
-
-            for (int x = 0; x < img.getWidth(); x++) {
-                for (int y = 0; y < img.getHeight(); y++) {
-                    if (img.getRGB(x, y) == 0xFFC9FFFF) {
-                        img.setRGB(x, y, 0);
-                    }
-                }
-            }
+        	Image img = new Image(in);
             return img;
         } catch (IOException e) {
             throw new MineException(e);
@@ -54,21 +46,25 @@ public class ImageLoaderAWT implements MineImageLoader {
      * @return ファイルから読み込んだタイル
      * @throws MineException ファイルの読み込みに失敗した。
      */
-    public static BufferedImage[][] loadTileNative(String path, int width, int height) throws MineException {
-        BufferedImage img = loadNative(path);
+    public static Image[][] loadTileNative(String path, int width, int height) throws MineException {
+        Image img = loadNative(path);
 
-        int xNum = img.getWidth() / width;
-        int yNum = img.getHeight() / height;
+        int xNum = (int)img.getWidth() / width;
+        int yNum = (int)img.getHeight() / height;
 
         if (xNum == 0 || yNum == 0) {
-            return new BufferedImage[][]{{img}
+            return new Image[][]{{img}
             };
         }
 
-        BufferedImage[][] tiles = new BufferedImage[yNum][xNum];
+        Image[][] tiles = new Image[yNum][xNum];
         for (int y = 0; y < yNum; y++) {
             for (int x = 0; x < xNum; x++) {
-                tiles[y][x] = img.getSubimage(x * width, y * height, width, height);
+            	WritableImage subimage = new WritableImage(width, height);
+        		PixelWriter pw = subimage.getPixelWriter();
+        		pw.setPixels(0, 0, width, height, img.getPixelReader(), x * width, y * height);
+        		
+                tiles[y][x] = subimage;
             }
         }
         return tiles;
@@ -76,17 +72,17 @@ public class ImageLoaderAWT implements MineImageLoader {
     
     @Override
 	public MineImage load(String path) throws MineException {
-		return new ImageAWT(loadNative(path));
+		return new ImageJFX(loadNative(path));
 	}
 
     @Override
 	public MineImage[][] loadTile(String path, int width, int height) throws MineException {
-		BufferedImage[][] btile = loadTileNative(path, width, height);
+		Image[][] btile = loadTileNative(path, width, height);
 
 		MineImage[][] tile = new MineImage[btile.length][btile[0].length];
 		for (int i=0; i<btile.length; i++) {
 			for (int j=0; j<btile[i].length; j++) {
-				tile[i][j] = new ImageAWT(btile[i][j]);
+				tile[i][j] = new ImageJFX(btile[i][j]);
 			}
 		}
 		return tile;
@@ -94,7 +90,7 @@ public class ImageLoaderAWT implements MineImageLoader {
 	
     @Override
 	public MineImage getBuffer(int width, int height) {
-		return new ImageAWT(new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB));
+		return new ImageJFX(new WritableImage(width, height));
 	}
 
 	/**
@@ -106,11 +102,22 @@ public class ImageLoaderAWT implements MineImageLoader {
 	 */
     @Override
 	public MineImage resize(MineImage img, int width, int height) {
-		BufferedImage simg = (BufferedImage)img.getImage();
-		BufferedImage rimg = new BufferedImage(width, height, simg.getType());
-		Graphics g = rimg.getGraphics();
-		g.drawImage(simg, 0, 0, width, height, null);
-		return new ImageAWT(rimg);
+		Image simg = (Image)img.getImage();
+		PixelReader pr = simg.getPixelReader();
+		
+		WritableImage rimg = new WritableImage(width, height);
+		PixelWriter pw = rimg.getPixelWriter();
+		
+		for (int x = 0; x < rimg.getWidth(); x++) {
+			for (int y = 0; y < rimg.getHeight(); y++) {
+				
+				pw.setArgb(x, y, pr.getArgb(
+						(int)(simg.getWidth() * x / rimg.getWidth()),
+						(int)(simg.getHeight() * y / rimg.getHeight())
+						));
+			}
+		}
+		return new ImageJFX(rimg);
 	}
 
 	/**

@@ -1,24 +1,32 @@
 package shot.body.enemy;
 
-import mine.paint.Colors;
+import java.util.ArrayList;
+import java.util.List;
+
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import mine.paint.MineColor;
 import mine.paint.MineGraphics;
 import mine.util.Randomer;
 import shot.body.Body;
+import shot.body.wepon.Wepon;
 
+@Data
+@EqualsAndHashCode(callSuper=false)
 public abstract class Enemy extends Body {
 
 	private int xv;
 	private int yv;
-	private int color;
+	private MineColor color;
 
 	private int time;
 	private int shootTime;
 
-	public void init(int x, int y, int w, int h, int xv_, int yv_, int life, int color_) {
+	public void init(int x, int y, int w, int h, int xv_, int yv_, int life, MineColor color) {
 		super.init(x, y, w, h, life);
 		this.xv = xv_;
 		this.yv = yv_;
-		this.color = color_;
+		this.color = color;
 		this.time = 0;
 	}
 	
@@ -51,19 +59,19 @@ public abstract class Enemy extends Body {
 	}
 	
 	public static void drawDead(int x, int y, int count, MineGraphics g) {
-		g.setColor(Colors.SILVER);
+		g.setColor(MineColor.SILVER);
 		g.drawRect(
 			x + count * 2,
 			y + count * 2,
 			-count * 4,
 			-count * 4);
-		g.setColor(Colors.GRAY);
+		g.setColor(MineColor.GRAY);
 		g.drawRect(
 			x + count * 4,
 			y + count * 4,
 			-count * 8,
 			-count * 8);
-		g.setColor(Colors.GRAY);
+		g.setColor(MineColor.GRAY);
 		g.drawRect(
 			x + count * 8,
 			y + count * 8,
@@ -71,53 +79,14 @@ public abstract class Enemy extends Body {
 			-count * 16);
 	}
 
-	public void shoot(Body[] tama) {
+	public List<Wepon> shoot() {
 		if (getLife() > 0 && shootTime != 0 && time % shootTime == 0) {
-			Body[] newtama = shoots();
-			if (newtama != null) {
-				int j = 0;
-				for (int i = 0; i < tama.length; i++) {
-					if (tama[i] != null)
-						continue;
-					tama[i] = newtama[j++];
-					if (j >= newtama.length)
-						break;
-				}
-			}
+			return shoots();
+		} else {
+			return new ArrayList<>();
 		}
 	}
-	protected abstract Body[] shoots();
-
-	public void setXv(int xv) {
-		this.xv = xv;
-	}
-
-	public int getXv() {
-		return xv;
-	}
-
-	public void setYv(int yv) {
-		this.yv = yv;
-	}
-
-	public int getYv() {
-		return yv;
-	}
-
-	public int getColor() {
-		return color;
-	}
-
-	public void setColor(int i) {
-		color = i;
-	}
-
-	public int getTime() {
-		return time;
-	}
-
-	public void setTime(int i) {
-		time = i;
-	}
+	
+	protected abstract List<Wepon> shoots();
 
 }

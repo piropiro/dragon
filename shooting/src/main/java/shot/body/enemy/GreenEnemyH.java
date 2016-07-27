@@ -1,15 +1,19 @@
 package shot.body.enemy;
 
-import mine.paint.Colors;
+import java.util.Arrays;
+import java.util.List;
+
+import mine.paint.MineColor;
 import mine.util.Randomer;
 import shot.ShotCanvas;
 import shot.body.Body;
 import shot.body.wepon.NormalWepon;
+import shot.body.wepon.Wepon;
 
 public class GreenEnemyH extends Enemy {
 
 	public GreenEnemyH(int y) {
-		init(0, y, 7, 7, 0, 0, 1, Colors.GREEN);
+		init(0, y, 7, 7, 0, 0, 1, MineColor.GREEN);
 		if (Randomer.getInstance().nextBoolean()) {
 			setX(0);
 			setXv(2);
@@ -23,10 +27,10 @@ public class GreenEnemyH extends Enemy {
 	protected void moves(Body ore) {
 	}
 
-	protected Body[] shoots() {
-		Body[] newtama = new Body[2];
-		newtama[0] = new NormalWepon(getX() + 1, getY(), 0, -2);
-		newtama[1] = new NormalWepon(getX() + 1, getY(), 0, 2);
-		return newtama;
+	protected List<Wepon> shoots() {
+		return Arrays.asList(
+			new NormalWepon(getX() + 1, getY(), 0, -2),
+			new NormalWepon(getX() + 1, getY(), 0, 2)
+		);
 	}
 }
