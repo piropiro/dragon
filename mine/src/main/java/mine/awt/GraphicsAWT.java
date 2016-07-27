@@ -244,9 +244,7 @@ public class GraphicsAWT implements MineGraphics {
 		g2.setTransform(at);
 	}
 
-	/* (non-Javadoc)
-	 * @see mine.paint.MineGraphics#drawRotateImage(mine.paint.MineImage, int, int, double)
-	 */
+	@Override
 	public void drawRotateImage(MineImage mimg, int dx, int dy, double theta) {
 		BufferedImage img = (BufferedImage)mimg.getImage();
 		Graphics2D g2 = (Graphics2D) g;

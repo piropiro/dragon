@@ -84,7 +84,7 @@ public class CommandToolBar extends JToolBar implements ActionListener {
 
 	private void setIcon(AbstractButton button, String label, String image) {
 		try {
-			ImageIcon icon = new ImageIcon(ImageLoader.load(image));
+			ImageIcon icon = new ImageIcon(ImageLoaderAWT.loadNative(image));
 			button.setIcon(icon);
 		} catch (MineException e) {
 			e.printStackTrace();
