@@ -1,23 +1,9 @@
 package card;
 
-import java.awt.Graphics;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import javax.swing.JComponent;
-
-import mine.awt.GraphicsAWT;
-import mine.awt.ImageLoaderAWT;
-import mine.awt.MineAwtUtils;
-import mine.awt.MouseManagerAWT;
-import mine.awt.SleepManagerAWT;
-import mine.event.MouseAllListener;
-import mine.paint.MineGraphics;
-import mine.paint.MineImage;
-import mine.paint.PaintBox;
-import mine.paint.UnitMap;
-import mine.thread.Lock;
 import card.anime.AnimeManager;
 import card.body.Card;
 import card.body.Enemy;
@@ -29,20 +15,33 @@ import card.manage.CardManager;
 import card.manage.DoubleManager;
 import card.paint.ResultPainter;
 import card.paint.WakuPainter;
+import mine.event.MouseAllListener;
+import mine.event.MouseManager;
+import mine.event.PaintComponent;
+import mine.event.PaintListener;
+import mine.event.SleepManager;
+import mine.paint.MineGraphics;
+import mine.paint.MineImage;
+import mine.paint.MineImageLoader;
+import mine.paint.PaintBox;
+import mine.paint.UnitMap;
+import mine.thread.Lock;
 
 
 
-public class CardCanvas extends JComponent
-	implements UnitWorks, MouseAllListener {
+public class CardCanvas
+	implements UnitWorks, MouseAllListener, PaintListener {
 
-	private static final long serialVersionUID = -6614496241129845710L;
-
+	public static final int WIDTH = 32*11;
+	public static final int HEIGHT = 32*13;
+	private PaintComponent panel;
+	
 	private CardListener listener;
 
 	private List<Card> cards;
 	private CardManager cardManager;
 	private AnimeManager animeManager;
-	private SleepManagerAWT sleepManager;
+	private SleepManager sleepManager;
 	private BattleManager battleManager;
 	private ResultPainter resultPainter;
 	private DoubleManager doubleManager;
@@ -59,17 +58,17 @@ public class CardCanvas extends JComponent
 	private int[] blueNum;
 	private int[] redNum;
 
-	public CardCanvas(){
+	public CardCanvas(PaintComponent panel, MineImageLoader imageLoader, MouseManager mouseManager, SleepManager sleepManager){
 		super();
-		ImageList il = new ImageList(new ImageLoaderAWT());
+		this.panel = panel;
+		ImageList il = new ImageList(imageLoader);
 		cards = new ArrayList<Card>();
-		MineAwtUtils.setSize(this, 32*11, 32*13);
-		MouseManagerAWT manager = new MouseManagerAWT(this);
-		manager.setMouseAllListener(this);
+		//MineAwtUtils.setSize(this, WIDTH, HEIGHT);
+		mouseManager.setMouseAllListener(this);
 
 		initMap(il);
 		wakuMover = new WakuPainter(this, map);
-		sleepManager = new SleepManagerAWT(this);
+		this.sleepManager = sleepManager;
 		animeManager = new AnimeManager(this, map, il);
 		cardManager = new CardManager(this, animeManager, il);
 		battleManager = new BattleManager(animeManager);
@@ -129,20 +128,27 @@ public class CardCanvas extends JComponent
 		}
 	}
 
-	public void paintComponent(Graphics g){
-		MineGraphics mg = new GraphicsAWT(g);
-		requestFocus();
-		map.draw(mg);
+	@Override
+	public void paint(MineGraphics g){
+		panel.requestFocus();
+		map.draw(g);
 		synchronized (cards) {
 			for (Card card : cards) {
-				card.paint(mg);
+				card.paint(g);
 			}
 		}
-		resultPainter.paint(mg);
+		resultPainter.paint(g);
 	}
 
+	public void setVisible(boolean flag) {
+		panel.setVisible(flag);
+	}
+	public void repaint() {
+		panel.repaint();
+	}
+	
 	public void repaint(PaintBox box){
-		repaint(box.getX(), box.getY(), box.getW(), box.getH());
+		panel.repaint(box.getX(), box.getY(), box.getW(), box.getH());
 	}
 
 	public void sleep(long msec){
@@ -202,6 +208,7 @@ public class CardCanvas extends JComponent
 		listener.gameExit(redWin, blueWin);
 	}
 
+	@Override
 	public void leftPressed(int x, int y) {
 		mouseMoved(x, y);
 		if (lock.lock()) {
@@ -224,6 +231,7 @@ public class CardCanvas extends JComponent
 		}
 	}
 
+	@Override
 	public void mouseMoved(int x, int y) {
 		if (wakuMover.isMoved(x/32, y/32)) {
 			if (lock.lock()) {
@@ -233,6 +241,7 @@ public class CardCanvas extends JComponent
 		}
 	}
 
+	@Override
 	public void mouseExited(int x, int y) {
 		if (lock.lock()) {
 			wakuMover.moveWaku(-1, -1);
@@ -240,16 +249,22 @@ public class CardCanvas extends JComponent
 		}
 	}
 
+	@Override
 	public void leftReleased(int x, int y) {}
 
+	@Override
 	public void rightPressed(int x, int y) {}
 
+	@Override
 	public void rightReleased(int x, int y) {}
 
+	@Override
 	public void leftDragged(int x, int y) {}
 
+	@Override
 	public void rightDragged(int x, int y) {}
 
+	@Override
 	public void mouseEntered(int x, int y) {}
 
 }

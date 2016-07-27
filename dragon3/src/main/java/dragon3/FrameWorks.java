@@ -31,4 +31,5 @@ public interface FrameWorks {
     public PaintComponent getHelpPanel();
     public PaintComponent getSmallPanel();
     public PaintComponent getLargePanel();
+    public PaintComponent getCardPanel();
 }

@@ -16,4 +16,6 @@ public interface PaintComponent {
 	public void setSize(int w, int h);
 	
 	public void setFontSize(int size);
+	
+	public void requestFocus();
 }

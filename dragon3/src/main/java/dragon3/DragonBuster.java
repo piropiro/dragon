@@ -3,16 +3,15 @@ package dragon3;
 import java.awt.Color;
 import java.awt.event.KeyEvent;
 
-import javax.swing.JComponent;
 import javax.swing.JFrame;
 
+import card.CardCanvas;
 import dragon3.panel.HPanel;
 import dragon3.panel.HelpPanel;
 import dragon3.panel.LargePanel;
 import dragon3.panel.SmallPanel;
 import lombok.Getter;
 import mine.awt.BMenuBar;
-import mine.awt.MineAwtUtils;
 import mine.awt.PaintComponentAWT;
 import mine.event.PaintComponent;
 
@@ -28,6 +27,7 @@ public class DragonBuster implements FrameWorks {
 	@Getter private PaintComponent helpPanel;
 	@Getter private PaintComponent smallPanel;
 	@Getter private PaintComponent largePanel;
+	@Getter private PaintComponent cardPanel;
 	
 	/*** Constructer *****************************************************/
 
@@ -47,7 +47,6 @@ public class DragonBuster implements FrameWorks {
 		
 		// AnimePanel
 		animePanel = new PaintComponentAWT(32, 32);
-		MineAwtUtils.setSize((JComponent)animePanel, 32, 32);
 		
 		// HPanel
 		hPanel1 = new PaintComponentAWT(HPanel.WIDTH, HPanel.HEIGHT);
@@ -61,6 +60,9 @@ public class DragonBuster implements FrameWorks {
 		
 		// LargePanel
 		largePanel = new PaintComponentAWT(LargePanel.WIDTH, LargePanel.HEIGHT);
+		
+		// CardPanel
+		cardPanel = new PaintComponentAWT(CardCanvas.WIDTH, CardCanvas.HEIGHT);
 		
 		// VPanel
 		vp = new VPanel(this);

@@ -178,8 +178,13 @@ public class VPanel extends JLayeredPane implements UnitWorks, ActionListener, K
 		
 		// LargePanel
 		LargePanel lp = new LargePanel(fw.getLargePanel());
+		
+		
 		MessagePanel mp = new MessagePanel(sleepManager, imageManager);
-		cp = new CardPanel(this);
+		
+		// CardPanel
+		cp = new CardPanel(this, fw.getCardPanel(), mil, new MouseManagerAWT(), sleepManager);
+		fw.getCardPanel().setPaintListener(cp);
 
 
 		panelManager = new PanelManagerImpl();
@@ -199,7 +204,7 @@ public class VPanel extends JLayeredPane implements UnitWorks, ActionListener, K
 		setLayout(null);
 
 		add((JComponent)fw.getMapPanel(), new Integer(1));
-		add(cp, new Integer(2));
+		add((JComponent)fw.getCardPanel(), new Integer(2));
 		add((JComponent)fw.getHelpPanel(), new Integer(3));
 		add(sp, new Integer(4));
 		add(sp2, new Integer(5));
