@@ -76,12 +76,12 @@ public class PanelManagerTest extends TestCase {
 
 	public void testHelp1() {
 		pm.setHelpVisible(true);
-		pm.displayHelp(new Point(10, 10), new String[]{"Hello, World!", "こんにちわ世界！"}, GameColor.BLUE);
+		pm.displayHelp(new Point(10, 10), GameColor.BLUE, "Hello, World!", "こんにちわ世界！");
 	}
 
 	public void testHelp2() {
 		pm.setHelpVisible(true);
-		pm.displayHelp(new Point(1, 1), new String[]{"Hello, World!", "こんにちわ世界！"}, GameColor.RED);
+		pm.displayHelp(new Point(1, 1), GameColor.RED, "Hello, World!", "こんにちわ世界！");
 	}
 
 	public void testLarge() {

@@ -13,7 +13,7 @@ public class HelpPanel implements PaintListener {
 	
 	private PaintComponent panel;
 
-	private String[] line;
+	private String[] lines = new String[0];
 	private boolean leftf;
 	private boolean upf;
 	private GameColor bgcolor = GameColor.BLUE;
@@ -23,13 +23,12 @@ public class HelpPanel implements PaintListener {
 		this.panel = panel;
 		panel.setVisible(false);
 		panel.setFontSize(14);
-		//setBackground(new Color(0, 0, 150, 200));
 		panel.setPaintListener(this);
 	}
 
-	public void setLine(String[] line, GameColor bgcolor) {
-		this.line = line;
+	public void setLine(GameColor bgcolor, String... lines) {
 		this.bgcolor = bgcolor;
+		this.lines = lines;
 	}
 
 	/*** Locate ***********************************************/
@@ -72,10 +71,8 @@ public class HelpPanel implements PaintListener {
 		g.setFont("Dialog", 14);
 		clear(bgcolor, g);
 
-		if (line == null)
-			return;
-		for (int i = 0; i < line.length; i++) {
-			g.drawString(line[i], 10, 19 + 19 * i);
+		for (int i = 0; i < lines.length; i++) {
+			g.drawString(lines[i], 10, 19 + 19 * i);
 		}
 	}
 

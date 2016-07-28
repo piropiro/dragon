@@ -48,7 +48,7 @@ public class EndPaint implements EventListener {
 	private void setHelp() {
 		if (!GameColor.isPlayer(ba))
 			return;
-		pm.displayHelp(mw.getWaku(), Texts.help[Texts.H_END], GameColor.BLUE);
+		pm.displayHelp(mw.getWaku(), GameColor.BLUE, Texts.help[Texts.H_END]);
 	}
 
 	/**

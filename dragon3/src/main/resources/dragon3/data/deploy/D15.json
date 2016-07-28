@@ -1,6 +1,6 @@
 [
 	{
-		"bodyId": "chara_024",
+		"bodyId": "chara_026",
 		"deployType": "ENEMY_CHARA",
 		"goalX": 0,
 		"goalY": 0,
@@ -14,7 +14,7 @@
 		"y": 1
 	},
 	{
-		"bodyId": "chara_024",
+		"bodyId": "chara_026",
 		"deployType": "ENEMY_CHARA",
 		"goalX": 0,
 		"goalY": 0,
@@ -28,7 +28,7 @@
 		"y": 1
 	},
 	{
-		"bodyId": "chara_024",
+		"bodyId": "chara_026",
 		"deployType": "ENEMY_CHARA",
 		"goalX": 0,
 		"goalY": 0,
@@ -42,7 +42,7 @@
 		"y": 4
 	},
 	{
-		"bodyId": "chara_024",
+		"bodyId": "chara_026",
 		"deployType": "ENEMY_CHARA",
 		"goalX": 0,
 		"goalY": 0,
@@ -56,7 +56,7 @@
 		"y": 10
 	},
 	{
-		"bodyId": "chara_038",
+		"bodyId": "chara_040",
 		"deployType": "ENEMY_CHARA",
 		"goalX": 0,
 		"goalY": 0,
@@ -70,7 +70,7 @@
 		"y": 1
 	},
 	{
-		"bodyId": "chara_038",
+		"bodyId": "chara_040",
 		"deployType": "ENEMY_CHARA",
 		"goalX": 0,
 		"goalY": 0,
@@ -84,7 +84,7 @@
 		"y": 0
 	},
 	{
-		"bodyId": "chara_038",
+		"bodyId": "chara_040",
 		"deployType": "ENEMY_CHARA",
 		"goalX": 0,
 		"goalY": 0,
@@ -98,7 +98,7 @@
 		"y": 1
 	},
 	{
-		"bodyId": "chara_034",
+		"bodyId": "chara_036",
 		"deployType": "ENEMY_CHARA",
 		"goalX": 0,
 		"goalY": 0,
@@ -112,7 +112,7 @@
 		"y": 5
 	},
 	{
-		"bodyId": "chara_034",
+		"bodyId": "chara_036",
 		"deployType": "ENEMY_CHARA",
 		"goalX": 0,
 		"goalY": 0,
@@ -126,7 +126,7 @@
 		"y": 5
 	},
 	{
-		"bodyId": "chara_034",
+		"bodyId": "chara_036",
 		"deployType": "ENEMY_CHARA",
 		"goalX": 0,
 		"goalY": 0,
@@ -140,7 +140,7 @@
 		"y": 10
 	},
 	{
-		"bodyId": "chara_034",
+		"bodyId": "chara_036",
 		"deployType": "ENEMY_CHARA",
 		"goalX": 0,
 		"goalY": 0,
@@ -154,7 +154,7 @@
 		"y": 10
 	},
 	{
-		"bodyId": "chara_039",
+		"bodyId": "chara_041",
 		"deployType": "ENEMY_CHARA",
 		"goalX": 0,
 		"goalY": 0,
@@ -168,7 +168,7 @@
 		"y": 13
 	},
 	{
-		"bodyId": "chara_040",
+		"bodyId": "chara_042",
 		"deployType": "ENEMY_CHARA",
 		"goalX": 0,
 		"goalY": 0,
@@ -182,7 +182,7 @@
 		"y": 14
 	},
 	{
-		"bodyId": "chara_041",
+		"bodyId": "chara_043",
 		"deployType": "ENEMY_CHARA",
 		"goalX": 0,
 		"goalY": 0,

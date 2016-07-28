@@ -76,6 +76,6 @@ public class Tutorial {
 				}
 			}
 		}
-		uw.getPanelManager().displayHelp(uw.getMapWorks().getWaku(), line, color);
+		uw.getPanelManager().displayHelp(uw.getMapWorks().getWaku(), color, line);
 	}
 }

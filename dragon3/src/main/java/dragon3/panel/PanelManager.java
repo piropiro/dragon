@@ -43,7 +43,7 @@ public interface PanelManager {
 	public void closeSmall();
 	
 	// HelpPanel
-	public void displayHelp(Point p, String[] line, GameColor color);
+	public void displayHelp(Point p, GameColor color, String... line);
 	public void setHelpLocation(int x, int y);
 	public void setHelpVisible(boolean flag);
 	public boolean isHelpVisible();

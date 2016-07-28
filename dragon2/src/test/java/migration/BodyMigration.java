@@ -1,4 +1,4 @@
-package dragon2;
+package migration;
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -23,6 +23,11 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import dragon2.OldBody;
+import dragon2.OldBody2;
+import dragon2.OldBody3;
+import dragon2.OldBody4;
+import dragon2.OldBody5;
 import dragon2.attack.AttackData;
 import dragon2.common.Body;
 import dragon2.common.constant.BodyAttribute;
@@ -460,6 +465,7 @@ public class BodyMigration {
 					case WEPON:
 					case ARMOR:
 					case CHARA:
+					case DOLL:
 						newBody.setImage(String.format("chara_%03d.png", oldBody.img));
 						for (int n : oldBody.atk) {
 							if (n == 0) continue;
@@ -500,6 +506,10 @@ public class BodyMigration {
 					}
 					attrList.remove(BodyAttribute.SUMMON);
 					
+					if (newBody.getKind() == BodyKind.DOLL) {
+						newBody.setKind(BodyKind.CHARA);
+					}
+					
 					// ArmorType
 					switch (newBody.getKind()) {
 					case ARMOR:
@@ -507,6 +517,8 @@ public class BodyMigration {
 						newBody.setArmorType(getArmorType(oldBody));
 					default:
 					}
+					
+
 					
 					List<BodyData> newBodys = newBodyMap.get(newBody.getKind());
 					

@@ -183,8 +183,8 @@ public class DragonController implements UnitWorks, CommandListener {
 
 	/*** Map Load **********************************/
 
-	private void mapLoad() {
-		StageData stageData = Statics.getStageData("D03");
+	private StageData mapLoad() {
+		StageData stageData = Statics.getStageData("D07");
 		int[][] data = Statics.getMapData(stageData.getId());
 		if (data != null) {
 			map.setPage(Page.P00, data);
@@ -211,6 +211,8 @@ public class DragonController implements UnitWorks, CommandListener {
 		PaintUtils.setWaitPaint(this);
 		panelManager.getCardP().setVisible(false);
 		mw.repaint();
+		
+		return stageData;
 	}
 
 
@@ -230,15 +232,17 @@ public class DragonController implements UnitWorks, CommandListener {
 
 	private void stageStart() {
 		fw.setMenu(DragonFrame.T_SETMENS);
-		mapLoad();
-		if (saveManager.isFirst()) {
-			panelManager.displayLarge("Tutorial", GameColor.BLUE, 1500);
-		} else if (saveManager.isFinalStage()) {
-			panelManager.displayLarge("Final Stage", GameColor.BLUE, 1500);
-		} else {
-			char n = (char) ('A' + saveManager.getMapNum() - 1);
-			panelManager.displayLarge("Stage " + n, GameColor.BLUE, 1500);
-		}
+		StageData stageData = mapLoad();
+		panelManager.displayLarge(stageData.getName(), GameColor.BLUE, 1500);
+		
+//		if (saveManager.isFirst()) {
+//			panelManager.displayLarge("Tutorial", GameColor.BLUE, 1500);
+//		} else if (saveManager.isFinalStage()) {
+//			panelManager.displayLarge("Final Stage", GameColor.BLUE, 1500);
+//		} else {
+//			char n = (char) ('A' + saveManager.getMapNum() - 1);
+//			panelManager.displayLarge("Stage " + n, GameColor.BLUE, 1500);
+//		}
 		PaintUtils.setPutPlayersPaint(this, Charas, Players);
 		mw.repaint();
 	}
@@ -453,7 +457,7 @@ public class DragonController implements UnitWorks, CommandListener {
 		}
 		saveManager.stageClear();
 		fw.setMenu(DragonFrame.T_CLEAR);
-		panelManager.displayHelp(mw.getWaku(), Texts.help[Texts.H_CLEAR], GameColor.BLUE);
+		panelManager.displayHelp(mw.getWaku(), GameColor.BLUE, Texts.help[Texts.H_CLEAR]);
 	}
 
 	/*** Game Over ****************************/
@@ -488,7 +492,7 @@ public class DragonController implements UnitWorks, CommandListener {
 		PaintUtils.setWaitPaint(this);
 		panelManager.displayLarge("GAME OVER", GameColor.RED, 5000);
 		fw.setMenu(DragonFrame.T_GAMEOVER);
-		panelManager.displayHelp(mw.getWaku(), Texts.help[Texts.H_OVER], GameColor.BLUE);
+		panelManager.displayHelp(mw.getWaku(), GameColor.BLUE, Texts.help[Texts.H_OVER]);
 	}
 
 	/***************************************************/

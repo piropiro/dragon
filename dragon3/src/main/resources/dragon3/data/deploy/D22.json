@@ -1,6 +1,6 @@
 [
 	{
-		"bodyId": "chara_063",
+		"bodyId": "chara_065",
 		"deployType": "ENEMY_CHARA",
 		"goalX": 0,
 		"goalY": 0,
@@ -14,7 +14,7 @@
 		"y": 6
 	},
 	{
-		"bodyId": "chara_063",
+		"bodyId": "chara_065",
 		"deployType": "ENEMY_CHARA",
 		"goalX": 0,
 		"goalY": 0,
@@ -28,7 +28,7 @@
 		"y": 12
 	},
 	{
-		"bodyId": "chara_063",
+		"bodyId": "chara_065",
 		"deployType": "ENEMY_CHARA",
 		"goalX": 0,
 		"goalY": 0,
@@ -42,7 +42,7 @@
 		"y": 12
 	},
 	{
-		"bodyId": "chara_063",
+		"bodyId": "chara_065",
 		"deployType": "ENEMY_CHARA",
 		"goalX": 0,
 		"goalY": 0,
@@ -56,7 +56,7 @@
 		"y": 9
 	},
 	{
-		"bodyId": "chara_064",
+		"bodyId": "chara_066",
 		"deployType": "ENEMY_CHARA",
 		"goalX": 0,
 		"goalY": 0,
@@ -70,7 +70,7 @@
 		"y": 8
 	},
 	{
-		"bodyId": "chara_064",
+		"bodyId": "chara_066",
 		"deployType": "ENEMY_CHARA",
 		"goalX": 0,
 		"goalY": 0,
@@ -84,7 +84,7 @@
 		"y": 8
 	},
 	{
-		"bodyId": "chara_064",
+		"bodyId": "chara_066",
 		"deployType": "ENEMY_CHARA",
 		"goalX": 0,
 		"goalY": 0,
@@ -98,7 +98,7 @@
 		"y": 4
 	},
 	{
-		"bodyId": "chara_064",
+		"bodyId": "chara_066",
 		"deployType": "ENEMY_CHARA",
 		"goalX": 0,
 		"goalY": 0,
@@ -112,7 +112,7 @@
 		"y": 4
 	},
 	{
-		"bodyId": "chara_065",
+		"bodyId": "chara_067",
 		"deployType": "ENEMY_CHARA",
 		"goalX": 0,
 		"goalY": 0,
@@ -126,7 +126,7 @@
 		"y": 1
 	},
 	{
-		"bodyId": "chara_066",
+		"bodyId": "chara_068",
 		"deployType": "ENEMY_CHARA",
 		"goalX": 0,
 		"goalY": 0,
