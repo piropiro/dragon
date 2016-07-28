@@ -2,6 +2,8 @@ package dragon3;
 
 
 import mine.event.PaintComponent;
+import mine.event.SleepManager;
+import mine.paint.MineImageLoader;
 
 public interface FrameWorks {
 
@@ -31,4 +33,7 @@ public interface FrameWorks {
     public PaintComponent getDataPanel1();
     public PaintComponent getDataPanel2();
     public PaintComponent getMessagePanel();
+    
+    public MineImageLoader getImageLoader();
+    public SleepManager getSleepManager();
 }

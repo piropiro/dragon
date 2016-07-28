@@ -8,12 +8,15 @@ import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JLayeredPane;
 
+import card.CardCanvas;
+import dragon3.FrameWorks;
 import dragon3.Statics;
 import dragon3.common.Body;
 import dragon3.common.constant.GameColor;
 import dragon3.common.constant.Page;
 import dragon3.common.util.MoveUtils;
 import dragon3.image.ImageManager;
+import dragon3.manage.FrameWorksMock;
 import dragon3.manage.SummonManagerMock;
 import dragon3.manage.TreasureManagerMock;
 import dragon3.manage.TurnManagerMock;
@@ -68,8 +71,7 @@ public class PanelManagerTest extends TestCase {
 
 			SleepManager sm = new SleepManagerAWT(panel);
 
-			PanelManagerImpl pmi = new PanelManagerImpl();
-			pmi.setUnitMap(map);
+			PanelManagerImpl pmi = new PanelManagerImpl(new FrameWorksMock(), null, map, null, im, mil);
 			pmi.setTurnManager(new TurnManagerMock());
 			pmi.setTreasure(new TreasureManagerMock());
 			pmi.setSummon(new SummonManagerMock());

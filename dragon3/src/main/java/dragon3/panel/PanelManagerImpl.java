@@ -42,8 +42,8 @@ public class PanelManagerImpl implements PanelManager {
 	private MessagePanel messageP;
 	private SmallPanel smallP;
 	
-	private TreasureManager treasure;
-	private SummonManager summon;
+	private TreasureManager treasureManager;
+	private SummonManager summonManager;
 	
 	private TurnManager turnManager;
 	private UnitMap map;
@@ -91,7 +91,7 @@ public class PanelManagerImpl implements PanelManager {
 	public void displayData(int x, int y) {
 		int tikei = map.getData(Page.P00, x, y);
 		if (tikei == MoveUtils.WHITE) {
-			dataP1.displayData(new Point(x, y), turnManager.getTurn(), treasure.getLimitTurn(), treasure.getCount());
+			dataP1.displayData(new Point(x, y), turnManager.getTurn(), treasureManager.getLimitTurn(), treasureManager.getCount());
 		} else {
 			dataP1.displayPlace(new Point(x, y), tikei);
 		}
@@ -112,12 +112,12 @@ public class PanelManagerImpl implements PanelManager {
 				dataP1.displayItem(
 						p, 
 						turnManager.getTurn(), 
-						treasure.getLimitTurn(p), 
+						treasureManager.getLimitTurn(p), 
 						tikei);
 				return true;
 			case MoveUtils.CLOSE_MAGIC :
 			case MoveUtils.OPEN_MAGIC :
-				dataP1.displaySummon(p, turnManager.getTurn(), summon.getLimitTurn(p), tikei);
+				dataP1.displaySummon(p, turnManager.getTurn(), summonManager.getLimitTurn(p), tikei);
 				return true;
 			default :
 				dataP1.setVisible(false);
@@ -298,14 +298,14 @@ public class PanelManagerImpl implements PanelManager {
 	/**
 	 * @param summon The summon to set.
 	 */
-	public void setSummon(SummonManager summon) {
-		this.summon = summon;
+	public void setSummon(SummonManager summonManager) {
+		this.summonManager = summonManager;
 	}
 	/**
 	 * @param treasure The treasure to set.
 	 */
-	public void setTreasure(TreasureManager treasure) {
-		this.treasure = treasure;
+	public void setTreasure(TreasureManager treasureManager) {
+		this.treasureManager = treasureManager;
 	}
 	
 	public void setTurnManager(TurnManager turnManager) {
