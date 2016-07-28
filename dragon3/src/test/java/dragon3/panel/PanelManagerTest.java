@@ -1,38 +1,24 @@
 package dragon3.panel;
 
-import java.awt.Graphics;
-import mine.util.Point;
 import java.util.Arrays;
 
-import javax.swing.JComponent;
-import javax.swing.JFrame;
-import javax.swing.JLayeredPane;
-
-import card.CardCanvas;
-import dragon3.FrameWorks;
 import dragon3.Statics;
 import dragon3.common.Body;
 import dragon3.common.constant.GameColor;
 import dragon3.common.constant.Page;
 import dragon3.common.util.MoveUtils;
 import dragon3.image.ImageManager;
-import dragon3.manage.FrameWorksMock;
 import dragon3.manage.SummonManagerMock;
 import dragon3.manage.TreasureManagerMock;
 import dragon3.manage.TurnManagerMock;
 import dragon3.panel.paint.CampDataPaint;
+import dragon3.view.DragonFrame;
 import junit.framework.TestCase;
 import mine.MineException;
-import mine.awt.GraphicsAWT;
 import mine.awt.ImageLoaderAWT;
-import mine.awt.MineAwtUtils;
-import mine.awt.PaintComponentAWT;
-import mine.awt.SleepManagerAWT;
-import mine.event.PaintComponent;
-import mine.event.SleepManager;
-import mine.paint.MineGraphics;
 import mine.paint.MineImageLoader;
 import mine.paint.UnitMap;
+import mine.util.Point;
 
 public class PanelManagerTest extends TestCase {
 
@@ -58,73 +44,18 @@ public class PanelManagerTest extends TestCase {
 			map.clear(Page.P02, 1);
 			map.paintStep(Page.P02, Page.P03, 2, 2, 20);
 
-			JLayeredPane panel = new JLayeredPane(){
-				private static final long serialVersionUID = 1L;
+			DragonFrame fw = new DragonFrame();
+			
+			fw.getMapPanel().setPaintListener((g) -> map.draw(g));
 
-				public void paintComponent(Graphics g) {
-					MineGraphics mg = new GraphicsAWT(g);
-					map.draw(mg);
-				}
-			};
-			MineAwtUtils.setSize(panel, 640, 480);
-			panel.setLayout(null);
-
-			SleepManager sm = new SleepManagerAWT(panel);
-
-			PanelManagerImpl pmi = new PanelManagerImpl(new FrameWorksMock(), null, map, null, im, mil);
+			PanelManagerImpl pmi = new PanelManagerImpl(fw, null, map, null, im, mil);
 			pmi.setTurnManager(new TurnManagerMock());
 			pmi.setTreasure(new TreasureManagerMock());
 			pmi.setSummon(new SummonManagerMock());
 			pm = pmi;
 
-			PaintComponent helpC = new PaintComponentAWT(HelpPanel.WIDTH, HelpPanel.HEIGHT);
-			HelpPanel helpP = new HelpPanel(helpC);
-			panel.add((JComponent)helpC, 3);
-			pmi.setHelpP(helpP);
-
-			PaintComponent largeC = new PaintComponentAWT(LargePanel.WIDTH, LargePanel.HEIGHT);
-			LargePanel largeP = new LargePanel(largeC);
-			panel.add((JComponent)largeC, 7);
-			pmi.setLargeP(largeP);
-
-			PaintComponent smallC = new PaintComponentAWT(SmallPanel.WIDTH, SmallPanel.HEIGHT);
-			SmallPanel smallP = new SmallPanel(smallC);
-			panel.add((JComponent)smallC, 11);
-			pmi.setSmallP(smallP);
-
-			PaintComponent hpC1 = new PaintComponentAWT(HPanel.WIDTH, HPanel.HEIGHT);
-			HPanel hpP1 = new HPanel(hpC1, sm, false);
-			panel.add((JComponent)hpC1, 9);
-			pmi.setHpP1(hpP1);
-
-			PaintComponent hpC2 = new PaintComponentAWT(HPanel.WIDTH, HPanel.HEIGHT);
-			HPanel hpP2 = new HPanel(hpC2, sm, true);
-			panel.add((JComponent)hpC2, 8);
-			pmi.setHpP2(hpP2);
-
-			PaintComponent messageC = new PaintComponentAWT(MessagePanel.WIDTH, MessagePanel.HEIGHT);
-			MessagePanel messageP = new MessagePanel(messageC, sm, im);
-			panel.add((JComponent)messageC, 6);
-			pmi.setMessageP(messageP);
-
-			PaintComponent dataC1 = new PaintComponentAWT(DataPanel.WIDTH, DataPanel.HEIGHT);
-			DataPanel dataP1 = new DataPanel(dataC1, sm, im, true);
-			panel.add((JComponent)dataC1, 4);
-			pmi.setDataP1(dataP1);
-
-			PaintComponent dataC2 = new PaintComponentAWT(DataPanel.WIDTH, DataPanel.HEIGHT);
-			DataPanel dataP2 = new DataPanel(dataC2, sm, im, false);
-			panel.add((JComponent)dataC2, 5);
-			pmi.setDataP2(dataP2);
-
-
-
-			JFrame frame = new JFrame();
-			frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-			frame.setContentPane(panel);
-			frame.pack();
-			frame.setLocation(100, 100);
-			frame.setVisible(true);
+			fw.launch();
+			
 		} catch (MineException e) {
 			throw new RuntimeException(e);
 		}

@@ -4,6 +4,7 @@ import dragon3.UnitWorks;
 import dragon3.common.Body;
 import dragon3.common.constant.Page;
 import dragon3.paint.EventListener;
+import dragon3.paint.WaitPaint;
 import mine.event.MouseAllListener;
 import mine.event.PaintComponent;
 import mine.event.PaintListener;
@@ -30,6 +31,8 @@ public class MapPanel implements MapWorks, MouseAllListener, PaintListener {
 		this.panel = panel;
 		this.uw = uw;
 		this.map = map;
+		this.el = new WaitPaint();
+		
 		panel.setPaintListener(this);
 		panel.setMouseAllListener(this);
 	}

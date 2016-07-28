@@ -119,10 +119,7 @@ public class TreasureManagerImpl implements TreasureManager {
 
 	}
 
-	/* (non-Javadoc)
-	 * @see dragon3.TreasureManager#getLimitTurn(java.awt.Point)
-	 */
-
+	@Override
 	public int getLimitTurn(Point p) {
 		for (int i = 0; i < treasure.length; i++) {
 			Body tre = treasure[i];
@@ -139,17 +136,14 @@ public class TreasureManagerImpl implements TreasureManager {
 		return 0;
 	}
 
-	/* (non-Javadoc)
-	 * @see dragon3.TreasureManager#getLimitTurn()
-	 */
+	@Override
 	public int getLimitTurn() {
 		if (clearItem == null)
 			return 0;
 		return clearItem.getLimitTurn();
 	}
-	/* (non-Javadoc)
-	 * @see dragon3.TreasureManager#getCount()
-	 */
+
+	@Override
 	public String getCount() {
 		String count = "";
 
@@ -193,25 +187,18 @@ public class TreasureManagerImpl implements TreasureManager {
 		return count;
 	}
 
-	/* (non-Javadoc)
-	 * @see dragon3.TreasureManager#getSources()
-	 */
+	@Override
 	public List<Body> getSources() {
 		return sources;
 	}
 
-	/* (non-Javadoc)
-	 * @see dragon3.TreasureManager#add(dragon3.common.Body)
-	 */
+	@Override
 	public void add(Body ba) {
 		sources.add(ba);
 		uw.getSaveManager().getSaveData().countItem();
 	}
 
-	/* (non-Javadoc)
-	 * @see dragon3.TreasureManager#limitOver()
-	 */
-
+	@Override
 	public void limitOver() {
 		for (int i = 0; i < treasure.length; i++) {
 			Body tre = treasure[i];
@@ -228,23 +215,16 @@ public class TreasureManagerImpl implements TreasureManager {
 		}
 	}
 
-	/* (non-Javadoc)
-	 * @see dragon3.TreasureManager#addMember(dragon3.common.Body)
-	 */
-
+	@Override
 	public void addMember(Body ba) {
 		add(ba);
 		getTreasure(ba, true);
 		message();
 	}
 
-	/* (non-Javadoc)
-	 * @see dragon3.TreasureManager#getTreasure(dragon3.common.Body, boolean)
-	 */
-
 	// flag true  Nakama
 	//      false Kill
-
+	@Override
 	public void getTreasure(Body ba, boolean flag) {
 		for (int i = 0; i < holder.length; i++) {
 			if (ba == holder[i]) {
@@ -260,10 +240,7 @@ public class TreasureManagerImpl implements TreasureManager {
 		}
 	}
 
-	/* (non-Javadoc)
-	 * @see dragon3.TreasureManager#searchTreasure(dragon3.common.Body)
-	 */
-
+	@Override
 	public void searchTreasure(Body ba) {
 		for (int i = 0; i < treasure.length; i++) {
 			Body tre = treasure[i];
@@ -284,10 +261,7 @@ public class TreasureManagerImpl implements TreasureManager {
 		}
 	}
 
-	/* (non-Javadoc)
-	 * @see dragon3.TreasureManager#getClearItem()
-	 */
-
+	@Override
 	public void getClearItem() {
 		if (!isAlive(clearItem))
 			return;
@@ -307,10 +281,7 @@ public class TreasureManagerImpl implements TreasureManager {
 		return true;
 	}
 
-	/* (non-Javadoc)
-	 * @see dragon3.TreasureManager#message()
-	 */
-
+	@Override
 	public void message() {
 		for (Integer n : comments) {
 			Body ba = holder[n.intValue()];
@@ -325,9 +296,7 @@ public class TreasureManagerImpl implements TreasureManager {
 		comments.clear();
 	}
 
-	/* (non-Javadoc)
-	 * @see dragon3.TreasureManager#message(dragon3.common.Body, dragon3.common.Body)
-	 */
+	@Override
 	public void message(Body ba, Body tre) {
 		if (ba != null) {
 			if (ba.base.getName().length() <= 2) {

@@ -1,15 +1,10 @@
 package dragon3.paint;
 
-import dragon3.UnitWorks;
 import dragon3.common.Body;
-import dragon3.common.constant.Page;
 
 public class WaitPaint implements EventListener {
 
-	public WaitPaint(UnitWorks uw) {
-		super();
-		uw.getUnitMap().clear(Page.P40, 0);
-		uw.getMapWorks().repaint();
+	public WaitPaint() {
 	}
 
 	@Override

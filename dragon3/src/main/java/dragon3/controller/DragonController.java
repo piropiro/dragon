@@ -145,20 +145,7 @@ public class DragonController implements UnitWorks, CommandListener {
 		
 		return map;
 	}
-	// 0-0 Background
-	// 0-1 Reverse
-	// 0-2 Step Paint Data ( Chara Ari )
-	// 0-3 Step Paint Result ( Chara Ari )
-	// 1-0 Under Frame
-	// 1-1 Search Data
-	// 1-2 Step Paint Data ( Chara Nasi )
-	// 1-3 Step Paint Result ( Chara Nasi )
-	// 2-0 Chara
-	// 2-1 Counter
-	// 3-0 END
-	// 4-0 Over Frame
-	// 4-1 Animation Data
-	// 5-0 Status
+
 
 	/*** Create Chara *********************************/
 
