@@ -1,20 +1,15 @@
 package dragon3;
 
-import mine.util.Point;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
 import dragon3.anime.AnimeManager;
-import dragon3.anime.AnimePanel;
-import dragon3.bean.AnimeData;
 import dragon3.bean.StageData;
-import dragon3.bean.load.AnimeDataLoader;
 import dragon3.bean.load.BodyDataLoader;
 import dragon3.camp.Camp;
-import dragon3.card.CardPanel;
+import dragon3.card.CardManager;
 import dragon3.common.Body;
-import dragon3.common.DataList;
 import dragon3.common.constant.BodyAttribute;
 import dragon3.common.constant.GameColor;
 import dragon3.common.constant.Page;
@@ -30,34 +25,24 @@ import dragon3.manage.SaveManager;
 import dragon3.manage.SummonManager;
 import dragon3.manage.TreasureManager;
 import dragon3.manage.TurnManager;
-import dragon3.map.MapPanel;
 import dragon3.map.MapWorks;
 import dragon3.paint.BasicPaint;
 import dragon3.paint.PaintUtils;
 import dragon3.paint.TitlePaint;
-import dragon3.panel.DataPanel;
-import dragon3.panel.HPanel;
-import dragon3.panel.HelpPanel;
-import dragon3.panel.LargePanel;
-import dragon3.panel.MessagePanel;
 import dragon3.panel.PanelManager;
 import dragon3.panel.PanelManagerImpl;
-import dragon3.panel.SmallPanel;
 import mine.MineException;
 import mine.MineUtils;
 import mine.awt.ImageLoaderAWT;
-import mine.awt.MouseManagerAWT;
-import mine.event.MouseManager;
 import mine.event.SleepManager;
 import mine.paint.MineImageLoader;
 import mine.paint.UnitMap;
+import mine.util.Point;
 
 public class VPanel implements UnitWorks {
 
 	private UnitMap map;
 	private FrameWorks fw;
-	private MapPanel up;
-	private CardPanel cp;
 
 	private ImageManager imageManager;
 	private AnimeManager animeManager;
@@ -69,8 +54,8 @@ public class VPanel implements UnitWorks {
 
 	private MineImageLoader mil;
 	private SleepManager sleepManager;
-	private MouseManager mouseManager;
 
+	private CardManager cardManager;
 	private TurnManagerImpl turnManager;
 	private SaveManagerImpl saveManager;
 	private Equip equip;
@@ -87,11 +72,10 @@ public class VPanel implements UnitWorks {
 
 	/*** Constructer *************************************/
 
-	public VPanel(FrameWorks fw, MineImageLoader mil, MouseManager mouseManager, SleepManager sleepManager) {
+	public VPanel(FrameWorks fw, MineImageLoader mil, SleepManager sleepManager) {
 		super();
 		this.fw = fw;
 		this.mil = mil;
-		this.mouseManager = mouseManager;
 		this.sleepManager = sleepManager;
 
 		mil = new ImageLoaderAWT();
@@ -107,8 +91,8 @@ public class VPanel implements UnitWorks {
 		map = createMap();
 		turnManager = new TurnManagerImpl(this);
 		Pinit();
-
-		mouseManager.setMouseAllListener(up);
+		
+		cardManager = new CardManager(panelManager.getCardP(), this, map, panelManager, sleepManager, imageManager);
 		equip = saveManager.loadData("slgs.dat");
 
 
@@ -119,7 +103,7 @@ public class VPanel implements UnitWorks {
 	public void title() {
 		fw.setMenu(FrameWorks.T_TITLE);
 		animeManager.openTitle();
-		up.setEventListener(new TitlePaint(this));
+		panelManager.getMapP().setEventListener(new TitlePaint(this));
 	}
 
 	/*** Setup ***********************************/
@@ -134,62 +118,63 @@ public class VPanel implements UnitWorks {
 	/*** Panel Init ****************************************/
 
 	private void Pinit() {
-		DataList<AnimeData> animeList = AnimeDataLoader.loadAnimeList();
-		
-		// AnimePanel
-		AnimePanel ap = new AnimePanel(fw.getAnimePanel(), sleepManager, map, animeList, imageManager);
-		animeManager = ap;
+//		DataList<AnimeData> animeList = AnimeDataLoader.loadAnimeList();
+//		
+//		// AnimePanel
+//		AnimePanel ap = new AnimePanel(fw.getAnimePanel(), sleepManager, map, animeList, imageManager);
+//		animeManager = ap;
+//
+//		// MapPanel
+//		up = new MapPanel(fw.getMapPanel(), this);
+//		
+//		// HPanel
+//		HPanel hp = new HPanel(fw.getHPanel1(), sleepManager, true);
+//		HPanel hp2 = new HPanel(fw.getHPanel2(), sleepManager, false);
+//		
+//		// DataPanel
+//		DataPanel sp = new DataPanel(fw.getDataPanel1(), sleepManager, imageManager, true);
+//		DataPanel sp2 = new DataPanel(fw.getDataPanel2(), sleepManager, imageManager, false);
+//		
+//		// HelpPanel
+//		HelpPanel help = new HelpPanel(fw.getHelpPanel());
+//		
+//		// SmallPanel
+//		SmallPanel tp = new SmallPanel(fw.getSmallPanel());
+//		
+//		// LargePanel
+//		LargePanel lp = new LargePanel(fw.getLargePanel());
+//		
+//		// MessagePanel
+//		MessagePanel mp = new MessagePanel(fw.getMessagePanel(), sleepManager, imageManager);
+//		
+//		// CardPanel
+//		cp = new CardPanel(fw.getCardPanel(), this, mil, new MouseManagerAWT(), sleepManager);
 
-		// MapPanel
-		up = new MapPanel(fw.getMapPanel(), this);
-		
-		// HPanel
-		HPanel hp = new HPanel(fw.getHPanel1(), sleepManager, true);
-		HPanel hp2 = new HPanel(fw.getHPanel2(), sleepManager, false);
-		
-		// DataPanel
-		DataPanel sp = new DataPanel(fw.getDataPanel1(), sleepManager, imageManager, true);
-		DataPanel sp2 = new DataPanel(fw.getDataPanel2(), sleepManager, imageManager, false);
-		
-		// HelpPanel
-		HelpPanel help = new HelpPanel(fw.getHelpPanel());
-		
-		// SmallPanel
-		SmallPanel tp = new SmallPanel(fw.getSmallPanel());
-		
-		// LargePanel
-		LargePanel lp = new LargePanel(fw.getLargePanel());
-		
-		// MessagePanel
-		MessagePanel mp = new MessagePanel(fw.getMessagePanel(), sleepManager, imageManager);
-		
-		// CardPanel
-		cp = new CardPanel(fw.getCardPanel(), this, mil, new MouseManagerAWT(), sleepManager);
-
-		panelManager = new PanelManagerImpl();
+		panelManager = new PanelManagerImpl(fw, this, map, sleepManager, imageManager, mil);
 		panelManager.setUnitMap(map);
 		panelManager.setTurnManager(turnManager);
-		panelManager.setDataP1(sp);
-		panelManager.setDataP2(sp2);
-		panelManager.setHpP1(hp);
-		panelManager.setHpP2(hp2);
-		panelManager.setHelpP(help);
-		panelManager.setSmallP(tp);
-		panelManager.setLargeP(lp);
-		panelManager.setMessageP(mp);
+//		panelManager.setDataP1(sp);
+//		panelManager.setDataP2(sp2);
+//		panelManager.setHpP1(hp);
+//		panelManager.setHpP2(hp2);
+//		panelManager.setHelpP(help);
+//		panelManager.setSmallP(tp);
+//		panelManager.setLargeP(lp);
+//		panelManager.setMessageP(mp);
 
+		animeManager = panelManager.getAnimeP();
 		Rewalk.setup(this);
 		
-		help.setVisible(false);
-		cp.setVisible(false);
-		tp.setVisible(false);
-		hp.setVisible(false);
-		hp2.setVisible(false);
-		animeManager.setVisible(false);
-		lp.setVisible(false);
-		mp.setVisible(false);
-		sp.setVisible(false);
-		sp2.setVisible(false);
+//		help.setVisible(false);
+//		cp.setVisible(false);
+//		tp.setVisible(false);
+//		hp.setVisible(false);
+//		hp2.setVisible(false);
+//		animeManager.setVisible(false);
+//		lp.setVisible(false);
+//		mp.setVisible(false);
+//		sp.setVisible(false);
+//		sp2.setVisible(false);
 	}
 
 	/*** UnitMap *********************************/
@@ -255,14 +240,14 @@ public class VPanel implements UnitWorks {
 		camp = new Camp(this, treasure, equip);
 		camp.repaint(saveManager.getCampMap());
 		PaintUtils.setCampPaint(this, camp);
-		cp.setVisible(false);
-		up.repaint();
+		panelManager.getCardP().setVisible(false);
+		panelManager.getMapP().repaint();
 	}
 
 	/*** Map Load **********************************/
 
 	private void mapLoad() {
-		StageData stageData = Statics.getStageData("D01");
+		StageData stageData = Statics.getStageData("D03");
 		int[][] data = Statics.getMapData(stageData.getId());
 		if (data != null) {
 			map.setPage(Page.P00, data);
@@ -287,8 +272,8 @@ public class VPanel implements UnitWorks {
 		putUnit(Enemys);
 		turnManager.reset();
 		PaintUtils.setWaitPaint(this);
-		cp.setVisible(false);
-		up.repaint();
+		panelManager.getCardP().setVisible(false);
+		panelManager.getMapP().repaint();
 	}
 
 
@@ -318,7 +303,7 @@ public class VPanel implements UnitWorks {
 			panelManager.displayLarge("Stage " + n, GameColor.BLUE, 1500);
 		}
 		PaintUtils.setPutPlayersPaint(this, Charas, Players);
-		up.repaint();
+		panelManager.getMapP().repaint();
 	}
 
 	private void campStart() {
@@ -471,7 +456,7 @@ public class VPanel implements UnitWorks {
 			treasure.searchTreasure(ba);
 			map.setData(Page.P30, ba.getX(), ba.getY(), 1);
 		}
-		up.repaint();
+		panelManager.getMapP().repaint();
 		if (endJudge(ba))
 			return;
 
@@ -480,7 +465,7 @@ public class VPanel implements UnitWorks {
 			return;
 		}
 		BasicPaint bp = new BasicPaint(this);
-		up.setEventListener(bp);
+		panelManager.getMapP().setEventListener(bp);
 		if (flag)
 			bp.leftPressed();
 	}
@@ -559,7 +544,7 @@ public class VPanel implements UnitWorks {
 		}
 		saveManager.stageClear();
 		fw.setMenu(DragonBuster.T_CLEAR);
-		panelManager.displayHelp(up.getWaku(), Texts.help[Texts.H_CLEAR], GameColor.BLUE);
+		panelManager.displayHelp(panelManager.getMapP().getWaku(), Texts.help[Texts.H_CLEAR], GameColor.BLUE);
 	}
 
 	/*** Game Over ****************************/
@@ -594,7 +579,7 @@ public class VPanel implements UnitWorks {
 		PaintUtils.setWaitPaint(this);
 		panelManager.displayLarge("GAME OVER", GameColor.RED, 5000);
 		fw.setMenu(DragonBuster.T_GAMEOVER);
-		panelManager.displayHelp(up.getWaku(), Texts.help[Texts.H_OVER], GameColor.BLUE);
+		panelManager.displayHelp(panelManager.getMapP().getWaku(), Texts.help[Texts.H_OVER], GameColor.BLUE);
 	}
 
 	/***************************************************/
@@ -645,7 +630,7 @@ public class VPanel implements UnitWorks {
 		fw.setMenu(DragonBuster.T_CAMP);
 		PaintUtils.setCampPaint(this, camp);
 		camp.repaint(saveManager.getCampMap());
-		up.repaint();
+		panelManager.getMapP().repaint();
 	}
 	public void backFromImogari() {
 		PaintUtils.setCampPaint(this, camp);
@@ -655,8 +640,8 @@ public class VPanel implements UnitWorks {
 
 	@Override
 	public void executeFKeyCommand(int n, boolean shiftDown) {
-		if (mouseManager.isAlive())
-			return;
+//		if (mouseManager.isAlive())
+//			return;
 		String filename = "slgs" + n + ".dat";
 		if (shiftDown) {
 			saveManager.saveData(filename, equip);
@@ -782,7 +767,7 @@ public class VPanel implements UnitWorks {
 	 * @see dragon3.UnitWorks#getMapWorks()
 	 */
 	public MapWorks getMapWorks() {
-		return up;
+		return panelManager.getMapP();
 	}
 
 	public FrameWorks getFrameWorks() {
@@ -809,11 +794,11 @@ public class VPanel implements UnitWorks {
 	}
 
 	public void displayCardBattle(Body ba, Body bb) {
-		cp.setup(ba, bb);
-		cp.display();
+		cardManager.setup(ba, bb);
+		cardManager.display();
 	}
 
 	public boolean isCardBattleEnd() {
-		return cp.isEnd();
+		return cardManager.isEnd();
 	}
 }

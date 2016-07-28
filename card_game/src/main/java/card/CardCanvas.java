@@ -16,7 +16,6 @@ import card.manage.DoubleManager;
 import card.paint.ResultPainter;
 import card.paint.WakuPainter;
 import mine.event.MouseAllListener;
-import mine.event.MouseManager;
 import mine.event.PaintComponent;
 import mine.event.PaintListener;
 import mine.event.SleepManager;
@@ -58,13 +57,13 @@ public class CardCanvas
 	private int[] blueNum;
 	private int[] redNum;
 
-	public CardCanvas(PaintComponent panel, MineImageLoader imageLoader, MouseManager mouseManager, SleepManager sleepManager){
+	public CardCanvas(PaintComponent panel, MineImageLoader imageLoader, SleepManager sleepManager){
 		super();
 		this.panel = panel;
+		panel.setLocation(32 * 4, 32 * 1);
 		ImageList il = new ImageList(imageLoader);
 		cards = new ArrayList<Card>();
 		//MineAwtUtils.setSize(this, WIDTH, HEIGHT);
-		mouseManager.setMouseAllListener(this);
 
 		initMap(il);
 		wakuMover = new WakuPainter(this, map);
@@ -77,6 +76,8 @@ public class CardCanvas
 
 		lock = new Lock();
 		random = new Random();
+		panel.setPaintListener(this);
+		panel.setMouseAllListener(this);
 	}
 
 	public void setCardListener(CardListener listener) {

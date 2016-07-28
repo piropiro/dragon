@@ -1,8 +1,6 @@
 package dragon3;
 
 
-import javax.swing.JFrame;
-
 import mine.event.PaintComponent;
 
 public interface FrameWorks {
@@ -19,8 +17,6 @@ public interface FrameWorks {
 	public static final int T_SCORE = 10;
 	public static final int T_COLLECT = 11;
 	public static final int T_WAZALIST = 12;
-
-    public JFrame getFrame();
 
     public void setMenu( int n );
     

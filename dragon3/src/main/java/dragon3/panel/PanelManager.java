@@ -3,13 +3,12 @@
  */
 package dragon3.panel;
 
-import mine.util.Point;
-
 import dragon3.common.Body;
 import dragon3.common.constant.GameColor;
 import dragon3.common.util.Equip;
 import dragon3.manage.Attack;
 import dragon3.manage.SaveManager;
+import mine.util.Point;
 
 /**
  * @author saito
@@ -44,7 +43,7 @@ public interface PanelManager {
 	public void closeSmall();
 	
 	// HelpPanel
-	public void displayHelp(Point waku, String[] line, GameColor color);
+	public void displayHelp(Point p, String[] line, GameColor color);
 	public void setHelpLocation(int x, int y);
 	public void setHelpVisible(boolean flag);
 	public boolean isHelpVisible();

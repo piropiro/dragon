@@ -25,12 +25,13 @@ public class MapPanel implements MapWorks, MouseAllListener, PaintListener {
 
 	/*** Constructer *****************************************************/
 
-	public MapPanel(PaintComponent panel, UnitWorks uw) {
+	public MapPanel(PaintComponent panel, UnitWorks uw, UnitMap map) {
 		super();
 		this.panel = panel;
 		this.uw = uw;
-		this.map = uw.getUnitMap();
+		this.map = map;
 		panel.setPaintListener(this);
+		panel.setMouseAllListener(this);
 	}
 
 	/*** Listener ************************************************/

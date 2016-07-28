@@ -7,10 +7,8 @@ import mine.MineException;
 import mine.MineUtils;
 import mine.awt.ImageLoaderAWT;
 import mine.awt.MineAwtUtils;
-import mine.awt.MouseManagerAWT;
 import mine.awt.PaintComponentAWT;
 import mine.awt.SleepManagerAWT;
-import mine.event.MouseManager;
 import mine.event.PaintComponent;
 import mine.event.SleepManager;
 import mine.io.MatrixIO;
@@ -38,9 +36,8 @@ public class CardDialog extends JDialog implements CardListener {
 		
 		setTitle("CardBattle");
 		
-		MouseManager mouseManager = new MouseManagerAWT((JComponent)cardPanel);
 		SleepManager sleepManager = new SleepManagerAWT((JComponent)cardPanel);
-		cc = new CardCanvas(cardPanel, mil, mouseManager, sleepManager);
+		cc = new CardCanvas(cardPanel, mil, sleepManager);
 		cardPanel.setPaintListener(cc);
 		
 		cc.setCardListener(this);

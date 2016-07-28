@@ -25,7 +25,9 @@ import mine.awt.MineAwtUtils;
 import mine.awt.MouseManagerAWT;
 import mine.awt.PaintComponentAWT;
 import mine.awt.SleepManagerAWT;
+import mine.event.MouseManager;
 import mine.event.PaintComponent;
+import mine.event.SleepManager;
 import mine.paint.MineImageLoader;
 
 public class DragonBuster implements FrameWorks, ActionListener, KeyListener {
@@ -45,8 +47,6 @@ public class DragonBuster implements FrameWorks, ActionListener, KeyListener {
 	@Getter private PaintComponent dataPanel2;
 	@Getter private PaintComponent messagePanel;
 	
-	private MineImageLoader imageLoader;
-	private SleepManagerAWT sleepManager;
 	private MouseManagerAWT mouseManager;
 	
 	/*** Constructer *****************************************************/
@@ -91,17 +91,14 @@ public class DragonBuster implements FrameWorks, ActionListener, KeyListener {
 		// MessagePanel
 		messagePanel = new PaintComponentAWT(MessagePanel.WIDTH, MessagePanel.HEIGHT);
 		
-		imageLoader = new ImageLoaderAWT();
-		mouseManager = new MouseManagerAWT();
-		sleepManager = new SleepManagerAWT();
-		
+		MineImageLoader imageLoader = new ImageLoaderAWT();
+		SleepManager sleepManager = new SleepManagerAWT((JComponent)mapPanel);
+	
 		JLayeredPane parent = new JLayeredPane();
 		MineAwtUtils.setSize(parent, 640, 480);
 		parent.setBackground(new Color(0, 0, 150));
-		parent.addMouseListener(mouseManager);
-		parent.addMouseMotionListener(mouseManager);
-		parent.addKeyListener(sleepManager);
-		parent.addMouseListener(sleepManager);
+		//parent.addMouseListener(mouseManager);
+		//parent.addMouseMotionListener(mouseManager);
 		parent.addKeyListener(this);
 
 		parent.setLayout(null);
@@ -118,7 +115,7 @@ public class DragonBuster implements FrameWorks, ActionListener, KeyListener {
 		parent.add((JComponent)smallPanel, new Integer(11));
 		
 		// VPanel
-		uw = new VPanel(this, imageLoader, mouseManager, sleepManager);
+		uw = new VPanel(this, imageLoader, sleepManager);
 		uw.title();
 		
 		frame.setContentPane(parent);
@@ -133,11 +130,6 @@ public class DragonBuster implements FrameWorks, ActionListener, KeyListener {
 		new DragonBuster();
 	}
 
-	/*** Data *************************************/
-
-	public JFrame getFrame() {
-		return frame;
-	}
 
 	/*** MenuBar ****************************************/
 
