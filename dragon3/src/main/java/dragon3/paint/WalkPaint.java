@@ -5,7 +5,7 @@ import java.util.List;
 
 import mine.paint.UnitMap;
 import dragon3.FightManager;
-import dragon3.Rewalk;
+import dragon3.RewalkManager;
 import dragon3.UnitWorks;
 import dragon3.anime.AnimeManager;
 import dragon3.common.Body;
@@ -24,7 +24,8 @@ public class WalkPaint implements EventListener {
 	private UnitMap map;
 	private AnimeManager anime;
 	private PanelManager pm;
-	
+	private RewalkManager rewalkManager;
+
 	private Body ba;
 	private int step;
 
@@ -39,6 +40,7 @@ public class WalkPaint implements EventListener {
 		this.map = uw.getUnitMap();
 		this.anime = uw.getAnimeManager();
 		this.pm = uw.getPanelManager();
+		this.rewalkManager = uw.getRewalkManager();
 		
 		this.ba = ba;
 		List<Body> charaList = uw.getCharaList();
@@ -85,7 +87,7 @@ public class WalkPaint implements EventListener {
 	 *
 	 */
 	public void action() {
-		Rewalk.set(ba);
+		rewalkManager.set(ba);
 		Point waku = mw.getWaku();
 		walk(waku.x, waku.y);
 		map.clear(Page.P10, 0);
@@ -110,7 +112,7 @@ public class WalkPaint implements EventListener {
 	 * @param y
 	 */
 	public void enemy(int x, int y) {
-		Rewalk.set(ba);
+		rewalkManager.set(ba);
 		walk(x, y);
 		map.clear(Page.P10, 0);
 	}

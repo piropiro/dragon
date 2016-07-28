@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
 
-import dragon3.Rewalk;
+import dragon3.RewalkManager;
 import dragon3.Statics;
 import dragon3.UnitWorks;
 import dragon3.anime.AnimeManager;
@@ -46,6 +46,7 @@ public class AttackManagerImpl implements AttackManager {
 	private AnimeManager anime;
 	private SleepManager sm;
 	private PanelManager pm;
+	private RewalkManager rewalkManager;
 	private UnitWorks uw;
 	private UnitMap map;
 	private SpecialEffectManager se;
@@ -72,6 +73,8 @@ public class AttackManagerImpl implements AttackManager {
 		this.anime = uw.getAnimeManager();
 		this.sm = uw.getSleepManager();
 		this.pm = uw.getPanelManager();
+		this.rewalkManager = uw.getRewalkManager();
+		
 		this.waza = (WazaData)Statics.wazaList.getData(wazaId);
 		this.hpFlag = hpFlag;
 
@@ -214,7 +217,7 @@ public class AttackManagerImpl implements AttackManager {
 		
 		if (attack.hasEffect(AttackEffect.COUNTER_ONLY))
 			return false;
-		if (attack.hasEffect(AttackEffect.TAME) && Rewalk.isWalked(ba))
+		if (attack.hasEffect(AttackEffect.TAME) && rewalkManager.isWalked(ba))
 			return false;
 		if (!attack.checkEnergy())
 			return false;

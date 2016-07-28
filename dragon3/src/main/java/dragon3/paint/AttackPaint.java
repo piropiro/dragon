@@ -3,7 +3,7 @@ package dragon3.paint;
 import mine.util.Point;
 
 import dragon3.FightManager;
-import dragon3.Rewalk;
+import dragon3.RewalkManager;
 import dragon3.UnitWorks;
 import dragon3.common.Body;
 import dragon3.common.constant.Page;
@@ -16,6 +16,7 @@ public class AttackPaint implements EventListener {
 	private MapWorks mw;
 	private UnitMap map;
 	private FightManager fm;
+	private RewalkManager rewalkManager;
 	private Body ba;
 	
 	/**
@@ -25,6 +26,7 @@ public class AttackPaint implements EventListener {
 		this.uw = uw;
 		this.mw = uw.getMapWorks();
 		this.map = uw.getUnitMap();
+		this.rewalkManager = uw.getRewalkManager();
 		this.fm = fm;
 		this.ba = ba;
 	}
@@ -58,7 +60,7 @@ public class AttackPaint implements EventListener {
 	 */
 	@Override
 	public void rightPressed() {
-		Rewalk.rewalk(ba);
+		rewalkManager.rewalk(ba);
 	}
 
 	/**

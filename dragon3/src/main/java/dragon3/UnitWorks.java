@@ -52,6 +52,7 @@ public interface UnitWorks {
 	public AnimeManager getAnimeManager();
 	public ImageManager getImageManager();
 	public PanelManager getPanelManager();
+	public RewalkManager getRewalkManager();
 	public FrameWorks getFrameWorks();
 	public MapWorks getMapWorks();
 	public UnitMap getUnitMap();

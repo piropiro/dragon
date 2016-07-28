@@ -6,7 +6,7 @@ import java.util.List;
 
 import dragon3.FrameWorks;
 import dragon3.Level;
-import dragon3.Rewalk;
+import dragon3.RewalkManager;
 import dragon3.Statics;
 import dragon3.UnitWorks;
 import dragon3.anime.AnimeManager;
@@ -37,6 +37,7 @@ import dragon3.paint.TitlePaint;
 import dragon3.panel.PanelManager;
 import dragon3.panel.PanelManagerImpl;
 import dragon3.view.DragonFrame;
+import lombok.Getter;
 import mine.MineException;
 import mine.MineUtils;
 import mine.event.SleepManager;
@@ -48,7 +49,8 @@ public class DragonController implements UnitWorks, CommandListener {
 
 	private UnitMap map;
 	private FrameWorks fw;
-
+	private MapWorks mw;
+	
 	private ImageManager imageManager;
 	private AnimeManager animeManager;
 	private PanelManagerImpl panelManager;
@@ -61,12 +63,14 @@ public class DragonController implements UnitWorks, CommandListener {
 	private SleepManager sleepManager;
 
 	private CardManager cardManager;
-	private TurnManagerImpl turnManager;
-	private SaveManagerImpl saveManager;
+	private TurnManager turnManager;
+	private SaveManager saveManager;
+	@Getter private RewalkManager rewalkManager;
 	private Equip equip;
 	private Camp camp;
 	private TreasureManager treasure;
 	private SummonManager summon;
+
 
 	private Point blueCrystal;
 	private Point redCrystal;
@@ -96,7 +100,9 @@ public class DragonController implements UnitWorks, CommandListener {
 		panelManager.setTurnManager(turnManager);
 		
 		animeManager = panelManager.getAnimeP();
-		Rewalk.setup(this);
+		mw = panelManager.getMapP();
+		
+		rewalkManager = new RewalkManager(this);
 		
 		cardManager = new CardManager(panelManager.getCardP(), this, map, panelManager, sleepManager, imageManager);
 		equip = saveManager.loadData("slgs.dat");
@@ -109,7 +115,7 @@ public class DragonController implements UnitWorks, CommandListener {
 	public void title() {
 		fw.setMenu(FrameWorks.T_TITLE);
 		animeManager.openTitle();
-		panelManager.getMapP().setEventListener(new TitlePaint(this));
+		mw.setEventListener(new TitlePaint(this));
 	}
 
 	/*** Setup ***********************************/
@@ -172,7 +178,7 @@ public class DragonController implements UnitWorks, CommandListener {
 		camp.repaint(saveManager.getCampMap());
 		PaintUtils.setCampPaint(this, camp);
 		panelManager.getCardP().setVisible(false);
-		panelManager.getMapP().repaint();
+		mw.repaint();
 	}
 
 	/*** Map Load **********************************/
@@ -204,7 +210,7 @@ public class DragonController implements UnitWorks, CommandListener {
 		turnManager.reset();
 		PaintUtils.setWaitPaint(this);
 		panelManager.getCardP().setVisible(false);
-		panelManager.getMapP().repaint();
+		mw.repaint();
 	}
 
 
@@ -234,7 +240,7 @@ public class DragonController implements UnitWorks, CommandListener {
 			panelManager.displayLarge("Stage " + n, GameColor.BLUE, 1500);
 		}
 		PaintUtils.setPutPlayersPaint(this, Charas, Players);
-		panelManager.getMapP().repaint();
+		mw.repaint();
 	}
 
 	private void campStart() {
@@ -267,34 +273,6 @@ public class DragonController implements UnitWorks, CommandListener {
 			}
 		}
 	}
-
-	/*** Randomize **************************************************/
-
-//	private void randomize(List<Body> v) {
-//		int lv = saveManager.getEnemyLevel();
-//		int rate = 256;
-//		for (int i = lv; i > 0; i--)
-//			rate *= 1.5;
-//
-//		for (Body b : v) {
-//			if (b.getLevel() != 0)
-//				b.setLevel(b.getLevel() + (lv * 10));
-//			b.setHpMax(b.getHpMax() * rate / 256);
-//			b.restrict();
-//			b.setMax();
-//			b.resetAttr();
-//			if (b.getColor() == GameColor.RED) {
-//				if (!b.hasAttr(BodyAttribute.TALKABLE)) {
-//					b.setStr(Math.max(0, b.getStr() - 2));
-//					b.setDef(Math.max(0, b.getDef() - 2));
-//					b.setMst(Math.max(0, b.getMst() - 2));
-//					b.setMdf(Math.max(0, b.getMdf() - 2));
-//					b.setHit(Math.max(0, b.getHit() - 2));
-//					b.setMis(Math.max(0, b.getMis() - 2));
-//				}
-//			}
-//		}
-//	}
 
 	/*** UnitWorks *************************************/
 
@@ -387,7 +365,7 @@ public class DragonController implements UnitWorks, CommandListener {
 			treasure.searchTreasure(ba);
 			map.setData(Page.P30, ba.getX(), ba.getY(), 1);
 		}
-		panelManager.getMapP().repaint();
+		mw.repaint();
 		if (endJudge(ba))
 			return;
 
@@ -396,7 +374,7 @@ public class DragonController implements UnitWorks, CommandListener {
 			return;
 		}
 		BasicPaint bp = new BasicPaint(this);
-		panelManager.getMapP().setEventListener(bp);
+		mw.setEventListener(bp);
 		if (flag)
 			bp.leftPressed();
 	}
@@ -475,7 +453,7 @@ public class DragonController implements UnitWorks, CommandListener {
 		}
 		saveManager.stageClear();
 		fw.setMenu(DragonFrame.T_CLEAR);
-		panelManager.displayHelp(panelManager.getMapP().getWaku(), Texts.help[Texts.H_CLEAR], GameColor.BLUE);
+		panelManager.displayHelp(mw.getWaku(), Texts.help[Texts.H_CLEAR], GameColor.BLUE);
 	}
 
 	/*** Game Over ****************************/
@@ -510,7 +488,7 @@ public class DragonController implements UnitWorks, CommandListener {
 		PaintUtils.setWaitPaint(this);
 		panelManager.displayLarge("GAME OVER", GameColor.RED, 5000);
 		fw.setMenu(DragonFrame.T_GAMEOVER);
-		panelManager.displayHelp(panelManager.getMapP().getWaku(), Texts.help[Texts.H_OVER], GameColor.BLUE);
+		panelManager.displayHelp(mw.getWaku(), Texts.help[Texts.H_OVER], GameColor.BLUE);
 	}
 
 	/***************************************************/
@@ -561,7 +539,7 @@ public class DragonController implements UnitWorks, CommandListener {
 		fw.setMenu(DragonFrame.T_CAMP);
 		PaintUtils.setCampPaint(this, camp);
 		camp.repaint(saveManager.getCampMap());
-		panelManager.getMapP().repaint();
+		mw.repaint();
 	}
 	
 	@Override
@@ -695,7 +673,7 @@ public class DragonController implements UnitWorks, CommandListener {
 
 	@Override
 	public MapWorks getMapWorks() {
-		return panelManager.getMapP();
+		return mw;
 	}
 
 	@Override

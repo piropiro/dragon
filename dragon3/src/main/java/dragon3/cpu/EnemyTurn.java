@@ -6,7 +6,7 @@ import java.util.List;
 import mine.event.SleepManager;
 import mine.paint.UnitMap;
 import dragon3.FightManager;
-import dragon3.Rewalk;
+import dragon3.RewalkManager;
 import dragon3.UnitWorks;
 import dragon3.common.Body;
 import dragon3.common.constant.GameColor;
@@ -23,6 +23,7 @@ public class EnemyTurn {
 	private UnitMap map;
 	private PanelManager pm;
 	private SleepManager sm;
+	private RewalkManager rewalkManager;
 	private List<Body> charaList;
 	private Body ba;
 
@@ -34,6 +35,7 @@ public class EnemyTurn {
 		map = uw.getUnitMap();
 		pm = uw.getPanelManager();
 		sm = uw.getSleepManager();
+		rewalkManager = uw.getRewalkManager();
 		charaList = uw.getCharaList();
 	}
 
@@ -67,7 +69,7 @@ public class EnemyTurn {
 	}
 
 	public void move() {
-		Rewalk.set(ba);
+		rewalkManager.set(ba);
 
 		boolean actionf = false;
 

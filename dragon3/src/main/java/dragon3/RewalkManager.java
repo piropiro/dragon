@@ -1,42 +1,39 @@
 package dragon3;
 
-import mine.paint.UnitMap;
 import dragon3.common.Body;
 import dragon3.common.constant.Page;
-import dragon3.image.ImageManager;
 import dragon3.map.MapWorks;
 import dragon3.paint.PaintUtils;
 import dragon3.panel.PanelManager;
+import mine.paint.UnitMap;
 
-public class Rewalk {
+public class RewalkManager {
 
-	static UnitWorks uw;
-	static PanelManager pm;
-	static ImageManager image;
-	static UnitMap map;
-	static MapWorks mw;
-	static int x, y;
+	private UnitWorks uw;
+	private PanelManager pm;
+	private UnitMap map;
+	private MapWorks mw;
+	private int x, y;
 
 	/*** Setup *******************************/
 
-	public static void setup(UnitWorks uws) {
-		uw = uws;
-		image = uw.getImageManager();
-		pm = uw.getPanelManager();
-		map = uw.getUnitMap();
-		mw = uw.getMapWorks();
+	public RewalkManager(UnitWorks uw) {
+		this.uw = uw;
+		this.pm = uw.getPanelManager();
+		this.map = uw.getUnitMap();
+		this.mw = uw.getMapWorks();
 	}
 
 	/*** Set *********************************/
 
-	public static void set(Body b) {
+	public void set(Body b) {
 		x = b.getX();
 		y = b.getY();
 	}
 
 	/*** Rewalk ******************************/
 
-	public static void rewalk(Body b) {
+	public void rewalk(Body b) {
 		map.clear(Page.P40, 0);
 		map.clear(Page.P10, 0);
 		map.setData(Page.P20, b.getX(), b.getY(), 0);
@@ -56,7 +53,7 @@ public class Rewalk {
 
 	/*** Walk Judge ********************/
 
-	public static boolean isWalked(Body b) {
+	public boolean isWalked(Body b) {
 		if (b.getX() != x)
 			return true;
 		if (b.getY() != y)
