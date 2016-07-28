@@ -14,9 +14,9 @@ import mine.io.MatrixIO;
 
 public class Statics {
 
-	public static final String[] STAGE_FILES = { "StageData.json" };
-	public static final String[] WAZA_FILES =  { "WazaData.json" };
-	public static final String[] BODY_FILES =  { "CharaData.json", "ClassData.json", "WeponData.json", "ArmorData.json", "ItemData.json" };
+	public static final List<String> STAGE_FILES = Arrays.asList("StageData.json");
+	public static final List<String> WAZA_FILES = Arrays.asList("WazaData.json" );
+	public static final List<String> BODY_FILES = Arrays.asList("CharaData.json", "ClassData.json", "WeponData.json", "ArmorData.json", "ItemData.json");
 
 	public static final String WAZA_DIR = "dragon3/data/waza/";
 
