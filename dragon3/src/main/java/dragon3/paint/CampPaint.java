@@ -66,7 +66,7 @@ public class CampPaint implements EventListener {
 				line = Texts.help[Texts.H_CAMP6];
 			}
 		}
-		pm.displayHelp(uw.getMapWorks().getWaku(), line, GameColor.BLUE);
+		pm.displayHelp(uw.getMapWorks().getWaku(), GameColor.BLUE, line);
 	}
 
 

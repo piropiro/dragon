@@ -453,7 +453,7 @@ public class DragonController implements UnitWorks, CommandListener {
 		}
 		saveManager.stageClear();
 		fw.setMenu(DragonFrame.T_CLEAR);
-		panelManager.displayHelp(mw.getWaku(), Texts.help[Texts.H_CLEAR], GameColor.BLUE);
+		panelManager.displayHelp(mw.getWaku(), GameColor.BLUE, Texts.help[Texts.H_CLEAR]);
 	}
 
 	/*** Game Over ****************************/
@@ -488,7 +488,7 @@ public class DragonController implements UnitWorks, CommandListener {
 		PaintUtils.setWaitPaint(this);
 		panelManager.displayLarge("GAME OVER", GameColor.RED, 5000);
 		fw.setMenu(DragonFrame.T_GAMEOVER);
-		panelManager.displayHelp(mw.getWaku(), Texts.help[Texts.H_OVER], GameColor.BLUE);
+		panelManager.displayHelp(mw.getWaku(), GameColor.BLUE, Texts.help[Texts.H_OVER]);
 	}
 
 	/***************************************************/

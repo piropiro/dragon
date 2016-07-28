@@ -58,7 +58,7 @@ public class PutPlayersPaint implements EventListener {
 	 *
 	 */
 	private void setHelp() {
-		pm.displayHelp(mw.getWaku(), Texts.help[Texts.H_SETMENS], GameColor.BLUE);
+		pm.displayHelp(mw.getWaku(), GameColor.BLUE, Texts.help[Texts.H_SETMENS]);
 	}
 
 

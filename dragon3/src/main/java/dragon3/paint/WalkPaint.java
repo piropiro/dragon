@@ -80,7 +80,7 @@ public class WalkPaint implements EventListener {
 	private void setHelp() {
 		if (!GameColor.isPlayer(ba))
 			return;
-		uw.getPanelManager().displayHelp(mw.getWaku(), Texts.help[Texts.H_WALK], GameColor.BLUE);
+		uw.getPanelManager().displayHelp(mw.getWaku(), GameColor.BLUE, Texts.help[Texts.H_WALK]);
 	}
 
 	/**

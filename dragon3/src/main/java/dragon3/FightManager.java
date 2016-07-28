@@ -55,9 +55,9 @@ public class FightManager {
 		if (!GameColor.isPlayer(ba))
 			return;
 		if (flag) {
-			pm.displayHelp(mw.getWaku(), Texts.help[Texts.H_FIGHT1], GameColor.GREEN);
+			pm.displayHelp(mw.getWaku(), GameColor.GREEN, Texts.help[Texts.H_FIGHT1]);
 		} else {
-			pm.displayHelp(mw.getWaku(), Texts.help[Texts.H_FIGHT2], GameColor.BLUE);
+			pm.displayHelp(mw.getWaku(), GameColor.BLUE, Texts.help[Texts.H_FIGHT2]);
 		}
 	}
 

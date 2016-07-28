@@ -215,9 +215,9 @@ public class PanelManagerImpl implements PanelManager {
 	
 	// HelpPanel
 	@Override
-	public void displayHelp(Point p, String[] line, GameColor color) {
+	public void displayHelp(Point p, GameColor color, String... line) {
 		helpP.setLocate(p.x, p.y, true);
-		helpP.setLine(line, color);
+		helpP.setLine(color, line);
 		helpP.setVisible(helpVisible);
 		helpP.repaint();
 	}
