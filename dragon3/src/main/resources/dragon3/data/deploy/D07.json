@@ -154,18 +154,18 @@
 		"y": 4
 	},
 	{
-		"bodyId": "doll_002",
-		"deployType": "BOX_ITEM",
+		"bodyId": "chara_015",
+		"deployType": "ENEMY_CHARA",
 		"goalX": 0,
-		"goalY": 0,
+		"goalY": 14,
 		"id": null,
-		"level": 0,
+		"level": 1,
 		"limitTurn": 15,
 		"name": "ジード",
 		"range": 5,
 		"scope": 1,
-		"x": 14,
-		"y": 4
+		"x": 11,
+		"y": 7
 	},
 	{
 		"bodyId": "armor_005",

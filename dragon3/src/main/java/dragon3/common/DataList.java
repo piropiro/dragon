@@ -46,7 +46,11 @@ public class DataList<T extends Data> {
 	}
 
 	public T getData(String id) {
-		return map.get(id);
+		if (map.containsKey(id)) {
+			return map.get(id);
+		} else {
+			throw new IllegalArgumentException("illegal data id:" + id);
+		}
 	}
 
 	public Map<String, String> getIdAndName() {

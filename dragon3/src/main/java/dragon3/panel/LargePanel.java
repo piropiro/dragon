@@ -59,7 +59,7 @@ public class LargePanel implements PaintListener {
 				e.printStackTrace();
 			}
 			panel.setVisible(false);
-		});
+		}).start();
 	}
 
 	/*** Paint **************************************************************/

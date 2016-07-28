@@ -13,7 +13,7 @@ public class HelpPanel implements PaintListener {
 	
 	private PaintComponent panel;
 
-	private String[] lines;
+	private String[] lines = new String[0];
 	private boolean leftf;
 	private boolean upf;
 	private GameColor bgcolor = GameColor.BLUE;
