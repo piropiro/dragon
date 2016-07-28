@@ -9,7 +9,6 @@ import javax.swing.SwingUtilities;
 
 import mine.event.MouseAllListener;
 import mine.event.MouseManager;
-import mine.event.MouseThread;
 
 /**
  * マウスの状態を保持します。
@@ -21,7 +20,7 @@ public class MouseManagerAWT implements MouseListener, MouseMotionListener, Mous
 	private int x, y;
 	private boolean left, right;
 	private MouseAllListener listener;
-	private MouseThread thread;
+	private Thread thread;
 
 	/**
 	 * コンストラクタ
@@ -180,25 +179,25 @@ public class MouseManagerAWT implements MouseListener, MouseMotionListener, Mous
 	}
 	public void leftPressed(){
 		if (thread == null || !thread.isAlive()) {
-			thread = new MouseThread(listener, MouseThread.LEFT_PRESSED, x, y);
+			thread = new Thread(() -> listener.leftPressed(x, y) );
 			thread.start();
 		}
 	}
 	public void rightPressed(){
 		if (thread == null || !thread.isAlive()) {
-			thread = new MouseThread(listener, MouseThread.RIGHT_PRESSED, x, y);
+			thread = new Thread(() -> listener.rightPressed(x, y) );
 			thread.start();
 		}
 	}
 	public void leftReleased(){
 		if (thread == null || !thread.isAlive()) {
-			thread = new MouseThread(listener, MouseThread.LEFT_RELEASED, x, y);
+			thread = new Thread(() -> listener.leftReleased(x, y) );
 			thread.start();
 		}
 	}
 	public void rightReleased(){
 		if (thread == null || !thread.isAlive()) {
-			thread = new MouseThread(listener, MouseThread.RIGHT_RELEASED, x, y);
+			thread = new Thread(() -> listener.rightReleased(x, y) );
 			thread.start();
 		}
 	}	

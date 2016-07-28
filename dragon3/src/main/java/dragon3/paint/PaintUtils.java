@@ -10,6 +10,7 @@ import dragon3.UnitWorks;
 import dragon3.camp.Camp;
 import dragon3.card.CardPaint;
 import dragon3.common.Body;
+import dragon3.common.constant.Page;
 import dragon3.map.MapWorks;
 
 /**
@@ -25,7 +26,9 @@ public class PaintUtils {
 	public static void setWaitPaint(UnitWorks uw) {
 		System.out.println("WaitPaint");
 		MapWorks mw = uw.getMapWorks();
-		mw.setEventListener(new WaitPaint(uw));
+		mw.setEventListener(new WaitPaint());
+		uw.getUnitMap().clear(Page.P40, 0);
+		uw.getMapWorks().repaint();
 	}
 	public static void setBasicPaint(UnitWorks uw) {
 		System.out.println("BasicPaint");

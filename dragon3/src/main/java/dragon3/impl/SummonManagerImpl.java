@@ -42,10 +42,7 @@ public class SummonManagerImpl implements SummonManager {
 		}
 	}
 
-	/* (non-Javadoc)
-	 * @see dragon3.SummonManager#getLimitTurn(java.awt.Point)
-	 */
-
+	@Override
 	public int getLimitTurn(Point p) {
 		int turn = 64;
 		for (int i=0; i<devils.size(); i++) {
@@ -62,10 +59,7 @@ public class SummonManagerImpl implements SummonManager {
 		return turn;
 	}
 
-	/* (non-Javadoc)
-	 * @see dragon3.SummonManager#summon()
-	 */
-
+	@Override
 	public void summon() {
 		int turn = uw.getTurnManager().getTurn();
 		for (int i=0; i<devils.size(); i++) {

@@ -1,14 +1,10 @@
 package dragon3.anime.listener;
 
-import java.awt.image.BufferedImage;
-
-import mine.awt.GraphicsAWT;
-import mine.awt.ImageAWT;
+import dragon3.anime.AnimeWorks;
+import dragon3.common.constant.Page;
 import mine.paint.MineGraphics;
 import mine.paint.MineImage;
 import mine.paint.UnitMap;
-import dragon3.anime.AnimeWorks;
-import dragon3.common.constant.Page;
 
 public class EraseAnime implements AnimeListener {
 
@@ -30,18 +26,16 @@ public class EraseAnime implements AnimeListener {
 
 	/*** SourceImage ********************/
 
-	private static MineImage createOffi(UnitMap map, int x, int y) {
-		BufferedImage offi = new BufferedImage(32, 32, BufferedImage.TYPE_INT_ARGB);
-		MineGraphics offg = new GraphicsAWT(offi.getGraphics());
+	private MineImage createOffi(UnitMap map, int x, int y) {
 		int img = map.getData(Page.P20, x, y);
 		int sts = map.getData(Page.P50, x, y);
 		map.setData(Page.P20, x, y, 0);
 		map.setData(Page.P30, x, y, 0);
 		map.setData(Page.P50, x, y, 0);
-		offg.drawImage(map.getBuffer(x, y), 0, 0);
+		MineImage offi = map.getBuffer(x, y).getCopy();
 		map.setData(Page.P20, x, y, img);
 		map.setData(Page.P50, x, y, sts);
-		return new ImageAWT(offi);
+		return offi;
 	}
 
 	/*** Display **********************************/

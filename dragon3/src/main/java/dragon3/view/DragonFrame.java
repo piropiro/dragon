@@ -1,4 +1,4 @@
-package dragon3;
+package dragon3.view;
 
 import java.awt.Color;
 import java.awt.event.ActionEvent;
@@ -12,6 +12,8 @@ import javax.swing.JFrame;
 import javax.swing.JLayeredPane;
 
 import card.CardCanvas;
+import dragon3.FrameWorks;
+import dragon3.controller.CommandListener;
 import dragon3.panel.DataPanel;
 import dragon3.panel.HPanel;
 import dragon3.panel.HelpPanel;
@@ -19,20 +21,25 @@ import dragon3.panel.LargePanel;
 import dragon3.panel.MessagePanel;
 import dragon3.panel.SmallPanel;
 import lombok.Getter;
+import lombok.Setter;
 import mine.awt.BMenuBar;
 import mine.awt.ImageLoaderAWT;
 import mine.awt.MineAwtUtils;
 import mine.awt.MouseManagerAWT;
 import mine.awt.PaintComponentAWT;
 import mine.awt.SleepManagerAWT;
+import mine.event.MouseManager;
 import mine.event.PaintComponent;
+import mine.event.SleepManager;
 import mine.paint.MineImageLoader;
 
-public class DragonBuster implements FrameWorks, ActionListener, KeyListener {
+public class DragonFrame implements FrameWorks, ActionListener, KeyListener {
 	
-	private UnitWorks uw;
 	private volatile BMenuBar mb;
 	private JFrame frame;
+	
+	@Setter private CommandListener commandListener;
+
 	@Getter private PaintComponent mapPanel;
 	@Getter private PaintComponent animePanel;
 	@Getter private PaintComponent hPanel1;
@@ -45,28 +52,27 @@ public class DragonBuster implements FrameWorks, ActionListener, KeyListener {
 	@Getter private PaintComponent dataPanel2;
 	@Getter private PaintComponent messagePanel;
 	
-	private MineImageLoader imageLoader;
-	private SleepManagerAWT sleepManager;
-	private MouseManagerAWT mouseManager;
+	@Getter private MineImageLoader imageLoader;
+	@Getter private MouseManager mouseManager;
+	@Getter private SleepManager sleepManager;
 	
 	/*** Constructer *****************************************************/
 
-	public DragonBuster() {
+	public DragonFrame() {
 		this.frame = new JFrame("RyuTaiji 3");
 		frame.setResizable(false);
 		frame.setBackground(new Color(0, 0, 150));
 		
 		// Menu
 		mb = new BMenuBar();
+		mb.add("NONE", "none", KeyEvent.VK_N);
 		frame.setJMenuBar(mb);
 		
 		// MapPanel
 		mapPanel = new PaintComponentAWT(640, 480);
-		//MapKeyManager mkm = new MapKeyManager(mapPanel);
-		//addKeyListener(mkm);
 		
 		// AnimePanel
-		animePanel = new PaintComponentAWT(32, 32);
+		animePanel = new PaintComponentAWT(640, 480);
 		
 		// HPanel
 		hPanel1 = new PaintComponentAWT(HPanel.WIDTH, HPanel.HEIGHT);
@@ -91,17 +97,13 @@ public class DragonBuster implements FrameWorks, ActionListener, KeyListener {
 		// MessagePanel
 		messagePanel = new PaintComponentAWT(MessagePanel.WIDTH, MessagePanel.HEIGHT);
 		
-		imageLoader = new ImageLoaderAWT();
-		mouseManager = new MouseManagerAWT();
-		sleepManager = new SleepManagerAWT();
-		
+	
 		JLayeredPane parent = new JLayeredPane();
 		MineAwtUtils.setSize(parent, 640, 480);
 		parent.setBackground(new Color(0, 0, 150));
-		parent.addMouseListener(mouseManager);
-		parent.addMouseMotionListener(mouseManager);
-		parent.addKeyListener(sleepManager);
-		parent.addMouseListener(sleepManager);
+
+		//parent.addMouseListener(mouseManager);
+		//parent.addMouseMotionListener(mouseManager);
 		parent.addKeyListener(this);
 
 		parent.setLayout(null);
@@ -116,27 +118,21 @@ public class DragonBuster implements FrameWorks, ActionListener, KeyListener {
 		parent.add((JComponent)hPanel1, new Integer(9));
 		parent.add((JComponent)animePanel, new Integer(10));
 		parent.add((JComponent)smallPanel, new Integer(11));
-		
-		// VPanel
-		uw = new VPanel(this, imageLoader, mouseManager, sleepManager);
-		uw.title();
-		
+
 		frame.setContentPane(parent);
 		frame.pack();
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+		
+		mouseManager = new MouseManagerAWT(parent);
+		imageLoader = new ImageLoaderAWT();
+		sleepManager = new SleepManagerAWT((JComponent)mapPanel);
+	}
+	
+	public void launch() {
 		frame.setVisible(true);
 		MineAwtUtils.setCenter(frame);
-		parent.requestFocus();
-	}
-
-	public static void main(String[] args) {
-		new DragonBuster();
-	}
-
-	/*** Data *************************************/
-
-	public JFrame getFrame() {
-		return frame;
+		frame.requestFocus();
 	}
 
 	/*** MenuBar ****************************************/
@@ -152,12 +148,7 @@ public class DragonBuster implements FrameWorks, ActionListener, KeyListener {
 				mb.add("NONE", "none", KeyEvent.VK_N);
 				break;
 			case T_CAMP :
-				if (uw.getSaveManager().isDivided()) {
-					mb.add("L_STAGE", "left", KeyEvent.VK_A);
-					mb.add("R_STAGE", "right", KeyEvent.VK_B);
-				} else {
-					mb.add("STAGE", "stage", KeyEvent.VK_A);
-				}
+				mb.add("STAGE", "stage", KeyEvent.VK_A);
 				mb.add("SAVE", "save", KeyEvent.VK_S);
 				mb.add("LOAD", "campload", KeyEvent.VK_Q);
 				mb.addMenu("OPTION    x", 'x');
@@ -209,7 +200,8 @@ public class DragonBuster implements FrameWorks, ActionListener, KeyListener {
 			return;
 		AbstractButton b = (AbstractButton) e.getSource();
 		String command = b.getActionCommand();
-		uw.executeMenuCommand(command);
+		
+		new Thread(() -> commandListener.executeMenuCommand(command)).start();
 	}
 	
 	public void keyTyped(KeyEvent e) {
@@ -246,7 +238,7 @@ public class DragonBuster implements FrameWorks, ActionListener, KeyListener {
 			default :
 				return;
 		}
-		uw.executeFKeyCommand(n, e.isShiftDown());
+		commandListener.executeFKeyCommand(n, e.isShiftDown());
 	}
 		
 }

@@ -61,8 +61,5 @@ public interface UnitWorks {
 	public void displayCardBattle(Body ba, Body bb);
 	public boolean isCardBattleEnd();
 	
-	/*** Event *************************/
-	
-	public void executeFKeyCommand(int n, boolean shiftDown);
-	public void executeMenuCommand(String command);
+
 }

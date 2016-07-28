@@ -1,8 +1,5 @@
 package dragon3.panel;
 
-import java.awt.Graphics;
-import java.awt.Image;
-
 import dragon3.common.constant.GameColor;
 import mine.event.PaintComponent;
 import mine.event.PaintListener;
@@ -80,20 +77,6 @@ public class HelpPanel implements PaintListener {
 		for (int i = 0; i < line.length; i++) {
 			g.drawString(line[i], 10, 19 + 19 * i);
 		}
-	}
-
-	/*** Image *************************************/
-
-	protected void drawImage(Image img, int t, int x, int y, Graphics g) {
-		int axs = x;
-		int ays = y;
-		int axf = axs + 32;
-		int ayf = ays + 32;
-		int bxs = t % 15 * 32;
-		int bys = t / 15 * 32;
-		int bxf = bxs + 32;
-		int byf = bys + 32;
-		g.drawImage(img, axs, ays, axf, ayf, bxs, bys, bxf, byf, null);
 	}
 
 	/*** Clear *********************************************/

@@ -2,7 +2,6 @@ package dragon3.impl;
 
 import java.util.List;
 
-import dragon3.DragonBuster;
 import dragon3.FrameWorks;
 import dragon3.UnitWorks;
 import dragon3.anime.AnimeManager;
@@ -15,6 +14,7 @@ import dragon3.common.util.MoveUtils;
 import dragon3.cpu.EnemyTurn;
 import dragon3.manage.TurnManager;
 import dragon3.paint.PaintUtils;
+import dragon3.view.DragonFrame;
 import mine.paint.UnitMap;
 
 public class TurnManagerImpl implements TurnManager {
@@ -56,7 +56,7 @@ public class TurnManagerImpl implements TurnManager {
 		turn++;
 		turnChange(true);
 		PaintUtils.setBasicPaint(uw);
-		fw.setMenu(DragonBuster.T_PLAYER);
+		fw.setMenu(DragonFrame.T_PLAYER);
 		uw.getMapWorks().repaint();
 	}
 
@@ -67,7 +67,7 @@ public class TurnManagerImpl implements TurnManager {
 		uw.limitOver();
 		EnemyTurn et = new EnemyTurn(uw);
 		PaintUtils.setWaitPaint(uw);
-		fw.setMenu(DragonBuster.T_ENEMY);
+		fw.setMenu(DragonFrame.T_ENEMY);
 		et.start(turn);
 	}
 

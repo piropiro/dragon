@@ -1,27 +1,38 @@
-/*
- * Created on 2005/01/08
- */
 package dragon3.panel;
 
-import mine.util.Point;
-
-import mine.paint.UnitMap;
+import card.CardCanvas;
+import dragon3.FrameWorks;
+import dragon3.UnitWorks;
+import dragon3.anime.AnimePanel;
+import dragon3.bean.AnimeData;
+import dragon3.bean.load.AnimeDataLoader;
 import dragon3.common.Body;
+import dragon3.common.DataList;
 import dragon3.common.constant.GameColor;
 import dragon3.common.constant.Page;
 import dragon3.common.util.Equip;
 import dragon3.common.util.MoveUtils;
+import dragon3.image.ImageManager;
 import dragon3.manage.Attack;
 import dragon3.manage.SaveManager;
 import dragon3.manage.SummonManager;
 import dragon3.manage.TreasureManager;
 import dragon3.manage.TurnManager;
+import dragon3.map.MapPanel;
+import lombok.Getter;
+import mine.event.SleepManager;
+import mine.paint.MineImageLoader;
+import mine.paint.UnitMap;
+import mine.util.Point;
 
 /**
  * @author saito
  */
 public class PanelManagerImpl implements PanelManager {
 
+	@Getter private AnimePanel animeP;
+	@Getter private MapPanel mapP;
+	@Getter private CardCanvas cardP;
 	private DataPanel dataP1;
 	private DataPanel dataP2;
 	private HPanel hpP1;
@@ -30,16 +41,49 @@ public class PanelManagerImpl implements PanelManager {
 	private LargePanel largeP;
 	private MessagePanel messageP;
 	private SmallPanel smallP;
-
-	private TreasureManager treasure;
-	private SummonManager summon;
+	
+	private TreasureManager treasureManager;
+	private SummonManager summonManager;
 	
 	private TurnManager turnManager;
 	private UnitMap map;
 	
 	private boolean helpVisible;
 
-	public PanelManagerImpl() {
+	public PanelManagerImpl(FrameWorks fw, UnitWorks uw, UnitMap map, SleepManager sleepManager, ImageManager imageManager, MineImageLoader mil) {
+		this.map = map;
+		
+		DataList<AnimeData> animeList = AnimeDataLoader.loadAnimeList();
+		
+		// AnimePanel
+		animeP = new AnimePanel(fw.getAnimePanel(), sleepManager, map, animeList, imageManager);
+
+		// MapPanel
+		mapP = new MapPanel(fw.getMapPanel(), uw, map);
+		
+		// HPanel
+		hpP1 = new HPanel(fw.getHPanel1(), sleepManager, true);
+		hpP2 = new HPanel(fw.getHPanel2(), sleepManager, false);
+		
+		// DataPanel
+		dataP1 = new DataPanel(fw.getDataPanel1(), sleepManager, imageManager, true);
+		dataP2 = new DataPanel(fw.getDataPanel2(), sleepManager, imageManager, false);
+		
+		// HelpPanel
+		helpP = new HelpPanel(fw.getHelpPanel());
+		
+		// SmallPanel
+		smallP = new SmallPanel(fw.getSmallPanel());
+		
+		// LargePanel
+		largeP = new LargePanel(fw.getLargePanel());
+		
+		// MessagePanel
+		messageP = new MessagePanel(fw.getMessagePanel(), sleepManager, imageManager);
+		
+		// CardPanel
+		cardP = new CardCanvas(fw.getCardPanel(), mil, sleepManager);
+		cardP.setVisible(false);
 	}
 
 
@@ -47,7 +91,7 @@ public class PanelManagerImpl implements PanelManager {
 	public void displayData(int x, int y) {
 		int tikei = map.getData(Page.P00, x, y);
 		if (tikei == MoveUtils.WHITE) {
-			dataP1.displayData(new Point(x, y), turnManager.getTurn(), treasure.getLimitTurn(), treasure.getCount());
+			dataP1.displayData(new Point(x, y), turnManager.getTurn(), treasureManager.getLimitTurn(), treasureManager.getCount());
 		} else {
 			dataP1.displayPlace(new Point(x, y), tikei);
 		}
@@ -68,12 +112,12 @@ public class PanelManagerImpl implements PanelManager {
 				dataP1.displayItem(
 						p, 
 						turnManager.getTurn(), 
-						treasure.getLimitTurn(p), 
+						treasureManager.getLimitTurn(p), 
 						tikei);
 				return true;
 			case MoveUtils.CLOSE_MAGIC :
 			case MoveUtils.OPEN_MAGIC :
-				dataP1.displaySummon(p, turnManager.getTurn(), summon.getLimitTurn(p), tikei);
+				dataP1.displaySummon(p, turnManager.getTurn(), summonManager.getLimitTurn(p), tikei);
 				return true;
 			default :
 				dataP1.setVisible(false);
@@ -254,14 +298,14 @@ public class PanelManagerImpl implements PanelManager {
 	/**
 	 * @param summon The summon to set.
 	 */
-	public void setSummon(SummonManager summon) {
-		this.summon = summon;
+	public void setSummon(SummonManager summonManager) {
+		this.summonManager = summonManager;
 	}
 	/**
 	 * @param treasure The treasure to set.
 	 */
-	public void setTreasure(TreasureManager treasure) {
-		this.treasure = treasure;
+	public void setTreasure(TreasureManager treasureManager) {
+		this.treasureManager = treasureManager;
 	}
 	
 	public void setTurnManager(TurnManager turnManager) {

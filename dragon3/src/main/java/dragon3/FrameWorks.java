@@ -1,9 +1,9 @@
 package dragon3;
 
 
-import javax.swing.JFrame;
-
 import mine.event.PaintComponent;
+import mine.event.SleepManager;
+import mine.paint.MineImageLoader;
 
 public interface FrameWorks {
 
@@ -20,8 +20,6 @@ public interface FrameWorks {
 	public static final int T_COLLECT = 11;
 	public static final int T_WAZALIST = 12;
 
-    public JFrame getFrame();
-
     public void setMenu( int n );
     
     public PaintComponent getMapPanel();
@@ -35,4 +33,7 @@ public interface FrameWorks {
     public PaintComponent getDataPanel1();
     public PaintComponent getDataPanel2();
     public PaintComponent getMessagePanel();
+    
+    public MineImageLoader getImageLoader();
+    public SleepManager getSleepManager();
 }

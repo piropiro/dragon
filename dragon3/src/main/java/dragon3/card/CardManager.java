@@ -1,11 +1,5 @@
 package dragon3.card;
 
-import mine.event.MouseManager;
-import mine.event.PaintComponent;
-import mine.event.SleepManager;
-import mine.paint.MineImage;
-import mine.paint.MineImageLoader;
-import mine.paint.UnitMap;
 import card.CardCanvas;
 import card.CardListener;
 import dragon3.UnitWorks;
@@ -14,9 +8,13 @@ import dragon3.common.constant.Page;
 import dragon3.common.constant.Texts;
 import dragon3.image.ImageManager;
 import dragon3.panel.PanelManager;
+import mine.event.SleepManager;
+import mine.paint.MineImage;
+import mine.paint.UnitMap;
 
-public class CardPanel extends CardCanvas implements CardListener {
+public class CardManager implements CardListener {
 
+	private CardCanvas cardCanvas;
 	private UnitMap map;
 	private UnitWorks uw;
 	private PanelManager pm;
@@ -27,16 +25,14 @@ public class CardPanel extends CardCanvas implements CardListener {
 
 	/*** Constructer ***********************************/
 
-	public CardPanel(PaintComponent panel, UnitWorks uw, MineImageLoader imageLoader, MouseManager mouseManager, SleepManager sleepManager) {
-		super(panel, imageLoader, mouseManager, sleepManager);
-		setCardListener(this);
-		panel.setLocation(32 * 4, 32 * 1);
+	public CardManager(CardCanvas cardCanvas, UnitWorks uw, UnitMap map, PanelManager pm, SleepManager sm, ImageManager im) {
+		cardCanvas.setCardListener(this);
+		this.cardCanvas = cardCanvas;
 		this.uw = uw;
-		this.map = uw.getUnitMap();
-		this.pm = uw.getPanelManager();
-		this.sm = uw.getSleepManager();
-		this.im = uw.getImageManager();
-		panel.setPaintListener(this);
+		this.map = map;
+		this.pm = pm;
+		this.sm = sm;
+		this.im = im;
 	}
 
 	/*** Setup *************************************/
@@ -44,12 +40,12 @@ public class CardPanel extends CardCanvas implements CardListener {
 	public void setup(Body ba, Body bb) {
 		this.ba = ba;
 		this.bb = bb;
-		MineImage blueImage = im.getBodyList().getImage(ba.base.getId());
-		MineImage redImage = im.getBodyList().getImage(bb.base.getId());
+		MineImage blueImage = im.getBodyList().getImage(ba.getImageNum());
+		MineImage redImage = im.getBodyList().getImage(bb.getImageNum());
 		int[] blueNum = getNumber(ba);
 		int[] redNum = getNumber(bb);
-		setRedChara(redImage, redNum);
-		setBlueChara(blueImage, blueNum);
+		cardCanvas.setRedChara(redImage, redNum);
+		cardCanvas.setBlueChara(blueImage, blueNum);
 		endFlag = false;
 	}
 
@@ -69,15 +65,15 @@ public class CardPanel extends CardCanvas implements CardListener {
 	/*** Display ******************************************************/
 
 	public void display() {
-		setVisible(true);
-		start();
+		cardCanvas.setVisible(true);
+		cardCanvas.start();
 	}
 
 	/*** Dispose ******************************************************/
 
 	public void dispose() {
-		super.dispose();
-		setVisible(false);
+		cardCanvas.dispose();
+		cardCanvas.setVisible(false);
 	}
 
 	/*** End Judge *************************************************/

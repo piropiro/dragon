@@ -4,10 +4,16 @@ import dragon3.UnitWorks;
 import dragon3.common.Body;
 import dragon3.common.constant.GameColor;
 import dragon3.common.constant.Texts;
-import dragon3.paint.PaintAdapter;
+import dragon3.map.MapWorks;
+import dragon3.paint.EventListener;
+import dragon3.panel.PanelManager;
 
-public class CardPaint extends PaintAdapter {
+public class CardPaint implements EventListener {
 
+	private UnitWorks uw;
+	private MapWorks mw;
+	private PanelManager pm;
+	
 	@SuppressWarnings("unused")
 	private Body ba;
 	@SuppressWarnings("unused")
@@ -23,7 +29,10 @@ public class CardPaint extends PaintAdapter {
 	 * @param bb
 	 */
 	public CardPaint(UnitWorks uw, Body ba, Body bb) {
-		super(uw);
+		this.uw = uw;
+		this.mw = uw.getMapWorks();
+		this.pm = uw.getPanelManager();
+		
 		this.ba = ba;
 		this.bb = bb;
 		uw.displayCardBattle(ba, bb);
@@ -56,6 +65,19 @@ public class CardPaint extends PaintAdapter {
 	public void setSelectBody(Body b) {
 	}
 	public void setSelectPlace(int x, int y) {
+	}
+
+	@Override
+	public boolean isNextPoint(int x, int y) {
+		return false;
+	}
+
+	@Override
+	public void leftReleased() {
+	}
+
+	@Override
+	public void rightReleased() {
 	}
 
 }

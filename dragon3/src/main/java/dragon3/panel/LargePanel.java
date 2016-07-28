@@ -1,23 +1,16 @@
 package dragon3.panel;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
-import javax.swing.Timer;
-
 import dragon3.common.constant.GameColor;
 import mine.event.PaintComponent;
 import mine.event.PaintListener;
 import mine.paint.MineGraphics;
 
-public class LargePanel implements ActionListener, PaintListener {
+public class LargePanel implements PaintListener {
 
 	public static final int WIDTH = 200;
 	public static final int HEIGHT = 100;
 	
 	private PaintComponent panel;
-	
-	private Timer time;
 
 	private String text;
 	
@@ -32,8 +25,6 @@ public class LargePanel implements ActionListener, PaintListener {
 		this.panel = panel;
 
 		panel.setVisible(false);
-		time = new Timer(1000, this);
-		time.setRepeats(false);
 		panel.setFontSize(24);
 		panel.setPaintListener(this);
 	}
@@ -60,8 +51,15 @@ public class LargePanel implements ActionListener, PaintListener {
 		setLocate();
 		panel.setVisible(true);
 		panel.repaint();
-		time.setInitialDelay(sleep);
-		time.restart();
+		
+		new Thread(() -> {
+			try {
+				Thread.sleep(sleep);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			panel.setVisible(false);
+		});
 	}
 
 	/*** Paint **************************************************************/
@@ -80,11 +78,6 @@ public class LargePanel implements ActionListener, PaintListener {
 
 	/*** Dispose ******************************************************/
 
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		panel.setVisible(false);
-	}
-	
 	public void setVisible(boolean flag) {
 		panel.setVisible(flag);
 	}

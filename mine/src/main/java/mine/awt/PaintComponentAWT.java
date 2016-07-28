@@ -4,6 +4,8 @@ import java.awt.Graphics;
 
 import javax.swing.JComponent;
 
+import mine.event.MouseAllListener;
+import mine.event.MouseManager;
 import mine.event.PaintComponent;
 import mine.event.PaintListener;
 
@@ -11,6 +13,7 @@ import mine.event.PaintListener;
 public class PaintComponentAWT extends JComponent implements PaintComponent {
 
 	PaintListener pl;
+	MouseManager mm;
 	
 	public PaintComponentAWT(int width, int height) {
 		super();
@@ -26,6 +29,13 @@ public class PaintComponentAWT extends JComponent implements PaintComponent {
 	
 	public void setPaintListener(PaintListener pl) {
 		this.pl = pl;
+	}
+	
+	public void setMouseAllListener(MouseAllListener mal) {
+		if (mm == null) {
+			mm = new MouseManagerAWT(this);
+		}
+		mm.setMouseAllListener(mal);
 	}
 
 	@Override

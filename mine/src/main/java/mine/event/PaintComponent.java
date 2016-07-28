@@ -3,6 +3,8 @@ package mine.event;
 public interface PaintComponent {
 	public void setPaintListener(PaintListener pl);
 	
+	public void setMouseAllListener(MouseAllListener mal);
+	
 	public void repaint();
 	
 	public void repaint(int x, int y, int w, int h);
