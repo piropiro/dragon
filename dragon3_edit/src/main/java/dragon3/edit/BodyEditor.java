@@ -32,7 +32,7 @@ public class BodyEditor extends EditPanel<BodyData> implements EditListener<Body
 
 		MineImageLoader mil = new ImageLoaderAWT();
 		ImageManager im = new ImageManager(mil);
-		BodyImageList bil = im.getBodyList();
+		BodyImageList bil = im.getBodyImageList();
 
 		setField(CENTER, "id", "ID");
 		setField(CENTER, "name", "名前");

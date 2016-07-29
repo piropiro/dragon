@@ -109,7 +109,7 @@ public abstract class PanelBase implements PanelWorks, PaintListener {
 	@Override
 	public void drawMain(Body ba, MineGraphics g) {
 		g.drawImage(im.getBack()[0], 10, 10);
-		g.drawImage(im.getBodyList().getImage(ba.getImageNum()), 10, 10);
+		g.drawImage(im.getBodyImageList().getImage(ba.getImageNum()), 10, 10);
 		g.drawString(ba.base.getName(), 50, 22);
 		g.drawString("Lv." + ba.getLevel(), 52, 41);
 	}

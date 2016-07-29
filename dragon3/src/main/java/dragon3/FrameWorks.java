@@ -19,10 +19,12 @@ public interface FrameWorks {
 	public static final int T_SCORE = 10;
 	public static final int T_COLLECT = 11;
 	public static final int T_WAZALIST = 12;
+	public static final int T_STAGESELECT = 13;
 
     public void setMenu( int n );
     
     public PaintComponent getMapPanel();
+    public PaintComponent getStageSelectPanel();
     public PaintComponent getAnimePanel();
     public PaintComponent getHPanel1();
     public PaintComponent getHPanel2();

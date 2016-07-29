@@ -71,4 +71,13 @@ public class Statics {
 			throw new RuntimeException(e);
 		}
 	}
+	
+	public static int[][] getStageMapData() {
+        try {
+            int[][] stages = (int[][]) MatrixIO.read(Statics.STAGE_DIR + "stageMap.txt");
+            return stages;
+        } catch (MineException e) {
+            throw new RuntimeException(e);
+        }
+	}
 }

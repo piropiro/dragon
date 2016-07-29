@@ -10,7 +10,6 @@ import dragon3.common.Body;
 import dragon3.common.util.Equip;
 import dragon3.manage.SaveManager;
 import mine.MineException;
-import mine.io.MatrixIO;
 import mine.io.ObjectIO;
 
 public class SaveManagerImpl implements SaveManager {
@@ -18,20 +17,11 @@ public class SaveManagerImpl implements SaveManager {
     private UnitWorks uw;
     private SaveData sd;
     private long startTime;
-    private boolean leftFlag;
-    private int[][] stage;
 
     public SaveManagerImpl(UnitWorks uw) {
         this.uw = uw;
         sd = null;
 
-        try {
-            stage = (int[][]) MatrixIO.read(Statics.STAGE_DIR + "stages.txt");
-
-        } catch (MineException e) {
-            throw new RuntimeException(e);
-        }
-        leftFlag = false;
     }
 
     /**
@@ -92,25 +82,6 @@ public class SaveManagerImpl implements SaveManager {
         return Statics.getMapData("wazalist");
     }
 
-    @Override
-    public int getMapNum() {
-        if (leftFlag) {
-            return stage[sd.getMapNum()][0];
-        } else {
-            return stage[sd.getMapNum()][1];
-        }
-    }
-
-    @Override
-    public boolean isDivided() {
-        return stage[sd.getMapNum()][0] != stage[sd.getMapNum()][1];
-    }
-
-    @Override
-    public void selectLR(boolean flag) {
-        leftFlag = flag;
-    }
-
     /*
      * * Score **************************************************
      */
@@ -138,7 +109,8 @@ public class SaveManagerImpl implements SaveManager {
 
     @Override
     public boolean isFinalStage() {
-        return (getMapNum() == stage[stage.length - 1][0]);
+        //return (getMapNum() == stage[stage.length - 1][0]);
+    	return (sd.getMapNum() == 27);
     }
 
     @Override
@@ -169,6 +141,5 @@ public class SaveManagerImpl implements SaveManager {
             sd.setEnemyLevel(sd.getEnemyLevel() + 1);
             sd.setReverse(!sd.isReverse());
         }
-        sd.setMapNum(getMapNum());
     }
 }

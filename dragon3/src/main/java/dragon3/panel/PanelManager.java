@@ -52,4 +52,7 @@ public interface PanelManager {
 	// LargePanel
 	public void displayLarge(String text, GameColor color, int sleep);
 
+	// StageSelectPanel
+	public void displayStageSelect();
+	public void closeStageSelect();
 }

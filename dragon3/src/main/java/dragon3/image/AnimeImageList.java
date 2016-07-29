@@ -4,6 +4,7 @@
 package dragon3.image;
 
 import java.util.HashMap;
+import java.util.Map;
 
 import mine.MineException;
 import mine.MineUtils;
@@ -18,7 +19,7 @@ public class AnimeImageList {
 	/**
 	 * イメージパスをイメージ番号にマップする。
 	 */
-	private HashMap<String, MineImage[]> map;
+	private Map<String, MineImage[]> map;
 	
 	private String[] pathList;
 	

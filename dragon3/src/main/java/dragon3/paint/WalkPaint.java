@@ -92,8 +92,8 @@ public class WalkPaint implements EventListener {
 		walk(waku.x, waku.y);
 		map.clear(Page.P10, 0);
 		FightManager fm = new FightManager(uw, ba);
-		PaintUtils.setAttackPaint(uw, fm, ba);
 		fm.nextSelect();
+		PaintUtils.setAttackPaint(uw, fm, ba);
 	}
 
 	/**

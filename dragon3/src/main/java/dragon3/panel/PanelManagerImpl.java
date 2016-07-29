@@ -2,6 +2,7 @@ package dragon3.panel;
 
 import card.CardCanvas;
 import dragon3.FrameWorks;
+import dragon3.Statics;
 import dragon3.UnitWorks;
 import dragon3.anime.AnimePanel;
 import dragon3.bean.AnimeData;
@@ -19,6 +20,7 @@ import dragon3.manage.SummonManager;
 import dragon3.manage.TreasureManager;
 import dragon3.manage.TurnManager;
 import dragon3.map.MapPanel;
+import dragon3.stage.StageSelectPanel;
 import lombok.Getter;
 import mine.event.SleepManager;
 import mine.paint.MineImageLoader;
@@ -32,6 +34,7 @@ public class PanelManagerImpl implements PanelManager {
 
 	@Getter private AnimePanel animeP;
 	@Getter private MapPanel mapP;
+	@Getter private StageSelectPanel stageSelectP;
 	@Getter private CardCanvas cardP;
 	private DataPanel dataP1;
 	private DataPanel dataP2;
@@ -60,6 +63,10 @@ public class PanelManagerImpl implements PanelManager {
 
 		// MapPanel
 		mapP = new MapPanel(fw.getMapPanel(), uw, map);
+		
+		// StageSelectPanel
+		stageSelectP = new StageSelectPanel(fw.getStageSelectPanel(), uw, Statics.stageList.getList(), imageManager);
+		stageSelectP.setVisible(false);
 		
 		// HPanel
 		hpP1 = new HPanel(fw.getHPanel1(), sleepManager, true);
@@ -243,6 +250,17 @@ public class PanelManagerImpl implements PanelManager {
 	@Override
 	public void displayLarge(String text, GameColor color, int sleep) {
 		largeP.display(text, color, sleep);
+	}
+	
+	// StageSelectPanel
+	@Override
+	public void displayStageSelect() {
+		stageSelectP.setVisible(true);
+	}
+	
+	@Override
+	public void closeStageSelect() {
+		stageSelectP.setVisible(false);
 	}
 
 	/**

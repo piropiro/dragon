@@ -6,6 +6,7 @@ import java.util.List;
 import mine.event.SleepManager;
 import mine.paint.UnitMap;
 import dragon3.anime.AnimeManager;
+import dragon3.bean.StageData;
 import dragon3.common.Body;
 import dragon3.common.constant.GameColor;
 import dragon3.image.ImageManager;
@@ -30,7 +31,8 @@ public interface UnitWorks {
 	public void backToCamp();
 	public void backFromImogari();
 	public List<Body> loadEnemyData(String file);
-
+	public void stageStart(StageData stageData);
+	
 	/*** Main2 **************************/
 
 	public void dead(Body ba, Body bb);

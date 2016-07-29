@@ -73,6 +73,10 @@ public class FrameWorksMock implements FrameWorks {
 	public PaintComponent getMessagePanel() {
 		return new PaintComponentAWT(MessagePanel.WIDTH, MessagePanel.HEIGHT);
 	}
+	@Override
+	public PaintComponent getStageSelectPanel() {
+		return new PaintComponentAWT(640, 480);
+	}
 
 	@Override
 	public MineImageLoader getImageLoader() {
@@ -85,5 +89,7 @@ public class FrameWorksMock implements FrameWorks {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+
 	
 }

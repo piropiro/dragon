@@ -44,7 +44,7 @@ public class AnimeManagerTest {
 		map.setVisible(Page.P00, true);
 		map.setTile(Page.P00, imageManager.getBack(), -1);
 		map.setVisible(Page.P20, true);
-		map.setTile(Page.P20, imageManager.getBodyList().getImageList(), 0);
+		map.setTile(Page.P20, imageManager.getBodyImageList().getImageList(), 0);
 		map.setVisible(Page.P50, true);
 		map.setTile(Page.P50, imageManager.getStatus(), 0);
 

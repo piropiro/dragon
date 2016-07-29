@@ -34,7 +34,7 @@ public class WazaEditor extends EditPanel<WazaData> implements EditListener<Waza
 
 		MineImageLoader mil = new ImageLoaderAWT();
 		ImageManager im = new ImageManager(mil);
-		BodyImageList bil = im.getBodyList();
+		BodyImageList bil = im.getBodyImageList();
 
 		setField(CENTER, "id", "ID");
 		setField(CENTER, "name", "名前");

@@ -114,7 +114,7 @@ public class DeployEditor extends JFrame implements MainWorks<DeployData>, Comma
 		MineImageLoader mil = new ImageLoaderAWT();
 		map = new UnitMap(3, 20, 15, mil);
 		map.setTile(Page.BACK, imageManager.getBack(), -1);
-		map.setTile(Page.CHARA, imageManager.getBodyList().getImageList(), -1);
+		map.setTile(Page.CHARA, imageManager.getBodyImageList().getImageList(), -1);
 		map.setTile(Page.WAKU, imageManager.getWaku()[2], 0);
 		map.clear(Page.CHARA, -1);
 		map.setVisible(Page.BACK, true);
@@ -142,7 +142,7 @@ public class DeployEditor extends JFrame implements MainWorks<DeployData>, Comma
 		for (DeployData deploy : editList.getList()) {
 
 			BodyData body = (BodyData)Statics.bodyList.getData(deploy.getBodyId());
-			map.setData(Page.CHARA, deploy.getX(), deploy.getY(), imageManager.getBodyList().getNum(body.getImage()));
+			map.setData(Page.CHARA, deploy.getX(), deploy.getY(), imageManager.getBodyImageList().getNum(body.getImage()));
 		}
 
 		try {
@@ -166,7 +166,7 @@ public class DeployEditor extends JFrame implements MainWorks<DeployData>, Comma
 		editList.addData(deploy);
 
 		BodyData body = (BodyData)Statics.bodyList.getData(deploy.getBodyId());
-		map.setData(Page.CHARA, deploy.getX(), deploy.getY(), imageManager.getBodyList().getNum(body.getImage()));
+		map.setData(Page.CHARA, deploy.getX(), deploy.getY(), imageManager.getBodyImageList().getNum(body.getImage()));
 		repaintMap();
 	}
 
@@ -208,7 +208,7 @@ public class DeployEditor extends JFrame implements MainWorks<DeployData>, Comma
 			dstData.remove(deploy);
 			editList.addDataAt(0, deploy);
 			BodyData body = (BodyData)Statics.bodyList.getData(deploy.getBodyId());
-			map.setData(Page.CHARA, deploy.getX(), deploy.getY(), imageManager.getBodyList().getNum(body.getImage()));
+			map.setData(Page.CHARA, deploy.getX(), deploy.getY(), imageManager.getBodyImageList().getNum(body.getImage()));
 			repaintMap();
 		}
 	}

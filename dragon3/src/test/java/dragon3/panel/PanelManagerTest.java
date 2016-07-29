@@ -34,7 +34,7 @@ public class PanelManagerTest extends TestCase {
 			map.setVisible(Page.P00, true);
 			map.setTile(Page.P00, im.getBack(), -1);
 			map.setVisible(Page.P20, true);
-			map.setTile(Page.P20, im.getBodyList().getImageList(), 0);
+			map.setTile(Page.P20, im.getBodyImageList().getImageList(), 0);
 			map.setVisible(Page.P50, true);
 			map.setTile(Page.P50, im.getStatus(), 0);
 			map.setPage(Page.P00, Statics.getMapData("D01"));

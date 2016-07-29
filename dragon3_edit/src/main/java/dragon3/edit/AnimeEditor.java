@@ -23,7 +23,7 @@ public class AnimeEditor extends EditPanel<AnimeData> {
 
 		MineImageLoader mil = new ImageLoaderAWT();
 		ImageManager im = new ImageManager(mil);
-		AnimeImageList ail = im.getAnimeList();
+		AnimeImageList ail = im.getAnimeImageList();
 
 		String[] pathList = ail.getPathList();
 		MineImage[][] imageList = ail.getImageList();

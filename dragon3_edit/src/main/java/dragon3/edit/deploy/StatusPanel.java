@@ -42,7 +42,7 @@ public class StatusPanel extends EditPanel<DeployData> implements EditListener<D
 		try {
 			MineImageLoader mil = new ImageLoaderAWT();
 			ImageManager im = new ImageManager(mil);
-			BodyImageList bil = im.getBodyList();
+			BodyImageList bil = im.getBodyImageList();
 
 			for (int i=0; i<bodyList.size(); i++) {
 				BodyData body = bodyList.get(i);

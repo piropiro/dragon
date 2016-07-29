@@ -246,7 +246,7 @@ public class AnimePanel implements AnimeManager, AnimeWorks, PaintListener {
 	public void singleAnime(AnimeData data, int x, int y) {
 		panel.setBounds(x * 32, y * 32, 32, 32);
 		setVisible(true);
-		MineImage[] image = imageManager.getAnimeList().getImage(data.getImage());
+		MineImage[] image = imageManager.getAnimeImageList().getImage(data.getImage());
 		al = new SingleAnime(image, data.getSleep());
 		al.animation(this);
 		al = null;
@@ -259,7 +259,7 @@ public class AnimePanel implements AnimeManager, AnimeWorks, PaintListener {
 	 */
 	public void allAnime(AnimeData data) {
 		setVisible(true);
-		MineImage[] image = imageManager.getAnimeList().getImage(data.getImage());
+		MineImage[] image = imageManager.getAnimeImageList().getImage(data.getImage());
 		al = new AllAnime(map, image, data.getSleep());
 		al.animation(this);
 		al = null;
@@ -279,7 +279,7 @@ public class AnimePanel implements AnimeManager, AnimeWorks, PaintListener {
 		np = null;
 		panel.setBounds(startX * 32, startY * 32, 32, 32);
 		setVisible(true);
-		MineImage[] image = imageManager.getAnimeList().getImage(data.getImage());
+		MineImage[] image = imageManager.getAnimeImageList().getImage(data.getImage());
 		al = new ArrowAnime(image, data.getSleep(), startX * 32, startY * 32, goalX * 32, goalY * 32);
 		al.animation(this);
 		al = null;
@@ -296,7 +296,7 @@ public class AnimePanel implements AnimeManager, AnimeWorks, PaintListener {
 	public void someArrowAnime(AnimeData data, int x, int y) {
 		np = null;
 		setVisible(true);
-		MineImage[] image = imageManager.getAnimeList().getImage(data.getImage());
+		MineImage[] image = imageManager.getAnimeImageList().getImage(data.getImage());
 		al = new SomeArrowAnime(map, image, data.getSleep(), x*32, y*32);
 		al.animation(this);
 		al = null;
@@ -315,7 +315,7 @@ public class AnimePanel implements AnimeManager, AnimeWorks, PaintListener {
 	public void rotateAnime(AnimeData data, int startX, int startY, int goalX, int goalY) {
 		np = null;
 		setVisible(true);
-		MineImage[] image = imageManager.getAnimeList().getImage(data.getImage());
+		MineImage[] image = imageManager.getAnimeImageList().getImage(data.getImage());
 		al = new RotateAnime(image, data.getSleep(), startX * 32, startY * 32, goalX * 32, goalY * 32);
 		al.animation(this);
 		al = null;

@@ -31,12 +31,6 @@ public interface SaveManager {
 
 	public abstract int[][] getWazalistMap();
 
-	public abstract int getMapNum();
-
-	public abstract boolean isDivided();
-
-	public abstract void selectLR(boolean flag);
-
 	public abstract long getPlayTime();
 
 	/*** Get Data **************************************/
