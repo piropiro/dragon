@@ -57,7 +57,7 @@ public class KakuseiPaint implements EventListener {
 	 * @return
 	 */
 	private Body getKakuseiData() {
-		List<Body> data = uw.loadEnemyData("kakusei");
+		List<Body> data = uw.loadEnemyData("kakusei", 0);
 		return (Body) data.get(0);
 	}
 

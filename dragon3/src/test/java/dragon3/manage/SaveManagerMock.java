@@ -6,74 +6,54 @@ import dragon3.manage.SaveManager;
 
 public class SaveManagerMock implements SaveManager {
 
+	@Override
 	public Equip loadData(String filename) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
+	@Override
 	public void saveData(String filename, Equip equip) {
 		// TODO Auto-generated method stub
-
+		
 	}
 
+	@Override
 	public int[][] getCampMap() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
+	@Override
 	public int[][] getCollectionMap() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
+	@Override
 	public int[][] getWazalistMap() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public int getMapNum() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	public boolean isDivided() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	public void selectLR(boolean flag) {
-		// TODO Auto-generated method stub
-
-	}
-
+	@Override
 	public long getPlayTime() {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
-	public boolean isFirst() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	public boolean isFinalStage() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	public int getEnemyLevel() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
+	@Override
 	public SaveData getSaveData() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public void stageClear() {
+	@Override
+	public void stageClear(String stageId) {
 		// TODO Auto-generated method stub
-
+		
 	}
+
+
 
 }

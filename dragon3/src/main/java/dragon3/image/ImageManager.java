@@ -2,11 +2,13 @@ package dragon3.image;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import dragon3.bean.StageData;
 import lombok.Getter;
 import mine.MineException;
 import mine.MineUtils;
+import mine.paint.MineGraphics;
 import mine.paint.MineImage;
 import mine.paint.MineImageLoader;
 
@@ -29,6 +31,7 @@ public class ImageManager {
 	@Getter private MineImage[] num;
 	
 	@Getter private MineImage[] stageWaku;
+	@Getter private MineImage stageStar;
 
 	
 	public ImageManager(MineImageLoader imageLoader) throws MineException {
@@ -46,6 +49,7 @@ public class ImageManager {
 		bodyImageList = new BodyImageList(BODY_IMAGE_DIR, imageLoader);
 		
 		stageWaku = imageLoader.loadTile(IMAGE_DIR + "stageWaku.png", 128, 96)[0];
+		stageStar = imageLoader.load(IMAGE_DIR + "stageStar.png");
 	}
 
 	public MineImage getImage(String name) {
@@ -65,6 +69,27 @@ public class ImageManager {
 			} catch (MineException e) {
 				throw new RuntimeException(e);
 			}
+		}
+		return list.toArray(new MineImage[0]);
+	}
+	
+	public MineImage[] createStageStatusImageList(List<StageData> stageList, Map<String, Integer> starList) {
+		List<MineImage> list = new ArrayList<>();
+		for (StageData stage : stageList) {		
+			MineImage img = imageLoader.getBuffer(128, 96);
+			MineGraphics g = img.getGraphics();
+			
+			int starNum = 0;
+			if (starList.containsKey(stage.getId())) {
+				starNum = starList.get(stage.getId());
+			}
+			int level = stage.getLevel() + starNum * 10;
+			g.drawString("Lv." + level, 60, 70);
+			
+			for (int i = 1; i <= starNum; i++) {
+				g.drawImage(stageStar, 128 - 30 * i, 60);
+			}
+			list.add(img);
 		}
 		return list.toArray(new MineImage[0]);
 	}

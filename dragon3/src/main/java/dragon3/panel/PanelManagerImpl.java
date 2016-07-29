@@ -1,5 +1,7 @@
 package dragon3.panel;
 
+import java.util.Map;
+
 import card.CardCanvas;
 import dragon3.FrameWorks;
 import dragon3.Statics;
@@ -254,7 +256,8 @@ public class PanelManagerImpl implements PanelManager {
 	
 	// StageSelectPanel
 	@Override
-	public void displayStageSelect() {
+	public void displayStageSelect(Map<String, Integer> starList) {
+		stageSelectP.updateStageStatus(starList);
 		stageSelectP.setVisible(true);
 	}
 	

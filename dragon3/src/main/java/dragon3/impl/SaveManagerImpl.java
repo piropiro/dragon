@@ -2,6 +2,7 @@ package dragon3.impl;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import dragon3.Statics;
 import dragon3.UnitWorks;
@@ -29,7 +30,7 @@ public class SaveManagerImpl implements SaveManager {
      */
     private List<Object> initData() {
         List<Object> list = new ArrayList<>();
-        list.add(uw.loadEnemyData("init"));
+        list.add(uw.loadEnemyData("init", 0));
         list.add(new SaveData());
         return list;
     }
@@ -102,26 +103,6 @@ public class SaveManagerImpl implements SaveManager {
     /*
      * * Get Data *************************************
      */
-    @Override
-    public boolean isFirst() {
-        return (sd.getMapNum() == 0);
-    }
-
-    @Override
-    public boolean isFinalStage() {
-        //return (getMapNum() == stage[stage.length - 1][0]);
-    	return (sd.getMapNum() == 27);
-    }
-
-    @Override
-    public int getEnemyLevel() {
-        if (sd.getEnemyLevel() < 16) {
-            return sd.getEnemyLevel();
-        } else {
-            sd.setEnemyLevel(sd.getEnemyLevel() / 8 - 2);
-            return sd.getEnemyLevel();
-        }
-    }
 
     @Override
     public SaveData getSaveData() {
@@ -132,14 +113,14 @@ public class SaveManagerImpl implements SaveManager {
      * * Stage Clear *******************************************
      */
     @Override
-    public void stageClear() {
+    public void stageClear(String stageId) {
         sd.countStage();
-        if (isFinalStage()) {
-            if (!sd.isAllClear()) {
-                sd.setAllClear(true);
-            }
-            sd.setEnemyLevel(sd.getEnemyLevel() + 1);
-            sd.setReverse(!sd.isReverse());
-        }
+        
+        Map<String, Integer> starList = sd.getStarList();
+        int starNum = starList.containsKey(stageId)? starList.get(stageId) : 0;
+        	
+        starNum += 1;
+        
+        starList.put(stageId, starNum);
     }
 }

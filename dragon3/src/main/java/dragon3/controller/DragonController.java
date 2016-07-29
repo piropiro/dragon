@@ -36,6 +36,7 @@ import dragon3.paint.PaintUtils;
 import dragon3.paint.TitlePaint;
 import dragon3.panel.PanelManager;
 import dragon3.panel.PanelManagerImpl;
+import dragon3.stage.StageManager;
 import lombok.Getter;
 import mine.MineException;
 import mine.MineUtils;
@@ -69,7 +70,7 @@ public class DragonController implements UnitWorks, CommandListener {
 	private Camp camp;
 	private TreasureManager treasure;
 	private SummonManager summon;
-
+	private StageManager stageManager;
 
 	private Point blueCrystal;
 	private Point redCrystal;
@@ -106,6 +107,7 @@ public class DragonController implements UnitWorks, CommandListener {
 		cardManager = new CardManager(panelManager.getCardP(), this, map, panelManager, sleepManager, imageManager);
 		equip = saveManager.loadData("slgs.dat");
 
+		stageManager = panelManager.getStageSelectP();
 
 	}
 
@@ -120,7 +122,7 @@ public class DragonController implements UnitWorks, CommandListener {
 	/*** Setup ***********************************/
 
 	public void startup() {
-		if (saveManager.isFirst()) {
+		if (stageManager.isTutorial()) {
 			panelManager.setHelpVisible(true);
 		}
 		campStart();
@@ -196,7 +198,9 @@ public class DragonController implements UnitWorks, CommandListener {
 		setCrystal();
 		Charas.clear();
 		Players = equip.getPlayers();
-		Enemys = this.loadEnemyData(stageData.getId());
+		String stageId = stageManager.getSelectedStage().getId();
+		int addLevel = saveManager.getSaveData().getStarNum(stageId) * 10;
+		Enemys = this.loadEnemyData(stageData.getId(), addLevel);
 		//randomize(Enemys);
 		reverse(Enemys);
 		treasure = new TreasureManagerImpl(this, Enemys);
@@ -230,7 +234,7 @@ public class DragonController implements UnitWorks, CommandListener {
 
 	private void stageSelect() {
 		fw.setMenu(FrameWorks.T_STAGESELECT);
-		panelManager.displayStageSelect();
+		panelManager.displayStageSelect(saveManager.getSaveData().getStarList());
 	}
 	
 	@Override
@@ -456,12 +460,12 @@ public class DragonController implements UnitWorks, CommandListener {
 		PaintUtils.setWaitPaint(this);
 		panelManager.closeData();
 
-		if (saveManager.isFinalStage()) {
+		if (stageManager.isFinalStage()) {
 			panelManager.displayLarge("ALL CLEAR!!", GameColor.BLUE, 5000);
 		} else {
 			panelManager.displayLarge("STAGE CLEAR", GameColor.BLUE, 5000);
 		}
-		saveManager.stageClear();
+		saveManager.stageClear(stageManager.getSelectedStage().getId());
 		fw.setMenu(FrameWorks.T_CLEAR);
 		panelManager.displayHelp(mw.getWaku(), GameColor.BLUE, Texts.help[Texts.H_CLEAR]);
 	}
@@ -648,8 +652,9 @@ public class DragonController implements UnitWorks, CommandListener {
 	}
 
 	@Override
-	public List<Body> loadEnemyData(String file) {
-		List<Body> bodyList = BodyDataLoader.loadBodyDataList(file);
+	public List<Body> loadEnemyData(String stageId, int addLevel) {
+
+		List<Body> bodyList = BodyDataLoader.loadBodyDataList(stageId, addLevel);
 		
 		for (Body body : bodyList) {
 			body.setImageNum(imageManager.getBodyImageList().getNum(body.base.getImage()));
@@ -716,5 +721,10 @@ public class DragonController implements UnitWorks, CommandListener {
 	@Override
 	public boolean isCardBattleEnd() {
 		return cardManager.isEnd();
+	}
+	
+	@Override
+	public boolean isTutorial() {
+		return stageManager.isTutorial();
 	}
 }

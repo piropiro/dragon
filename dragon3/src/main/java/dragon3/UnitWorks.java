@@ -30,7 +30,7 @@ public interface UnitWorks {
 	public void startup();
 	public void backToCamp();
 	public void backFromImogari();
-	public List<Body> loadEnemyData(String file);
+	public List<Body> loadEnemyData(String file, int starNum);
 	public void stageStart(StageData stageData);
 	
 	/*** Main2 **************************/
@@ -64,5 +64,6 @@ public interface UnitWorks {
 	public void displayCardBattle(Body ba, Body bb);
 	public boolean isCardBattleEnd();
 	
+	public boolean isTutorial();
 
 }

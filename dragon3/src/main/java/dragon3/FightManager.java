@@ -191,7 +191,7 @@ public class FightManager {
 
 		bb = uw.search(p.x, p.y);
 		attack.selectTarget(bb);
-		if (uw.getSaveManager().isFirst()) {
+		if (uw.isTutorial()) {
 			Tutorial.setHelp(ba, bb, n, uw);
 		} else {
 			setHelp(bb != null);

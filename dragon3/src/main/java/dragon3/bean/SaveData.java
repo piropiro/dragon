@@ -1,6 +1,8 @@
 package dragon3.bean;
 
 import java.io.Serializable;
+import java.util.HashMap;
+import java.util.Map;
 
 @lombok.Data
 public class SaveData implements Serializable, Cloneable {
@@ -10,8 +12,6 @@ public class SaveData implements Serializable, Cloneable {
 	private boolean reverse;
 	private boolean allClear;
 	private int score;
-	private int mapNum;
-	private int enemyLevel;
 	private int turn;
 	private int dead;
 	private int kill;
@@ -21,14 +21,14 @@ public class SaveData implements Serializable, Cloneable {
 	private int stage;
 	private long playTime;
 	private String playerName = "Player";
+	private Map<String, Integer> starList = new HashMap<>();
 
 
 	public SaveData copy() {
 		try {
 			return (SaveData) this.clone();
 		} catch (CloneNotSupportedException e) {
-			System.out.println(e);
-			return null;
+			throw new RuntimeException(e);
 		}
 	}
 
@@ -55,5 +55,13 @@ public class SaveData implements Serializable, Cloneable {
 	}
 	public void addTime(long n) {
 		playTime += n;
+	}
+	
+	public int getStarNum(String stageId) {
+		return starList.containsKey(stageId)? starList.get(stageId) : 0;
+	}
+	public void countStarNum(String stageId) {
+		int starNum = getStarNum(stageId);
+		starList.put(stageId, starNum + 1);
 	}
 }

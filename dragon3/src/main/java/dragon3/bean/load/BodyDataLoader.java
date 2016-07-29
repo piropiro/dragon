@@ -14,15 +14,15 @@ import dragon3.common.Body;
 
 public class BodyDataLoader {
 
-	public static List<Body> loadBodyDataList(String file) {
+	public static List<Body> loadBodyDataList(String stageId, int addLevel) {
 		
 		List<Body> enemyList = new ArrayList<>();
 		
-		List<DeployData> deployList = Statics.getDeployData(file);
+		List<DeployData> deployList = Statics.getDeployData(stageId);
 		for (DeployData deploy : deployList) {
 			
 			Body body = loadBodyData(deploy.getBodyId());
-			calcLevel(body, deploy.getLevel());
+			calcLevel(body, deploy.getLevel() + addLevel);
 
 			body.setDeployType(deploy.getDeployType());
 			body.setColor(deploy.getDeployType().getColor());

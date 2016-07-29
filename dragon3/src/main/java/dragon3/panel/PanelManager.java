@@ -3,6 +3,8 @@
  */
 package dragon3.panel;
 
+import java.util.Map;
+
 import dragon3.common.Body;
 import dragon3.common.constant.GameColor;
 import dragon3.common.util.Equip;
@@ -53,6 +55,6 @@ public interface PanelManager {
 	public void displayLarge(String text, GameColor color, int sleep);
 
 	// StageSelectPanel
-	public void displayStageSelect();
+	public void displayStageSelect(Map<String, Integer> starList);
 	public void closeStageSelect();
 }
