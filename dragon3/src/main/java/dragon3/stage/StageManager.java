@@ -1,6 +1,6 @@
 package dragon3.stage;
 
-import dragon3.bean.StageData;
+import dragon3.data.StageData;
 
 public interface StageManager {
 

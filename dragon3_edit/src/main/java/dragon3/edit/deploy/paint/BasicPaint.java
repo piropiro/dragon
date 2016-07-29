@@ -1,6 +1,6 @@
 package dragon3.edit.deploy.paint;
 
-import dragon3.bean.DeployData;
+import dragon3.data.DeployData;
 import dragon3.edit.deploy.MainWorks;
 import dragon3.edit.deploy.Page;
 import mine.paint.UnitMap;

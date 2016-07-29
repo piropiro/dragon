@@ -1,8 +1,8 @@
 package dragon3.manage;
 
-import dragon3.bean.SaveData;
-import dragon3.common.util.Equip;
-import dragon3.manage.SaveManager;
+import dragon3.camp.Equip;
+import dragon3.save.SaveData;
+import dragon3.save.SaveManager;
 
 public class SaveManagerMock implements SaveManager {
 
@@ -18,23 +18,6 @@ public class SaveManagerMock implements SaveManager {
 		
 	}
 
-	@Override
-	public int[][] getCampMap() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public int[][] getCollectionMap() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public int[][] getWazalistMap() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	@Override
 	public long getPlayTime() {

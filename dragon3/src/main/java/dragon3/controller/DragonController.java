@@ -4,39 +4,38 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-import dragon3.FrameWorks;
-import dragon3.Level;
-import dragon3.RewalkManager;
 import dragon3.Statics;
-import dragon3.UnitWorks;
 import dragon3.anime.AnimeManager;
-import dragon3.bean.StageData;
-import dragon3.bean.load.BodyDataLoader;
 import dragon3.camp.Camp;
+import dragon3.camp.Equip;
 import dragon3.card.CardManager;
 import dragon3.common.Body;
 import dragon3.common.constant.BodyAttribute;
 import dragon3.common.constant.GameColor;
 import dragon3.common.constant.Page;
 import dragon3.common.constant.Texts;
-import dragon3.common.util.Equip;
 import dragon3.common.util.MoveUtils;
+import dragon3.data.StageData;
+import dragon3.data.load.BodyDataLoader;
 import dragon3.image.ImageManager;
-import dragon3.impl.SaveManagerImpl;
-import dragon3.impl.SummonManagerImpl;
-import dragon3.impl.TreasureManagerImpl;
-import dragon3.impl.TurnManagerImpl;
-import dragon3.manage.SaveManager;
+import dragon3.manage.LevelManager;
+import dragon3.manage.RewalkManager;
 import dragon3.manage.SummonManager;
+import dragon3.manage.SummonManagerImpl;
 import dragon3.manage.TreasureManager;
+import dragon3.manage.TreasureManagerImpl;
 import dragon3.manage.TurnManager;
+import dragon3.manage.TurnManagerImpl;
 import dragon3.map.MapWorks;
 import dragon3.paint.BasicPaint;
 import dragon3.paint.PaintUtils;
 import dragon3.paint.TitlePaint;
 import dragon3.panel.PanelManager;
 import dragon3.panel.PanelManagerImpl;
+import dragon3.save.SaveManager;
+import dragon3.save.SaveManagerImpl;
 import dragon3.stage.StageManager;
+import dragon3.view.FrameWorks;
 import lombok.Getter;
 import mine.MineException;
 import mine.MineUtils;
@@ -176,7 +175,7 @@ public class DragonController implements UnitWorks, CommandListener {
 	private void Camp() {
 		Charas.clear();
 		camp = new Camp(this, treasure, equip);
-		camp.repaint(saveManager.getCampMap());
+		camp.repaint(Statics.getCampMap());
 		PaintUtils.setCampPaint(this, camp);
 		panelManager.getCardP().setVisible(false);
 		mw.repaint();
@@ -352,7 +351,7 @@ public class DragonController implements UnitWorks, CommandListener {
 
 	public void levelup(Body ba) {
 		if (ba != null && GameColor.isPlayer(ba)) {
-			new Level(equip, panelManager).levelup(ba);
+			new LevelManager(equip, panelManager).levelup(ba);
 		}
 	}
 
@@ -552,7 +551,7 @@ public class DragonController implements UnitWorks, CommandListener {
 		panelManager.closeData();
 		fw.setMenu(FrameWorks.T_CAMP);
 		PaintUtils.setCampPaint(this, camp);
-		camp.repaint(saveManager.getCampMap());
+		camp.repaint(Statics.getCampMap());
 		mw.repaint();
 	}
 	

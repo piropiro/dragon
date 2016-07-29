@@ -3,12 +3,12 @@ package dragon3.paint;
 import mine.util.Point;
 import java.util.List;
 
-import dragon3.UnitWorks;
 import dragon3.common.Body;
 import dragon3.common.constant.GameColor;
 import dragon3.common.constant.Page;
 import dragon3.common.constant.Texts;
 import dragon3.common.util.MoveUtils;
+import dragon3.controller.UnitWorks;
 import dragon3.map.MapWorks;
 import dragon3.panel.PanelManager;
 import mine.paint.UnitMap;

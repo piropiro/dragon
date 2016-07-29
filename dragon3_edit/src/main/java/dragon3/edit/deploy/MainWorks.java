@@ -2,7 +2,7 @@ package dragon3.edit.deploy;
 
 import java.util.List;
 
-import dragon3.bean.Data;
+import dragon3.data.Data;
 
 public interface MainWorks<D extends Data> {
 

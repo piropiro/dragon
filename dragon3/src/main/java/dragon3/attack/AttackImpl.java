@@ -1,4 +1,4 @@
-package dragon3.impl;
+package dragon3.attack;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -8,12 +8,11 @@ import dragon3.attack.calc.Damage;
 import dragon3.attack.calc.DamageRate;
 import dragon3.attack.calc.HitRate;
 import dragon3.attack.special.SpecialEffectManager;
-import dragon3.bean.WazaData;
 import dragon3.common.Body;
 import dragon3.common.constant.AttackEffect;
 import dragon3.common.constant.GameColor;
+import dragon3.data.WazaData;
 import dragon3.common.constant.BodyAttribute;
-import dragon3.manage.Attack;
 import lombok.Getter;
 import lombok.Setter;
 import mine.paint.UnitMap;

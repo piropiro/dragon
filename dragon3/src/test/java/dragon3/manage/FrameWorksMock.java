@@ -1,13 +1,13 @@
 package dragon3.manage;
 
 import card.CardCanvas;
-import dragon3.FrameWorks;
 import dragon3.panel.DataPanel;
 import dragon3.panel.HPanel;
 import dragon3.panel.HelpPanel;
 import dragon3.panel.LargePanel;
 import dragon3.panel.MessagePanel;
 import dragon3.panel.SmallPanel;
+import dragon3.view.FrameWorks;
 import mine.awt.PaintComponentAWT;
 import mine.event.PaintComponent;
 import mine.event.SleepManager;

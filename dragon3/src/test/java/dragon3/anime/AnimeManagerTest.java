@@ -22,11 +22,11 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import dragon3.Statics;
-import dragon3.bean.AnimeData;
-import dragon3.bean.load.AnimeDataLoader;
 import dragon3.common.DataList;
 import dragon3.common.constant.Page;
 import dragon3.common.util.MoveUtils;
+import dragon3.data.AnimeData;
+import dragon3.data.load.AnimeDataLoader;
 import dragon3.image.ImageManager;
 
 public class AnimeManagerTest {

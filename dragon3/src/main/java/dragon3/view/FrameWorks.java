@@ -1,4 +1,4 @@
-package dragon3;
+package dragon3.view;
 
 
 import mine.event.PaintComponent;

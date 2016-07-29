@@ -1,4 +1,4 @@
-package dragon3.common.util;
+package dragon3.camp;
 
 import java.util.ArrayList;
 import java.util.HashMap;

@@ -1,10 +1,10 @@
-package dragon3.bean.load;
+package dragon3.data.load;
 
 import java.util.Arrays;
 import java.util.List;
 
-import dragon3.bean.AnimeData;
 import dragon3.common.DataList;
+import dragon3.data.AnimeData;
 
 public class AnimeDataLoader {
 	private static final String ANIME_DIR = "dragon3/data/anime/";

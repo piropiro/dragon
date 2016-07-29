@@ -5,11 +5,11 @@ package dragon3.panel;
 
 import java.util.Map;
 
+import dragon3.attack.Attack;
+import dragon3.camp.Equip;
 import dragon3.common.Body;
 import dragon3.common.constant.GameColor;
-import dragon3.common.util.Equip;
-import dragon3.manage.Attack;
-import dragon3.manage.SaveManager;
+import dragon3.save.SaveManager;
 import mine.util.Point;
 
 /**

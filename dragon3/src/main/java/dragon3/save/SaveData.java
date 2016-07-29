@@ -1,4 +1,4 @@
-package dragon3.bean;
+package dragon3.save;
 
 import java.io.Serializable;
 import java.util.HashMap;

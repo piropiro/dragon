@@ -1,16 +1,15 @@
-package dragon3.impl;
+package dragon3.manage;
 
 import mine.util.Point;
 import java.util.ArrayList;
 import java.util.List;
 
-import dragon3.UnitWorks;
 import dragon3.anime.AnimeManager;
 import dragon3.common.Body;
 import dragon3.common.constant.Page;
 import dragon3.common.constant.Texts;
 import dragon3.common.util.MoveUtils;
-import dragon3.manage.TreasureManager;
+import dragon3.controller.UnitWorks;
 import dragon3.panel.PanelManager;
 import mine.event.SleepManager;
 import mine.paint.UnitMap;

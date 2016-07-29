@@ -7,9 +7,9 @@ package dragon3.panel.paint;
 import java.util.HashSet;
 import java.util.Set;
 
-import dragon3.bean.WazaData;
 import dragon3.common.constant.AttackEffect;
 import dragon3.common.constant.Texts;
+import dragon3.data.WazaData;
 import dragon3.panel.PanelWorks;
 import mine.paint.MineGraphics;
 import mine.paint.MineImage;

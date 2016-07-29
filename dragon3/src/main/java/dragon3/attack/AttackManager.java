@@ -1,4 +1,4 @@
-package dragon3.manage;
+package dragon3.attack;
 
 import java.util.List;
 

@@ -5,8 +5,8 @@ import java.util.List;
 import java.util.Map;
 
 import dragon3.Statics;
-import dragon3.UnitWorks;
-import dragon3.bean.StageData;
+import dragon3.controller.UnitWorks;
+import dragon3.data.StageData;
 import dragon3.image.ImageManager;
 import lombok.Getter;
 import mine.event.MouseAllListener;

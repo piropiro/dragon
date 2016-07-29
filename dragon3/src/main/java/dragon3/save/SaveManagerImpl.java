@@ -1,15 +1,12 @@
-package dragon3.impl;
+package dragon3.save;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import dragon3.Statics;
-import dragon3.UnitWorks;
-import dragon3.bean.SaveData;
+import dragon3.camp.Equip;
 import dragon3.common.Body;
-import dragon3.common.util.Equip;
-import dragon3.manage.SaveManager;
+import dragon3.controller.UnitWorks;
 import mine.MineException;
 import mine.io.ObjectIO;
 
@@ -63,26 +60,7 @@ public class SaveManagerImpl implements SaveManager {
         }
         timerReset();
     }
-
-    /**
-     * * DataLoad *****************************
-     * @return 
-     */
-    @Override
-    public int[][] getCampMap() {
-        return Statics.getMapData("init");
-    }
-
-    @Override
-    public int[][] getCollectionMap() {
-        return Statics.getMapData("collection");
-    }
-
-    @Override
-    public int[][] getWazalistMap() {
-        return Statics.getMapData("wazalist");
-    }
-
+   
     /*
      * * Score **************************************************
      */

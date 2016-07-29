@@ -3,13 +3,13 @@ package dragon3.edit;
 import java.util.Map;
 
 import dragon3.Statics;
-import dragon3.bean.BodyData;
 import dragon3.common.constant.ArmorType;
 import dragon3.common.constant.BodyAttribute;
 import dragon3.common.constant.BodyKind;
 import dragon3.common.constant.MoveType;
 import dragon3.common.constant.SoulType;
 import dragon3.common.constant.WeponType;
+import dragon3.data.BodyData;
 import dragon3.image.BodyImageList;
 import dragon3.image.ImageManager;
 import mine.awt.ImageLoaderAWT;

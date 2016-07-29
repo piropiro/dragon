@@ -1,9 +1,7 @@
-package dragon3.impl;
+package dragon3.manage;
 
 import java.util.List;
 
-import dragon3.FrameWorks;
-import dragon3.UnitWorks;
 import dragon3.anime.AnimeManager;
 import dragon3.common.Body;
 import dragon3.common.constant.GameColor;
@@ -11,10 +9,11 @@ import dragon3.common.constant.MoveType;
 import dragon3.common.constant.Page;
 import dragon3.common.constant.BodyAttribute;
 import dragon3.common.util.MoveUtils;
+import dragon3.controller.UnitWorks;
 import dragon3.cpu.EnemyTurn;
-import dragon3.manage.TurnManager;
 import dragon3.paint.PaintUtils;
 import dragon3.view.DragonFrame;
+import dragon3.view.FrameWorks;
 import mine.paint.UnitMap;
 
 public class TurnManagerImpl implements TurnManager {

@@ -1,4 +1,4 @@
-package dragon3.bean.load;
+package dragon3.data.load;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
@@ -8,9 +8,9 @@ import org.apache.commons.beanutils.BeanUtils;
 
 import dragon3.Statics;
 import dragon3.attack.calc.HitRate;
-import dragon3.bean.BodyData;
-import dragon3.bean.DeployData;
 import dragon3.common.Body;
+import dragon3.data.BodyData;
+import dragon3.data.DeployData;
 
 public class BodyDataLoader {
 

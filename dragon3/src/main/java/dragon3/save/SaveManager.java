@@ -1,7 +1,6 @@
-package dragon3.manage;
+package dragon3.save;
 
-import dragon3.bean.SaveData;
-import dragon3.common.util.Equip;
+import dragon3.camp.Equip;
 
 public interface SaveManager {
 
@@ -10,11 +9,6 @@ public interface SaveManager {
 	public void saveData(String filename, Equip equip);
 
 	/*** DataLoad ******************************/
-	public int[][] getCampMap();
-
-	public int[][] getCollectionMap();
-
-	public int[][] getWazalistMap();
 
 	public long getPlayTime();
 

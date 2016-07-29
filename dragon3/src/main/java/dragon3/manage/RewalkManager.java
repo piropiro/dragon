@@ -1,7 +1,8 @@
-package dragon3;
+package dragon3.manage;
 
 import dragon3.common.Body;
 import dragon3.common.constant.Page;
+import dragon3.controller.UnitWorks;
 import dragon3.map.MapWorks;
 import dragon3.paint.PaintUtils;
 import dragon3.panel.PanelManager;

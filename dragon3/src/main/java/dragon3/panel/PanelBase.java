@@ -3,12 +3,12 @@ package dragon3.panel;
 import mine.util.Point;
 import java.util.StringTokenizer;
 
-import dragon3.Level;
+import dragon3.attack.Attack;
 import dragon3.common.Body;
 import dragon3.common.constant.GameColor;
 import dragon3.common.constant.Texts;
 import dragon3.image.ImageManager;
-import dragon3.manage.Attack;
+import dragon3.manage.LevelManager;
 import dragon3.panel.item.EXPBar;
 import dragon3.panel.item.HPBar;
 import mine.event.PaintComponent;
@@ -51,7 +51,7 @@ public abstract class PanelBase implements PanelWorks, PaintListener {
 	}
 	
 	public void setEXPBar(Body b) {
-		expb.setup(b.getExp(), Level.MAX_EXP);
+		expb.setup(b.getExp(), LevelManager.MAX_EXP);
 	}
 
 	public void setHPBar(Body b, Attack attack) {

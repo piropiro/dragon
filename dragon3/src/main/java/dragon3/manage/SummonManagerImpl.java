@@ -1,17 +1,16 @@
-package dragon3.impl;
+package dragon3.manage;
 
 import mine.util.Point;
 import java.util.ArrayList;
 import java.util.List;
 
 import mine.paint.UnitMap;
-import dragon3.UnitWorks;
 import dragon3.anime.AnimeManager;
 import dragon3.common.Body;
 import dragon3.common.constant.DeployType;
 import dragon3.common.constant.Page;
 import dragon3.common.util.MoveUtils;
-import dragon3.manage.SummonManager;
+import dragon3.controller.UnitWorks;
 
 public class SummonManagerImpl implements SummonManager {
 	private List<Body> devils;

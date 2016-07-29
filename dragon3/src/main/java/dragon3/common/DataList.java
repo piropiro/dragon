@@ -7,7 +7,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-import dragon3.bean.Data;
+import dragon3.data.Data;
 import mine.MineException;
 import mine.io.JsonIO;
 

@@ -1,4 +1,4 @@
-package dragon3;
+package dragon3.attack;
 
 import mine.util.Point;
 import java.util.List;
@@ -11,9 +11,9 @@ import dragon3.common.constant.AttackEffect;
 import dragon3.common.constant.GameColor;
 import dragon3.common.constant.Page;
 import dragon3.common.constant.Texts;
+import dragon3.common.util.Tutorial;
+import dragon3.controller.UnitWorks;
 import dragon3.common.constant.BodyAttribute;
-import dragon3.impl.AttackManagerImpl;
-import dragon3.manage.AttackManager;
 import dragon3.map.MapWorks;
 import dragon3.paint.PaintUtils;
 import dragon3.paint.TalkPaint;

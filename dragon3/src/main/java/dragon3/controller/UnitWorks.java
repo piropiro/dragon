@@ -1,4 +1,4 @@
-package dragon3;
+package dragon3.controller;
 
 import mine.util.Point;
 import java.util.List;
@@ -6,14 +6,16 @@ import java.util.List;
 import mine.event.SleepManager;
 import mine.paint.UnitMap;
 import dragon3.anime.AnimeManager;
-import dragon3.bean.StageData;
 import dragon3.common.Body;
 import dragon3.common.constant.GameColor;
+import dragon3.data.StageData;
 import dragon3.image.ImageManager;
-import dragon3.manage.SaveManager;
+import dragon3.manage.RewalkManager;
 import dragon3.manage.TurnManager;
 import dragon3.map.MapWorks;
 import dragon3.panel.PanelManager;
+import dragon3.save.SaveManager;
+import dragon3.view.FrameWorks;
 
 public interface UnitWorks {
 

@@ -1,7 +1,7 @@
 /*
  * 作成日: 2004/03/07
  */
-package dragon3.bean;
+package dragon3.data;
 
 import dragon3.common.constant.AnimeType;
 

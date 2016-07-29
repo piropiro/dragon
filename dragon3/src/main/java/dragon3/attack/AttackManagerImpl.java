@@ -1,13 +1,11 @@
-package dragon3.impl;
+package dragon3.attack;
 
 import mine.util.Point;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
 
-import dragon3.RewalkManager;
 import dragon3.Statics;
-import dragon3.UnitWorks;
 import dragon3.anime.AnimeManager;
 import dragon3.attack.calc.Damage;
 import dragon3.attack.calc.DamageRate;
@@ -25,15 +23,16 @@ import dragon3.attack.target.LaserTarget;
 import dragon3.attack.target.PointTarget;
 import dragon3.attack.target.SpreadTarget;
 import dragon3.attack.target.Target;
-import dragon3.bean.AnimeData;
-import dragon3.bean.WazaData;
 import dragon3.common.Body;
 import dragon3.common.constant.AttackEffect;
 import dragon3.common.constant.Page;
 import dragon3.common.constant.TargetType;
 import dragon3.common.constant.BodyAttribute;
 import dragon3.common.util.Luck;
-import dragon3.manage.AttackManager;
+import dragon3.controller.UnitWorks;
+import dragon3.data.AnimeData;
+import dragon3.data.WazaData;
+import dragon3.manage.RewalkManager;
 import dragon3.panel.PanelManager;
 import mine.MineUtils;
 import mine.event.SleepManager;

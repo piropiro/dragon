@@ -11,7 +11,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import dragon3.bean.StageData;
+import dragon3.data.StageData;
 import mine.io.BeanIO;
 import net.arnx.jsonic.JSON;
 

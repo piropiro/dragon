@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import dragon3.bean.StageData;
+import dragon3.data.StageData;
 import lombok.Getter;
 import mine.MineException;
 import mine.MineUtils;

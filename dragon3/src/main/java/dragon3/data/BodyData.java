@@ -1,7 +1,7 @@
 /*
  * 作成日: 2004/03/06
  */
-package dragon3.bean;
+package dragon3.data;
 
 import java.util.ArrayList;
 import java.util.List;

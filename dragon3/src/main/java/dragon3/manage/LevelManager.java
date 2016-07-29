@@ -1,18 +1,19 @@
-package dragon3;
+package dragon3.manage;
 
 import java.util.List;
 import java.util.Map;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
 
-import dragon3.bean.WazaData;
+import dragon3.Statics;
+import dragon3.camp.Equip;
 import dragon3.common.Body;
 import dragon3.common.constant.BodyKind;
 import dragon3.common.constant.Texts;
-import dragon3.common.util.Equip;
+import dragon3.data.WazaData;
 import dragon3.panel.PanelManager;
 
-public class Level {
+public class LevelManager {
 
 	public static final int MAX_EXP = 100;
 	
@@ -21,7 +22,7 @@ public class Level {
 
 	/*** Level Up **************************************/
 
-	public Level(Equip equip, PanelManager pm) {
+	public LevelManager(Equip equip, PanelManager pm) {
 		this.equip = equip;
 		this.pm = pm;
 	}

@@ -1,9 +1,9 @@
 package dragon3.edit;
 
+import dragon3.data.StageData;
 import mine.edit.BeanEditor;
 import mine.edit.EditListener;
 import mine.edit.EditPanel;
-import dragon3.bean.StageData;
 
 public class StageEditor extends EditPanel<StageData> implements EditListener<StageData> {
 

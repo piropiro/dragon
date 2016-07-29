@@ -3,9 +3,9 @@ package dragon3.edit.deploy;
 import java.util.List;
 
 import dragon3.Statics;
-import dragon3.bean.BodyData;
-import dragon3.bean.DeployData;
 import dragon3.common.constant.DeployType;
+import dragon3.data.BodyData;
+import dragon3.data.DeployData;
 import dragon3.image.BodyImageList;
 import dragon3.image.ImageManager;
 import mine.MineException;

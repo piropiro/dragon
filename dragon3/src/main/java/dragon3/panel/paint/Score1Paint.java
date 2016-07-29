@@ -6,11 +6,11 @@ package dragon3.panel.paint;
 
 import mine.paint.MineGraphics;
 import mine.paint.MineImage;
-import dragon3.bean.SaveData;
 import dragon3.common.constant.Texts;
 import dragon3.common.util.MoveUtils;
-import dragon3.manage.SaveManager;
 import dragon3.panel.PanelWorks;
+import dragon3.save.SaveData;
+import dragon3.save.SaveManager;
 
 /**
  * @author saito

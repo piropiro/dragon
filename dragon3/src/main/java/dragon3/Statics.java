@@ -3,11 +3,11 @@ package dragon3;
 import java.util.Arrays;
 import java.util.List;
 
-import dragon3.bean.BodyData;
-import dragon3.bean.DeployData;
-import dragon3.bean.StageData;
-import dragon3.bean.WazaData;
 import dragon3.common.DataList;
+import dragon3.data.BodyData;
+import dragon3.data.DeployData;
+import dragon3.data.StageData;
+import dragon3.data.WazaData;
 import mine.MineException;
 import mine.io.JsonIO;
 import mine.io.MatrixIO;
@@ -80,4 +80,18 @@ public class Statics {
             throw new RuntimeException(e);
         }
 	}
+	
+    /*** DataLoad ******************************/
+ 
+    public static int[][] getCampMap() {
+        return Statics.getMapData("init");
+    }
+
+    public static int[][] getCollectionMap() {
+        return Statics.getMapData("collection");
+    }
+
+    public static int[][] getWazalistMap() {
+        return Statics.getMapData("wazalist");
+    }
 }

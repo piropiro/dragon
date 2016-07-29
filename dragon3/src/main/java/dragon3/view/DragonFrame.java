@@ -12,7 +12,6 @@ import javax.swing.JFrame;
 import javax.swing.JLayeredPane;
 
 import card.CardCanvas;
-import dragon3.FrameWorks;
 import dragon3.controller.CommandListener;
 import dragon3.panel.DataPanel;
 import dragon3.panel.HPanel;
