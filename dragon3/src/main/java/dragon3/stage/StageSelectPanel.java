@@ -69,12 +69,7 @@ public class StageSelectPanel implements StageManager, MouseAllListener, PaintLi
 	public void updateStageStatus(Map<String, Integer> starList) {
 		stageMap.setTile(P_STATUS, imageManager.createStageStatusImageList(stageList, starList), -1);
 	}
-	
-	@Override
-	public boolean isTutorial() {
-		return stageList.indexOf(selectedStage.getId()) == 0;
-	}
-	
+		
 	@Override
 	public boolean isFinalStage() {
 		return stageList.indexOf(selectedStage.getId()) == stageList.size() - 1;

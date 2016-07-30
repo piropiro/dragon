@@ -121,7 +121,7 @@ public class DragonController implements UnitWorks, CommandListener {
 	/*** Setup ***********************************/
 
 	public void startup() {
-		if (stageManager.isTutorial()) {
+		if (isTutorial()) {
 			panelManager.setHelpVisible(true);
 		}
 		campStart();
@@ -724,6 +724,6 @@ public class DragonController implements UnitWorks, CommandListener {
 	
 	@Override
 	public boolean isTutorial() {
-		return stageManager.isTutorial();
+		return saveManager.getSaveData().getStage() == 0;
 	}
 }

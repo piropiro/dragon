@@ -36,7 +36,4 @@ public class SaveManagerMock implements SaveManager {
 		// TODO Auto-generated method stub
 		
 	}
-
-
-
 }
