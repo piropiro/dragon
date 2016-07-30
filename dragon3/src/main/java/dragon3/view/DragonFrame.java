@@ -167,6 +167,15 @@ public class DragonFrame implements FrameWorks, ActionListener, KeyListener {
 				mb.addItem("HELP", "help", KeyEvent.VK_H);
 				mb.addItem("SCORE", "score", KeyEvent.VK_G);
 				break;
+			case T_STAGESELECT:
+				mb.add("BACK", "camp", KeyEvent.VK_B);
+				mb.add("HELP", "help", KeyEvent.VK_H);
+				break;
+			case T_SETMENS :
+				mb.add("BACK", "stage", KeyEvent.VK_B);
+				mb.add("START", "start", KeyEvent.VK_S);
+				mb.add("HELP", "help", KeyEvent.VK_H);
+				break;
 			case T_COLLECT :
 				mb.add("BACK", "back", KeyEvent.VK_B);
 				mb.add("HELP", "help", KeyEvent.VK_H);
@@ -177,11 +186,7 @@ public class DragonFrame implements FrameWorks, ActionListener, KeyListener {
 				mb.add("LOAD", "mapload", KeyEvent.VK_Q);
 				mb.add("HELP", "help", KeyEvent.VK_H);
 				break;
-			case T_SETMENS :
-				mb.add("START", "start", KeyEvent.VK_S);
-				mb.add("CAMP", "camp", KeyEvent.VK_A);
-				mb.add("HELP", "help", KeyEvent.VK_H);
-				break;
+
 			case T_ENEMY :
 				mb.add("NONE", "none", KeyEvent.VK_N);
 				break;
@@ -193,9 +198,6 @@ public class DragonFrame implements FrameWorks, ActionListener, KeyListener {
 				mb.add("LOAD", "mapload", KeyEvent.VK_Q);
 				mb.add("HELP", "help", KeyEvent.VK_H);
 				break;
-			case T_STAGESELECT:
-				mb.add("CAMP", "camp", KeyEvent.VK_A);
-				mb.add("HELP", "help", KeyEvent.VK_H);
 		}
 		frame.setJMenuBar(mb);
 		mb.repaint();

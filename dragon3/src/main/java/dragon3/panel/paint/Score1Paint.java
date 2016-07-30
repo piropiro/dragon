@@ -4,35 +4,33 @@
 package dragon3.panel.paint;
 
 
-import mine.paint.MineGraphics;
-import mine.paint.MineImage;
 import dragon3.common.constant.Texts;
 import dragon3.common.util.MoveUtils;
 import dragon3.panel.PanelWorks;
 import dragon3.save.SaveData;
-import dragon3.save.SaveManager;
+import mine.paint.MineGraphics;
+import mine.paint.MineImage;
 
 /**
  * @author saito
  */
 public class Score1Paint implements DataPanelPainter {
 
-	private SaveManager sm;
+	private SaveData sd;
 	private MineImage[] back;
 
-	public Score1Paint(SaveManager sm, MineImage[] back) {
-		this.sm = sm;
+	public Score1Paint(SaveData sd, MineImage[] back) {
+		this.sd = sd;
 		this.back = back;
 	}
 
 	public void paint(PanelWorks pw, MineGraphics g) {
-		SaveData sd = sm.getSaveData();
 		g.drawImage(back[MoveUtils.C_BLUE], 10, 10);
 		g.drawString(sd.getPlayerName(), 50, 32);
-		pw.drawLine(Texts.sp[24] + sd.getStage(), 0, 0, g);
+		pw.drawLine(Texts.sp[24] + sd.sumStars(), 0, 0, g);
 		pw.drawLine(Texts.sp[25] + sd.getItem(), 0, 1, g);
 		pw.drawLine(Texts.sp[26] + sd.getKill(), 0, 2, g);
-		long time = sm.getPlayTime();
+		long time = sd.getPlayTime();
 		long hour = time / 3600000;
 		long min = time % 3600000 / 60000;
 		long sec = time % 60000 / 1000;

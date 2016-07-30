@@ -1,7 +1,5 @@
 package dragon3.panel;
 
-import mine.util.Point;
-
 import dragon3.Statics;
 import dragon3.attack.Attack;
 import dragon3.camp.Equip;
@@ -25,10 +23,11 @@ import dragon3.panel.paint.SummonPaint;
 import dragon3.panel.paint.TypeListPaint;
 import dragon3.panel.paint.WazaListPaint;
 import dragon3.panel.paint.WazaPaint;
-import dragon3.save.SaveManager;
+import dragon3.save.SaveData;
 import mine.event.PaintComponent;
 import mine.event.SleepManager;
 import mine.paint.MineGraphics;
+import mine.util.Point;
 
 public class DataPanel extends PanelBase {
 
@@ -55,18 +54,18 @@ public class DataPanel extends PanelBase {
 
 	/*** Score *******************************************/
 
-	public void displayScore1(SaveManager save) {
+	public void displayScore1(SaveData sd) {
 		bgcolor = GameColor.BLUE;
 		setLocate(new Point(2, 1), 1);
-		pp = new Score1Paint(save, im.getBack());
+		pp = new Score1Paint(sd, im.getBack());
 		panel.repaint();
 		panel.setVisible(true);
 	}
 
-	public void displayScore2(Equip equip, SaveManager save) {
+	public void displayScore2(Equip equip, SaveData sd) {
 		bgcolor = GameColor.BLUE;
 		setLocate(new Point(3, 1), 1);
-		pp = new Score2Paint(equip, save);
+		pp = new Score2Paint(equip, sd);
 		panel.repaint();
 		panel.setVisible(true);
 	}

@@ -233,7 +233,7 @@ public class DragonController implements UnitWorks, CommandListener {
 
 	private void stageSelect() {
 		fw.setMenu(FrameWorks.T_STAGESELECT);
-		panelManager.displayStageSelect(saveManager.getSaveData().getStarList());
+		panelManager.displayStageSelect(saveManager.getSaveData());
 	}
 	
 	@Override
@@ -435,7 +435,7 @@ public class DragonController implements UnitWorks, CommandListener {
 					return false;
 			}
 		}
-		gameClear();
+		stageClear();
 		return true;
 	}
 	private boolean blueJudge2(Body ba) {
@@ -448,13 +448,13 @@ public class DragonController implements UnitWorks, CommandListener {
 
 		map.fillDia(Page.P00, ba.getX(), ba.getY(), 1, MoveUtils.C_REDC);
 		if (GameColor.isPlayer(ba))
-			gameClear();
+			stageClear();
 		else
 			gameOver();
 		return true;
 	}
 
-	private void gameClear() {
+	private void stageClear() {
 		treasure.getClearItem();
 		PaintUtils.setWaitPaint(this);
 		panelManager.closeData();
@@ -464,7 +464,7 @@ public class DragonController implements UnitWorks, CommandListener {
 		} else {
 			panelManager.displayLarge("STAGE CLEAR", GameColor.BLUE, 5000);
 		}
-		saveManager.stageClear(stageManager.getSelectedStage().getId());
+		saveManager.getSaveData().countStarNum(stageManager.getSelectedStage().getId());
 		fw.setMenu(FrameWorks.T_CLEAR);
 		panelManager.displayHelp(mw.getWaku(), GameColor.BLUE, Texts.help[Texts.H_CLEAR]);
 	}
@@ -491,7 +491,7 @@ public class DragonController implements UnitWorks, CommandListener {
 
 		map.fillDia(Page.P00, ba.getX(), ba.getY(), 1, MoveUtils.C_BLUEC);
 		if (GameColor.isPlayer(ba))
-			gameClear();
+			stageClear();
 		else
 			gameOver();
 		return true;
@@ -540,7 +540,7 @@ public class DragonController implements UnitWorks, CommandListener {
 	/*** Score ****************************************/
 
 	private void showScore() {
-		panelManager.displayScore(equip, saveManager);
+		panelManager.displayScore(equip, saveManager.getSaveData());
 
 		PaintUtils.setScorePaint(this);
 		fw.setMenu(FrameWorks.T_SCORE);
@@ -724,6 +724,6 @@ public class DragonController implements UnitWorks, CommandListener {
 	
 	@Override
 	public boolean isTutorial() {
-		return saveManager.getSaveData().getStage() == 0;
+		return saveManager.getSaveData().sumStars() == 0;
 	}
 }

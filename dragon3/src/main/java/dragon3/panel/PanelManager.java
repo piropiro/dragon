@@ -3,13 +3,11 @@
  */
 package dragon3.panel;
 
-import java.util.Map;
-
 import dragon3.attack.Attack;
 import dragon3.camp.Equip;
 import dragon3.common.Body;
 import dragon3.common.constant.GameColor;
-import dragon3.save.SaveManager;
+import dragon3.save.SaveData;
 import mine.util.Point;
 
 /**
@@ -26,7 +24,7 @@ public interface PanelManager {
 	public void displayStatus(Body b);
 	public void displayAttack(Attack attack, Attack counter);
 	public void displayCampData(int x, int y, int tikei, GameColor bgcolor);
-	public void displayScore(Equip equip, SaveManager saveManager);
+	public void displayScore(Equip equip, SaveData saveData);
 	public void repaintData();
 	public void closeData();
 
@@ -55,6 +53,6 @@ public interface PanelManager {
 	public void displayLarge(String text, GameColor color, int sleep);
 
 	// StageSelectPanel
-	public void displayStageSelect(Map<String, Integer> starList);
+	public void displayStageSelect(SaveData saveData);
 	public void closeStageSelect();
 }

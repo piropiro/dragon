@@ -13,7 +13,4 @@ public interface SaveManager {
 	public long getPlayTime();
 
 	public SaveData getSaveData();
-
-	/*** Stage Clear ********************************************/
-	public void stageClear(String stageId);
 }

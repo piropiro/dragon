@@ -2,9 +2,11 @@ package dragon3.image;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
+import dragon3.common.constant.GameColor;
 import dragon3.data.StageData;
+import dragon3.save.SaveData;
+import dragon3.stage.StageStatus;
 import lombok.Getter;
 import mine.MineException;
 import mine.MineUtils;
@@ -73,20 +75,26 @@ public class ImageManager {
 		return list.toArray(new MineImage[0]);
 	}
 	
-	public MineImage[] createStageStatusImageList(List<StageData> stageList, Map<String, Integer> starList) {
+	public MineImage[] createStageStatusImageList(List<StageData> stageList, SaveData saveData) {
 		List<MineImage> list = new ArrayList<>();
-		for (StageData stage : stageList) {		
+		for (StageData stage : stageList) {
+			StageStatus status = saveData.getStageStatus(stage.getId());
+			
 			MineImage img = imageLoader.getBuffer(128, 96);
 			MineGraphics g = img.getGraphics();
 			
-			int starNum = 0;
-			if (starList.containsKey(stage.getId())) {
-				starNum = starList.get(stage.getId());
+			if (!status.isOpened()) {
+				g.setColor(GameColor.BLUE.getAlphaBg());
+				g.fillRect(0, 0,  img.getWidth(), img.getHeight());
+				g.setColor(GameColor.BLUE.getFg());
+				g.drawString("CLOSED", 30, 48);
+			} else {
+				g.drawString(stage.getName(), 30, 48);
 			}
-			int level = stage.getLevel() + starNum * 10;
+			int level = stage.getLevel() + status.getStar() * 10;
 			g.drawString("Lv." + level, 60, 70);
 			
-			for (int i = 1; i <= starNum; i++) {
+			for (int i = 1; i <= status.getStar(); i++) {
 				g.drawImage(stageStar, 128 - 30 * i, 60);
 			}
 			list.add(img);

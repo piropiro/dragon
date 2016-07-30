@@ -80,16 +80,20 @@ public class Equip {
 	/*** Player ************************************/
 
 	public List<Body> getPlayers() {
+		
 		List<Body> playerList = new ArrayList<>();
-		for (int i = 6; i >= 0; i--) {
-			Body b = search(1, 1 + i * 2);
-			if (b == null)
+		
+		for (Body b : equipList) {
+			if (!GameColor.isPlayer(b))
 				continue;
-			b.setColor(GameColor.BLUE);
 			b.setMax();
 			equip(b);
 			playerList.add(b);
 		}
+		
+		// Campの配置位置でソート
+		playerList.sort((b1, b2) -> b1.getGoalY() - b2.getGoalY());
+
 		return playerList;
 	}
 

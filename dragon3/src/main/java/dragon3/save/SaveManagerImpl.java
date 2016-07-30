@@ -1,18 +1,14 @@
 package dragon3.save;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-
 import dragon3.camp.Equip;
-import dragon3.common.Body;
 import dragon3.controller.UnitWorks;
 import mine.MineException;
+import mine.io.JsonIO;
 import mine.io.ObjectIO;
 
 public class SaveManagerImpl implements SaveManager {
 
-    private UnitWorks uw;
+	private UnitWorks uw;
     private SaveData sd;
     private long startTime;
 
@@ -25,36 +21,31 @@ public class SaveManagerImpl implements SaveManager {
     /**
      * * SaveData ******************************************************
      */
-    private List<Object> initData() {
-        List<Object> list = new ArrayList<>();
-        list.add(uw.loadEnemyData("init", 0));
-        list.add(new SaveData());
-        return list;
+    private SaveData initData() {
+    	SaveData newData = new SaveData();
+    	newData.setOpened("D01", true);
+    	newData.setBodyList(uw.loadEnemyData("init", 0));
+        return newData;
     }
 
     @Override
-    @SuppressWarnings("unchecked")
     public Equip loadData(String filename) {
-        List<Object> list;
         try {
-            list = (List<Object>) ObjectIO.read(filename);
+        	sd = JsonIO.read(filename, SaveData.class);
         } catch (MineException e) {
-            list = initData();
+            sd = initData();
         }
-        sd = (SaveData) list.get(1);
         timerReset();
-        return new Equip((List<Body>) list.get(0));
+        return new Equip(sd.getBodyList());
     }
 
     @Override
     public void saveData(String filename, Equip equip) {
         sd.countSave();
         sd.addTime(getTime());
-        List<Object> list = new ArrayList<>();
-        list.add(equip.getEquips());
-        list.add(sd);
+        sd.setBodyList(equip.getEquips());
         try {
-            ObjectIO.write(filename, list);
+            JsonIO.write(filename, sd);
         } catch (MineException e) {
             e.printStackTrace();
         }
@@ -85,20 +76,5 @@ public class SaveManagerImpl implements SaveManager {
     @Override
     public SaveData getSaveData() {
         return sd;
-    }
-
-    /*
-     * * Stage Clear *******************************************
-     */
-    @Override
-    public void stageClear(String stageId) {
-        sd.countStage();
-        
-        Map<String, Integer> starList = sd.getStarList();
-        int starNum = starList.containsKey(stageId)? starList.get(stageId) : 0;
-        	
-        starNum += 1;
-        
-        starList.put(stageId, starNum);
     }
 }

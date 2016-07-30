@@ -246,6 +246,23 @@ public class UnitMap {
 		if (dispH >= 0)
 			this.dispH = dispH;
 	}
+	
+	/**
+	 * 指定された値が設定されている座標を検索
+	 * @param page
+	 * @param data
+	 * @return
+	 */
+	public Point searchData(int page, int data) {
+		for (int y = 0; y < map[page].length; y++) {
+			for (int x = 0; x < map[page][y].length; x++) {
+				if (data == map[page][y][x]) {
+					return new Point(x, y);
+				}
+			}
+		}
+		return null;
+	}
 
 
 	/**

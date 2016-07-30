@@ -1,7 +1,5 @@
 package dragon3.panel;
 
-import java.util.Map;
-
 import card.CardCanvas;
 import dragon3.Statics;
 import dragon3.anime.AnimePanel;
@@ -20,7 +18,7 @@ import dragon3.manage.SummonManager;
 import dragon3.manage.TreasureManager;
 import dragon3.manage.TurnManager;
 import dragon3.map.MapPanel;
-import dragon3.save.SaveManager;
+import dragon3.save.SaveData;
 import dragon3.stage.StageSelectPanel;
 import dragon3.view.FrameWorks;
 import lombok.Getter;
@@ -150,9 +148,9 @@ public class PanelManagerImpl implements PanelManager {
 		dataP1.displayWaza(b, i);
 	}
 	
-	public void displayScore(Equip equip, SaveManager saveManager) {
-		dataP1.displayScore1(saveManager);
-		dataP2.displayScore2(equip, saveManager);
+	public void displayScore(Equip equip, SaveData sd) {
+		dataP1.displayScore1(sd);
+		dataP2.displayScore2(equip, sd);
 	}
 	public void repaintData() {
 		dataP1.repaint();
@@ -256,8 +254,8 @@ public class PanelManagerImpl implements PanelManager {
 	
 	// StageSelectPanel
 	@Override
-	public void displayStageSelect(Map<String, Integer> starList) {
-		stageSelectP.updateStageStatus(starList);
+	public void displayStageSelect(SaveData saveData) {
+		stageSelectP.updateStageStatus(saveData);
 		stageSelectP.setVisible(true);
 	}
 	

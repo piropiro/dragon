@@ -62,7 +62,7 @@ public class Body implements Serializable, Cloneable {
 		mdf = base.getMdf() / 10;
 		hit = base.getHit() / 10;
 		mis = base.getMis() / 10;
-		store = HitRate.SINGLE_HIT / 2;
+		resetStore();
 	}
 
 	public boolean isAlive(){
@@ -116,5 +116,9 @@ public class Body implements Serializable, Cloneable {
 		if (hasAttr(BodyAttribute.OIL))
 			step /= 2;
 		return step;
+	}
+	
+	public void resetStore() {
+		store = HitRate.SINGLE_HIT / 2;
 	}
 }

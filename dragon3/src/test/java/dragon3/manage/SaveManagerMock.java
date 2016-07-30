@@ -30,10 +30,4 @@ public class SaveManagerMock implements SaveManager {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-	@Override
-	public void stageClear(String stageId) {
-		// TODO Auto-generated method stub
-		
-	}
 }

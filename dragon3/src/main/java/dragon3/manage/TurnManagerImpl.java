@@ -3,6 +3,7 @@ package dragon3.manage;
 import java.util.List;
 
 import dragon3.anime.AnimeManager;
+import dragon3.attack.calc.HitRate;
 import dragon3.common.Body;
 import dragon3.common.constant.GameColor;
 import dragon3.common.constant.MoveType;
@@ -79,6 +80,9 @@ public class TurnManagerImpl implements TurnManager {
 		for (Body b : charaList) {
 			if (!b.isAlive())
 				continue;
+			
+			b.resetStore();
+			
 			b.removeAttr(BodyAttribute.SORA);
 			b.removeAttr(BodyAttribute.RIKU);
 			setTikei(b, flag);

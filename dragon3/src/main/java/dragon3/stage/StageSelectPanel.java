@@ -1,13 +1,12 @@
 package dragon3.stage;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import dragon3.Statics;
 import dragon3.controller.UnitWorks;
 import dragon3.data.StageData;
 import dragon3.image.ImageManager;
+import dragon3.save.SaveData;
 import lombok.Getter;
 import mine.event.MouseAllListener;
 import mine.event.PaintComponent;
@@ -54,7 +53,7 @@ public class StageSelectPanel implements StageManager, MouseAllListener, PaintLi
 
 		stageMap = new UnitMap(3, 5, 5, imageManager.getImageLoader());
 		stageMap.setTile(P_STAGE, stageImageList, -1);
-		stageMap.setTile(P_STATUS, imageManager.createStageStatusImageList(stageList, new HashMap<>()), -1);
+		stageMap.setTile(P_STATUS, imageManager.createStageStatusImageList(stageList, new SaveData()), -1);
 		stageMap.setTile(P_WAKU, imageManager.getStageWaku(), 0);
 		stageMap.setPage(P_STAGE, stageMapData);
 		stageMap.setPage(P_STATUS, stageMapData);
@@ -66,13 +65,38 @@ public class StageSelectPanel implements StageManager, MouseAllListener, PaintLi
 		panel.setMouseAllListener(this);
 	}
 	
-	public void updateStageStatus(Map<String, Integer> starList) {
-		stageMap.setTile(P_STATUS, imageManager.createStageStatusImageList(stageList, starList), -1);
+	public void updateStageStatus(SaveData saveData) {
+		openStage(saveData);
+		stageMap.setTile(P_STATUS, imageManager.createStageStatusImageList(stageList, saveData), -1);
+		stageMap.repaint();
+	}
+	
+	public void openStage(SaveData saveData) {
+		for (int i = 0 ; i < stageList.size(); i++) {
+			String stageId = stageList.get(i).getId();
+			
+			if (saveData.getStarNum(stageId) > 0) {
+				Point p = stageMap.searchData(P_STAGE, i);
+
+				openStage(saveData, p.x - 1, p.y);
+				openStage(saveData, p.x + 1, p.y);
+				openStage(saveData, p.x, p.y - 1);
+				openStage(saveData, p.x, p.y + 1);
+			}
+		}
+	}
+	
+	private void openStage(SaveData saveData, int x, int y) {
+		int index = stageMap.getData(P_STAGE, x, y);
+		if (index != UnitMap.FALSE) {
+			String stageId = stageList.get(index).getId();
+			saveData.setOpened(stageId, true);
+		}
 	}
 		
 	@Override
 	public boolean isFinalStage() {
-		return stageList.indexOf(selectedStage.getId()) == stageList.size() - 1;
+		return stageList.indexOf(selectedStage) == stageList.size() - 1;
 	}
 
 
@@ -124,7 +148,7 @@ public class StageSelectPanel implements StageManager, MouseAllListener, PaintLi
 	@Override
 	public void leftPressed(int x, int y) {
 		mouseMoved(x, y);
-		int stageNum = wx + wy * 5;
+		int stageNum = stageMap.getData(P_STAGE, wx, wy);
 		selectedStage = stageList.get(stageNum);
 		uw.stageStart(selectedStage);
 	}

@@ -1,8 +1,13 @@
 package dragon3.save;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+
+import dragon3.common.Body;
+import dragon3.stage.StageStatus;
 
 @lombok.Data
 public class SaveData implements Serializable, Cloneable {
@@ -18,11 +23,11 @@ public class SaveData implements Serializable, Cloneable {
 	private int item;
 	private int escape;
 	private int save;
-	private int stage;
 	private long playTime;
 	private String playerName = "Player";
-	private Map<String, Integer> starList = new HashMap<>();
-
+	
+	private List<Body> bodyList = new ArrayList<>();
+	private Map<String, StageStatus> stageStatusMap = new HashMap<>();
 
 	public SaveData copy() {
 		try {
@@ -32,9 +37,6 @@ public class SaveData implements Serializable, Cloneable {
 		}
 	}
 
-	public void countStage() {
-		stage++;
-	}
 	public void countTurn() {
 		turn++;
 	}
@@ -57,11 +59,34 @@ public class SaveData implements Serializable, Cloneable {
 		playTime += n;
 	}
 	
-	public int getStarNum(String stageId) {
-		return starList.containsKey(stageId)? starList.get(stageId) : 0;
+	public StageStatus getStageStatus(String stageId) {
+		if (!stageStatusMap.containsKey(stageId)) {
+			StageStatus stageStatus = new StageStatus();
+			stageStatus.setStageId(stageId);
+			stageStatusMap.put(stageId, stageStatus);
+		}
+		return stageStatusMap.get(stageId);
 	}
+	
+	public int getStarNum(String stageId) {
+		return getStageStatus(stageId).getStar();
+	}
+	
 	public void countStarNum(String stageId) {
-		int starNum = getStarNum(stageId);
-		starList.put(stageId, starNum + 1);
+		StageStatus status = getStageStatus(stageId);
+		status.setStar(status.getStar() + 1);
+	}
+	
+	public void setOpened(String stageId, boolean flag) {
+		StageStatus status = getStageStatus(stageId);
+		status.setOpened(flag);
+	}
+	
+	public int sumStars() {
+		int sum = 0;
+		for (StageStatus status : stageStatusMap.values()) {
+			sum += status.getStar();
+		}
+		return sum;
 	}
 }
