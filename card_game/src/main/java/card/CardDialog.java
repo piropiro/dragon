@@ -11,7 +11,7 @@ import mine.awt.PaintComponentAWT;
 import mine.awt.SleepManagerAWT;
 import mine.event.PaintComponent;
 import mine.event.SleepManager;
-import mine.io.MatrixIO;
+import mine.io.JsonIO;
 import mine.paint.MineImage;
 import mine.paint.MineImageLoader;
 
@@ -45,7 +45,7 @@ public class CardDialog extends JDialog implements CardListener {
 		chara = (MineImage[])MineUtils.linerize(
 			mil.loadTile("card/image/chara.png", 32, 32), new MineImage[0]);
 			
-		status = MatrixIO.read("card/data/status.txt");
+		status = JsonIO.read("card/data/status.json", int[][].class);
 
 
 		getContentPane().add((JComponent)cardPanel);

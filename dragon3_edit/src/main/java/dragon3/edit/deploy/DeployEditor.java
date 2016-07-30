@@ -11,6 +11,13 @@ import javax.swing.JScrollPane;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
+import dragon3.Statics;
+import dragon3.data.BodyData;
+import dragon3.data.DeployData;
+import dragon3.edit.deploy.paint.BasicPaint;
+import dragon3.edit.deploy.paint.GoalPaint;
+import dragon3.edit.deploy.paint.SortPaint;
+import dragon3.image.ImageManager;
 import mine.MineException;
 import mine.awt.ImageLoaderAWT;
 import mine.awt.MineAwtUtils;
@@ -21,16 +28,9 @@ import mine.event.CommandListener;
 import mine.file.FileCommand;
 import mine.file.FileManager;
 import mine.file.FileWorks;
-import mine.io.MatrixIO;
+import mine.io.JsonIO;
 import mine.paint.MineImageLoader;
 import mine.paint.UnitMap;
-import dragon3.Statics;
-import dragon3.data.BodyData;
-import dragon3.data.DeployData;
-import dragon3.edit.deploy.paint.BasicPaint;
-import dragon3.edit.deploy.paint.GoalPaint;
-import dragon3.edit.deploy.paint.SortPaint;
-import dragon3.image.ImageManager;
 
 public class DeployEditor extends JFrame implements MainWorks<DeployData>, CommandListener, FileWorks, ListSelectionListener {
 
@@ -257,21 +257,20 @@ public class DeployEditor extends JFrame implements MainWorks<DeployData>, Comma
 	public void create(String file) {
 		editList.initData();
 		String name = new File(file).getName();
-		String deployFile = name.replaceAll(".txt", ".json");
-		// String mapFile = name.replaceAll(".xml", ".txt");
+		String deployFile = name.replaceAll("map_", "deploy_");
 		setTitle(deployFile + " - " + title);
 	}
 
 	@Override
 	public void load(String file) throws MineException {
-		String deployFile = file.replaceAll("\\\\", "/").replaceAll(Statics.MAP_DIR, Statics.DEPLOY_DIR).replaceAll(".txt", ".json");
-		String mapFile = file.replaceAll("\\\\", "/").replaceAll(Statics.DEPLOY_DIR, Statics.MAP_DIR).replaceAll(".json", ".txt");
+		String deployFile = file.replaceAll("\\\\", "/").replaceAll(Statics.MAP_DIR, Statics.DEPLOY_DIR).replaceAll("map_", "deploy_");
+		String mapFile = file.replaceAll("\\\\", "/").replaceAll(Statics.DEPLOY_DIR, Statics.MAP_DIR).replaceAll("deploy_", "map_");
 
 		editList.loadData(deployFile);
 
 		try {
 			if (new File(mapFile).exists()) {
-				map.setPage(Page.BACK, MatrixIO.read(mapFile));
+				map.setPage(Page.BACK, JsonIO.read(mapFile, int[][].class));
 			} else {
 				map.clear(Page.BACK, 0);
 				System.out.println("MapFile is not found. [" + new File(mapFile).getAbsolutePath() + "]");

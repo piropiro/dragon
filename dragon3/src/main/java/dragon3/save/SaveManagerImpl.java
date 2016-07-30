@@ -4,7 +4,6 @@ import dragon3.camp.Equip;
 import dragon3.controller.UnitWorks;
 import mine.MineException;
 import mine.io.JsonIO;
-import mine.io.ObjectIO;
 
 public class SaveManagerImpl implements SaveManager {
 
@@ -24,7 +23,7 @@ public class SaveManagerImpl implements SaveManager {
     private SaveData initData() {
     	SaveData newData = new SaveData();
     	newData.setOpened("D01", true);
-    	newData.setBodyList(uw.loadEnemyData("init", 0));
+    	newData.setBodyList(uw.loadEnemyData("camp", 0));
         return newData;
     }
 

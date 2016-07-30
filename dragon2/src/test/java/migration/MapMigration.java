@@ -55,7 +55,7 @@ public class MapMigration {
           
           String json = JSON.encode(map, true);
           
-          FileUtils.write(new File("target/map/" + file + ".json"), json, "UTF-8");
+          FileUtils.write(new File("target/map/map_" + file + ".json"), json, "UTF-8");
 
       }
     }
@@ -65,6 +65,7 @@ public class MapMigration {
         files.add("camp");
         files.add("collection");
         files.add("wazalist");
+        files.add("init");
         for (int i = 1; i <= 27; i++) {
             files.add(String.format("D%02d", i));
         }

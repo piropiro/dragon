@@ -3,12 +3,11 @@ package dragon3.manage;
 import java.util.List;
 
 import dragon3.anime.AnimeManager;
-import dragon3.attack.calc.HitRate;
 import dragon3.common.Body;
+import dragon3.common.constant.BodyAttribute;
 import dragon3.common.constant.GameColor;
 import dragon3.common.constant.MoveType;
 import dragon3.common.constant.Page;
-import dragon3.common.constant.BodyAttribute;
 import dragon3.common.util.MoveUtils;
 import dragon3.controller.UnitWorks;
 import dragon3.cpu.EnemyTurn;

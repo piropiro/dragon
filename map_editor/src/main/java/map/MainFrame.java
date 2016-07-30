@@ -28,7 +28,7 @@ import mine.awt.ImageLoaderAWT;
 import mine.event.CommandListener;
 import mine.file.FileCommand;
 import mine.file.FileManager;
-import mine.io.MatrixIO;
+import mine.io.JsonIO;
 import mine.paint.MineImage;
 import mine.paint.MineImageLoader;
 import mine.paint.UnitMap;
@@ -275,14 +275,14 @@ public class MainFrame extends JFrame implements MainWorks, CommandListener {
 	}
 
 	public void load(String file) throws MineException {
-		int[][] data = MatrixIO.read(file);
+		int[][] data = JsonIO.read(file, int[][].class);
 		initMap(data);
 		mb.setMapList(fileManager.getNameList());
 	}
 
 	public void save(String file) throws MineException {
 		int data[][] = map.getPage(Page.BACK);
-		MatrixIO.write(file, data);
+		JsonIO.write(file, data);
 	}
 
 	/*** MainWorks - MenuButton ***********************************************/

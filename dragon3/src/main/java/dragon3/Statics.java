@@ -10,7 +10,6 @@ import dragon3.data.StageData;
 import dragon3.data.WazaData;
 import mine.MineException;
 import mine.io.JsonIO;
-import mine.io.MatrixIO;
 
 public class Statics {
 
@@ -54,7 +53,7 @@ public class Statics {
 	
 	public static List<DeployData> getDeployData(String stageId) {
 		try {
-			return Arrays.asList(JsonIO.read(DEPLOY_DIR + stageId + ".json", DeployData[].class));
+			return Arrays.asList(JsonIO.read(DEPLOY_DIR + "deploy_" + stageId + ".json", DeployData[].class));
 		} catch (MineException e) {
 			throw new RuntimeException(e);
 		}
@@ -66,7 +65,7 @@ public class Statics {
 
 	public static int[][] getMapData(String stageId) {
 		try {
-			return MatrixIO.read(MAP_DIR + stageId + ".txt");
+			return JsonIO.read(MAP_DIR + "map_" + stageId + ".json", int[][].class);
 		} catch (MineException e) {
 			throw new RuntimeException(e);
 		}
@@ -74,7 +73,7 @@ public class Statics {
 	
 	public static int[][] getStageMapData() {
         try {
-            int[][] stages = (int[][]) MatrixIO.read(Statics.STAGE_DIR + "stageMap.txt");
+            int[][] stages = JsonIO.read(Statics.STAGE_DIR + "map_stage.json", int[][].class);
             return stages;
         } catch (MineException e) {
             throw new RuntimeException(e);
@@ -84,7 +83,7 @@ public class Statics {
     /*** DataLoad ******************************/
  
     public static int[][] getCampMap() {
-        return Statics.getMapData("init");
+        return Statics.getMapData("camp");
     }
 
     public static int[][] getCollectionMap() {
