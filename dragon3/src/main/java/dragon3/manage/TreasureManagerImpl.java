@@ -112,7 +112,7 @@ public class TreasureManagerImpl implements TreasureManager {
 				continue;
 			if (tre.getLimitTurn() == 0)
 				continue;
-			map.setData(Page.P00, tre.getX(), tre.getY(), MoveUtils.CLOSE_BOX);
+			map.setData(Page.P01, tre.getX(), tre.getY(), MoveUtils.CLOSE_BOX);
 			status[i] = S_BOX;
 		}
 
@@ -205,9 +205,9 @@ public class TreasureManagerImpl implements TreasureManager {
 				continue;
 			if (tre.getLimitTurn() != uw.getTurnManager().getTurn())
 				continue;
-			if (map.getData(Page.P00, tre.getX(), tre.getY()) != MoveUtils.CLOSE_BOX)
+			if (map.getData(Page.P01, tre.getX(), tre.getY()) != MoveUtils.CLOSE_BOX)
 				continue;
-			map.setData(Page.P00, tre.getX(), tre.getY(), MoveUtils.BROKEN_BOX);
+			map.setData(Page.P01, tre.getX(), tre.getY(), MoveUtils.BROKEN_BOX);
 			anime.statusAnime(AnimeManager.STATUS_HAMMER, tre.getX(), tre.getY());
 			sm.sleep(300);
 			map.setData(Page.P50, tre.getX(), tre.getY(), 0);
@@ -255,8 +255,8 @@ public class TreasureManagerImpl implements TreasureManager {
 			status[i] = S_HAVE;
 			message(ba, tre);
 			add(tre);
-			if (map.getData(Page.P00, ba.getX(), ba.getY()) == MoveUtils.CLOSE_BOX)
-				map.setData(Page.P00, ba.getX(), ba.getY(), MoveUtils.OPEN_BOX);
+			if (map.getData(Page.P01, ba.getX(), ba.getY()) == MoveUtils.CLOSE_BOX)
+				map.setData(Page.P01, ba.getX(), ba.getY(), MoveUtils.OPEN_BOX);
 		}
 	}
 

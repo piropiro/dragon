@@ -3,7 +3,7 @@ package dragon3.common.constant;
 
 public class Page {
 	// 0-0 Background
-	// 0-1 Reverse
+	// 0-1 Object
 	// 0-2 Step Paint Data ( Chara Ari )
 	// 0-3 Step Paint Result ( Chara Ari )
 	// 1-0 Under Frame

@@ -4,11 +4,10 @@
 package dragon3.panel.paint;
 
 
+import dragon3.common.constant.Texts;
+import dragon3.panel.PanelWorks;
 import mine.paint.MineGraphics;
 import mine.paint.MineImage;
-import dragon3.common.constant.Texts;
-import dragon3.common.util.MoveUtils;
-import dragon3.panel.PanelWorks;
 
 /**
  * @author saito
@@ -18,17 +17,17 @@ public class DataPaint implements DataPanelPainter {
 	private int turn;
 	private int treasureLimit;
 	private String treasureCount;
-	private MineImage[] back;
+	private MineImage cBlueImage;
 
-	public DataPaint(int turn, int treasureLimit, String treasureCount, MineImage[] back) {
+	public DataPaint(int turn, int treasureLimit, String treasureCount, MineImage cBlueImage) {
 		this.turn = turn;
 		this.treasureLimit = treasureLimit;
 		this.treasureCount = treasureCount;
-		this.back = back;
+		this.cBlueImage = cBlueImage;
 	}
 
 	public void paint(PanelWorks pw, MineGraphics g) {
-		g.drawImage(back[MoveUtils.C_BLUE], 10, 10);
+		g.drawImage(cBlueImage, 10, 10);
 		g.drawString(Texts.sp[60], 50, 32);
 		pw.drawLine(
 			Texts.sp[61] + turn + " / " + treasureLimit,

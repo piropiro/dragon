@@ -112,12 +112,14 @@ public class DeployEditor extends JFrame implements MainWorks<DeployData>, Comma
 
 	private void initMap() {
 		MineImageLoader mil = new ImageLoaderAWT();
+		
 		map = new UnitMap(3, 20, 15, mil);
-		map.setTile(Page.BACK, imageManager.getBack(), -1);
+		map.setTile(Page.BACK, imageManager.getStageBack(), -1);
+		map.setTile(Page.OBJ, imageManager.getStageObj(), -1);
 		map.setTile(Page.CHARA, imageManager.getBodyImageList().getImageList(), -1);
 		map.setTile(Page.WAKU, imageManager.getWaku()[2], 0);
 		map.clear(Page.CHARA, -1);
-		map.setVisible(Page.BACK, true);
+		map.setVisible(Page.OBJ, true);
 		map.setVisible(Page.CHARA, true);
 		map.setVisible(Page.WAKU, true);
 	}
@@ -270,9 +272,9 @@ public class DeployEditor extends JFrame implements MainWorks<DeployData>, Comma
 
 		try {
 			if (new File(mapFile).exists()) {
-				map.setPage(Page.BACK, JsonIO.read(mapFile, int[][].class));
+				map.setPage(Page.OBJ, JsonIO.read(mapFile, int[][].class));
 			} else {
-				map.clear(Page.BACK, 0);
+				map.clear(Page.OBJ, 0);
 				System.out.println("MapFile is not found. [" + new File(mapFile).getAbsolutePath() + "]");
 			}
 		} catch (MineException e) {

@@ -30,7 +30,7 @@ public class SummonManagerImpl implements SummonManager {
 
 		for (Body b : enemys) {
 			if (b.getDeployType() == DeployType.SUMMON) {
-				map.setData(Page.P00, b.getGoalX(), b.getGoalY(), MoveUtils.CLOSE_MAGIC);
+				map.setData(Page.P01, b.getGoalX(), b.getGoalY(), MoveUtils.CLOSE_MAGIC);
 				b.setX(b.getGoalX());
 				b.setY(b.getGoalY());
 				b.setGoalX(0);
@@ -67,7 +67,7 @@ public class SummonManagerImpl implements SummonManager {
 				continue;
 			if (map.getData(Page.P20, b.getX(), b.getY()) != 0)
 				continue;
-			map.setData(Page.P00, b.getX(), b.getY(), MoveUtils.OPEN_MAGIC);
+			map.setData(Page.P01, b.getX(), b.getY(), MoveUtils.OPEN_MAGIC);
 			anime.systemAnime(AnimeManager.ID_SUMMON, b.getX(), b.getY());
 
 			anime.summonAnime(b.getImageNum(), b.getX(), b.getY());

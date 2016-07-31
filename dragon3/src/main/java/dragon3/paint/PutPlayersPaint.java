@@ -66,7 +66,7 @@ public class PutPlayersPaint implements EventListener {
 	 *
 	 */
 	private void setColor() {
-		map.change(Page.P00, MoveUtils.S_RED, Page.P00, 0);
+		map.change(Page.P01, MoveUtils.S_RED, Page.P01, 0);
 	}
 
 
@@ -79,7 +79,7 @@ public class PutPlayersPaint implements EventListener {
 		max = 0;
 		for (int y = 0; y < height; y++) {
 			for (int x = 0; x < width; x++) {
-				int d = map.getData(Page.P00, x, y);
+				int d = map.getData(Page.P01, x, y);
 				if (d == MoveUtils.S_BLUE) {
 					if (!putChara(x, y))
 						return;
@@ -183,7 +183,7 @@ public class PutPlayersPaint implements EventListener {
 			return;
 		if (n == max)
 			return;
-		int tikei = map.getData(Page.P00, x, y);
+		int tikei = map.getData(Page.P01, x, y);
 
 		if (ps != null) {
 			map.setData(Page.P20, ps.x, ps.y, 0);
@@ -214,7 +214,7 @@ public class PutPlayersPaint implements EventListener {
 			uw.getPanelManager().displayData(p.x, p.y);
 			return;
 		}
-		if (map.getData(Page.P00, p.x, p.y) == MoveUtils.S_BLUE) {
+		if (map.getData(Page.P01, p.x, p.y) == MoveUtils.S_BLUE) {
 			if (uw.search(p.x, p.y) == null) {
 				putChara(p.x, p.y);
 			} else {
@@ -234,7 +234,7 @@ public class PutPlayersPaint implements EventListener {
 			return;
 		}
 		Body b = uw.search(p.x, p.y);
-		if (map.getData(Page.P00, p.x, p.y) == MoveUtils.S_BLUE) {
+		if (map.getData(Page.P01, p.x, p.y) == MoveUtils.S_BLUE) {
 			if (b != null) {
 				changeChara(p.x, p.y);
 				return;

@@ -252,10 +252,11 @@ public class MineUtils {
      * @param dst
      * @return
      */
-    public static Object[] linerize(Object[][] src, Object[] dst) {
+    @SuppressWarnings("unchecked")
+	public static <T> T[] linerize(T[][] src, T[] dst) {
 
         int size = 0;
-        for (Object[] src1 : src) {
+        for (T[] src1 : src) {
             if (src1 == null) {
                 continue;
             }
@@ -263,12 +264,12 @@ public class MineUtils {
         }
 
         if (dst.length < size) {
-            dst = (Object[]) java.lang.reflect.Array.newInstance(
+            dst = (T[]) java.lang.reflect.Array.newInstance(
                     dst.getClass().getComponentType(), size);
         }
 
         int pos = 0;
-        for (Object[] src1 : src) {
+        for (T[] src1 : src) {
             if (src1 == null) {
                 continue;
             }

@@ -18,8 +18,8 @@ import mine.util.Point;
 
 public class StageSelectPanel implements StageManager, MouseAllListener, PaintListener {
 
-	private static final int UNIT_WIDTH = 128;
-	private static final int UNIT_HEIGHT = 96;
+	public static final int UNIT_WIDTH = 106;
+	public static final int UNIT_HEIGHT = 96;
 	
 	private static final int P_STAGE = 0;
 	private static final int P_STATUS = 1;
@@ -51,7 +51,7 @@ public class StageSelectPanel implements StageManager, MouseAllListener, PaintLi
 		int[][] stageMapData  = Statics.getStageMapData();
 		MineImage[] stageImageList = imageManager.loadStageImageList(stageList);
 
-		stageMap = new UnitMap(3, 5, 5, imageManager.getImageLoader());
+		stageMap = new UnitMap(3, stageMapData[0].length, stageMapData.length, imageManager.getImageLoader());
 		stageMap.setTile(P_STAGE, stageImageList, -1);
 		stageMap.setTile(P_STATUS, imageManager.createStageStatusImageList(stageList, new SaveData()), -1);
 		stageMap.setTile(P_WAKU, imageManager.getStageWaku(), 0);

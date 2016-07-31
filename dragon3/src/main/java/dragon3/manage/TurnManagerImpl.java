@@ -144,7 +144,7 @@ public class TurnManagerImpl implements TurnManager {
 		if (MoveUtils.getTikei(map, b) == MoveUtils.T_SKY)
 			return;
 
-		switch (map.getData(Page.P00, b.getX(), b.getY())) {
+		switch (map.getData(Page.P01, b.getX(), b.getY())) {
 			case MoveUtils.C_BLUE :
 				blueCrystal(b, flag);
 				break;

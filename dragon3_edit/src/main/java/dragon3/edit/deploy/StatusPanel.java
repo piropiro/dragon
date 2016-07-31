@@ -34,6 +34,7 @@ public class StatusPanel extends EditPanel<DeployData> implements EditListener<D
 		setIntCombo(RIGHT, "y", "配置Y", 15);
 		setIntCombo(LEFT, "goalX", "目標X", 20);
 		setIntCombo(RIGHT, "goalY", "目標Y", 15);
+		setIntCombo(LEFT, "limitTurn", "時限", 10);
 
 		List<BodyData> bodyList = Statics.bodyList.getList();
 		String[] idList = new String[bodyList.size()];

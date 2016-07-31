@@ -29,17 +29,17 @@ public class CampDataPaint implements DataPanelPainter {
 
 	private int tikei;
 	
-	private MineImage[] back;
+	private MineImage whiteBack;
 	private MineImage[][] waku;
 
-	public CampDataPaint(int tikei, MineImage[] back, MineImage[][] waku) {
+	public CampDataPaint(int tikei, MineImage whiteBack, MineImage[][] waku) {
 		this.tikei = tikei;
-		this.back = back;
+		this.whiteBack = whiteBack;
 		this.waku = waku;
 	}
 
 	public void paint(PanelWorks pw, MineGraphics g) {
-		g.drawImage(back[0], 10, 10);
+		g.drawImage(whiteBack, 10, 10);
 		switch (tikei) {
 			case C_CHARA1 :
 				g.drawImage(waku[1][1], 10, 10);

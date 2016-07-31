@@ -71,7 +71,7 @@ public class Camp {
 
 	public void repaint(int[][] data) {
 		map.setPage(Page.P10, data);
-		map.clear(Page.P00, 0);
+		map.clear(Page.P01, 0);
 		map.clear(Page.P20, 0);
 		map.clear(Page.P30, 0);
 		map.clear(Page.P40, 0);

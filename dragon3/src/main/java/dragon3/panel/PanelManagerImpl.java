@@ -96,7 +96,7 @@ public class PanelManagerImpl implements PanelManager {
 
 
 	public void displayData(int x, int y) {
-		int tikei = map.getData(Page.P00, x, y);
+		int tikei = map.getData(Page.P01, x, y);
 		if (tikei == MoveUtils.WHITE) {
 			dataP1.displayData(new Point(x, y), turnManager.getTurn(), treasureManager.getLimitTurn(), treasureManager.getCount());
 		} else {
@@ -105,7 +105,7 @@ public class PanelManagerImpl implements PanelManager {
 	}
 
 	public boolean displayPlace(int x, int y) {
-		int tikei = map.getData(Page.P00, x, y);
+		int tikei = map.getData(Page.P01, x, y);
 		Point p = new Point(x, y);
 		switch (tikei) {
 			case MoveUtils.C_BLUE :

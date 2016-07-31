@@ -54,8 +54,8 @@ public class WalkPaint implements EventListener {
 			}
 		}
 		map.clear(Page.P02, 0);
-		map.change(Page.P00, Page.P02, stepList);
-		map.change(Page.P02, Page.P00, 2, 1);
+		map.change(Page.P01, Page.P02, stepList);
+		map.change(Page.P02, 0, Page.P02, 1);
 		map.copyPage(Page.P02, Page.P12);
 		for (Body b : charaList) {
 			if (!b.isAlive())
@@ -93,7 +93,6 @@ public class WalkPaint implements EventListener {
 		map.clear(Page.P10, 0);
 		FightManager fm = new FightManager(uw, ba);
 		fm.nextSelect();
-		PaintUtils.setAttackPaint(uw, fm, ba);
 	}
 
 	/**

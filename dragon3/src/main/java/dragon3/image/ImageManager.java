@@ -6,6 +6,8 @@ import java.util.List;
 import dragon3.common.constant.GameColor;
 import dragon3.data.StageData;
 import dragon3.save.SaveData;
+import dragon3.stage.StageBack;
+import dragon3.stage.StageSelectPanel;
 import dragon3.stage.StageStatus;
 import lombok.Getter;
 import mine.MineException;
@@ -21,19 +23,23 @@ public class ImageManager {
 	public static final String BODY_IMAGE_DIR = "dragon3/image/body/";
 	public static final String ANIME_IMAGE_DIR = "dragon3/image/anime/";
 	public static final String STAGE_IMAGE_DIR = "dragon3/image/stage/";
+	public static final String BACK_IMAGE_DIR = "dragon3/image/back/";	
 	
 	@Getter private MineImageLoader imageLoader;
 	@Getter private AnimeImageList animeImageList;
 	@Getter private BodyImageList bodyImageList;
 
 	@Getter private MineImage[][] waku;
-	@Getter private MineImage[] back;
+	@Getter private MineImage[] stageBack;
+	@Getter private MineImage[] stageObj;
 	@Getter private MineImage[] text;
 	@Getter private MineImage[] status;
 	@Getter private MineImage[] num;
 	
 	@Getter private MineImage[] stageWaku;
 	@Getter private MineImage stageStar;
+	
+	@Getter private MineImage whiteBack;
 
 	
 	public ImageManager(MineImageLoader imageLoader) throws MineException {
@@ -43,15 +49,14 @@ public class ImageManager {
 		text = imageLoader.loadTile(IMAGE_DIR + "text.png", 32, 12)[0];
 		status = imageLoader.loadTile(IMAGE_DIR + "status.png", 32, 32)[0];
 		num = imageLoader.loadTile(IMAGE_DIR + "num.png", 10, 12)[0];
-		back =
-			(MineImage[]) MineUtils.linerize(
-					imageLoader.loadTile(IMAGE_DIR + "back.png", 32, 32),
-				new MineImage[0]);
 		animeImageList = new AnimeImageList(ANIME_IMAGE_DIR, imageLoader);
 		bodyImageList = new BodyImageList(BODY_IMAGE_DIR, imageLoader);
 		
-		stageWaku = imageLoader.loadTile(IMAGE_DIR + "stageWaku.png", 128, 96)[0];
+		stageWaku = imageLoader.loadTile(IMAGE_DIR + "stageWaku.png", StageSelectPanel.UNIT_WIDTH, StageSelectPanel.UNIT_HEIGHT)[0];
 		stageStar = imageLoader.load(IMAGE_DIR + "stageStar.png");
+		
+		resetBack(StageBack.WHITE);
+		whiteBack = this.stageBack[0];
 	}
 
 	public MineImage getImage(String name) {
@@ -62,11 +67,20 @@ public class ImageManager {
 		}
 	}
 	
+	public void resetBack(StageBack sb) {
+		try {
+			stageBack = imageLoader.loadTile(BACK_IMAGE_DIR + sb.getBackImage(), 32, 32)[0];
+			stageObj = MineUtils.linerize(imageLoader.loadTile(BACK_IMAGE_DIR + sb.getObjImage(), 32, 32), new MineImage[0]);
+		} catch (MineException e) {
+			throw new RuntimeException(e);
+		}
+	}
+	
 	public MineImage[] loadStageImageList(List<StageData> stageList) {
 		List<MineImage> list = new ArrayList<>();
 		for (StageData stage : stageList) {
 			try {
-				MineImage img = imageLoader.load(STAGE_IMAGE_DIR + stage.getId() + ".png");
+				MineImage img = imageLoader.load(STAGE_IMAGE_DIR + "stage_" + stage.getId() + ".png");
 				list.add(img);
 			} catch (MineException e) {
 				throw new RuntimeException(e);
@@ -80,8 +94,12 @@ public class ImageManager {
 		for (StageData stage : stageList) {
 			StageStatus status = saveData.getStageStatus(stage.getId());
 			
-			MineImage img = imageLoader.getBuffer(128, 96);
+			MineImage img = imageLoader.getBuffer(StageSelectPanel.UNIT_WIDTH, StageSelectPanel.UNIT_HEIGHT);
 			MineGraphics g = img.getGraphics();
+			
+			g.setColor(0, 0, 150);
+			g.fillRect(0, 80, StageSelectPanel.UNIT_WIDTH, StageSelectPanel.UNIT_WIDTH - 80);
+			g.setColor(GameColor.BLUE.getFg());
 			
 			if (!status.isOpened()) {
 				g.setColor(GameColor.BLUE.getAlphaBg());
@@ -92,10 +110,10 @@ public class ImageManager {
 				g.drawString(stage.getName(), 30, 48);
 			}
 			int level = stage.getLevel() + status.getStar() * 10;
-			g.drawString("Lv." + level, 60, 70);
+			g.drawString("Lv." + level, 70, 92);
 			
 			for (int i = 1; i <= status.getStar(); i++) {
-				g.drawImage(stageStar, 128 - 30 * i, 60);
+				g.drawImage(stageStar,  96 - 30 * i, 85);
 			}
 			list.add(img);
 		}

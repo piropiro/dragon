@@ -1,7 +1,8 @@
 package dragon3.anime.listener;
 
 import mine.util.Point;
-
+import mine.MineException;
+import mine.io.JsonIO;
 import mine.paint.MineGraphics;
 import mine.paint.UnitMap;
 import dragon3.anime.AnimeWorks;
@@ -31,6 +32,13 @@ public class WalkAnime implements AnimeListener {
 	/*** Display **********************************/
 
 	public void animation(AnimeWorks ac) {
+		try {
+			JsonIO.write("P03.json", map.getPage(Page.P03));
+		} catch (MineException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	
 		UnitUtils unitUtils = new UnitUtils(map);
 		map.setData(Page.P20, start.x, start.y, 0);
 		map.setData(Page.P50, start.x, start.y, 0);

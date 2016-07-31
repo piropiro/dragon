@@ -1,6 +1,5 @@
 package dragon3.panel;
 
-import mine.util.Point;
 import java.util.StringTokenizer;
 
 import dragon3.attack.Attack;
@@ -16,6 +15,7 @@ import mine.event.PaintListener;
 import mine.event.SleepManager;
 import mine.paint.MineColor;
 import mine.paint.MineGraphics;
+import mine.util.Point;
 
 public abstract class PanelBase implements PanelWorks, PaintListener {
 
@@ -26,6 +26,7 @@ public abstract class PanelBase implements PanelWorks, PaintListener {
 	private boolean left;
 	private SleepManager sm;
 	private ImageManager im;
+
 	
 	private int width;
 	private int height;
@@ -108,7 +109,7 @@ public abstract class PanelBase implements PanelWorks, PaintListener {
 
 	@Override
 	public void drawMain(Body ba, MineGraphics g) {
-		g.drawImage(im.getBack()[0], 10, 10);
+		g.drawImage(im.getWhiteBack(), 10, 10);
 		g.drawImage(im.getBodyImageList().getImage(ba.getImageNum()), 10, 10);
 		g.drawString(ba.base.getName(), 50, 22);
 		g.drawString("Lv." + ba.getLevel(), 52, 41);

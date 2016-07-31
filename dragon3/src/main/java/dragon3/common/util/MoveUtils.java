@@ -93,7 +93,7 @@ public class MoveUtils {
 			if (b.base.getMoveType().equals(MoveType.HOVER))
 				return T_SKY;
 		}
-		switch (map.getData(Page.P00, b.getX(), b.getY())) {
+		switch (map.getData(Page.P01, b.getX(), b.getY())) {
 			case ICE :
 				return T_ICE;
 			case AQUA :
