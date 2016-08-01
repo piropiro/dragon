@@ -169,7 +169,7 @@
 	},
 	{
 		"bodyId": "wepon_016",
-		"deployType": "BOX_ITEM",
+		"deployType": "CLEAR_ITEM",
 		"goalX": 0,
 		"goalY": 0,
 		"id": null,
@@ -183,7 +183,7 @@
 	},
 	{
 		"bodyId": "wepon_017",
-		"deployType": "ENEMY_ITEM",
+		"deployType": "SECRET_ITEM",
 		"goalX": 9,
 		"goalY": 5,
 		"id": null,

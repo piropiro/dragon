@@ -67,4 +67,16 @@ public class TreasureManagerMock implements TreasureManager {
 
 	}
 
+	@Override
+	public void clean() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void setup(List<Body> Charas) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

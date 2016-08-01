@@ -7,6 +7,10 @@ import dragon3.common.Body;
 
 public interface TreasureManager {
 
+	public void clean();
+	
+	public void setup(List<Body> Charas);
+	
 	/*** Data *******************************/
 
 	public abstract int getLimitTurn(Point p);

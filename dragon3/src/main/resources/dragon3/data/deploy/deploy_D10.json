@@ -113,7 +113,7 @@
 	},
 	{
 		"bodyId": "wepon_007",
-		"deployType": "BOX_ITEM",
+		"deployType": "CLEAR_ITEM",
 		"goalX": 0,
 		"goalY": 0,
 		"id": null,

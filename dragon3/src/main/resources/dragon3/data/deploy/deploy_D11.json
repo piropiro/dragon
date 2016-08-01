@@ -113,7 +113,7 @@
 	},
 	{
 		"bodyId": "armor_007",
-		"deployType": "BOX_ITEM",
+		"deployType": "CLEAR_ITEM",
 		"goalX": 0,
 		"goalY": 0,
 		"id": null,
@@ -127,7 +127,7 @@
 	},
 	{
 		"bodyId": "item_002",
-		"deployType": "ENEMY_ITEM",
+		"deployType": "SECRET_ITEM",
 		"goalX": 19,
 		"goalY": 0,
 		"id": null,

@@ -155,7 +155,7 @@
 	},
 	{
 		"bodyId": "armor_006",
-		"deployType": "BOX_ITEM",
+		"deployType": "CLEAR_ITEM",
 		"goalX": 0,
 		"goalY": 0,
 		"id": null,

@@ -113,7 +113,7 @@ public class DeployEditor extends JFrame implements MainWorks<DeployData>, Comma
 	private void initMap() {
 		MineImageLoader mil = new ImageLoaderAWT();
 		
-		map = new UnitMap(3, 20, 15, mil);
+		map = new UnitMap(4, 20, 15, mil);
 		map.setTile(Page.BACK, imageManager.getStageBack(), -1);
 		map.setTile(Page.OBJ, imageManager.getStageObj(), -1);
 		map.setTile(Page.CHARA, imageManager.getBodyImageList().getImageList(), -1);

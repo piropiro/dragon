@@ -44,18 +44,28 @@ public class TreasureManagerImpl implements TreasureManager {
 
 	/*** Constructer *********************************************/
 
-	public TreasureManagerImpl(UnitWorks uw, List<Body> Charas) {
+	public TreasureManagerImpl(UnitWorks uw) {
 		this.uw = uw;
 		this.map = uw.getUnitMap();
 		this.anime = uw.getAnimeManager();
 		this.sm = uw.getSleepManager();
 		this.pm = uw.getPanelManager();
+		clean();
+	}
+	
+	@Override
+	public void clean() {
 		clearItem = null;
 		treasure = new Body[MAX];
 		holder = new Body[MAX];
 		status = new int[MAX];
 		sources = new ArrayList<>();
 		comments = new ArrayList<>();
+	}
+	
+	@Override
+	public void setup(List<Body> Charas) {
+		clean();
 		int n = 0;
 		for (Body b : Charas) {
 			if (uw.have(b)) {
@@ -115,8 +125,8 @@ public class TreasureManagerImpl implements TreasureManager {
 			map.setData(Page.P01, tre.getX(), tre.getY(), MoveUtils.CLOSE_BOX);
 			status[i] = S_BOX;
 		}
-
 	}
+	
 
 	@Override
 	public int getLimitTurn(Point p) {

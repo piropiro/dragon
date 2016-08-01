@@ -42,6 +42,7 @@ import dragon3.common.constant.WeponType;
 import mine.DataStream;
 import mine.io.BeanIO;
 import mine.io.JsonIO;
+import mine.io.MatrixIO;
 import net.arnx.jsonic.JSON;
 
 /**
@@ -390,9 +391,9 @@ public class BodyMigration {
 		AttackData[] attacks = JsonIO.read("data/waza/AttackData.json", AttackData[].class);
 
 
-		List<String> bodys = getFileNames();
-        bodys.remove("E90");
-        bodys.remove("E91");
+		List<String> files = getFileNames();
+        files.remove("E90");
+        files.remove("E91");
         
 		Map<String, BodyData> bodyMap = new HashMap<>();
 		Map<BodyKind, List<BodyData>> newBodyMap = new HashMap<>();
@@ -400,9 +401,10 @@ public class BodyMigration {
 			newBodyMap.put(kind,  new ArrayList<>());
 		}
 		
-		for (String body : bodys) {
+		for (String file : files) {
 
-			Body[] oldBodys = JsonIO.read("data/body/" + body + ".json", Body[].class);
+			Body[] oldBodys = JsonIO.read("data/body/" + file + ".json", Body[].class);
+			int[][] map = MatrixIO.read("data/map/" + file.replace("E", "D") + ".txt");
 
 			List<DeployData> newDeploys = new ArrayList<>();
 			for (Body oldBody : oldBodys) {
@@ -527,13 +529,13 @@ public class BodyMigration {
 					bodyMap.put(oldKey, newBody);
 				}
 				deploy.setBodyId(newBody.getId());
-				deploy.setDeployType(getDeployType(oldBody));
+				deploy.setDeployType(getDeployType(oldBody, map));
 				
 				newDeploys.add(deploy);
 			}
 
 			String deployJson = JSON.encode(newDeploys, true);
-			FileUtils.write(new File("target/deploy/" + body.replace("E", "D") + ".json"), deployJson, "UTF-8");
+			FileUtils.write(new File("target/deploy/deploy_" + file.replace("E", "D") + ".json"), deployJson, "UTF-8");
 
 		}
 
@@ -572,7 +574,7 @@ public class BodyMigration {
 		}
 	}
     
-	private DeployType getDeployType(Body b) {
+	private DeployType getDeployType(Body b, int[][] map) {
 		switch (b.kind) {
 		case ARMOR:
 		case CLASS:
@@ -580,9 +582,17 @@ public class BodyMigration {
 		case ITEM:
 		case WEPON:
 			if (b.getGoalX() == 0 && b.getGoalY() == 0) {
-				return DeployType.BOX_ITEM;
+				if (map[b.getY()][b.getX()] == 17) {
+					return DeployType.CLEAR_ITEM;
+				} else {
+					return DeployType.BOX_ITEM;
+				}
 			} else {
-				return DeployType.ENEMY_ITEM;
+				if (b.getGoalX() == b.getX() && b.getGoalY() == b.getY()) {
+					return DeployType.SECRET_ITEM;
+				} else {
+					return DeployType.ENEMY_ITEM;
+				}
 			}
 		case CHARA:
 			switch (b.color) {

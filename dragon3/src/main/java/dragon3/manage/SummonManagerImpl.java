@@ -21,12 +21,21 @@ public class SummonManagerImpl implements SummonManager {
 
 	/*** Constructer *********************************************/
 
-	public SummonManagerImpl(UnitWorks uw, List<Body> enemys) {
+	public SummonManagerImpl(UnitWorks uw) {
 		this.uw = uw;
 		this.anime = uw.getAnimeManager();
 		this.map = uw.getUnitMap();
+		clean();
+	}
 
+	@Override
+	public void clean() {
 		this.devils = new ArrayList<>();
+	}
+	
+	@Override
+	public void setup(List<Body> enemys) {
+		clean();
 
 		for (Body b : enemys) {
 			if (b.getDeployType() == DeployType.SUMMON) {
@@ -40,7 +49,7 @@ public class SummonManagerImpl implements SummonManager {
 			}
 		}
 	}
-
+	
 	@Override
 	public int getLimitTurn(Point p) {
 		int turn = 64;

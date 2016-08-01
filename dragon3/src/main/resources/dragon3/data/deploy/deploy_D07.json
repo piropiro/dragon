@@ -155,17 +155,17 @@
 	},
 	{
 		"bodyId": "chara_015",
-		"deployType": "ENEMY_CHARA",
+		"deployType": "CLEAR_ITEM",
 		"goalX": 0,
-		"goalY": 14,
+		"goalY": 0,
 		"id": null,
-		"level": 1,
+		"level": 0,
 		"limitTurn": 15,
 		"name": "ジード",
 		"range": 5,
 		"scope": 1,
-		"x": 11,
-		"y": 7
+		"x": 14,
+		"y": 4
 	},
 	{
 		"bodyId": "armor_005",
