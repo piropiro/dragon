@@ -3,9 +3,9 @@ package dragon3.edit.deploy;
 import java.util.List;
 
 import dragon3.Statics;
-import dragon3.bean.BodyData;
-import dragon3.bean.DeployData;
 import dragon3.common.constant.DeployType;
+import dragon3.data.BodyData;
+import dragon3.data.DeployData;
 import dragon3.image.BodyImageList;
 import dragon3.image.ImageManager;
 import mine.MineException;
@@ -34,6 +34,7 @@ public class StatusPanel extends EditPanel<DeployData> implements EditListener<D
 		setIntCombo(RIGHT, "y", "配置Y", 15);
 		setIntCombo(LEFT, "goalX", "目標X", 20);
 		setIntCombo(RIGHT, "goalY", "目標Y", 15);
+		setIntCombo(LEFT, "limitTurn", "時限", 20);
 
 		List<BodyData> bodyList = Statics.bodyList.getList();
 		String[] idList = new String[bodyList.size()];
@@ -42,7 +43,7 @@ public class StatusPanel extends EditPanel<DeployData> implements EditListener<D
 		try {
 			MineImageLoader mil = new ImageLoaderAWT();
 			ImageManager im = new ImageManager(mil);
-			BodyImageList bil = im.getBodyList();
+			BodyImageList bil = im.getBodyImageList();
 
 			for (int i=0; i<bodyList.size(); i++) {
 				BodyData body = bodyList.get(i);

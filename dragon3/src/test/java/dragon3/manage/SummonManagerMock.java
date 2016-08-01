@@ -2,6 +2,9 @@ package dragon3.manage;
 
 import mine.util.Point;
 
+import java.util.List;
+
+import dragon3.common.Body;
 import dragon3.manage.SummonManager;
 
 public class SummonManagerMock implements SummonManager {
@@ -14,6 +17,18 @@ public class SummonManagerMock implements SummonManager {
 	public void summon() {
 		// TODO Auto-generated method stub
 
+	}
+
+	@Override
+	public void clean() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void setup(List<Body> Charas) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

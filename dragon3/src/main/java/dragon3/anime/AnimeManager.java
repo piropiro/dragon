@@ -1,6 +1,6 @@
 package dragon3.anime;
 
-import dragon3.bean.AnimeData;
+import dragon3.data.AnimeData;
 
 public interface AnimeManager {
 

@@ -43,6 +43,7 @@ public class Damage {
 			break;
 		case MAGIC_ALL:
 			attack = ba.getMst();
+			break;
 		default:
 			throw new IllegalArgumentException("DamageType unmatch: " + damageType);
 		}

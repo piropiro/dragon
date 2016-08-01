@@ -1,24 +1,26 @@
 package dragon3.panel;
 
 import card.CardCanvas;
-import dragon3.FrameWorks;
-import dragon3.UnitWorks;
+import dragon3.Statics;
 import dragon3.anime.AnimePanel;
-import dragon3.bean.AnimeData;
-import dragon3.bean.load.AnimeDataLoader;
+import dragon3.attack.Attack;
+import dragon3.camp.Equip;
 import dragon3.common.Body;
 import dragon3.common.DataList;
 import dragon3.common.constant.GameColor;
 import dragon3.common.constant.Page;
-import dragon3.common.util.Equip;
 import dragon3.common.util.MoveUtils;
+import dragon3.controller.UnitWorks;
+import dragon3.data.AnimeData;
+import dragon3.data.load.AnimeDataLoader;
 import dragon3.image.ImageManager;
-import dragon3.manage.Attack;
-import dragon3.manage.SaveManager;
 import dragon3.manage.SummonManager;
 import dragon3.manage.TreasureManager;
 import dragon3.manage.TurnManager;
 import dragon3.map.MapPanel;
+import dragon3.save.SaveData;
+import dragon3.stage.StageSelectPanel;
+import dragon3.view.FrameWorks;
 import lombok.Getter;
 import mine.event.SleepManager;
 import mine.paint.MineImageLoader;
@@ -32,6 +34,7 @@ public class PanelManagerImpl implements PanelManager {
 
 	@Getter private AnimePanel animeP;
 	@Getter private MapPanel mapP;
+	@Getter private StageSelectPanel stageSelectP;
 	@Getter private CardCanvas cardP;
 	private DataPanel dataP1;
 	private DataPanel dataP2;
@@ -61,6 +64,10 @@ public class PanelManagerImpl implements PanelManager {
 		// MapPanel
 		mapP = new MapPanel(fw.getMapPanel(), uw, map);
 		
+		// StageSelectPanel
+		stageSelectP = new StageSelectPanel(fw.getStageSelectPanel(), uw, Statics.stageList.getList(), imageManager);
+		stageSelectP.setVisible(false);
+		
 		// HPanel
 		hpP1 = new HPanel(fw.getHPanel1(), sleepManager, true);
 		hpP2 = new HPanel(fw.getHPanel2(), sleepManager, false);
@@ -89,7 +96,7 @@ public class PanelManagerImpl implements PanelManager {
 
 
 	public void displayData(int x, int y) {
-		int tikei = map.getData(Page.P00, x, y);
+		int tikei = map.getData(Page.P01, x, y);
 		if (tikei == MoveUtils.WHITE) {
 			dataP1.displayData(new Point(x, y), turnManager.getTurn(), treasureManager.getLimitTurn(), treasureManager.getCount());
 		} else {
@@ -98,7 +105,7 @@ public class PanelManagerImpl implements PanelManager {
 	}
 
 	public boolean displayPlace(int x, int y) {
-		int tikei = map.getData(Page.P00, x, y);
+		int tikei = map.getData(Page.P01, x, y);
 		Point p = new Point(x, y);
 		switch (tikei) {
 			case MoveUtils.C_BLUE :
@@ -141,9 +148,9 @@ public class PanelManagerImpl implements PanelManager {
 		dataP1.displayWaza(b, i);
 	}
 	
-	public void displayScore(Equip equip, SaveManager saveManager) {
-		dataP1.displayScore1(saveManager);
-		dataP2.displayScore2(equip, saveManager);
+	public void displayScore(Equip equip, SaveData sd) {
+		dataP1.displayScore1(sd);
+		dataP2.displayScore2(equip, sd);
 	}
 	public void repaintData() {
 		dataP1.repaint();
@@ -243,6 +250,18 @@ public class PanelManagerImpl implements PanelManager {
 	@Override
 	public void displayLarge(String text, GameColor color, int sleep) {
 		largeP.display(text, color, sleep);
+	}
+	
+	// StageSelectPanel
+	@Override
+	public void displayStageSelect(SaveData saveData) {
+		stageSelectP.updateStageStatus(saveData);
+		stageSelectP.setVisible(true);
+	}
+	
+	@Override
+	public void closeStageSelect() {
+		stageSelectP.setVisible(false);
 	}
 
 	/**

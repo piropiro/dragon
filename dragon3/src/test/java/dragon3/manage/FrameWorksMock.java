@@ -1,13 +1,13 @@
 package dragon3.manage;
 
 import card.CardCanvas;
-import dragon3.FrameWorks;
 import dragon3.panel.DataPanel;
 import dragon3.panel.HPanel;
 import dragon3.panel.HelpPanel;
 import dragon3.panel.LargePanel;
 import dragon3.panel.MessagePanel;
 import dragon3.panel.SmallPanel;
+import dragon3.view.FrameWorks;
 import mine.awt.PaintComponentAWT;
 import mine.event.PaintComponent;
 import mine.event.SleepManager;
@@ -73,6 +73,10 @@ public class FrameWorksMock implements FrameWorks {
 	public PaintComponent getMessagePanel() {
 		return new PaintComponentAWT(MessagePanel.WIDTH, MessagePanel.HEIGHT);
 	}
+	@Override
+	public PaintComponent getStageSelectPanel() {
+		return new PaintComponentAWT(640, 480);
+	}
 
 	@Override
 	public MineImageLoader getImageLoader() {
@@ -85,5 +89,7 @@ public class FrameWorksMock implements FrameWorks {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+
 	
 }

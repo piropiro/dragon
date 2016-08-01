@@ -7,9 +7,9 @@ package dragon3.panel.paint;
 import java.util.HashSet;
 import java.util.Set;
 
-import dragon3.bean.WazaData;
 import dragon3.common.constant.AttackEffect;
 import dragon3.common.constant.Texts;
+import dragon3.data.WazaData;
 import dragon3.panel.PanelWorks;
 import mine.paint.MineGraphics;
 import mine.paint.MineImage;
@@ -21,16 +21,16 @@ public class WazaPaint implements DataPanelPainter {
 
 	private WazaData waza;
 	private int n;
-	private MineImage[] back;
+	private MineImage backImage;
 
 
-	public WazaPaint(WazaData waza, MineImage[] back) {
+	public WazaPaint(WazaData waza, MineImage backImage) {
 		this.waza = waza;
-		this.back = back;
+		this.backImage = backImage;
 	}
 
 	public void paint(PanelWorks pw, MineGraphics g) {
-		g.drawImage(back[0], 10, 10);
+		g.drawImage(backImage, 10, 10);
 
 		//g.drawImage(bodyImageList.getImage(ba.getImage()), 10, 10);
 		g.drawString(

@@ -9,7 +9,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import dragon3.bean.BodyData;
+import dragon3.data.BodyData;
 import mine.io.BeanIO;
 import net.arnx.jsonic.JSON;
 

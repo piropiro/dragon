@@ -2,10 +2,10 @@ package dragon3.paint;
 
 import java.util.List;
 
-import dragon3.UnitWorks;
 import dragon3.anime.AnimeManager;
 import dragon3.common.Body;
 import dragon3.common.constant.Page;
+import dragon3.controller.UnitWorks;
 import dragon3.map.MapWorks;
 import dragon3.panel.PanelManager;
 import mine.paint.UnitMap;
@@ -57,7 +57,7 @@ public class KakuseiPaint implements EventListener {
 	 * @return
 	 */
 	private Body getKakuseiData() {
-		List<Body> data = uw.loadEnemyData("kakusei");
+		List<Body> data = uw.loadEnemyData("kakusei", 0);
 		return (Body) data.get(0);
 	}
 

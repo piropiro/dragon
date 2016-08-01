@@ -32,13 +32,15 @@ public class PanelManagerTest extends TestCase {
 
 			map = new UnitMap(14, 20, 15, mil);
 			map.setVisible(Page.P00, true);
-			map.setTile(Page.P00, im.getBack(), -1);
+			map.setTile(Page.P00, im.getStageBack(), -1);
+			map.setVisible(Page.P01, true);
+			map.setTile(Page.P01, im.getStageObj(), -1);
 			map.setVisible(Page.P20, true);
-			map.setTile(Page.P20, im.getBodyList().getImageList(), 0);
+			map.setTile(Page.P20, im.getBodyImageList().getImageList(), 0);
 			map.setVisible(Page.P50, true);
 			map.setTile(Page.P50, im.getStatus(), 0);
-			map.setPage(Page.P00, Statics.getMapData("D01"));
-			map.setData(Page.P00, 11, 10, MoveUtils.OPEN_MAGIC);
+			map.setPage(Page.P01, Statics.getMapData("D01"));
+			map.setData(Page.P01, 11, 10, MoveUtils.OPEN_MAGIC);
 			map.setData(Page.P20, 10, 10, 1);
 			map.fillDia(Page.P41, 10, 10, 2, 1);
 			map.clear(Page.P02, 1);

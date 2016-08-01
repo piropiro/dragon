@@ -4,6 +4,7 @@
 package dragon3.image;
 
 import java.util.HashMap;
+import java.util.Map;
 
 import mine.MineException;
 import mine.MineUtils;
@@ -25,7 +26,7 @@ public class BodyImageList {
 	/**
 	 * イメージパスをイメージ番号にマップする。
 	 */
-	private HashMap<String, Integer> map;
+	private Map<String, Integer> map;
 	
 
 	public BodyImageList(String image_dir, MineImageLoader mil) throws MineException {

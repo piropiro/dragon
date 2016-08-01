@@ -1,16 +1,14 @@
 package dragon3.panel;
 
-import mine.util.Point;
-
 import dragon3.Statics;
-import dragon3.bean.WazaData;
+import dragon3.attack.Attack;
+import dragon3.camp.Equip;
 import dragon3.common.Body;
 import dragon3.common.constant.BodyKind;
 import dragon3.common.constant.GameColor;
-import dragon3.common.util.Equip;
+import dragon3.common.util.MoveUtils;
+import dragon3.data.WazaData;
 import dragon3.image.ImageManager;
-import dragon3.manage.Attack;
-import dragon3.manage.SaveManager;
 import dragon3.panel.paint.AnalyzePaint;
 import dragon3.panel.paint.AttackPaint;
 import dragon3.panel.paint.CampDataPaint;
@@ -26,9 +24,12 @@ import dragon3.panel.paint.SummonPaint;
 import dragon3.panel.paint.TypeListPaint;
 import dragon3.panel.paint.WazaListPaint;
 import dragon3.panel.paint.WazaPaint;
+import dragon3.save.SaveData;
 import mine.event.PaintComponent;
 import mine.event.SleepManager;
 import mine.paint.MineGraphics;
+import mine.paint.MineImage;
+import mine.util.Point;
 
 public class DataPanel extends PanelBase {
 
@@ -42,6 +43,8 @@ public class DataPanel extends PanelBase {
 	private DataPanelPainter pp;
 
 	private GameColor bgcolor = GameColor.BLUE;
+	
+	private MineImage cBlueImage;
 
 
 	/*** Constructer *******************************************/
@@ -50,23 +53,26 @@ public class DataPanel extends PanelBase {
 		super(panel, sm, im, WIDTH, HEIGHT, left);
 		this.panel = panel;
 		this.im = im;
+		
+		this.cBlueImage = im.getStageObj()[MoveUtils.C_BLUE];
+		
 		panel.setPaintListener(this);
 	}
 
 	/*** Score *******************************************/
 
-	public void displayScore1(SaveManager save) {
+	public void displayScore1(SaveData sd) {
 		bgcolor = GameColor.BLUE;
 		setLocate(new Point(2, 1), 1);
-		pp = new Score1Paint(save, im.getBack());
+		pp = new Score1Paint(sd, cBlueImage);
 		panel.repaint();
 		panel.setVisible(true);
 	}
 
-	public void displayScore2(Equip equip, SaveManager save) {
+	public void displayScore2(Equip equip, SaveData sd) {
 		bgcolor = GameColor.BLUE;
 		setLocate(new Point(3, 1), 1);
-		pp = new Score2Paint(equip, save);
+		pp = new Score2Paint(equip, sd);
 		panel.repaint();
 		panel.setVisible(true);
 	}
@@ -76,7 +82,7 @@ public class DataPanel extends PanelBase {
 	public void displayCamp(Point pa, int tikei, GameColor bgcolor_) {
 		this.bgcolor = bgcolor_;
 		setLocate(pa, 1);
-		pp = new CampDataPaint(tikei, im.getBack(), im.getWaku());
+		pp = new CampDataPaint(tikei, im.getWhiteBack(), im.getWaku());
 		panel.repaint();
 		panel.setVisible(true);
 	}
@@ -84,7 +90,7 @@ public class DataPanel extends PanelBase {
 	public void displayPlace(Point pa, int tikei) {
 		bgcolor = GameColor.GREEN;
 		setLocate(pa, 1);
-		pp = new PlacePaint(tikei, im.getBack());
+		pp = new PlacePaint(tikei, im.getStageObj());
 		panel.repaint();
 		panel.setVisible(true);
 	}
@@ -92,7 +98,7 @@ public class DataPanel extends PanelBase {
 	public void displayItem(Point pa, int turn, int limit, int tikei) {
 		bgcolor = GameColor.GREEN;
 		setLocate(pa, 1);
-		pp = new ItemPaint(turn, limit, tikei, im.getBack());
+		pp = new ItemPaint(turn, limit, tikei, im.getStageObj());
 		panel.repaint();
 		panel.setVisible(true);
 	}
@@ -100,7 +106,7 @@ public class DataPanel extends PanelBase {
 	public void displaySummon(Point pa, int turn, int limit, int tikei) {
 		bgcolor = GameColor.GREEN;
 		setLocate(pa, 1);
-		pp = new SummonPaint(turn, limit, tikei, im.getBack());
+		pp = new SummonPaint(turn, limit, tikei, im.getStageObj());
 		panel.repaint();
 		panel.setVisible(true);
 	}
@@ -108,7 +114,7 @@ public class DataPanel extends PanelBase {
 	public void displayData(Point pa, int turn, int treasureLimit, String treasureCount) {
 		bgcolor = GameColor.GREEN;
 		setLocate(pa, 1);
-		pp = new DataPaint(turn, treasureLimit, treasureCount, im.getBack());
+		pp = new DataPaint(turn, treasureLimit, treasureCount, cBlueImage);
 		panel.repaint();
 		panel.setVisible(true);
 	}
@@ -145,7 +151,7 @@ public class DataPanel extends PanelBase {
 
 	public void displayWaza(Body ba, int i) {
 		WazaData waza = (WazaData)Statics.wazaList.getData(ba.getWazaList().get(i));
-		display(ba, new WazaPaint(waza, im.getBack()));
+		display(ba, new WazaPaint(waza, im.getWhiteBack()));
 	}
 	
 	public void displayNext(Body ba) {

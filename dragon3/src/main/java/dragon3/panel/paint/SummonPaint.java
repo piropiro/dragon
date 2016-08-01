@@ -17,17 +17,17 @@ public class SummonPaint implements DataPanelPainter {
 	private int turn;
 	private int limit;
 	private int tikei;
-	private MineImage[] back;
+	private MineImage[] stageObj;
 
-	public SummonPaint(int turn, int limit, int tikei, MineImage[] back) {
+	public SummonPaint(int turn, int limit, int tikei, MineImage[] stageObj) {
 		this.turn = turn;
 		this.limit = limit;
 		this.tikei = tikei;
-		this.back = back;
+		this.stageObj = stageObj;
 	}
 
 	public void paint(PanelWorks pw, MineGraphics g) {
-		g.drawImage(back[tikei], 10, 10);
+		g.drawImage(stageObj[tikei], 10, 10);
 		if (limit == 64) {
 			pw.drawText(Texts.sp[76], g);
 

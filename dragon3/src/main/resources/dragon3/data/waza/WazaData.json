@@ -266,8 +266,11 @@
 		"animeId": "SINGLE.magic_blue",
 		"damageType": "MAGIC_ALL",
 		"effect": [
-			"REGENE",
-			"HICHU"
+			"HEAL",
+			"HICHU",
+			"NONE",
+			"NONE",
+			"NONE"
 		],
 		"energyCost": 3,
 		"energyType": "MST",
@@ -368,7 +371,7 @@
 		"effect": [
 			"REFRESH",
 			"NO_ATTACK",
-			"REGENE",
+			"HEAL",
 			"HICHU"
 		],
 		"energyCost": 3,
@@ -1127,7 +1130,7 @@
 		"effect": [
 			"ATTACK_UP",
 			"NO_ATTACK",
-			"REGENE",
+			"HEAL",
 			"HICHU"
 		],
 		"energyCost": 2,
@@ -1145,7 +1148,7 @@
 		"effect": [
 			"GUARD_UP",
 			"NO_ATTACK",
-			"REGENE",
+			"HEAL",
 			"HICHU"
 		],
 		"energyCost": 2,
@@ -1747,7 +1750,7 @@
 		"effect": [
 			"UPPER",
 			"NO_ATTACK",
-			"REGENE",
+			"HEAL",
 			"HICHU"
 		],
 		"energyCost": 2,
@@ -1846,9 +1849,11 @@
 		"animeId": "SINGLE.turu",
 		"damageType": "MAGIC_ALL",
 		"effect": [
-			"REGENE",
+			"HEAL",
 			"HICHU",
-			"TAME"
+			"TAME",
+			"NONE",
+			"NONE"
 		],
 		"energyCost": 1,
 		"energyType": "MST",
@@ -1897,7 +1902,7 @@
 		"effect": [
 			"GUARD_UP",
 			"NO_ATTACK",
-			"REGENE",
+			"HEAL",
 			"HICHU"
 		],
 		"energyCost": 3,
@@ -2229,7 +2234,7 @@
 		"effect": [
 			"ATTACK_UP",
 			"NO_ATTACK",
-			"REGENE",
+			"HEAL",
 			"HICHU"
 		],
 		"energyCost": 3,

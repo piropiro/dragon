@@ -4,16 +4,16 @@ import mine.util.Point;
 import java.util.List;
 
 import mine.paint.UnitMap;
-import dragon3.FightManager;
-import dragon3.RewalkManager;
-import dragon3.UnitWorks;
 import dragon3.anime.AnimeManager;
+import dragon3.attack.FightManager;
 import dragon3.common.Body;
 import dragon3.common.constant.GameColor;
 import dragon3.common.constant.Page;
 import dragon3.common.constant.Texts;
 import dragon3.common.constant.BodyAttribute;
 import dragon3.common.util.MoveUtils;
+import dragon3.controller.UnitWorks;
+import dragon3.manage.RewalkManager;
 import dragon3.map.MapWorks;
 import dragon3.panel.PanelManager;
 
@@ -54,8 +54,8 @@ public class WalkPaint implements EventListener {
 			}
 		}
 		map.clear(Page.P02, 0);
-		map.change(Page.P00, Page.P02, stepList);
-		map.change(Page.P02, Page.P00, 2, 1);
+		map.change(Page.P01, Page.P02, stepList);
+		map.change(Page.P02, 0, Page.P02, 1);
 		map.copyPage(Page.P02, Page.P12);
 		for (Body b : charaList) {
 			if (!b.isAlive())
@@ -92,7 +92,6 @@ public class WalkPaint implements EventListener {
 		walk(waku.x, waku.y);
 		map.clear(Page.P10, 0);
 		FightManager fm = new FightManager(uw, ba);
-		PaintUtils.setAttackPaint(uw, fm, ba);
 		fm.nextSelect();
 	}
 

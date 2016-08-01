@@ -4,13 +4,12 @@ import mine.util.Point;
 import java.util.ArrayList;
 import java.util.List;
 
-import dragon3.UnitWorks;
 import dragon3.common.Body;
 import dragon3.common.constant.BodyKind;
 import dragon3.common.constant.GameColor;
 import dragon3.common.constant.Page;
 import dragon3.common.constant.Texts;
-import dragon3.common.util.Equip;
+import dragon3.controller.UnitWorks;
 import dragon3.manage.TreasureManager;
 import dragon3.map.MapWorks;
 import dragon3.panel.PanelManager;
@@ -72,7 +71,7 @@ public class Camp {
 
 	public void repaint(int[][] data) {
 		map.setPage(Page.P10, data);
-		map.clear(Page.P00, 0);
+		map.clear(Page.P01, 0);
 		map.clear(Page.P20, 0);
 		map.clear(Page.P30, 0);
 		map.clear(Page.P40, 0);

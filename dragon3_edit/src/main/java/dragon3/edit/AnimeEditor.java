@@ -1,7 +1,7 @@
 package dragon3.edit;
 
-import dragon3.bean.AnimeData;
 import dragon3.common.constant.AnimeType;
+import dragon3.data.AnimeData;
 import dragon3.image.AnimeImageList;
 import dragon3.image.ImageManager;
 import mine.awt.ImageLoaderAWT;
@@ -23,7 +23,7 @@ public class AnimeEditor extends EditPanel<AnimeData> {
 
 		MineImageLoader mil = new ImageLoaderAWT();
 		ImageManager im = new ImageManager(mil);
-		AnimeImageList ail = im.getAnimeList();
+		AnimeImageList ail = im.getAnimeImageList();
 
 		String[] pathList = ail.getPathList();
 		MineImage[][] imageList = ail.getImageList();

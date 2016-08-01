@@ -1,6 +1,6 @@
 package dragon3.edit.deploy.paint;
 
-import dragon3.bean.DeployData;
+import dragon3.data.DeployData;
 import dragon3.edit.deploy.MainWorks;
 
 public class GoalPaint implements PaintListener {

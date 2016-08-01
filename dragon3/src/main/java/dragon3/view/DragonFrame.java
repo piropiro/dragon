@@ -12,7 +12,6 @@ import javax.swing.JFrame;
 import javax.swing.JLayeredPane;
 
 import card.CardCanvas;
-import dragon3.FrameWorks;
 import dragon3.controller.CommandListener;
 import dragon3.panel.DataPanel;
 import dragon3.panel.HPanel;
@@ -51,6 +50,7 @@ public class DragonFrame implements FrameWorks, ActionListener, KeyListener {
 	@Getter private PaintComponent dataPanel1;
 	@Getter private PaintComponent dataPanel2;
 	@Getter private PaintComponent messagePanel;
+	@Getter private PaintComponent stageSelectPanel;
 	
 	@Getter private MineImageLoader imageLoader;
 	@Getter private MouseManager mouseManager;
@@ -70,6 +70,9 @@ public class DragonFrame implements FrameWorks, ActionListener, KeyListener {
 		
 		// MapPanel
 		mapPanel = new PaintComponentAWT(640, 480);
+		
+		// StageSelectPanel
+		stageSelectPanel = new PaintComponentAWT(640, 480);
 		
 		// AnimePanel
 		animePanel = new PaintComponentAWT(640, 480);
@@ -97,6 +100,8 @@ public class DragonFrame implements FrameWorks, ActionListener, KeyListener {
 		// MessagePanel
 		messagePanel = new PaintComponentAWT(MessagePanel.WIDTH, MessagePanel.HEIGHT);
 		
+
+		
 	
 		JLayeredPane parent = new JLayeredPane();
 		MineAwtUtils.setSize(parent, 640, 480);
@@ -107,7 +112,8 @@ public class DragonFrame implements FrameWorks, ActionListener, KeyListener {
 		parent.addKeyListener(this);
 
 		parent.setLayout(null);
-		parent.add((JComponent)mapPanel, new Integer(1));
+		parent.add((JComponent)mapPanel, new Integer(0));
+		parent.add((JComponent)stageSelectPanel, new Integer(1));
 		parent.add((JComponent)cardPanel, new Integer(2));
 		parent.add((JComponent)helpPanel, new Integer(3));
 		parent.add((JComponent)dataPanel1, new Integer(4));
@@ -161,6 +167,15 @@ public class DragonFrame implements FrameWorks, ActionListener, KeyListener {
 				mb.addItem("HELP", "help", KeyEvent.VK_H);
 				mb.addItem("SCORE", "score", KeyEvent.VK_G);
 				break;
+			case T_STAGESELECT:
+				mb.add("BACK", "camp", KeyEvent.VK_B);
+				mb.add("HELP", "help", KeyEvent.VK_H);
+				break;
+			case T_SETMENS :
+				mb.add("BACK", "stage", KeyEvent.VK_B);
+				mb.add("START", "start", KeyEvent.VK_S);
+				mb.add("HELP", "help", KeyEvent.VK_H);
+				break;
 			case T_COLLECT :
 				mb.add("BACK", "back", KeyEvent.VK_B);
 				mb.add("HELP", "help", KeyEvent.VK_H);
@@ -171,11 +186,7 @@ public class DragonFrame implements FrameWorks, ActionListener, KeyListener {
 				mb.add("LOAD", "mapload", KeyEvent.VK_Q);
 				mb.add("HELP", "help", KeyEvent.VK_H);
 				break;
-			case T_SETMENS :
-				mb.add("START", "start", KeyEvent.VK_S);
-				mb.add("CAMP", "camp", KeyEvent.VK_A);
-				mb.add("HELP", "help", KeyEvent.VK_H);
-				break;
+
 			case T_ENEMY :
 				mb.add("NONE", "none", KeyEvent.VK_N);
 				break;

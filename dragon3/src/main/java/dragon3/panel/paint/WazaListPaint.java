@@ -6,8 +6,8 @@ package dragon3.panel.paint;
 
 import mine.paint.MineGraphics;
 import dragon3.Statics;
-import dragon3.bean.Data;
 import dragon3.common.Body;
+import dragon3.data.Data;
 import dragon3.panel.PanelWorks;
 
 /**

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import mine.paint.UnitMap;
-import dragon3.bean.DeployData;
+import dragon3.data.DeployData;
 import dragon3.edit.deploy.MainWorks;
 import dragon3.edit.deploy.Page;
 

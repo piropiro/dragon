@@ -43,7 +43,7 @@ public class LargePanel implements PaintListener {
 		this.text = text;
 		this.bgcolor = bgcolor;
 		
-		width = calcWidth(text) + 20;
+		width = text.getBytes().length * 14 + 20;
 		height = 32;
 		
 		panel.setSize(width, height);
@@ -72,17 +72,12 @@ public class LargePanel implements PaintListener {
 
 		//MineAwtUtils.setAntialias(g, true);
 		//MineAwtUtils.drawString(text, 0, 24, width, g);
-		g.drawString(text, 0 + (width - calcWidth(text)) / 2, 24);
-		
+		g.drawString(text,  0,  24, width);
 	}
 
 	/*** Dispose ******************************************************/
 
 	public void setVisible(boolean flag) {
 		panel.setVisible(flag);
-	}
-	
-	private int calcWidth(String text) {
-		return text.getBytes().length * 12;
 	}
 }

@@ -3,15 +3,15 @@ package dragon3.edit;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-import dragon3.bean.AnimeData;
-import dragon3.bean.WazaData;
-import dragon3.bean.load.AnimeDataLoader;
 import dragon3.common.DataList;
 import dragon3.common.constant.AttackEffect;
 import dragon3.common.constant.DamageType;
 import dragon3.common.constant.EnergyType;
 import dragon3.common.constant.GameColor;
 import dragon3.common.constant.TargetType;
+import dragon3.data.AnimeData;
+import dragon3.data.WazaData;
+import dragon3.data.load.AnimeDataLoader;
 import dragon3.image.BodyImageList;
 import dragon3.image.ImageManager;
 import mine.MineException;
@@ -34,7 +34,7 @@ public class WazaEditor extends EditPanel<WazaData> implements EditListener<Waza
 
 		MineImageLoader mil = new ImageLoaderAWT();
 		ImageManager im = new ImageManager(mil);
-		BodyImageList bil = im.getBodyList();
+		BodyImageList bil = im.getBodyImageList();
 
 		setField(CENTER, "id", "ID");
 		setField(CENTER, "name", "名前");

@@ -5,12 +5,12 @@ package dragon3.paint;
 
 import java.util.List;
 
-import dragon3.FightManager;
-import dragon3.UnitWorks;
+import dragon3.attack.FightManager;
 import dragon3.camp.Camp;
 import dragon3.card.CardPaint;
 import dragon3.common.Body;
 import dragon3.common.constant.Page;
+import dragon3.controller.UnitWorks;
 import dragon3.map.MapWorks;
 
 /**

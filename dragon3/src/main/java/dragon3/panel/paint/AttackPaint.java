@@ -5,11 +5,11 @@ package dragon3.panel.paint;
 
 
 import mine.paint.MineGraphics;
+import dragon3.attack.Attack;
 import dragon3.common.Body;
 import dragon3.common.constant.AttackEffect;
 import dragon3.common.constant.Texts;
 import dragon3.common.constant.BodyAttribute;
-import dragon3.manage.Attack;
 import dragon3.panel.PanelWorks;
 
 /**

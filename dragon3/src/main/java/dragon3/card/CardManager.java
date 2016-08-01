@@ -2,10 +2,10 @@ package dragon3.card;
 
 import card.CardCanvas;
 import card.CardListener;
-import dragon3.UnitWorks;
 import dragon3.common.Body;
 import dragon3.common.constant.Page;
 import dragon3.common.constant.Texts;
+import dragon3.controller.UnitWorks;
 import dragon3.image.ImageManager;
 import dragon3.panel.PanelManager;
 import mine.event.SleepManager;
@@ -40,8 +40,8 @@ public class CardManager implements CardListener {
 	public void setup(Body ba, Body bb) {
 		this.ba = ba;
 		this.bb = bb;
-		MineImage blueImage = im.getBodyList().getImage(ba.getImageNum());
-		MineImage redImage = im.getBodyList().getImage(bb.getImageNum());
+		MineImage blueImage = im.getBodyImageList().getImage(ba.getImageNum());
+		MineImage redImage = im.getBodyImageList().getImage(bb.getImageNum());
 		int[] blueNum = getNumber(ba);
 		int[] redNum = getNumber(bb);
 		cardCanvas.setRedChara(redImage, redNum);
