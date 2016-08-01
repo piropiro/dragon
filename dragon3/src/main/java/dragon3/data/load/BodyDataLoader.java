@@ -25,7 +25,7 @@ public class BodyDataLoader {
 
 			body.setDeployType(deploy.getDeployType());
 			body.setColor(deploy.getDeployType().getColor());
-			body.setLevel(deploy.getLevel());
+			body.setLevel(deploy.getLevel() + addLevel);
 			body.setScope(deploy.getScope());
 			body.setRange(deploy.getRange());
 			body.setLimitTurn(deploy.getLimitTurn());

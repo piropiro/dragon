@@ -112,8 +112,8 @@ public class ImageManager {
 			int level = stage.getLevel() + status.getStar() * 10;
 			g.drawString("Lv." + level, 70, 92);
 			
-			for (int i = 1; i <= status.getStar(); i++) {
-				g.drawImage(stageStar,  96 - 30 * i, 85);
+			for (int i = 0; i < status.getStar(); i++) {
+				g.drawImage(stageStar, 2 + 13 * i, 82);
 			}
 			list.add(img);
 		}

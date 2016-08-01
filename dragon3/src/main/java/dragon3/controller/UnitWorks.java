@@ -32,7 +32,7 @@ public interface UnitWorks {
 	public void startup();
 	public void backToCamp();
 	public void backFromImogari();
-	public List<Body> loadEnemyData(String file, int starNum);
+	public List<Body> loadEnemyData(String file, int addLevel);
 	public void stageStart(StageData stageData);
 	
 	/*** Main2 **************************/

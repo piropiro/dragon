@@ -23,7 +23,7 @@ public class SaveManagerImpl implements SaveManager {
     private SaveData initData() {
     	SaveData newData = new SaveData();
     	newData.setOpened("D01", true);
-    	newData.setBodyList(uw.loadEnemyData("camp", 0));
+    	newData.setBodyList(uw.loadEnemyData("camp", 10));
         return newData;
     }
 

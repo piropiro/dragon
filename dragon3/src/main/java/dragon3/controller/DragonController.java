@@ -94,13 +94,14 @@ public class DragonController implements UnitWorks, CommandListener {
 		saveManager = new SaveManagerImpl(this);
 		Charas = new ArrayList<>();
 		map = createMap();
-		turnManager = new TurnManagerImpl(this);
 		
 		panelManager = new PanelManagerImpl(fw, this, map, sleepManager, imageManager, mil);
-		panelManager.setTurnManager(turnManager);
-		
+
 		animeManager = panelManager.getAnimeP();
 		mw = panelManager.getMapP();
+
+		turnManager = new TurnManagerImpl(this);
+		panelManager.setTurnManager(turnManager);
 		
 		rewalkManager = new RewalkManager(this);
 		

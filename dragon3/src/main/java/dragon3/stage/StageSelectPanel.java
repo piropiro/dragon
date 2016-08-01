@@ -78,6 +78,7 @@ public class StageSelectPanel implements StageManager, MouseAllListener, PaintLi
 			if (saveData.getStarNum(stageId) > 0) {
 				Point p = stageMap.searchData(P_STAGE, i);
 
+				openStage(saveData, p.x, p.y);
 				openStage(saveData, p.x - 1, p.y);
 				openStage(saveData, p.x + 1, p.y);
 				openStage(saveData, p.x, p.y - 1);
