@@ -20,12 +20,10 @@ public class BodyDataLoader {
 		List<DeployData> deployList = Statics.getDeployData(stageId);
 		for (DeployData deploy : deployList) {
 			
-			Body body = loadBodyData(deploy.getBodyId());
-			calcLevel(body, deploy.getLevel() + addLevel);
-
+			Body body = loadBodyData(deploy.getBodyId(), deploy.getLevel() + addLevel);
+		
 			body.setDeployType(deploy.getDeployType());
 			body.setColor(deploy.getDeployType().getColor());
-			body.setLevel(deploy.getLevel() + addLevel);
 			body.setScope(deploy.getScope());
 			body.setRange(deploy.getRange());
 			body.setLimitTurn(deploy.getLimitTurn());
@@ -64,26 +62,20 @@ public class BodyDataLoader {
 		
 		System.out.print(" baseStr=" + body.base.getStr());
 		
-		body.setHpMax(body.base.getHp() / 10);
-		body.setHp(body.getHpMax());
-		body.setStr(body.base.getStr() / 10);
-		body.setDef(body.base.getDef() / 10);
-		body.setMst(body.base.getMst() / 10);
-		body.setMdf(body.base.getMdf() / 10);
-		body.setHit(body.base.getHit() / 10);
-		body.setMis(body.base.getMis() / 10);
+		body.setLevel(level);
+		body.setMax();
 		
 		System.out.println(" str=" + body.getStr());
 	}
 	
-	private static Body loadBodyData(String bodyId) {
+	public static Body loadBodyData(String bodyId, int level) {
 		Body body = new Body();
 		
 		BodyData bodyData = Statics.bodyList.getData(bodyId);
 		
 		try {
 			BeanUtils.copyProperties(body.base, bodyData);
-			
+			calcLevel(body, level);			
 			body.resetAttr();			
 			body.resetWaza();
 

@@ -65,7 +65,7 @@ public class BodyEditor extends EditPanel<BodyData> implements EditListener<Body
 		initCombo("armorType", ArmorType.createMap());
 
 		Map<String, String> wazaIdAndName = Statics.wazaList.getIdAndName();
-		for (int i=0; i<3; i++) {
+		for (int i=0; i<4; i++) {
 			setTextCombo(CENTER, "wazaList", i, "特技" + i);
 			initCombo("wazaList", i, wazaIdAndName);
 		}

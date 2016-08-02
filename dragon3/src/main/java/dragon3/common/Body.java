@@ -54,7 +54,8 @@ public class Body implements Serializable, Cloneable {
 	public Body() {
 	}
 
-	public void setMax() {
+	public void setMax() {		
+		hpMax = base.getHp() / 10;
 		hp = hpMax;
 		str = base.getStr() / 10;
 		def = base.getDef() / 10;

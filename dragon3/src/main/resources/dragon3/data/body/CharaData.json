@@ -90,7 +90,13 @@
 	},
 	{
 		"armorType": "LITE",
-		"attrList": [],
+		"attrList": [
+			"NONE",
+			"NONE",
+			"NONE",
+			"NONE",
+			"NONE"
+		],
 		"def": 14,
 		"hit": 42,
 		"hp": 35,
@@ -103,7 +109,7 @@
 		"moveType": "LITE",
 		"mst": 0,
 		"name": "ゴブリン",
-		"soulType": "NONE",
+		"soulType": "GREEN",
 		"str": 28,
 		"wazaList": [
 			"waza_004",
@@ -118,7 +124,11 @@
 	{
 		"armorType": "LITE",
 		"attrList": [
-			"ANTI_CHARM"
+			"ANTI_CHARM",
+			"NONE",
+			"NONE",
+			"NONE",
+			"NONE"
 		],
 		"def": 5,
 		"hit": 47,
@@ -132,7 +142,7 @@
 		"moveType": "HOVER",
 		"mst": 28,
 		"name": "ピクシー",
-		"soulType": "NONE",
+		"soulType": "BLUE",
 		"str": 0,
 		"wazaList": [
 			"waza_007",
@@ -148,9 +158,12 @@
 		"armorType": "HEAVY",
 		"attrList": [
 			"UNDEAD",
-			"FIRE_200"
+			"FIRE_200",
+			"NONE",
+			"NONE",
+			"NONE"
 		],
-		"def": 19,
+		"def": 21,
 		"hit": 41,
 		"hp": 32,
 		"id": "chara_006",
@@ -162,7 +175,7 @@
 		"moveType": "HEAVY",
 		"mst": 0,
 		"name": "ガイコツ剣士",
-		"soulType": "NONE",
+		"soulType": "ORANGE",
 		"str": 36,
 		"wazaList": [
 			"waza_001",

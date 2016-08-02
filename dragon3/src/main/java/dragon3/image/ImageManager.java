@@ -109,7 +109,7 @@ public class ImageManager {
 			} else {
 				g.drawString(stage.getName(), 30, 48);
 			}
-			int level = stage.getLevel() + status.getStar() * 10;
+			int level = stage.getLevel() + status.getStar() * 5;
 			g.drawString("Lv." + level, 70, 92);
 			
 			for (int i = 0; i < status.getStar(); i++) {

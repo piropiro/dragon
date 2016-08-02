@@ -18,6 +18,7 @@ import dragon3.data.load.BodyDataLoader;
 import dragon3.image.ImageManager;
 import dragon3.manage.LevelManager;
 import dragon3.manage.RewalkManager;
+import dragon3.manage.SoulManager;
 import dragon3.manage.SummonManager;
 import dragon3.manage.SummonManagerImpl;
 import dragon3.manage.TreasureManager;
@@ -68,6 +69,7 @@ public class DragonController implements UnitWorks, CommandListener {
 	private Camp camp;
 	private TreasureManager treasure;
 	private SummonManager summon;
+	private SoulManager soulManager;
 	private StageManager stageManager;
 
 
@@ -105,6 +107,8 @@ public class DragonController implements UnitWorks, CommandListener {
 		
 		summon = new SummonManagerImpl(this);
 		panelManager.setSummon(summon);
+		
+		soulManager = new SoulManager(this);
 		
 		rewalkManager = new RewalkManager(this);
 		
@@ -167,12 +171,13 @@ public class DragonController implements UnitWorks, CommandListener {
 		Charas.clear();
 		Players = equip.getPlayers();
 		String stageId = stageManager.getSelectedStage().getId();
-		int addLevel = saveManager.getSaveData().getStarNum(stageId) * 10;
+		int addLevel = saveManager.getSaveData().getStarNum(stageId) * 5;
 		Enemys = this.loadEnemyData(stageData.getId(), addLevel);
 		//randomize(Enemys);
 		reverse(Enemys);
 		treasure.setup(Enemys);
 		summon.setup(Enemys);
+		soulManager.setup();
 		insertCharas(Enemys);
 		putUnit(Enemys);
 		turnManager.reset();
@@ -275,6 +280,9 @@ public class DragonController implements UnitWorks, CommandListener {
 			saveManager.getSaveData().countKill();
 			equip.getExp(ba, bb);
 			treasure.getTreasure(bb, false);
+			Body soul = soulManager.getSoul(bb);
+			if (soul != null)
+				treasure.add(soul);
 		}
 		if (GameColor.isPlayer(bb)) {
 			saveManager.getSaveData().countDead();
@@ -449,6 +457,7 @@ public class DragonController implements UnitWorks, CommandListener {
 
 	public void message() {
 		treasure.message();
+		soulManager.message();
 	}
 
 	public void addMember(Body b) {

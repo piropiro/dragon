@@ -25,7 +25,7 @@ public class HPBar {
 	public void setup(boolean hit, int hp, int hpMax) {
 		this.hitFlag = hit;
 		this.hp = hp;
-		this.hpMax = hpMax;
+		this.hpMax = Math.max(1, hpMax);
 		setMin(hp, false);
 	}
 
