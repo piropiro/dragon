@@ -29,7 +29,7 @@ public class HPanel implements PaintListener {
 		this.sm = sm;
 		this.high = high;
 		panel.setVisible(false);
-		panel.setFontSize(14);
+		//panel.setFontSize(14);
 		hpb = new HPBar();
 		panel.setPaintListener(this);
 	}
@@ -85,6 +85,7 @@ public class HPanel implements PaintListener {
 		if (ba == null)
 			return;
 		
+		g.setFont("serif", 14);
 		g.setColor(ba.getColor().getAlphaBg());
 		g.fillRect(0, 0, WIDTH, HEIGHT);
 		g.setColor(MineColor.BLACK);

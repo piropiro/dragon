@@ -62,7 +62,6 @@ public class StageSelectPanel implements StageManager, MouseAllListener, PaintLi
 		stageMap.setVisible(P_WAKU, true);
 		
 		panel.setPaintListener(this);
-		panel.setMouseAllListener(this);
 	}
 	
 	public void updateStageStatus(SaveData saveData) {

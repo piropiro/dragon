@@ -20,6 +20,7 @@ import dragon3.common.DataList;
 import dragon3.common.constant.AnimeType;
 import dragon3.data.AnimeData;
 import dragon3.image.ImageManager;
+import dragon3.map.MapWorks;
 import mine.event.PaintComponent;
 import mine.event.PaintListener;
 import mine.event.SleepManager;
@@ -127,10 +128,10 @@ public class AnimePanel implements AnimeManager, AnimeWorks, PaintListener {
 	 * @param y
 	 */
 	@Override
-	public void walkAnime(int x, int y) {
+	public void walkAnime(MapWorks mw, int x, int y) {
 		panel.setBounds(x * 32, y * 32, 32, 32);
 		np = null;
-		al = new WalkAnime(map, x, y);
+		al = new WalkAnime(mw, map, x, y);
 		setVisible(true);
 		al.animation(this);
 		setVisible(false);

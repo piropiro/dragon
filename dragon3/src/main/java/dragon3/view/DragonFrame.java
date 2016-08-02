@@ -7,9 +7,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 import javax.swing.AbstractButton;
-import javax.swing.JComponent;
 import javax.swing.JFrame;
-import javax.swing.JLayeredPane;
 
 import card.CardCanvas;
 import dragon3.controller.CommandListener;
@@ -24,10 +22,9 @@ import lombok.Setter;
 import mine.awt.BMenuBar;
 import mine.awt.ImageLoaderAWT;
 import mine.awt.MineAwtUtils;
-import mine.awt.MouseManagerAWT;
-import mine.awt.PaintComponentAWT;
+import mine.awt.MineCanvasAWT;
 import mine.awt.SleepManagerAWT;
-import mine.event.MouseManager;
+import mine.event.MouseAllListener;
 import mine.event.PaintComponent;
 import mine.event.SleepManager;
 import mine.paint.MineImageLoader;
@@ -36,6 +33,7 @@ public class DragonFrame implements FrameWorks, ActionListener, KeyListener {
 	
 	private volatile BMenuBar mb;
 	private JFrame frame;
+	private MineCanvasAWT mc;
 	
 	@Setter private CommandListener commandListener;
 
@@ -53,7 +51,6 @@ public class DragonFrame implements FrameWorks, ActionListener, KeyListener {
 	@Getter private PaintComponent stageSelectPanel;
 	
 	@Getter private MineImageLoader imageLoader;
-	@Getter private MouseManager mouseManager;
 	@Getter private SleepManager sleepManager;
 	
 	/*** Constructer *****************************************************/
@@ -68,71 +65,35 @@ public class DragonFrame implements FrameWorks, ActionListener, KeyListener {
 		mb.add("NONE", "none", KeyEvent.VK_N);
 		frame.setJMenuBar(mb);
 		
-		// MapPanel
-		mapPanel = new PaintComponentAWT(640, 480);
+		imageLoader = new ImageLoaderAWT();
 		
-		// StageSelectPanel
-		stageSelectPanel = new PaintComponentAWT(640, 480);
-		
-		// AnimePanel
-		animePanel = new PaintComponentAWT(640, 480);
-		
-		// HPanel
-		hPanel1 = new PaintComponentAWT(HPanel.WIDTH, HPanel.HEIGHT);
-		hPanel2 = new PaintComponentAWT(HPanel.WIDTH, HPanel.HEIGHT);
-		
-		// HelpPanel
-		helpPanel = new PaintComponentAWT(HelpPanel.WIDTH, HelpPanel.HEIGHT);
-		
-		// SmallPanel
-		smallPanel = new PaintComponentAWT(SmallPanel.WIDTH, SmallPanel.HEIGHT);
-		
-		// LargePanel
-		largePanel = new PaintComponentAWT(LargePanel.WIDTH, LargePanel.HEIGHT);
-		
-		// CardPanel
-		cardPanel = new PaintComponentAWT(CardCanvas.WIDTH, CardCanvas.HEIGHT);
-		
-		// DataPanel
-		dataPanel1 = new PaintComponentAWT(DataPanel.WIDTH, DataPanel.HEIGHT);
-		dataPanel2 = new PaintComponentAWT(DataPanel.WIDTH, DataPanel.HEIGHT);
-		
-		// MessagePanel
-		messagePanel = new PaintComponentAWT(MessagePanel.WIDTH, MessagePanel.HEIGHT);
-		
+		mc = new MineCanvasAWT(imageLoader);
 
+		mapPanel = mc.newLayer(0, 0, 640, 480);
+		stageSelectPanel = mc.newLayer(0, 0, 640, 480);
+		animePanel = mc.newLayer(0, 0, 640, 480);
+
+		hPanel1 = mc.newLayer(0, 0, HPanel.WIDTH, HPanel.HEIGHT);
+		hPanel2 = mc.newLayer(0, 0, HPanel.WIDTH, HPanel.HEIGHT);
+		helpPanel = mc.newLayer(0, 0, HelpPanel.WIDTH, HelpPanel.HEIGHT);
+		smallPanel = mc.newLayer(0, 0, SmallPanel.WIDTH, SmallPanel.HEIGHT);
+		largePanel = mc.newLayer(0, 0, LargePanel.WIDTH, LargePanel.HEIGHT);
+		cardPanel = mc.newLayer(0, 0, CardCanvas.WIDTH, CardCanvas.HEIGHT);
+		dataPanel1 = mc.newLayer(0, 0, DataPanel.WIDTH, DataPanel.HEIGHT);
+		dataPanel2 = mc.newLayer(0, 0, DataPanel.WIDTH, DataPanel.HEIGHT);
+		messagePanel = mc.newLayer(0, 0, MessagePanel.WIDTH, MessagePanel.HEIGHT);
+
+		mapPanel.setVisible(true);
 		
-	
-		JLayeredPane parent = new JLayeredPane();
-		MineAwtUtils.setSize(parent, 640, 480);
-		parent.setBackground(new Color(0, 0, 150));
-
-		//parent.addMouseListener(mouseManager);
-		//parent.addMouseMotionListener(mouseManager);
-		parent.addKeyListener(this);
-
-		parent.setLayout(null);
-		parent.add((JComponent)mapPanel, new Integer(0));
-		parent.add((JComponent)stageSelectPanel, new Integer(1));
-		parent.add((JComponent)cardPanel, new Integer(2));
-		parent.add((JComponent)helpPanel, new Integer(3));
-		parent.add((JComponent)dataPanel1, new Integer(4));
-		parent.add((JComponent)dataPanel2, new Integer(5));
-		parent.add((JComponent)messagePanel, new Integer(6));
-		parent.add((JComponent)largePanel, new Integer(7));
-		parent.add((JComponent)hPanel2, new Integer(8));
-		parent.add((JComponent)hPanel1, new Integer(9));
-		parent.add((JComponent)animePanel, new Integer(10));
-		parent.add((JComponent)smallPanel, new Integer(11));
-
-		frame.setContentPane(parent);
+		MineAwtUtils.setSize(mc, 640, 480);	
+		mc.setBackground(new Color(0, 0, 150));
+		mc.addKeyListener(this);
+		
+		frame.getContentPane().add(mc);
 		frame.pack();
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-		
-		mouseManager = new MouseManagerAWT(parent);
-		imageLoader = new ImageLoaderAWT();
-		sleepManager = new SleepManagerAWT((JComponent)mapPanel);
+		sleepManager = new SleepManagerAWT(mc);
 	}
 	
 	public void launch() {
@@ -207,7 +168,7 @@ public class DragonFrame implements FrameWorks, ActionListener, KeyListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		frame.requestFocus();
-		if (mouseManager.isAlive())
+		if (mc.isRunning())
 			return;
 		AbstractButton b = (AbstractButton) e.getSource();
 		String command = b.getActionCommand();
@@ -250,6 +211,11 @@ public class DragonFrame implements FrameWorks, ActionListener, KeyListener {
 				return;
 		}
 		commandListener.executeFKeyCommand(n, e.isShiftDown());
+	}
+
+	@Override
+	public void setMouseListener(MouseAllListener mal) {
+		mc.setMouseAllListener(mal);
 	}
 		
 }

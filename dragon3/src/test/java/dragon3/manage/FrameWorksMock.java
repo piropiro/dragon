@@ -9,6 +9,7 @@ import dragon3.panel.MessagePanel;
 import dragon3.panel.SmallPanel;
 import dragon3.view.FrameWorks;
 import mine.awt.PaintComponentAWT;
+import mine.event.MouseAllListener;
 import mine.event.PaintComponent;
 import mine.event.SleepManager;
 import mine.paint.MineImageLoader;
@@ -88,6 +89,12 @@ public class FrameWorksMock implements FrameWorks {
 	public SleepManager getSleepManager() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public void setMouseListener(MouseAllListener mal) {
+		// TODO Auto-generated method stub
+		
 	}
 
 

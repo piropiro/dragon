@@ -77,7 +77,6 @@ public class CardCanvas
 		lock = new Lock();
 		random = new Random();
 		panel.setPaintListener(this);
-		panel.setMouseAllListener(this);
 	}
 
 	public void setCardListener(CardListener listener) {
@@ -131,7 +130,6 @@ public class CardCanvas
 
 	@Override
 	public void paint(MineGraphics g){
-		panel.requestFocus();
 		map.draw(g);
 		synchronized (cards) {
 			for (Card card : cards) {

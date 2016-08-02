@@ -12,9 +12,9 @@ public class LargePanel implements PaintListener {
 	
 	private PaintComponent panel;
 
-	private String text;
+	private String text = "";
 	
-	private GameColor bgcolor;
+	private GameColor bgcolor = GameColor.NONE;
 	
 	private int width;
 	
@@ -25,7 +25,7 @@ public class LargePanel implements PaintListener {
 		this.panel = panel;
 
 		panel.setVisible(false);
-		panel.setFontSize(24);
+		//panel.setFontSize(24);
 		panel.setPaintListener(this);
 	}
 
@@ -65,6 +65,7 @@ public class LargePanel implements PaintListener {
 	/*** Paint **************************************************************/
 
 	public void paint(MineGraphics g) {
+		g.setFont("Dialog", 24);
 		g.setColor(bgcolor.getAlphaBg());
 		g.fillRect(0, 0, width, height);
 		g.setColor(bgcolor.getFg());

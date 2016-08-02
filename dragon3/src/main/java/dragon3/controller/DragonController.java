@@ -658,7 +658,7 @@ public class DragonController implements UnitWorks, CommandListener {
 	@Override
 	public void displayCardBattle(Body ba, Body bb) {
 		cardManager.setup(ba, bb);
-		cardManager.display();
+		panelManager.displayCardCanvas();
 	}
 
 	@Override

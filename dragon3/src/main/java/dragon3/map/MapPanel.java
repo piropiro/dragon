@@ -34,7 +34,6 @@ public class MapPanel implements MapWorks, MouseAllListener, PaintListener {
 		this.el = new WaitPaint();
 		
 		panel.setPaintListener(this);
-		panel.setMouseAllListener(this);
 	}
 
 	/*** Listener ************************************************/

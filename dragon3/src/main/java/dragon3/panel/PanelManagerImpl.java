@@ -32,6 +32,8 @@ import mine.util.Point;
  */
 public class PanelManagerImpl implements PanelManager {
 
+	private FrameWorks fw;
+	
 	@Getter private AnimePanel animeP;
 	@Getter private MapPanel mapP;
 	@Getter private StageSelectPanel stageSelectP;
@@ -54,16 +56,18 @@ public class PanelManagerImpl implements PanelManager {
 	private boolean helpVisible;
 
 	public PanelManagerImpl(FrameWorks fw, UnitWorks uw, UnitMap map, SleepManager sleepManager, ImageManager imageManager, MineImageLoader mil) {
+		this.fw = fw;
 		this.map = map;
 		
-		DataList<AnimeData> animeList = AnimeDataLoader.loadAnimeList();
 		
-		// AnimePanel
-		animeP = new AnimePanel(fw.getAnimePanel(), sleepManager, map, animeList, imageManager);
-
 		// MapPanel
 		mapP = new MapPanel(fw.getMapPanel(), uw, map);
+		fw.setMouseListener(mapP);
 		
+		// AnimePanel
+		DataList<AnimeData> animeList = AnimeDataLoader.loadAnimeList();
+		animeP = new AnimePanel(fw.getAnimePanel(), sleepManager, map, animeList, imageManager);
+
 		// StageSelectPanel
 		stageSelectP = new StageSelectPanel(fw.getStageSelectPanel(), uw, Statics.stageList.getList(), imageManager);
 		stageSelectP.setVisible(false);
@@ -257,13 +261,29 @@ public class PanelManagerImpl implements PanelManager {
 	public void displayStageSelect(SaveData saveData) {
 		stageSelectP.updateStageStatus(saveData);
 		stageSelectP.setVisible(true);
+		fw.setMouseListener(stageSelectP);
 	}
 	
 	@Override
 	public void closeStageSelect() {
 		stageSelectP.setVisible(false);
+		fw.setMouseListener(mapP);
 	}
 
+	@Override
+	public void displayCardCanvas() {
+		cardP.setVisible(true);
+		cardP.start();
+		fw.setMouseListener(cardP);
+	}
+
+	@Override
+	public void closeCardCanvas() {
+		cardP.dispose();
+		cardP.setVisible(false);
+		fw.setMouseListener(mapP);
+	}
+	
 	/**
 	 * @param dataP1 The dataP1 to set.
 	 */

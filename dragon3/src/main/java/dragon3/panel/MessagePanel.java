@@ -28,7 +28,7 @@ public class MessagePanel extends PanelBase {
 		this.panel = panel;
 		
 		list = new ArrayList<>();
-		panel.setFontSize(14);
+		//panel.setFontSize(14);
 		panel.setPaintListener(this);
 	}
 
@@ -74,7 +74,7 @@ public class MessagePanel extends PanelBase {
 
 	@Override
 	public void paint(MineGraphics g) {
-		
+		g.setFont("Dialog", 14);
 		clear(ba.getColor(), g);
 		drawMain(ba, g);
 		drawHp(ba, g);

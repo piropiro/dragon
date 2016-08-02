@@ -23,7 +23,7 @@ public interface MouseManager {
 	public void reset();
 
 	/**
-	 * @return マウススレッドの実行されていればtrue
+	 * @return マウススレッドが実行されていればtrue
 	 */
 	public boolean isAlive();
 	

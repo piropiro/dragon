@@ -55,4 +55,8 @@ public interface PanelManager {
 	// StageSelectPanel
 	public void displayStageSelect(SaveData saveData);
 	public void closeStageSelect();
+	
+	// CardPanel
+	public void displayCardCanvas();
+	public void closeCardCanvas();
 }

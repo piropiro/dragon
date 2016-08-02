@@ -3,6 +3,7 @@ package dragon3.anime.listener;
 import dragon3.anime.AnimeWorks;
 import dragon3.common.constant.Page;
 import dragon3.common.util.UnitUtils;
+import dragon3.map.MapWorks;
 import mine.paint.MineGraphics;
 import mine.paint.UnitMap;
 import mine.util.Point;
@@ -11,6 +12,7 @@ public class WalkAnime implements AnimeListener {
 
 	private static final int MAX = 8;
 
+	MapWorks mw;
 	private UnitMap map;
 
 
@@ -20,7 +22,8 @@ public class WalkAnime implements AnimeListener {
 
 	/*** Constructer ************************/
 
-	public WalkAnime(UnitMap map, int x, int y) {
+	public WalkAnime(MapWorks mw, UnitMap map, int x, int y) {
+		this.mw = mw;
 		this.map = map;
 		this.start = new Point(x, y);
 		img = map.getData(Page.P20, start.x, start.y);
@@ -34,6 +37,7 @@ public class WalkAnime implements AnimeListener {
 		UnitUtils unitUtils = new UnitUtils(map);
 		map.setData(Page.P20, start.x, start.y, 0);
 		map.setData(Page.P50, start.x, start.y, 0);
+		mw.repaint();
 		while ((goal = unitUtils.moveS(Page.P03, start.x, start.y)) != null) {
 			for (int i = 1; i <= MAX; i++) {
 				int x = start.x * 32 + (goal.x - start.x) * 32 * i / MAX;

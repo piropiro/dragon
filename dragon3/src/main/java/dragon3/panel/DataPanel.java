@@ -202,6 +202,7 @@ public class DataPanel extends PanelBase {
 
 	@Override
 	public void paint(MineGraphics g) {
+		g.setFont("Dialog", 14);
 		clear(bgcolor, g);
 		if (pp != null) {
 			pp.paint(this, g);
