@@ -53,11 +53,12 @@ public class AnimeManagerTest {
 		PaintComponent mapC = mc.newLayer(0, 0, 640, 480);
 		MapPanel mapP = new MapPanel(mapC, null, map);
 		mw = mapP;
+		mapC.setVisible(true);
 
 
 		PaintComponent animeC = mc.newLayer(0, 0, 32, 32);
 		DataList<AnimeData> animeList = AnimeDataLoader.loadAnimeList();
-		AnimePanel ap = new AnimePanel(animeC, sm, map, animeList, imageManager);
+		AnimePanel ap = new AnimePanel(animeC, mw, sm, map, animeList, imageManager);
 		am = ap;
 
 		frame = new JFrame();
@@ -116,7 +117,7 @@ public class AnimeManagerTest {
 	}
 	@Test
 	public void testWalkAnime(){
-		am.walkAnime(mw, 10, 10);
+		am.walkAnime(10, 10);
 	}
 	@Test
 	public void testRotateAnime(){

@@ -101,7 +101,7 @@ public class WalkPaint implements EventListener {
 	 */
 	private void walk(int x, int y) {
 		map.paintStep(Page.P02, Page.P03, x, y, step);
-		anime.walkAnime(mw, ba.getX(), ba.getY());
+		anime.walkAnime(ba.getX(), ba.getY());
 		ba.setX(x);
 		ba.setY(y);
 	}

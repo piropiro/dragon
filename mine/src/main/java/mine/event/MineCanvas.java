@@ -20,7 +20,7 @@ public interface MineCanvas {
 	
 	public MineImageLoader getImageLoader();
 	
-	public List<MineCanvasLayer> getLayers();
+	public List<PaintListener> getLayers();
 	
 	public void repaint();
 	

@@ -2,12 +2,14 @@ package dragon3.anime.listener;
 
 import dragon3.anime.AnimeWorks;
 import dragon3.common.constant.Page;
+import dragon3.map.MapWorks;
 import mine.paint.MineGraphics;
 import mine.paint.MineImage;
 import mine.paint.UnitMap;
 
 public class EraseAnime implements AnimeListener {
 
+	private MapWorks mw;
 	private UnitMap map;
 
 	private int bodyX;
@@ -17,7 +19,8 @@ public class EraseAnime implements AnimeListener {
 
 	/*** Constructer ***********************/
 
-	public EraseAnime(UnitMap map, int x, int y) {
+	public EraseAnime(MapWorks mw, UnitMap map, int x, int y) {
+		this.mw = mw;
 		this.map = map;
 		this.bodyX = x;
 		this.bodyY = y;
@@ -47,6 +50,7 @@ public class EraseAnime implements AnimeListener {
 		}
 		map.setData(Page.P20, bodyX, bodyY, 0);
 		map.setData(Page.P50, bodyX, bodyY, 0);
+		mw.update();
 		ac.setVisible(false);
 	}
 

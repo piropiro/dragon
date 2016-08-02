@@ -1,7 +1,6 @@
 package dragon3.anime;
 
 import dragon3.data.AnimeData;
-import dragon3.map.MapWorks;
 
 public interface AnimeManager {
 
@@ -44,7 +43,7 @@ public interface AnimeManager {
 	public void closeTitleIn();
 	public void closeTitleOut();
 	public void eraseAnime(int x, int y);
-	public void walkAnime(MapWorks mw, int x, int y);
+	public void walkAnime(int x, int y);
 	public void numberAnime(int n, int x, int y);
 	public void criticalAnime(int x, int y);
 	public void dropText(int text, int x, int y);

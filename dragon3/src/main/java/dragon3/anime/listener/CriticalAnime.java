@@ -5,9 +5,11 @@ import mine.paint.MineImage;
 import mine.paint.UnitMap;
 import dragon3.anime.AnimeWorks;
 import dragon3.common.constant.Page;
+import dragon3.map.MapWorks;
 
 public class CriticalAnime implements AnimeListener {
 
+	private MapWorks mw;
 	private UnitMap map;
 	private int bodyX;
 	private int bodyY;
@@ -19,7 +21,8 @@ public class CriticalAnime implements AnimeListener {
 
 	/*** Constructer ***********************/
 
-	public CriticalAnime(UnitMap map, int bodyX, int bodyY) {
+	public CriticalAnime(MapWorks mw, UnitMap map, int bodyX, int bodyY) {
+		this.mw = mw;
 		this.map = map;
 		this.bodyX = bodyX;
 		this.bodyY = bodyY;
@@ -30,6 +33,7 @@ public class CriticalAnime implements AnimeListener {
 
 	public void animation(AnimeWorks ac) {
 		map.setData(Page.P20, bodyX, bodyY, 0);
+		mw.update();
 		for (count = 0; count <= MAX; count++) {
 			ac.repaint();
 			ac.sleep(50);

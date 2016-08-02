@@ -28,4 +28,9 @@ public class PaintComponentAWT extends JComponent implements PaintComponent {
 	public void setPaintListener(PaintListener pl) {
 		this.pl = pl;
 	}
+	
+	@Override
+	public void update() {
+		
+	}
 }

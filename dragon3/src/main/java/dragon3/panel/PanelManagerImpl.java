@@ -66,7 +66,7 @@ public class PanelManagerImpl implements PanelManager {
 		
 		// AnimePanel
 		DataList<AnimeData> animeList = AnimeDataLoader.loadAnimeList();
-		animeP = new AnimePanel(fw.getAnimePanel(), sleepManager, map, animeList, imageManager);
+		animeP = new AnimePanel(fw.getAnimePanel(), mapP, sleepManager, map, animeList, imageManager);
 
 		// StageSelectPanel
 		stageSelectP = new StageSelectPanel(fw.getStageSelectPanel(), uw, Statics.stageList.getList(), imageManager);

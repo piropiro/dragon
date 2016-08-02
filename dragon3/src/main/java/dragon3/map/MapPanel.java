@@ -95,7 +95,11 @@ public class MapPanel implements MapWorks, MouseAllListener, PaintListener {
 	public void repaint() {
 		panel.repaint();
 	}
-
+	@Override
+	public void update() {
+		panel.update();
+	}
+	
 	/*** Paint *****************************************************/
 
 	@Override

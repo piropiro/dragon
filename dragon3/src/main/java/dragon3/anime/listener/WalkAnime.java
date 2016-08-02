@@ -37,7 +37,7 @@ public class WalkAnime implements AnimeListener {
 		UnitUtils unitUtils = new UnitUtils(map);
 		map.setData(Page.P20, start.x, start.y, 0);
 		map.setData(Page.P50, start.x, start.y, 0);
-		mw.repaint();
+		mw.update();
 		while ((goal = unitUtils.moveS(Page.P03, start.x, start.y)) != null) {
 			for (int i = 1; i <= MAX; i++) {
 				int x = start.x * 32 + (goal.x - start.x) * 32 * i / MAX;
@@ -50,6 +50,7 @@ public class WalkAnime implements AnimeListener {
 		}
 		map.setData(Page.P20, start.x, start.y, img);
 		map.setData(Page.P50, start.x, start.y, sts);
+		mw.update();
 	}
 
 	/*** Paint *********************************/

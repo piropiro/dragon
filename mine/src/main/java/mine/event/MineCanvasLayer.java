@@ -6,7 +6,7 @@ import mine.paint.MineGraphics;
 import mine.paint.MineImage;
 import mine.paint.MineImageLoader;
 
-public class MineCanvasLayer implements PaintComponent {
+public class MineCanvasLayer implements PaintComponent, PaintListener {
 
 	private MineCanvas parent;
 	
@@ -28,11 +28,18 @@ public class MineCanvasLayer implements PaintComponent {
 		setBounds(x, y, w, h);
 	}
 
+	@Override
+	public void update() {
+		updated = true;
+	}
+
+	@Override
 	public void repaint() {
 		updated = true;
 		parent.repaint();
 	}
 	
+	@Override
 	public void paint(MineGraphics g) {
 		if (visible) {
 			if (updated) {
@@ -46,6 +53,7 @@ public class MineCanvasLayer implements PaintComponent {
 		}
 	}
 	
+	@Override
 	public void setVisible(boolean flag) {
 		if (visible != flag) {
 			this.visible = flag;
@@ -56,7 +64,8 @@ public class MineCanvasLayer implements PaintComponent {
 
 	@Override
 	public void repaint(int x, int y, int w, int h) {
-		repaint();
+		updated = true;
+		parent.repaint();
 	}
 
 	@Override

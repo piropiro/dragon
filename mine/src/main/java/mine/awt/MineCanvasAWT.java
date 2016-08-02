@@ -8,9 +8,9 @@ import javax.swing.JComponent;
 
 import lombok.Getter;
 import mine.event.MineCanvas;
-import mine.event.MineCanvasLayer;
 import mine.event.MouseAllListener;
 import mine.event.MouseManager;
+import mine.event.PaintListener;
 import mine.paint.MineImageLoader;
 
 @SuppressWarnings("serial")
@@ -20,7 +20,7 @@ public class MineCanvasAWT extends JComponent implements MineCanvas {
 	
 	@Getter private MineImageLoader imageLoader;
 	
-	@Getter private List<MineCanvasLayer> layers = new ArrayList<>();
+	@Getter private List<PaintListener> layers = new ArrayList<>();
 	
 	public MineCanvasAWT(MineImageLoader imageLoader) {
 		this.imageLoader = imageLoader;

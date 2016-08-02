@@ -34,6 +34,8 @@ public class AnimePanel implements AnimeManager, AnimeWorks, PaintListener {
 	
 	private SleepManager sm;
 
+	private MapWorks mw;
+	
 	private UnitMap map;
 
 	private ImageManager imageManager;
@@ -47,9 +49,10 @@ public class AnimePanel implements AnimeManager, AnimeWorks, PaintListener {
 	 * @param uw
 	 * @param map
 	 */
-	public AnimePanel(PaintComponent panel, SleepManager sm, UnitMap map, DataList<AnimeData> animeList, ImageManager imageManager) {
+	public AnimePanel(PaintComponent panel, MapWorks mw, SleepManager sm, UnitMap map, DataList<AnimeData> animeList, ImageManager imageManager) {
 		super();
 		this.panel = panel;
+		this.mw = mw;
 		this.sm = sm;
 		this.map = map;
 		this.animeList = animeList;
@@ -116,7 +119,7 @@ public class AnimePanel implements AnimeManager, AnimeWorks, PaintListener {
 	public void eraseAnime(int x, int y) {
 		panel.setBounds(x * 32, y * 32, 32, 32);
 		setVisible(true);
-		al = new EraseAnime(map, x, y);
+		al = new EraseAnime(mw, map, x, y);
 		al.animation(this);
 		al = null;
 	}
@@ -128,7 +131,7 @@ public class AnimePanel implements AnimeManager, AnimeWorks, PaintListener {
 	 * @param y
 	 */
 	@Override
-	public void walkAnime(MapWorks mw, int x, int y) {
+	public void walkAnime(int x, int y) {
 		panel.setBounds(x * 32, y * 32, 32, 32);
 		np = null;
 		al = new WalkAnime(mw, map, x, y);
@@ -164,7 +167,7 @@ public class AnimePanel implements AnimeManager, AnimeWorks, PaintListener {
 	@Override
 	public void criticalAnime(int x, int y) {
 		np = null;
-		al = new CriticalAnime(map, x, y);
+		al = new CriticalAnime(mw, map, x, y);
 		panel.setBounds(x * 32 - 32, y * 32, 96, 32);
 		setVisible(true);
 		al.animation(this);
@@ -213,7 +216,7 @@ public class AnimePanel implements AnimeManager, AnimeWorks, PaintListener {
 	public void statusAnime(int status, int x, int y) {
 		panel.setBounds(x * 32, y * 32 - 16, 32, 48);
 		setVisible(true);
-		al = new StatusAnime(map, status, x, y, imageManager.getStatus());
+		al = new StatusAnime(mw, map, status, x, y, imageManager.getStatus());
 		al.animation(this);
 		al = null;
 		setVisible(false);
@@ -230,7 +233,7 @@ public class AnimePanel implements AnimeManager, AnimeWorks, PaintListener {
 	public void summonAnime(int image, int x, int y) {
 		panel.setBounds(x * 32, y * 32 - 32, 32, 56);
 		setVisible(true);
-		al = new SummonAnime(map, image, x, y);
+		al = new SummonAnime(mw, map, image, x, y);
 		al.animation(this);
 		al = null;
 		setVisible(false);
