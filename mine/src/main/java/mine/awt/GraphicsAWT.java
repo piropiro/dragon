@@ -35,44 +35,8 @@ public class GraphicsAWT implements MineGraphics {
 	 * @return
 	 */
 	private static Color getColorOfName(MineColor i) {
-		switch (i) {
-			case BLACK :
-				return new Color(0x00, 0x00, 0x00);
-			case BLUE :
-				return new Color(0x00, 0x00, 0xff);
-			case LIME :
-				return new Color(0x00, 0xff, 0x00);
-			case AQUA :
-				return new Color(0x00, 0xff, 0xff);
-			case RED :
-				return new Color(0xff, 0x00, 0x00);
-			case PINK :
-				return new Color(0xff, 0x00, 0xff);
-			case YELLOW :
-				return new Color(0xff, 0xff, 0x00);
-			case WHITE :
-				return new Color(0xff, 0xff, 0xff);
-			case GRAY :
-				return new Color(0x80, 0x80, 0x80);
-			case NAVY :
-				return new Color(0x00, 0x00, 0x80);
-			case GREEN :
-				return new Color(0x00, 0x80, 0x00);
-			case TEAL :
-				return new Color(0x00, 0x80, 0x80);
-			case MAROON :
-				return new Color(0x80, 0x00, 0x00);
-			case PURPLE :
-				return new Color(0x80, 0x00, 0x80);
-			case OLIVE :
-				return new Color(0x80, 0x80, 0x00);
-			case SILVER :
-				return new Color(0xc0, 0xc0, 0xc0);
-			case ORANGE :
-				return new Color(0xff, 0x80, 0x00);
-			default :
-				return new Color(0x00, 0x00, 0x00);
-		}
+		int[] rgb = i.getRgb();
+		return new Color(rgb[0], rgb[1], rgb[2]);
 	}
 
 	public void setColor(MineColor color) {

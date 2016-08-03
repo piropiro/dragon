@@ -17,7 +17,7 @@ import dragon3.common.constant.WeponType;
  * @author k-saito
  */
 @lombok.Data
-public class BodyData implements Data {
+public class BodyData implements Data, Cloneable {
 
 	private String id = "none";
 	private String name = "none";
@@ -46,4 +46,11 @@ public class BodyData implements Data {
 		return id + " - " + name;
 	}
 
+	public BodyData copy() {
+		try {
+			return (BodyData) this.clone();
+		} catch (CloneNotSupportedException e) {
+			throw new RuntimeException(e);
+		}
+	}
 }
