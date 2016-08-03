@@ -55,7 +55,7 @@ public class TurnManagerImpl implements TurnManager {
 		turn++;
 		turnChange(true);
 		PaintUtils.setBasicPaint(uw);
-		fw.setMenu(DragonFrame.T_PLAYER);
+		fw.setMenu(FrameWorks.T_PLAYER);
 		uw.getMapWorks().repaint();
 	}
 
@@ -66,7 +66,7 @@ public class TurnManagerImpl implements TurnManager {
 		uw.limitOver();
 		EnemyTurn et = new EnemyTurn(uw);
 		PaintUtils.setWaitPaint(uw);
-		fw.setMenu(DragonFrame.T_ENEMY);
+		fw.setMenu(FrameWorks.T_ENEMY);
 		et.start(turn);
 	}
 
