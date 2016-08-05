@@ -192,6 +192,7 @@ public class DragonController implements UnitWorks, CommandListener {
 
 	/*** Deploy End *************************************/
 
+	@Override
 	public void setMensEnd() {
 		map.setMensEnd();
 		putUnit(Charas);
@@ -226,7 +227,8 @@ public class DragonController implements UnitWorks, CommandListener {
 		panelManager.closeStageSelect();
 	}
 
-	private void campStart() {
+	@Override
+	public void campStart() {
 		fw.setMenu(FrameWorks.T_CAMP);
 		panelManager.closeSmall();
 		panelManager.closeHelp();

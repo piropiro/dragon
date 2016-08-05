@@ -148,9 +148,6 @@ public class StageSelectPanel implements StageManager, MouseAllListener, PaintLi
 	@Override
 	public void leftPressed(int x, int y) {
 		mouseMoved(x, y);
-		int stageNum = stageMap.getData(P_STAGE, wx, wy);
-		selectedStage = stageList.get(stageNum);
-		uw.stageStart(selectedStage);
 	}
 
 	@Override
@@ -188,6 +185,18 @@ public class StageSelectPanel implements StageManager, MouseAllListener, PaintLi
 	
 	@Override
 	public void mouseExited(int x, int y) {
+	}
+
+	@Override
+	public void accept() {
+		int stageNum = stageMap.getData(P_STAGE, wx, wy);
+		selectedStage = stageList.get(stageNum);
+		uw.stageStart(selectedStage);
+	}
+
+	@Override
+	public void cancel() {
+		uw.campStart();
 	}
 
 }

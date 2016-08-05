@@ -54,38 +54,14 @@ public class ButtonPaint implements EventListener {
 
 	@Override
 	public void mouseMoved(int x, int y) {
-		rightPressed();
+		cancel();
 	}
 
 	@Override
 	public void leftPressed() {
-		Point ps = mw.getWaku();
-		if (ps.x == x && ps.y == y) {
-			switch (type) {
-				case 5 :
-					uw.getTurnManager().enemyTurnStart();
-					break;
-				case 6 :
-					uw.setMensEnd();
-					break;
-				case 7 :
-					uw.backToCamp();
-					break;
-			}
-		} else {
-			rightPressed();
-		}
+
 	}
 
-	@Override
-	public void rightPressed() {
-		map.setData(Page.P40, x, y - 1, 0);
-		map.setData(Page.P40, x, y + 1, 0);
-		map.setData(Page.P10, x, y, 0);
-
-		mw.setEventListener(el);
-		mw.repaint();
-	}
 	/*** Place *****************************************/
 
 	@Override
@@ -108,13 +84,35 @@ public class ButtonPaint implements EventListener {
 	/*** Mouse Moved ***********************************/
 
 	/*** Event ************************************/
-	
+
 	@Override
-	public void leftReleased() {
-	};
-	
+	public void accept() {
+		Point ps = mw.getWaku();
+		if (ps.x == x && ps.y == y) {
+			switch (type) {
+				case 5 :
+					uw.getTurnManager().enemyTurnStart();
+					break;
+				case 6 :
+					uw.setMensEnd();
+					break;
+				case 7 :
+					uw.backToCamp();
+					break;
+			}
+		} else {
+			cancel();
+		}
+	}
+
 	@Override
-	public void rightReleased() {
+	public void cancel() {
+		map.setData(Page.P40, x, y - 1, 0);
+		map.setData(Page.P40, x, y + 1, 0);
+		map.setData(Page.P10, x, y, 0);
+
+		mw.setEventListener(el);
+		mw.repaint();
 	};
 
 	

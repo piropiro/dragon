@@ -14,48 +14,6 @@
 		"y": 7
 	},
 	{
-		"bodyId": "chara_004",
-		"deployType": "ENEMY_CHARA",
-		"goalX": 0,
-		"goalY": 0,
-		"id": null,
-		"level": 1,
-		"limitTurn": 0,
-		"name": "ゴブリン",
-		"range": 6,
-		"scope": 1,
-		"x": 7,
-		"y": 7
-	},
-	{
-		"bodyId": "chara_005",
-		"deployType": "ENEMY_CHARA",
-		"goalX": 0,
-		"goalY": 0,
-		"id": null,
-		"level": 1,
-		"limitTurn": 9,
-		"name": "ピクシー",
-		"range": 4,
-		"scope": 2,
-		"x": 11,
-		"y": 7
-	},
-	{
-		"bodyId": "chara_005",
-		"deployType": "ENEMY_CHARA",
-		"goalX": 0,
-		"goalY": 0,
-		"id": null,
-		"level": 1,
-		"limitTurn": 9,
-		"name": "ピクシー",
-		"range": 4,
-		"scope": 2,
-		"x": 9,
-		"y": 7
-	},
-	{
 		"bodyId": "chara_006",
 		"deployType": "ENEMY_CHARA",
 		"goalX": 0,
@@ -63,11 +21,39 @@
 		"id": null,
 		"level": 2,
 		"limitTurn": 7,
-		"name": "ガイコツ剣士",
+		"name": null,
 		"range": 8,
 		"scope": 1,
-		"x": 10,
-		"y": 3
+		"x": 5,
+		"y": 1
+	},
+	{
+		"bodyId": "chara_004",
+		"deployType": "ENEMY_CHARA",
+		"goalX": 0,
+		"goalY": 0,
+		"id": null,
+		"level": 1,
+		"limitTurn": 0,
+		"name": null,
+		"range": 6,
+		"scope": 1,
+		"x": 2,
+		"y": 5
+	},
+	{
+		"bodyId": "chara_005",
+		"deployType": "ENEMY_CHARA",
+		"goalX": 0,
+		"goalY": 0,
+		"id": null,
+		"level": 1,
+		"limitTurn": 9,
+		"name": null,
+		"range": 4,
+		"scope": 2,
+		"x": 4,
+		"y": 5
 	},
 	{
 		"bodyId": "armor_001",
@@ -77,10 +63,38 @@
 		"id": null,
 		"level": 1,
 		"limitTurn": 5,
-		"name": "ミニシールド",
+		"name": null,
 		"range": 0,
 		"scope": 0,
-		"x": 10,
-		"y": 7
+		"x": 5,
+		"y": 5
+	},
+	{
+		"bodyId": "chara_005",
+		"deployType": "ENEMY_CHARA",
+		"goalX": 0,
+		"goalY": 0,
+		"id": null,
+		"level": 1,
+		"limitTurn": 9,
+		"name": null,
+		"range": 4,
+		"scope": 2,
+		"x": 6,
+		"y": 5
+	},
+	{
+		"bodyId": "chara_004",
+		"deployType": "ENEMY_CHARA",
+		"goalX": 0,
+		"goalY": 0,
+		"id": null,
+		"level": 1,
+		"limitTurn": 0,
+		"name": null,
+		"range": 6,
+		"scope": 1,
+		"x": 8,
+		"y": 5
 	}
 ]

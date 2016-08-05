@@ -2,12 +2,13 @@ package card.paint;
 
 import card.UnitWorks;
 import card.common.Page;
+import lombok.Getter;
 import mine.paint.UnitMap;
 
 public class WakuPainter {
 
-	private int x;
-	private int y;
+	@Getter private int x;
+	@Getter private int y;
 	private UnitWorks canvas;
 	private UnitMap map;
 

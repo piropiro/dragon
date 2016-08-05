@@ -21,14 +21,6 @@ public class WaitPaint implements EventListener {
 	}
 
 	@Override
-	public void leftReleased() {
-	}
-
-	@Override
-	public void rightReleased() {
-	}
-
-	@Override
 	public void setSelectBody(Body b) {
 	}
 
@@ -36,8 +28,13 @@ public class WaitPaint implements EventListener {
 	public void leftPressed() {
 	}
 
+
 	@Override
-	public void rightPressed() {
+	public void accept() {
+	}
+
+	@Override
+	public void cancel() {
 	}
 
 }

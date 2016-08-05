@@ -45,21 +45,6 @@ public class AttackPaint implements EventListener {
 			fm.nextSelect();
 			return;
 		}
-		if (map.getData(Page.P10, waku.x, waku.y) != 0) {
-			if (fm.searchTargets()) {
-				PaintUtils.setWaitPaint(uw);
-				fm.attack();
-				uw.setEnd(ba, false);
-			}
-		}
-	}
-
-	/**
-	 * Right Pressed
-	 */
-	@Override
-	public void rightPressed() {
-		rewalkManager.rewalk(ba);
 	}
 
 	/**
@@ -89,12 +74,21 @@ public class AttackPaint implements EventListener {
 	public void mouseMoved(int x, int y) {
 		fm.setTarget(new Point(x, y));
 	}
-	
+
 	@Override
-	public void leftReleased() {
-	};
-	
+	public void accept() {
+		Point waku = mw.getWaku();
+		if (map.getData(Page.P10, waku.x, waku.y) != 0) {
+			if (fm.searchTargets()) {
+				PaintUtils.setWaitPaint(uw);
+				fm.attack();
+				uw.setEnd(ba, false);
+			}
+		}
+	}
+
 	@Override
-	public void rightReleased() {
+	public void cancel() {
+		rewalkManager.rewalk(ba);
 	};
 }

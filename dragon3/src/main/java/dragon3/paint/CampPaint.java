@@ -127,42 +127,6 @@ public class CampPaint implements EventListener {
 
 	/*** Right Pressed ******************************/
 
-	@Override
-	public void rightPressed() {
-		Point p = mw.getWaku();
-		Body ba = camp.getBa();
-		if (camp.isSortf()) {
-			camp.moveChara(ba.getGoalX(), ba.getGoalY());
-			camp.putChara2(ba.getGoalX(), ba.getGoalY());
-			setHelp();
-			return;
-		}
-		switch (map.getData(Page.P10, p.x, p.y)) {
-			case Camp.T_NONE :
-			case Camp.T_FREE :
-			case Camp.T_STORE :
-			case Camp.T_PASTE :
-				if (ba != null) {
-					camp.backChara();
-				} else {
-					Body b = camp.getEquip().search(p.x, p.y);
-					if (b != null) {
-						if (b.base.getKind() == BodyKind.WAZA) {
-							camp.removeChara1(p.x, p.y);
-						} else {
-							pm.displayAnalyze(b);
-						}
-					} else {
-						leftPressed();
-					}
-				}
-				break;
-			case Camp.T_ERASE :
-				camp.removeCancel(p.x, p.y);
-				break;
-		}
-		setHelp();
-	}
 
 	/*** Mouse Moved ***********************************/
 
@@ -209,11 +173,46 @@ public class CampPaint implements EventListener {
 	/*** Event ************************************/
 
 	@Override
-	public void leftReleased() {
-	};
-	
+	public void accept() {
+		// TODO Auto-generated method stub
+		
+	}
+
 	@Override
-	public void rightReleased() {
+	public void cancel() {
+		Point p = mw.getWaku();
+		Body ba = camp.getBa();
+		if (camp.isSortf()) {
+			camp.moveChara(ba.getGoalX(), ba.getGoalY());
+			camp.putChara2(ba.getGoalX(), ba.getGoalY());
+			setHelp();
+			return;
+		}
+		switch (map.getData(Page.P10, p.x, p.y)) {
+			case Camp.T_NONE :
+			case Camp.T_FREE :
+			case Camp.T_STORE :
+			case Camp.T_PASTE :
+				if (ba != null) {
+					camp.backChara();
+				} else {
+					Body b = camp.getEquip().search(p.x, p.y);
+					if (b != null) {
+						if (b.base.getKind() == BodyKind.WAZA) {
+							camp.removeChara1(p.x, p.y);
+						} else {
+							pm.displayAnalyze(b);
+						}
+					} else {
+						leftPressed();
+					}
+				}
+				break;
+			case Camp.T_ERASE :
+				camp.removeCancel(p.x, p.y);
+				break;
+		}
+		setHelp();
 	};
 
 }

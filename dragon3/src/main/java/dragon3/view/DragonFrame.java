@@ -34,6 +34,7 @@ public class DragonFrame implements FrameWorks, ActionListener, KeyListener {
 	private volatile BMenuBar mb;
 	private JFrame frame;
 	private MineCanvasAWT mc;
+	private MouseAllListener mal;
 	
 	@Setter private CommandListener commandListener;
 
@@ -99,7 +100,7 @@ public class DragonFrame implements FrameWorks, ActionListener, KeyListener {
 	public void launch() {
 		frame.setVisible(true);
 		MineAwtUtils.setCenter(frame);
-		frame.requestFocus();
+
 	}
 
 	/*** MenuBar ****************************************/
@@ -162,6 +163,7 @@ public class DragonFrame implements FrameWorks, ActionListener, KeyListener {
 		}
 		frame.setJMenuBar(mb);
 		mb.repaint();
+		mc.requestFocus();
 	}
 	
 	
@@ -181,6 +183,7 @@ public class DragonFrame implements FrameWorks, ActionListener, KeyListener {
 	public void keyReleased(KeyEvent e) {
 	}
 	public void keyPressed(KeyEvent e) {
+		System.out.println(e.getKeyChar());
 		int n = 0;
 		switch (e.getKeyCode()) {
 			case KeyEvent.VK_F1 :
@@ -207,6 +210,12 @@ public class DragonFrame implements FrameWorks, ActionListener, KeyListener {
 			case KeyEvent.VK_F8 :
 				n = 8;
 				break;
+			case KeyEvent.VK_X:
+				new Thread(() -> mal.accept()).start();
+				return;
+			case KeyEvent.VK_C:
+				new Thread(() -> mal.cancel()).start();
+				return;
 			default :
 				return;
 		}
@@ -215,6 +224,7 @@ public class DragonFrame implements FrameWorks, ActionListener, KeyListener {
 
 	@Override
 	public void setMouseListener(MouseAllListener mal) {
+		this.mal = mal;
 		mc.setMouseAllListener(mal);
 	}
 		

@@ -48,10 +48,6 @@ public class ScorePaint implements EventListener {
 	public void leftPressed() {
 		uw.backToCamp();
 	}
-	@Override
-	public void rightPressed() {
-		uw.backToCamp();
-	}
 
 	/*** Place *****************************************/
 
@@ -71,12 +67,15 @@ public class ScorePaint implements EventListener {
 
 	/*** Event ************************************/
 	
+
 	@Override
-	public void leftReleased() {
-	};
-	
+	public void accept() {
+		uw.backToCamp();
+	}
+
 	@Override
-	public void rightReleased() {
+	public void cancel() {
+		uw.backToCamp();
 	};
 
 }

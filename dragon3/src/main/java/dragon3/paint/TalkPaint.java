@@ -122,20 +122,6 @@ public class TalkPaint implements EventListener {
 			PaintUtils.setEndPaint(uw, ba);
 			mw.repaint();
 		}
-		if (map.getData(Page.P10, p.x, p.y) != 3)
-			return;
-		bb = getTarget(p.x, p.y);
-		if (bb != null) {
-			map.clear(Page.P10, 0);
-			mw.repaint();
-			pm.closeData();
-			action();
-		}
-	}
-
-	@Override
-	public void rightPressed() {
-		rewalkManager.rewalk(ba);
 	}
 
 	@Override
@@ -169,11 +155,22 @@ public class TalkPaint implements EventListener {
 	/*** Event ************************************/
 
 	@Override
-	public void leftReleased() {
-	};
-	
+	public void accept() {
+		Point p = mw.getWaku();
+		if (map.getData(Page.P10, p.x, p.y) != 3)
+			return;
+		bb = getTarget(p.x, p.y);
+		if (bb != null) {
+			map.clear(Page.P10, 0);
+			mw.repaint();
+			pm.closeData();
+			action();
+		}
+	}
+
 	@Override
-	public void rightReleased() {
+	public void cancel() {
+		rewalkManager.rewalk(ba);
 	};
 
 }

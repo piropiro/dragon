@@ -8,9 +8,9 @@ public interface EventListener {
     public void setSelectPlace( int x, int y );
     public boolean isNextPoint( int x, int y );
     public void leftPressed();
-    public void rightPressed();
     public void mouseMoved( int x, int y );
-    public void leftReleased();
-    public void rightReleased();
+    
+    public void accept();
+    public void cancel();
 }
 

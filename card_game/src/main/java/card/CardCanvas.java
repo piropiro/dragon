@@ -210,24 +210,6 @@ public class CardCanvas
 	@Override
 	public void leftPressed(int x, int y) {
 		mouseMoved(x, y);
-		if (lock.lock()) {
-			x /= 32;
-			y /= 32;
-			if ( 2 <= x && x <= 8 && y == 8) {
-				int n = x - 2;
-				if (cardManager.isOpenedBlue(n)) {
-					startBattle(n);
-				} else {
-					player.openCard(n);
-				}
-			} else if ( x == 3 && y == 10) {
-				if (doubleManager.clickDoubleCard()) {
-					player.doubleCard();
-				}
-			}
-			doubleManager.checkDoubleCard();
-			lock.unlock();
-		}
 	}
 
 	@Override
@@ -265,5 +247,36 @@ public class CardCanvas
 
 	@Override
 	public void mouseEntered(int x, int y) {}
+
+	@Override
+	public void accept() {
+		int x = wakuMover.getX();
+		int y = wakuMover.getY();
+
+		if (lock.lock()) {
+			x /= 32;
+			y /= 32;
+			if ( 2 <= x && x <= 8 && y == 8) {
+				int n = x - 2;
+				if (cardManager.isOpenedBlue(n)) {
+					startBattle(n);
+				} else {
+					player.openCard(n);
+				}
+			} else if ( x == 3 && y == 10) {
+				if (doubleManager.clickDoubleCard()) {
+					player.doubleCard();
+				}
+			}
+			doubleManager.checkDoubleCard();
+			lock.unlock();
+		}
+	}
+
+	@Override
+	public void cancel() {
+		// TODO Auto-generated method stub
+		
+	}
 
 }

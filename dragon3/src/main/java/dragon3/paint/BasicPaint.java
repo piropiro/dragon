@@ -75,17 +75,6 @@ public class BasicPaint implements EventListener {
 	}
 
 	@Override
-	public void rightPressed() {
-		Point p = mw.getWaku();
-		Body b = uw.search(p.x, p.y);
-		if (b != null) {
-			pm.displayAnalyze(b);
-		} else {
-			PaintUtils.setButtonPaint(uw, p.x, p.y, this, 5);
-		}
-	}
-
-	@Override
 	public boolean isNextPoint(int x, int y) {
 		Body b = uw.search(x, y);
 		if (b == null)
@@ -127,13 +116,21 @@ public class BasicPaint implements EventListener {
 	}
 
 	/*** Event ************************************/
-	
+
 	@Override
-	public void leftReleased() {
-	};
-	
+	public void accept() {
+
+	}
+
 	@Override
-	public void rightReleased() {
+	public void cancel() {
+		Point p = mw.getWaku();
+		Body b = uw.search(p.x, p.y);
+		if (b != null) {
+			pm.displayAnalyze(b);
+		} else {
+			PaintUtils.setButtonPaint(uw, p.x, p.y, this, 5);
+		}
 	};
 
 }

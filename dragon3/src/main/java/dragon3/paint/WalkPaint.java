@@ -120,7 +120,7 @@ public class WalkPaint implements EventListener {
 	public void leftPressed() {
 		Point waku = mw.getWaku();
 		if (map.getData(Page.P10, waku.x, waku.y) == 0) {
-			rightPressed();
+			cancel();
 			return;
 		}
 
@@ -134,13 +134,6 @@ public class WalkPaint implements EventListener {
 				return;
 		}
 		action();
-	}
-
-	@Override
-	public void rightPressed() {
-		map.clear(Page.P10, 0);
-		PaintUtils.setBasicPaint(uw);
-		mw.repaint();
 	}
 
 	/*** Place *****************************************/
@@ -173,11 +166,14 @@ public class WalkPaint implements EventListener {
 	/*** Event ************************************/
 
 	@Override
-	public void leftReleased() {
-	};
-	
+	public void accept() {
+	}
+
 	@Override
-	public void rightReleased() {
+	public void cancel() {
+		map.clear(Page.P10, 0);
+		PaintUtils.setBasicPaint(uw);
+		mw.repaint();
 	};
 
 }

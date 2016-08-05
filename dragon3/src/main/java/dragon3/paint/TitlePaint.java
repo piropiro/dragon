@@ -28,12 +28,7 @@ public class TitlePaint implements EventListener {
 
 	@Override
 	public void leftPressed() {
-		//uw.nameChange();
-		action();
-	}
-
-	@Override
-	public void rightPressed() {
+		accept();
 	}
 
 	@Override
@@ -63,11 +58,12 @@ public class TitlePaint implements EventListener {
 	/*** Event ************************************/
 
 	@Override
-	public void leftReleased() {
-	};
-	
+	public void accept() {
+		action();
+	}
+
 	@Override
-	public void rightReleased() {
+	public void cancel() {
 	};
 
 }

@@ -10,4 +10,6 @@ public interface MouseAllListener {
 	public void mouseMoved(int x, int y);
 	public void mouseEntered(int x, int y);
 	public void mouseExited(int x, int y);
+	public void accept();
+	public void cancel();
 }

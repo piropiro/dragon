@@ -57,23 +57,11 @@ public class ChangePaint implements EventListener {
 
 	@Override
 	public void mouseMoved(int x, int y) {
-		rightPressed();
+		cancel();
 	}
 
 	@Override
 	public void leftPressed() {
-		bb.setX(ba.getX());
-		bb.setY(ba.getY());
-		uw.changeChara(ba, bb);
-		action();
-	}
-
-	@Override
-	public void rightPressed() {
-		map.setData(Page.P10, ba.getX(), ba.getY(), 0);
-		map.setData(Page.P30, ba.getX(), ba.getY(), 1);
-		mw.repaint();
-		PaintUtils.setBasicPaint(uw);
 	}
 
 	/*** Place *****************************************/
@@ -99,13 +87,22 @@ public class ChangePaint implements EventListener {
 
 	/*** Event ************************************/
 
-	
+
+
 	@Override
-	public void leftReleased() {
-	};
-	
+	public void accept() {
+		bb.setX(ba.getX());
+		bb.setY(ba.getY());
+		uw.changeChara(ba, bb);
+		action();
+	}
+
 	@Override
-	public void rightReleased() {
+	public void cancel() {
+		map.setData(Page.P10, ba.getX(), ba.getY(), 0);
+		map.setData(Page.P30, ba.getX(), ba.getY(), 1);
+		mw.repaint();
+		PaintUtils.setBasicPaint(uw);
 	};
 
 }

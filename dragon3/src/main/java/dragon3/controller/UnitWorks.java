@@ -34,6 +34,7 @@ public interface UnitWorks {
 	public void backFromImogari();
 	public List<Body> loadEnemyData(String file, int addLevel);
 	public void stageStart(StageData stageData);
+	public void campStart();
 	
 	/*** Main2 **************************/
 
