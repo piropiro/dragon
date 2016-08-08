@@ -2,6 +2,7 @@ package dragon3.panel;
 
 import java.util.Arrays;
 
+import dagger.ObjectGraph;
 import dragon3.Statics;
 import dragon3.common.Body;
 import dragon3.common.constant.GameColor;
@@ -14,7 +15,6 @@ import dragon3.manage.TurnManagerMock;
 import dragon3.panel.paint.CampDataPaint;
 import dragon3.view.DragonFrame;
 import junit.framework.TestCase;
-import mine.MineException;
 import mine.awt.ImageLoaderAWT;
 import mine.paint.MineImageLoader;
 import mine.paint.UnitMap;
@@ -24,43 +24,46 @@ public class PanelManagerTest extends TestCase {
 
 	private static PanelManager pm;
 	private static UnitMap map;
+	
+	private static Statics statics;
 
 	static {
-		try {
-			MineImageLoader mil = new ImageLoaderAWT();
-			ImageManager im = new ImageManager(mil);
+	
+		ObjectGraph objectGraph = ObjectGraph.create();
+		statics = objectGraph.get(Statics.class);
+		
+		MineImageLoader mil = new ImageLoaderAWT();
+		ImageManager im = new ImageManager(mil);
 
-			map = new UnitMap(14, 20, 15, mil);
-			map.setVisible(Page.P00, true);
-			map.setTile(Page.P00, im.getStageBack(), -1);
-			map.setVisible(Page.P01, true);
-			map.setTile(Page.P01, im.getStageObj(), -1);
-			map.setVisible(Page.P20, true);
-			map.setTile(Page.P20, im.getBodyImageList().getImageList(), 0);
-			map.setVisible(Page.P50, true);
-			map.setTile(Page.P50, im.getStatus(), 0);
-			map.setPage(Page.P01, Statics.getMapData("D01"));
-			map.setData(Page.P01, 11, 10, MoveUtils.OPEN_MAGIC);
-			map.setData(Page.P20, 10, 10, 1);
-			map.fillDia(Page.P41, 10, 10, 2, 1);
-			map.clear(Page.P02, 1);
-			map.paintStep(Page.P02, Page.P03, 2, 2, 20);
+		map = new UnitMap(14, 20, 15, mil);
+		map.setVisible(Page.P00, true);
+		map.setTile(Page.P00, im.getStageBack(), -1);
+		map.setVisible(Page.P01, true);
+		map.setTile(Page.P01, im.getStageObj(), -1);
+		map.setVisible(Page.P20, true);
+		map.setTile(Page.P20, im.getBodyImageList().getImageList(), 0);
+		map.setVisible(Page.P50, true);
+		map.setTile(Page.P50, im.getStatus(), 0);
+		map.setPage(Page.P01, statics.getMapData("D01"));
+		map.setData(Page.P01, 11, 10, MoveUtils.OPEN_MAGIC);
+		map.setData(Page.P20, 10, 10, 1);
+		map.fillDia(Page.P41, 10, 10, 2, 1);
+		map.clear(Page.P02, 1);
+		map.paintStep(Page.P02, Page.P03, 2, 2, 20);
 
-			DragonFrame fw = new DragonFrame();
-			
-			fw.getMapPanel().setPaintListener((g) -> map.draw(g));
+		DragonFrame fw = new DragonFrame();
+		
+		fw.getMapPanel().setPaintListener((g) -> map.draw(g));
 
-			PanelManagerImpl pmi = new PanelManagerImpl(fw, null, map, null, im, mil);
-			pmi.setTurnManager(new TurnManagerMock());
-			pmi.setTreasure(new TreasureManagerMock());
-			pmi.setSummon(new SummonManagerMock());
-			pm = pmi;
+		PanelManagerImpl pmi = new PanelManagerImpl(fw, null, map, null, im, mil);
+		pmi.setTurnManager(new TurnManagerMock());
+		pmi.setTreasure(new TreasureManagerMock());
+		pmi.setSummon(new SummonManagerMock());
+		pm = pmi;
 
-			fw.launch();
-			
-		} catch (MineException e) {
-			throw new RuntimeException(e);
-		}
+		fw.launch();
+		
+	
 	}
 
 

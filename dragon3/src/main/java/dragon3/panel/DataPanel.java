@@ -1,5 +1,7 @@
 package dragon3.panel;
 
+import javax.inject.Inject;
+
 import dragon3.Statics;
 import dragon3.attack.Attack;
 import dragon3.camp.Equip;
@@ -36,6 +38,8 @@ public class DataPanel extends PanelBase {
 	public static final int WIDTH = 160;
 	public static final int HEIGHT = 128;
 
+	@Inject Statics statics;
+	
 	private PaintComponent panel;
 
 	private ImageManager im;
@@ -150,7 +154,7 @@ public class DataPanel extends PanelBase {
 	}
 
 	public void displayWaza(Body ba, int i) {
-		WazaData waza = (WazaData)Statics.wazaList.getData(ba.getWazaList().get(i));
+		WazaData waza = statics.getWazaData(ba.getWazaList().get(i));
 		display(ba, new WazaPaint(waza, im.getWhiteBack()));
 	}
 	

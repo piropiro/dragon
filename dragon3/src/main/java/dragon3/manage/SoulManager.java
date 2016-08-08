@@ -5,6 +5,9 @@ import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
 
+import javax.inject.Inject;
+
+import dragon3.Statics;
 import dragon3.common.Body;
 import dragon3.common.constant.BodyKind;
 import dragon3.common.constant.GameColor;
@@ -17,6 +20,9 @@ import dragon3.panel.PanelManager;
 
 public class SoulManager {
 
+	@Inject Statics statics;
+	@Inject BodyDataLoader bodyDataLoader;
+	
 //	private UnitWorks uw;
 	private PanelManager pm;
 	private ImageManager imageManager;
@@ -24,7 +30,7 @@ public class SoulManager {
 	private int count;
 	private Body soul;
 
-	
+	@Inject
 	public SoulManager(UnitWorks uw) {
 //		this.uw = uw;
 		this.pm = uw.getPanelManager();
@@ -49,7 +55,7 @@ public class SoulManager {
 		if (GameColor.isPlayer(body))
 			return null;
 		
-		soul = BodyDataLoader.loadBodyData(body.base.getId(), body.getLevel());
+		soul = bodyDataLoader.loadBodyData(body.base.getId(), body.getLevel());
 		soul.base.setKind(BodyKind.SOUL);
 		soul.setColor(GameColor.GREEN);
 		soul.base.setImage(soul.base.getSoulType().getImage());

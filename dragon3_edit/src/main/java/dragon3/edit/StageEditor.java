@@ -1,19 +1,25 @@
 package dragon3.edit;
 
+import javax.inject.Inject;
+
+import dagger.ObjectGraph;
 import dragon3.data.StageData;
 import dragon3.stage.StageBack;
 import mine.edit.BeanEditor;
 import mine.edit.EditListener;
 import mine.edit.EditPanel;
 
+@SuppressWarnings("serial")
 public class StageEditor extends EditPanel<StageData> implements EditListener<StageData> {
 
-	private static final long serialVersionUID = 1L;
 
 	public static void main(String[] args) {
-		new BeanEditor<>("StageEditor", "stages.txt", "data.json", new StageEditor());
+		ObjectGraph objectGraph = ObjectGraph.create(new EditorModule());
+
+		new BeanEditor<>("StageEditor", "stages.txt", "data.json", objectGraph.get(StageEditor.class));
 	}
 
+	@Inject
 	StageEditor() {
 		super(StageData.class);
 

@@ -12,7 +12,6 @@ import dragon3.common.util.MoveUtils;
 import dragon3.controller.UnitWorks;
 import dragon3.cpu.EnemyTurn;
 import dragon3.paint.PaintUtils;
-import dragon3.view.DragonFrame;
 import dragon3.view.FrameWorks;
 import mine.paint.UnitMap;
 

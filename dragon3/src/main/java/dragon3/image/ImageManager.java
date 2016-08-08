@@ -3,6 +3,8 @@ package dragon3.image;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.inject.Inject;
+
 import dragon3.common.constant.GameColor;
 import dragon3.data.StageData;
 import dragon3.save.SaveData;
@@ -42,21 +44,25 @@ public class ImageManager {
 	@Getter private MineImage whiteBack;
 
 	
-	public ImageManager(MineImageLoader imageLoader) throws MineException {
+	@Inject public ImageManager(MineImageLoader imageLoader) {
 		this.imageLoader = imageLoader;
 
-		waku = imageLoader.loadTile(IMAGE_DIR + "waku.png", 32, 32);
-		text = imageLoader.loadTile(IMAGE_DIR + "text.png", 32, 12)[0];
-		status = imageLoader.loadTile(IMAGE_DIR + "status.png", 32, 32)[0];
-		num = imageLoader.loadTile(IMAGE_DIR + "num.png", 10, 12)[0];
-		animeImageList = new AnimeImageList(ANIME_IMAGE_DIR, imageLoader);
-		bodyImageList = new BodyImageList(BODY_IMAGE_DIR, imageLoader);
-		
-		stageWaku = imageLoader.loadTile(IMAGE_DIR + "stageWaku.png", StageSelectPanel.UNIT_WIDTH, StageSelectPanel.UNIT_HEIGHT)[0];
-		stageStar = imageLoader.load(IMAGE_DIR + "stageStar.png");
-		
-		resetBack(StageBack.WHITE);
-		whiteBack = this.stageBack[0];
+		try {
+			waku = imageLoader.loadTile(IMAGE_DIR + "waku.png", 32, 32);
+			text = imageLoader.loadTile(IMAGE_DIR + "text.png", 32, 12)[0];
+			status = imageLoader.loadTile(IMAGE_DIR + "status.png", 32, 32)[0];
+			num = imageLoader.loadTile(IMAGE_DIR + "num.png", 10, 12)[0];
+			animeImageList = new AnimeImageList(ANIME_IMAGE_DIR, imageLoader);
+			bodyImageList = new BodyImageList(BODY_IMAGE_DIR, imageLoader);
+			
+			stageWaku = imageLoader.loadTile(IMAGE_DIR + "stageWaku.png", StageSelectPanel.UNIT_WIDTH, StageSelectPanel.UNIT_HEIGHT)[0];
+			stageStar = imageLoader.load(IMAGE_DIR + "stageStar.png");
+			
+			resetBack(StageBack.WHITE);
+			whiteBack = this.stageBack[0];
+		} catch (MineException e) {
+			throw new RuntimeException(e);
+		}
 	}
 
 	public MineImage getImage(String name) {

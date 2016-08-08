@@ -3,6 +3,9 @@ package dragon3.edit;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+import javax.inject.Inject;
+
+import dagger.ObjectGraph;
 import dragon3.common.DataList;
 import dragon3.common.constant.AttackEffect;
 import dragon3.common.constant.DamageType;
@@ -15,25 +18,23 @@ import dragon3.data.load.AnimeDataLoader;
 import dragon3.image.BodyImageList;
 import dragon3.image.ImageManager;
 import mine.MineException;
-import mine.awt.ImageLoaderAWT;
 import mine.edit.BeanEditor;
 import mine.edit.EditListener;
 import mine.edit.EditPanel;
-import mine.paint.MineImageLoader;
 
+@SuppressWarnings("serial")
 public class WazaEditor extends EditPanel<WazaData> implements EditListener<WazaData> {
 
-	private static final long serialVersionUID = 1L;
-
 	public static void main(String[] args) throws MineException {
-		new BeanEditor<>("WazaEditor", "wazas.txt", "data.json", new WazaEditor());
+		ObjectGraph objectGraph = ObjectGraph.create(new EditorModule());
+
+		new BeanEditor<>("WazaEditor", "wazas.txt", "data.json", objectGraph.get(WazaEditor.class));
 	}
 
-	WazaEditor() throws MineException {
+	@Inject
+	WazaEditor(ImageManager im) {
 		super(WazaData.class);
 
-		MineImageLoader mil = new ImageLoaderAWT();
-		ImageManager im = new ImageManager(mil);
 		BodyImageList bil = im.getBodyImageList();
 
 		setField(CENTER, "id", "ID");

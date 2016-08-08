@@ -6,6 +6,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import dagger.ObjectGraph;
 import dragon3.Statics;
 import dragon3.common.DataList;
 import dragon3.common.constant.Page;
@@ -26,6 +27,8 @@ import mine.paint.UnitMap;
 
 public class AnimeManagerTest {
 
+	private static Statics statics;
+	
 	private static UnitMap map;
 	private static MapWorks mw;
 	private static AnimeManager am;
@@ -33,6 +36,9 @@ public class AnimeManagerTest {
 
 	@BeforeClass
 	public static void setUpClass() throws Exception {
+		ObjectGraph objectGraph = ObjectGraph.create();
+		statics = objectGraph.get(Statics.class);
+		
 		MineImageLoader mil = new ImageLoaderAWT();
 		ImageManager imageManager = new ImageManager(mil);
 
@@ -71,7 +77,7 @@ public class AnimeManagerTest {
 
 	@Before
 	public void setUp() throws Exception {
-		map.setPage(Page.P01, Statics.getMapData("D01"));
+		map.setPage(Page.P01, statics.getMapData("D01"));
 		map.setData(Page.P01, 11, 10, MoveUtils.OPEN_MAGIC);
 		map.setData(Page.P20, 10, 10, 1);
 		map.fillDia(Page.P41, 10, 10, 2, 1);

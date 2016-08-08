@@ -2,26 +2,28 @@ package dragon3.edit.deploy;
 
 import java.util.List;
 
+import javax.inject.Inject;
+
 import dragon3.Statics;
 import dragon3.common.constant.DeployType;
 import dragon3.data.BodyData;
 import dragon3.data.DeployData;
 import dragon3.image.BodyImageList;
 import dragon3.image.ImageManager;
-import mine.MineException;
 import mine.awt.ImageLoaderAWT;
 import mine.edit.EditListener;
 import mine.edit.EditPanel;
 import mine.paint.MineImage;
 import mine.paint.MineImageLoader;
 
+@SuppressWarnings("serial")
 public class StatusPanel extends EditPanel<DeployData> implements EditListener<DeployData> {
 
-	private static final long serialVersionUID = 1L;
-
-	StatusPanel() {
+	@Inject
+	StatusPanel(Statics statics) {
 		super(DeployData.class);
 
+		
 		setImageCombo(CENTER, "bodyId", "BODY");
 		setEnumCombo(CENTER, "deployType", "配置種別", DeployType.class);
 		initCombo("deployType", DeployType.createMap());
@@ -36,23 +38,21 @@ public class StatusPanel extends EditPanel<DeployData> implements EditListener<D
 		setIntCombo(RIGHT, "goalY", "目標Y", 15);
 		setIntCombo(LEFT, "limitTurn", "時限", 20);
 
-		List<BodyData> bodyList = Statics.bodyList.getList();
+		List<BodyData> bodyList = statics.getBodyList().getList();
 		String[] idList = new String[bodyList.size()];
 		MineImage[] imageList = new MineImage[bodyList.size()];
 
-		try {
-			MineImageLoader mil = new ImageLoaderAWT();
-			ImageManager im = new ImageManager(mil);
-			BodyImageList bil = im.getBodyImageList();
+	
+		MineImageLoader mil = new ImageLoaderAWT();
+		ImageManager im = new ImageManager(mil);
+		BodyImageList bil = im.getBodyImageList();
 
-			for (int i=0; i<bodyList.size(); i++) {
-				BodyData body = bodyList.get(i);
-				idList[i] = body.getId();
-				imageList[i] = bil.getImage(body.getImage());
-			}
-		} catch (MineException e) {
-			throw new RuntimeException(e);
+		for (int i=0; i<bodyList.size(); i++) {
+			BodyData body = bodyList.get(i);
+			idList[i] = body.getId();
+			imageList[i] = bil.getImage(body.getImage());
 		}
+	
 		initCombo("bodyId", idList, imageList);
 	}
 }

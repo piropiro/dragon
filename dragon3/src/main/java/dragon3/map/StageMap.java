@@ -2,6 +2,8 @@ package dragon3.map;
 
 import java.util.List;
 
+import javax.inject.Inject;
+
 import dragon3.Statics;
 import dragon3.common.Body;
 import dragon3.common.constant.GameColor;
@@ -17,6 +19,8 @@ import mine.util.Point;
 
 public class StageMap {
 
+	@Inject Statics statics;
+	
 	private ImageManager imageManager;
 
 	@Getter private UnitMap map;
@@ -75,7 +79,7 @@ public class StageMap {
 	public void mapLoad(StageData stageData) {
 		
 		resetBack(stageData.getBack());
-		int[][] data = Statics.getMapData(stageData.getId());
+		int[][] data = statics.getMapData(stageData.getId());
 		if (data != null) {
 			map.setPage(Page.P01, data);
 		}

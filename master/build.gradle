@@ -1,7 +1,13 @@
+
 allprojects {
+
   apply plugin: 'eclipse'
   
   repositories {
 	  jcenter()
+  }
+  
+  task wrapper(type: Wrapper) {
+    gradleVersion = '2.13'
   }
 }

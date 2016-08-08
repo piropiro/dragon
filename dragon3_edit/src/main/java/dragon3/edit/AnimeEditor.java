@@ -1,30 +1,31 @@
 package dragon3.edit;
 
+import javax.inject.Inject;
+
+import dagger.ObjectGraph;
 import dragon3.common.constant.AnimeType;
 import dragon3.data.AnimeData;
 import dragon3.image.AnimeImageList;
 import dragon3.image.ImageManager;
-import mine.awt.ImageLoaderAWT;
 import mine.edit.BeanEditor;
 import mine.edit.EditPanel;
 import mine.paint.MineImage;
-import mine.paint.MineImageLoader;
 
+@SuppressWarnings("serial")
 public class AnimeEditor extends EditPanel<AnimeData> {
 
-	private static final long serialVersionUID = 1L;
-
 	public static void main(String[] args) throws Exception {
-		new BeanEditor<>("AnimeEditor", "animes.txt", "data.json", new AnimeEditor());
+		ObjectGraph objectGraph = ObjectGraph.create(new EditorModule());
+
+		new BeanEditor<>("AnimeEditor", "animes.txt", "data.json", objectGraph.get(AnimeEditor.class));
 	}
 
-	AnimeEditor() throws Exception {
+	@Inject
+	AnimeEditor(ImageManager im) {
 		super(AnimeData.class);
 
-		MineImageLoader mil = new ImageLoaderAWT();
-		ImageManager im = new ImageManager(mil);
 		AnimeImageList ail = im.getAnimeImageList();
-
+		
 		String[] pathList = ail.getPathList();
 		MineImage[][] imageList = ail.getImageList();
 		MineImage[] firstImageList = new MineImage[imageList.length];

@@ -2,6 +2,8 @@ package dragon3.stage;
 
 import java.util.List;
 
+import javax.inject.Inject;
+
 import dragon3.Statics;
 import dragon3.controller.UnitWorks;
 import dragon3.data.StageData;
@@ -24,6 +26,8 @@ public class StageSelectPanel implements StageManager, MouseAllListener, PaintLi
 	private static final int P_STAGE = 0;
 	private static final int P_STATUS = 1;
 	private static final int P_WAKU = 2;
+	
+	@Inject Statics statics;
 	
 	private PaintComponent panel;
 	
@@ -48,7 +52,7 @@ public class StageSelectPanel implements StageManager, MouseAllListener, PaintLi
 		this.stageList = stageList;
 		this.imageManager = imageManager;
 
-		int[][] stageMapData  = Statics.getStageMapData();
+		int[][] stageMapData  = statics.getStageMapData();
 		MineImage[] stageImageList = imageManager.loadStageImageList(stageList);
 
 		stageMap = new UnitMap(3, stageMapData[0].length, stageMapData.length, imageManager.getImageLoader());

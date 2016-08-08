@@ -4,6 +4,8 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.inject.Inject;
+
 import dragon3.Statics;
 import dragon3.anime.AnimeManager;
 import dragon3.camp.Camp;
@@ -25,8 +27,8 @@ import dragon3.manage.TreasureManager;
 import dragon3.manage.TreasureManagerImpl;
 import dragon3.manage.TurnManager;
 import dragon3.manage.TurnManagerImpl;
-import dragon3.map.StageMap;
 import dragon3.map.MapWorks;
+import dragon3.map.StageMap;
 import dragon3.paint.BasicPaint;
 import dragon3.paint.PaintUtils;
 import dragon3.paint.TitlePaint;
@@ -38,7 +40,6 @@ import dragon3.stage.StageBack;
 import dragon3.stage.StageManager;
 import dragon3.view.FrameWorks;
 import lombok.Getter;
-import mine.MineException;
 import mine.event.SleepManager;
 import mine.paint.MineImageLoader;
 import mine.paint.UnitMap;
@@ -46,6 +47,9 @@ import mine.util.Point;
 
 public class DragonController implements UnitWorks, CommandListener {
 
+	@Inject Statics statics;
+	@Inject BodyDataLoader bodyDataLoader;
+	
 	private StageMap map;
 	private FrameWorks fw;
 	private MapWorks mw;
@@ -84,11 +88,9 @@ public class DragonController implements UnitWorks, CommandListener {
 		this.mil = fw.getImageLoader();
 		this.sleepManager = fw.getSleepManager();
 
-		try {
-			imageManager = new ImageManager(mil);
-		} catch (MineException e) {
-			throw new RuntimeException(e);
-		}
+	
+		imageManager = new ImageManager(mil);
+	
 
 		saveManager = new SaveManagerImpl(this);
 		Charas = new ArrayList<>();
@@ -154,7 +156,7 @@ public class DragonController implements UnitWorks, CommandListener {
 		Charas.clear();
 		camp = new Camp(this, treasure, equip);
 		map.resetBack(StageBack.WHITE);
-		camp.repaint(Statics.getCampMap());
+		camp.repaint(statics.getCampMap());
 		PaintUtils.setCampPaint(this, camp);
 		panelManager.getCardP().setVisible(false);
 		mw.repaint();
@@ -495,7 +497,7 @@ public class DragonController implements UnitWorks, CommandListener {
 		fw.setMenu(FrameWorks.T_CAMP);
 		PaintUtils.setCampPaint(this, camp);
 		map.resetBack(StageBack.WHITE);
-		camp.repaint(Statics.getCampMap());
+		camp.repaint(statics.getCampMap());
 		mw.repaint();
 	}
 	
@@ -599,7 +601,7 @@ public class DragonController implements UnitWorks, CommandListener {
 	@Override
 	public List<Body> loadEnemyData(String stageId, int addLevel) {
 
-		List<Body> bodyList = BodyDataLoader.loadBodyDataList(stageId, addLevel);
+		List<Body> bodyList = bodyDataLoader.loadBodyDataList(stageId, addLevel);
 		
 		for (Body body : bodyList) {
 			body.setImageNum(imageManager.getBodyImageList().getNum(body.base.getImage()));

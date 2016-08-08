@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
 
+import javax.inject.Inject;
+
 import dragon3.Statics;
 import dragon3.anime.AnimeManager;
 import dragon3.attack.calc.Damage;
@@ -40,6 +42,8 @@ import mine.paint.UnitMap;
 
 public class AttackManagerImpl implements AttackManager {
 
+	@Inject Statics statics;
+	
 	private AttackImpl attack;
 
 	private AnimeManager anime;
@@ -74,7 +78,7 @@ public class AttackManagerImpl implements AttackManager {
 		this.pm = uw.getPanelManager();
 		this.rewalkManager = uw.getRewalkManager();
 		
-		this.waza = (WazaData)Statics.wazaList.getData(wazaId);
+		this.waza = (WazaData)statics.getWazaData(wazaId);
 		this.hpFlag = hpFlag;
 
 		se = SpecialEffectManager.getInstance(map);

@@ -1,5 +1,7 @@
 package dragon3.panel;
 
+import javax.inject.Inject;
+
 import card.CardCanvas;
 import dragon3.Statics;
 import dragon3.anime.AnimePanel;
@@ -32,6 +34,8 @@ import mine.util.Point;
  */
 public class PanelManagerImpl implements PanelManager {
 
+	@Inject Statics statics;
+	
 	private FrameWorks fw;
 	
 	@Getter private AnimePanel animeP;
@@ -69,7 +73,7 @@ public class PanelManagerImpl implements PanelManager {
 		animeP = new AnimePanel(fw.getAnimePanel(), mapP, sleepManager, map, animeList, imageManager);
 
 		// StageSelectPanel
-		stageSelectP = new StageSelectPanel(fw.getStageSelectPanel(), uw, Statics.stageList.getList(), imageManager);
+		stageSelectP = new StageSelectPanel(fw.getStageSelectPanel(), uw, statics.getStageList(), imageManager);
 		stageSelectP.setVisible(false);
 		
 		// HPanel

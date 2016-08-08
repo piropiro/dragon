@@ -2,6 +2,9 @@ package dragon3.edit;
 
 import java.util.Map;
 
+import javax.inject.Inject;
+
+import dagger.ObjectGraph;
 import dragon3.Statics;
 import dragon3.common.constant.ArmorType;
 import dragon3.common.constant.BodyAttribute;
@@ -12,26 +15,23 @@ import dragon3.common.constant.WeponType;
 import dragon3.data.BodyData;
 import dragon3.image.BodyImageList;
 import dragon3.image.ImageManager;
-import mine.awt.ImageLoaderAWT;
 import mine.edit.BeanEditor;
 import mine.edit.EditListener;
 import mine.edit.EditPanel;
-import mine.paint.MineImageLoader;
 
-
+@SuppressWarnings("serial")
 public class BodyEditor extends EditPanel<BodyData> implements EditListener<BodyData> {
 
-	private static final long serialVersionUID = 1L;
-
 	public static void main(String[] args) throws Exception {
-		new BeanEditor<>("BodyEditor", "bodys.txt", "data.json", new BodyEditor());
+		ObjectGraph objectGraph = ObjectGraph.create(new EditorModule());
+
+		new BeanEditor<>("BodyEditor", "bodys.txt", "data.json", objectGraph.get(BodyEditor.class));
 	}
 
-	public BodyEditor() throws Exception {
+	@Inject
+	public BodyEditor(Statics statics, ImageManager im) {
 		super(BodyData.class);
 
-		MineImageLoader mil = new ImageLoaderAWT();
-		ImageManager im = new ImageManager(mil);
 		BodyImageList bil = im.getBodyImageList();
 
 		setField(CENTER, "id", "ID");
@@ -64,7 +64,7 @@ public class BodyEditor extends EditPanel<BodyData> implements EditListener<Body
 		setEnumCombo(RIGHT, "armorType", "防具", ArmorType.class);
 		initCombo("armorType", ArmorType.createMap());
 
-		Map<String, String> wazaIdAndName = Statics.wazaList.getIdAndName();
+		Map<String, String> wazaIdAndName = statics.getWazaList().getIdAndName();
 		for (int i=0; i<4; i++) {
 			setTextCombo(CENTER, "wazaList", i, "特技" + i);
 			initCombo("wazaList", i, wazaIdAndName);

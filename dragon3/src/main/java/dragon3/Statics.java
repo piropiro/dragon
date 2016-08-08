@@ -3,14 +3,19 @@ package dragon3;
 import java.util.Arrays;
 import java.util.List;
 
+import javax.inject.Inject;
+import javax.inject.Singleton;
+
 import dragon3.common.DataList;
 import dragon3.data.BodyData;
 import dragon3.data.DeployData;
 import dragon3.data.StageData;
 import dragon3.data.WazaData;
+import lombok.Getter;
 import mine.MineException;
 import mine.io.JsonIO;
 
+@Singleton
 public class Statics {
 
 	public static final List<String> STAGE_FILES = Arrays.asList("StageData.json");
@@ -29,29 +34,17 @@ public class Statics {
 	public static final int TYPE_MAX = 100;
 
 
-	public static final DataList<BodyData> bodyList = new DataList<BodyData>(BODY_DIR, BODY_FILES, BodyData[].class);
-	public static final DataList<WazaData> wazaList = new DataList<WazaData>(WAZA_DIR, WAZA_FILES, WazaData[].class);
-	public static final DataList<StageData> stageList = new DataList<StageData>(STAGE_DIR, STAGE_FILES, StageData[].class);
+	@Getter private DataList<BodyData> bodyList;
+	@Getter private DataList<WazaData> wazaList;
+	private DataList<StageData> stageList;
 
-
-	public static int getBukiType(int type) {
-		switch (type) {
-		case 1:
-		case 2:
-		case 3:
-			return 1;
-		case 4:
-		case 5:
-		case 6:
-			return 2;
-		default:
-			return 3;
-		}
+	@Inject public Statics() {
+		bodyList = new DataList<BodyData>(BODY_DIR, BODY_FILES, BodyData[].class);
+		wazaList = new DataList<WazaData>(WAZA_DIR, WAZA_FILES, WazaData[].class);
+		stageList = new DataList<StageData>(STAGE_DIR, STAGE_FILES, StageData[].class);
 	}
-
-
 	
-	public static List<DeployData> getDeployData(String stageId) {
+	public List<DeployData> getDeployData(String stageId) {
 		try {
 			return Arrays.asList(JsonIO.read(DEPLOY_DIR + "deploy_" + stageId + ".json", DeployData[].class));
 		} catch (MineException e) {
@@ -59,11 +52,11 @@ public class Statics {
 		}
 	}
 	
-	public static StageData getStageData(String stageId) {
+	public StageData getStageData(String stageId) {
 		return stageList.getData(stageId);
 	}
 
-	public static int[][] getMapData(String stageId) {
+	public int[][] getMapData(String stageId) {
 		try {
 			return JsonIO.read(MAP_DIR + "map_" + stageId + ".json", int[][].class);
 		} catch (MineException e) {
@@ -71,7 +64,7 @@ public class Statics {
 		}
 	}
 	
-	public static int[][] getStageMapData() {
+	public int[][] getStageMapData() {
         try {
             int[][] stages = JsonIO.read(Statics.STAGE_DIR + "map_stage.json", int[][].class);
             return stages;
@@ -82,15 +75,27 @@ public class Statics {
 	
     /*** DataLoad ******************************/
  
-    public static int[][] getCampMap() {
-        return Statics.getMapData("camp");
+    public int[][] getCampMap() {
+        return getMapData("camp");
     }
 
-    public static int[][] getCollectionMap() {
-        return Statics.getMapData("collection");
+    public int[][] getCollectionMap() {
+        return getMapData("collection");
     }
 
-    public static int[][] getWazalistMap() {
-        return Statics.getMapData("wazalist");
+    public int[][] getWazalistMap() {
+        return getMapData("wazalist");
+    }
+    
+    public WazaData getWazaData(String wazaId) {
+    	return wazaList.getData(wazaId);
+    }
+    
+    public BodyData getBodyData(String bodyId) {
+    	return bodyList.getData(bodyId);
+    }
+    
+    public List<StageData> getStageList() {
+    	return stageList.getList();
     }
 }

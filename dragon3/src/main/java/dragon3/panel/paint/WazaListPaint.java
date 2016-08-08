@@ -5,6 +5,9 @@ package dragon3.panel.paint;
 
 
 import mine.paint.MineGraphics;
+
+import javax.inject.Inject;
+
 import dragon3.Statics;
 import dragon3.common.Body;
 import dragon3.data.Data;
@@ -15,6 +18,8 @@ import dragon3.panel.PanelWorks;
  */
 public class WazaListPaint implements DataPanelPainter {
 
+	@Inject Statics statics;
+	
 	private Body ba;
 
 	public WazaListPaint(Body ba) {
@@ -29,7 +34,7 @@ public class WazaListPaint implements DataPanelPainter {
 			if (wazaId == null) { 
 				continue;
 			}
-			Data waza = Statics.wazaList.getData(wazaId);
+			Data waza = statics.getWazaData(wazaId);
 			pw.drawLine(waza.getName(), 0, n++, g);
 			if (n == 4)
 				break;
