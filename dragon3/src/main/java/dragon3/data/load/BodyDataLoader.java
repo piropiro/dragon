@@ -1,10 +1,7 @@
 package dragon3.data.load;
 
-import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
-
-import org.apache.commons.beanutils.BeanUtils;
 
 import dragon3.Statics;
 import dragon3.common.Body;
@@ -72,16 +69,10 @@ public class BodyDataLoader {
 		Body body = new Body();
 		
 		BodyData bodyData = Statics.bodyList.getData(bodyId);
-		
-		try {
-			BeanUtils.copyProperties(body.base, bodyData);
-			calcLevel(body, level);			
-			body.resetAttr();			
-			body.resetWaza();
-
-		} catch (IllegalAccessException | InvocationTargetException e) {
-			throw new RuntimeException(e);
-		}
+		body.base = bodyData.copy();
+		calcLevel(body, level);			
+		body.resetAttr();			
+		body.resetWaza();
 		
 		return body;
 	}

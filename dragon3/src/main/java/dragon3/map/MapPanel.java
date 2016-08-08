@@ -34,7 +34,6 @@ public class MapPanel implements MapWorks, MouseAllListener, PaintListener {
 		this.el = new WaitPaint();
 		
 		panel.setPaintListener(this);
-		panel.setMouseAllListener(this);
 	}
 
 	/*** Listener ************************************************/
@@ -96,7 +95,11 @@ public class MapPanel implements MapWorks, MouseAllListener, PaintListener {
 	public void repaint() {
 		panel.repaint();
 	}
-
+	@Override
+	public void update() {
+		panel.update();
+	}
+	
 	/*** Paint *****************************************************/
 
 	@Override
@@ -112,18 +115,16 @@ public class MapPanel implements MapWorks, MouseAllListener, PaintListener {
 
 	@Override
 	public void rightPressed(int x, int y) {
-		mouseMoved(x, y);
-		el.rightPressed();
+		//mouseMoved(x, y);
+		el.cancel();
 	}
 
 	@Override
 	public void leftReleased(int x, int y) {
-		el.leftReleased();
 	}
 
 	@Override
 	public void rightReleased(int x, int y) {
-		el.rightReleased();
 	}
 
 	@Override
@@ -148,6 +149,17 @@ public class MapPanel implements MapWorks, MouseAllListener, PaintListener {
 	
 	@Override
 	public void mouseExited(int x, int y) {
+	}
+
+	@Override
+	public void accept() {
+		el.accept();
+		
+	}
+
+	@Override
+	public void cancel() {
+		el.cancel();
 	}
 
 }

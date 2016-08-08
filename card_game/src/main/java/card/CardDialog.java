@@ -7,7 +7,7 @@ import mine.MineException;
 import mine.MineUtils;
 import mine.awt.ImageLoaderAWT;
 import mine.awt.MineAwtUtils;
-import mine.awt.PaintComponentAWT;
+import mine.awt.MineCanvasAWT;
 import mine.awt.SleepManagerAWT;
 import mine.event.PaintComponent;
 import mine.event.SleepManager;
@@ -32,23 +32,24 @@ public class CardDialog extends JDialog implements CardListener {
 		super();
 		MineImageLoader mil = new ImageLoaderAWT();
 		
-		PaintComponent cardPanel = new PaintComponentAWT(CardCanvas.WIDTH, CardCanvas.HEIGHT);
-		
+		MineCanvasAWT mc = new MineCanvasAWT(mil);
+		MineAwtUtils.setSize(mc, 640, 480);	
+		PaintComponent cardPanel = mc.newLayer(0,  0, CardCanvas.WIDTH, CardCanvas.HEIGHT);
+		cardPanel.setVisible(true);
 		setTitle("CardBattle");
 		
-		SleepManager sleepManager = new SleepManagerAWT((JComponent)cardPanel);
-		cc = new CardCanvas(cardPanel, mil, sleepManager);
-		cardPanel.setPaintListener(cc);
-		
+		SleepManager sleepManager = new SleepManagerAWT((JComponent)mc);
+		cc = new CardCanvas(cardPanel, mil, sleepManager);		
 		cc.setCardListener(this);
-
+		mc.setMouseAllListener(cc);
+		
 		chara = (MineImage[])MineUtils.linerize(
 			mil.loadTile("card/image/chara.png", 32, 32), new MineImage[0]);
 			
 		status = JsonIO.read("card/data/status.json", int[][].class);
 
 
-		getContentPane().add((JComponent)cardPanel);
+		getContentPane().add((JComponent)mc);
 		pack();
 		MineAwtUtils.setCenter(this);
 		setVisible(true);

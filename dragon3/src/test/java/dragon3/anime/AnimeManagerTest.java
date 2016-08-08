@@ -1,21 +1,6 @@
 package dragon3.anime;
 
-import java.awt.Graphics;
-
-import javax.swing.JComponent;
 import javax.swing.JFrame;
-import javax.swing.JLayeredPane;
-
-import mine.awt.GraphicsAWT;
-import mine.awt.ImageLoaderAWT;
-import mine.awt.MineAwtUtils;
-import mine.awt.PaintComponentAWT;
-import mine.awt.SleepManagerAWT;
-import mine.event.PaintComponent;
-import mine.event.SleepManager;
-import mine.paint.MineGraphics;
-import mine.paint.MineImageLoader;
-import mine.paint.UnitMap;
 
 import org.junit.Before;
 import org.junit.BeforeClass;
@@ -28,10 +13,21 @@ import dragon3.common.util.MoveUtils;
 import dragon3.data.AnimeData;
 import dragon3.data.load.AnimeDataLoader;
 import dragon3.image.ImageManager;
+import dragon3.map.MapPanel;
+import dragon3.map.MapWorks;
+import mine.awt.ImageLoaderAWT;
+import mine.awt.MineAwtUtils;
+import mine.awt.MineCanvasAWT;
+import mine.awt.SleepManagerAWT;
+import mine.event.PaintComponent;
+import mine.event.SleepManager;
+import mine.paint.MineImageLoader;
+import mine.paint.UnitMap;
 
 public class AnimeManagerTest {
 
 	private static UnitMap map;
+	private static MapWorks mw;
 	private static AnimeManager am;
 	private static JFrame frame;
 
@@ -39,6 +35,9 @@ public class AnimeManagerTest {
 	public static void setUpClass() throws Exception {
 		MineImageLoader mil = new ImageLoaderAWT();
 		ImageManager imageManager = new ImageManager(mil);
+
+		MineCanvasAWT mc = new MineCanvasAWT(mil);
+		MineAwtUtils.setSize(mc, 640, 480);	
 
 		map = new UnitMap(14, 20, 15, mil);
 		map.setVisible(Page.P01, true);
@@ -48,28 +47,23 @@ public class AnimeManagerTest {
 		map.setVisible(Page.P50, true);
 		map.setTile(Page.P50, imageManager.getStatus(), 0);
 
-		JLayeredPane panel = new JLayeredPane(){
-			private static final long serialVersionUID = 1L;
+	
+		SleepManager sm = new SleepManagerAWT(mc);
+		
+		PaintComponent mapC = mc.newLayer(0, 0, 640, 480);
+		MapPanel mapP = new MapPanel(mapC, null, map);
+		mw = mapP;
+		mapC.setVisible(true);
 
-			public void paintComponent(Graphics g) {
-				MineGraphics mg = new GraphicsAWT(g);
-				map.draw(mg);
-			}
-		};
 
-		MineAwtUtils.setSize(panel, 640, 480);
-
-		SleepManager sm = new SleepManagerAWT(panel);
-
-		PaintComponent pc = new PaintComponentAWT(32, 32);
+		PaintComponent animeC = mc.newLayer(0, 0, 32, 32);
 		DataList<AnimeData> animeList = AnimeDataLoader.loadAnimeList();
-		AnimePanel ap = new AnimePanel(pc, sm, map, animeList, imageManager);
+		AnimePanel ap = new AnimePanel(animeC, mw, sm, map, animeList, imageManager);
 		am = ap;
-		panel.add((JComponent)pc);
 
 		frame = new JFrame();
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setContentPane(panel);
+		frame.getContentPane().add(mc);
 		frame.pack();
 		frame.setLocation(100, 100);
 		frame.setVisible(true);

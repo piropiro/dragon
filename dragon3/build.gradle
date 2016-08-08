@@ -5,8 +5,6 @@ dependencies {
   compile project(':mine')
   compile project(':card_game')
   compile project(':imo_gari')
-  // https://mvnrepository.com/artifact/commons-beanutils/commons-beanutils
-  compile group: 'commons-beanutils', name: 'commons-beanutils', version: '1.8.3'
   
   compileOnly "org.projectlombok:lombok:1.16.10"
   

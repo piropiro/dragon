@@ -78,23 +78,12 @@ public class KakuseiPaint implements EventListener {
 
 	@Override
 	public void mouseMoved(int x, int y) {
-		rightPressed();
+		cancel();
 	}
 
 	@Override
 	public void leftPressed() {
-		kakusei = getKakuseiData();
-		setStatus();
-		uw.changeChara(sister, kakusei);
-		action();
-	}
 
-	@Override
-	public void rightPressed() {
-		map.setData(Page.P10, sister.getX(), sister.getY(), 0);
-		map.setData(Page.P30, sister.getX(), sister.getY(), 1);
-		mw.repaint();
-		PaintUtils.setBasicPaint(uw);
 	}
 
 	/*** Place *****************************************/
@@ -122,11 +111,19 @@ public class KakuseiPaint implements EventListener {
 	/*** Event ************************************/
 
 	@Override
-	public void leftReleased() {
-	};
-	
+	public void accept() {
+		kakusei = getKakuseiData();
+		setStatus();
+		uw.changeChara(sister, kakusei);
+		action();
+	}
+
 	@Override
-	public void rightReleased() {
+	public void cancel() {
+		map.setData(Page.P10, sister.getX(), sister.getY(), 0);
+		map.setData(Page.P30, sister.getX(), sister.getY(), 1);
+		mw.repaint();
+		PaintUtils.setBasicPaint(uw);
 	};
 
 }

@@ -1,6 +1,8 @@
 package dragon3.edit.deploy;
 
 import java.awt.BorderLayout;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.io.File;
 import java.util.List;
 
@@ -19,6 +21,7 @@ import dragon3.edit.deploy.paint.GoalPaint;
 import dragon3.edit.deploy.paint.SortPaint;
 import dragon3.image.ImageManager;
 import mine.MineException;
+import mine.MineUtils;
 import mine.awt.ImageLoaderAWT;
 import mine.awt.MineAwtUtils;
 import mine.edit.EditList;
@@ -32,7 +35,7 @@ import mine.io.JsonIO;
 import mine.paint.MineImageLoader;
 import mine.paint.UnitMap;
 
-public class DeployEditor extends JFrame implements MainWorks<DeployData>, CommandListener, FileWorks, ListSelectionListener {
+public class DeployEditor extends JFrame implements MainWorks<DeployData>, CommandListener, FileWorks, ListSelectionListener, KeyListener {
 
 
 	private static final long serialVersionUID = 1L;
@@ -103,6 +106,8 @@ public class DeployEditor extends JFrame implements MainWorks<DeployData>, Comma
 		}
 		repaintMap();
 		setVisible(true);
+		
+		mapPanel.addKeyListener(this);
 	}
 	public static void main(String[] args) throws Exception {
 		new DeployEditor();
@@ -178,6 +183,7 @@ public class DeployEditor extends JFrame implements MainWorks<DeployData>, Comma
 			editList.selectData(deploy);
 		}
 		repaintMap();
+		mapPanel.requestFocus();
 	}
 
 	public void removeUnit(int x, int y) {
@@ -360,5 +366,48 @@ public class DeployEditor extends JFrame implements MainWorks<DeployData>, Comma
 	@Override
 	public void valueChanged(ListSelectionEvent arg0) {
 		repaintMap();
+	}
+	
+	private void moveUnit(int mx, int my) {
+		DeployData deploy;
+		try {
+			deploy = (DeployData) editList.getSelectedData();
+			deploy.setX(MineUtils.mid(0, deploy.getX() + mx, map.getMapWidth() - 1));
+			deploy.setY(MineUtils.mid(0, deploy.getY() + my, map.getMapHeight() - 1));
+			if (deploy.getGoalX() != 0 || deploy.getGoalY() != 0) {
+				deploy.setGoalX(MineUtils.mid(0, deploy.getGoalX() + mx, map.getMapWidth() - 1));
+				deploy.setGoalY(MineUtils.mid(0, deploy.getGoalY() + my, map.getMapHeight() - 1));
+			}
+			statusPanel.setData(deploy);
+			repaintMap();
+		} catch (MineException e1) {
+			e1.printStackTrace();
+			return;
+		}
+	}
+	
+	@Override
+	public void keyTyped(KeyEvent e) {
+	}
+	@Override
+	public void keyPressed(KeyEvent e) {
+		switch (e.getKeyCode()) {
+		case KeyEvent.VK_UP:
+			moveUnit(0, -1);
+			break;
+		case KeyEvent.VK_DOWN:
+			moveUnit(0, 1);
+			break;
+		case KeyEvent.VK_LEFT:
+			moveUnit(-1, 0);
+			break;
+		case KeyEvent.VK_RIGHT:
+			moveUnit(1, 0);
+			break;
+		}
+	}
+	@Override
+	public void keyReleased(KeyEvent e) {
+
 	}
 }

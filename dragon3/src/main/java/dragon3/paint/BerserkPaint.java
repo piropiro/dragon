@@ -63,22 +63,12 @@ public class BerserkPaint implements EventListener {
 
 	@Override
 	public void mouseMoved(int x, int y) {
-		rightPressed();
+		cancel();
 	}
 
 	@Override
 	public void leftPressed() {
-		setStatus();
-		uw.bersekChara(ba);
-		action();
-	}
 
-	@Override
-	public void rightPressed() {
-		map.setData(Page.P10, ba.getX(), ba.getY(), 0);
-		map.setData(Page.P30, ba.getX(), ba.getY(), 1);
-		mw.repaint();
-		PaintUtils.setBasicPaint(uw);
 	}
 
 	/*** Place *****************************************/
@@ -103,12 +93,19 @@ public class BerserkPaint implements EventListener {
 	/*** Mouse Moved ***********************************/
 
 	/*** Event ************************************/
-	
+
 	@Override
-	public void leftReleased() {
-	};
-	
+	public void accept() {
+		setStatus();
+		uw.bersekChara(ba);
+		action();
+	}
+
 	@Override
-	public void rightReleased() {
+	public void cancel() {
+		map.setData(Page.P10, ba.getX(), ba.getY(), 0);
+		map.setData(Page.P30, ba.getX(), ba.getY(), 1);
+		mw.repaint();
+		PaintUtils.setBasicPaint(uw);
 	};
 }

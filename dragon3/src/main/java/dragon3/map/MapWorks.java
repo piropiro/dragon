@@ -8,6 +8,7 @@ public interface MapWorks {
 
 	/*** Paint *************************/
 
+	public void update();
 	public void repaint();
 	public void ppaint(int x, int y);
 	public void ppaint(int[] box);

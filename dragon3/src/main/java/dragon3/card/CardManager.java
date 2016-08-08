@@ -62,20 +62,6 @@ public class CardManager implements CardListener {
 		return num;
 	}
 
-	/*** Display ******************************************************/
-
-	public void display() {
-		cardCanvas.setVisible(true);
-		cardCanvas.start();
-	}
-
-	/*** Dispose ******************************************************/
-
-	public void dispose() {
-		cardCanvas.dispose();
-		cardCanvas.setVisible(false);
-	}
-
 	/*** End Judge *************************************************/
 
 	public void gameExit(int redWin, int blueWin) {
@@ -90,7 +76,7 @@ public class CardManager implements CardListener {
 	/*** Win *****************************************************/
 
 	public void win() {
-		dispose();
+		pm.closeCardCanvas();
 		pm.closeData();
 		sm.sleep(500);
 		pm.addMessage(Texts.card_success);
@@ -107,7 +93,7 @@ public class CardManager implements CardListener {
 	/*** Lose *****************************************************/
 
 	public void lose() {
-		dispose();
+		pm.closeCardCanvas();
 		bb.setHp(bb.getHpMax());
 		pm.closeData();
 		sm.sleep(500);

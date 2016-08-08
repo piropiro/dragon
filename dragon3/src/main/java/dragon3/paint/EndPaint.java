@@ -65,15 +65,8 @@ public class EndPaint implements EventListener {
 
 	@Override
 	public void leftPressed() {
-		map.setData(Page.P10, ba.getX(), ba.getY(), 0);
-		action();
 	}
 
-
-	@Override
-	public void rightPressed() {
-		rewalkManager.rewalk(ba);
-	}
 
 
 	@Override
@@ -118,13 +111,16 @@ public class EndPaint implements EventListener {
 	}
 
 	/*** Event ************************************/
-	
+
 	@Override
-	public void leftReleased() {
-	};
-	
+	public void accept() {
+		map.setData(Page.P10, ba.getX(), ba.getY(), 0);
+		action();
+	}
+
 	@Override
-	public void rightReleased() {
+	public void cancel() {
+		rewalkManager.rewalk(ba);
 	};
 
 }

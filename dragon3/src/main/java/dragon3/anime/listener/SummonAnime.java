@@ -5,9 +5,11 @@ import mine.paint.UnitMap;
 import dragon3.anime.AnimeWorks;
 import dragon3.anime.item.Number;
 import dragon3.common.constant.Page;
+import dragon3.map.MapWorks;
 
 public class SummonAnime implements AnimeListener {
 
+	private MapWorks mw;
 	private UnitMap map;
 
 	private int bodyX;
@@ -17,7 +19,8 @@ public class SummonAnime implements AnimeListener {
 
 	/*** Constructer ***********************/
 
-	public SummonAnime(UnitMap map, int image, int bodyX, int bodyY) {
+	public SummonAnime(MapWorks mw, UnitMap map, int image, int bodyX, int bodyY) {
+		this.mw = mw;
 		this.map = map;
 		this.image = image;
 		this.bodyX = bodyX;
@@ -41,6 +44,7 @@ public class SummonAnime implements AnimeListener {
 			ac.sleep(30);
 		}
 		map.setData(Page.P20, bodyX, bodyY, image);
+		mw.update();
 		ac.sleep(100);
 	}
 

@@ -16,9 +16,9 @@ public class SmallPanel implements PaintListener {
 
 	private PaintComponent panel;
 	
-	private String label;
+	private String label = "";
 	
-	private GameColor color;
+	private GameColor color = GameColor.NONE;
 	
 	private int width;
 	

@@ -1,6 +1,7 @@
 package dragon3.view;
 
 
+import mine.event.MouseAllListener;
 import mine.event.PaintComponent;
 import mine.event.SleepManager;
 import mine.paint.MineImageLoader;
@@ -22,6 +23,7 @@ public interface FrameWorks {
 	public static final int T_STAGESELECT = 13;
 
     public void setMenu( int n );
+    public void setMouseListener(MouseAllListener mal);
     
     public PaintComponent getMapPanel();
     public PaintComponent getStageSelectPanel();

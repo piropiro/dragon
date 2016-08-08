@@ -41,7 +41,7 @@ public abstract class PanelBase implements PanelWorks, PaintListener {
 		this.left = left;
 		//MineAwtUtils.setSize(this, width, height);
 		panel.setVisible(false);
-		panel.setFontSize(14);
+		//panel.setFontSize(14);
 
 		hpb = new HPBar();
 		expb = new EXPBar();

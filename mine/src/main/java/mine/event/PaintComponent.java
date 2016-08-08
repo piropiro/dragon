@@ -3,7 +3,10 @@ package mine.event;
 public interface PaintComponent {
 	public void setPaintListener(PaintListener pl);
 	
-	public void setMouseAllListener(MouseAllListener mal);
+	/**
+	 * 再描画フラグを立てる
+	 */
+	public void update();
 	
 	public void repaint();
 	
@@ -16,8 +19,4 @@ public interface PaintComponent {
 	public void setLocation(int x, int y);
 
 	public void setSize(int w, int h);
-	
-	public void setFontSize(int size);
-	
-	public void requestFocus();
 }

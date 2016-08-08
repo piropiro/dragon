@@ -45,11 +45,11 @@ public class RewalkManager {
 		b.setY(y);
 		map.setData(Page.P20, b.getX(), b.getY(), b.getImageNum());
 		map.setData(Page.P50, b.getX(), b.getY(), sts);
+		PaintUtils.setWalkPaint(uw, b);
+		mw.repaint();
 		pm.closeHp();
 		pm.closeSmall();
 		pm.closeData();
-		PaintUtils.setWalkPaint(uw, b);
-		mw.repaint();
 	}
 
 	/*** Walk Judge ********************/

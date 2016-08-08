@@ -227,28 +227,6 @@ public class PutPlayersPaint implements EventListener {
 
 
 	@Override
-	public void rightPressed() {
-		Point p = mw.getWaku();
-		if (map.getData(Page.P20, p.x, p.y) == 0) {
-			PaintUtils.setButtonPaint(uw, p.x, p.y, this, 6);
-			return;
-		}
-		Body b = uw.search(p.x, p.y);
-		if (map.getData(Page.P01, p.x, p.y) == MoveUtils.S_BLUE) {
-			if (b != null) {
-				changeChara(p.x, p.y);
-				return;
-			}
-		}
-		if (b != null) {
-			pm.displayAnalyze(b);
-		} else {
-			nextChara(p.x, p.y, false);
-		}
-	}
-
-
-	@Override
 	public void mouseMoved(int x, int y) {
 		mw.wakuMove(x, y);
 		moveChara(x, y);
@@ -283,12 +261,31 @@ public class PutPlayersPaint implements EventListener {
 
 	/*** Event ************************************/
 
+
 	@Override
-	public void leftReleased() {
-	};
-	
+	public void accept() {
+		uw.setMensEnd();
+	}
+
 	@Override
-	public void rightReleased() {
+	public void cancel() {
+		Point p = mw.getWaku();
+		if (map.getData(Page.P20, p.x, p.y) == 0) {
+			PaintUtils.setButtonPaint(uw, p.x, p.y, this, 6);
+			return;
+		}
+		Body b = uw.search(p.x, p.y);
+		if (map.getData(Page.P01, p.x, p.y) == MoveUtils.S_BLUE) {
+			if (b != null) {
+				changeChara(p.x, p.y);
+				return;
+			}
+		}
+		if (b != null) {
+			pm.displayAnalyze(b);
+		} else {
+			nextChara(p.x, p.y, false);
+		}
 	};
 
 }

@@ -22,7 +22,7 @@ public class HelpPanel implements PaintListener {
 		super();
 		this.panel = panel;
 		panel.setVisible(false);
-		panel.setFontSize(14);
+		//panel.setFontSize(14);
 		panel.setPaintListener(this);
 	}
 
@@ -68,7 +68,7 @@ public class HelpPanel implements PaintListener {
 
 	@Override
 	public void paint(MineGraphics g) {
-		g.setFont("Dialog", 14);
+		g.setFont("serif", 14);
 		clear(bgcolor, g);
 
 		for (int i = 0; i < lines.length; i++) {

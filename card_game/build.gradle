@@ -2,4 +2,6 @@ apply plugin: 'java'
 
 dependencies {
   compile project(':mine')
+  
+  compileOnly "org.projectlombok:lombok:1.16.10"
 }

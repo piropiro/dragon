@@ -73,11 +73,11 @@ public class CardPaint implements EventListener {
 	}
 
 	@Override
-	public void leftReleased() {
+	public void accept() {
 	}
 
 	@Override
-	public void rightReleased() {
+	public void cancel() {
 	}
 
 }
