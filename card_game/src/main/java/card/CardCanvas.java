@@ -4,11 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import javax.inject.Inject;
+import javax.inject.Named;
+import javax.inject.Singleton;
+
 import card.anime.AnimeManager;
 import card.body.Card;
 import card.body.Enemy;
 import card.body.Player;
-import card.common.ImageList;
 import card.common.Page;
 import card.manage.BattleManager;
 import card.manage.CardManager;
@@ -27,27 +30,29 @@ import mine.paint.UnitMap;
 import mine.thread.Lock;
 
 
-
+@Singleton
 public class CardCanvas
 	implements UnitWorks, MouseAllListener, PaintListener {
 
 	public static final int WIDTH = 32*11;
 	public static final int HEIGHT = 32*13;
+	
 	private PaintComponent panel;
+	@Inject SleepManager sleepManager;
 	
 	private CardListener listener;
 
 	private List<Card> cards;
-	private CardManager cardManager;
-	private AnimeManager animeManager;
-	private SleepManager sleepManager;
-	private BattleManager battleManager;
-	private ResultPainter resultPainter;
-	private DoubleManager doubleManager;
-	private WakuPainter wakuMover;
+	@Inject CardManager cardManager;
+	@Inject AnimeManager animeManager;
+
+	@Inject BattleManager battleManager;
+	@Inject ResultPainter resultPainter;
+	@Inject DoubleManager doubleManager;
+	@Inject WakuPainter wakuMover;
 	private Enemy enemy;
 	private Player player;
-	private UnitMap map;
+	@Inject UnitMap map;
 	private Lock lock;
 	private Random random;
 
@@ -57,22 +62,22 @@ public class CardCanvas
 	private int[] blueNum;
 	private int[] redNum;
 
-	public CardCanvas(PaintComponent panel, MineImageLoader imageLoader, SleepManager sleepManager){
+	@Inject
+	public CardCanvas(@Named("cardC") PaintComponent panel, MineImageLoader imageLoader){
 		super();
 		this.panel = panel;
 		panel.setLocation(32 * 4, 32 * 1);
-		ImageList il = new ImageList(imageLoader);
+		//ImageList il = new ImageList(imageLoader);
 		cards = new ArrayList<Card>();
 		//MineAwtUtils.setSize(this, WIDTH, HEIGHT);
 
-		initMap(il);
-		wakuMover = new WakuPainter(this, map);
-		this.sleepManager = sleepManager;
-		animeManager = new AnimeManager(this, map, il);
-		cardManager = new CardManager(this, animeManager, il);
-		battleManager = new BattleManager(animeManager);
-		doubleManager = new DoubleManager(cardManager, animeManager);
-		resultPainter = new ResultPainter();
+		//initMap(il);
+		//wakuMover = new WakuPainter(this, map);
+		//animeManager = new AnimeManager(this, map, il);
+		//cardManager = new CardManager(this, animeManager, il);
+		//battleManager = new BattleManager(animeManager);
+		//doubleManager = new DoubleManager(cardManager, animeManager);
+		//resultPainter = new ResultPainter();
 
 		lock = new Lock();
 		random = new Random();
@@ -83,17 +88,17 @@ public class CardCanvas
 		this.listener = listener;
 	}
 
-	private void initMap(ImageList il){
-		map = new UnitMap(3, 11, 13, il.getImageLoader());
-		map.setTile(Page.BACK, il.getBack(), -1);
-		map.setTile(Page.WAKU, il.getWaku(), 0);
-		map.clear(Page.BACK, -1);
-		map.clear(Page.CHARA, -1);
-		map.clear(Page.WAKU, 0);
-		map.setVisible(0, true);
-		map.setVisible(1, true);
-		map.setVisible(2, true);
-	}
+//	private void initMap(ImageList il){
+//		map = new UnitMap(3, 11, 13, il.getImageLoader());
+//		map.setTile(Page.BACK, il.getBack(), -1);
+//		map.setTile(Page.WAKU, il.getWaku(), 0);
+//		map.clear(Page.BACK, -1);
+//		map.clear(Page.CHARA, -1);
+//		map.clear(Page.WAKU, 0);
+//		map.setVisible(0, true);
+//		map.setVisible(1, true);
+//		map.setVisible(2, true);
+//	}
 
 	private void initialize(){
 		battleManager.initialize();
@@ -102,8 +107,8 @@ public class CardCanvas
 		player = new Player(cardManager);
 
 		cards.removeAll(cards);
-		cardManager.setBlueCards(blueNum);
-		cardManager.setRedCards(redNum);
+		cardManager.setBlueCards(this, blueNum);
+		cardManager.setRedCards(this, redNum);
 		map.setTile(Page.CHARA, new MineImage[]{blueChara, redChara}, -1);
 	}
 
@@ -161,16 +166,16 @@ public class CardCanvas
 	public void start(){
 		lock.lock();
 		initialize();
-		animeManager.opening(cardManager.getRedCards(), cardManager.getBlueCards());
-		enemy.openCard();
-		enemy.openCard();
-		enemy.openCard();
+		animeManager.opening(this, cardManager.getRedCards(), cardManager.getBlueCards());
+		enemy.openCard(this);
+		enemy.openCard(this);
+		enemy.openCard(this);
 		lock.unlock();
 	}
 
 	public void dispose(){
 		lock.lock();
-		animeManager.closing((Card[])cards.toArray(new Card[0]));
+		animeManager.closing(this, (Card[])cards.toArray(new Card[0]));
 		resultPainter.setResult(ResultPainter.NONE);
 		repaint();
 		lock.unlock();
@@ -180,14 +185,14 @@ public class CardCanvas
 	private void startBattle(int n){
 		Card red = enemy.selectCard();
 		Card blue = player.selectCard(n);
-		battleManager.startBattle(red, blue);
+		battleManager.startBattle(this, red, blue);
 		if (battleManager.isEnd()) {
 			gameset();
 		} else if (!player.hasCard()){
 			battleManager.retireBlue();
 			gameset();
 		} else {
-			enemy.openCard();
+			enemy.openCard(this);
 		}
 	}
 
@@ -210,13 +215,14 @@ public class CardCanvas
 	@Override
 	public void leftPressed(int x, int y) {
 		mouseMoved(x, y);
+		accept();
 	}
 
 	@Override
 	public void mouseMoved(int x, int y) {
 		if (wakuMover.isMoved(x/32, y/32)) {
 			if (lock.lock()) {
-				wakuMover.moveWaku(x/32, y/32);
+				wakuMover.moveWaku(this, x/32, y/32);
 				lock.unlock();
 			}
 		}
@@ -225,7 +231,7 @@ public class CardCanvas
 	@Override
 	public void mouseExited(int x, int y) {
 		if (lock.lock()) {
-			wakuMover.moveWaku(-1, -1);
+			wakuMover.moveWaku(this, -1, -1);
 			lock.unlock();
 		}
 	}
@@ -254,29 +260,27 @@ public class CardCanvas
 		int y = wakuMover.getY();
 
 		if (lock.lock()) {
-			x /= 32;
-			y /= 32;
+//			x /= 32;
+//			y /= 32;
 			if ( 2 <= x && x <= 8 && y == 8) {
 				int n = x - 2;
 				if (cardManager.isOpenedBlue(n)) {
 					startBattle(n);
 				} else {
-					player.openCard(n);
+					player.openCard(this, n);
 				}
 			} else if ( x == 3 && y == 10) {
-				if (doubleManager.clickDoubleCard()) {
+				if (doubleManager.clickDoubleCard(this)) {
 					player.doubleCard();
 				}
 			}
-			doubleManager.checkDoubleCard();
+			doubleManager.checkDoubleCard(this);
 			lock.unlock();
 		}
 	}
 
 	@Override
 	public void cancel() {
-		// TODO Auto-generated method stub
-		
 	}
 
 }

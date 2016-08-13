@@ -1,8 +1,12 @@
 package card.paint;
 
+import javax.inject.Inject;
+import javax.inject.Singleton;
+
 import mine.paint.MineGraphics;
 
 
+@Singleton
 public class ResultPainter {
 
 	public int result;
@@ -12,6 +16,7 @@ public class ResultPainter {
 	public static final int LOSE = 2;
 	public static final int DRAW = 3;
 	
+	@Inject
 	public ResultPainter(){
 		result = NONE;
 	}

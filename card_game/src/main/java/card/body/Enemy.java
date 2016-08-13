@@ -30,12 +30,12 @@ public class Enemy {
 	}
 
 
-	public boolean openCard(){
+	public boolean openCard(UnitWorks uw){
 		if (closeCardNum == 0) return false;
 
 		 while (true) {
 		 	int n = canvas.nextInt(7);
-		 	if (cardManager.openRed(n)) {
+		 	if (cardManager.openRed(uw, n)) {
 		 		openCardNum++;
 		 		closeCardNum--;
 		 		return true;

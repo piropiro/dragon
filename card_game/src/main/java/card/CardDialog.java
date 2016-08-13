@@ -1,50 +1,68 @@
 package card;
 
+import java.awt.event.KeyListener;
+import java.awt.event.MouseListener;
+
+import javax.inject.Inject;
+import javax.inject.Singleton;
 import javax.swing.JComponent;
 import javax.swing.JDialog;
 
+import dagger.ObjectGraph;
 import mine.MineException;
 import mine.MineUtils;
-import mine.awt.ImageLoaderAWT;
 import mine.awt.MineAwtUtils;
 import mine.awt.MineCanvasAWT;
-import mine.awt.SleepManagerAWT;
-import mine.event.PaintComponent;
+import mine.event.MineCanvas;
 import mine.event.SleepManager;
 import mine.io.JsonIO;
 import mine.paint.MineImage;
 import mine.paint.MineImageLoader;
 
+@Singleton
 public class CardDialog extends JDialog implements CardListener {
 
 	private static final long serialVersionUID = -7568381413859212716L;
 
 	private MineImage[] chara;
 	private int level = 1;
-	private CardCanvas cc;
+
 	private int[][] status;
+	
+	@Inject MineCanvas mc;
+	@Inject SleepManager sleepManager;
+	@Inject MineImageLoader imageLoader;
+	@Inject CardCanvas cc;
 
 	public static void main(String[] args) throws MineException {
-		new CardDialog();
+		ObjectGraph og = ObjectGraph.create(new CardModule());
+		CardDialog cd = og.get(CardDialog.class);
+		cd.launch();
 	}
 
-	public CardDialog() throws MineException {
+	@Inject
+	public CardDialog() {
 		super();
-		MineImageLoader mil = new ImageLoaderAWT();
+	}
+	
+	public void launch() throws MineException {
+		MineCanvasAWT mca = (MineCanvasAWT) mc;
 		
-		MineCanvasAWT mc = new MineCanvasAWT(mil);
-		MineAwtUtils.setSize(mc, 640, 480);	
-		PaintComponent cardPanel = mc.newLayer(0,  0, CardCanvas.WIDTH, CardCanvas.HEIGHT);
-		cardPanel.setVisible(true);
+		MineAwtUtils.setSize(mca, 640, 480);	
+		
+		cc.setVisible(true);
 		setTitle("CardBattle");
 		
-		SleepManager sleepManager = new SleepManagerAWT((JComponent)mc);
-		cc = new CardCanvas(cardPanel, mil, sleepManager);		
+		//SleepManager sleepManager = new SleepManagerAWT();
+		mca.addKeyListener((KeyListener)sleepManager);
+		mca.addMouseListener((MouseListener)sleepManager);
+		
+		//cc = new CardCanvas(cardPanel, mil, sleepManager);		
 		cc.setCardListener(this);
 		mc.setMouseAllListener(cc);
 		
 		chara = (MineImage[])MineUtils.linerize(
-			mil.loadTile("card/image/chara.png", 32, 32), new MineImage[0]);
+			imageLoader.loadTile("card/image/chara.png", 32, 32), new MineImage[0]);
 			
 		status = JsonIO.read("card/data/status.json", int[][].class);
 

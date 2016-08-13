@@ -19,8 +19,8 @@ public class BattleAnime implements Runnable {
 	}
 
 	public void run(){
-		manager.moveCard(red, 32*7, 32*6, blue, 32*3, 32*6, 30 );
+		manager.moveCard(canvas, red, 32*7, 32*6, blue, 32*3, 32*6, 30 );
 		canvas.sleep(300);
-		manager.moveCard(red, 32*4, 32*6, blue, 32*6, 32*6, 30 );
+		manager.moveCard(canvas, red, 32*4, 32*6, blue, 32*6, 32*6, 30 );
 	}
 }

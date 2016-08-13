@@ -1,9 +1,13 @@
 package card.common;
 
+import javax.inject.Inject;
+import javax.inject.Singleton;
+
 import mine.MineException;
 import mine.paint.MineImage;
 import mine.paint.MineImageLoader;
 
+@Singleton
 public class ImageList {
 
 	public static final int OPEN = 0;
@@ -16,12 +20,11 @@ public class ImageList {
 	private MineImage[] waku;
 	private MineImage[] win;
 	
-	private MineImageLoader imageLoader;
 
 	public static final String IMAGE_PATH = "card/image/";
 
+	@Inject
 	public ImageList(MineImageLoader mil) {
-		this.imageLoader = mil;
 		try {
 			MineImage[][] cards = mil.loadTile(IMAGE_PATH + "card.png", 32, 32);
 			back = cards[0];
@@ -75,11 +78,5 @@ public class ImageList {
 	 */
 	public MineImage[] getWin() {
 		return win;
-	}
-	/**
-	 * @return Returns the imageLoader.
-	 */
-	public MineImageLoader getImageLoader() {
-		return imageLoader;
 	}
 }

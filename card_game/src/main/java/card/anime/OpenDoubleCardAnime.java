@@ -26,7 +26,7 @@ public class OpenDoubleCardAnime implements Runnable {
 		Card card = new Card(0, 3*32, 10*32, Card.BLUE, il);
 		card.close();
 		canvas.addCard(card);
-		anime.openCard(card);
+		anime.openCard(canvas, card);
 		map.setData(Page.BACK, 3, 10, 2);
 		canvas.removeCard(card);
 		canvas.repaint(new PaintBox(3*32, 10*32, 32, 32));

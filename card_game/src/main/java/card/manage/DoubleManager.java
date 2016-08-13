@@ -1,22 +1,24 @@
 package card.manage;
 
+import javax.inject.Inject;
+import javax.inject.Singleton;
+
+import card.UnitWorks;
 import card.anime.AnimeManager;
 import card.body.Card;
 
-
+@Singleton
 public class DoubleManager {
 
-	private AnimeManager anime;
-	private CardManager cardManager;
+	@Inject AnimeManager anime;
+	@Inject CardManager cardManager;
 	
 	private boolean doubleFlag;
 	private Card left;
 	private Card right;
 
-	public DoubleManager( 
-		CardManager cardManager, AnimeManager anime){
-		this.anime = anime;
-		this.cardManager = cardManager;
+	@Inject
+	public DoubleManager(){
 	}
 	
 	public void initialize(){
@@ -25,7 +27,7 @@ public class DoubleManager {
 		right = null;
 	}
 	
-	public void checkDoubleCard(){
+	public void checkDoubleCard(UnitWorks uw){
 		Card[] blue = cardManager.getOpenBlueCards();
 		boolean newFlag = false;
 		for (int i=0; i<blue.length-1; i++) {
@@ -41,18 +43,18 @@ public class DoubleManager {
 
 		if (newFlag && !doubleFlag) {
 			doubleFlag = true;
-			anime.openDoubleCard();
+			anime.openDoubleCard(uw);
 		}
 		
 		if (!newFlag && doubleFlag) {
 			doubleFlag = false;
-			anime.closeDoubleCard();
+			anime.closeDoubleCard(uw);
 		}
 	}
 	
-	public boolean clickDoubleCard(){
+	public boolean clickDoubleCard(UnitWorks uw){
 		if (doubleFlag) {
-			anime.doubleCard(left, right);
+			anime.doubleCard(uw, left, right);
 			doubleFlag = false;
 			return true;
 		} else {
