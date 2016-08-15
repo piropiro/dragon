@@ -96,7 +96,7 @@ public class StageMap {
 		map.clear(Page.P50, 0);
 	}
 	
-	public void setMensEnd() {
+	public void finishPutPlayers() {
 		map.change(Page.P01, MoveUtils.S_BLUE, Page.P01, 0);
 		map.change(Page.P01, MoveUtils.S_RED, Page.P01, 0);
 	}

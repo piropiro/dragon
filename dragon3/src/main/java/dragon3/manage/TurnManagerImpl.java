@@ -46,7 +46,7 @@ public class TurnManagerImpl implements TurnManager {
 		return turn;
 	}
 
-	/*** Mens ********************************/
+	/*** Player ********************************/
 
 	public void playerTurnStart() {
 		uw.getSaveManager().getSaveData().countTurn();

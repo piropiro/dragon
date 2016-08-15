@@ -266,7 +266,7 @@ public class PutPlayersPaint implements EventListener {
 
 	@Override
 	public void accept() {
-		uw.setMensEnd();
+		uw.finishPutPlayers();
 	}
 
 	@Override

@@ -64,9 +64,9 @@ public class DragonController implements UnitWorks, MouseAllListener, CommandLis
 	@Inject AnimeManager animeManager;
 	@Inject PanelManager panelManager;
 
-	private List<Body> Charas;
-	private List<Body> Players;
-	private List<Body> Enemys;
+	@Getter private List<Body> charaList;
+	private List<Body> playerList;
+	private List<Body> enemyList;
 
 	@Inject MineImageLoader mil;
 	@Inject SleepManager sleepManager;
@@ -96,7 +96,7 @@ public class DragonController implements UnitWorks, MouseAllListener, CommandLis
 		super();
 		this.fw = fw;
 
-		Charas = new ArrayList<>();
+		charaList = new ArrayList<>();
 		// map = new StageMap(imageManager);
 		
 		//panelManager = new PanelManagerImpl(fw, this, map.getMap(), sleepManager, imageManager);
@@ -150,11 +150,6 @@ public class DragonController implements UnitWorks, MouseAllListener, CommandLis
 		campStart();
 	}
 
-	/*** Create Chara *********************************/
-
-	private void insertCharas(List<Body> v) {
-		Charas.addAll(v);
-	}
 
 	/*** Deploy Chara *****************************************/
 
@@ -165,7 +160,7 @@ public class DragonController implements UnitWorks, MouseAllListener, CommandLis
 	/*** Camp **************************************/
 
 	private void Camp() {
-		Charas.clear();
+		charaList.clear();
 		camp = new Camp(this, treasure, equip);
 		stageMap.resetBack(StageBack.WHITE);
 		camp.repaint(statics.getCampMap());
@@ -182,18 +177,18 @@ public class DragonController implements UnitWorks, MouseAllListener, CommandLis
 		
 		stageMap.mapLoad(stageData);
 		stageMap.setCrystal();
-		Charas.clear();
-		Players = equip.getPlayers();
+		charaList.clear();
+		playerList = equip.getPlayers();
 		String stageId = stageManager.getSelectedStage().getId();
 		int addLevel = saveManager.getSaveData().getStarNum(stageId) * 5;
-		Enemys = this.loadEnemyData(stageData.getId(), addLevel);
+		enemyList = this.loadEnemyData(stageData.getId(), addLevel);
 		//randomize(Enemys);
-		reverse(Enemys);
-		treasure.setup(Enemys);
-		summon.setup(Enemys);
+		reverse(enemyList);
+		treasure.setup(enemyList);
+		summon.setup(enemyList);
 		soulManager.setup();
-		insertCharas(Enemys);
-		putUnit(Enemys);
+		charaList.addAll(enemyList);
+		putUnit(enemyList);
 		turnManager.reset();
 		PaintUtils.setWaitPaint(this);
 //		panelManager.getCardP().setVisible(false);
@@ -207,9 +202,9 @@ public class DragonController implements UnitWorks, MouseAllListener, CommandLis
 	/*** Deploy End *************************************/
 
 	@Override
-	public void setMensEnd() {
-		stageMap.setMensEnd();
-		putUnit(Charas);
+	public void finishPutPlayers() {
+		stageMap.finishPutPlayers();
+		putUnit(charaList);
 		turnManager.playerTurnStart();
 		panelManager.displayLarge("Turn " + turnManager.getTurn(), GameColor.BLUE, 1500);
 	}
@@ -237,7 +232,7 @@ public class DragonController implements UnitWorks, MouseAllListener, CommandLis
 //			char n = (char) ('A' + saveManager.getMapNum() - 1);
 //			panelManager.displayLarge("Stage " + n, GameColor.BLUE, 1500);
 //		}
-		PaintUtils.setPutPlayersPaint(this, Charas, Players);
+		PaintUtils.setPutPlayersPaint(this, charaList, playerList);
 		mw.repaint();
 		panelManager.closeStageSelect();
 		//setEventListener(new BasicPaint(this));
@@ -345,7 +340,7 @@ public class DragonController implements UnitWorks, MouseAllListener, CommandLis
 	/*** Turn End ***********************************/
 
 	private boolean isTurnEnd() {
-		for (Body b : Charas) {
+		for (Body b : charaList) {
 			if (!b.isAlive())
 				continue;
 			if (!GameColor.isPlayer(b))
@@ -379,7 +374,7 @@ public class DragonController implements UnitWorks, MouseAllListener, CommandLis
 	/*** Game Clear ***********************************/
 
 	private boolean blueJudge1() {
-		for (Body b : Charas) {
+		for (Body b : charaList) {
 			if (!GameColor.isPlayer(b)) {
 				if (b.isAlive())
 					return false;
@@ -423,7 +418,7 @@ public class DragonController implements UnitWorks, MouseAllListener, CommandLis
 	/*** Game Over ****************************/
 
 	private boolean redJudge1() {
-		for (Body b : Charas) {
+		for (Body b : charaList) {
 			if (GameColor.isPlayer(b)) {
 				if (b.isAlive())
 					return false;
@@ -476,13 +471,13 @@ public class DragonController implements UnitWorks, MouseAllListener, CommandLis
 	}
 
 	public void bersekChara(Body doll) {
-		Charas.remove(doll);
-		Charas.add(0, doll);
+		charaList.remove(doll);
+		charaList.add(0, doll);
 	}
 
 	public void changeChara(Body before, Body after) {
-		Charas.remove(before);
-		Charas.add(after);
+		charaList.remove(before);
+		charaList.add(after);
 	}
 
 	public Body getChangeChara(Body before) {
@@ -573,7 +568,7 @@ public class DragonController implements UnitWorks, MouseAllListener, CommandLis
 			stageSelect();
 			break;
 		case "start":
-			setMensEnd();
+			finishPutPlayers();
 			break;
 		case "turnend":
 			enemyTurnStart();
@@ -654,16 +649,6 @@ public class DragonController implements UnitWorks, MouseAllListener, CommandLis
 	@Override
 	public UnitMap getUnitMap() {
 		return stageMap.getMap();
-	}
-
-	@Override
-	public List<Body> getCharaList() {
-		return Charas;
-	}
-
-	@Override
-	public ImageManager getImageManager() {
-		return imageManager;
 	}
 
 	@Override

@@ -96,7 +96,7 @@ public class ButtonPaint implements EventListener {
 					uw.enemyTurnStart();
 					break;
 				case 6 :
-					uw.setMensEnd();
+					uw.finishPutPlayers();
 					break;
 				case 7 :
 					uw.backToCamp();
