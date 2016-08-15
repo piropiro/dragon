@@ -1,5 +1,8 @@
 package dragon3.card;
 
+import javax.inject.Inject;
+import javax.inject.Singleton;
+
 import card.CardCanvas;
 import card.CardListener;
 import dragon3.common.Body;
@@ -7,32 +10,31 @@ import dragon3.common.constant.Page;
 import dragon3.common.constant.Texts;
 import dragon3.controller.UnitWorks;
 import dragon3.image.ImageManager;
+import dragon3.map.StageMap;
 import dragon3.panel.PanelManager;
+import lombok.Setter;
 import mine.event.SleepManager;
 import mine.paint.MineImage;
 import mine.paint.UnitMap;
 
+@Singleton
 public class CardManager implements CardListener {
 
 	private CardCanvas cardCanvas;
-	private UnitMap map;
-	private UnitWorks uw;
-	private PanelManager pm;
-	private SleepManager sm;
-	private ImageManager im;
+	@Inject StageMap map;
+	@Setter UnitWorks uw;
+	@Inject PanelManager pm;
+	@Inject SleepManager sm;
+	@Inject ImageManager im;
 	private Body ba, bb;
 	private boolean endFlag;
 
 	/*** Constructer ***********************************/
 
-	public CardManager(CardCanvas cardCanvas, UnitWorks uw, UnitMap map, PanelManager pm, SleepManager sm, ImageManager im) {
+	@Inject
+	public CardManager(CardCanvas cardCanvas) {
 		cardCanvas.setCardListener(this);
 		this.cardCanvas = cardCanvas;
-		this.uw = uw;
-		this.map = map;
-		this.pm = pm;
-		this.sm = sm;
-		this.im = im;
 	}
 
 	/*** Setup *************************************/
@@ -76,6 +78,7 @@ public class CardManager implements CardListener {
 	/*** Win *****************************************************/
 
 	public void win() {
+		UnitMap map = this.map.getMap();
 		pm.closeCardCanvas();
 		pm.closeData();
 		sm.sleep(500);

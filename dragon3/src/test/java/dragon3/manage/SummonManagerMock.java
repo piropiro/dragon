@@ -31,4 +31,10 @@ public class SummonManagerMock implements SummonManager {
 		
 	}
 
+	@Override
+	public void summon(int turn) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

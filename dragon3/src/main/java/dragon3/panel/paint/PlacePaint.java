@@ -6,9 +6,12 @@ package dragon3.panel.paint;
 
 import mine.paint.MineGraphics;
 import mine.paint.MineImage;
+import mine.util.Point;
+import dragon3.common.constant.GameColor;
 import dragon3.common.constant.Texts;
 import dragon3.common.util.MoveUtils;
 import dragon3.panel.PanelWorks;
+import lombok.Getter;
 
 /**
  * @author saito
@@ -17,12 +20,18 @@ public class PlacePaint implements DataPanelPainter {
 
 	private MineImage[] back;
 	private int tikei;
-
-	public PlacePaint(int tikei, MineImage[] back) {
+	@Getter private Point location;
+	@Getter private GameColor color;
+	
+	public PlacePaint(int tikei, MineImage[] back, Point location) {
 		this.tikei = tikei;
 		this.back = back;
+		this.location = location;
+		this.color = GameColor.GREEN;
 	}
+	
 
+	@Override
 	public void paint(PanelWorks pw, MineGraphics g) {
 		g.drawImage(back[tikei], 10, 10);
 		switch (tikei) {
@@ -66,5 +75,15 @@ public class PlacePaint implements DataPanelPainter {
 				pw.drawText(Texts.sp[84], g);
 				break;
 		}
+	}
+	
+	@Override
+	public Point getPoint1() {
+		return location;
+	}
+
+	@Override
+	public Point getPoint2() {
+		return location;
 	}
 }

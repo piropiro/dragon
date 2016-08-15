@@ -3,18 +3,23 @@ package dragon3.paint;
 import dragon3.anime.AnimeManager;
 import dragon3.common.Body;
 import dragon3.controller.UnitWorks;
+import dragon3.manage.TurnManager;
+import dragon3.panel.PanelManager;
 
 public class TitlePaint implements EventListener {
 
 	private UnitWorks uw;
 	private AnimeManager anime;
-
+	private PanelManager pm;
+	private TurnManager tm;
 	/**
 	 * @param uw
 	 */
 	public TitlePaint(UnitWorks uw) {
 		this.uw = uw;
 		this.anime = uw.getAnimeManager();
+		this.pm = uw.getPanelManager();
+		this.tm = uw.getTurnManager();
 	}
 
 	/**
@@ -43,7 +48,7 @@ public class TitlePaint implements EventListener {
 
 	@Override
 	public void setSelectPlace(int x, int y) {
-		uw.getPanelManager().displayPlace(x, y);
+		pm.displayPlace(tm, x, y);
 	}
 
 	/*** Select Body *****************************************/

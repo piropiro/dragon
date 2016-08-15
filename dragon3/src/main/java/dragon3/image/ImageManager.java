@@ -44,7 +44,8 @@ public class ImageManager {
 	@Getter private MineImage whiteBack;
 
 	
-	@Inject public ImageManager(MineImageLoader imageLoader) {
+	@Inject
+	public ImageManager(MineImageLoader imageLoader) {
 		this.imageLoader = imageLoader;
 
 		try {

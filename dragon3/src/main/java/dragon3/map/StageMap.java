@@ -3,6 +3,7 @@ package dragon3.map;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.inject.Singleton;
 
 import dragon3.Statics;
 import dragon3.common.Body;
@@ -17,6 +18,7 @@ import mine.MineUtils;
 import mine.paint.UnitMap;
 import mine.util.Point;
 
+@Singleton
 public class StageMap {
 
 	@Inject Statics statics;
@@ -28,10 +30,11 @@ public class StageMap {
 	private Point blueCrystal;
 	private Point redCrystal;
 	
+	private List<Body> bodyList;
 	
-	public StageMap(ImageManager imageManager) {
+	@Inject
+	public StageMap(ImageManager imageManager) {	
 		this.imageManager = imageManager;
-		
 		map = createMap();
 	}
 	
@@ -61,6 +64,8 @@ public class StageMap {
 	}
 	
 	public void putUnit(List<Body> v) {
+		this.bodyList = v;
+		
 		map.clear(Page.P20, 0);
 		for (Body b : v) {
 			if (!b.isAlive())
@@ -159,5 +164,15 @@ public class StageMap {
 	
 	public boolean isEnd(int x, int y) {
 		return map.getData(Page.P30, x, y) == 1;
+	}
+	
+	public Body search(int x, int y) {
+		for (Body b : bodyList) {
+			if (!b.isAlive())
+				continue;
+			if (b.getX() == x && b.getY() == y)
+				return b;
+		}
+		return null;
 	}
 }

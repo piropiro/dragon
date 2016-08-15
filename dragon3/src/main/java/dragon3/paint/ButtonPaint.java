@@ -4,6 +4,7 @@ import mine.util.Point;
 import dragon3.common.Body;
 import dragon3.common.constant.Page;
 import dragon3.controller.UnitWorks;
+import dragon3.manage.TurnManager;
 import dragon3.map.MapWorks;
 import dragon3.panel.PanelManager;
 import mine.paint.UnitMap;
@@ -17,6 +18,7 @@ public class ButtonPaint implements EventListener {
 	private MapWorks mw;
 	private UnitMap map;
 	private PanelManager pm;
+	private TurnManager tm;
 	
 	private int x;
 	private int y;
@@ -35,7 +37,7 @@ public class ButtonPaint implements EventListener {
 		this.mw = uw.getMapWorks();
 		this.map = uw.getUnitMap();
 		this.pm = uw.getPanelManager();
-		this.pm = uw.getPanelManager();
+		this.tm = uw.getTurnManager();
 
 		this.x = x;
 		this.y = y;
@@ -66,7 +68,7 @@ public class ButtonPaint implements EventListener {
 
 	@Override
 	public void setSelectPlace(int x, int y) {
-		uw.getPanelManager().displayPlace(x, y);
+		pm.displayPlace(tm, x, y);
 	}
 
 	/*** Select Body *****************************************/
@@ -91,7 +93,7 @@ public class ButtonPaint implements EventListener {
 		if (ps.x == x && ps.y == y) {
 			switch (type) {
 				case 5 :
-					uw.getTurnManager().enemyTurnStart();
+					uw.enemyTurnStart();
 					break;
 				case 6 :
 					uw.setMensEnd();

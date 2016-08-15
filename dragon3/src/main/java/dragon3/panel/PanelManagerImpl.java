@@ -1,6 +1,7 @@
 package dragon3.panel;
 
 import javax.inject.Inject;
+import javax.inject.Named;
 
 import card.CardCanvas;
 import dragon3.Statics;
@@ -8,25 +9,18 @@ import dragon3.anime.AnimePanel;
 import dragon3.attack.Attack;
 import dragon3.camp.Equip;
 import dragon3.common.Body;
-import dragon3.common.DataList;
 import dragon3.common.constant.GameColor;
 import dragon3.common.constant.Page;
 import dragon3.common.util.MoveUtils;
-import dragon3.controller.UnitWorks;
-import dragon3.data.AnimeData;
-import dragon3.data.load.AnimeDataLoader;
-import dragon3.image.ImageManager;
 import dragon3.manage.SummonManager;
 import dragon3.manage.TreasureManager;
 import dragon3.manage.TurnManager;
 import dragon3.map.MapPanel;
+import dragon3.map.StageMap;
 import dragon3.save.SaveData;
 import dragon3.stage.StageSelectPanel;
 import dragon3.view.FrameWorks;
 import lombok.Getter;
-import mine.event.SleepManager;
-import mine.paint.MineImageLoader;
-import mine.paint.UnitMap;
 import mine.util.Point;
 
 /**
@@ -36,75 +30,73 @@ public class PanelManagerImpl implements PanelManager {
 
 	@Inject Statics statics;
 	
-	private FrameWorks fw;
+	@Inject FrameWorks fw;
 	
-	@Getter private AnimePanel animeP;
-	@Getter private MapPanel mapP;
-	@Getter private StageSelectPanel stageSelectP;
-	@Getter private CardCanvas cardP;
-	private DataPanel dataP1;
-	private DataPanel dataP2;
-	private HPanel hpP1;
-	private HPanel hpP2;
-	private HelpPanel helpP;
-	private LargePanel largeP;
-	private MessagePanel messageP;
-	private SmallPanel smallP;
+	@Inject AnimePanel animeP;
+	@Inject @Getter MapPanel mapP;
+	@Inject @Getter StageSelectPanel stageSelectP;
+	@Inject @Getter CardCanvas cardP;
+	@Inject @Named("dataP1") DataPanel dataP1;
+	@Inject @Named("dataP2") DataPanel dataP2;
+	@Inject @Named("hpP1") HPanel hpP1;
+	@Inject @Named("hpP2") HPanel hpP2;
+	@Inject HelpPanel helpP;
+	@Inject LargePanel largeP;
+	@Inject MessagePanel messageP;
+	@Inject SmallPanel smallP;
 	
-	private TreasureManager treasureManager;
-	private SummonManager summonManager;
+	@Inject TreasureManager treasureManager;
+	@Inject SummonManager summonManager;
 	
-	private TurnManager turnManager;
-	private UnitMap map;
+	@Inject StageMap map;
 	
 	private boolean helpVisible;
 
-	public PanelManagerImpl(FrameWorks fw, UnitWorks uw, UnitMap map, SleepManager sleepManager, ImageManager imageManager, MineImageLoader mil) {
-		this.fw = fw;
-		this.map = map;
+	public PanelManagerImpl() {
+//		this.fw = fw;
+//		this.map = map;
 		
 		
 		// MapPanel
-		mapP = new MapPanel(fw.getMapPanel(), uw, map);
-		fw.setMouseListener(mapP);
+		//mapP = new MapPanel(fw.getMapPanel(), uw, map);
+
 		
 		// AnimePanel
-		DataList<AnimeData> animeList = AnimeDataLoader.loadAnimeList();
-		animeP = new AnimePanel(fw.getAnimePanel(), mapP, sleepManager, map, animeList, imageManager);
+		//animeP = new AnimePanel(fw.getAnimePanel(), statics);
 
 		// StageSelectPanel
-		stageSelectP = new StageSelectPanel(fw.getStageSelectPanel(), uw, statics.getStageList(), imageManager);
-		stageSelectP.setVisible(false);
+//		stageSelectP = new StageSelectPanel(fw.getStageSelectPanel(), statics, imageManager);
+//		stageSelectP.setVisible(false);
 		
 		// HPanel
-		hpP1 = new HPanel(fw.getHPanel1(), sleepManager, true);
-		hpP2 = new HPanel(fw.getHPanel2(), sleepManager, false);
+//		hpP1 = new HPanel(fw.getHPanel1(), sleepManager, true);
+//		hpP2 = new HPanel(fw.getHPanel2(), sleepManager, false);
 		
 		// DataPanel
-		dataP1 = new DataPanel(fw.getDataPanel1(), sleepManager, imageManager, true);
-		dataP2 = new DataPanel(fw.getDataPanel2(), sleepManager, imageManager, false);
+//		dataP1 = new DataPanel(fw.getDataPanel1(), sleepManager, imageManager, true);
+//		dataP2 = new DataPanel(fw.getDataPanel2(), sleepManager, imageManager, false);
 		
 		// HelpPanel
-		helpP = new HelpPanel(fw.getHelpPanel());
+//		helpP = new HelpPanel(fw.getHelpPanel());
 		
 		// SmallPanel
-		smallP = new SmallPanel(fw.getSmallPanel());
+//		smallP = new SmallPanel(fw.getSmallPanel());
 		
 		// LargePanel
-		largeP = new LargePanel(fw.getLargePanel());
+//		largeP = new LargePanel(fw.getLargePanel());
 		
 		// MessagePanel
-		messageP = new MessagePanel(fw.getMessagePanel(), sleepManager, imageManager);
+//		messageP = new MessagePanel(fw.getMessagePanel());
 		
 		// CardPanel
-		cardP = new CardCanvas(fw.getCardPanel(), mil, sleepManager);
-		cardP.setVisible(false);
+//		cardP = new CardCanvas(fw.getCardPanel(), imageManager.getImageLoader(), sleepManager);
+//		cardP.setVisible(false);
 	}
 
 
 
-	public void displayData(int x, int y) {
-		int tikei = map.getData(Page.P01, x, y);
+	public void displayData(TurnManager turnManager, int x, int y) {
+		int tikei = map.getMap().getData(Page.P01, x, y);
 		if (tikei == MoveUtils.WHITE) {
 			dataP1.displayData(new Point(x, y), turnManager.getTurn(), treasureManager.getLimitTurn(), treasureManager.getCount());
 		} else {
@@ -112,8 +104,8 @@ public class PanelManagerImpl implements PanelManager {
 		}
 	}
 
-	public boolean displayPlace(int x, int y) {
-		int tikei = map.getData(Page.P01, x, y);
+	public boolean displayPlace(TurnManager turnManager, int x, int y) {
+		int tikei = map.getMap().getData(Page.P01, x, y);
 		Point p = new Point(x, y);
 		switch (tikei) {
 			case MoveUtils.C_BLUE :
@@ -165,8 +157,20 @@ public class PanelManagerImpl implements PanelManager {
 		dataP2.repaint();
 	}
 	public void displayAttack(Attack attack, Attack counter) {
-		dataP1.displayAttack(attack, counter);
-		dataP2.displayAttack(counter, attack);
+		displayAttackInternal(dataP1, attack, counter);
+		displayAttackInternal(dataP2, counter, attack);
+	}
+	
+	private void displayAttackInternal(DataPanel dp, Attack attack, Attack counter) {
+		if (attack == null) {
+			if (counter == null) {
+				dp.setVisible(false);
+			} else {
+				dp.displayCounter(counter);
+			}
+		} else {
+			dp.displayAttack(attack, counter);
+		}
 	}
 
 	public void closeData() {
@@ -288,76 +292,7 @@ public class PanelManagerImpl implements PanelManager {
 		fw.setMouseListener(mapP);
 	}
 	
-	/**
-	 * @param dataP1 The dataP1 to set.
-	 */
-	public void setDataP1(DataPanel dataP1) {
-		this.dataP1 = dataP1;
-	}
-	/**
-	 * @param dataP2 The dataP2 to set.
-	 */
-	public void setDataP2(DataPanel dataP2) {
-		this.dataP2 = dataP2;
-	}
-	/**
-	 * @param helpP The helpP to set.
-	 */
-	public void setHelpP(HelpPanel helpP) {
-		this.helpP = helpP;
-	}
 
-	/**
-	 * @param hpP1 The hpP1 to set.
-	 */
-	public void setHpP1(HPanel hpP1) {
-		this.hpP1 = hpP1;
-	}
-	/**
-	 * @param hpP2 The hpP2 to set.
-	 */
-	public void setHpP2(HPanel hpP2) {
-		this.hpP2 = hpP2;
-	}
-	/**
-	 * @param largeP The largeP to set.
-	 */
-	public void setLargeP(LargePanel largeP) {
-		this.largeP = largeP;
-	}
-
-	/**
-	 * @param messageP The messageP to set.
-	 */
-	public void setMessageP(MessagePanel messageP) {
-		this.messageP = messageP;
-	}
-	/**
-	 * @param smallP The smallP to set.
-	 */
-	public void setSmallP(SmallPanel smallP) {
-		this.smallP = smallP;
-	}
-	/**
-	 * @param summon The summon to set.
-	 */
-	public void setSummon(SummonManager summonManager) {
-		this.summonManager = summonManager;
-	}
-	/**
-	 * @param treasure The treasure to set.
-	 */
-	public void setTreasure(TreasureManager treasureManager) {
-		this.treasureManager = treasureManager;
-	}
-	
-	public void setTurnManager(TurnManager turnManager) {
-		this.turnManager = turnManager;
-	}
-
-	public void setUnitMap(UnitMap map) {
-		this.map = map;
-	}
 	
 	
 }

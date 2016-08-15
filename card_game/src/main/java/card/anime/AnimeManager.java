@@ -3,15 +3,15 @@ package card.anime;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
+import card.CardMap;
 import card.UnitWorks;
 import card.body.Card;
 import card.common.ImageList;
-import mine.paint.UnitMap;
 
 @Singleton
 public class AnimeManager {
 
-	@Inject UnitMap map;
+	@Inject CardMap map;
 	@Inject ImageList il;
 	
 	@Inject
@@ -19,10 +19,10 @@ public class AnimeManager {
 	}
 	
 	public void opening(UnitWorks canvas, Card[] red, Card[] blue){
-		new OpeningAnime(canvas, this, map, red, blue, il).run();
+		new OpeningAnime(canvas, this, map.getMap(), red, blue, il).run();
 	}
 	public void closing(UnitWorks canvas, Card[] cards){
-		new ClosingAnime(canvas, map, cards).run();
+		new ClosingAnime(canvas, map.getMap(), cards).run();
 	}
 	
 	public void battle(UnitWorks canvas, Card red, Card blue){
@@ -55,13 +55,13 @@ public class AnimeManager {
 	}
 	
 	public void openDoubleCard(UnitWorks canvas){
-		new OpenDoubleCardAnime(canvas, this, map, il).run();
+		new OpenDoubleCardAnime(canvas, this, map.getMap(), il).run();
 	}
 	
 	public void closeDoubleCard(UnitWorks canvas){
-		new CloseDoubleCardAnime(canvas, map).run();
+		new CloseDoubleCardAnime(canvas, map.getMap()).run();
 	}
 	public void doubleCard(UnitWorks canvas, Card left, Card right){
-		new DoubleCardAnime(canvas, this, map, left, right).run();
+		new DoubleCardAnime(canvas, this, map.getMap(), left, right).run();
 	}
 }

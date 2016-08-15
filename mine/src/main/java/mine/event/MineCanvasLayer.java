@@ -14,7 +14,7 @@ public class MineCanvasLayer implements PaintComponent, PaintListener {
 	
 	private MineImage buffer;
 	
-	@Setter private PaintListener paintListener;
+	private PaintListener paintListener;
 	
 	@Getter private int x, y, w, h;
 	
@@ -87,5 +87,11 @@ public class MineCanvasLayer implements PaintComponent, PaintListener {
 		this.h = h;
 		this.buffer = mil.getBuffer(w, h);
 		updated = true;
+	}
+
+	@Override
+	public void setPaintListener(PaintListener pl) {
+		System.out.println(pl);
+		this.paintListener = pl;
 	}
 }

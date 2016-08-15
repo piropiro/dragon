@@ -1,11 +1,16 @@
 package dragon3.panel;
 
+import javax.inject.Inject;
+import javax.inject.Named;
+import javax.inject.Singleton;
+
 import dragon3.common.constant.GameColor;
 import mine.event.PaintComponent;
 import mine.event.PaintListener;
 import mine.paint.MineColor;
 import mine.paint.MineGraphics;
 
+@Singleton
 public class HelpPanel implements PaintListener {
 
 	public static final int WIDTH = 288;
@@ -18,8 +23,8 @@ public class HelpPanel implements PaintListener {
 	private boolean upf;
 	private GameColor bgcolor = GameColor.BLUE;
 
-	public HelpPanel(PaintComponent panel) {
-		super();
+	@Inject
+	public HelpPanel(@Named("helpC") PaintComponent panel) {
 		this.panel = panel;
 		panel.setVisible(false);
 		//panel.setFontSize(14);

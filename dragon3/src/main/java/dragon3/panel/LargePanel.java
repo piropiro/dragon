@@ -1,10 +1,15 @@
 package dragon3.panel;
 
+import javax.inject.Inject;
+import javax.inject.Named;
+import javax.inject.Singleton;
+
 import dragon3.common.constant.GameColor;
 import mine.event.PaintComponent;
 import mine.event.PaintListener;
 import mine.paint.MineGraphics;
 
+@Singleton
 public class LargePanel implements PaintListener {
 
 	public static final int WIDTH = 200;
@@ -20,7 +25,8 @@ public class LargePanel implements PaintListener {
 	
 	private int height;
 
-	public LargePanel(PaintComponent panel) {
+	@Inject
+	public LargePanel(@Named("largeC") PaintComponent panel) {
 		super();
 		this.panel = panel;
 

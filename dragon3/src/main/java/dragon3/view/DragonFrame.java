@@ -5,58 +5,37 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.event.MouseListener;
 
+import javax.inject.Inject;
+import javax.inject.Named;
+import javax.inject.Singleton;
 import javax.swing.AbstractButton;
 import javax.swing.JFrame;
 
-import card.CardCanvas;
 import dragon3.controller.CommandListener;
-import dragon3.panel.DataPanel;
-import dragon3.panel.HPanel;
-import dragon3.panel.HelpPanel;
-import dragon3.panel.LargePanel;
-import dragon3.panel.MessagePanel;
-import dragon3.panel.SmallPanel;
-import lombok.Getter;
 import lombok.Setter;
 import mine.awt.BMenuBar;
-import mine.awt.ImageLoaderAWT;
 import mine.awt.MineAwtUtils;
 import mine.awt.MineCanvasAWT;
-import mine.awt.SleepManagerAWT;
+import mine.event.MineCanvas;
 import mine.event.MouseAllListener;
-import mine.event.PaintComponent;
 import mine.event.SleepManager;
-import mine.paint.MineImageLoader;
 
+@Singleton
 public class DragonFrame implements FrameWorks, ActionListener, KeyListener {
 	
 	private volatile BMenuBar mb;
 	private JFrame frame;
-	private MineCanvasAWT mc;
+	private MineCanvas mc;
 	private MouseAllListener mal;
 	
 	@Setter private CommandListener commandListener;
-
-	@Getter private PaintComponent mapPanel;
-	@Getter private PaintComponent animePanel;
-	@Getter private PaintComponent hPanel1;
-	@Getter private PaintComponent hPanel2;
-	@Getter private PaintComponent helpPanel;
-	@Getter private PaintComponent smallPanel;
-	@Getter private PaintComponent largePanel;
-	@Getter private PaintComponent cardPanel;
-	@Getter private PaintComponent dataPanel1;
-	@Getter private PaintComponent dataPanel2;
-	@Getter private PaintComponent messagePanel;
-	@Getter private PaintComponent stageSelectPanel;
-	
-	@Getter private MineImageLoader imageLoader;
-	@Getter private SleepManager sleepManager;
 	
 	/*** Constructer *****************************************************/
 
-	public DragonFrame() {
+	@Inject
+	public DragonFrame(@Named("mainC") MineCanvas mc, SleepManager sleepManager) {
 		this.frame = new JFrame("RyuTaiji 3");
 		frame.setResizable(false);
 		frame.setBackground(new Color(0, 0, 150));
@@ -66,35 +45,21 @@ public class DragonFrame implements FrameWorks, ActionListener, KeyListener {
 		mb.add("NONE", "none", KeyEvent.VK_N);
 		frame.setJMenuBar(mb);
 		
-		imageLoader = new ImageLoaderAWT();
-		
-		mc = new MineCanvasAWT(imageLoader);
+		this.mc = mc;
+		MineCanvasAWT mca = (MineCanvasAWT) mc;
 
-		mapPanel = mc.newLayer(0, 0, 640, 480);
-		stageSelectPanel = mc.newLayer(0, 0, 640, 480);
-		animePanel = mc.newLayer(0, 0, 640, 480);
-
-		hPanel1 = mc.newLayer(0, 0, HPanel.WIDTH, HPanel.HEIGHT);
-		hPanel2 = mc.newLayer(0, 0, HPanel.WIDTH, HPanel.HEIGHT);
-		helpPanel = mc.newLayer(0, 0, HelpPanel.WIDTH, HelpPanel.HEIGHT);
-		smallPanel = mc.newLayer(0, 0, SmallPanel.WIDTH, SmallPanel.HEIGHT);
-		largePanel = mc.newLayer(0, 0, LargePanel.WIDTH, LargePanel.HEIGHT);
-		cardPanel = mc.newLayer(0, 0, CardCanvas.WIDTH, CardCanvas.HEIGHT);
-		dataPanel1 = mc.newLayer(0, 0, DataPanel.WIDTH, DataPanel.HEIGHT);
-		dataPanel2 = mc.newLayer(0, 0, DataPanel.WIDTH, DataPanel.HEIGHT);
-		messagePanel = mc.newLayer(0, 0, MessagePanel.WIDTH, MessagePanel.HEIGHT);
-
-		mapPanel.setVisible(true);
+		//mapPanel.setVisible(true);
 		
-		MineAwtUtils.setSize(mc, 640, 480);	
-		mc.setBackground(new Color(0, 0, 150));
-		mc.addKeyListener(this);
+		MineAwtUtils.setSize(mca, 640, 480);	
+		mca.setBackground(new Color(0, 0, 150));
+		mca.addKeyListener(this);
 		
-		frame.getContentPane().add(mc);
+		frame.getContentPane().add(mca);
 		frame.pack();
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-		sleepManager = new SleepManagerAWT(mc);
+		mca.addKeyListener((KeyListener)sleepManager);
+		mca.addMouseListener((MouseListener)sleepManager);
 	}
 	
 	public void launch() {
@@ -227,5 +192,8 @@ public class DragonFrame implements FrameWorks, ActionListener, KeyListener {
 		this.mal = mal;
 		mc.setMouseAllListener(mal);
 	}
-		
+	
+	public void repaint() {
+		mc.repaint();
+	}
 }

@@ -54,7 +54,7 @@ public class BodyDataLoader {
 	 * @param body
 	 * @param level
 	 */
-	private static void calcLevel(Body body, int level) {
+	private void calcLevel(Body body, int level) {
 		System.out.print("level=" + level);
 		System.out.print(" str=" + body.base.getStr());
 		

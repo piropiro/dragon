@@ -1,28 +1,31 @@
 package dragon3.manage;
 
+import javax.inject.Inject;
+
 import dragon3.common.Body;
 import dragon3.common.constant.Page;
 import dragon3.controller.UnitWorks;
 import dragon3.map.MapWorks;
+import dragon3.map.StageMap;
 import dragon3.paint.PaintUtils;
 import dragon3.panel.PanelManager;
+import lombok.Setter;
 import mine.paint.UnitMap;
 
 public class RewalkManager {
 
-	private UnitWorks uw;
-	private PanelManager pm;
-	private UnitMap map;
-	private MapWorks mw;
+	
+	@Setter UnitWorks uw;
+	@Inject PanelManager pm;
+	@Inject StageMap map;
+	@Inject MapWorks mw;
+	
 	private int x, y;
 
 	/*** Setup *******************************/
 
-	public RewalkManager(UnitWorks uw) {
-		this.uw = uw;
-		this.pm = uw.getPanelManager();
-		this.map = uw.getUnitMap();
-		this.mw = uw.getMapWorks();
+	@Inject
+	public RewalkManager() {
 	}
 
 	/*** Set *********************************/
@@ -35,6 +38,7 @@ public class RewalkManager {
 	/*** Rewalk ******************************/
 
 	public void rewalk(Body b) {
+		UnitMap map = this.map.getMap();
 		map.clear(Page.P40, 0);
 		map.clear(Page.P10, 0);
 		map.setData(Page.P20, b.getX(), b.getY(), 0);

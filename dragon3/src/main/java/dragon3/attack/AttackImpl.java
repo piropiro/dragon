@@ -3,6 +3,8 @@ package dragon3.attack;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.inject.Inject;
+
 import dragon3.anime.AnimeManager;
 import dragon3.attack.calc.Damage;
 import dragon3.attack.calc.DamageRate;
@@ -26,7 +28,8 @@ public class AttackImpl implements Attack {
 	private Body ba;
 	private Body bb;
 
-
+	@Inject SpecialEffectManager sem;
+	
 	private Set<AttackEffect> effectSet;
 
 	@Setter @Getter private int meichu;
@@ -48,8 +51,7 @@ public class AttackImpl implements Attack {
 	/*** Effect ********************************/
 
 	public boolean isEffective(AttackEffect effect) {
-		SpecialEffectManager sem = SpecialEffectManager.getInstance(map);
-		return sem.isEffective(ba, bb, effectSet, effect);
+		return sem.isEffective(map, ba, bb, effectSet, effect);
 	}
 
 	public boolean hasEffect(AttackEffect type) {

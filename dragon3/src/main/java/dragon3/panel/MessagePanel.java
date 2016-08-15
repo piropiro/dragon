@@ -3,12 +3,15 @@ package dragon3.panel;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.inject.Inject;
+import javax.inject.Named;
+import javax.inject.Singleton;
+
 import dragon3.common.Body;
-import dragon3.image.ImageManager;
 import mine.event.PaintComponent;
-import mine.event.SleepManager;
 import mine.paint.MineGraphics;
 
+@Singleton
 public class MessagePanel extends PanelBase {
 
 	public static final int WIDTH = 160;
@@ -23,8 +26,9 @@ public class MessagePanel extends PanelBase {
 
 	static final int MAX = 3;
 
-	public MessagePanel(PaintComponent panel, SleepManager sm, ImageManager im) {
-		super(panel, sm, im, WIDTH, HEIGHT, true);
+	@Inject
+	public MessagePanel(@Named("messageC") PaintComponent panel) {
+		super(WIDTH, HEIGHT, true);
 		this.panel = panel;
 		
 		list = new ArrayList<>();
@@ -52,7 +56,7 @@ public class MessagePanel extends PanelBase {
 		this.ba = ba_;
 		if (list.size() == 0)
 			return;
-		setHPBar(false, ba);
+		setHPBar(ba, null);
 		setLocate();
 		panel.setVisible(true);
 
@@ -97,4 +101,5 @@ public class MessagePanel extends PanelBase {
 		}
 	}
 
+	
 }

@@ -17,13 +17,11 @@ import dragon3.common.constant.BodyAttribute;
  */
 public class Refresh implements SpecialEffect {
 
-	private UnitMap map;
-
-	public Refresh(UnitMap map){
-		this.map = map;
+	public Refresh(){
 	}
 
-	public boolean isEffective(Body ba, Body bb, Set<AttackEffect> effect) {
+	@Override
+	public boolean isEffective(UnitMap map, Body ba, Body bb, Set<AttackEffect> effect) {
 
 		if (bb.hasAttr(BodyAttribute.ANTI_ALL))
 			return false;
@@ -36,8 +34,8 @@ public class Refresh implements SpecialEffect {
 		return true;
 	}
 
-
-	public void execute(Body ba, Body bb, AnimeManager anime) {
+	@Override
+	public void execute(UnitMap map, Body ba, Body bb, AnimeManager anime) {
 
 		map.setData(Page.P30, bb.getX(), bb.getY(), 0);
 		anime.systemAnime(AnimeManager.ID_REFRESH, bb.getX(), bb.getY());

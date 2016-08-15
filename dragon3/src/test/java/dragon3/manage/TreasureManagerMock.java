@@ -4,6 +4,8 @@ import mine.util.Point;
 import java.util.List;
 
 import dragon3.common.Body;
+import dragon3.controller.UnitWorks;
+import dragon3.panel.PanelManager;
 
 public class TreasureManagerMock implements TreasureManager {
 
@@ -75,6 +77,42 @@ public class TreasureManagerMock implements TreasureManager {
 
 	@Override
 	public void setup(List<Body> Charas) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void addMember(PanelManager pm, Body ba) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void searchTreasure(PanelManager pm, Body ba) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void getClearItem(PanelManager pm) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void message(PanelManager pm) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void message(PanelManager pm, Body ba, Body tre) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void setUw(UnitWorks uw) {
 		// TODO Auto-generated method stub
 		
 	}

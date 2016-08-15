@@ -5,7 +5,9 @@ package dragon3.panel.paint;
 
 
 import mine.paint.MineGraphics;
+import mine.util.Point;
 import dragon3.common.Body;
+import dragon3.common.constant.GameColor;
 import dragon3.common.constant.Texts;
 import dragon3.panel.PanelWorks;
 
@@ -30,5 +32,20 @@ public class StatusPaint implements DataPanelPainter {
 		pw.drawLine(Texts.sp[52], ba.getMdf(), 1, 2, g);
 		pw.drawLine(Texts.sp[53], ba.getHit(), 0, 3, g);
 		pw.drawLine(Texts.sp[54], ba.getMis(), 1, 3, g);
+	}
+	
+	@Override
+	public GameColor getColor() {
+		return ba.getColor();
+	}
+
+	@Override
+	public Point getPoint1() {
+		return new Point(ba.getX(), ba.getY());
+	}
+
+	@Override
+	public Point getPoint2() {
+		return getPoint1();
 	}
 }

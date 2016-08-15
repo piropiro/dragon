@@ -36,7 +36,9 @@ public class CardDialog extends JDialog implements CardListener {
 
 	public static void main(String[] args) throws MineException {
 		ObjectGraph og = ObjectGraph.create(new CardModule());
-		CardDialog cd = og.get(CardDialog.class);
+		
+		CardDialog cd = new CardDialog();
+		og.inject(cd);
 		cd.launch();
 	}
 

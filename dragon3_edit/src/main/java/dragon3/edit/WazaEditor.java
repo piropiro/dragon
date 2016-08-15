@@ -1,11 +1,9 @@
 package dragon3.edit;
 
-import java.util.LinkedHashMap;
-import java.util.Map;
-
 import javax.inject.Inject;
 
 import dagger.ObjectGraph;
+import dragon3.Statics;
 import dragon3.common.DataList;
 import dragon3.common.constant.AttackEffect;
 import dragon3.common.constant.DamageType;
@@ -14,7 +12,6 @@ import dragon3.common.constant.GameColor;
 import dragon3.common.constant.TargetType;
 import dragon3.data.AnimeData;
 import dragon3.data.WazaData;
-import dragon3.data.load.AnimeDataLoader;
 import dragon3.image.BodyImageList;
 import dragon3.image.ImageManager;
 import mine.MineException;
@@ -32,7 +29,7 @@ public class WazaEditor extends EditPanel<WazaData> implements EditListener<Waza
 	}
 
 	@Inject
-	WazaEditor(ImageManager im) {
+	WazaEditor(ImageManager im, Statics statics) {
 		super(WazaData.class);
 
 		BodyImageList bil = im.getBodyImageList();
@@ -41,20 +38,15 @@ public class WazaEditor extends EditPanel<WazaData> implements EditListener<Waza
 		setField(CENTER, "name", "名前");
 		setField(LEFT, "label", "ラベル");
 		setEnumCombo(RIGHT, "labelColor", "カラー", GameColor.class);
+		initCombo("labelColor", GameColor.createMap());
 		setImageCombo(CENTER, "image", "画像");
 		initCombo("image", bil.getPathList(), bil.getImageList());
-
-		Map<String, String> idAndText = new LinkedHashMap<>();
-		for (GameColor gc : GameColor.values()) {	
-			idAndText.put(gc.name(), gc.getText());
-		}
-		initCombo("labelColor", idAndText);
 		setEnumCombo(CENTER, "targetType", "範囲タイプ", TargetType.class);
 		initCombo("targetType", TargetType.createMap());
 		setEnumCombo(CENTER, "damageType", "攻撃タイプ", DamageType.class);
 		initCombo("damageType", DamageType.createMap());
 
-		DataList<AnimeData> animeList = AnimeDataLoader.loadAnimeList();
+		DataList<AnimeData> animeList = statics.getAnimeList();
 		setTextCombo(CENTER, "animeId", "動画タイプ");
 		initCombo("animeId", animeList.getIdAndName());
 		

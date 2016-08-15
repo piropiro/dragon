@@ -1,5 +1,6 @@
 package dragon3.manage;
 
+import dragon3.controller.UnitWorks;
 import dragon3.manage.TurnManager;
 
 public class TurnManagerMock implements TurnManager {
@@ -22,6 +23,12 @@ public class TurnManagerMock implements TurnManager {
 	public void playerTurnStart() {
 		// TODO Auto-generated method stub
 
+	}
+
+	@Override
+	public void setUw(UnitWorks uw) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

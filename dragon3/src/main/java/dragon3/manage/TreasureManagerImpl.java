@@ -4,17 +4,22 @@ import mine.util.Point;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.inject.Inject;
+import javax.inject.Singleton;
+
 import dragon3.anime.AnimeManager;
 import dragon3.common.Body;
 import dragon3.common.constant.Page;
 import dragon3.common.constant.Texts;
 import dragon3.common.util.MoveUtils;
 import dragon3.controller.UnitWorks;
+import dragon3.map.StageMap;
 import dragon3.panel.PanelManager;
+import lombok.Setter;
 import mine.event.SleepManager;
 import mine.paint.UnitMap;
 
-
+@Singleton
 public class TreasureManagerImpl implements TreasureManager {
 
 	private static final int MAX = 30;
@@ -36,21 +41,15 @@ public class TreasureManagerImpl implements TreasureManager {
 	private List<Integer> comments;
 
 
-	private UnitWorks uw;
-	private UnitMap map;
-	private AnimeManager anime;
-	private SleepManager sm;
-	private PanelManager pm;
+	@Setter UnitWorks uw;
+	@Inject StageMap map;
+	@Inject AnimeManager anime;
+	@Inject SleepManager sm;
 
 	/*** Constructer *********************************************/
 
-	public TreasureManagerImpl(UnitWorks uw) {
-		this.uw = uw;
-		this.map = uw.getUnitMap();
-		this.anime = uw.getAnimeManager();
-		this.sm = uw.getSleepManager();
-		this.pm = uw.getPanelManager();
-		clean();
+	@Inject
+	public TreasureManagerImpl() {
 	}
 	
 	@Override
@@ -122,7 +121,7 @@ public class TreasureManagerImpl implements TreasureManager {
 				continue;
 			if (tre.getLimitTurn() == 0)
 				continue;
-			map.setData(Page.P01, tre.getX(), tre.getY(), MoveUtils.CLOSE_BOX);
+			map.getMap().setData(Page.P01, tre.getX(), tre.getY(), MoveUtils.CLOSE_BOX);
 			status[i] = S_BOX;
 		}
 	}
@@ -209,6 +208,7 @@ public class TreasureManagerImpl implements TreasureManager {
 
 	@Override
 	public void limitOver() {
+		UnitMap map = this.map.getMap();
 		for (int i = 0; i < treasure.length; i++) {
 			Body tre = treasure[i];
 			if (tre == null)
@@ -225,10 +225,10 @@ public class TreasureManagerImpl implements TreasureManager {
 	}
 
 	@Override
-	public void addMember(Body ba) {
+	public void addMember(PanelManager pm, Body ba) {
 		add(ba);
 		getTreasure(ba, true);
-		message();
+		message(pm);
 	}
 
 	// flag true  Nakama
@@ -250,7 +250,8 @@ public class TreasureManagerImpl implements TreasureManager {
 	}
 
 	@Override
-	public void searchTreasure(Body ba) {
+	public void searchTreasure(PanelManager pm, Body ba) {
+		UnitMap map = this.map.getMap();
 		for (int i = 0; i < treasure.length; i++) {
 			Body tre = treasure[i];
 			if (!isAlive(tre))
@@ -263,7 +264,7 @@ public class TreasureManagerImpl implements TreasureManager {
 				continue;
 			treasure[i] = null;
 			status[i] = S_HAVE;
-			message(ba, tre);
+			message(pm, ba, tre);
 			add(tre);
 			if (map.getData(Page.P01, ba.getX(), ba.getY()) == MoveUtils.CLOSE_BOX)
 				map.setData(Page.P01, ba.getX(), ba.getY(), MoveUtils.OPEN_BOX);
@@ -271,10 +272,10 @@ public class TreasureManagerImpl implements TreasureManager {
 	}
 
 	@Override
-	public void getClearItem() {
+	public void getClearItem(PanelManager pm) {
 		if (!isAlive(clearItem))
 			return;
-		message(null, clearItem);
+		message(pm, null, clearItem);
 		add(clearItem);
 	}
 
@@ -291,7 +292,7 @@ public class TreasureManagerImpl implements TreasureManager {
 	}
 
 	@Override
-	public void message() {
+	public void message(PanelManager pm) {
 		for (Integer n : comments) {
 			Body ba = holder[n.intValue()];
 			Body tre = treasure[n.intValue()];
@@ -306,7 +307,7 @@ public class TreasureManagerImpl implements TreasureManager {
 	}
 
 	@Override
-	public void message(Body ba, Body tre) {
+	public void message(PanelManager pm, Body ba, Body tre) {
 		if (ba != null) {
 			if (ba.base.getName().length() <= 2) {
 				pm.addMessage(ba.base.getName() + Texts.ha + Texts.treasure3);

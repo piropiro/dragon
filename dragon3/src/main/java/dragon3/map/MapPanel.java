@@ -1,36 +1,35 @@
 package dragon3.map;
 
+import javax.inject.Inject;
+import javax.inject.Named;
+
 import dragon3.common.Body;
 import dragon3.common.constant.Page;
-import dragon3.controller.UnitWorks;
 import dragon3.paint.EventListener;
 import dragon3.paint.WaitPaint;
 import mine.event.MouseAllListener;
 import mine.event.PaintComponent;
 import mine.event.PaintListener;
 import mine.paint.MineGraphics;
-import mine.paint.UnitMap;
 import mine.util.Point;
 
 public class MapPanel implements MapWorks, MouseAllListener, PaintListener {
 
 	private PaintComponent panel;
 	
-	private UnitWorks uw;
 	
 	private EventListener el;
 
 	private int wx, wy, wxs, wys;
 
-	private UnitMap map;
+	@Inject StageMap map;
 
 	/*** Constructer *****************************************************/
 
-	public MapPanel(PaintComponent panel, UnitWorks uw, UnitMap map) {
+	@Inject
+	public MapPanel(@Named("mapC") PaintComponent panel) {
 		super();
 		this.panel = panel;
-		this.uw = uw;
-		this.map = map;
 		this.el = new WaitPaint();
 		
 		panel.setPaintListener(this);
@@ -58,18 +57,18 @@ public class MapPanel implements MapWorks, MouseAllListener, PaintListener {
 	public void wakuMove(int x, int y) {
 		this.wx = x;
 		this.wy = y;
-		Body b = uw.search(wx, wy);
+		Body b = map.search(wx, wy);
 		if (b != null) {
 			el.setSelectBody(b);
 		} else {
 			el.setSelectPlace(x, y);
 		}
-		uw.getPanelManager().setHelpLocation(wx, wy);
+		//uw.getPanelManager().setHelpLocation(wx, wy);
 	}
 	@Override
 	public void wakuPaint(boolean flag) {
-		map.setData(Page.P40, wxs, wys, 0);
-		map.setData(Page.P40, wx, wy, 1);
+		map.getMap().setData(Page.P40, wxs, wys, 0);
+		map.getMap().setData(Page.P40, wx, wy, 1);
 		if (flag) {
 			int x = Math.min(wx, wxs) * 32;
 			int y = Math.min(wy, wys) * 32;
@@ -104,7 +103,7 @@ public class MapPanel implements MapWorks, MouseAllListener, PaintListener {
 
 	@Override
 	public void paint(MineGraphics g) {
-		map.draw(g);
+		map.getMap().draw(g);
 	}
 
 	@Override

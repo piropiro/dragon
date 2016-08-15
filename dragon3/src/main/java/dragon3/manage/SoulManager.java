@@ -12,7 +12,6 @@ import dragon3.common.Body;
 import dragon3.common.constant.BodyKind;
 import dragon3.common.constant.GameColor;
 import dragon3.common.constant.Texts;
-import dragon3.controller.UnitWorks;
 import dragon3.data.BodyData;
 import dragon3.data.load.BodyDataLoader;
 import dragon3.image.ImageManager;
@@ -24,17 +23,13 @@ public class SoulManager {
 	@Inject BodyDataLoader bodyDataLoader;
 	
 //	private UnitWorks uw;
-	private PanelManager pm;
-	private ImageManager imageManager;
+	@Inject ImageManager imageManager;
 	
 	private int count;
 	private Body soul;
 
 	@Inject
-	public SoulManager(UnitWorks uw) {
-//		this.uw = uw;
-		this.pm = uw.getPanelManager();
-		this.imageManager = uw.getImageManager();
+	public SoulManager() {
 		setup();
 	}
 
@@ -106,7 +101,7 @@ public class SoulManager {
 		baseSet.accept(n);
 	}
 
-	public void message() {
+	public void message(PanelManager pm) {
 		if (soul == null)
 			return;
 		pm.addMessage(soul.getBase().getName() + Texts.ha);

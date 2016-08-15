@@ -1,89 +1,62 @@
 package dragon3.anime;
 
-import javax.swing.JFrame;
+import javax.inject.Inject;
 
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import dagger.Module;
 import dagger.ObjectGraph;
+import dragon3.DragonModule;
 import dragon3.Statics;
-import dragon3.common.DataList;
 import dragon3.common.constant.Page;
 import dragon3.common.util.MoveUtils;
+import dragon3.controller.DragonController;
 import dragon3.data.AnimeData;
-import dragon3.data.load.AnimeDataLoader;
-import dragon3.image.ImageManager;
-import dragon3.map.MapPanel;
-import dragon3.map.MapWorks;
-import mine.awt.ImageLoaderAWT;
-import mine.awt.MineAwtUtils;
-import mine.awt.MineCanvasAWT;
-import mine.awt.SleepManagerAWT;
-import mine.event.PaintComponent;
-import mine.event.SleepManager;
-import mine.paint.MineImageLoader;
-import mine.paint.UnitMap;
+import dragon3.map.StageMap;
+import dragon3.view.DragonFrame;
 
 public class AnimeManagerTest {
 
-	private static Statics statics;
+	private static ObjectGraph og;
 	
-	private static UnitMap map;
-	private static MapWorks mw;
-	private static AnimeManager am;
-	private static JFrame frame;
+	@Inject Statics statics;
+	
+	@Inject StageMap map;
+	@Inject AnimeManager am;
+	@Inject DragonFrame df;
 
 	@BeforeClass
 	public static void setUpClass() throws Exception {
-		ObjectGraph objectGraph = ObjectGraph.create();
-		statics = objectGraph.get(Statics.class);
-		
-		MineImageLoader mil = new ImageLoaderAWT();
-		ImageManager imageManager = new ImageManager(mil);
-
-		MineCanvasAWT mc = new MineCanvasAWT(mil);
-		MineAwtUtils.setSize(mc, 640, 480);	
-
-		map = new UnitMap(14, 20, 15, mil);
-		map.setVisible(Page.P01, true);
-		map.setTile(Page.P01, imageManager.getStageObj(), -1);
-		map.setVisible(Page.P20, true);
-		map.setTile(Page.P20, imageManager.getBodyImageList().getImageList(), 0);
-		map.setVisible(Page.P50, true);
-		map.setTile(Page.P50, imageManager.getStatus(), 0);
-
-	
-		SleepManager sm = new SleepManagerAWT(mc);
-		
-		PaintComponent mapC = mc.newLayer(0, 0, 640, 480);
-		MapPanel mapP = new MapPanel(mapC, null, map);
-		mw = mapP;
-		mapC.setVisible(true);
-
-
-		PaintComponent animeC = mc.newLayer(0, 0, 32, 32);
-		DataList<AnimeData> animeList = AnimeDataLoader.loadAnimeList();
-		AnimePanel ap = new AnimePanel(animeC, mw, sm, map, animeList, imageManager);
-		am = ap;
-
-		frame = new JFrame();
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().add(mc);
-		frame.pack();
-		frame.setLocation(100, 100);
-		frame.setVisible(true);
+		og = ObjectGraph.create(new TestModule());
+		DragonController dc = og.get(DragonController.class);
+		dc.setup();
+		dc.title();
+		DragonFrame df = og.get(DragonFrame.class);
+		df.launch();
 	}
+	
+	
+	@Module(
+		      includes = DragonModule.class,
+		      injects = AnimeManagerTest.class,
+		      overrides = true
+		  )
+		  static class TestModule {
+		  }
 
 	@Before
 	public void setUp() throws Exception {
-		map.setPage(Page.P01, statics.getMapData("D01"));
-		map.setData(Page.P01, 11, 10, MoveUtils.OPEN_MAGIC);
-		map.setData(Page.P20, 10, 10, 1);
-		map.fillDia(Page.P41, 10, 10, 2, 1);
-		map.clear(Page.P02, 1);
-		map.paintStep(Page.P02, Page.P03, 2, 2, 20);
-		frame.repaint();
+		og.inject(this);
+		
+		map.getMap().setPage(Page.P01, statics.getMapData("D01"));
+		map.getMap().setData(Page.P01, 11, 10, MoveUtils.OPEN_MAGIC);
+		map.getMap().setData(Page.P20, 10, 10, 1);
+		map.getMap().fillDia(Page.P41, 10, 10, 2, 1);
+		map.getMap().clear(Page.P02, 1);
+		map.getMap().paintStep(Page.P02, Page.P03, 2, 2, 20);
+		df.repaint();
 	}
 
 	@Test

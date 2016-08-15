@@ -6,8 +6,10 @@ package dragon3.panel.paint;
 
 import dragon3.common.Body;
 import dragon3.common.constant.BodyAttribute;
+import dragon3.common.constant.GameColor;
 import dragon3.panel.PanelWorks;
 import mine.paint.MineGraphics;
+import mine.util.Point;
 
 /**
  * @author saito
@@ -90,5 +92,20 @@ public class TypeListPaint implements DataPanelPainter {
 		pw.drawLine(type.getText(), n / 4, n % 4, g);
 		n++;
 		return true;
+	}
+	
+	@Override
+	public GameColor getColor() {
+		return ba.getColor();
+	}
+
+	@Override
+	public Point getPoint1() {
+		return new Point(ba.getX(), ba.getY());
+	}
+
+	@Override
+	public Point getPoint2() {
+		return getPoint1();
 	}
 }

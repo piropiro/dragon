@@ -17,6 +17,6 @@ public interface SummonManager {
 
 	/*** Summon ******************************/
 
-	public abstract void summon();
+	public abstract void summon(int turn);
 
 }

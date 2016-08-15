@@ -1,5 +1,7 @@
 package dragon3.panel;
 
+import javax.inject.Inject;
+
 import dragon3.common.Body;
 import dragon3.panel.item.HPBar;
 import mine.event.PaintComponent;
@@ -15,7 +17,7 @@ public class HPanel implements PaintListener {
 	
 	private PaintComponent panel;
 
-	private SleepManager sm;
+	@Inject SleepManager sm;
 	private Body ba;
 	private boolean high;
 
@@ -23,10 +25,9 @@ public class HPanel implements PaintListener {
 
 	/*** Constructer ***********************************************/
 
-	public HPanel(PaintComponent panel, SleepManager sm, boolean high) {
+	public HPanel(PaintComponent panel, boolean high) {
 		super();
 		this.panel = panel;
-		this.sm = sm;
 		this.high = high;
 		panel.setVisible(false);
 		//panel.setFontSize(14);

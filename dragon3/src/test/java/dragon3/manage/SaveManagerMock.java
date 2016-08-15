@@ -1,6 +1,7 @@
 package dragon3.manage;
 
 import dragon3.camp.Equip;
+import dragon3.controller.UnitWorks;
 import dragon3.save.SaveData;
 import dragon3.save.SaveManager;
 
@@ -29,5 +30,11 @@ public class SaveManagerMock implements SaveManager {
 	public SaveData getSaveData() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public void setUw(UnitWorks uw) {
+		// TODO Auto-generated method stub
+		
 	}
 }

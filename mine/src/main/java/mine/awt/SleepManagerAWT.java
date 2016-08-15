@@ -1,6 +1,5 @@
 package mine.awt;
 
-import java.awt.Component;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
@@ -18,10 +17,6 @@ public class SleepManagerAWT implements KeyListener, MouseListener, SleepManager
 		
 	}
 
-	public SleepManagerAWT(Component c){
-		c.addKeyListener(this);
-		c.addMouseListener(this);
-	}
 	public void sleep(long msec){
 		try {
 			if (quick_flag) {

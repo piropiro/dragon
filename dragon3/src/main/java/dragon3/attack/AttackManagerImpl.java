@@ -52,7 +52,7 @@ public class AttackManagerImpl implements AttackManager {
 	private RewalkManager rewalkManager;
 	private UnitWorks uw;
 	private UnitMap map;
-	private SpecialEffectManager se;
+	@Inject SpecialEffectManager se;
 
 	private List<Body> enemy;
 
@@ -77,11 +77,8 @@ public class AttackManagerImpl implements AttackManager {
 		this.sm = uw.getSleepManager();
 		this.pm = uw.getPanelManager();
 		this.rewalkManager = uw.getRewalkManager();
-		
 		this.waza = (WazaData)statics.getWazaData(wazaId);
 		this.hpFlag = hpFlag;
-
-		se = SpecialEffectManager.getInstance(map);
 		this.attack = new AttackImpl(uw.getAnimeManager(), map, ba, waza);
 
 		enemy = null;
@@ -93,10 +90,7 @@ public class AttackManagerImpl implements AttackManager {
 		getAttackUnit(uw.getCharaList());
 	}
 
-	/* (non-Javadoc)
-	 * @see dragon3.impl.AttackManager#show()
-	 */
-
+	@Override
 	public void show() {
 		Body ba = attack.getAttacker();
 		map.copyPage(Page.P21, Page.P10);
@@ -188,12 +182,9 @@ public class AttackManagerImpl implements AttackManager {
 		target.setBasePoint(x, y);
 	}
 
-	/* (non-Javadoc)
-	 * @see dragon3.impl.AttackManager#isCounterable(dragon3.common.Body, boolean)
-	 */
 
 	// 2-1 Counter Range
-
+	@Override
 	public boolean isCounterable(Body bb, boolean flag) {
 		Body ba = attack.getAttacker();
 		if (ba.hasAttr(BodyAttribute.SLEEP))
@@ -208,13 +199,9 @@ public class AttackManagerImpl implements AttackManager {
 		return true;
 	}
 
-	/* (non-Javadoc)
-	 * @see dragon3.impl.AttackManager#isAlive(boolean)
-	 */
-
 	// 2-1 Attack Range
 	// 1-1 Search Enemy
-
+	@Override
 	public boolean isAlive(boolean enemyFlag) {
 		Body ba = attack.getAttacker();
 		
@@ -241,13 +228,8 @@ public class AttackManagerImpl implements AttackManager {
 	}
 
 
-
-	/* (non-Javadoc)
-	 * @see dragon3.impl.AttackManager#setTarget(int, int)
-	 */
-
 	// 4-0 Over Frame
-
+	@Override
 	public void setTarget(int x, int y) {
 		Body ba = attack.getAttacker();
 		target.paint(map, Page.P40, x, y);
@@ -255,10 +237,7 @@ public class AttackManagerImpl implements AttackManager {
 		map.copyPage(Page.P40, Page.P41);
 	}
 
-	/* (non-Javadoc)
-	 * @see dragon3.impl.AttackManager#selectTarget(dragon3.common.Body)
-	 */
-
+	@Override
 	public void selectTarget(Body bb) {
 		attack.setReceiver(bb);
 		Body ba = attack.getAttacker();
@@ -287,7 +266,7 @@ public class AttackManagerImpl implements AttackManager {
 	/*** Deside Enemy *************************************************/
 
 	// 4-0 Over Frame
-
+	@Override
 	public boolean searchTargets() {
 		Body bb = attack.getReceiver();
 		
@@ -305,10 +284,7 @@ public class AttackManagerImpl implements AttackManager {
 		return (enemy.size() != 0);
 	}
 
-	/* (non-Javadoc)
-	 * @see dragon3.impl.AttackManager#isTarget(dragon3.common.Body)
-	 */
-
+	@Override
 	public boolean isTarget(Body b) {
 		Body ba = attack.getAttacker();
 		
@@ -322,31 +298,31 @@ public class AttackManagerImpl implements AttackManager {
 				return false;
 			if (!attack.hasEffect(AttackEffect.HEAL) && b.getColor() == ba.getColor())
 				return false;
-			if (se.isEffective(ba, b, attack.getEffectSet(), AttackEffect.CRITICAL))
+			if (se.isEffective(map, ba, b, attack.getEffectSet(), AttackEffect.CRITICAL))
 				return true;
-			if (se.isEffective(ba, b, attack.getEffectSet(), AttackEffect.DEATH))
+			if (se.isEffective(map, ba, b, attack.getEffectSet(), AttackEffect.DEATH))
 				return true;
-			if (se.isEffective(ba, b, attack.getEffectSet(), AttackEffect.SLEEP))
+			if (se.isEffective(map, ba, b, attack.getEffectSet(), AttackEffect.SLEEP))
 				return true;
-			if (se.isEffective(ba, b, attack.getEffectSet(), AttackEffect.CHARM))
+			if (se.isEffective(map, ba, b, attack.getEffectSet(), AttackEffect.CHARM))
 				return true;
-			if (se.isEffective(ba, b, attack.getEffectSet(), AttackEffect.POISON))
+			if (se.isEffective(map, ba, b, attack.getEffectSet(), AttackEffect.POISON))
 				return true;
-			if (se.isEffective(ba, b, attack.getEffectSet(), AttackEffect.WET))
+			if (se.isEffective(map, ba, b, attack.getEffectSet(), AttackEffect.WET))
 				return true;
-			if (se.isEffective(ba, b, attack.getEffectSet(), AttackEffect.ATTACK_UP))
+			if (se.isEffective(map, ba, b, attack.getEffectSet(), AttackEffect.ATTACK_UP))
 				return true;
-			if (se.isEffective(ba, b, attack.getEffectSet(), AttackEffect.GUARD_UP))
+			if (se.isEffective(map, ba, b, attack.getEffectSet(), AttackEffect.GUARD_UP))
 				return true;
-			if (se.isEffective(ba, b, attack.getEffectSet(), AttackEffect.UPPER))
+			if (se.isEffective(map, ba, b, attack.getEffectSet(), AttackEffect.UPPER))
 				return true;
-			if (se.isEffective(ba, b, attack.getEffectSet(), AttackEffect.CHOP))
+			if (se.isEffective(map, ba, b, attack.getEffectSet(), AttackEffect.CHOP))
 				return true;
-			if (se.isEffective(ba, b, attack.getEffectSet(), AttackEffect.REFRESH))
+			if (se.isEffective(map, ba, b, attack.getEffectSet(), AttackEffect.REFRESH))
 				return true;
-			if (se.isEffective(ba, b, attack.getEffectSet(), AttackEffect.OIL))
+			if (se.isEffective(map, ba, b, attack.getEffectSet(), AttackEffect.OIL))
 				return true;
-			if (se.isEffective(ba, b, attack.getEffectSet(), AttackEffect.REGENE))
+			if (se.isEffective(map, ba, b, attack.getEffectSet(), AttackEffect.REGENE))
 				return true;
 
 			return false;
@@ -378,31 +354,22 @@ public class AttackManagerImpl implements AttackManager {
 
 
 
-	/* (non-Javadoc)
-	 * @see dragon3.impl.AttackManager#getBestTarget()
-	 */
-
+	@Override
 	public Body getBestTarget() {
 		return bestEnemy;
 	}
 
-	/* (non-Javadoc)
-	 * @see dragon3.impl.AttackManager#getBestDamage()
-	 */
+	@Override
 	public int getBestDamage() {
 		return bestDamage;
 	}
 
-	/* (non-Javadoc)
-	 * @see dragon3.impl.AttackManager#getAttacker()
-	 */
+	@Override
 	public Body getAttacker() {
 		return attack.getAttacker();
 	}
 
-	/* (non-Javadoc)
-	 * @see dragon3.impl.AttackManager#getReceiver()
-	 */
+	@Override
 	public Body getReceiver() {
 		return attack.getReceiver();
 	}
@@ -474,7 +441,7 @@ public class AttackManagerImpl implements AttackManager {
 
 	// 2-1 Under Frame
 	// 1-1 Search Enemy
-
+	@Override
 	public void getAttackUnit(List<Body> charaList) {
 		Body ba = attack.getAttacker();
 		map.clear(Page.P11, 0);
@@ -488,13 +455,13 @@ public class AttackManagerImpl implements AttackManager {
 				int d =
 					Damage.calc(waza.getDamageType(), map, ba, b, attack.getEffectSet()) * DamageRate.calc(map, ba, b, attack.getEffectSet());
 
-				if (!b.hasAttr(BodyAttribute.CHARM_LOCK) && se.isEffective(ba, b, attack.getEffectSet(), AttackEffect.CHARM))
+				if (!b.hasAttr(BodyAttribute.CHARM_LOCK) && se.isEffective(map, ba, b, attack.getEffectSet(), AttackEffect.CHARM))
 					d += b.getHp() / 2;
 
-				if (!b.hasAttr(BodyAttribute.SLEEP_LOCK) && se.isEffective(ba, b, attack.getEffectSet(), AttackEffect.SLEEP))
+				if (!b.hasAttr(BodyAttribute.SLEEP_LOCK) && se.isEffective(map, ba, b, attack.getEffectSet(), AttackEffect.SLEEP))
 					d += b.getHp() / 2;
 
-				if (se.isEffective(ba, b, attack.getEffectSet(), AttackEffect.DEATH))
+				if (se.isEffective(map, ba, b, attack.getEffectSet(), AttackEffect.DEATH))
 					d += b.getHp();
 				if (b.getColor() == ba.getColor())
 					d = -d;
@@ -512,7 +479,7 @@ public class AttackManagerImpl implements AttackManager {
 	/* (non-Javadoc)
 	 * @see dragon3.impl.AttackManager#attack()
 	 */
-
+	@Override
 	public void attack() {
 		Body ba = attack.getAttacker();
 		Body bb = attack.getReceiver();
@@ -551,10 +518,10 @@ public class AttackManagerImpl implements AttackManager {
 				continue;
 			}
 
-			if (se.isEffective(ba, bb, attack.getEffectSet(), AttackEffect.CRITICAL) && Luck.rnd(1, ba) != 1) {
+			if (se.isEffective(map, ba, bb, attack.getEffectSet(), AttackEffect.CRITICAL) && Luck.rnd(1, ba) != 1) {
 				pm.repaintData();
 				pm.damageHp(hpFlag, bb, bb.getHpMax());
-				se.execute(ba, bb, anime, attack.getEffectSet(), AttackEffect.CRITICAL);
+				se.execute(map, ba, bb, anime, attack.getEffectSet(), AttackEffect.CRITICAL);
 				pm.repaintData();
 				sm.sleep(200);
 				pm.animeHp(hpFlag);
@@ -564,10 +531,10 @@ public class AttackManagerImpl implements AttackManager {
 				continue;
 			}
 
-			if (se.isEffective(ba, bb, attack.getEffectSet(), AttackEffect.DEATH)) {
+			if (se.isEffective(map, ba, bb, attack.getEffectSet(), AttackEffect.DEATH)) {
 				pm.repaintData();
 				pm.damageHp(hpFlag, bb, bb.getHpMax());
-				se.execute(ba, bb, anime, attack.getEffectSet(), AttackEffect.DEATH);
+				se.execute(map, ba, bb, anime, attack.getEffectSet(), AttackEffect.DEATH);
 				pm.repaintData();
 				sm.sleep(200);
 				pm.animeHp(hpFlag);
@@ -581,17 +548,18 @@ public class AttackManagerImpl implements AttackManager {
 				continue;
 			}
 
-			se.execute(ba, bb, anime, attack.getEffectSet(), AttackEffect.SLEEP);
-			se.execute(ba, bb, anime, attack.getEffectSet(), AttackEffect.CHARM);
-			se.execute(ba, bb, anime, attack.getEffectSet(), AttackEffect.POISON);
-			se.execute(ba, bb, anime, attack.getEffectSet(), AttackEffect.REGENE);
-			se.execute(ba, bb, anime, attack.getEffectSet(), AttackEffect.WET);
-			se.execute(ba, bb, anime, attack.getEffectSet(), AttackEffect.OIL);
-			se.execute(ba, bb, anime, attack.getEffectSet(), AttackEffect.ATTACK_UP);
-			se.execute(ba, bb, anime, attack.getEffectSet(), AttackEffect.GUARD_UP);
-			se.execute(ba, bb, anime, attack.getEffectSet(), AttackEffect.UPPER);
-			se.execute(ba, bb, anime, attack.getEffectSet(), AttackEffect.CHOP);
-			se.execute(ba, bb, anime, attack.getEffectSet(), AttackEffect.REFRESH);
+			se.execute(map, ba, bb, anime, attack.getEffectSet(), AttackEffect.SLEEP);
+			se.execute(map, ba, bb, anime, attack.getEffectSet(), AttackEffect.CHARM);
+			se.execute(map, ba, bb, anime, attack.getEffectSet(), AttackEffect.POISON);
+			se.execute(map, ba, bb, anime, attack.getEffectSet(), AttackEffect.REGENE);
+			se.execute(map, ba, bb, anime, attack.getEffectSet(), AttackEffect.WET);
+			se.execute(map, ba, bb, anime, attack.getEffectSet(), AttackEffect.OIL);
+			se.execute(map, ba, bb, anime, attack.getEffectSet(), AttackEffect.ATTACK_UP);
+			se.execute(map, ba, bb, anime, attack.getEffectSet(), AttackEffect.GUARD_UP);
+			se.execute(map, ba, bb, anime, attack.getEffectSet(), AttackEffect.UPPER);
+			se.execute(map, ba, bb, anime, attack.getEffectSet(), AttackEffect.CHOP);
+			se.execute(map, ba, bb, anime, attack.getEffectSet(), AttackEffect.REFRESH);
+			
 			sm.sleep(300);
 		}
 		attack.consumeEnergy();
@@ -663,7 +631,8 @@ public class AttackManagerImpl implements AttackManager {
 		return true;
 	}
 
-	public AttackImpl getAttack() {
+	@Override
+	public Attack getAttack() {
 		return attack;
 	}
 	

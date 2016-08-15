@@ -2,6 +2,8 @@ package dragon3.panel;
 
 import java.util.StringTokenizer;
 
+import javax.inject.Inject;
+
 import dragon3.attack.Attack;
 import dragon3.common.Body;
 import dragon3.common.constant.GameColor;
@@ -10,47 +12,33 @@ import dragon3.image.ImageManager;
 import dragon3.manage.LevelManager;
 import dragon3.panel.item.EXPBar;
 import dragon3.panel.item.HPBar;
-import mine.event.PaintComponent;
 import mine.event.PaintListener;
 import mine.event.SleepManager;
 import mine.paint.MineColor;
 import mine.paint.MineGraphics;
-import mine.util.Point;
 
 public abstract class PanelBase implements PanelWorks, PaintListener {
-
-	private PaintComponent panel;
 	
-	private HPBar hpb;
-	private EXPBar expb;
-	private boolean left;
-	private SleepManager sm;
-	private ImageManager im;
+	protected HPBar hpb;
+	protected EXPBar expb;
+	@Inject SleepManager sm;
+	@Inject ImageManager im;
 
-	
-	private int width;
-	private int height;
+	protected boolean left;	
+	protected int width;
+	protected int height;
 
-	public PanelBase(PaintComponent panel, SleepManager sm, ImageManager im, int width, int height, boolean left) {
-		super();
-		this.panel = panel;
-		this.sm = sm;
-		this.im = im;
+	public PanelBase(int width, int height, boolean left) {
 		this.width = width;
 		this.height = height;
 		this.left = left;
 		//MineAwtUtils.setSize(this, width, height);
-		panel.setVisible(false);
 		//panel.setFontSize(14);
 
 		hpb = new HPBar();
 		expb = new EXPBar();
 	}
 
-	public void setHPBar(boolean hit, Body b) {
-		hpb.setup(hit, b.getHp(), b.getHpMax());
-	}
-	
 	public void setEXPBar(Body b) {
 		expb.setup(b.getExp(), LevelManager.MAX_EXP);
 	}
@@ -63,46 +51,6 @@ public abstract class PanelBase implements PanelWorks, PaintListener {
 		} else {
 			hpb.setup(false, b.getHp(), b.getHpMax());
 		}
-	}
-
-	/*** Locate ***********************************************/
-
-	public void setLocate(Body ba, int size) {
-		Point bap = new Point(ba.getX(), ba.getY());
-		setLocate(bap, bap, size);
-	}
-	public void setLocate(Body ba, Body bb, int size) {
-		Point bap = new Point(ba.getX(), ba.getY());
-		Point bbp = new Point(bb.getX(), bb.getY());
-		setLocate(bap, bbp, size);
-	}
-
-	public void setLocate(Point ba, int size) {
-		setLocate(ba, ba, size);
-	}
-	public void setLocate(Point ba, Point bb, int size) {
-
-		int mx = 0;
-		int my = 0;
-
-		mx =
-			Math.min(
-				(ba.x + bb.x) * 16 + 64 + 16,
-				20 * 32 - width * size);
-		if (Math.max(ba.y, bb.y) < 10) {
-			my =
-				Math.min(
-					Math.max(ba.y, bb.y) * 32 + 96 + 16,
-					15 * 32 - height);
-		} else if (Math.min(ba.y, bb.y) >= 5) {
-			my = Math.max(0, Math.min(ba.y, bb.y) * 32 - height - 64 - 16);
-		} else {
-			my = (ba.y + bb.y) * 16 + 16 - height / 2;
-		}
-		if (!left) {
-			mx += width;
-		}
-		panel.setLocation(mx, my);
 	}
 
 	/*** Main **********************************************/
@@ -158,33 +106,11 @@ public abstract class PanelBase implements PanelWorks, PaintListener {
 		return true;
 	}
 
-	/*** Damage **********************************************/
 
-	public void damage(Body ba, int damage) {
-		hpb.setMin(ba.getHp() - damage, true);
-		panel.repaint(50, 50, 96, 12);
-	}
-
-	/*** Henka **************************************************/
-
-	public void henka() {
-		int st = hpb.getSleepTime() / 2;
-		while (hpb.henka()) {
-			panel.repaint(50, 50, 96, 12);
-			sleep(st);
-		}
-		panel.repaint();
-	}
 
 	protected void sleep(long t) {
 		sm.sleep(t);
 	}
 	
-	public void repaint() {
-		panel.repaint();
-	}
-	
-	public void setVisible(boolean flag) {
-		panel.setVisible(flag);
-	}
+
 }

@@ -2,9 +2,6 @@ package dragon3.view;
 
 
 import mine.event.MouseAllListener;
-import mine.event.PaintComponent;
-import mine.event.SleepManager;
-import mine.paint.MineImageLoader;
 
 public interface FrameWorks {
 
@@ -25,19 +22,17 @@ public interface FrameWorks {
     public void setMenu( int n );
     public void setMouseListener(MouseAllListener mal);
     
-    public PaintComponent getMapPanel();
-    public PaintComponent getStageSelectPanel();
-    public PaintComponent getAnimePanel();
-    public PaintComponent getHPanel1();
-    public PaintComponent getHPanel2();
-    public PaintComponent getHelpPanel();
-    public PaintComponent getSmallPanel();
-    public PaintComponent getLargePanel();
-    public PaintComponent getCardPanel();
-    public PaintComponent getDataPanel1();
-    public PaintComponent getDataPanel2();
-    public PaintComponent getMessagePanel();
-    
-    public MineImageLoader getImageLoader();
-    public SleepManager getSleepManager();
+//    public PaintComponent getMapPanel();
+//    public PaintComponent getStageSelectPanel();
+//    public PaintComponent getAnimePanel();
+//    public PaintComponent getHPanel1();
+//    public PaintComponent getHPanel2();
+//    public PaintComponent getHelpPanel();
+//    public PaintComponent getSmallPanel();
+//    public PaintComponent getLargePanel();
+//    public PaintComponent getCardPanel();
+//    public PaintComponent getDataPanel1();
+//    public PaintComponent getDataPanel2();
+//    public PaintComponent getMessagePanel();
+
 }

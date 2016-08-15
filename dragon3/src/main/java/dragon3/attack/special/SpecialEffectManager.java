@@ -4,7 +4,11 @@
 package dragon3.attack.special;
 
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Set;
+
+import javax.inject.Inject;
+import javax.inject.Singleton;
 
 import mine.paint.UnitMap;
 import dragon3.anime.AnimeManager;
@@ -14,20 +18,13 @@ import dragon3.common.constant.AttackEffect;
 /**
  * @author k-saito
  */
+@Singleton
 public class SpecialEffectManager {
 
-	private static SpecialEffectManager instance;
+	private Map<AttackEffect, SpecialEffect> specialEffectMap;
 
-	private HashMap<AttackEffect, SpecialEffect> specialEffectMap;
-
-	public static SpecialEffectManager getInstance(UnitMap map) {
-		if (instance == null) {
-			instance = new SpecialEffectManager(map);
-		}
-		return instance;
-	}
-
-	private SpecialEffectManager(UnitMap map) {
+	@Inject
+	public SpecialEffectManager() {
 		specialEffectMap = new HashMap<AttackEffect, SpecialEffect>();
 		specialEffectMap.put(AttackEffect.CRITICAL, new Critical());
 		specialEffectMap.put(AttackEffect.DEATH, new Death());
@@ -41,18 +38,18 @@ public class SpecialEffectManager {
 		specialEffectMap.put(AttackEffect.GUARD_UP, new GuardUp());
 		specialEffectMap.put(AttackEffect.UPPER, new Upper());
 		specialEffectMap.put(AttackEffect.CHOP, new Chop());
-		specialEffectMap.put(AttackEffect.REFRESH, new Refresh(map));
+		specialEffectMap.put(AttackEffect.REFRESH, new Refresh());
 	}
 
-	public boolean isEffective(Body ba, Body bb, Set<AttackEffect> effectSet, AttackEffect effect) {
+	public boolean isEffective(UnitMap map, Body ba, Body bb, Set<AttackEffect> effectSet, AttackEffect effect) {
 		SpecialEffect se = specialEffectMap.get(effect);
-		return se.isEffective(ba, bb, effectSet);
+		return se.isEffective(map, ba, bb, effectSet);
 	}
 
-	public void execute(Body ba, Body bb, AnimeManager anime, Set<AttackEffect> effectSet, AttackEffect effect) {
+	public void execute(UnitMap map, Body ba, Body bb, AnimeManager anime, Set<AttackEffect> effectSet, AttackEffect effect) {
 		SpecialEffect se = specialEffectMap.get(effect);
-		if (se.isEffective(ba, bb, effectSet)) {
-			se.execute(ba, bb, anime);
+		if (se.isEffective(map, ba, bb, effectSet)) {
+			se.execute(map, ba, bb, anime);
 		}
 	}
 

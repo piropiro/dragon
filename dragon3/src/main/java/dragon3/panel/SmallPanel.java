@@ -1,11 +1,16 @@
 package dragon3.panel;
 
+import javax.inject.Inject;
+import javax.inject.Named;
+import javax.inject.Singleton;
+
 import dragon3.common.constant.GameColor;
 import mine.MineUtils;
 import mine.event.PaintComponent;
 import mine.event.PaintListener;
 import mine.paint.MineGraphics;
 
+@Singleton
 public class SmallPanel implements PaintListener {
 
 	public static final int MAP_WIDTH = 640;
@@ -26,7 +31,8 @@ public class SmallPanel implements PaintListener {
 
 	/*** Constructer *********************************************/
 
-	public SmallPanel(PaintComponent panel) {
+	@Inject
+	public SmallPanel(@Named("smallC") PaintComponent panel) {
 		this.panel = panel;
 		panel.setVisible(false);
 		panel.setPaintListener(this);

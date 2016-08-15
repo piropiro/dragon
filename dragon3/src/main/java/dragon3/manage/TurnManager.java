@@ -3,6 +3,8 @@
  */
 package dragon3.manage;
 
+import dragon3.controller.UnitWorks;
+
 /**
  * @author saito
  */
@@ -15,4 +17,6 @@ public interface TurnManager {
 	public void enemyTurnStart();
 	
 	public void playerTurnStart();
+	
+	public void setUw(UnitWorks uw);
 }

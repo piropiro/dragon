@@ -3,6 +3,7 @@ package card.paint;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
+import card.CardMap;
 import card.UnitWorks;
 import card.common.Page;
 import lombok.Getter;
@@ -11,7 +12,7 @@ import mine.paint.UnitMap;
 @Singleton
 public class WakuPainter {
 
-	@Inject UnitMap map;
+	@Inject CardMap map;
 
 	@Getter private int x;
 	@Getter private int y;
@@ -25,7 +26,7 @@ public class WakuPainter {
 	}
 
 	public void moveWaku(UnitWorks uw, int new_x, int new_y) {
-
+		UnitMap map = this.map.getMap();
 		if ( isMoved(new_x, new_y) ) { 
 			map.setData(Page.WAKU, x, y, 0);
 			map.setData(Page.WAKU, new_x, new_y, 1);

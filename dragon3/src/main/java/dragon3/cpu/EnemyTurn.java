@@ -1,42 +1,51 @@
 package dragon3.cpu;
 
-import mine.util.Point;
-import java.util.List;
+import javax.inject.Inject;
+import javax.inject.Singleton;
 
-import mine.event.SleepManager;
-import mine.paint.UnitMap;
 import dragon3.attack.FightManager;
 import dragon3.common.Body;
+import dragon3.common.constant.BodyAttribute;
 import dragon3.common.constant.GameColor;
 import dragon3.common.constant.Page;
 import dragon3.controller.UnitWorks;
 import dragon3.manage.RewalkManager;
-import dragon3.common.constant.BodyAttribute;
 import dragon3.map.MapWorks;
+import dragon3.map.StageMap;
 import dragon3.paint.WalkPaint;
 import dragon3.panel.PanelManager;
+import lombok.Setter;
+import mine.event.SleepManager;
+import mine.paint.UnitMap;
+import mine.util.Point;
 
+@Singleton
 public class EnemyTurn {
 
-	private UnitWorks uw;
-	private MapWorks mw;
-	private UnitMap map;
-	private PanelManager pm;
-	private SleepManager sm;
-	private RewalkManager rewalkManager;
-	private List<Body> charaList;
+	@Setter UnitWorks uw;
+	@Inject FightManager fm;
+	@Inject MapWorks mw;
+	@Inject StageMap map;
+	@Inject PanelManager pm;
+	@Inject SleepManager sm;
+	@Inject RewalkManager rewalkManager;
+
+	
 	private Body ba;
+	
+	
 
 	/*** Constructer ******************************************/
 
-	public EnemyTurn(UnitWorks uw) {
-		this.uw = uw;
-		mw = uw.getMapWorks();
-		map = uw.getUnitMap();
-		pm = uw.getPanelManager();
-		sm = uw.getSleepManager();
-		rewalkManager = uw.getRewalkManager();
-		charaList = uw.getCharaList();
+	@Inject
+	public EnemyTurn() {
+//		this.uw = uw;
+//		mw = uw.getMapWorks();
+//		map = uw.getUnitMap();
+//		pm = uw.getPanelManager();
+//		sm = uw.getSleepManager();
+//		rewalkManager = uw.getRewalkManager();
+//		charaList = uw.getCharaList();
 	}
 
 	/*** Main *********************************************/
@@ -46,7 +55,7 @@ public class EnemyTurn {
 		pm.closeHelp();
 		pm.closeData();
 		sm.sleep(300);
-		for (Body b : charaList) {
+		for (Body b : uw.getCharaList()) {
 			ba = b;
 			if (!ba.isAlive())
 				continue;
@@ -69,6 +78,7 @@ public class EnemyTurn {
 	}
 
 	public void move() {
+		UnitMap map = this.map.getMap();
 		rewalkManager.set(ba);
 
 		boolean actionf = false;
@@ -87,8 +97,8 @@ public class EnemyTurn {
 	/*** Attack *****************************************************/
 
 	public boolean attack() {
-
-		FightManager fm = new FightManager(uw, ba);
+		UnitMap map = this.map.getMap();
+		fm.setup(ba);
 
 		if (fm.enemySelect()) {
 			map.setData(Page.P10, ba.getX(), ba.getY(), 4);
@@ -108,6 +118,7 @@ public class EnemyTurn {
 	// 1-3 Move Data Result ( Chara Nasi )
 
 	public boolean walk() {
+		UnitMap map = this.map.getMap();
 		WalkPaint walk = new WalkPaint(uw, ba);
 		map.setData(Page.P10, ba.getX(), ba.getY(), 4);
 		map.setData(Page.P40, ba.getX(), ba.getY(), 4);
@@ -131,6 +142,7 @@ public class EnemyTurn {
 	// Decide Move Priority
 
 	public void setSearchData() {
+		UnitMap map = this.map.getMap();
 		map.clear(Page.P11, 0);
 
 		map.paintStep(Page.P02, Page.P03, ba.getX(), ba.getY(), 100);
@@ -163,7 +175,7 @@ public class EnemyTurn {
 		}
 
 		// Priority 2
-		for (Body b : charaList) {
+		for (Body b : uw.getCharaList()) {
 			if (!b.isAlive())
 				continue;
 			if (b == ba)
@@ -179,7 +191,7 @@ public class EnemyTurn {
 		}
 
 		// Priority 3
-		for (Body b : charaList) {
+		for (Body b : uw.getCharaList()) {
 			if (!b.isAlive())
 				continue;
 			if (b == ba)
@@ -195,7 +207,7 @@ public class EnemyTurn {
 		}
 
 		// Priority 1
-		for (Body b : charaList) {
+		for (Body b : uw.getCharaList()) {
 			if (!b.isAlive())
 				continue;
 			if (b == ba)
@@ -216,6 +228,7 @@ public class EnemyTurn {
 	/*** Search Enemy ******************************************/
 
 	public boolean isWalkable() {
+		UnitMap map = this.map.getMap();
 		int maaih = 255; // Minimum Step
 
 		int width = map.getMapWidth();
@@ -241,6 +254,7 @@ public class EnemyTurn {
 	/*** Step Paint ******************************************/
 
 	public void setWalkData() {
+		UnitMap map = this.map.getMap();
 
 		int x1 = ba.getX(); // Goal X1 ( Chara Ari )
 		int y1 = ba.getY(); // Goal Y1
@@ -298,7 +312,7 @@ public class EnemyTurn {
 	/*** Decide Goal *******************************************/
 
 	public Point getWalkPoint() {
-
+		UnitMap map = this.map.getMap();
 		int xf = ba.getX(); // Goal X
 		int yf = ba.getY(); // Goal Y
 		int hf = 255; // Step

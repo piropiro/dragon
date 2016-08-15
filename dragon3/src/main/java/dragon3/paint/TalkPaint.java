@@ -8,7 +8,9 @@ import dragon3.common.constant.Page;
 import dragon3.common.constant.Texts;
 import dragon3.controller.UnitWorks;
 import dragon3.manage.RewalkManager;
+import dragon3.manage.TurnManager;
 import dragon3.map.MapWorks;
+import dragon3.map.StageMap;
 import dragon3.panel.PanelManager;
 import mine.paint.UnitMap;
 
@@ -16,10 +18,11 @@ public class TalkPaint implements EventListener {
 
 	private UnitWorks uw;
 	private MapWorks mw;
-	private UnitMap map;
+	private StageMap map;
 	private PanelManager pm;
 	private RewalkManager rewalkManager;
-
+	private TurnManager tm;
+	
 	private Body ba, bb;
 	private Body[] target;
 
@@ -31,10 +34,10 @@ public class TalkPaint implements EventListener {
 	public TalkPaint(UnitWorks uw, Body ba) {
 		this.uw = uw;
 		this.mw = uw.getMapWorks();
-		this.map = uw.getUnitMap();
+		this.map = uw.getStageMap();
 		this.pm = uw.getPanelManager();
 		this.rewalkManager = uw.getRewalkManager();
-		
+		this.tm = uw.getTurnManager();
 		this.ba = ba;
 		target = new Body[4];
 		target[0] = getTarget(ba.getX() - 1, ba.getY());
@@ -47,6 +50,7 @@ public class TalkPaint implements EventListener {
 	 * 
 	 */
 	public void show() {
+		UnitMap map = this.map.getMap();
 		map.clear(Page.P10, 0);
 		map.setData(Page.P30, ba.getX(), ba.getY(), 3);
 		map.setData(Page.P10, ba.getX() - 1, ba.getY(), 2);
@@ -85,7 +89,7 @@ public class TalkPaint implements EventListener {
 	 * @return
 	 */
 	private Body getTarget(int x, int y) {
-		Body bb = uw.search(x, y);
+		Body bb = map.search(x, y);
 
 		if (bb == null)
 			return null;
@@ -126,14 +130,14 @@ public class TalkPaint implements EventListener {
 
 	@Override
 	public boolean isNextPoint(int x, int y) {
-		return (map.getData(Page.P10, x, y) == 3);
+		return (map.getMap().getData(Page.P10, x, y) == 3);
 	}
 
 	/*** Place *****************************************/
 
 	@Override
 	public void setSelectPlace(int x, int y) {
-		uw.getPanelManager().displayPlace(x, y);
+		pm.displayPlace(tm, x, y);
 	}
 
 	/*** Select Body *****************************************/
@@ -149,6 +153,7 @@ public class TalkPaint implements EventListener {
 	@Override
 	public void mouseMoved(int x, int y) {
 		mw.wakuMove(x, y);
+		pm.setHelpLocation(x, y);
 		mw.wakuPaint(true);
 	}
 
@@ -157,11 +162,11 @@ public class TalkPaint implements EventListener {
 	@Override
 	public void accept() {
 		Point p = mw.getWaku();
-		if (map.getData(Page.P10, p.x, p.y) != 3)
+		if (map.getMap().getData(Page.P10, p.x, p.y) != 3)
 			return;
 		bb = getTarget(p.x, p.y);
 		if (bb != null) {
-			map.clear(Page.P10, 0);
+			map.getMap().clear(Page.P10, 0);
 			mw.repaint();
 			pm.closeData();
 			action();

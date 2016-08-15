@@ -5,9 +5,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.inject.Singleton;
 
 import dragon3.Statics;
 import dragon3.anime.AnimeManager;
+import dragon3.attack.FightManager;
 import dragon3.camp.Camp;
 import dragon3.camp.Equip;
 import dragon3.card.CardManager;
@@ -15,6 +17,7 @@ import dragon3.common.Body;
 import dragon3.common.constant.BodyAttribute;
 import dragon3.common.constant.GameColor;
 import dragon3.common.constant.Texts;
+import dragon3.cpu.EnemyTurn;
 import dragon3.data.StageData;
 import dragon3.data.load.BodyDataLoader;
 import dragon3.image.ImageManager;
@@ -22,103 +25,104 @@ import dragon3.manage.LevelManager;
 import dragon3.manage.RewalkManager;
 import dragon3.manage.SoulManager;
 import dragon3.manage.SummonManager;
-import dragon3.manage.SummonManagerImpl;
 import dragon3.manage.TreasureManager;
-import dragon3.manage.TreasureManagerImpl;
 import dragon3.manage.TurnManager;
-import dragon3.manage.TurnManagerImpl;
 import dragon3.map.MapWorks;
 import dragon3.map.StageMap;
 import dragon3.paint.BasicPaint;
 import dragon3.paint.PaintUtils;
 import dragon3.paint.TitlePaint;
 import dragon3.panel.PanelManager;
-import dragon3.panel.PanelManagerImpl;
 import dragon3.save.SaveManager;
-import dragon3.save.SaveManagerImpl;
 import dragon3.stage.StageBack;
 import dragon3.stage.StageManager;
 import dragon3.view.FrameWorks;
 import lombok.Getter;
+import mine.event.MouseAllListener;
 import mine.event.SleepManager;
 import mine.paint.MineImageLoader;
 import mine.paint.UnitMap;
 import mine.util.Point;
 
+@Singleton
 public class DragonController implements UnitWorks, CommandListener {
 
 	@Inject Statics statics;
 	@Inject BodyDataLoader bodyDataLoader;
 	
-	private StageMap map;
-	private FrameWorks fw;
-	private MapWorks mw;
+	@Inject StageMap stageMap;
+	@Inject FrameWorks fw;
+	@Inject MapWorks mw;
 	
-	private ImageManager imageManager;
-	private AnimeManager animeManager;
-	private PanelManagerImpl panelManager;
+	@Inject ImageManager imageManager;
+	@Inject AnimeManager animeManager;
+	@Inject PanelManager panelManager;
 
 	private List<Body> Charas;
 	private List<Body> Players;
 	private List<Body> Enemys;
 
-	private MineImageLoader mil;
-	private SleepManager sleepManager;
+	@Inject MineImageLoader mil;
+	@Inject SleepManager sleepManager;
 
-	private CardManager cardManager;
-	private TurnManager turnManager;
-	private SaveManager saveManager;
-	@Getter private RewalkManager rewalkManager;
+	@Inject CardManager cardManager;
+	@Inject TurnManager turnManager;
+	@Inject SaveManager saveManager;
+	@Inject @Getter RewalkManager rewalkManager;
 	private Equip equip;
 	private Camp camp;
-	private TreasureManager treasure;
-	private SummonManager summon;
-	private SoulManager soulManager;
-	private StageManager stageManager;
-
+	@Inject TreasureManager treasure;
+	@Inject SummonManager summon;
+	@Inject SoulManager soulManager;
+	@Inject StageManager stageManager;
+	@Inject FightManager fightManager;
+	@Inject EnemyTurn enemyTurn;
 
 
 	private boolean escape;
 
 	/*** Constructer *************************************/
 
+	@Inject
 	public DragonController(FrameWorks fw) {
 		super();
 		this.fw = fw;
-		this.mil = fw.getImageLoader();
-		this.sleepManager = fw.getSleepManager();
 
-	
-		imageManager = new ImageManager(mil);
-	
-
-		saveManager = new SaveManagerImpl(this);
 		Charas = new ArrayList<>();
-		map = new StageMap(imageManager);
+		// map = new StageMap(imageManager);
 		
-		panelManager = new PanelManagerImpl(fw, this, map.getMap(), sleepManager, imageManager, mil);
+		//panelManager = new PanelManagerImpl(fw, this, map.getMap(), sleepManager, imageManager);
 
-		animeManager = panelManager.getAnimeP();
-		mw = panelManager.getMapP();
+//		animeManager = panelManager.getAnimeP();
+//		mw = panelManager.getMapP();
 
-		turnManager = new TurnManagerImpl(this);
-		panelManager.setTurnManager(turnManager);
+//		panelManager.setTurnManager(turnManager);
 		
-		treasure = new TreasureManagerImpl(this);
-		panelManager.setTreasure(treasure);
+//		treasure = new TreasureManagerImpl(this);
+//		panelManager.setTreasure(treasure);
+//		
+//		panelManager.setSummon(summon);
 		
-		summon = new SummonManagerImpl(this);
-		panelManager.setSummon(summon);
 		
-		soulManager = new SoulManager(this);
 		
-		rewalkManager = new RewalkManager(this);
-		
-		cardManager = new CardManager(panelManager.getCardP(), this, map.getMap(), panelManager, sleepManager, imageManager);
+//		cardManager = new CardManager(panelManager.getCardP(), this, map.getMap(), panelManager, sleepManager, imageManager);
+
+
+//		stageManager = panelManager.getStageSelectP();
+
+	}
+	
+	public void setup() {
+		this.fightManager.setUw(this);
+		this.cardManager.setUw(this);
+		this.enemyTurn.setUw(this);
+		this.rewalkManager.setUw(this);
+		this.treasure.setUw(this);
+		this.turnManager.setUw(this);
+		this.saveManager.setUw(this);
+		this.stageManager.setUw(this);
 		equip = saveManager.loadData("slgs.dat");
-
-		stageManager = panelManager.getStageSelectP();
-
+		fw.setMouseListener((MouseAllListener)mw);
 	}
 
 	/*** Title ***********************************/
@@ -147,7 +151,7 @@ public class DragonController implements UnitWorks, CommandListener {
 	/*** Deploy Chara *****************************************/
 
 	public void putUnit(List<Body> v) {
-		map.putUnit(v);
+		stageMap.putUnit(v);
 	}
 
 	/*** Camp **************************************/
@@ -155,10 +159,10 @@ public class DragonController implements UnitWorks, CommandListener {
 	private void Camp() {
 		Charas.clear();
 		camp = new Camp(this, treasure, equip);
-		map.resetBack(StageBack.WHITE);
+		stageMap.resetBack(StageBack.WHITE);
 		camp.repaint(statics.getCampMap());
 		PaintUtils.setCampPaint(this, camp);
-		panelManager.getCardP().setVisible(false);
+//		panelManager.getCardP().setVisible(false);
 		mw.repaint();
 	}
 
@@ -168,8 +172,8 @@ public class DragonController implements UnitWorks, CommandListener {
 	
 	private StageData mapLoad(StageData stageData) {
 		
-		map.mapLoad(stageData);
-		map.setCrystal();
+		stageMap.mapLoad(stageData);
+		stageMap.setCrystal();
 		Charas.clear();
 		Players = equip.getPlayers();
 		String stageId = stageManager.getSelectedStage().getId();
@@ -184,7 +188,7 @@ public class DragonController implements UnitWorks, CommandListener {
 		putUnit(Enemys);
 		turnManager.reset();
 		PaintUtils.setWaitPaint(this);
-		panelManager.getCardP().setVisible(false);
+//		panelManager.getCardP().setVisible(false);
 		mw.repaint();
 		
 		return stageData;
@@ -196,7 +200,7 @@ public class DragonController implements UnitWorks, CommandListener {
 
 	@Override
 	public void setMensEnd() {
-		map.setMensEnd();
+		stageMap.setMensEnd();
 		putUnit(Charas);
 		turnManager.playerTurnStart();
 		panelManager.displayLarge("Turn " + turnManager.getTurn(), GameColor.BLUE, 1500);
@@ -237,6 +241,12 @@ public class DragonController implements UnitWorks, CommandListener {
 		panelManager.closeStageSelect();
 		Camp();
 	}
+	
+	@Override
+	public void enemyTurnStart() {
+		turnManager.enemyTurnStart();
+		enemyTurn.start(turnManager.getTurn());
+	}
 
 	/*** Map Reverse ***********************************/
 
@@ -256,20 +266,6 @@ public class DragonController implements UnitWorks, CommandListener {
 	}
 
 	/*** UnitWorks *************************************/
-
-	/*** Main ************************/
-
-	public Body search(int x, int y) {
-		for (Body b : Charas) {
-			if (!b.isAlive())
-				continue;
-			if (b.getX() == x && b.getY() == y)
-				return b;
-		}
-		return null;
-	}
-
-
 
 	/*** Die ******************************************************/
 
@@ -319,15 +315,15 @@ public class DragonController implements UnitWorks, CommandListener {
 		escape = false;
 
 		if (ba.isAlive()) {
-			treasure.searchTreasure(ba);
-			map.setEnd(ba.getX(), ba.getY());
+			treasure.searchTreasure(panelManager, ba);
+			stageMap.setEnd(ba.getX(), ba.getY());
 		}
 		mw.repaint();
 		if (endJudge(ba))
 			return;
 
 		if (isTurnEnd()) {
-			turnManager.enemyTurnStart();
+			enemyTurnStart();
 			return;
 		}
 		BasicPaint bp = new BasicPaint(this);
@@ -350,7 +346,7 @@ public class DragonController implements UnitWorks, CommandListener {
 				continue;
 			if (getChangeChara(b) != null)
 				return false;
-			if (!map.isEnd(b.getX(), b.getY()))
+			if (!stageMap.isEnd(b.getX(), b.getY()))
 				return false;
 		}
 		return true;
@@ -387,7 +383,7 @@ public class DragonController implements UnitWorks, CommandListener {
 			return false;
 		if (ba.getColor() != GameColor.BLUE)
 			return false;
-		if (!map.crushCrystal(ba.getX(), ba.getY(), GameColor.RED)) {
+		if (!stageMap.crushCrystal(ba.getX(), ba.getY(), GameColor.RED)) {
 			return false;
 		}
 		
@@ -400,7 +396,7 @@ public class DragonController implements UnitWorks, CommandListener {
 	}
 
 	private void stageClear() {
-		treasure.getClearItem();
+		treasure.getClearItem(panelManager);
 		PaintUtils.setWaitPaint(this);
 		panelManager.closeData();
 
@@ -431,7 +427,7 @@ public class DragonController implements UnitWorks, CommandListener {
 			return false;
 		if (ba.getColor() == GameColor.BLUE)
 			return false;
-		if (!map.crushCrystal(ba.getX(), ba.getY(), GameColor.BLUE)) {
+		if (!stageMap.crushCrystal(ba.getX(), ba.getY(), GameColor.BLUE)) {
 			return false;
 		}
 		if (GameColor.isPlayer(ba))
@@ -454,18 +450,19 @@ public class DragonController implements UnitWorks, CommandListener {
 		return equip.have(b);
 	}
 	public void limitOver() {
-		summon.summon();
+		int turn = turnManager.getTurn();
+		summon.summon(turn);
 		treasure.limitOver();
 	}
 
 
 	public void message() {
-		treasure.message();
-		soulManager.message();
+		treasure.message(panelManager);
+		soulManager.message(panelManager);
 	}
 
 	public void addMember(Body b) {
-		treasure.addMember(b);
+		treasure.addMember(panelManager, b);
 	}
 
 	public void bersekChara(Body doll) {
@@ -496,7 +493,7 @@ public class DragonController implements UnitWorks, CommandListener {
 		panelManager.closeData();
 		fw.setMenu(FrameWorks.T_CAMP);
 		PaintUtils.setCampPaint(this, camp);
-		map.resetBack(StageBack.WHITE);
+		stageMap.resetBack(StageBack.WHITE);
 		camp.repaint(statics.getCampMap());
 		mw.repaint();
 	}
@@ -569,7 +566,7 @@ public class DragonController implements UnitWorks, CommandListener {
 			setMensEnd();
 			break;
 		case "turnend":
-			turnManager.enemyTurnStart();
+			enemyTurnStart();
 			break;
 		case "mapload":
 			equip = saveManager.loadData("slgs.dat");
@@ -646,7 +643,7 @@ public class DragonController implements UnitWorks, CommandListener {
 
 	@Override
 	public UnitMap getUnitMap() {
-		return map.getMap();
+		return stageMap.getMap();
 	}
 
 	@Override
@@ -677,6 +674,16 @@ public class DragonController implements UnitWorks, CommandListener {
 
 	@Override
 	public Point getCrystal(GameColor color) {
-		return map.getCrystal(color);
+		return stageMap.getCrystal(color);
+	}
+
+	@Override
+	public FightManager getFightManager() {
+		return fightManager;
+	}
+
+	@Override
+	public StageMap getStageMap() {
+		return stageMap;
 	}
 }

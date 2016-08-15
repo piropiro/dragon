@@ -3,6 +3,7 @@ package dragon3.stage;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.inject.Named;
 
 import dragon3.Statics;
 import dragon3.controller.UnitWorks;
@@ -10,6 +11,7 @@ import dragon3.data.StageData;
 import dragon3.image.ImageManager;
 import dragon3.save.SaveData;
 import lombok.Getter;
+import lombok.Setter;
 import mine.event.MouseAllListener;
 import mine.event.PaintComponent;
 import mine.event.PaintListener;
@@ -27,51 +29,50 @@ public class StageSelectPanel implements StageManager, MouseAllListener, PaintLi
 	private static final int P_STATUS = 1;
 	private static final int P_WAKU = 2;
 	
-	@Inject Statics statics;
-	
 	private PaintComponent panel;
 	
-	private UnitWorks uw;
+	@Setter UnitWorks uw;
 
 	private ImageManager imageManager;
+	
 	
 	private int wx, wy, wxs, wys;
 
 	private List<StageData> stageList;
 	
-	private UnitMap stageMap;
+	private UnitMap selectMap;
 	
 	@Getter private StageData selectedStage;
 
 	/*** Constructer *****************************************************/
 
-	public StageSelectPanel(PaintComponent panel, UnitWorks uw, List<StageData> stageList, ImageManager imageManager) {
+	@Inject
+	public StageSelectPanel(@Named("stageSelectC") PaintComponent panel, ImageManager imageManager, Statics statics) {
 		super();
 		this.panel = panel;
-		this.uw = uw;
-		this.stageList = stageList;
 		this.imageManager = imageManager;
+		this.stageList = statics.getStageList();
 
 		int[][] stageMapData  = statics.getStageMapData();
 		MineImage[] stageImageList = imageManager.loadStageImageList(stageList);
 
-		stageMap = new UnitMap(3, stageMapData[0].length, stageMapData.length, imageManager.getImageLoader());
-		stageMap.setTile(P_STAGE, stageImageList, -1);
-		stageMap.setTile(P_STATUS, imageManager.createStageStatusImageList(stageList, new SaveData()), -1);
-		stageMap.setTile(P_WAKU, imageManager.getStageWaku(), 0);
-		stageMap.setPage(P_STAGE, stageMapData);
-		stageMap.setPage(P_STATUS, stageMapData);
-		stageMap.setVisible(P_STAGE, true);
-		stageMap.setVisible(P_STATUS, true);
-		stageMap.setVisible(P_WAKU, true);
+		selectMap = new UnitMap(3, stageMapData[0].length, stageMapData.length, imageManager.getImageLoader());
+		selectMap.setTile(P_STAGE, stageImageList, -1);
+		selectMap.setTile(P_STATUS, imageManager.createStageStatusImageList(stageList, new SaveData()), -1);
+		selectMap.setTile(P_WAKU, imageManager.getStageWaku(), 0);
+		selectMap.setPage(P_STAGE, stageMapData);
+		selectMap.setPage(P_STATUS, stageMapData);
+		selectMap.setVisible(P_STAGE, true);
+		selectMap.setVisible(P_STATUS, true);
+		selectMap.setVisible(P_WAKU, true);
 		
 		panel.setPaintListener(this);
 	}
 	
 	public void updateStageStatus(SaveData saveData) {
 		openStage(saveData);
-		stageMap.setTile(P_STATUS, imageManager.createStageStatusImageList(stageList, saveData), -1);
-		stageMap.repaint();
+		selectMap.setTile(P_STATUS, imageManager.createStageStatusImageList(stageList, saveData), -1);
+		selectMap.repaint();
 	}
 	
 	public void openStage(SaveData saveData) {
@@ -79,7 +80,7 @@ public class StageSelectPanel implements StageManager, MouseAllListener, PaintLi
 			String stageId = stageList.get(i).getId();
 			
 			if (saveData.getStarNum(stageId) > 0) {
-				Point p = stageMap.searchData(P_STAGE, i);
+				Point p = selectMap.searchData(P_STAGE, i);
 
 				openStage(saveData, p.x, p.y);
 				openStage(saveData, p.x - 1, p.y);
@@ -91,7 +92,7 @@ public class StageSelectPanel implements StageManager, MouseAllListener, PaintLi
 	}
 	
 	private void openStage(SaveData saveData, int x, int y) {
-		int index = stageMap.getData(P_STAGE, x, y);
+		int index = selectMap.getData(P_STAGE, x, y);
 		if (index != UnitMap.FALSE) {
 			String stageId = stageList.get(index).getId();
 			saveData.setOpened(stageId, true);
@@ -125,8 +126,8 @@ public class StageSelectPanel implements StageManager, MouseAllListener, PaintLi
 	}
 
 	public void wakuPaint(boolean flag) {
-		stageMap.setData(P_WAKU, wxs, wys, 0);
-		stageMap.setData(P_WAKU, wx, wy, 1);
+		selectMap.setData(P_WAKU, wxs, wys, 0);
+		selectMap.setData(P_WAKU, wx, wy, 1);
 		if (flag) {
 			int x = Math.min(wx, wxs) * UNIT_WIDTH;
 			int y = Math.min(wy, wys) * UNIT_HEIGHT;
@@ -146,7 +147,7 @@ public class StageSelectPanel implements StageManager, MouseAllListener, PaintLi
 
 	@Override
 	public void paint(MineGraphics g) {
-		stageMap.draw(g);
+		selectMap.draw(g);
 	}
 
 	@Override
@@ -193,7 +194,7 @@ public class StageSelectPanel implements StageManager, MouseAllListener, PaintLi
 
 	@Override
 	public void accept() {
-		int stageNum = stageMap.getData(P_STAGE, wx, wy);
+		int stageNum = selectMap.getData(P_STAGE, wx, wy);
 		selectedStage = stageList.get(stageNum);
 		uw.stageStart(selectedStage);
 	}

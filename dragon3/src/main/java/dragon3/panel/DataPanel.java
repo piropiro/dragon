@@ -28,7 +28,6 @@ import dragon3.panel.paint.WazaListPaint;
 import dragon3.panel.paint.WazaPaint;
 import dragon3.save.SaveData;
 import mine.event.PaintComponent;
-import mine.event.SleepManager;
 import mine.paint.MineGraphics;
 import mine.paint.MineImage;
 import mine.util.Point;
@@ -42,120 +41,131 @@ public class DataPanel extends PanelBase {
 	
 	private PaintComponent panel;
 
-	private ImageManager im;
+	@Inject ImageManager im;
 
 	private DataPanelPainter pp;
 
 	private GameColor bgcolor = GameColor.BLUE;
-	
-	private MineImage cBlueImage;
 
 
 	/*** Constructer *******************************************/
 
-	public DataPanel(PaintComponent panel, SleepManager sm, ImageManager im, boolean left) {
-		super(panel, sm, im, WIDTH, HEIGHT, left);
+	public DataPanel(PaintComponent panel, boolean left) {
+		super(WIDTH, HEIGHT, left);
 		this.panel = panel;
-		this.im = im;
-		
-		this.cBlueImage = im.getStageObj()[MoveUtils.C_BLUE];
-		
 		panel.setPaintListener(this);
 	}
 
 	/*** Score *******************************************/
 
 	public void displayScore1(SaveData sd) {
-		bgcolor = GameColor.BLUE;
-		setLocate(new Point(2, 1), 1);
+		MineImage cBlueImage = im.getStageObj()[MoveUtils.C_BLUE];
 		pp = new Score1Paint(sd, cBlueImage);
-		panel.repaint();
-		panel.setVisible(true);
+		display();
 	}
 
 	public void displayScore2(Equip equip, SaveData sd) {
-		bgcolor = GameColor.BLUE;
-		setLocate(new Point(3, 1), 1);
 		pp = new Score2Paint(equip, sd);
-		panel.repaint();
-		panel.setVisible(true);
+		display();
 	}
 
 	/*** Status *******************************************/
 
 	public void displayCamp(Point pa, int tikei, GameColor bgcolor_) {
-		this.bgcolor = bgcolor_;
-		setLocate(pa, 1);
-		pp = new CampDataPaint(tikei, im.getWhiteBack(), im.getWaku());
-		panel.repaint();
-		panel.setVisible(true);
+		pp = new CampDataPaint(tikei, im.getWhiteBack(), im.getWaku(), bgcolor_, pa);
+		display();
 	}
 
 	public void displayPlace(Point pa, int tikei) {
-		bgcolor = GameColor.GREEN;
-		setLocate(pa, 1);
-		pp = new PlacePaint(tikei, im.getStageObj());
-		panel.repaint();
-		panel.setVisible(true);
+		pp = new PlacePaint(tikei, im.getStageObj(), pa);
+		display();
 	}
 
 	public void displayItem(Point pa, int turn, int limit, int tikei) {
-		bgcolor = GameColor.GREEN;
-		setLocate(pa, 1);
-		pp = new ItemPaint(turn, limit, tikei, im.getStageObj());
-		panel.repaint();
-		panel.setVisible(true);
+		pp = new ItemPaint(turn, limit, tikei, im.getStageObj(), pa);
+		display();
 	}
 	
 	public void displaySummon(Point pa, int turn, int limit, int tikei) {
-		bgcolor = GameColor.GREEN;
-		setLocate(pa, 1);
-		pp = new SummonPaint(turn, limit, tikei, im.getStageObj());
-		panel.repaint();
-		panel.setVisible(true);
+		pp = new SummonPaint(turn, limit, tikei, im.getStageObj(), pa);
+		display();
 	}
 
 	public void displayData(Point pa, int turn, int treasureLimit, String treasureCount) {
-		bgcolor = GameColor.GREEN;
-		setLocate(pa, 1);
-		pp = new DataPaint(turn, treasureLimit, treasureCount, cBlueImage);
-		panel.repaint();
-		panel.setVisible(true);
-	}
-
-	private void display(Body ba, DataPanelPainter pp_) {
-		if (ba == null) {
-			panel.setVisible(false);
-			return;
-		}
-		this.pp = pp_;
-		bgcolor = ba.getColor();
-		setLocate(ba, 1);
-		setHPBar(false, ba);
-		setEXPBar(ba);
-		panel.repaint();
-		panel.setVisible(true);		
+		MineImage cBlueImage = im.getStageObj()[MoveUtils.C_BLUE];
+		pp = new DataPaint(turn, treasureLimit, treasureCount, cBlueImage, pa);
+		display();
 	}
 
 	public void displayAnalyze(Body ba) {
-		display(ba, new AnalyzePaint(ba));
+		pp = new AnalyzePaint(ba);
+	
+		setHPBar(ba, null);
+		setEXPBar(ba);
+		display();
 	}
 	
-	public void displayStatus(Body ba) {
-		display(ba, new StatusPaint(ba));
+	public void displayStatus(Body ba) {		
+		pp = new StatusPaint(ba);
+
+		setHPBar(ba, null);
+		setEXPBar(ba);
+		
+		display();
 	}
 	
 	public void displayTypeList(Body ba) {
-		display(ba, new TypeListPaint(ba));
+		pp = new TypeListPaint(ba);
+
+		setHPBar(ba, null);
+		setEXPBar(ba);
+		
+		display();
 	}
 
 	public void displayWazaList(Body ba) {
-		display(ba, new WazaListPaint(ba));
+		pp = new WazaListPaint(ba);
+
+		setHPBar(ba, null);
+		setEXPBar(ba);
+		
+		display();
 	}
 
 	public void displayWaza(Body ba, int i) {
-		WazaData waza = statics.getWazaData(ba.getWazaList().get(i));
-		display(ba, new WazaPaint(waza, im.getWhiteBack()));
+		WazaData waza = statics.getWazaData(ba.getWazaList().get(i));	
+		pp = new WazaPaint(ba, waza, im.getWhiteBack());
+
+		setHPBar(ba, null);
+		setEXPBar(ba);
+		
+		display();
+	}
+	
+	public void displayCounter(Attack counter) {
+
+		Body ba = counter.getReceiver();
+
+		pp = new CounterPaint(counter);
+		bgcolor = pp.getColor();
+		setLocate(pp.getPoint1(), pp.getPoint2(), 2);
+		
+		setHPBar(ba, counter);
+
+		panel.repaint();
+		panel.setVisible(true);
+	}
+	
+	public void displayAttack(Attack attack, Attack counter) {
+		Body ba = attack.getAttacker();
+
+		pp = new AttackPaint(attack);
+		bgcolor = pp.getColor();
+		setLocate(pp.getPoint1(), pp.getPoint2(), 2);
+		setHPBar(ba, counter);
+
+		panel.repaint();
+		panel.setVisible(true);
 	}
 	
 	public void displayNext(Body ba) {
@@ -173,35 +183,41 @@ public class DataPanel extends PanelBase {
 			displayStatus(ba);
 		}
 	}
-
-	public void displayAttack(Attack attack, Attack counter) {
-		Body ba = null;
-		Body bb = null;
-
-		if (attack == null) {
-			if (counter == null) {
-				panel.setVisible(false);
-				return;
-			} else {
-				ba = counter.getReceiver();
-				bb = counter.getAttacker();
-				bgcolor = ba.getColor();
-				pp = new CounterPaint(ba);
-			}
-		} else {
-			ba = attack.getAttacker();
-			bb = attack.getReceiver();
-			bgcolor = ba.getColor();
-			pp = new AttackPaint(bb, attack);
-		}
-
-		setLocate(ba, bb, 2);
-		setHPBar(ba, counter);
-
+	
+	private void display() {
+		setLocate(pp.getPoint1(), pp.getPoint2(), 1);
+		bgcolor = pp.getColor();
 		panel.repaint();
 		panel.setVisible(true);
 	}
 
+	/*** Locate ***********************************************/
+
+	public void setLocate(Point ba, Point bb, int size) {
+
+		int mx = 0;
+		int my = 0;
+
+		mx =
+			Math.min(
+				(ba.x + bb.x) * 16 + 64 + 16,
+				20 * 32 - width * size);
+		if (Math.max(ba.y, bb.y) < 10) {
+			my =
+				Math.min(
+					Math.max(ba.y, bb.y) * 32 + 96 + 16,
+					15 * 32 - height);
+		} else if (Math.min(ba.y, bb.y) >= 5) {
+			my = Math.max(0, Math.min(ba.y, bb.y) * 32 - height - 64 - 16);
+		} else {
+			my = (ba.y + bb.y) * 16 + 16 - height / 2;
+		}
+		if (!left) {
+			mx += width;
+		}
+		panel.setLocation(mx, my);
+	}
+	
 	/*** Paint *****************************************************/
 
 	@Override
@@ -213,4 +229,29 @@ public class DataPanel extends PanelBase {
 		}
 	}
 
+	/*** Damage **********************************************/
+
+	public void damage(Body ba, int damage) {
+		hpb.setMin(ba.getHp() - damage, true);
+		panel.repaint(50, 50, 96, 12);
+	}
+
+	/*** Henka **************************************************/
+
+	public void henka() {
+		int st = hpb.getSleepTime() / 2;
+		while (hpb.henka()) {
+			panel.repaint(50, 50, 96, 12);
+			sleep(st);
+		}
+		panel.repaint();
+	}
+	
+	public void repaint() {
+		panel.repaint();
+	}
+	
+	public void setVisible(boolean flag) {
+		panel.setVisible(flag);
+	}
 }

@@ -26,7 +26,6 @@ import mine.paint.MineGraphics;
 import mine.paint.MineImage;
 import mine.paint.MineImageLoader;
 import mine.paint.PaintBox;
-import mine.paint.UnitMap;
 import mine.thread.Lock;
 
 
@@ -52,7 +51,7 @@ public class CardCanvas
 	@Inject WakuPainter wakuMover;
 	private Enemy enemy;
 	private Player player;
-	@Inject UnitMap map;
+	@Inject CardMap map;
 	private Lock lock;
 	private Random random;
 
@@ -109,7 +108,7 @@ public class CardCanvas
 		cards.removeAll(cards);
 		cardManager.setBlueCards(this, blueNum);
 		cardManager.setRedCards(this, redNum);
-		map.setTile(Page.CHARA, new MineImage[]{blueChara, redChara}, -1);
+		map.getMap().setTile(Page.CHARA, new MineImage[]{blueChara, redChara}, -1);
 	}
 
 	public void setBlueChara(MineImage blueChara, int[] blueNum){
@@ -135,7 +134,7 @@ public class CardCanvas
 
 	@Override
 	public void paint(MineGraphics g){
-		map.draw(g);
+		map.getMap().draw(g);
 		synchronized (cards) {
 			for (Card card : cards) {
 				card.paint(g);

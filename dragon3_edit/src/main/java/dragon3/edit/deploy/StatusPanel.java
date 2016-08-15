@@ -10,17 +10,15 @@ import dragon3.data.BodyData;
 import dragon3.data.DeployData;
 import dragon3.image.BodyImageList;
 import dragon3.image.ImageManager;
-import mine.awt.ImageLoaderAWT;
 import mine.edit.EditListener;
 import mine.edit.EditPanel;
 import mine.paint.MineImage;
-import mine.paint.MineImageLoader;
 
 @SuppressWarnings("serial")
 public class StatusPanel extends EditPanel<DeployData> implements EditListener<DeployData> {
 
 	@Inject
-	StatusPanel(Statics statics) {
+	StatusPanel(Statics statics, ImageManager im) {
 		super(DeployData.class);
 
 		
@@ -42,9 +40,6 @@ public class StatusPanel extends EditPanel<DeployData> implements EditListener<D
 		String[] idList = new String[bodyList.size()];
 		MineImage[] imageList = new MineImage[bodyList.size()];
 
-	
-		MineImageLoader mil = new ImageLoaderAWT();
-		ImageManager im = new ImageManager(mil);
 		BodyImageList bil = im.getBodyImageList();
 
 		for (int i=0; i<bodyList.size(); i++) {

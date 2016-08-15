@@ -1,6 +1,5 @@
 package dragon3.paint;
 
-import mine.util.Point;
 import java.util.List;
 
 import dragon3.common.Body;
@@ -9,16 +8,19 @@ import dragon3.common.constant.Page;
 import dragon3.common.constant.Texts;
 import dragon3.common.util.MoveUtils;
 import dragon3.controller.UnitWorks;
+import dragon3.manage.TurnManager;
 import dragon3.map.MapWorks;
+import dragon3.map.StageMap;
 import dragon3.panel.PanelManager;
-import mine.paint.UnitMap;
+import mine.util.Point;
 
 public class PutPlayersPaint implements EventListener {
 
 	private UnitWorks uw;
 	private MapWorks mw;
-	private UnitMap map;
+	private StageMap map;
 	private PanelManager pm;
+	private TurnManager tm;
 	
 	static final int MAX = 5;
 
@@ -34,16 +36,16 @@ public class PutPlayersPaint implements EventListener {
 	/**
 	 * @param uw
 	 * @param mw
-	 * @param map
+	 * @param stageMap
 	 * @param charaList
 	 * @param playerList
 	 */
 	public PutPlayersPaint(UnitWorks uw, List<Body> charaList, List<Body> playerList) {
 		this.uw = uw;
 		this.mw = uw.getMapWorks();
-		this.map = uw.getUnitMap();
+		this.map = uw.getStageMap();
 		this.pm = uw.getPanelManager();
-		this.pm = uw.getPanelManager();
+		this.tm = uw.getTurnManager();
 		
 		this.charaList = charaList;
 		this.playerList = playerList;
@@ -66,7 +68,7 @@ public class PutPlayersPaint implements EventListener {
 	 *
 	 */
 	private void setColor() {
-		map.change(Page.P01, MoveUtils.S_RED, Page.P01, 0);
+		map.getMap().change(Page.P01, MoveUtils.S_RED, Page.P01, 0);
 	}
 
 
@@ -74,12 +76,12 @@ public class PutPlayersPaint implements EventListener {
 	 *
 	 */
 	private void autoPut() {
-		int width = map.getMapWidth();
-		int height = map.getMapHeight();
+		int width = map.getMap().getMapWidth();
+		int height = map.getMap().getMapHeight();
 		max = 0;
 		for (int y = 0; y < height; y++) {
 			for (int x = 0; x < width; x++) {
-				int d = map.getData(Page.P01, x, y);
+				int d = map.getMap().getData(Page.P01, x, y);
 				if (d == MoveUtils.S_BLUE) {
 					if (!putChara(x, y))
 						return;
@@ -106,7 +108,7 @@ public class PutPlayersPaint implements EventListener {
 		playerList.remove(ba);
 		ba.setX(x);
 		ba.setY(y);
-		map.setData(Page.P20, x, y, ba.getImageNum());
+		map.getMap().setData(Page.P20, x, y, ba.getImageNum());
 		ps = null;
 		n++;
 		return true;
@@ -122,7 +124,7 @@ public class PutPlayersPaint implements EventListener {
 		if (n == 0)
 			return false;
 
-		Body ba = uw.search(x, y);
+		Body ba = map.search(x, y);
 		if (ba == null)
 			return false;
 
@@ -170,7 +172,7 @@ public class PutPlayersPaint implements EventListener {
 		nextChara(x, y, true);
 		putChara(x, y);
 		mw.ppaint(x, y);
-		pm.displayStatus(uw.search(x, y));
+		pm.displayStatus(map.search(x, y));
 	}
 
 
@@ -183,10 +185,10 @@ public class PutPlayersPaint implements EventListener {
 			return;
 		if (n == max)
 			return;
-		int tikei = map.getData(Page.P01, x, y);
+		int tikei = map.getMap().getData(Page.P01, x, y);
 
 		if (ps != null) {
-			map.setData(Page.P20, ps.x, ps.y, 0);
+			map.getMap().setData(Page.P20, ps.x, ps.y, 0);
 		}
 		if (tikei == MoveUtils.CLOSE_BOX)
 			return;
@@ -197,9 +199,9 @@ public class PutPlayersPaint implements EventListener {
 		if (tikei == MoveUtils.CLOSE_MAGIC)
 			return;
 
-		if (map.getData(Page.P20, x, y) == 0) {
+		if (map.getMap().getData(Page.P20, x, y) == 0) {
 			Body ba = (Body) playerList.get(playerList.size()-1);
-			map.setData(Page.P20, x, y, ba.getImageNum());
+			map.getMap().setData(Page.P20, x, y, ba.getImageNum());
 			ps = new Point(x, y);
 		} else {
 			ps = null;
@@ -210,12 +212,12 @@ public class PutPlayersPaint implements EventListener {
 	@Override
 	public void leftPressed() {
 		Point p = mw.getWaku();
-		if (map.getData(Page.P20, p.x, p.y) == 0) {
-			uw.getPanelManager().displayData(p.x, p.y);
+		if (map.getMap().getData(Page.P20, p.x, p.y) == 0) {
+			pm.displayData(tm, p.x, p.y);
 			return;
 		}
-		if (map.getData(Page.P01, p.x, p.y) == MoveUtils.S_BLUE) {
-			if (uw.search(p.x, p.y) == null) {
+		if (map.getMap().getData(Page.P01, p.x, p.y) == MoveUtils.S_BLUE) {
+			if (map.search(p.x, p.y) == null) {
 				putChara(p.x, p.y);
 			} else {
 				pickChara(p.x, p.y);
@@ -229,6 +231,7 @@ public class PutPlayersPaint implements EventListener {
 	@Override
 	public void mouseMoved(int x, int y) {
 		mw.wakuMove(x, y);
+		pm.setHelpLocation(x, y);
 		moveChara(x, y);
 		mw.wakuPaint(true);
 	}
@@ -236,7 +239,7 @@ public class PutPlayersPaint implements EventListener {
 
 	@Override
 	public boolean isNextPoint(int x, int y) {
-		Body b = uw.search(x, y);
+		Body b = map.search(x, y);
 		if (b != null)
 			return (GameColor.isPlayer(b));
 		return false;
@@ -246,7 +249,7 @@ public class PutPlayersPaint implements EventListener {
 
 	@Override
 	public void setSelectPlace(int x, int y) {
-		uw.getPanelManager().displayPlace(x, y);
+		pm.displayPlace(tm, x, y);
 	}
 
 	/*** Select Body *****************************************/
@@ -270,12 +273,12 @@ public class PutPlayersPaint implements EventListener {
 	@Override
 	public void cancel() {
 		Point p = mw.getWaku();
-		if (map.getData(Page.P20, p.x, p.y) == 0) {
+		if (map.getMap().getData(Page.P20, p.x, p.y) == 0) {
 			PaintUtils.setButtonPaint(uw, p.x, p.y, this, 6);
 			return;
 		}
-		Body b = uw.search(p.x, p.y);
-		if (map.getData(Page.P01, p.x, p.y) == MoveUtils.S_BLUE) {
+		Body b = map.search(p.x, p.y);
+		if (map.getMap().getData(Page.P01, p.x, p.y) == MoveUtils.S_BLUE) {
 			if (b != null) {
 				changeChara(p.x, p.y);
 				return;
