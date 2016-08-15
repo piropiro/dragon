@@ -5,6 +5,8 @@ import java.util.Map;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
 
+import javax.inject.Inject;
+
 import dragon3.Statics;
 import dragon3.camp.Equip;
 import dragon3.common.Body;
@@ -16,6 +18,8 @@ import dragon3.panel.PanelManager;
 public class LevelManager {
 
 	public static final int MAX_EXP = 100;
+
+	@Inject Statics statics;
 	
 	private Equip equip;
 	private PanelManager pm;
@@ -76,7 +80,7 @@ public class LevelManager {
 		
 		for (String wazaId : wazaList) {
 			if (!ba.getWazaList().contains(wazaId)) {
-				WazaData waza = (WazaData)Statics.wazaList.getData(wazaId);
+				WazaData waza = statics.getWazaData(wazaId);
 				if (waza.getName().length() <= 5) {
 					pm.addMessage(waza.getName() + Texts.wo + Texts.equip2);
 				} else {

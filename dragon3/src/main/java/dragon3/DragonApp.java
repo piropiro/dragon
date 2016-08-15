@@ -6,10 +6,14 @@ import dragon3.view.DragonFrame;
 public class DragonApp {
 
 	public static void main(String[] args) {
-		DragonFrame fw = new DragonFrame();
-		DragonController vp = new DragonController(fw);
-		fw.setCommandListener(vp);
-		vp.title();
+		DragonComponent og = DaggerDragonComponent.builder().build();
+		
+		DragonFrame fw = og.getDragonFrame();
+		
+		DragonController dc = og.getDragonController();
+		fw.setCommandListener(dc);
+		dc.setup();
+		dc.title();
 		fw.launch();
 	}
 

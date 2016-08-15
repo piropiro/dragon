@@ -5,11 +5,13 @@ import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
 
+import javax.inject.Inject;
+
+import dragon3.Statics;
 import dragon3.common.Body;
 import dragon3.common.constant.BodyKind;
 import dragon3.common.constant.GameColor;
 import dragon3.common.constant.Texts;
-import dragon3.controller.UnitWorks;
 import dragon3.data.BodyData;
 import dragon3.data.load.BodyDataLoader;
 import dragon3.image.ImageManager;
@@ -17,18 +19,17 @@ import dragon3.panel.PanelManager;
 
 public class SoulManager {
 
+	@Inject Statics statics;
+	@Inject BodyDataLoader bodyDataLoader;
+	
 //	private UnitWorks uw;
-	private PanelManager pm;
-	private ImageManager imageManager;
+	@Inject ImageManager imageManager;
 	
 	private int count;
 	private Body soul;
 
-	
-	public SoulManager(UnitWorks uw) {
-//		this.uw = uw;
-		this.pm = uw.getPanelManager();
-		this.imageManager = uw.getImageManager();
+	@Inject
+	public SoulManager() {
 		setup();
 	}
 
@@ -49,7 +50,7 @@ public class SoulManager {
 		if (GameColor.isPlayer(body))
 			return null;
 		
-		soul = BodyDataLoader.loadBodyData(body.base.getId(), body.getLevel());
+		soul = bodyDataLoader.loadBodyData(body.base.getId(), body.getLevel());
 		soul.base.setKind(BodyKind.SOUL);
 		soul.setColor(GameColor.GREEN);
 		soul.base.setImage(soul.base.getSoulType().getImage());
@@ -100,7 +101,7 @@ public class SoulManager {
 		baseSet.accept(n);
 	}
 
-	public void message() {
+	public void message(PanelManager pm) {
 		if (soul == null)
 			return;
 		pm.addMessage(soul.getBase().getName() + Texts.ha);

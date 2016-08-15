@@ -1,21 +1,21 @@
 package card.anime;
 
 import mine.paint.UnitMap;
-import card.UnitWorks;
+import card.CardWorks;
 import card.body.Card;
 import card.common.ImageList;
 import card.common.Page;
 
 public class OpeningAnime implements Runnable {
 	
-	private UnitWorks canvas;
+	private CardWorks canvas;
 	private UnitMap map;
 	private AnimeManager anime;
 	private Card[] red;
 	private Card[] blue;
 	private ImageList il;
 
-	public OpeningAnime(UnitWorks canvas, AnimeManager anime, UnitMap map, Card[] red, Card[] blue, ImageList il){
+	public OpeningAnime(CardWorks canvas, AnimeManager anime, UnitMap map, Card[] red, Card[] blue, ImageList il){
 		this.canvas = canvas;
 		this.anime = anime;
 		this.map = map;
@@ -42,19 +42,19 @@ public class OpeningAnime implements Runnable {
 		
 		for (int i=0; i<10; i++) {
 			map.setData(Page.BACK, i, 0, 1);
-			anime.moveCard(card, (i+1)*32, 0, 4);
+			anime.moveCard(canvas, card, (i+1)*32, 0, 4);
 		}
 		for (int i=0; i<12; i++) {
 			map.setData(Page.BACK, 10, i, 1);
-			anime.moveCard(card, 10*32, (i+1)*32, 4);
+			anime.moveCard(canvas, card, 10*32, (i+1)*32, 4);
 		}
 		for (int i=10; i>0; i--) {
 			map.setData(Page.BACK, i, 12, 1);
-			anime.moveCard(card, (i-1)*32, 12*32, 4);
+			anime.moveCard(canvas, card, (i-1)*32, 12*32, 4);
 		}
 		for (int i=12; i>0; i--) {
 			map.setData(Page.BACK, 0, i, 1);
-			anime.moveCard(card, 0, (i-1)*32, 4);
+			anime.moveCard(canvas, card, 0, (i-1)*32, 4);
 		}
 		card.dispose();
 		canvas.removeCard(card);
@@ -73,7 +73,7 @@ public class OpeningAnime implements Runnable {
 		canvas.addCard(card);
 		red[6].close();
 		for (int i=5; i>=0; i--) {
-			anime.moveCard(card, (i+2)*32, 4*32, 8);
+			anime.moveCard(canvas, card, (i+2)*32, 4*32, 8);
 			red[i].close();
 		}
 		card.dispose();
@@ -87,7 +87,7 @@ public class OpeningAnime implements Runnable {
 		canvas.addCard(card);
 		blue[0].close();
 		for (int i=1; i<7; i++) {
-			anime.moveCard(card, (i+2)*32, 8*32, 8);
+			anime.moveCard(canvas, card, (i+2)*32, 8*32, 8);
 			blue[i].close();
 		}
 		card.dispose();

@@ -1,22 +1,24 @@
 package dragon3.paint;
 
-import mine.util.Point;
 import dragon3.common.Body;
 import dragon3.common.constant.BodyAttribute;
 import dragon3.common.constant.GameColor;
 import dragon3.common.constant.Page;
 import dragon3.common.constant.Texts;
 import dragon3.controller.UnitWorks;
+import dragon3.manage.TurnManager;
 import dragon3.map.MapWorks;
+import dragon3.map.StageMap;
 import dragon3.panel.PanelManager;
-import mine.paint.UnitMap;
+import mine.util.Point;
 
 public class BasicPaint implements EventListener {
 
 	private UnitWorks uw;
 	private MapWorks mw;
-	private UnitMap map;
+	private StageMap map;
 	private PanelManager pm;
+	private TurnManager tm;
 	
 	/**
 	 * @param uw
@@ -24,8 +26,9 @@ public class BasicPaint implements EventListener {
 	public BasicPaint(UnitWorks uw) {
 		this.uw = uw;
 		this.mw = uw.getMapWorks();
-		this.map = uw.getUnitMap();
+		this.map = uw.getStageMap();
 		this.pm = uw.getPanelManager();
+		this.tm = uw.getTurnManager();
 		setHelp();
 	}
 
@@ -41,7 +44,7 @@ public class BasicPaint implements EventListener {
 	 */
 	private void gotoWalk(Body ba) {
 
-		if (map.getData(Page.P30, ba.getX(), ba.getY()) == 0) {
+		if (map.getMap().getData(Page.P30, ba.getX(), ba.getY()) == 0) {
 			PaintUtils.setWalkPaint(uw, ba);
 			mw.repaint();
 			pm.displayWazaList(ba);
@@ -66,22 +69,22 @@ public class BasicPaint implements EventListener {
 	@Override
 	public void leftPressed() {
 		Point p = mw.getWaku();
-		Body b = uw.search(p.x, p.y);
+		Body b = map.search(p.x, p.y);
 		if (b != null) {
 			gotoWalk(b);
 		} else {
-			pm.displayData(p.x, p.y);
+			pm.displayData(tm, p.x, p.y);
 		}
 	}
 
 	@Override
 	public boolean isNextPoint(int x, int y) {
-		Body b = uw.search(x, y);
+		Body b = map.search(x, y);
 		if (b == null)
 			return false;
 		if (b.hasAttr(BodyAttribute.SLEEP))
 			return false;
-		if (map.getData(Page.P30, x, y) != 0)
+		if (map.getMap().getData(Page.P30, x, y) != 0)
 			return false;
 		if (GameColor.isPlayer(b)) {
 			if (b.hasAttr(BodyAttribute.CHARM))
@@ -97,7 +100,7 @@ public class BasicPaint implements EventListener {
 
 	@Override
 	public void setSelectPlace(int x, int y) {
-		uw.getPanelManager().displayPlace(x, y);
+		pm.displayPlace(tm, x, y);
 	}
 
 	/*** Select Body *****************************************/
@@ -111,8 +114,8 @@ public class BasicPaint implements EventListener {
 
 	@Override
 	public void mouseMoved(int x, int y) {
-		mw.wakuMove(x, y);
-		mw.wakuPaint(true);
+		pm.setHelpLocation(x, y);
+		mw.wakuPaint(x, y, true);
 	}
 
 	/*** Event ************************************/
@@ -125,7 +128,7 @@ public class BasicPaint implements EventListener {
 	@Override
 	public void cancel() {
 		Point p = mw.getWaku();
-		Body b = uw.search(p.x, p.y);
+		Body b = map.search(p.x, p.y);
 		if (b != null) {
 			pm.displayAnalyze(b);
 		} else {

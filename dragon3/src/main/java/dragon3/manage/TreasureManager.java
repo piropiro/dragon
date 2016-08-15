@@ -4,6 +4,8 @@ import mine.util.Point;
 import java.util.List;
 
 import dragon3.common.Body;
+import dragon3.controller.UnitWorks;
+import dragon3.panel.PanelManager;
 
 public interface TreasureManager {
 
@@ -29,7 +31,7 @@ public interface TreasureManager {
 
 	/*** Add Member ******************************/
 
-	public abstract void addMember(Body ba);
+	public abstract void addMember(PanelManager pm, Body ba);
 
 	/*** Retrieve ***********************************/
 
@@ -39,16 +41,18 @@ public interface TreasureManager {
 
 	/*** Search **********************************/
 
-	public abstract void searchTreasure(Body ba);
+	public abstract void searchTreasure(PanelManager pm, Body ba);
 
 	/*** ClearItem ***************************/
 
-	public abstract void getClearItem();
+	public abstract void getClearItem(PanelManager pm);
 
 	/*** Message *******************************/
 
-	public abstract void message();
+	public abstract void message(PanelManager pm);
 
-	public abstract void message(Body ba, Body tre);
+	public abstract void message(PanelManager pm, Body ba, Body tre);
+	
+	public void setUw(UnitWorks uw);
 
 }

@@ -1,5 +1,10 @@
 package dragon3.anime;
 
+import javax.inject.Inject;
+import javax.inject.Named;
+import javax.inject.Singleton;
+
+import dragon3.Statics;
 import dragon3.anime.listener.AllAnime;
 import dragon3.anime.listener.AnimeListener;
 import dragon3.anime.listener.ArrowAnime;
@@ -21,42 +26,35 @@ import dragon3.common.constant.AnimeType;
 import dragon3.data.AnimeData;
 import dragon3.image.ImageManager;
 import dragon3.map.MapWorks;
+import dragon3.map.StageMap;
 import mine.event.PaintComponent;
 import mine.event.PaintListener;
 import mine.event.SleepManager;
 import mine.paint.MineGraphics;
 import mine.paint.MineImage;
-import mine.paint.UnitMap;
 
+@Singleton
 public class AnimePanel implements AnimeManager, AnimeWorks, PaintListener {
 
 	private PaintComponent panel;
 	
-	private SleepManager sm;
+	@Inject SleepManager sm;
 
-	private MapWorks mw;
+	@Inject MapWorks mw;
 	
-	private UnitMap map;
+	@Inject StageMap map;
 
-	private ImageManager imageManager;
+	@Inject ImageManager imageManager;
 
 	private DataList<AnimeData> animeList;
 
 	private AnimeListener np;
 	private AnimeListener al;
 
-	/**
-	 * @param uw
-	 * @param map
-	 */
-	public AnimePanel(PaintComponent panel, MapWorks mw, SleepManager sm, UnitMap map, DataList<AnimeData> animeList, ImageManager imageManager) {
-		super();
+	@Inject
+	public AnimePanel(@Named("animeC") PaintComponent panel, Statics statics) {
 		this.panel = panel;
-		this.mw = mw;
-		this.sm = sm;
-		this.map = map;
-		this.animeList = animeList;
-		this.imageManager = imageManager;
+		this.animeList = statics.getAnimeList();
 
 		np = null;
 		al = null;
@@ -119,7 +117,7 @@ public class AnimePanel implements AnimeManager, AnimeWorks, PaintListener {
 	public void eraseAnime(int x, int y) {
 		panel.setBounds(x * 32, y * 32, 32, 32);
 		setVisible(true);
-		al = new EraseAnime(mw, map, x, y);
+		al = new EraseAnime(mw, map.getMap(), x, y);
 		al.animation(this);
 		al = null;
 	}
@@ -134,7 +132,7 @@ public class AnimePanel implements AnimeManager, AnimeWorks, PaintListener {
 	public void walkAnime(int x, int y) {
 		panel.setBounds(x * 32, y * 32, 32, 32);
 		np = null;
-		al = new WalkAnime(mw, map, x, y);
+		al = new WalkAnime(mw, map.getMap(), x, y);
 		setVisible(true);
 		al.animation(this);
 		setVisible(false);
@@ -167,7 +165,7 @@ public class AnimePanel implements AnimeManager, AnimeWorks, PaintListener {
 	@Override
 	public void criticalAnime(int x, int y) {
 		np = null;
-		al = new CriticalAnime(mw, map, x, y);
+		al = new CriticalAnime(mw, map.getMap(), x, y);
 		panel.setBounds(x * 32 - 32, y * 32, 96, 32);
 		setVisible(true);
 		al.animation(this);
@@ -216,7 +214,7 @@ public class AnimePanel implements AnimeManager, AnimeWorks, PaintListener {
 	public void statusAnime(int status, int x, int y) {
 		panel.setBounds(x * 32, y * 32 - 16, 32, 48);
 		setVisible(true);
-		al = new StatusAnime(mw, map, status, x, y, imageManager.getStatus());
+		al = new StatusAnime(mw, map.getMap(), status, x, y, imageManager.getStatus());
 		al.animation(this);
 		al = null;
 		setVisible(false);
@@ -233,7 +231,7 @@ public class AnimePanel implements AnimeManager, AnimeWorks, PaintListener {
 	public void summonAnime(int image, int x, int y) {
 		panel.setBounds(x * 32, y * 32 - 32, 32, 56);
 		setVisible(true);
-		al = new SummonAnime(mw, map, image, x, y);
+		al = new SummonAnime(mw, map.getMap(), image, x, y);
 		al.animation(this);
 		al = null;
 		setVisible(false);
@@ -264,7 +262,7 @@ public class AnimePanel implements AnimeManager, AnimeWorks, PaintListener {
 	public void allAnime(AnimeData data) {
 		setVisible(true);
 		MineImage[] image = imageManager.getAnimeImageList().getImage(data.getImage());
-		al = new AllAnime(map, image, data.getSleep());
+		al = new AllAnime(map.getMap(), image, data.getSleep());
 		al.animation(this);
 		al = null;
 	}
@@ -301,7 +299,7 @@ public class AnimePanel implements AnimeManager, AnimeWorks, PaintListener {
 		np = null;
 		setVisible(true);
 		MineImage[] image = imageManager.getAnimeImageList().getImage(data.getImage());
-		al = new SomeArrowAnime(map, image, data.getSleep(), x*32, y*32);
+		al = new SomeArrowAnime(map.getMap(), image, data.getSleep(), x*32, y*32);
 		al.animation(this);
 		al = null;
 	}

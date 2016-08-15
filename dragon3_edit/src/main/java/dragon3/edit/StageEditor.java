@@ -1,19 +1,23 @@
 package dragon3.edit;
 
+import javax.inject.Inject;
+
 import dragon3.data.StageData;
 import dragon3.stage.StageBack;
 import mine.edit.BeanEditor;
 import mine.edit.EditListener;
 import mine.edit.EditPanel;
 
+@SuppressWarnings("serial")
 public class StageEditor extends EditPanel<StageData> implements EditListener<StageData> {
 
-	private static final long serialVersionUID = 1L;
 
 	public static void main(String[] args) {
-		new BeanEditor<>("StageEditor", "stages.txt", "data.json", new StageEditor());
+		EditorComponent og = DaggerEditorComponent.builder().build();
+		new BeanEditor<>("StageEditor", "stages.txt", "data.json", og.getStageEditor());
 	}
 
+	@Inject
 	StageEditor() {
 		super(StageData.class);
 

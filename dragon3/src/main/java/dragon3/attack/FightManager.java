@@ -3,6 +3,9 @@ package dragon3.attack;
 import mine.util.Point;
 import java.util.List;
 
+import javax.inject.Inject;
+import javax.inject.Singleton;
+
 import mine.event.SleepManager;
 import mine.paint.UnitMap;
 import dragon3.anime.AnimeManager;
@@ -15,38 +18,50 @@ import dragon3.common.util.Tutorial;
 import dragon3.controller.UnitWorks;
 import dragon3.common.constant.BodyAttribute;
 import dragon3.map.MapWorks;
+import dragon3.map.StageMap;
 import dragon3.paint.PaintUtils;
 import dragon3.paint.TalkPaint;
 import dragon3.panel.PanelManager;
+import lombok.Setter;
 
+@Singleton
 public class FightManager {
 
-	private UnitWorks uw;
-	private MapWorks mw;
-	private UnitMap map;
-	private PanelManager pm;
-	private SleepManager sm;
-	private AnimeManager anime;
+	@Setter UnitWorks uw;
+	@Inject MapWorks mw;
+	@Inject StageMap stageMap;
+	@Inject PanelManager pm;
+	@Inject SleepManager sm;
+	@Inject AnimeManager anime;
 
 	private Body ba;
 	private Body bb;
-	private List<String> baWazaList;
 	private AttackManager attack;
 	private AttackManager counter;
 	private int n;
 
 	/*** Constructer ***************************************/
 
-	public FightManager(UnitWorks uw, Body ba) {
-		super();
-		this.uw = uw;
+	@Inject
+	public FightManager() {
+//		super();
+//		this.uw = uw;
+//		this.ba = ba;
+//		mw = uw.getMapWorks();
+//		map = uw.getUnitMap();
+//		pm = uw.getPanelManager();
+//		sm = uw.getSleepManager();
+//		anime = uw.getAnimeManager();
+//		baWazaList = ba.getWazaList();
+//		n = -1;
+//		setHelp(false);
+	}
+	
+	public void setup(Body ba) {
 		this.ba = ba;
-		mw = uw.getMapWorks();
-		map = uw.getUnitMap();
-		pm = uw.getPanelManager();
-		sm = uw.getSleepManager();
-		anime = uw.getAnimeManager();
-		baWazaList = ba.getWazaList();
+		this.bb = null;
+		attack = null;
+		counter = null;
 		n = -1;
 		setHelp(false);
 	}
@@ -64,7 +79,7 @@ public class FightManager {
 	/*** Select *********************************************/
 
 	public void nextSelect() {
-		while (++n < baWazaList.size()) {
+		while (++n < ba.getWazaList().size()) {
 			if (select(n, false)) {
 				PaintUtils.setAttackPaint(uw, this, ba);
 				return;
@@ -72,7 +87,7 @@ public class FightManager {
 		}
 		TalkPaint tp = new TalkPaint(uw, ba);
 		if (tp.isEnable()) {
-			mw.setEventListener(tp);
+			uw.setEventListener(tp);
 			tp.show();
 			mw.repaint();
 		} else {
@@ -83,12 +98,12 @@ public class FightManager {
 	}
 
 	public boolean select(int i, boolean enemyFlag) {
-		if (baWazaList.get(i).equals("none"))
+		if (ba.getWazaList().get(i).equals("none"))
 			return false;
 		if (i > 0 && ba.hasAttr(BodyAttribute.WET))
 			return false;
 		
-		attack = new AttackManagerImpl(uw, map, ba, baWazaList.get(i), true);
+		attack = new AttackManagerImpl(uw, stageMap.getMap(), ba, ba.getWazaList().get(i), true);
 		if (attack.isAlive(enemyFlag)) {
 			attack.show();
 			//pm.selectHp(true);
@@ -102,10 +117,10 @@ public class FightManager {
 	public boolean enemySelect() {
 		int n = -1;
 		int dmax = -1;
-		for (int i = 0; i < baWazaList.size(); i++) {
+		for (int i = 0; i < ba.getWazaList().size(); i++) {
 			if (i > 0 && ba.hasAttr(BodyAttribute.WET))
 				break;
-			AttackManager ab = new AttackManagerImpl(uw, map, ba, baWazaList.get(i), true);
+			AttackManager ab = new AttackManagerImpl(uw, stageMap.getMap(), ba, ba.getWazaList().get(i), true);
 			if (ab.isAlive(true)) {
 				if (dmax < ab.getBestDamage()) {
 					dmax = ab.getBestDamage();
@@ -132,7 +147,7 @@ public class FightManager {
 		for (int i = bbWazaList.size() - 1; i >= 0; i--) {
 			if (bbWazaList.get(i).equals("none"))
 				continue;
-			AttackManager ab = new AttackManagerImpl(uw, map, bb, bbWazaList.get(i), false);
+			AttackManager ab = new AttackManagerImpl(uw, stageMap.getMap(), bb, bbWazaList.get(i), false);
 			if (ab.isCounterable(ba, true)) {
 				counter = ab;
 				counter.selectTarget(ba);
@@ -144,7 +159,7 @@ public class FightManager {
 				break;
 			if (bbWazaList.get(i).equals("none"))
 				continue;
-			AttackManager ab = new AttackManagerImpl(uw, map, bb, bbWazaList.get(i), false);
+			AttackManager ab = new AttackManagerImpl(uw, stageMap.getMap(), bb, bbWazaList.get(i), false);
 			if (ab.isCounterable(ba, false)) {
 				counter = ab;
 				counter.selectTarget(ba);
@@ -166,30 +181,31 @@ public class FightManager {
 
 	public void setTarget(Point p) {
 		Point ps = mw.getWaku();
-		mw.wakuMove(p.x, p.y);
+		pm.setHelpLocation(p.x, p.y);
+		UnitMap map = this.stageMap.getMap();
 		if (map.getData(Page.P10, ps.x, ps.y) == 0) {
 			if (map.getData(Page.P10, p.x, p.y) == 0) {
-				mw.wakuPaint(true);
+				mw.wakuPaint(p.x, p.y, true);
 			} else {
 				map.clear(Page.P40, 0);
-				mw.wakuPaint(false);
+				mw.wakuPaint(p.x, p.y, false);
 				attack.setTarget(p.x, p.y);
 				mw.repaint();
 			}
 		} else {
 			if (map.getData(Page.P10, p.x, p.y) == 0) {
 				map.clear(Page.P40, 0);
-				mw.wakuPaint(false);
+				mw.wakuPaint(p.x, p.y, false);
 				mw.repaint();
 			} else {
 				map.clear(Page.P40, 0);
-				mw.wakuPaint(false);
+				mw.wakuPaint(p.x, p.y, false);
 				attack.setTarget(p.x, p.y);
 				mw.repaint();
 			}
 		}
 
-		bb = uw.search(p.x, p.y);
+		bb = this.stageMap.search(p.x, p.y);
 		attack.selectTarget(bb);
 		if (uw.isTutorial()) {
 			Tutorial.setHelp(ba, bb, n, uw);
@@ -225,7 +241,7 @@ public class FightManager {
 		attack.searchTargets();
 		attack.selectTarget(bb);
 		pm.displaySmall(attack.getAttack().getLabel(), attack.getAttack().getLabelColor(), ba);
-		map.clear(Page.P40, 0);
+		stageMap.getMap().clear(Page.P40, 0);
 		mw.repaint();
 		setCounter(bb);
 		if (bb != null) {
@@ -269,7 +285,7 @@ public class FightManager {
 		uw.levelup(ba);
 		uw.levelup(bb);
 		uw.message();
-		map.clear(Page.P10, 0);
-		map.clear(Page.P40, 0);
+		stageMap.getMap().clear(Page.P10, 0);
+		stageMap.getMap().clear(Page.P40, 0);
 	}
 }

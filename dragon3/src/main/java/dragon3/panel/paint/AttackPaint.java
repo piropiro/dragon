@@ -5,24 +5,31 @@ package dragon3.panel.paint;
 
 
 import mine.paint.MineGraphics;
+import mine.util.Point;
 import dragon3.attack.Attack;
 import dragon3.common.Body;
 import dragon3.common.constant.AttackEffect;
 import dragon3.common.constant.Texts;
 import dragon3.common.constant.BodyAttribute;
+import dragon3.common.constant.GameColor;
 import dragon3.panel.PanelWorks;
+import lombok.Getter;
 
 /**
  * @author saito
  */
 public class AttackPaint implements DataPanelPainter {
 
+	private Body ba;
 	private Body bb;
 	private Attack attack;
+	@Getter private GameColor color;
 
-	public AttackPaint(Body bb, Attack attack) {
-		this.bb = bb;
+	public AttackPaint(Attack attack) {
+		ba = attack.getAttacker();
+		bb = attack.getReceiver();
 		this.attack = attack;
+		this.color = bb.getColor();
 	}
 
 	public void paint(PanelWorks pw, MineGraphics g) {
@@ -84,5 +91,15 @@ public class AttackPaint implements DataPanelPainter {
 			}
 		}
 		pw.drawLine(Texts.sp[59] + s, 0, 2, g);
+	}
+
+	@Override
+	public Point getPoint1() {
+		return new Point(ba.getX(), ba.getY());
+	}
+
+	@Override
+	public Point getPoint2() {
+		return new Point(bb.getX(), bb.getY());
 	}
 }

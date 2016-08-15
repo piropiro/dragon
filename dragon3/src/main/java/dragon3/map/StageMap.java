@@ -1,6 +1,10 @@
 package dragon3.map;
 
+import java.util.ArrayList;
 import java.util.List;
+
+import javax.inject.Inject;
+import javax.inject.Singleton;
 
 import dragon3.Statics;
 import dragon3.common.Body;
@@ -15,8 +19,11 @@ import mine.MineUtils;
 import mine.paint.UnitMap;
 import mine.util.Point;
 
+@Singleton
 public class StageMap {
 
+	@Inject Statics statics;
+	
 	private ImageManager imageManager;
 
 	@Getter private UnitMap map;
@@ -24,10 +31,11 @@ public class StageMap {
 	private Point blueCrystal;
 	private Point redCrystal;
 	
+	private List<Body> bodyList = new ArrayList<>();
 	
-	public StageMap(ImageManager imageManager) {
+	@Inject
+	public StageMap(ImageManager imageManager) {	
 		this.imageManager = imageManager;
-		
 		map = createMap();
 	}
 	
@@ -57,6 +65,8 @@ public class StageMap {
 	}
 	
 	public void putUnit(List<Body> v) {
+		this.bodyList = v;
+		
 		map.clear(Page.P20, 0);
 		for (Body b : v) {
 			if (!b.isAlive())
@@ -75,7 +85,7 @@ public class StageMap {
 	public void mapLoad(StageData stageData) {
 		
 		resetBack(stageData.getBack());
-		int[][] data = Statics.getMapData(stageData.getId());
+		int[][] data = statics.getMapData(stageData.getId());
 		if (data != null) {
 			map.setPage(Page.P01, data);
 		}
@@ -86,7 +96,7 @@ public class StageMap {
 		map.clear(Page.P50, 0);
 	}
 	
-	public void setMensEnd() {
+	public void finishPutPlayers() {
 		map.change(Page.P01, MoveUtils.S_BLUE, Page.P01, 0);
 		map.change(Page.P01, MoveUtils.S_RED, Page.P01, 0);
 	}
@@ -155,5 +165,15 @@ public class StageMap {
 	
 	public boolean isEnd(int x, int y) {
 		return map.getData(Page.P30, x, y) == 1;
+	}
+	
+	public Body search(int x, int y) {
+		for (Body b : bodyList) {
+			if (!b.isAlive())
+				continue;
+			if (b.getX() == x && b.getY() == y)
+				return b;
+		}
+		return null;
 	}
 }

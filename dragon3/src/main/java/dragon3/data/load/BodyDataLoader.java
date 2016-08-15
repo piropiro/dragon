@@ -3,18 +3,28 @@ package dragon3.data.load;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.inject.Inject;
+import javax.inject.Singleton;
+
 import dragon3.Statics;
 import dragon3.common.Body;
 import dragon3.data.BodyData;
 import dragon3.data.DeployData;
 
+@Singleton
 public class BodyDataLoader {
+	
+	@Inject Statics statics;
+	
+	@Inject
+	public BodyDataLoader() {
+	}
 
-	public static List<Body> loadBodyDataList(String stageId, int addLevel) {
+	public List<Body> loadBodyDataList(String stageId, int addLevel) {
 		
 		List<Body> enemyList = new ArrayList<>();
 		
-		List<DeployData> deployList = Statics.getDeployData(stageId);
+		List<DeployData> deployList = statics.getDeployData(stageId);
 		for (DeployData deploy : deployList) {
 			
 			Body body = loadBodyData(deploy.getBodyId(), deploy.getLevel() + addLevel);
@@ -44,7 +54,7 @@ public class BodyDataLoader {
 	 * @param body
 	 * @param level
 	 */
-	private static void calcLevel(Body body, int level) {
+	private void calcLevel(Body body, int level) {
 		System.out.print("level=" + level);
 		System.out.print(" str=" + body.base.getStr());
 		
@@ -65,10 +75,10 @@ public class BodyDataLoader {
 		System.out.println(" str=" + body.getStr());
 	}
 	
-	public static Body loadBodyData(String bodyId, int level) {
+	public Body loadBodyData(String bodyId, int level) {
 		Body body = new Body();
 		
-		BodyData bodyData = Statics.bodyList.getData(bodyId);
+		BodyData bodyData = statics.getBodyData(bodyId);
 		body.base = bodyData.copy();
 		calcLevel(body, level);			
 		body.resetAttr();			

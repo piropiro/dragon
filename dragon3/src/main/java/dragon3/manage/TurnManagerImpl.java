@@ -1,6 +1,7 @@
 package dragon3.manage;
 
-import java.util.List;
+import javax.inject.Inject;
+import javax.inject.Singleton;
 
 import dragon3.anime.AnimeManager;
 import dragon3.common.Body;
@@ -10,30 +11,27 @@ import dragon3.common.constant.MoveType;
 import dragon3.common.constant.Page;
 import dragon3.common.util.MoveUtils;
 import dragon3.controller.UnitWorks;
-import dragon3.cpu.EnemyTurn;
+import dragon3.map.StageMap;
 import dragon3.paint.PaintUtils;
-import dragon3.view.DragonFrame;
 import dragon3.view.FrameWorks;
+import lombok.Setter;
 import mine.paint.UnitMap;
 
+@Singleton
 public class TurnManagerImpl implements TurnManager {
 
 	private int turn;
-	private List<Body> charaList;
-	private UnitWorks uw;
 
-	private UnitMap map;
-	private AnimeManager anime;
-	private FrameWorks fw;
+	@Setter UnitWorks uw;
+
+	@Inject StageMap map;
+	@Inject AnimeManager anime;
+	@Inject FrameWorks fw;
 
 	/*** Constructer ************************************/
 
-	public TurnManagerImpl(UnitWorks uw) {
-		this.uw = uw;
-		this.anime = uw.getAnimeManager();
-		this.charaList = uw.getCharaList();
-		this.map = uw.getUnitMap();
-		this.fw = uw.getFrameWorks();
+	@Inject
+	public TurnManagerImpl() {
 	}
 
 	/*** Reset *****************************************/
@@ -48,7 +46,7 @@ public class TurnManagerImpl implements TurnManager {
 		return turn;
 	}
 
-	/*** Mens ********************************/
+	/*** Player ********************************/
 
 	public void playerTurnStart() {
 		uw.getSaveManager().getSaveData().countTurn();
@@ -64,19 +62,20 @@ public class TurnManagerImpl implements TurnManager {
 	public void enemyTurnStart() {
 		turnChange(false);
 		uw.limitOver();
-		EnemyTurn et = new EnemyTurn(uw);
+//		EnemyTurn et = new EnemyTurn(uw);
 		PaintUtils.setWaitPaint(uw);
 		fw.setMenu(FrameWorks.T_ENEMY);
-		et.start(turn);
+//		enemyTurn.start(turn);
 	}
 
 	/*** Change *****************************/
 
 	private void turnChange(boolean flag) {
+		UnitMap map = this.map.getMap();
 		map.clear(Page.P10, 0);
 		map.clear(Page.P30, 0);
 		map.clear(Page.P40, 0);
-		for (Body b : charaList) {
+		for (Body b : uw.getCharaList()) {
 			if (!b.isAlive())
 				continue;
 			
@@ -101,6 +100,7 @@ public class TurnManagerImpl implements TurnManager {
 	}
 
 	private void paintStatus(Body b) {
+		UnitMap map = this.map.getMap();
 		if (b.hasAttr(BodyAttribute.SLEEP)) {
 			map.setData(Page.P50, b.getX(), b.getY(), AnimeManager.STATUS_SLEEP);
 		}
@@ -141,6 +141,7 @@ public class TurnManagerImpl implements TurnManager {
 	/*** Tikei ****************************/
 
 	private void setTikei(Body b, boolean flag) {
+		UnitMap map = this.map.getMap();
 		if (MoveUtils.getTikei(map, b) == MoveUtils.T_SKY)
 			return;
 
@@ -252,6 +253,7 @@ public class TurnManagerImpl implements TurnManager {
 	/*** Poison ******************************/
 
 	private void setPoison(Body b, boolean flag) {
+		UnitMap map = this.map.getMap();
 		if (!b.hasAttr(BodyAttribute.POISON))
 			return;
 		if (GameColor.isPlayer(b) != flag || b.getHp() == 1) {
@@ -268,6 +270,7 @@ public class TurnManagerImpl implements TurnManager {
 	/*** Bersek ******************************/
 
 	private void setBersek(Body b, boolean flag) {
+		UnitMap map = this.map.getMap();
 		if (!b.hasAttr(BodyAttribute.BERSERK))
 			return;
 		if (GameColor.isPlayer(b) != flag) {
@@ -286,6 +289,7 @@ public class TurnManagerImpl implements TurnManager {
 	/*** Heal ********************************/
 
 	private void setRegene(Body b, boolean flag) {
+		UnitMap map = this.map.getMap();
 		if (!b.hasAttr(BodyAttribute.REGENE))
 			return;
 		if (GameColor.isPlayer(b) != flag || b.getHp() == b.getHpMax()) {

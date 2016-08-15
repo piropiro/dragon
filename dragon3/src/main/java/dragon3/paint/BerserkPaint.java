@@ -4,6 +4,7 @@ import dragon3.anime.AnimeManager;
 import dragon3.common.Body;
 import dragon3.common.constant.Page;
 import dragon3.controller.UnitWorks;
+import dragon3.manage.TurnManager;
 import dragon3.map.MapWorks;
 import dragon3.panel.PanelManager;
 import mine.paint.UnitMap;
@@ -19,6 +20,7 @@ public class BerserkPaint implements EventListener {
 	private UnitMap map;
 	private AnimeManager anime;
 	private PanelManager pm;
+	private TurnManager tm;
 	
 	private Body ba;
 
@@ -33,7 +35,7 @@ public class BerserkPaint implements EventListener {
 		this.map = uw.getUnitMap();
 		this.pm = uw.getPanelManager();
 		this.anime = uw.getAnimeManager();
-		this.pm = uw.getPanelManager();
+		this.tm = uw.getTurnManager();
 		
 		this.ba = ba;
 		map.clear(Page.P10, 0);
@@ -75,7 +77,7 @@ public class BerserkPaint implements EventListener {
 
 	@Override
 	public void setSelectPlace(int x, int y) {
-		uw.getPanelManager().displayPlace(x, y);
+		pm.displayPlace(tm, x, y);
 	}
 
 	/*** Select Body *****************************************/

@@ -7,24 +7,28 @@ package dragon3.panel.paint;
 import java.util.HashSet;
 import java.util.Set;
 
+import dragon3.common.Body;
 import dragon3.common.constant.AttackEffect;
+import dragon3.common.constant.GameColor;
 import dragon3.common.constant.Texts;
 import dragon3.data.WazaData;
 import dragon3.panel.PanelWorks;
 import mine.paint.MineGraphics;
 import mine.paint.MineImage;
+import mine.util.Point;
 
 /**
  * @author saito
  */
 public class WazaPaint implements DataPanelPainter {
 
+	private Body ba;
 	private WazaData waza;
 	private int n;
 	private MineImage backImage;
 
 
-	public WazaPaint(WazaData waza, MineImage backImage) {
+	public WazaPaint(Body ba, WazaData waza, MineImage backImage) {
 		this.waza = waza;
 		this.backImage = backImage;
 	}
@@ -121,5 +125,20 @@ public class WazaPaint implements DataPanelPainter {
 		pw.drawLine(effect.getText(), n % 2, n / 2, g);
 		n++;
 		return true;
+	}
+	
+	@Override
+	public GameColor getColor() {
+		return ba.getColor();
+	}
+
+	@Override
+	public Point getPoint1() {
+		return new Point(ba.getX(), ba.getY());
+	}
+
+	@Override
+	public Point getPoint2() {
+		return getPoint1();
 	}
 }

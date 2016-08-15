@@ -9,6 +9,7 @@ import dragon3.anime.AnimeManager;
 import dragon3.common.Body;
 import dragon3.common.constant.AttackEffect;
 import dragon3.common.constant.BodyAttribute;
+import mine.paint.UnitMap;
 
 /**
  * @author k-saito
@@ -16,7 +17,7 @@ import dragon3.common.constant.BodyAttribute;
 public class AttackUp implements SpecialEffect {
 
 
-	public boolean isEffective(Body ba, Body bb, Set<AttackEffect> effect) {
+	public boolean isEffective(UnitMap map, Body ba, Body bb, Set<AttackEffect> effect) {
 
 		if (bb.hasAttr(BodyAttribute.ANTI_ALL))
 			return false;
@@ -30,7 +31,7 @@ public class AttackUp implements SpecialEffect {
 	}
 
 
-	public void execute(Body ba, Body bb, AnimeManager anime) {
+	public void execute(UnitMap map, Body ba, Body bb, AnimeManager anime) {
 
 		anime.statusAnime(AnimeManager.STATUS_ATTACK_UP, bb.getX(), bb.getY());
 		bb.addAttr(BodyAttribute.ATTACK_UP);

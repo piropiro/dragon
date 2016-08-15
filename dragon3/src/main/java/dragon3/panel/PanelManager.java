@@ -7,6 +7,7 @@ import dragon3.attack.Attack;
 import dragon3.camp.Equip;
 import dragon3.common.Body;
 import dragon3.common.constant.GameColor;
+import dragon3.manage.TurnManager;
 import dragon3.save.SaveData;
 import mine.util.Point;
 
@@ -16,8 +17,8 @@ import mine.util.Point;
 public interface PanelManager {
 	
 	// DataPanel
-	public void displayData(int x, int y);
-	public boolean displayPlace(int x, int y);
+	public void displayData(TurnManager turnManager, int x, int y);
+	public boolean displayPlace(TurnManager turnManager, int x, int y);
 	public void displayWazaList(Body b);
 	public void displayWaza(Body b, int i);
 	public void displayAnalyze(Body b);

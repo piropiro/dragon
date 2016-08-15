@@ -2,7 +2,7 @@ package dragon3.anime;
 
 import dragon3.data.AnimeData;
 
-public interface AnimeManager {
+public interface AnimeManager extends AnimeWorks {
 
 	public static final String ID_REFRESH = "system.refresh";
 	public static final String ID_KAKUSEI = "system.kakusei";
@@ -55,4 +55,6 @@ public interface AnimeManager {
 	public void singleArrowAnime(AnimeData data, int startX, int startY, int goalX, int goalY);
 	public void someArrowAnime(AnimeData data, int x, int y);
 	public void rotateAnime(AnimeData data, int startX, int startY, int goalX, int goalY);
+
+
 }

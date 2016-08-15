@@ -1,67 +1,67 @@
 package card.anime;
 
-import card.UnitWorks;
+import javax.inject.Inject;
+import javax.inject.Singleton;
+
+import card.CardMap;
+import card.CardWorks;
 import card.body.Card;
 import card.common.ImageList;
-import mine.paint.UnitMap;
 
+@Singleton
 public class AnimeManager {
 
-	private UnitWorks canvas;
-	private UnitMap map;
-	private ImageList il;
+	@Inject CardMap map;
+	@Inject ImageList il;
 	
-
-	public AnimeManager(UnitWorks canvas, UnitMap map, ImageList il){
-		this.canvas = canvas;
-		this.map = map;
-		this.il = il;
+	@Inject
+	public AnimeManager(){
 	}
 	
-	public void opening(Card[] red, Card[] blue){
-		new OpeningAnime(canvas, this, map, red, blue, il).run();
+	public void opening(CardWorks canvas, Card[] red, Card[] blue){
+		new OpeningAnime(canvas, this, map.getMap(), red, blue, il).run();
 	}
-	public void closing(Card[] cards){
-		new ClosingAnime(canvas, map, cards).run();
+	public void closing(CardWorks canvas, Card[] cards){
+		new ClosingAnime(canvas, map.getMap(), cards).run();
 	}
 	
-	public void battle(Card red, Card blue){
+	public void battle(CardWorks canvas, Card red, Card blue){
 		new BattleAnime(canvas, this, red, blue).run();
 	}
 
-	public void openCard(Card card){
+	public void openCard(CardWorks canvas, Card card){
 		new OpenCardAnime(canvas, card).run();
 	}
-	public void closeCard(Card card){
+	public void closeCard(CardWorks canvas, Card card){
 		new CloseCardAnime(canvas, card).run();
 	}
 
-	public void loseCard(Card card){
+	public void loseCard(CardWorks canvas, Card card){
 		new LoseCardAnime(canvas, card).run();
 	}
-	public void winCard(Card card){
+	public void winCard(CardWorks canvas, Card card){
 		new WinCardAnime(canvas, card).run();
 	}
-	public void drawCard(Card red, Card blue){
+	public void drawCard(CardWorks canvas, Card red, Card blue){
 		new DrawCardAnime(canvas, red, blue).run();
 	}
 
-	public void moveCard(Card card, int new_x, int new_y, int max){
+	public void moveCard(CardWorks canvas, Card card, int new_x, int new_y, int max){
 		new MoveCardAnime(canvas, card, new_x, new_y, max).run();
 	}
 
-	public void moveCard(Card red, int red_x, int red_y, Card blue, int blue_x, int blue_y, int max){
+	public void moveCard(CardWorks canvas, Card red, int red_x, int red_y, Card blue, int blue_x, int blue_y, int max){
 		new MoveDoubleCardAnime(canvas, red, red_x, red_y, blue, blue_x, blue_y, max).run();
 	}
 	
-	public void openDoubleCard(){
-		new OpenDoubleCardAnime(canvas, this, map, il).run();
+	public void openDoubleCard(CardWorks canvas){
+		new OpenDoubleCardAnime(canvas, this, map.getMap(), il).run();
 	}
 	
-	public void closeDoubleCard(){
-		new CloseDoubleCardAnime(canvas, map).run();
+	public void closeDoubleCard(CardWorks canvas){
+		new CloseDoubleCardAnime(canvas, map.getMap()).run();
 	}
-	public void doubleCard(Card left, Card right){
-		new DoubleCardAnime(this, map, left, right).run();
+	public void doubleCard(CardWorks canvas, Card left, Card right){
+		new DoubleCardAnime(canvas, this, map.getMap(), left, right).run();
 	}
 }

@@ -5,6 +5,7 @@ import dragon3.common.constant.GameColor;
 import dragon3.common.constant.Page;
 import dragon3.common.constant.Texts;
 import dragon3.controller.UnitWorks;
+import dragon3.manage.TurnManager;
 import dragon3.map.MapWorks;
 import dragon3.panel.PanelManager;
 import mine.paint.UnitMap;
@@ -15,7 +16,7 @@ public class ScorePaint implements EventListener {
 	private MapWorks mw;
 	private UnitMap map;
 	private PanelManager pm;
-	
+	private TurnManager tm;
 	/**
 	 * @param uw
 	 */
@@ -24,7 +25,7 @@ public class ScorePaint implements EventListener {
 		this.mw = uw.getMapWorks();
 		this.map = uw.getUnitMap();
 		this.pm = uw.getPanelManager();
-		
+		this.tm = uw.getTurnManager();
 		map.clear(Page.P40, 0);
 		mw.repaint();
 		setHelp();
@@ -53,7 +54,7 @@ public class ScorePaint implements EventListener {
 
 	@Override
 	public void setSelectPlace(int x, int y) {
-		uw.getPanelManager().displayPlace(x, y);
+		pm.displayPlace(tm, x, y);
 	}
 
 	/*** Select Body *****************************************/

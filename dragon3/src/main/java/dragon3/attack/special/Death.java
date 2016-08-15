@@ -9,13 +9,14 @@ import dragon3.anime.AnimeManager;
 import dragon3.common.Body;
 import dragon3.common.constant.AttackEffect;
 import dragon3.common.constant.BodyAttribute;
+import mine.paint.UnitMap;
 
 /**
  * @author k-saito
  */
 public class Death implements SpecialEffect {
 
-	public boolean isEffective(Body ba, Body bb, Set<AttackEffect> effect) {
+	public boolean isEffective(UnitMap map, Body ba, Body bb, Set<AttackEffect> effect) {
 
 		if (bb.hasAttr(BodyAttribute.ANTI_ALL))
 			return false;
@@ -44,7 +45,7 @@ public class Death implements SpecialEffect {
 	}
 
 
-	public void execute(Body ba, Body bb, AnimeManager anime) {
+	public void execute(UnitMap map, Body ba, Body bb, AnimeManager anime) {
 		anime.systemAnime(AnimeManager.ID_DEATH, bb.getX(), bb.getY());
 		anime.criticalAnime(bb.getX(), bb.getY());
 		anime.slideText(AnimeManager.TEXT_DEATH, bb.getX(), bb.getY());

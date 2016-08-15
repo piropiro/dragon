@@ -1,6 +1,7 @@
 package dragon3.save;
 
 import dragon3.camp.Equip;
+import dragon3.controller.UnitWorks;
 
 public interface SaveManager {
 
@@ -13,4 +14,6 @@ public interface SaveManager {
 	public long getPlayTime();
 
 	public SaveData getSaveData();
+	
+	public void setUw(UnitWorks uw);
 }

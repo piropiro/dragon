@@ -3,47 +3,47 @@ package card.manage;
 import java.util.ArrayList;
 import java.util.List;
 
-import card.UnitWorks;
+import javax.inject.Inject;
+import javax.inject.Singleton;
+
+import card.CardWorks;
 import card.anime.AnimeManager;
 import card.body.Card;
 import card.common.ImageList;
 
-
+@Singleton
 public class CardManager {
 
-	private UnitWorks canvas;
-	private AnimeManager anime;
+	@Inject AnimeManager anime;
+	@Inject ImageList il;
 	private Card[] red;
 	private Card[] blue;
-	private ImageList il;
 	
-	public CardManager(UnitWorks canvas, AnimeManager anime, ImageList il){
-		this.canvas = canvas;
-		this.anime = anime;
-		this.il = il;
+	@Inject
+	public CardManager(){
 	}
 
-	public void setRedCards(int[] n){
-		randomize(n);
+	public void setRedCards(CardWorks uw, int[] n){
+		randomize(uw, n);
 		red = new Card[7];
 		for (int i=0; i<red.length; i++) {
 			red[i] = new Card(n[i], 32*(2+i), 32*4, Card.RED, il);
-			canvas.addCard(red[i]);
+			uw.addCard(red[i]);
 		}
 	}
 	
-	public void setBlueCards(int[] n){
-		randomize(n);
+	public void setBlueCards(CardWorks uw, int[] n){
+		randomize(uw, n);
 		blue = new Card[7];
 		for (int i=0; i<blue.length; i++) {
 			blue[i] = new Card(n[i], 32*(2+i), 32*8, Card.BLUE, il);
-			canvas.addCard(blue[i]);
+			uw.addCard(blue[i]);
 		}
 	}
 	
-	private int[] randomize(int[] n){
+	private int[] randomize(CardWorks uw, int[] n){
 		for (int i=0; i<n.length; i++) {
-			int j = canvas.nextInt(n.length);
+			int j = uw.nextInt(n.length);
 			int tmp = n[j];
 			n[j] = n[i];
 			n[i] = tmp;
@@ -66,17 +66,17 @@ public class CardManager {
 			return false;
 		}
 	}
-	public boolean openBlue(int n){
-		return openCard(blue[n]);
+	public boolean openBlue(CardWorks uw, int n){
+		return openCard(uw, blue[n]);
 	}
 	
-	public boolean openRed(int n){
-		return openCard(red[n]);
+	public boolean openRed(CardWorks uw, int n){
+		return openCard(uw, red[n]);
 	}
 	
-	private boolean openCard(Card card) {
+	private boolean openCard(CardWorks uw, Card card) {
 		if (card.getStatus() == Card.CLOSE) {
-			anime.openCard(card);
+			anime.openCard(uw, card);
 			return true;
 		} else {
 			return false;

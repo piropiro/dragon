@@ -1,16 +1,16 @@
 package card.anime;
 
 import mine.paint.PaintBox;
-import card.UnitWorks;
+import card.CardWorks;
 import card.body.Card;
 
 
 public class WinCardAnime implements Runnable {
 
-	private UnitWorks canvas;
+	private CardWorks canvas;
 	private Card card;
 
-	public WinCardAnime(UnitWorks canvas, Card card){
+	public WinCardAnime(CardWorks canvas, Card card){
 		this.canvas = canvas;
 		this.card = card;
 	}

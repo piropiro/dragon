@@ -1,34 +1,38 @@
 package card.paint;
 
-import card.UnitWorks;
+import javax.inject.Inject;
+import javax.inject.Singleton;
+
+import card.CardMap;
+import card.CardWorks;
 import card.common.Page;
 import lombok.Getter;
 import mine.paint.UnitMap;
 
+@Singleton
 public class WakuPainter {
+
+	@Inject CardMap map;
 
 	@Getter private int x;
 	@Getter private int y;
-	private UnitWorks canvas;
-	private UnitMap map;
 
-	public WakuPainter(UnitWorks canvas, UnitMap map){
-		this.canvas = canvas;
-		this.map = map;
+	@Inject
+	public WakuPainter(){
 	}
 
 	public boolean isMoved(int new_x, int new_y){
 		return ( x != new_x || y != new_y );
 	}
 
-	public void moveWaku(int new_x, int new_y) {
-
+	public void moveWaku(CardWorks uw, int new_x, int new_y) {
+		UnitMap map = this.map.getMap();
 		if ( isMoved(new_x, new_y) ) { 
 			map.setData(Page.WAKU, x, y, 0);
 			map.setData(Page.WAKU, new_x, new_y, 1);
 			x = new_x;
 			y = new_y;
-			canvas.repaint(map.getPaintBox());
+			uw.repaint(map.getPaintBox());
 		}
 	}
 }

@@ -5,9 +5,11 @@ package dragon3.panel.paint;
 
 
 import dragon3.common.Body;
+import dragon3.common.constant.GameColor;
 import dragon3.common.constant.Texts;
 import dragon3.panel.PanelWorks;
 import mine.paint.MineGraphics;
+import mine.util.Point;
 
 /**
  * @author saito
@@ -20,6 +22,7 @@ public class AnalyzePaint implements DataPanelPainter {
 		this.ba = ba;
 	}
 
+	@Override
 	public void paint(PanelWorks pw, MineGraphics g) {
 		pw.drawMain(ba, g);
 		pw.drawExp(ba, g);
@@ -30,5 +33,20 @@ public class AnalyzePaint implements DataPanelPainter {
 		pw.drawLine(Texts.sp[48], ba.getLimitTurn(), 0, 3, g);
 		//pw.drawLine("EXP ", ba.getExp(), 1, 3, g);
 
+	}
+
+	@Override
+	public GameColor getColor() {
+		return ba.getColor();
+	}
+
+	@Override
+	public Point getPoint1() {
+		return new Point(ba.getX(), ba.getY());
+	}
+
+	@Override
+	public Point getPoint2() {
+		return getPoint1();
 	}
 }

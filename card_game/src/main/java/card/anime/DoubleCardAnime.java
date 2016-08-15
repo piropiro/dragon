@@ -1,17 +1,20 @@
 package card.anime;
 
 import mine.paint.UnitMap;
+import card.CardWorks;
 import card.body.Card;
 import card.common.Page;
 
 public class DoubleCardAnime implements Runnable {
 
+	private CardWorks uw;
 	private UnitMap map;
 	private AnimeManager anime;
 	private Card left;
 	private Card right;
 
-	public DoubleCardAnime(AnimeManager anime, UnitMap map, Card left, Card right){
+	public DoubleCardAnime(CardWorks uw, AnimeManager anime, UnitMap map, Card left, Card right){
+		this.uw = uw;
 		this.anime = anime;
 		this.map = map;
 		this.left = left;
@@ -21,11 +24,11 @@ public class DoubleCardAnime implements Runnable {
 	public void run(){
 		int old_x = left.getX();
 		int old_y = left.getY();
-		anime.moveCard(left, 3*32, 10*32, right, 3*32, 10*32, 30);
+		anime.moveCard(uw, left, 3*32, 10*32, right, 3*32, 10*32, 30);
 		map.setData(Page.BACK, 3, 10, 0);
 		right.dispose();
 		left.setNumber(left.getNumber()*2);
-		anime.openCard(left);
-		anime.moveCard(left, old_x, old_y, 30);
+		anime.openCard(uw, left);
+		anime.moveCard(uw, left, old_x, old_y, 30);
 	}
 }

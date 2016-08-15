@@ -24,9 +24,8 @@ public class HPanel implements PaintListener {
 	/*** Constructer ***********************************************/
 
 	public HPanel(PaintComponent panel, SleepManager sm, boolean high) {
-		super();
-		this.panel = panel;
 		this.sm = sm;
+		this.panel = panel;
 		this.high = high;
 		panel.setVisible(false);
 		//panel.setFontSize(14);

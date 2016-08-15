@@ -1,6 +1,6 @@
 package card.body;
 
-import card.UnitWorks;
+import card.CardWorks;
 import card.manage.BattleManager;
 import card.manage.CardManager;
 
@@ -11,7 +11,7 @@ import card.manage.CardManager;
  */
 public class Enemy {
 
-	private UnitWorks canvas;
+	private CardWorks canvas;
 	private CardManager cardManager;
 	private BattleManager battleManager;
 
@@ -20,7 +20,7 @@ public class Enemy {
 	private int closeCardNum;
 
 
-	public Enemy(UnitWorks canvas, BattleManager battleManager, CardManager cardManager){
+	public Enemy(CardWorks canvas, BattleManager battleManager, CardManager cardManager){
 		this.canvas = canvas;
 		this.battleManager = battleManager;
 		this.cardManager = cardManager;
@@ -30,12 +30,12 @@ public class Enemy {
 	}
 
 
-	public boolean openCard(){
+	public boolean openCard(CardWorks uw){
 		if (closeCardNum == 0) return false;
 
 		 while (true) {
 		 	int n = canvas.nextInt(7);
-		 	if (cardManager.openRed(n)) {
+		 	if (cardManager.openRed(uw, n)) {
 		 		openCardNum++;
 		 		closeCardNum--;
 		 		return true;

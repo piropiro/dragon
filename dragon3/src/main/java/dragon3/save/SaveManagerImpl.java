@@ -1,20 +1,23 @@
 package dragon3.save;
 
+import javax.inject.Inject;
+import javax.inject.Singleton;
+
 import dragon3.camp.Equip;
 import dragon3.controller.UnitWorks;
+import lombok.Setter;
 import mine.MineException;
 import mine.io.JsonIO;
 
+@Singleton
 public class SaveManagerImpl implements SaveManager {
 
-	private UnitWorks uw;
+	@Setter UnitWorks uw;
     private SaveData sd;
     private long startTime;
 
-    public SaveManagerImpl(UnitWorks uw) {
-        this.uw = uw;
-        sd = null;
-
+    @Inject
+    public SaveManagerImpl() {
     }
 
     /**

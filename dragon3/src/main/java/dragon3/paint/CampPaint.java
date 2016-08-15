@@ -8,6 +8,7 @@ import dragon3.common.constant.GameColor;
 import dragon3.common.constant.Page;
 import dragon3.common.constant.Texts;
 import dragon3.controller.UnitWorks;
+import dragon3.manage.TurnManager;
 import dragon3.map.MapWorks;
 import dragon3.panel.PanelManager;
 import mine.paint.UnitMap;
@@ -18,6 +19,7 @@ public class CampPaint implements EventListener {
 	private MapWorks mw;
 	private UnitMap map;
 	private PanelManager pm;
+	private TurnManager tm;
 	
 	private Camp camp;
 
@@ -30,7 +32,7 @@ public class CampPaint implements EventListener {
 		this.mw = uw.getMapWorks();
 		this.map = uw.getUnitMap();
 		this.pm = uw.getPanelManager();
-		this.pm = uw.getPanelManager();
+		this.tm = uw.getTurnManager();
 		
 		this.camp = camp;
 
@@ -132,14 +134,16 @@ public class CampPaint implements EventListener {
 
 	@Override
 	public void mouseMoved(int x, int y) {
-		mw.wakuMove(x, y);
+		pm.setHelpLocation(x, y);
 		Body b = camp.getEquip().search(x, y);
-		if (b != null && b.getColor() == GameColor.BLUE) {
-			camp.getEquip().equip(b);
+		if (b != null) {
+			if (b.getColor() == GameColor.BLUE) {
+				camp.getEquip().equip(b);
+			}
+			pm.displayStatus(b);
 		}
-		pm.displayStatus(b);
 		camp.moveChara(x, y);
-		mw.wakuPaint(true);
+		mw.wakuPaint(x, y, true);
 	}
 
 	/*** Next Point *************************************/
@@ -157,7 +161,7 @@ public class CampPaint implements EventListener {
 
 	@Override
 	public void setSelectPlace(int x, int y) {
-		uw.getPanelManager().displayPlace(x, y);
+		pm.displayPlace(tm, x, y);
 	}
 
 	/*** Select Body *****************************************/

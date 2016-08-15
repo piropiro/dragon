@@ -14,6 +14,7 @@ import dragon3.common.constant.BodyAttribute;
 import dragon3.common.util.MoveUtils;
 import dragon3.controller.UnitWorks;
 import dragon3.manage.RewalkManager;
+import dragon3.manage.TurnManager;
 import dragon3.map.MapWorks;
 import dragon3.panel.PanelManager;
 
@@ -25,7 +26,9 @@ public class WalkPaint implements EventListener {
 	private AnimeManager anime;
 	private PanelManager pm;
 	private RewalkManager rewalkManager;
-
+	private FightManager fm;
+	private TurnManager tm;
+	
 	private Body ba;
 	private int step;
 
@@ -41,6 +44,8 @@ public class WalkPaint implements EventListener {
 		this.anime = uw.getAnimeManager();
 		this.pm = uw.getPanelManager();
 		this.rewalkManager = uw.getRewalkManager();
+		this.fm = uw.getFightManager();
+		this.tm = uw.getTurnManager();
 		
 		this.ba = ba;
 		List<Body> charaList = uw.getCharaList();
@@ -91,7 +96,7 @@ public class WalkPaint implements EventListener {
 		Point waku = mw.getWaku();
 		walk(waku.x, waku.y);
 		map.clear(Page.P10, 0);
-		FightManager fm = new FightManager(uw, ba);
+		fm.setup(ba);
 		fm.nextSelect();
 	}
 
@@ -140,7 +145,7 @@ public class WalkPaint implements EventListener {
 
 	@Override
 	public void setSelectPlace(int x, int y) {
-		uw.getPanelManager().displayPlace(x, y);
+		pm.displayPlace(tm, x, y);
 	}
 
 	/*** Select Body *****************************************/
@@ -159,8 +164,8 @@ public class WalkPaint implements EventListener {
 
 	@Override
 	public void mouseMoved(int x, int y) {
-		mw.wakuMove(x, y);
-		mw.wakuPaint(true);
+		pm.setHelpLocation(x, y);
+		mw.wakuPaint(x, y, true);
 	}
 
 	/*** Event ************************************/

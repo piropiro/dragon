@@ -1,21 +1,23 @@
 package dragon3.paint;
 
-import mine.util.Point;
 import dragon3.attack.FightManager;
 import dragon3.common.Body;
 import dragon3.common.constant.Page;
 import dragon3.controller.UnitWorks;
 import dragon3.manage.RewalkManager;
+import dragon3.manage.TurnManager;
 import dragon3.map.MapWorks;
-import mine.paint.UnitMap;
+import dragon3.map.StageMap;
+import mine.util.Point;
 
 public class AttackPaint implements EventListener {
 
 	private UnitWorks uw;
 	private MapWorks mw;
-	private UnitMap map;
+	private StageMap map;
 	private FightManager fm;
 	private RewalkManager rewalkManager;
+	private TurnManager tm;
 	private Body ba;
 	
 	/**
@@ -24,15 +26,16 @@ public class AttackPaint implements EventListener {
 	public AttackPaint(UnitWorks uw, FightManager fm, Body ba) {
 		this.uw = uw;
 		this.mw = uw.getMapWorks();
-		this.map = uw.getUnitMap();
+		this.map = uw.getStageMap();
 		this.rewalkManager = uw.getRewalkManager();
+		this.tm = uw.getTurnManager();
 		this.fm = fm;
 		this.ba = ba;
 	}
 
 	@Override
 	public void setSelectPlace(int x, int y) {
-		uw.getPanelManager().displayPlace(x, y);
+		uw.getPanelManager().displayPlace(tm, x, y);
 	}
 	
 	/**
@@ -59,8 +62,8 @@ public class AttackPaint implements EventListener {
 	 */
 	@Override
 	public boolean isNextPoint(int x, int y) {
-		if (map.getData(Page.P10, x, y) == 3) {
-			Body b = uw.search(x, y);
+		if (map.getMap().getData(Page.P10, x, y) == 3) {
+			Body b = map.search(x, y);
 			return (b != null);
 		}
 		return false;
@@ -78,7 +81,7 @@ public class AttackPaint implements EventListener {
 	@Override
 	public void accept() {
 		Point waku = mw.getWaku();
-		if (map.getData(Page.P10, waku.x, waku.y) != 0) {
+		if (map.getMap().getData(Page.P10, waku.x, waku.y) != 0) {
 			if (fm.searchTargets()) {
 				PaintUtils.setWaitPaint(uw);
 				fm.attack();

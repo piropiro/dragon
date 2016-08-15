@@ -29,4 +29,6 @@ public interface MineCanvas {
 	public void setMouseAllListener(MouseAllListener mal);
 	
 	public boolean isRunning();
+	
+	public void requestFocus();
 }

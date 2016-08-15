@@ -6,8 +6,11 @@ package dragon3.panel.paint;
 
 import mine.paint.MineGraphics;
 import mine.paint.MineImage;
+import mine.util.Point;
+import dragon3.common.constant.GameColor;
 import dragon3.common.constant.Texts;
 import dragon3.panel.PanelWorks;
+import lombok.Getter;
 
 /**
  * @author saito
@@ -31,13 +34,18 @@ public class CampDataPaint implements DataPanelPainter {
 	
 	private MineImage whiteBack;
 	private MineImage[][] waku;
+	@Getter private Point location;
+	@Getter private GameColor color;
 
-	public CampDataPaint(int tikei, MineImage whiteBack, MineImage[][] waku) {
+	public CampDataPaint(int tikei, MineImage whiteBack, MineImage[][] waku, GameColor color, Point location) {
 		this.tikei = tikei;
 		this.whiteBack = whiteBack;
 		this.waku = waku;
+		this.location = location;
+		this.color = color;
 	}
-
+	
+	@Override
 	public void paint(PanelWorks pw, MineGraphics g) {
 		g.drawImage(whiteBack, 10, 10);
 		switch (tikei) {
@@ -90,5 +98,15 @@ public class CampDataPaint implements DataPanelPainter {
 				pw.drawText(Texts.sp[11], g);
 				break;
 		}
+	}
+
+	@Override
+	public Point getPoint1() {
+		return location;
+	}
+
+	@Override
+	public Point getPoint2() {
+		return location;
 	}
 }

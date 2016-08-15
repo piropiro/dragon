@@ -6,6 +6,7 @@ import java.awt.event.KeyListener;
 import java.io.File;
 import java.util.List;
 
+import javax.inject.Inject;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -16,13 +17,14 @@ import javax.swing.event.ListSelectionListener;
 import dragon3.Statics;
 import dragon3.data.BodyData;
 import dragon3.data.DeployData;
+import dragon3.edit.DaggerEditorComponent;
+import dragon3.edit.EditorComponent;
 import dragon3.edit.deploy.paint.BasicPaint;
 import dragon3.edit.deploy.paint.GoalPaint;
 import dragon3.edit.deploy.paint.SortPaint;
 import dragon3.image.ImageManager;
 import mine.MineException;
 import mine.MineUtils;
-import mine.awt.ImageLoaderAWT;
 import mine.awt.MineAwtUtils;
 import mine.edit.EditList;
 import mine.edit.EditMenuBar;
@@ -35,10 +37,8 @@ import mine.io.JsonIO;
 import mine.paint.MineImageLoader;
 import mine.paint.UnitMap;
 
+@SuppressWarnings("serial")
 public class DeployEditor extends JFrame implements MainWorks<DeployData>, CommandListener, FileWorks, ListSelectionListener, KeyListener {
-
-
-	private static final long serialVersionUID = 1L;
 
 	private static final String BASIC_HELP = "基本操作　左クリック：キャラを配置する。　右クリック：キャラを選択する。";
 	private static final String SORT_HELP = "並べ替え　左クリック：選択した順にキャラを並べ替える。　右クリック：キャンセル";
@@ -46,27 +46,31 @@ public class DeployEditor extends JFrame implements MainWorks<DeployData>, Comma
 
 	private String title = "DeployEditor";
 
+	@Inject Statics statics;
 	private FileManager fileManager;
-	private ImageManager imageManager;
+	@Inject ImageManager imageManager;
 
 	private EditList<DeployData> editList;
 	private EditMenuBar menuBar;
 
 	private MapPanel mapPanel; // マップパネル
-	private StatusPanel statusPanel; // ステータスパネル
+	@Inject StatusPanel statusPanel; // ステータスパネル
 	private UnitMap map; // ユニットマップ
 	private JLabel help; // ヘルプ
 
 	/*** コンストラクタ *****************************************************/
 
-	public DeployEditor() throws Exception {
+	@Inject
+	public DeployEditor() {
 		super();
+	}
+	
+	public void setup() {
 
-		imageManager = new ImageManager(new ImageLoaderAWT());
 		initMap();
 
 		mapPanel = new MapPanel(map);
-		statusPanel = new StatusPanel();
+		//statusPanel = new StatusPanel();
 
 		help = new JLabel("help");
 		help.setFont(MineAwtUtils.getFont(12));
@@ -109,14 +113,17 @@ public class DeployEditor extends JFrame implements MainWorks<DeployData>, Comma
 		
 		mapPanel.addKeyListener(this);
 	}
+	
 	public static void main(String[] args) throws Exception {
-		new DeployEditor();
+		EditorComponent og = DaggerEditorComponent.builder().build();
+		DeployEditor deployEditor = og.getDeployEditor();
+		deployEditor.setup();
 	}
 
 	/*** ユニットマップ設定 *************************************************/
 
 	private void initMap() {
-		MineImageLoader mil = new ImageLoaderAWT();
+		MineImageLoader mil = imageManager.getImageLoader();
 		
 		map = new UnitMap(4, 20, 15, mil);
 		map.setTile(Page.BACK, imageManager.getStageBack(), -1);
@@ -148,7 +155,7 @@ public class DeployEditor extends JFrame implements MainWorks<DeployData>, Comma
 
 		for (DeployData deploy : editList.getList()) {
 
-			BodyData body = (BodyData)Statics.bodyList.getData(deploy.getBodyId());
+			BodyData body = statics.getBodyData(deploy.getBodyId());
 			map.setData(Page.CHARA, deploy.getX(), deploy.getY(), imageManager.getBodyImageList().getNum(body.getImage()));
 		}
 
@@ -172,7 +179,7 @@ public class DeployEditor extends JFrame implements MainWorks<DeployData>, Comma
 		deploy.setY(y);
 		editList.addData(deploy);
 
-		BodyData body = (BodyData)Statics.bodyList.getData(deploy.getBodyId());
+		BodyData body = statics.getBodyData(deploy.getBodyId());
 		map.setData(Page.CHARA, deploy.getX(), deploy.getY(), imageManager.getBodyImageList().getNum(body.getImage()));
 		repaintMap();
 	}
@@ -215,7 +222,7 @@ public class DeployEditor extends JFrame implements MainWorks<DeployData>, Comma
 			DeployData deploy = (DeployData) dstData.get(dstData.size() - 1);
 			dstData.remove(deploy);
 			editList.addDataAt(0, deploy);
-			BodyData body = (BodyData)Statics.bodyList.getData(deploy.getBodyId());
+			BodyData body = statics.getBodyData(deploy.getBodyId());
 			map.setData(Page.CHARA, deploy.getX(), deploy.getY(), imageManager.getBodyImageList().getNum(body.getImage()));
 			repaintMap();
 		}

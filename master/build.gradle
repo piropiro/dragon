@@ -1,7 +1,17 @@
+
 allprojects {
+
   apply plugin: 'eclipse'
   
   repositories {
 	  jcenter()
+  }
+  
+  ext {
+      daggerVersion = '2.0.2'
+  }
+    
+  task wrapper(type: Wrapper) {
+    gradleVersion = '2.13'
   }
 }

@@ -2,7 +2,7 @@ package card.anime;
 
 import mine.paint.PaintBox;
 import mine.paint.UnitMap;
-import card.UnitWorks;
+import card.CardWorks;
 import card.body.Card;
 import card.common.ImageList;
 import card.common.Page;
@@ -10,12 +10,12 @@ import card.common.Page;
 
 public class OpenDoubleCardAnime implements Runnable {
 
-	private UnitWorks canvas;
+	private CardWorks canvas;
 	private AnimeManager anime;
 	private UnitMap map;
 	private ImageList il;
 
-	public OpenDoubleCardAnime(UnitWorks canvas, AnimeManager anime, UnitMap map, ImageList il){
+	public OpenDoubleCardAnime(CardWorks canvas, AnimeManager anime, UnitMap map, ImageList il){
 		this.canvas = canvas;
 		this.anime = anime;
 		this.map = map;
@@ -26,7 +26,7 @@ public class OpenDoubleCardAnime implements Runnable {
 		Card card = new Card(0, 3*32, 10*32, Card.BLUE, il);
 		card.close();
 		canvas.addCard(card);
-		anime.openCard(card);
+		anime.openCard(canvas, card);
 		map.setData(Page.BACK, 3, 10, 2);
 		canvas.removeCard(card);
 		canvas.repaint(new PaintBox(3*32, 10*32, 32, 32));

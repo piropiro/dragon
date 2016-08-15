@@ -2,94 +2,129 @@ package dragon3.panel;
 
 import java.util.Arrays;
 
+import javax.inject.Inject;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
+
+import dagger.Module;
+import dragon3.DragonComponent;
+import dragon3.DragonModule;
 import dragon3.Statics;
 import dragon3.common.Body;
 import dragon3.common.constant.GameColor;
 import dragon3.common.constant.Page;
 import dragon3.common.util.MoveUtils;
-import dragon3.image.ImageManager;
-import dragon3.manage.SummonManagerMock;
-import dragon3.manage.TreasureManagerMock;
-import dragon3.manage.TurnManagerMock;
+import dragon3.controller.DragonController;
+import dragon3.manage.TurnManager;
+import dragon3.map.StageMap;
 import dragon3.panel.paint.CampDataPaint;
 import dragon3.view.DragonFrame;
-import junit.framework.TestCase;
-import mine.MineException;
-import mine.awt.ImageLoaderAWT;
-import mine.paint.MineImageLoader;
-import mine.paint.UnitMap;
 import mine.util.Point;
 
-public class PanelManagerTest extends TestCase {
+public class PanelManagerTest {
 
-	private static PanelManager pm;
-	private static UnitMap map;
+	private static DragonComponent og;
+	@Inject PanelManager pm;
+	@Inject TurnManager tm;
+	@Inject StageMap map;
+	@Inject Statics statics;
 
-	static {
-		try {
-			MineImageLoader mil = new ImageLoaderAWT();
-			ImageManager im = new ImageManager(mil);
+	@BeforeClass
+	public static void setUpClass() throws Exception {
+		//og = ObjectGraph.create(new TestModule());
+		
+		DragonController dc = og.getDragonController();
+		dc.setup();
+		dc.title();
+		DragonFrame df = og.getDragonFrame();
+		df.launch();
+	}
+	
+	@Module(
+		      includes = DragonModule.class
+		  )
+		  static class TestModule {
+		  }
+	
+//	@BeforeClass
+//	public static void setUpClass() throws Exception {
+//		ObjectGraph og = ObjectGraph.create(new DragonModule());
+//		statics = og.get(Statics.class);
+//		
+//		ImageManager im = og.get(ImageManager.class);
+//		MineImageLoader mil = im.getImageLoader();
+//		
+//		map = new UnitMap(14, 20, 15, mil);
+//		map.setVisible(Page.P00, true);
+//		map.setTile(Page.P00, im.getStageBack(), -1);
+//		map.setVisible(Page.P01, true);
+//		map.setTile(Page.P01, im.getStageObj(), -1);
+//		map.setVisible(Page.P20, true);
+//		map.setTile(Page.P20, im.getBodyImageList().getImageList(), 0);
+//		map.setVisible(Page.P50, true);
+//		map.setTile(Page.P50, im.getStatus(), 0);
+//		map.setPage(Page.P01, statics.getMapData("D01"));
+//		map.setData(Page.P01, 11, 10, MoveUtils.OPEN_MAGIC);
+//		map.setData(Page.P20, 10, 10, 1);
+//		map.fillDia(Page.P41, 10, 10, 2, 1);
+//		map.clear(Page.P02, 1);
+//		map.paintStep(Page.P02, Page.P03, 2, 2, 20);
+//
+//		DragonFrame fw = new DragonFrame();
+//		
+//		fw.getMapPanel().setPaintListener((g) -> stageMap.draw(g));
+//
+//		PanelManagerImpl pmi = new PanelManagerImpl(fw, null, map, null, im);
+//		pmi.setTurnManager(new TurnManagerMock());
+//		pmi.setTreasure(new TreasureManagerMock());
+//		pmi.setSummon(new SummonManagerMock());
+//		pm = pmi;
+//
+//		fw.launch();
+//		
+//	
+//	}
 
-			map = new UnitMap(14, 20, 15, mil);
-			map.setVisible(Page.P00, true);
-			map.setTile(Page.P00, im.getStageBack(), -1);
-			map.setVisible(Page.P01, true);
-			map.setTile(Page.P01, im.getStageObj(), -1);
-			map.setVisible(Page.P20, true);
-			map.setTile(Page.P20, im.getBodyImageList().getImageList(), 0);
-			map.setVisible(Page.P50, true);
-			map.setTile(Page.P50, im.getStatus(), 0);
-			map.setPage(Page.P01, Statics.getMapData("D01"));
-			map.setData(Page.P01, 11, 10, MoveUtils.OPEN_MAGIC);
-			map.setData(Page.P20, 10, 10, 1);
-			map.fillDia(Page.P41, 10, 10, 2, 1);
-			map.clear(Page.P02, 1);
-			map.paintStep(Page.P02, Page.P03, 2, 2, 20);
-
-			DragonFrame fw = new DragonFrame();
-			
-			fw.getMapPanel().setPaintListener((g) -> map.draw(g));
-
-			PanelManagerImpl pmi = new PanelManagerImpl(fw, null, map, null, im, mil);
-			pmi.setTurnManager(new TurnManagerMock());
-			pmi.setTreasure(new TreasureManagerMock());
-			pmi.setSummon(new SummonManagerMock());
-			pm = pmi;
-
-			fw.launch();
-			
-		} catch (MineException e) {
-			throw new RuntimeException(e);
-		}
+	@Before
+	public void setUp() throws Exception {
+		//og.inject(this);
+		
+		map.getMap().setPage(Page.P01, statics.getMapData("D01"));
+		map.getMap().setData(Page.P01, 11, 10, MoveUtils.OPEN_MAGIC);
+		map.getMap().setData(Page.P20, 10, 10, 1);
+		map.getMap().fillDia(Page.P41, 10, 10, 2, 1);
+		map.getMap().clear(Page.P02, 1);
+		map.getMap().paintStep(Page.P02, Page.P03, 2, 2, 20);
 	}
 
-
-	protected void setUp() throws Exception {
-		super.setUp();
-	}
-
-	protected void tearDown() throws Exception {
+	@After
+	public void tearDown() throws Exception {
 		Thread.sleep(2000);
 		pm.setHelpVisible(false);
 		pm.closeSmall();
-
-		super.tearDown();
 	}
 
+	@Test
 	public void testHelp1() {
 		pm.setHelpVisible(true);
 		pm.displayHelp(new Point(10, 10), GameColor.BLUE, "Hello, World!", "こんにちわ世界！");
 	}
 
+	@Test
 	public void testHelp2() {
 		pm.setHelpVisible(true);
 		pm.displayHelp(new Point(1, 1), GameColor.RED, "Hello, World!", "こんにちわ世界！");
 	}
 
+	@Test
 	public void testLarge() {
 		pm.displayLarge("Largeでかい", GameColor.BLUE, 1500);
 	}
 
+	@Test
 	public void testSmall1() {
 		Body body = new Body();
 		body.setX(5);
@@ -97,6 +132,7 @@ public class PanelManagerTest extends TestCase {
 		pm.displaySmall("攻撃", GameColor.WHITE, body);
 	}
 
+	@Test
 	public void testSmall2() {
 		Body body = new Body();
 		body.setX(10);
@@ -104,6 +140,7 @@ public class PanelManagerTest extends TestCase {
 		pm.displaySmall("火炎輪", GameColor.RED, body);
 	}
 
+	@Test
 	public void testHp1() {
 		Body ba = new Body();
 		ba.setColor(GameColor.BLUE);
@@ -126,6 +163,7 @@ public class PanelManagerTest extends TestCase {
 
 	}
 
+	@Test
 	public void testMessage() {
 		Body ba = new Body();
 		ba.setColor(GameColor.BLUE);
@@ -143,14 +181,17 @@ public class PanelManagerTest extends TestCase {
 		pm.startMessage(ba);
 	}
 
+	@Test
 	public void testDataData() {
-		pm.displayData(1, 1);
+		pm.displayData(tm, 1, 1);
 	}
 
+	@Test
 	public void testDataPlace() {
-		pm.displayPlace(1, 1);
+		pm.displayPlace(tm, 1, 1);
 	}
 
+	@Test
 	public void testDataWazaList() {
 		Body ba = new Body();
 		ba.setColor(GameColor.BLUE);
@@ -167,6 +208,7 @@ public class PanelManagerTest extends TestCase {
 		pm.displayWazaList(ba);
 	}
 
+	@Test
 	public void testDataAnalyze() {
 		Body ba = new Body();
 		ba.setColor(GameColor.BLUE);
@@ -179,6 +221,7 @@ public class PanelManagerTest extends TestCase {
 		pm.displayAnalyze(ba);
 	}
 
+	@Test
 	public void testDataStatus() {
 		Body ba = new Body();
 		ba.setColor(GameColor.BLUE);
@@ -198,10 +241,12 @@ public class PanelManagerTest extends TestCase {
 		pm.displayStatus(ba);
 	}
 
+	@Test
 	public void testDataCamp() {
 		pm.displayCampData(5, 5, CampDataPaint.C_CHARA1, GameColor.BLUE);
 	}
 
+	@Test
 	public void testDataWaza() {
 		Body ba = new Body();
 		ba.setColor(GameColor.BLUE);
