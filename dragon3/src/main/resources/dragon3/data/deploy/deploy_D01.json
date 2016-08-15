@@ -1,19 +1,5 @@
 [
 	{
-		"bodyId": "chara_004",
-		"deployType": "ENEMY_CHARA",
-		"goalX": 0,
-		"goalY": 0,
-		"id": null,
-		"level": 1,
-		"limitTurn": 0,
-		"name": "ゴブリン",
-		"range": 6,
-		"scope": 1,
-		"x": 13,
-		"y": 7
-	},
-	{
 		"bodyId": "chara_006",
 		"deployType": "ENEMY_CHARA",
 		"goalX": 0,
