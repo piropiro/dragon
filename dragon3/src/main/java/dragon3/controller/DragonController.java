@@ -11,6 +11,7 @@ import card.CardEventListener;
 import dragon3.Statics;
 import dragon3.anime.AnimeManager;
 import dragon3.attack.FightManager;
+import dragon3.attack.special.SpecialEffectManager;
 import dragon3.camp.Camp;
 import dragon3.camp.Equip;
 import dragon3.card.CardManager;
@@ -52,7 +53,7 @@ import mine.util.Point;
 @Singleton
 public class DragonController implements UnitWorks, MouseAllListener, CommandListener {
 
-	@Inject Statics statics;
+	@Getter @Inject Statics statics;
 	@Inject BodyDataLoader bodyDataLoader;
 	
 	@Inject StageMap stageMap;
@@ -82,6 +83,7 @@ public class DragonController implements UnitWorks, MouseAllListener, CommandLis
 	@Inject StageManager stageManager;
 	@Inject FightManager fightManager;
 	@Inject EnemyTurn enemyTurn;
+	@Getter @Inject SpecialEffectManager se;
 
 	@Setter private MouseAllListener mouseListener;
 
@@ -218,7 +220,7 @@ public class DragonController implements UnitWorks, MouseAllListener, CommandLis
 	private void stageSelect() {
 		fw.setMenu(FrameWorks.T_STAGESELECT);
 		panelManager.displayStageSelect(saveManager.getSaveData());
-		setMouseListener(new StageSelectEventListener());
+		setMouseListener(new StageSelectEventListener(this, stageManager));
 	}
 	
 	@Override
@@ -238,7 +240,7 @@ public class DragonController implements UnitWorks, MouseAllListener, CommandLis
 		PaintUtils.setPutPlayersPaint(this, Charas, Players);
 		mw.repaint();
 		panelManager.closeStageSelect();
-		setEventListener(new BasicPaint(this));
+		//setEventListener(new BasicPaint(this));
 	}
 
 	@Override
@@ -755,12 +757,14 @@ public class DragonController implements UnitWorks, MouseAllListener, CommandLis
 
 	@Override
 	public void accept() {
+		System.out.println("accept");
 		this.mouseListener.accept();
 		
 	}
 
 	@Override
 	public void cancel() {
+		System.out.println("cancel");
 		this.mouseListener.cancel();
 	}
 

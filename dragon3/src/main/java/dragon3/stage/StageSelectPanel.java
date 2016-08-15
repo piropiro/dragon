@@ -108,7 +108,9 @@ public class StageSelectPanel implements StageManager, PaintListener {
 
 
 
-	public void wakuPaint(boolean flag) {
+	public void wakuPaint(int wx, int wy, boolean flag) {
+		this.wx = wx;
+		this.wy = wy;
 		selectMap.setData(P_WAKU, wxs, wys, 0);
 		selectMap.setData(P_WAKU, wx, wy, 1);
 		if (flag) {

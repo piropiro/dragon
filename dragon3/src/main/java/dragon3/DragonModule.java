@@ -10,6 +10,7 @@ import dragon3.anime.AnimeManager;
 import dragon3.anime.AnimePanel;
 import dragon3.controller.DragonController;
 import dragon3.controller.UnitWorks;
+import dragon3.image.ImageManager;
 import dragon3.manage.SummonManager;
 import dragon3.manage.SummonManagerImpl;
 import dragon3.manage.TreasureManager;
@@ -145,23 +146,23 @@ public class DragonModule {
 	}
 	
 	@Provides @Singleton @Named("dataP1")
-	DataPanel provideDataP1(@Named("dataC1") PaintComponent panel) {
-		return new DataPanel(panel, true);
+	DataPanel provideDataP1(@Named("dataC1") PaintComponent panel, Statics statics, SleepManager sm, ImageManager im) {
+		return new DataPanel(panel, statics, sm, im, true);
 	}
 	
 	@Provides @Singleton @Named("dataP2")
-	DataPanel provideDataP2(@Named("dataC2") PaintComponent panel) {
-		return new DataPanel(panel, false);
+	DataPanel provideDataP2(@Named("dataC2") PaintComponent panel, Statics statics, SleepManager sm, ImageManager im) {
+		return new DataPanel(panel, statics, sm, im, false);
 	}
 	
 	@Provides @Singleton @Named("hpP1")
-	HPanel provideHpP1(@Named("hpC1") PaintComponent panel) {
-		return new HPanel(panel, true);
+	HPanel provideHpP1(@Named("hpC1") PaintComponent panel, SleepManager sm) {
+		return new HPanel(panel, sm, true);
 	}
 	
 	@Provides @Singleton @Named("hpP2")
-	HPanel provideHpP2(@Named("hpC2") PaintComponent panel) {
-		return new HPanel(panel, false);
+	HPanel provideHpP2(@Named("hpC2") PaintComponent panel, SleepManager sm) {
+		return new HPanel(panel, sm, false);
 	}
 	
 	@Provides @Singleton

@@ -2,8 +2,6 @@ package dragon3.panel;
 
 import java.util.StringTokenizer;
 
-import javax.inject.Inject;
-
 import dragon3.Statics;
 import dragon3.attack.Attack;
 import dragon3.camp.Equip;
@@ -46,7 +44,7 @@ public class DataPanel implements PanelWorks, PaintListener {
 	public static final int WIDTH = 160;
 	public static final int HEIGHT = 128;
 
-	@Inject Statics statics;
+	private Statics statics;
 	
 	private PaintComponent panel;
 
@@ -56,14 +54,17 @@ public class DataPanel implements PanelWorks, PaintListener {
 
 	protected HPBar hpb;
 	protected EXPBar expb;
-	@Inject SleepManager sm;
-	@Inject ImageManager im;
+	private SleepManager sm;
+	private ImageManager im;
 
 	protected boolean left;	
 	protected int width;
 	protected int height;
 
-	public DataPanel(PaintComponent panel, boolean left) {
+	public DataPanel(PaintComponent panel, Statics statics, SleepManager sm, ImageManager im, boolean left) {
+		this.statics = statics;
+		this.sm = sm;
+		this.im = im;
 		this.width = WIDTH;
 		this.height = HEIGHT;
 		this.left = left;
@@ -210,7 +211,7 @@ public class DataPanel implements PanelWorks, PaintListener {
 	}
 
 	public void displayWazaList(Body ba) {
-		pp = new WazaListPaint(ba);
+		pp = new WazaListPaint(statics, ba);
 
 		setHPBar(ba, null);
 		setEXPBar(ba);

@@ -1,11 +1,8 @@
 package dragon3.attack;
 
-import mine.util.Point;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
-
-import javax.inject.Inject;
 
 import dragon3.Statics;
 import dragon3.anime.AnimeManager;
@@ -27,9 +24,9 @@ import dragon3.attack.target.SpreadTarget;
 import dragon3.attack.target.Target;
 import dragon3.common.Body;
 import dragon3.common.constant.AttackEffect;
+import dragon3.common.constant.BodyAttribute;
 import dragon3.common.constant.Page;
 import dragon3.common.constant.TargetType;
-import dragon3.common.constant.BodyAttribute;
 import dragon3.common.util.Luck;
 import dragon3.controller.UnitWorks;
 import dragon3.data.AnimeData;
@@ -39,10 +36,11 @@ import dragon3.panel.PanelManager;
 import mine.MineUtils;
 import mine.event.SleepManager;
 import mine.paint.UnitMap;
+import mine.util.Point;
 
 public class AttackManagerImpl implements AttackManager {
 
-	@Inject Statics statics;
+	private Statics statics;
 	
 	private AttackImpl attack;
 
@@ -52,7 +50,7 @@ public class AttackManagerImpl implements AttackManager {
 	private RewalkManager rewalkManager;
 	private UnitWorks uw;
 	private UnitMap map;
-	@Inject SpecialEffectManager se;
+	private SpecialEffectManager se;
 
 	private List<Body> enemy;
 
@@ -69,10 +67,11 @@ public class AttackManagerImpl implements AttackManager {
 
 	/*** Constructer *********************************************************/
 
-	public AttackManagerImpl(UnitWorks uw, UnitMap map, Body ba, String wazaId, boolean hpFlag) {
-
+	public AttackManagerImpl(UnitWorks uw,  UnitMap map, Body ba, String wazaId, boolean hpFlag) {
 		this.uw = uw;
 		this.map = map;
+		this.statics = uw.getStatics();
+		this.se = uw.getSe();
 		this.anime = uw.getAnimeManager();
 		this.sm = uw.getSleepManager();
 		this.pm = uw.getPanelManager();

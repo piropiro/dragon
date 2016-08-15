@@ -4,27 +4,25 @@
 package dragon3.panel.paint;
 
 
-import mine.paint.MineGraphics;
-import mine.util.Point;
-
-import javax.inject.Inject;
-
 import dragon3.Statics;
 import dragon3.common.Body;
 import dragon3.common.constant.GameColor;
 import dragon3.data.Data;
 import dragon3.panel.PanelWorks;
+import mine.paint.MineGraphics;
+import mine.util.Point;
 
 /**
  * @author saito
  */
 public class WazaListPaint implements DataPanelPainter {
 
-	@Inject Statics statics;
+	private Statics statics;
 	
 	private Body ba;
 
-	public WazaListPaint(Body ba) {
+	public WazaListPaint(Statics statics, Body ba) {
+		this.statics = statics;
 		this.ba = ba;
 	}
 

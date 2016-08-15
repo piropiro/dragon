@@ -6,8 +6,10 @@ import java.util.List;
 import mine.event.MouseAllListener;
 import mine.event.SleepManager;
 import mine.paint.UnitMap;
+import dragon3.Statics;
 import dragon3.anime.AnimeManager;
 import dragon3.attack.FightManager;
+import dragon3.attack.special.SpecialEffectManager;
 import dragon3.common.Body;
 import dragon3.common.constant.GameColor;
 import dragon3.data.StageData;
@@ -68,6 +70,8 @@ public interface UnitWorks {
 	public UnitMap getUnitMap();
 	public List<Body> getCharaList();
 	public StageMap getStageMap();
+	public Statics getStatics();
+	public SpecialEffectManager getSe();
 
 	// CardPanel
 	public void displayCardBattle(Body ba, Body bb);

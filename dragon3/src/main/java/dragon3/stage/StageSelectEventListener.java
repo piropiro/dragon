@@ -15,21 +15,14 @@ public class StageSelectEventListener implements MouseAllListener {
 	
 	private UnitWorks uw;
 	
-	private Point getWaku() {
-		return new Point(wx, wy);
+	public StageSelectEventListener(UnitWorks uw, StageManager stageManager) {
+		this.uw = uw;
+		this.stageManager = stageManager;
+		wx = -1;
+		wy = -1;
 	}
 	
-	private void wakuMove(int x, int y) {
-		this.wx = x;
-		this.wy = y;
-//		Body b = uw.search(wx, wy);
-//		if (b != null) {
-//			el.setSelectBody(b);
-//		} else {
-//			el.setSelectPlace(x, y);
-//		}
-//		uw.getPanelManager().setHelpLocation(wx, wy);
-	}
+
 	
 	@Override
 	public void leftPressed(int x, int y) {
@@ -51,10 +44,10 @@ public class StageSelectEventListener implements MouseAllListener {
 	@Override
 	public void mouseMoved(int x, int y) {
 		Point p = new Point(x / UNIT_WIDTH, y / UNIT_HEIGHT);
-		Point ps = getWaku();
-		if (p.x != ps.x || p.y != ps.y) {
-			wakuMove(p.x, p.y);
-			stageManager.wakuPaint(true);
+		if (p.x != wx || p.y != wy) {
+			this.wx = x;
+			this.wy = y;
+			stageManager.wakuPaint(p.x, p.y, true);
 		}
 	}
 

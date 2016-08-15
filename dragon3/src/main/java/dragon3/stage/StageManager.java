@@ -11,7 +11,7 @@ public interface StageManager {
 	
 	public StageData getSelectedStage();
 	
-	public void wakuPaint(boolean flag);
+	public void wakuPaint(int wx, int wy, boolean flag);
 	
 	public void setUw(UnitWorks uw);
 	

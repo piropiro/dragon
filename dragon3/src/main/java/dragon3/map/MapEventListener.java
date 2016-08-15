@@ -42,7 +42,7 @@ public class MapEventListener implements MouseAllListener {
 		
 		
 		if (p.x != wx || p.y != wy) {
-			Body b = stageMap.search(wx, wy);
+			Body b = stageMap.search(p.x, p.y);
 			if (b != null) {
 				el.setSelectBody(b);
 			} else {
