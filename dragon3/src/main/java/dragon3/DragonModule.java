@@ -40,7 +40,7 @@ import mine.event.PaintComponent;
 import mine.event.SleepManager;
 import mine.paint.MineImageLoader;
 
-@Module(library=true, injects={DragonController.class, DragonFrame.class})
+@Module
 public class DragonModule {
 
 	private MineCanvas mc;

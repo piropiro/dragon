@@ -2,7 +2,6 @@ package dragon3.edit;
 
 import javax.inject.Inject;
 
-import dagger.ObjectGraph;
 import dragon3.Statics;
 import dragon3.common.DataList;
 import dragon3.common.constant.AttackEffect;
@@ -23,9 +22,8 @@ import mine.edit.EditPanel;
 public class WazaEditor extends EditPanel<WazaData> implements EditListener<WazaData> {
 
 	public static void main(String[] args) throws MineException {
-		ObjectGraph objectGraph = ObjectGraph.create(new EditorModule());
-
-		new BeanEditor<>("WazaEditor", "wazas.txt", "data.json", objectGraph.get(WazaEditor.class));
+		EditorComponent og = DaggerEditorComponent.builder().build();
+		new BeanEditor<>("WazaEditor", "wazas.txt", "data.json", og.getWazaEditor());
 	}
 
 	@Inject

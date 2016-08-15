@@ -2,7 +2,6 @@ package dragon3.edit;
 
 import javax.inject.Inject;
 
-import dagger.ObjectGraph;
 import dragon3.common.constant.AnimeType;
 import dragon3.data.AnimeData;
 import dragon3.image.AnimeImageList;
@@ -15,9 +14,9 @@ import mine.paint.MineImage;
 public class AnimeEditor extends EditPanel<AnimeData> {
 
 	public static void main(String[] args) throws Exception {
-		ObjectGraph objectGraph = ObjectGraph.create(new EditorModule());
+		EditorComponent og = DaggerEditorComponent.builder().build();
 
-		new BeanEditor<>("AnimeEditor", "animes.txt", "data.json", objectGraph.get(AnimeEditor.class));
+		new BeanEditor<>("AnimeEditor", "animes.txt", "data.json", og.getAnimeEditor());
 	}
 
 	@Inject

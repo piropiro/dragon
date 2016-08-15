@@ -4,7 +4,6 @@ import java.util.Map;
 
 import javax.inject.Inject;
 
-import dagger.ObjectGraph;
 import dragon3.Statics;
 import dragon3.common.constant.ArmorType;
 import dragon3.common.constant.BodyAttribute;
@@ -23,9 +22,8 @@ import mine.edit.EditPanel;
 public class BodyEditor extends EditPanel<BodyData> implements EditListener<BodyData> {
 
 	public static void main(String[] args) throws Exception {
-		ObjectGraph objectGraph = ObjectGraph.create(new EditorModule());
-
-		new BeanEditor<>("BodyEditor", "bodys.txt", "data.json", objectGraph.get(BodyEditor.class));
+		EditorComponent og = DaggerEditorComponent.builder().build();
+		new BeanEditor<>("BodyEditor", "bodys.txt", "data.json", og.getBodyEditor());
 	}
 
 	@Inject

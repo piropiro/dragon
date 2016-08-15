@@ -7,7 +7,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import dagger.Module;
-import dagger.ObjectGraph;
+import dragon3.DragonComponent;
 import dragon3.DragonModule;
 import dragon3.Statics;
 import dragon3.common.constant.Page;
@@ -19,7 +19,7 @@ import dragon3.view.DragonFrame;
 
 public class AnimeManagerTest {
 
-	private static ObjectGraph og;
+	private static DragonComponent og;
 	
 	@Inject Statics statics;
 	
@@ -29,26 +29,25 @@ public class AnimeManagerTest {
 
 	@BeforeClass
 	public static void setUpClass() throws Exception {
-		og = ObjectGraph.create(new TestModule());
-		DragonController dc = og.get(DragonController.class);
+		//og = DaggerDragonTestComponent.builder().build();
+		
+		DragonController dc = og.getDragonController();
 		dc.setup();
 		dc.title();
-		DragonFrame df = og.get(DragonFrame.class);
+		DragonFrame df = og.getDragonFrame();
 		df.launch();
 	}
 	
 	
 	@Module(
-		      includes = DragonModule.class,
-		      injects = AnimeManagerTest.class,
-		      overrides = true
+		      includes = DragonModule.class
 		  )
 		  static class TestModule {
 		  }
 
 	@Before
 	public void setUp() throws Exception {
-		og.inject(this);
+		//og.inject(this);
 		
 		map.getMap().setPage(Page.P01, statics.getMapData("D01"));
 		map.getMap().setData(Page.P01, 11, 10, MoveUtils.OPEN_MAGIC);

@@ -2,7 +2,6 @@ package dragon3.edit;
 
 import javax.inject.Inject;
 
-import dagger.ObjectGraph;
 import dragon3.data.StageData;
 import dragon3.stage.StageBack;
 import mine.edit.BeanEditor;
@@ -14,9 +13,8 @@ public class StageEditor extends EditPanel<StageData> implements EditListener<St
 
 
 	public static void main(String[] args) {
-		ObjectGraph objectGraph = ObjectGraph.create(new EditorModule());
-
-		new BeanEditor<>("StageEditor", "stages.txt", "data.json", objectGraph.get(StageEditor.class));
+		EditorComponent og = DaggerEditorComponent.builder().build();
+		new BeanEditor<>("StageEditor", "stages.txt", "data.json", og.getStageEditor());
 	}
 
 	@Inject

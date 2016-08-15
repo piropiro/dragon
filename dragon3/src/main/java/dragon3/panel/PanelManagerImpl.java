@@ -52,6 +52,7 @@ public class PanelManagerImpl implements PanelManager {
 	
 	private boolean helpVisible;
 
+	@Inject
 	public PanelManagerImpl() {
 //		this.fw = fw;
 //		this.map = map;

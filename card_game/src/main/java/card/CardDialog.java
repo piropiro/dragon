@@ -8,7 +8,6 @@ import javax.inject.Singleton;
 import javax.swing.JComponent;
 import javax.swing.JDialog;
 
-import dagger.ObjectGraph;
 import mine.MineException;
 import mine.MineUtils;
 import mine.awt.MineAwtUtils;
@@ -35,7 +34,9 @@ public class CardDialog extends JDialog implements CardListener {
 	@Inject CardCanvas cc;
 
 	public static void main(String[] args) throws MineException {
-		ObjectGraph og = ObjectGraph.create(new CardModule());
+		
+		CardComponent og = DaggerCardComponent.builder().build();
+		//ObjectGraph og = ObjectGraph.create(new CardModule());
 		
 		CardDialog cd = new CardDialog();
 		og.inject(cd);

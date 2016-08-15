@@ -14,11 +14,11 @@ import javax.swing.JScrollPane;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
-import dagger.ObjectGraph;
 import dragon3.Statics;
 import dragon3.data.BodyData;
 import dragon3.data.DeployData;
-import dragon3.edit.EditorModule;
+import dragon3.edit.DaggerEditorComponent;
+import dragon3.edit.EditorComponent;
 import dragon3.edit.deploy.paint.BasicPaint;
 import dragon3.edit.deploy.paint.GoalPaint;
 import dragon3.edit.deploy.paint.SortPaint;
@@ -115,9 +115,8 @@ public class DeployEditor extends JFrame implements MainWorks<DeployData>, Comma
 	}
 	
 	public static void main(String[] args) throws Exception {
-		ObjectGraph objectGraph = ObjectGraph.create(new EditorModule());
-		
-		DeployEditor deployEditor = objectGraph.get(DeployEditor.class);
+		EditorComponent og = DaggerEditorComponent.builder().build();
+		DeployEditor deployEditor = og.getDeployEditor();
 		deployEditor.setup();
 	}
 

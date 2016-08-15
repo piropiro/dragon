@@ -13,7 +13,7 @@ import mine.event.PaintComponent;
 import mine.event.SleepManager;
 import mine.paint.MineImageLoader;
 
-@Module(library=true, injects=CardCanvas.class)
+@Module
 public class CardModule {
 
 	private MineCanvas mc;
