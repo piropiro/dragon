@@ -1,19 +1,19 @@
 package card.anime;
 
 import mine.paint.UnitMap;
-import card.UnitWorks;
+import card.CardWorks;
 import card.body.Card;
 import card.common.Page;
 
 public class DoubleCardAnime implements Runnable {
 
-	private UnitWorks uw;
+	private CardWorks uw;
 	private UnitMap map;
 	private AnimeManager anime;
 	private Card left;
 	private Card right;
 
-	public DoubleCardAnime(UnitWorks uw, AnimeManager anime, UnitMap map, Card left, Card right){
+	public DoubleCardAnime(CardWorks uw, AnimeManager anime, UnitMap map, Card left, Card right){
 		this.uw = uw;
 		this.anime = anime;
 		this.map = map;

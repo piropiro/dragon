@@ -62,7 +62,7 @@ public class CardDialog extends JDialog implements CardListener {
 		
 		//cc = new CardCanvas(cardPanel, mil, sleepManager);		
 		cc.setCardListener(this);
-		mc.setMouseAllListener(cc);
+		mc.setMouseAllListener(new CardEventListener(cc));
 		
 		chara = (MineImage[])MineUtils.linerize(
 			imageLoader.loadTile("card/image/chara.png", 32, 32), new MineImage[0]);

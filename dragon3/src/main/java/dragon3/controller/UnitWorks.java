@@ -3,6 +3,7 @@ package dragon3.controller;
 import mine.util.Point;
 import java.util.List;
 
+import mine.event.MouseAllListener;
 import mine.event.SleepManager;
 import mine.paint.UnitMap;
 import dragon3.anime.AnimeManager;
@@ -15,6 +16,7 @@ import dragon3.manage.RewalkManager;
 import dragon3.manage.TurnManager;
 import dragon3.map.MapWorks;
 import dragon3.map.StageMap;
+import dragon3.paint.EventListener;
 import dragon3.panel.PanelManager;
 import dragon3.save.SaveManager;
 import dragon3.view.FrameWorks;
@@ -69,8 +71,10 @@ public interface UnitWorks {
 
 	// CardPanel
 	public void displayCardBattle(Body ba, Body bb);
-	public boolean isCardBattleEnd();
+	public void closeCardBattle(Body ba, Body bb, boolean win);
 	
 	public boolean isTutorial();
 
+	public void setEventListener(EventListener el);
+    public void setMouseListener(MouseAllListener mal);
 }

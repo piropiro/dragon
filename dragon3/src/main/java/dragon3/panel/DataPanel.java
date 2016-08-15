@@ -1,5 +1,7 @@
 package dragon3.panel;
 
+import java.util.StringTokenizer;
+
 import javax.inject.Inject;
 
 import dragon3.Statics;
@@ -8,9 +10,13 @@ import dragon3.camp.Equip;
 import dragon3.common.Body;
 import dragon3.common.constant.BodyKind;
 import dragon3.common.constant.GameColor;
+import dragon3.common.constant.Texts;
 import dragon3.common.util.MoveUtils;
 import dragon3.data.WazaData;
 import dragon3.image.ImageManager;
+import dragon3.manage.LevelManager;
+import dragon3.panel.item.EXPBar;
+import dragon3.panel.item.HPBar;
 import dragon3.panel.paint.AnalyzePaint;
 import dragon3.panel.paint.AttackPaint;
 import dragon3.panel.paint.CampDataPaint;
@@ -28,11 +34,14 @@ import dragon3.panel.paint.WazaListPaint;
 import dragon3.panel.paint.WazaPaint;
 import dragon3.save.SaveData;
 import mine.event.PaintComponent;
+import mine.event.PaintListener;
+import mine.event.SleepManager;
+import mine.paint.MineColor;
 import mine.paint.MineGraphics;
 import mine.paint.MineImage;
 import mine.util.Point;
 
-public class DataPanel extends PanelBase {
+public class DataPanel implements PanelWorks, PaintListener {
 
 	public static final int WIDTH = 160;
 	public static final int HEIGHT = 128;
@@ -41,20 +50,97 @@ public class DataPanel extends PanelBase {
 	
 	private PaintComponent panel;
 
-	@Inject ImageManager im;
-
 	private DataPanelPainter pp;
 
 	private GameColor bgcolor = GameColor.BLUE;
 
+	protected HPBar hpb;
+	protected EXPBar expb;
+	@Inject SleepManager sm;
+	@Inject ImageManager im;
 
-	/*** Constructer *******************************************/
+	protected boolean left;	
+	protected int width;
+	protected int height;
 
 	public DataPanel(PaintComponent panel, boolean left) {
-		super(WIDTH, HEIGHT, left);
+		this.width = WIDTH;
+		this.height = HEIGHT;
+		this.left = left;
 		this.panel = panel;
+
+		hpb = new HPBar();
+		expb = new EXPBar();
 		panel.setPaintListener(this);
 	}
+
+	public void setEXPBar(Body b) {
+		expb.setup(b.getExp(), LevelManager.MAX_EXP);
+	}
+
+	public void setHPBar(Body b, Attack attack) {
+		if (attack != null) {
+			int damage = attack.getDamage() * attack.getRate() / 100;
+			hpb.setup(attack.isHit(), b.getHp(), b.getHpMax());
+			hpb.setMin(b.getHp() - damage, false);
+		} else {
+			hpb.setup(false, b.getHp(), b.getHpMax());
+		}
+	}
+
+	/*** Main **********************************************/
+
+	@Override
+	public void drawMain(Body ba, MineGraphics g) {
+		g.drawImage(im.getWhiteBack(), 10, 10);
+		g.drawImage(im.getBodyImageList().getImage(ba.getImageNum()), 10, 10);
+		g.drawString(ba.base.getName(), 50, 22);
+		g.drawString("Lv." + ba.getLevel(), 52, 41);
+	}
+	
+	@Override
+	public void drawHp(Body ba, MineGraphics g) {
+		drawLine(Texts.hp, 0, 0, g);
+		hpb.paint(52, 60, g);
+	}
+	
+	@Override
+	public void drawExp(Body ba, MineGraphics g) {
+		drawLine("EXP", 0, 0, g);
+		expb.paint(52, 60, g);
+	}
+
+	/*** Line ***************************************/
+
+	public void drawText(String lines, MineGraphics g) {
+		StringTokenizer st = new StringTokenizer(lines, "&");
+		g.drawString(st.nextToken(), 50, 32);
+		for (int i = 0; i <= 3; i++) {
+			if (!st.hasMoreTokens())
+				break;
+			drawLine(st.nextToken(), 0, i, g);
+		}
+	}
+
+	public void drawLine(String name, int st, int x, int y, MineGraphics g) {
+		g.drawString(name, 10 + 70 * x, 60 + 19 * y);
+		g.drawString("" + st, 52 + 70 * x, 60 + 19 * y);
+	}
+	public void drawLine(String name, int x, int y, MineGraphics g) {
+		g.drawString(name, 10 + 70 * x, 60 + 19 * y);
+	}
+
+	/*** Clear *********************************************/
+
+	public boolean clear(GameColor color, MineGraphics g) {
+		g.setColor(color.getAlphaBg());
+
+		g.fillRect(0, 0, width, height);
+		g.setColor(MineColor.WHITE);
+		g.drawRect(2, 2, width - 5, height - 5);
+		return true;
+	}
+
 
 	/*** Score *******************************************/
 
@@ -242,7 +328,7 @@ public class DataPanel extends PanelBase {
 		int st = hpb.getSleepTime() / 2;
 		while (hpb.henka()) {
 			panel.repaint(50, 50, 96, 12);
-			sleep(st);
+			sm.sleep(st);
 		}
 		panel.repaint();
 	}

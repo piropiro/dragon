@@ -1,17 +1,17 @@
 package card.anime;
 
 import mine.paint.UnitMap;
-import card.UnitWorks;
+import card.CardWorks;
 import card.body.Card;
 import card.common.Page;
 
 public class ClosingAnime implements Runnable {
 	
-	private UnitWorks canvas;
+	private CardWorks canvas;
 	private UnitMap map;
 	private Card[] card;
 
-	public ClosingAnime(UnitWorks canvas, UnitMap map, Card[] card){
+	public ClosingAnime(CardWorks canvas, UnitMap map, Card[] card){
 		this.canvas = canvas;
 		this.map = map;
 		this.card = card;

@@ -134,15 +134,16 @@ public class CampPaint implements EventListener {
 
 	@Override
 	public void mouseMoved(int x, int y) {
-		mw.wakuMove(x, y);
 		pm.setHelpLocation(x, y);
 		Body b = camp.getEquip().search(x, y);
-		if (b != null && b.getColor() == GameColor.BLUE) {
-			camp.getEquip().equip(b);
+		if (b != null) {
+			if (b.getColor() == GameColor.BLUE) {
+				camp.getEquip().equip(b);
+			}
+			pm.displayStatus(b);
 		}
-		pm.displayStatus(b);
 		camp.moveChara(x, y);
-		mw.wakuPaint(true);
+		mw.wakuPaint(x, y, true);
 	}
 
 	/*** Next Point *************************************/

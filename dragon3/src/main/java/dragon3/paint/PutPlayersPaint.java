@@ -230,10 +230,9 @@ public class PutPlayersPaint implements EventListener {
 
 	@Override
 	public void mouseMoved(int x, int y) {
-		mw.wakuMove(x, y);
 		pm.setHelpLocation(x, y);
 		moveChara(x, y);
-		mw.wakuPaint(true);
+		mw.wakuPaint(x, y, true);
 	}
 
 

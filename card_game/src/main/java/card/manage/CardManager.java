@@ -6,7 +6,7 @@ import java.util.List;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
-import card.UnitWorks;
+import card.CardWorks;
 import card.anime.AnimeManager;
 import card.body.Card;
 import card.common.ImageList;
@@ -23,7 +23,7 @@ public class CardManager {
 	public CardManager(){
 	}
 
-	public void setRedCards(UnitWorks uw, int[] n){
+	public void setRedCards(CardWorks uw, int[] n){
 		randomize(uw, n);
 		red = new Card[7];
 		for (int i=0; i<red.length; i++) {
@@ -32,7 +32,7 @@ public class CardManager {
 		}
 	}
 	
-	public void setBlueCards(UnitWorks uw, int[] n){
+	public void setBlueCards(CardWorks uw, int[] n){
 		randomize(uw, n);
 		blue = new Card[7];
 		for (int i=0; i<blue.length; i++) {
@@ -41,7 +41,7 @@ public class CardManager {
 		}
 	}
 	
-	private int[] randomize(UnitWorks uw, int[] n){
+	private int[] randomize(CardWorks uw, int[] n){
 		for (int i=0; i<n.length; i++) {
 			int j = uw.nextInt(n.length);
 			int tmp = n[j];
@@ -66,15 +66,15 @@ public class CardManager {
 			return false;
 		}
 	}
-	public boolean openBlue(UnitWorks uw, int n){
+	public boolean openBlue(CardWorks uw, int n){
 		return openCard(uw, blue[n]);
 	}
 	
-	public boolean openRed(UnitWorks uw, int n){
+	public boolean openRed(CardWorks uw, int n){
 		return openCard(uw, red[n]);
 	}
 	
-	private boolean openCard(UnitWorks uw, Card card) {
+	private boolean openCard(CardWorks uw, Card card) {
 		if (card.getStatus() == Card.CLOSE) {
 			anime.openCard(uw, card);
 			return true;

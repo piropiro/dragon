@@ -1,21 +1,21 @@
 package card.anime;
 
 import mine.paint.UnitMap;
-import card.UnitWorks;
+import card.CardWorks;
 import card.body.Card;
 import card.common.ImageList;
 import card.common.Page;
 
 public class OpeningAnime implements Runnable {
 	
-	private UnitWorks canvas;
+	private CardWorks canvas;
 	private UnitMap map;
 	private AnimeManager anime;
 	private Card[] red;
 	private Card[] blue;
 	private ImageList il;
 
-	public OpeningAnime(UnitWorks canvas, AnimeManager anime, UnitMap map, Card[] red, Card[] blue, ImageList il){
+	public OpeningAnime(CardWorks canvas, AnimeManager anime, UnitMap map, Card[] red, Card[] blue, ImageList il){
 		this.canvas = canvas;
 		this.anime = anime;
 		this.map = map;

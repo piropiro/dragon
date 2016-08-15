@@ -3,23 +3,16 @@ package dragon3.map;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import dragon3.common.Body;
 import dragon3.common.constant.Page;
-import dragon3.paint.EventListener;
-import dragon3.paint.WaitPaint;
-import mine.event.MouseAllListener;
 import mine.event.PaintComponent;
 import mine.event.PaintListener;
 import mine.paint.MineGraphics;
 import mine.util.Point;
 
-public class MapPanel implements MapWorks, MouseAllListener, PaintListener {
+public class MapPanel implements MapWorks, PaintListener {
 
 	private PaintComponent panel;
 	
-	
-	private EventListener el;
-
 	private int wx, wy, wxs, wys;
 
 	@Inject StageMap map;
@@ -30,20 +23,7 @@ public class MapPanel implements MapWorks, MouseAllListener, PaintListener {
 	public MapPanel(@Named("mapC") PaintComponent panel) {
 		super();
 		this.panel = panel;
-		this.el = new WaitPaint();
-		
 		panel.setPaintListener(this);
-	}
-
-	/*** Listener ************************************************/
-	@Override
-	public synchronized void setEventListener(EventListener el) {
-		System.out.println(el.getClass());
-		this.el = el;
-	}
-	@Override
-	public EventListener getEventListener() {
-		return el;
 	}
 
 	/*** Get and Set Data ************************************************/
@@ -53,20 +33,22 @@ public class MapPanel implements MapWorks, MouseAllListener, PaintListener {
 	}
 
 	/*** Waku **************************************************************/
+//	@Override
+//	public void wakuMove(int x, int y) {
+//		this.wx = x;
+//		this.wy = y;
+//		Body b = map.search(wx, wy);
+//		if (b != null) {
+//			el.setSelectBody(b);
+//		} else {
+//			el.setSelectPlace(x, y);
+//		}
+//		//uw.getPanelManager().setHelpLocation(wx, wy);
+//	}
 	@Override
-	public void wakuMove(int x, int y) {
-		this.wx = x;
-		this.wy = y;
-		Body b = map.search(wx, wy);
-		if (b != null) {
-			el.setSelectBody(b);
-		} else {
-			el.setSelectPlace(x, y);
-		}
-		//uw.getPanelManager().setHelpLocation(wx, wy);
-	}
-	@Override
-	public void wakuPaint(boolean flag) {
+	public void wakuPaint(int wx, int wy, boolean flag) {
+		this.wx = wx;
+		this.wy = wy;
 		map.getMap().setData(Page.P40, wxs, wys, 0);
 		map.getMap().setData(Page.P40, wx, wy, 1);
 		if (flag) {
@@ -104,61 +86,6 @@ public class MapPanel implements MapWorks, MouseAllListener, PaintListener {
 	@Override
 	public void paint(MineGraphics g) {
 		map.getMap().draw(g);
-	}
-
-	@Override
-	public void leftPressed(int x, int y) {
-		mouseMoved(x, y);
-		el.leftPressed();
-	}
-
-	@Override
-	public void rightPressed(int x, int y) {
-		//mouseMoved(x, y);
-		el.cancel();
-	}
-
-	@Override
-	public void leftReleased(int x, int y) {
-	}
-
-	@Override
-	public void rightReleased(int x, int y) {
-	}
-
-	@Override
-	public void mouseMoved(int x, int y) {
-		Point p = new Point(x / 32, y / 32);
-		Point ps = getWaku();
-		if (p.x != ps.x || p.y != ps.y) {
-			el.mouseMoved(p.x, p.y);
-		}
-	}
-
-
-	@Override
-	public void leftDragged(int x, int y) {
-	}
-	@Override
-	public void rightDragged(int x, int y) {
-	}
-	@Override
-	public void mouseEntered(int x, int y) {
-	}
-	
-	@Override
-	public void mouseExited(int x, int y) {
-	}
-
-	@Override
-	public void accept() {
-		el.accept();
-		
-	}
-
-	@Override
-	public void cancel() {
-		el.cancel();
 	}
 
 }

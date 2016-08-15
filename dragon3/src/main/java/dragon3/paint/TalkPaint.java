@@ -116,7 +116,7 @@ public class TalkPaint implements EventListener {
 	 * 
 	 */
 	public void action() {
-		PaintUtils.setCardPaint(uw, ba, bb);
+		uw.displayCardBattle(ba, bb);
 	}
 
 	@Override
@@ -152,9 +152,8 @@ public class TalkPaint implements EventListener {
 
 	@Override
 	public void mouseMoved(int x, int y) {
-		mw.wakuMove(x, y);
 		pm.setHelpLocation(x, y);
-		mw.wakuPaint(true);
+		mw.wakuPaint(x, y, true);
 	}
 
 	/*** Event ************************************/

@@ -18,7 +18,7 @@ import card.manage.CardManager;
 import card.manage.DoubleManager;
 import card.paint.ResultPainter;
 import card.paint.WakuPainter;
-import mine.event.MouseAllListener;
+import lombok.Getter;
 import mine.event.PaintComponent;
 import mine.event.PaintListener;
 import mine.event.SleepManager;
@@ -31,7 +31,7 @@ import mine.thread.Lock;
 
 @Singleton
 public class CardCanvas
-	implements UnitWorks, MouseAllListener, PaintListener {
+	implements CardWorks, PaintListener {
 
 	public static final int WIDTH = 32*11;
 	public static final int HEIGHT = 32*13;
@@ -52,7 +52,7 @@ public class CardCanvas
 	private Enemy enemy;
 	private Player player;
 	@Inject CardMap map;
-	private Lock lock;
+	@Getter private Lock lock;
 	private Random random;
 
 	private MineImage blueChara;
@@ -211,75 +211,29 @@ public class CardCanvas
 		listener.gameExit(redWin, blueWin);
 	}
 
-	@Override
-	public void leftPressed(int x, int y) {
-		mouseMoved(x, y);
-		accept();
-	}
-
-	@Override
-	public void mouseMoved(int x, int y) {
-		if (wakuMover.isMoved(x/32, y/32)) {
-			if (lock.lock()) {
-				wakuMover.moveWaku(this, x/32, y/32);
-				lock.unlock();
-			}
+	public void wakuMove(int x, int y) {
+		if (wakuMover.isMoved(x, y)) {
+			wakuMover.moveWaku(this, x, y);
 		}
 	}
 
-	@Override
-	public void mouseExited(int x, int y) {
-		if (lock.lock()) {
-			wakuMover.moveWaku(this, -1, -1);
-			lock.unlock();
-		}
-	}
-
-	@Override
-	public void leftReleased(int x, int y) {}
-
-	@Override
-	public void rightPressed(int x, int y) {}
-
-	@Override
-	public void rightReleased(int x, int y) {}
-
-	@Override
-	public void leftDragged(int x, int y) {}
-
-	@Override
-	public void rightDragged(int x, int y) {}
-
-	@Override
-	public void mouseEntered(int x, int y) {}
-
-	@Override
 	public void accept() {
 		int x = wakuMover.getX();
 		int y = wakuMover.getY();
 
-		if (lock.lock()) {
-//			x /= 32;
-//			y /= 32;
-			if ( 2 <= x && x <= 8 && y == 8) {
-				int n = x - 2;
-				if (cardManager.isOpenedBlue(n)) {
-					startBattle(n);
-				} else {
-					player.openCard(this, n);
-				}
-			} else if ( x == 3 && y == 10) {
-				if (doubleManager.clickDoubleCard(this)) {
-					player.doubleCard();
-				}
+		if ( 2 <= x && x <= 8 && y == 8) {
+			int n = x - 2;
+			if (cardManager.isOpenedBlue(n)) {
+				startBattle(n);
+			} else {
+				player.openCard(this, n);
 			}
-			doubleManager.checkDoubleCard(this);
-			lock.unlock();
+		} else if ( x == 3 && y == 10) {
+			if (doubleManager.clickDoubleCard(this)) {
+				player.doubleCard();
+			}
 		}
-	}
-
-	@Override
-	public void cancel() {
+		doubleManager.checkDoubleCard(this);
 	}
 
 }

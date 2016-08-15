@@ -1,19 +1,19 @@
 package card.anime;
 
 import mine.paint.PaintBox;
-import card.UnitWorks;
+import card.CardWorks;
 import card.body.Card;
 
 public class MoveDoubleCardAnime implements Runnable {
 	
-	private UnitWorks canvas;
+	private CardWorks canvas;
 
 	private CardMover redMover;
 	private CardMover blueMover;
 
 	private int max;
 
-	public MoveDoubleCardAnime(UnitWorks canvas, Card red, int red_x, int red_y, 
+	public MoveDoubleCardAnime(CardWorks canvas, Card red, int red_x, int red_y, 
 		Card blue, int blue_x, int blue_y, int max){
 		this.canvas = canvas;
 		redMover = new CardMover(red, red_x, red_y);

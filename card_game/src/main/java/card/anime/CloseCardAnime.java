@@ -1,16 +1,16 @@
 package card.anime;
 
 import mine.paint.PaintBox;
-import card.UnitWorks;
+import card.CardWorks;
 import card.body.Card;
 
 
 public class CloseCardAnime implements Runnable {
 
-	private UnitWorks canvas;
+	private CardWorks canvas;
 	private Card card;
 
-	public CloseCardAnime(UnitWorks canvas, Card card){
+	public CloseCardAnime(CardWorks canvas, Card card){
 		this.canvas = canvas;
 		this.card = card;
 	}

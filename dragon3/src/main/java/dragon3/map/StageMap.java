@@ -1,5 +1,6 @@
 package dragon3.map;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -30,7 +31,7 @@ public class StageMap {
 	private Point blueCrystal;
 	private Point redCrystal;
 	
-	private List<Body> bodyList;
+	private List<Body> bodyList = new ArrayList<>();
 	
 	@Inject
 	public StageMap(ImageManager imageManager) {	

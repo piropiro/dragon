@@ -3,7 +3,7 @@ package card.manage;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
-import card.UnitWorks;
+import card.CardWorks;
 import card.anime.AnimeManager;
 import card.body.Card;
 
@@ -25,7 +25,7 @@ public class BattleManager {
 		battleNum = 0;
 	}
 
-	public void startBattle(UnitWorks uw, Card red, Card blue){
+	public void startBattle(CardWorks uw, Card red, Card blue){
 		battleNum++;
 		anime.battle(uw, red, blue);
 		if (red.getNumber() > blue.getNumber()) {

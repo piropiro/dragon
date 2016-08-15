@@ -1,6 +1,6 @@
 package card.body;
 
-import card.UnitWorks;
+import card.CardWorks;
 import card.manage.CardManager;
 
 
@@ -18,7 +18,7 @@ public class Player {
 		closeCardNum = 7;
 	}
 
-	public boolean openCard(UnitWorks uw, int n){
+	public boolean openCard(CardWorks uw, int n){
 		if (closeCardNum == 0) return false;
 		if (openCardNum >= 3) return false;
 

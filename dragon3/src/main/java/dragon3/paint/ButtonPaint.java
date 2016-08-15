@@ -113,7 +113,7 @@ public class ButtonPaint implements EventListener {
 		map.setData(Page.P40, x, y + 1, 0);
 		map.setData(Page.P10, x, y, 0);
 
-		mw.setEventListener(el);
+		uw.setEventListener(el);
 		mw.repaint();
 	};
 

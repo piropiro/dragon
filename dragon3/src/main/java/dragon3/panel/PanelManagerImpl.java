@@ -12,6 +12,7 @@ import dragon3.common.Body;
 import dragon3.common.constant.GameColor;
 import dragon3.common.constant.Page;
 import dragon3.common.util.MoveUtils;
+import dragon3.controller.UnitWorks;
 import dragon3.manage.SummonManager;
 import dragon3.manage.TreasureManager;
 import dragon3.manage.TurnManager;
@@ -21,6 +22,7 @@ import dragon3.save.SaveData;
 import dragon3.stage.StageSelectPanel;
 import dragon3.view.FrameWorks;
 import lombok.Getter;
+import lombok.Setter;
 import mine.util.Point;
 
 /**
@@ -49,6 +51,8 @@ public class PanelManagerImpl implements PanelManager {
 	@Inject SummonManager summonManager;
 	
 	@Inject StageMap map;
+	
+	@Setter private UnitWorks uw;
 	
 	private boolean helpVisible;
 
@@ -270,27 +274,26 @@ public class PanelManagerImpl implements PanelManager {
 	public void displayStageSelect(SaveData saveData) {
 		stageSelectP.updateStageStatus(saveData);
 		stageSelectP.setVisible(true);
-		fw.setMouseListener(stageSelectP);
 	}
 	
 	@Override
 	public void closeStageSelect() {
 		stageSelectP.setVisible(false);
-		fw.setMouseListener(mapP);
+		//fw.setMouseListener(mapP);
 	}
 
 	@Override
 	public void displayCardCanvas() {
 		cardP.setVisible(true);
 		cardP.start();
-		fw.setMouseListener(cardP);
+		//fw.setMouseListener(cardP);
 	}
 
 	@Override
 	public void closeCardCanvas() {
 		cardP.dispose();
 		cardP.setVisible(false);
-		fw.setMouseListener(mapP);
+		//fw.setMouseListener(mapP);
 	}
 	
 

@@ -2,8 +2,6 @@ package dragon3.map;
 
 import mine.util.Point;
 
-import dragon3.paint.EventListener;
-
 public interface MapWorks {
 
 	/*** Paint *************************/
@@ -16,11 +14,6 @@ public interface MapWorks {
 	/*** Waku *************************/
 
 	public Point getWaku();
-	public void wakuMove(int x, int y);
-	public void wakuPaint(boolean flag);
+	public void wakuPaint(int wx, int wy, boolean flag);
 
-	/*** Set Listener *******************/
-
-	public void setEventListener(EventListener el);
-	public EventListener getEventListener();
 }

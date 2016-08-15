@@ -7,7 +7,13 @@ public interface StageManager {
 	
 	public boolean isFinalStage();
 	
+	public void selectStage(int x, int y);
+	
 	public StageData getSelectedStage();
 	
+	public void wakuPaint(boolean flag);
+	
 	public void setUw(UnitWorks uw);
+	
+	
 }

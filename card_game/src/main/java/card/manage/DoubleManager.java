@@ -3,7 +3,7 @@ package card.manage;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
-import card.UnitWorks;
+import card.CardWorks;
 import card.anime.AnimeManager;
 import card.body.Card;
 
@@ -27,7 +27,7 @@ public class DoubleManager {
 		right = null;
 	}
 	
-	public void checkDoubleCard(UnitWorks uw){
+	public void checkDoubleCard(CardWorks uw){
 		Card[] blue = cardManager.getOpenBlueCards();
 		boolean newFlag = false;
 		for (int i=0; i<blue.length-1; i++) {
@@ -52,7 +52,7 @@ public class DoubleManager {
 		}
 	}
 	
-	public boolean clickDoubleCard(UnitWorks uw){
+	public boolean clickDoubleCard(CardWorks uw){
 		if (doubleFlag) {
 			anime.doubleCard(uw, left, right);
 			doubleFlag = false;

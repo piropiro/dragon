@@ -7,6 +7,7 @@ import java.util.List;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
+import card.CardEventListener;
 import dragon3.Statics;
 import dragon3.anime.AnimeManager;
 import dragon3.attack.FightManager;
@@ -27,17 +28,21 @@ import dragon3.manage.SoulManager;
 import dragon3.manage.SummonManager;
 import dragon3.manage.TreasureManager;
 import dragon3.manage.TurnManager;
+import dragon3.map.MapEventListener;
 import dragon3.map.MapWorks;
 import dragon3.map.StageMap;
 import dragon3.paint.BasicPaint;
+import dragon3.paint.EventListener;
 import dragon3.paint.PaintUtils;
 import dragon3.paint.TitlePaint;
 import dragon3.panel.PanelManager;
 import dragon3.save.SaveManager;
 import dragon3.stage.StageBack;
 import dragon3.stage.StageManager;
+import dragon3.stage.StageSelectEventListener;
 import dragon3.view.FrameWorks;
 import lombok.Getter;
+import lombok.Setter;
 import mine.event.MouseAllListener;
 import mine.event.SleepManager;
 import mine.paint.MineImageLoader;
@@ -45,7 +50,7 @@ import mine.paint.UnitMap;
 import mine.util.Point;
 
 @Singleton
-public class DragonController implements UnitWorks, CommandListener {
+public class DragonController implements UnitWorks, MouseAllListener, CommandListener {
 
 	@Inject Statics statics;
 	@Inject BodyDataLoader bodyDataLoader;
@@ -78,6 +83,7 @@ public class DragonController implements UnitWorks, CommandListener {
 	@Inject FightManager fightManager;
 	@Inject EnemyTurn enemyTurn;
 
+	@Setter private MouseAllListener mouseListener;
 
 	private boolean escape;
 
@@ -122,7 +128,7 @@ public class DragonController implements UnitWorks, CommandListener {
 		this.saveManager.setUw(this);
 		this.stageManager.setUw(this);
 		equip = saveManager.loadData("slgs.dat");
-		fw.setMouseListener((MouseAllListener)mw);
+		fw.setMouseListener(this);
 	}
 
 	/*** Title ***********************************/
@@ -130,7 +136,7 @@ public class DragonController implements UnitWorks, CommandListener {
 	public void title() {
 		fw.setMenu(FrameWorks.T_TITLE);
 		animeManager.openTitle();
-		mw.setEventListener(new TitlePaint(this));
+		setEventListener(new TitlePaint(this));
 	}
 
 	/*** Setup ***********************************/
@@ -212,6 +218,7 @@ public class DragonController implements UnitWorks, CommandListener {
 	private void stageSelect() {
 		fw.setMenu(FrameWorks.T_STAGESELECT);
 		panelManager.displayStageSelect(saveManager.getSaveData());
+		setMouseListener(new StageSelectEventListener());
 	}
 	
 	@Override
@@ -231,6 +238,7 @@ public class DragonController implements UnitWorks, CommandListener {
 		PaintUtils.setPutPlayersPaint(this, Charas, Players);
 		mw.repaint();
 		panelManager.closeStageSelect();
+		setEventListener(new BasicPaint(this));
 	}
 
 	@Override
@@ -327,7 +335,7 @@ public class DragonController implements UnitWorks, CommandListener {
 			return;
 		}
 		BasicPaint bp = new BasicPaint(this);
-		mw.setEventListener(bp);
+		setEventListener(bp);
 		if (flag)
 			bp.leftPressed();
 	}
@@ -659,12 +667,16 @@ public class DragonController implements UnitWorks, CommandListener {
 	@Override
 	public void displayCardBattle(Body ba, Body bb) {
 		cardManager.setup(ba, bb);
-		panelManager.displayCardCanvas();
+		setMouseListener(new CardEventListener(cardManager.getCardCanvas()));
 	}
-
+	
 	@Override
-	public boolean isCardBattleEnd() {
-		return cardManager.isEnd();
+	public void closeCardBattle(Body ba, Body bb, boolean win) {
+		if (win) {
+			addMember(bb);
+		}
+		setEnd(ba, false);
+		setEventListener(new BasicPaint(this));
 	}
 	
 	@Override
@@ -685,5 +697,76 @@ public class DragonController implements UnitWorks, CommandListener {
 	@Override
 	public StageMap getStageMap() {
 		return stageMap;
+	}
+
+	@Override
+	public void leftPressed(int x, int y) {
+		this.mouseListener.leftPressed(x, y);
+		
+	}
+
+	@Override
+	public void rightPressed(int x, int y) {
+		this.mouseListener.rightPressed(x, y);
+		
+	}
+
+	@Override
+	public void leftReleased(int x, int y) {
+		this.mouseListener.leftReleased(x, y);
+		
+	}
+
+	@Override
+	public void rightReleased(int x, int y) {
+		this.mouseListener.rightReleased(x, y);
+		
+	}
+
+	@Override
+	public void leftDragged(int x, int y) {
+		this.mouseListener.leftDragged(x, y);
+		
+	}
+
+	@Override
+	public void rightDragged(int x, int y) {
+		this.mouseListener.rightDragged(x, y);
+		
+	}
+
+	@Override
+	public void mouseMoved(int x, int y) {
+		this.mouseListener.mouseMoved(x, y);
+		
+	}
+
+	@Override
+	public void mouseEntered(int x, int y) {
+		this.mouseListener.mouseEntered(x, y);
+		
+	}
+
+	@Override
+	public void mouseExited(int x, int y) {
+		this.mouseListener.mouseExited(x, y);
+		
+	}
+
+	@Override
+	public void accept() {
+		this.mouseListener.accept();
+		
+	}
+
+	@Override
+	public void cancel() {
+		this.mouseListener.cancel();
+	}
+
+	@Override
+	public void setEventListener(EventListener el) {
+		System.out.println(el.getClass());
+		this.mouseListener = new MapEventListener(stageMap, el);
 	}
 }

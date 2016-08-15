@@ -87,7 +87,7 @@ public class FightManager {
 		}
 		TalkPaint tp = new TalkPaint(uw, ba);
 		if (tp.isEnable()) {
-			mw.setEventListener(tp);
+			uw.setEventListener(tp);
 			tp.show();
 			mw.repaint();
 		} else {
@@ -181,26 +181,25 @@ public class FightManager {
 
 	public void setTarget(Point p) {
 		Point ps = mw.getWaku();
-		mw.wakuMove(p.x, p.y);
 		pm.setHelpLocation(p.x, p.y);
 		UnitMap map = this.stageMap.getMap();
 		if (map.getData(Page.P10, ps.x, ps.y) == 0) {
 			if (map.getData(Page.P10, p.x, p.y) == 0) {
-				mw.wakuPaint(true);
+				mw.wakuPaint(p.x, p.y, true);
 			} else {
 				map.clear(Page.P40, 0);
-				mw.wakuPaint(false);
+				mw.wakuPaint(p.x, p.y, false);
 				attack.setTarget(p.x, p.y);
 				mw.repaint();
 			}
 		} else {
 			if (map.getData(Page.P10, p.x, p.y) == 0) {
 				map.clear(Page.P40, 0);
-				mw.wakuPaint(false);
+				mw.wakuPaint(p.x, p.y, false);
 				mw.repaint();
 			} else {
 				map.clear(Page.P40, 0);
-				mw.wakuPaint(false);
+				mw.wakuPaint(p.x, p.y, false);
 				attack.setTarget(p.x, p.y);
 				mw.repaint();
 			}
